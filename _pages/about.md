@@ -8,6 +8,8 @@ redirect_from:
   - /about.html
 ---
 
-I'm a second year undergraduate student from [School of Intelligent Software and Engineering](https://ise.nju.edu.cn/), [Nanjing University](https://www.nju.edu.cn/). My research interest includes computer vision, computer graphics, machine learning, and computational photography.
+I'm a second-year undergraduate student from [School of Intelligent Software and Engineering](https://ise.nju.edu.cn/), [Nanjing University](https://www.nju.edu.cn/). 
+
+My research interest includes computer vision, computer graphics, machine learning, and computational photography.
 
 [Email](mailto:231880404@smail.nju.edu.cn) / [Github](https://github.com/wang-jiahao) / [Wechat](../images/wechat.jpg) / [Blog](https://blog.csdn.net/wwjjjhhhh?type=blog)
