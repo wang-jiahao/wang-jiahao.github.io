@@ -12,4 +12,4 @@ I'm a second-year undergraduate student from [School of Intelligent Software and
 
 My research interest includes computer vision, computer graphics, machine learning, and computational photography.
 
-[Email](mailto:231880404@smail.nju.edu.cn) / [Github](https://github.com/wang-jiahao) / [Wechat](../images/wechat.jpg) / [Blog](https://blog.csdn.net/wwjjjhhhh?type=blog)
+[Email](mailto:jiahaowang@smail.nju.edu.cn) / [Github](https://github.com/wang-jiahao) / [Wechat](../images/wechat.jpg) / [Blog](https://blog.csdn.net/wwjjjhhhh?type=blog)
