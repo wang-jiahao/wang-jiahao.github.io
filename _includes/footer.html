@@ -3,13 +3,8 @@
 {% if site.author.github or site.author.bitbucket or site.atom_feed.hide != true %}
 <div class="page__footer-follow">
   <ul class="social-icons">
-    {{"Talk is cheap. Show me the code. —— Linus Torvalds"}}
-  
-    {% endif %}
-  </ul>
-</div>
-{% endif %}
-
+    {{"Talk is cheap. Show me the code. —— Linus Torvalds"}}<br />
+    
 <div class="page__footer-copyright">
   &copy; {{ site.time | date: '%Y' }} {{ "Jia-Hao Wang" | default: "Jia-Hao Wang" }}, {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
   Site last updated {{ "now" | date: '%Y-%m-%d' %}}
