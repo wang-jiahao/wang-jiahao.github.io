@@ -36,7 +36,7 @@ int main(){
 
 <u>我差点忘了还有下划线这东西...</u>
 ```
-## $\LaTeX$ (A little)
+## LaTeX (A little)
 ```latex
 $$
 %\usepackage{unicode-math}
