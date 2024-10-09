@@ -62,5 +62,18 @@ $$
 \frac{\partial_\mu T_{\mu\nu}}{2}\right\rangle}}_{\mathrm{K}_3
 \mathrm{Fe}(\mathrm{CN})_6} ,\forall z \in \mathbb{R}
 $$
-
+## learning
+- [x] Git
+- [x] Anaconda
+- [ ] Linux
+- [ ] Vim
+- [ ] CMake
+- [ ] GNU Make
+- [ ] LaTeX
+- [ ] Nvidia-CUDA
+- [ ] Pytorch
+- [ ] Shell
+- [ ] Go
+- [ ] Rust
+      
 [Email](mailto:jiahaowang@smail.nju.edu.cn) / [Github](https://github.com/wang-jiahao) / [Wechat](../images/wechat.jpg) / [Blog](https://blog.csdn.net/wwjjjhhhh?type=blog)
