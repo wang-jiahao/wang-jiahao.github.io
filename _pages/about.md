@@ -66,13 +66,16 @@ $$
 - [x] Git
 - [x] Anaconda
 - [ ] Linux
+- [x] Ubuntu
 - [ ] Vim
 - [ ] CMake
 - [ ] GNU Make
 - [ ] LaTeX
 - [ ] Nvidia-CUDA
 - [ ] Pytorch
-- [ ] Shell
+- [x] Shell
+- [ ] Scheme
+- [ ] SQL
 - [ ] Go
 - [ ] Rust
       
