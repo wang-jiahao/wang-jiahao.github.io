@@ -13,9 +13,9 @@ I'm a second-year undergraduate student from [School of Intelligent Software and
 **My research interest includes computer vision, computer graphics, machine learning, computational photography, lithography simulation and hotspots detection for chip layout design.**
 
 # Skills
-## rap
+## 1.rap
 ~~I can sing, dance, rap and basketball.~~ 😆
-## Programming (A little)
+## 2.Programming (A little)
 ```````c++
 #include <iosream>
 
@@ -26,7 +26,7 @@ int main(){
 	return 0;
 }
 ```````
-##  HTML (A little)
+##  3.HTML (A little)
 ```html
 <div style="text-align:center">
   <font style="color:red">我不会 HTML 呜呜呜... 浇浇我</font>
@@ -36,7 +36,7 @@ int main(){
 
 <u>我差点忘了还有下划线这东西...</u>
 ```
-## LaTeX (A little)
+## 4.LaTeX (A little)
 ```latex
 $$
 %\usepackage{unicode-math}
@@ -62,11 +62,18 @@ $$
 \frac{\partial_\mu T_{\mu\nu}}{2}\right\rangle}}_{\mathrm{K}_3
 \mathrm{Fe}(\mathrm{CN})_6} ,\forall z \in \mathbb{R}
 $$
-## learning
+## 5.Markdown
+```Markdown
+*This Page is written by Markdown*
+> Talk is cheap. Show me the code. [^1]
+```
+> Talk is cheap. Show me the code. [^1]
+# Skills being learned
 - [x] Git
 - [x] Anaconda
 - [ ] Linux
 - [x] Ubuntu
+- [x] Markdown
 - [ ] Vim
 - [ ] CMake
 - [ ] GNU Make
@@ -78,5 +85,16 @@ $$
 - [ ] SQL
 - [ ] Go
 - [ ] Rust
+# Courses being learned
+- [ ] CS61A
+- [ ] CS61B
+- [ ] MIT-Missing-Semester
+- [ ] CS106L
+- [ ] CS188
+- [ ] Algorithms I & II
+- [ ] Coursera: Machine Learning
+- [ ] CS229
       
 [Email](mailto:jiahaowang@smail.nju.edu.cn) / [Github](https://github.com/wang-jiahao) / [Wechat](../images/wechat.jpg) / [Blog](https://blog.csdn.net/wwjjjhhhh?type=blog)
+
+[^1]: quoted from Linus.
