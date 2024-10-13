@@ -63,8 +63,7 @@ $$
 \mathrm{Fe}(\mathrm{CN})_6} ,\forall z \in \mathbb{R}
 $$
 ## 5.Markdown
-```Markdown
-*This Page is written by Markdown*
+```
 > Talk is cheap. Show me the code. [^1]
 ```
 > Talk is cheap. Show me the code. [^1]
