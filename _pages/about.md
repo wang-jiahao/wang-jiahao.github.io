@@ -66,7 +66,9 @@ $$
 ```
 > Talk is cheap. Show me the code. [^1]
 ```
+
 > Talk is cheap. Show me the code. [^1]
+
 # Skills being learned
 - [x] Git
 - [x] Anaconda
