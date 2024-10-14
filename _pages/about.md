@@ -86,6 +86,7 @@ $$
 - [ ] SQL
 - [ ] Go
 - [ ] Rust
+
 # Courses being learned
 - [ ] CS61A
 - [ ] CS61B
