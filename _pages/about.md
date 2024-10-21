@@ -10,7 +10,7 @@ redirect_from:
 
 I'm a second-year undergraduate student from [School of Intelligent Software and Engineering](https://ise.nju.edu.cn/), [Nanjing University](https://www.nju.edu.cn/). 
 
-**My research interest includes computer vision, computer graphics, machine learning, computational photography, lithography simulation and hotspots detection for chip layout design.**
+**My research interest includes machine learning, deep learning , hotspots detection for chip layout design.**
 
 # Skills
 ## 1.rap
