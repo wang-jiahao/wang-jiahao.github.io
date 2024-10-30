@@ -88,10 +88,10 @@ $$
 - [ ] Rust
 
 # Courses being learned
-- [ ] CS61A (finish lab4)
+- [ ] CS61A (finish lab5)
 - [ ] CS61B
 - [ ] MIT-Missing-Semester (Part2 Shell Tools and Scripting)
-- [ ] CS106L (Part3.2 Associative Containers)
+- [ ] CS106L (Part4.1 Templates)
 - [ ] CS188
 - [ ] Algorithms I & II
 - [ ] Coursera: Machine Learning
