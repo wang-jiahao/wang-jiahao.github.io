@@ -27,7 +27,7 @@
 <meta property="og:description" content="介绍了最小生成树这一数据结构的C++实现">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-12-05T15:57:26.000Z">
-<meta property="article:modified_time" content="2024-12-06T07:45:32.985Z">
+<meta property="article:modified_time" content="2024-12-07T12:07:25.609Z">
 <meta property="article:author" content="Jiahao Wang">
 <meta property="article:tag" content="图">
 <meta property="article:tag" content="最小生成树">
@@ -249,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          849 字
+          854 字
         
       </span>
     
@@ -311,7 +311,8 @@
             
               <div class="markdown-body">
                 
-                <h2 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h2><p>我们可以使用 Kruskal 算法或 Prim 算法来求解图的最小生成树。这里选择使用 Kruskal 算法，它的思想是按边的权重从小到大排序，然后逐步添加边到最小生成树中，保证添加的每条边不会形成环，最终得到一个包含所有节点的生成树。</p>
+                <p><a href="https://wang-jiahao.github.io/files/15.%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91.pdf">最小生成树.pdf</a></p>
+<h2 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h2><p>我们可以使用 Kruskal 算法或 Prim 算法来求解图的最小生成树。这里选择使用 Kruskal 算法，它的思想是按边的权重从小到大排序，然后逐步添加边到最小生成树中，保证添加的每条边不会形成环，最终得到一个包含所有节点的生成树。</p>
 <h3 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h3><ol>
 <li><strong>输入解析</strong>：读取节点数 <code>N</code> 和边数 <code>M</code>，接着读取每条边的节点对和权重。</li>
 <li><strong>排序</strong>：将所有边按照权重从小到大排序。</li>
