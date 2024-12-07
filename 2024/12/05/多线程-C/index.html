@@ -27,7 +27,7 @@
 <meta property="og:description" content="multithreading 多线程">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-12-05T15:05:42.000Z">
-<meta property="article:modified_time" content="2024-12-06T07:53:41.000Z">
+<meta property="article:modified_time" content="2024-12-07T11:21:59.514Z">
 <meta property="article:author" content="Jiahao Wang">
 <meta property="article:tag" content="多线程">
 <meta name="twitter:card" content="summary_large_image">
@@ -310,7 +310,8 @@
             
               <div class="markdown-body">
                 
-                <h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><p>C++中的<strong>multithreading</strong>（多线程）是指在程序中并发地执行多个线程的能力。线程是程序执行的基本单元，而多线程则允许程序在同一时间内处理多个任务，通常用来提高程序的效率，尤其是在多核处理器上，通过并行处理来减少任务的总执行时间。多线程广泛应用于高性能计算、图形渲染、网络通信、游戏开发等领域。</p>
+                <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19x4y1E79V?spm_id_from=333.788.videopod.episodes&vd_source=c06338b0283c611d7a47c62b0ed23dfa&p=18">CS106L p18 Part 6.2 Multithreading</a></p>
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><p>C++中的<strong>multithreading</strong>（多线程）是指在程序中并发地执行多个线程的能力。线程是程序执行的基本单元，而多线程则允许程序在同一时间内处理多个任务，通常用来提高程序的效率，尤其是在多核处理器上，通过并行处理来减少任务的总执行时间。多线程广泛应用于高性能计算、图形渲染、网络通信、游戏开发等领域。</p>
 <h3 id="1-线程的基本概念"><a href="#1-线程的基本概念" class="headerlink" title="1. 线程的基本概念"></a>1. <strong>线程的基本概念</strong></h3><p>线程是程序中的一个执行流，它有自己的执行栈、程序计数器和局部变量。多个线程共享同一进程的资源，例如内存、文件句柄等。相比于单一的执行流（即单线程），多线程能够让程序在同一时刻执行多个任务，从而更充分地利用多核处理器的计算能力。</p>
 <h4 id="线程和进程的区别："><a href="#线程和进程的区别：" class="headerlink" title="线程和进程的区别："></a>线程和进程的区别：</h4><ul>
 <li><strong>进程</strong>是资源分配的基本单位，包含了地址空间、数据、堆栈等。</li>
