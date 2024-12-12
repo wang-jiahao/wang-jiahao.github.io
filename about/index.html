@@ -604,6 +604,15 @@
 
 
 
+  <script type="text/javascript">
+    /*窗口监视*/
+    var originalTitle = document.title;
+    window.onblur = function(){document.title = "欲买桂花同载酒"};
+    window.onfocus = function(){document.title = originalTitle};
+  </script>
+
+
+
 
   <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
