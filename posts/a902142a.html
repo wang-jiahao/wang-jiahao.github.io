@@ -21,24 +21,30 @@
   <meta name="author" content="Jiahao Wang">
   <meta name="keywords" content="博客,CS,图论,算法,数据结构,机器学习,深度学习,C++,C,CS61A,CS61B,CS188,Python,Java,PyTorch">
   
-    <meta name="description" content="推荐几个我觉得不错的linux课程">
+    <meta name="description" content="类神经网络训练不起来怎么办？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux推荐课程">
-<meta property="og:url" content="http://wang-jiahao.github.io/posts/1f81650b.html">
+<meta property="og:title" content="训练类神经网络一般步骤">
+<meta property="og:url" content="http://wang-jiahao.github.io/posts/a902142a.html">
 <meta property="og:site_name" content="Zackaria&#39;s Corner">
-<meta property="og:description" content="推荐几个我觉得不错的linux课程">
+<meta property="og:description" content="类神经网络训练不起来怎么办？">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-12-19T06:51:11.000Z">
-<meta property="article:modified_time" content="2024-12-19T06:58:29.293Z">
+<meta property="og:image" content="http://wang-jiahao.github.io/img/blog/youtube.png">
+<meta property="og:image" content="http://wang-jiahao.github.io/img/blog/loss.png">
+<meta property="og:image" content="http://wang-jiahao.github.io/img/blog/optimization.png">
+<meta property="og:image" content="http://wang-jiahao.github.io/img/blog/%E4%BC%98%E5%8C%96%E6%80%BB%E6%B5%81%E7%A8%8B.png">
+<meta property="og:image" content="http://wang-jiahao.github.io/img/blog/local_minima.png">
+<meta property="og:image" content="http://wang-jiahao.github.io/img/blog/overfitting.png">
+<meta property="article:published_time" content="2024-12-21T06:29:15.000Z">
+<meta property="article:modified_time" content="2024-12-21T14:53:02.401Z">
 <meta property="article:author" content="Jiahao Wang">
-<meta property="article:tag" content="Linux">
-<meta property="article:tag" content="vim">
-<meta property="article:tag" content="shell">
+<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="类神经网络">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://wang-jiahao.github.io/img/blog/youtube.png">
   
   
   
-  <title>Linux推荐课程 - Zackaria&#39;s Corner</title>
+  <title>训练类神经网络一般步骤 - Zackaria&#39;s Corner</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -233,7 +239,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Linux推荐课程"></span>
+            <span id="subtitle" data-typed-text="训练类神经网络一般步骤"></span>
           
         </div>
 
@@ -244,8 +250,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-12-19 14:51" pubdate>
-          2024年12月19日 下午
+        <time datetime="2024-12-21 14:29" pubdate>
+          2024年12月21日 下午
         </time>
       </span>
     
@@ -256,7 +262,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          37 字
+          1.4k 字
         
       </span>
     
@@ -267,7 +273,7 @@
         
         
         
-          1 分钟
+          16 分钟
         
       </span>
     
@@ -313,19 +319,101 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Linux推荐课程</h1>
+            <h1 id="seo-header">训练类神经网络一般步骤</h1>
             
             
               <div class="markdown-body">
                 
-                <ul>
-<li><p><a target="_blank" rel="noopener" href="https://missing-semester-cn.github.io/">MIT-Missing-Semester</a>（此课程不只教授Linux，还包括许多实用技巧，包括vim、shell等等）</p>
+                <h1 id="什么是机器学习？"><a href="#什么是机器学习？" class="headerlink" title="什么是机器学习？"></a>什么是机器学习？</h1><p>一句话概括：<strong>机器学习就是让机器具备找一个函数的能力</strong>。</p>
+<p>目前机器学习应用的最多的3个问题，分别是<strong>Regression</strong>（回归）、<strong>Classification</strong>（分类）和<strong>Structured Learing</strong>（结构学习）</p>
+<p>Regression：要找的函数,他的输出是一个数值</p>
+<p>Classification:函数的输出,就是从设定好的选项裡面,选择一个当作输出</p>
+<p>Structured Learning:机器产生有结构的东西的问题——学会创造</p>
+<h1 id="机器学习的一般步骤"><a href="#机器学习的一般步骤" class="headerlink" title="机器学习的一般步骤"></a>机器学习的一般步骤</h1><p>刚刚说了，机器学习实际上就是找到一个函数，能达成我们的目标，拿语言识别举例，我们要找的函数，就是输入为一段音频，输出为这个音频的文字版。而寻找这个函数一般需要3个步骤：（这里以预测youtube的观看人数为例,classification其实同理,即用[1,0,0,0,0,0]这样的one-hot vector表示输出，具体参考<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Wv411h7kN?spm_id_from=333.788.videopod.episodes&vd_source=c06338b0283c611d7a47c62b0ed23dfa&p=22%EF%BC%89">https://www.bilibili.com/video/BV1Wv411h7kN?spm_id_from=333.788.videopod.episodes&amp;vd_source=c06338b0283c611d7a47c62b0ed23dfa&amp;p=22）</a></p>
+<h2 id="1-Function-with-Unknown-Parameters（写出一个带有未知参数的函式）"><a href="#1-Function-with-Unknown-Parameters（写出一个带有未知参数的函式）" class="headerlink" title="1.Function with Unknown Parameters（写出一个带有未知参数的函式）"></a>1.Function with Unknown Parameters（写出一个带有未知参数的函式）</h2><p><img src="/../img/blog/youtube.png" srcset="/img/global/loading.gif" lazyload alt="img"></p>
+<ul>
+<li><p>$y$<strong>是我们准备要预测的东西</strong>,我们准备要预测的人</p>
 </li>
-<li><p><a target="_blank" rel="noopener" href="https://decal.ocf.berkeley.edu/">UCB: Linux System Administration Decal</a></p>
+<li><p>$x_1$<strong>是这个频道前一天总共观看的人数</strong>,跟y一样都是数值,</p>
 </li>
-<li><p><a target="_blank" rel="noopener" href="https://101.lug.ustc.edu.cn/">中国科大《Linux 101》在线讲义</a></p>
+<li><p><strong>b跟w是未知的参数,它是准备要透过资料去找出来的</strong>,我们还不知道w跟b应该是多少</p>
+<p><strong>猜测：</strong>未来点阅次数的函式F,是前一天的点阅次数,乘上w 再加上b</p>
+<p>⇒猜测往往就来自于对这个问题本质上的了解⇒<strong>Domain knowledge</strong></p>
 </li>
 </ul>
+<h3 id="名词定义："><a href="#名词定义：" class="headerlink" title="名词定义："></a>名词定义<strong>：</strong></h3><p>**Feature:**Function里面我们已知的信息【 $x_1$】</p>
+<p>**Weight:**未知参数，跟feature直接相乘</p>
+<p>**Bias:**未知参数，直接相加</p>
+<h2 id="2-Define-Loss-from-Training-Data"><a href="#2-Define-Loss-from-Training-Data" class="headerlink" title="2.Define Loss from Training Data"></a>2.Define Loss from Training Data</h2><p><img src="/../img/blog/loss.png" srcset="/img/global/loading.gif" lazyload alt="img"></p>
+<p>Loss也是一个Function,它的输入,是Model里面的<strong>参数</strong></p>
+<blockquote>
+<p>这里：输入为w,b</p>
+</blockquote>
+<ul>
+<li><p><strong>物理意义：Function输出的值代表,现在如果我们把这一组未知的参数,设定某一个数值的时候,这笔数值好还是不好。</strong></p>
+<p><strong>L越大,代表一组参数越不好,这个大L越小,代表现在这一组参数越好</strong></p>
+</li>
+<li><p><strong>计算方法：求取估测的值跟实际的值（Label） 之间的差距</strong></p>
+<ul>
+<li>MAE(mean absolute error) </li>
+<li>MSE(mean square error)</li>
+<li>Cross-entropy:计算<strong>概率分布</strong>之间的差距</li>
+</ul>
+</li>
+</ul>
+<p><strong>Error Surface</strong>：试了不同的参数,然后计算它的Loss,画出来的等高线图</p>
+<h2 id="3-Optimization（优化）"><a href="#3-Optimization（优化）" class="headerlink" title="3.Optimization（优化）"></a>3.Optimization（优化）</h2><p>找到能让损失函数值最小的参数。</p>
+<p><img src="/../img/blog/optimization.png" srcset="/img/global/loading.gif" lazyload alt="img"></p>
+<p><strong>具体方法：Gradient Descent（梯度下降）</strong></p>
+<ol>
+<li><p>随机选取初始值 $w_0$</p>
+</li>
+<li><p>计算在 $w&#x3D;w_0$的时候,<em>w</em>这个参数对<em>loss</em>的微分是多少</p>
+</li>
+<li><p>根据微分（梯度）的方向，改变参数的值</p>
+<p><strong>改变的大小取决于：</strong></p>
+<ol>
+<li>斜率的大小</li>
+<li>学习率的大小<strong>（超参数）</strong></li>
+</ol>
+</li>
+</ol>
+<h1 id="train不起来怎么办？"><a href="#train不起来怎么办？" class="headerlink" title="train不起来怎么办？"></a>train不起来怎么办？</h1><p><img src="/../img/blog/%E4%BC%98%E5%8C%96%E6%80%BB%E6%B5%81%E7%A8%8B.png" srcset="/img/global/loading.gif" lazyload alt="屏幕截图 2024-12-19 110210"></p>
+<h2 id="1-分析在训练数据上的Loss"><a href="#1-分析在训练数据上的Loss" class="headerlink" title="1. 分析在训练数据上的Loss"></a>1. 分析在训练数据上的Loss</h2><p>首先分析在训练数据上的Loss，如果training data的loss都很大，那么testing data的loss当然大。</p>
+<h3 id="1-Model-Bias"><a href="#1-Model-Bias" class="headerlink" title="(1)Model Bias"></a>(1)Model Bias</h3><p>所有的function集合起来,得到一个function的set.但是这个function的set太小了,没有包含任何一个function,可以让我们的loss变低⇒<strong>可以让loss变低的function,不在model可以描述的范围内。</strong></p>
+<p><strong>⇒解决方法：重新设计一个Model，</strong>一个更复杂的、更有弹性的、有未知参数的、需要更多features的function（还是以预测youtube为例，可以选前七天甚至前一个月的数据作为feature，其次，可以改变model architecture，即多叠几层，或者增加Relu的数量等等）</p>
+<h3 id="2-Optimization"><a href="#2-Optimization" class="headerlink" title="(2)Optimization"></a>(2)Optimization</h3><p><img src="/../img/blog/local_minima.png" srcset="/img/global/loading.gif" lazyload alt="img"></p>
+<p>可能会卡在local minima（局部极小值&#x2F;鞍点）的地方,没有办法找到一个真的可以让loss很低的参数。(例如卡在$\theta$*,此时gradient也为0，因此不会到真正的最低点)</p>
+<p><strong>⇒解决方法：</strong><a target="_blank" rel="noopener" href="https://diamond-mule-bee.notion.site/02-2-DeepLearning-25ed6d30c1ee446e964bbe2fddc5220f#0f45335b92034851a4e4a3821c565ea2">https://diamond-mule-bee.notion.site/02-2-DeepLearning-25ed6d30c1ee446e964bbe2fddc5220f#0f45335b92034851a4e4a3821c565ea2</a></p>
+<h3 id="3-如何区分两种情况？"><a href="#3-如何区分两种情况？" class="headerlink" title="(3)如何区分两种情况？"></a>(3)如何区分两种情况？</h3><ul>
+<li><p>Start from shallower networks (or other models), which are easier to train.</p>
+<p>看到一个你从来没有做过的问题,也许你可以先跑一些比较小的,比较浅的network,或甚至用一些,不是deep learning的方法⇒**比较容易做Optimize的,**它们比较不会有optimization失败的问题</p>
+</li>
+<li><p>If deeper networks do not obtain smaller loss on training data, then there is optimization issue.</p>
+<p>如果你发现你深的model,跟浅的model比起来,深的model明明弹性比较大,但loss却没有办法比浅的model压得更低,那就代表说你的<strong>optimization</strong>有问题</p>
+</li>
+</ul>
+<h2 id="2-分析测试数据上的Loss"><a href="#2-分析测试数据上的Loss" class="headerlink" title="2.分析测试数据上的Loss"></a>2.分析测试数据上的Loss</h2><h3 id="Overfitting：training的loss小-testing的loss大-这个有可能是overfitting"><a href="#Overfitting：training的loss小-testing的loss大-这个有可能是overfitting" class="headerlink" title="Overfitting：training的loss小,testing的loss大,这个有可能是overfitting"></a>Overfitting：training的loss小,testing的loss大,这个有可能是overfitting</h3><p>如果你的model它的<strong>自由度很大</strong>的话,它可以<strong>产生非常奇怪的曲线</strong>,导致训练集上的结果好,但是测试集上的loss很大，如图：</p>
+<p><img src="/../img/blog/overfitting.png" srcset="/img/global/loading.gif" lazyload alt="img"></p>
+<h3 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h3><h3 id="（1）增加训练集"><a href="#（1）增加训练集" class="headerlink" title="（1）增加训练集"></a>（1）增加训练集</h3><p>虽然你的model它的弹性可能很大,但是因为数据样本非常非常的多,它就可以限制住</p>
+<p><strong>Data Augmentation（数据增强）:用一些你对于这个问题的理解,从已有的数据中，自己创造出新的数据⇒注意合理性</strong></p>
+<h3 id="（2）限制模型，使之不要有那么大弹性"><a href="#（2）限制模型，使之不要有那么大弹性" class="headerlink" title="（2）限制模型，使之不要有那么大弹性"></a>（2）限制模型，使之不要有那么大弹性</h3><ul>
+<li>给它<strong>比较少的参数（比如神经元的数目）；模型共用参数</strong></li>
+<li>使用<strong>比较少的features</strong>（feature selecting，利用domain knowledge筛选你认为有用的feature，去除没用的knowledge）</li>
+<li>Early Stopping</li>
+<li>Regularization</li>
+<li>Dropout</li>
+</ul>
+<h2 id="3-如何选出有较低testing-loss的模型？"><a href="#3-如何选出有较低testing-loss的模型？" class="headerlink" title="3.如何选出有较低testing-loss的模型？"></a>3.如何选出有较低testing-loss的模型？</h2><p><strong>Cross Validation</strong></p>
+<ol>
+<li>把Training的资料分成两半,一部分叫作Training Set,一部分是Validation Set</li>
+<li>在Validation Set上面,去衡量它们的分数,你根据Validation Set上面的分数,去挑选结果，不要管在public testing set上的结果，避免overfiting</li>
+</ol>
+<p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://diamond-mule-bee.notion.site/01-Regression-db3f17ba626a43668e016d09d39e35e5#a0f58993757b45da878ed97bbe309538">01-Regression</a></p>
+<p><a target="_blank" rel="noopener" href="https://diamond-mule-bee.notion.site/02-1-DeepLearning-General-Guidance-9e355df2c60d45b48038304cf122d103">02.1-DeepLearning-General Guidance</a></p>
+<p><a target="_blank" rel="noopener" href="https://diamond-mule-bee.notion.site/02-2-DeepLearning-25ed6d30c1ee446e964bbe2fddc5220f">02.2-DeepLearning-类神经网络优化技巧</a></p>
+<p><a target="_blank" rel="noopener" href="https://diamond-mule-bee.notion.site/02-3-DeepLearning-Loss-of-Classification-b6ffdac5af43440bbd703d9521046bd4">02.3-DeepLearning-Loss of Classification</a></p>
 
                 
               </div>
@@ -344,8 +432,15 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="category-chain-item">深度学习</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%9B%BD%E7%AB%8B%E5%8F%B0%E6%B9%BE%E5%A4%A7%E5%AD%A6%EF%BC%9A%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="category-chain-item">国立台湾大学：李宏毅机器学习</a>
+  
+  
+
   
 
       </span>
@@ -359,11 +454,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
+        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="print-no-link">#深度学习</a>
       
-        <a href="/tags/vim/" class="print-no-link">#vim</a>
-      
-        <a href="/tags/shell/" class="print-no-link">#shell</a>
+        <a href="/tags/%E7%B1%BB%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="print-no-link">#类神经网络</a>
       
     </div>
   
@@ -375,8 +468,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Linux推荐课程</div>
-      <div>http://wang-jiahao.github.io/posts/1f81650b.html</div>
+      <div>训练类神经网络一般步骤</div>
+      <div>http://wang-jiahao.github.io/posts/a902142a.html</div>
     </div>
     <div class="license-meta">
       
@@ -388,13 +481,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年12月19日</div>
+          <div>2024年12月21日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年12月19日</div>
+          <div>2024年12月21日</div>
         </div>
       
       
@@ -425,18 +518,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/a902142a.html" title="训练类神经网络一般步骤">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">训练类神经网络一般步骤</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/a3c2a82.html" title="单源最短路径 多源最短路径">
-                        <span class="hidden-mobile">单源最短路径 多源最短路径</span>
+                      <a href="/posts/1f81650b.html" title="Linux推荐课程">
+                        <span class="hidden-mobile">Linux推荐课程</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
