@@ -35,7 +35,7 @@
 <meta property="og:image" content="http://wang-jiahao.github.io/img/blog/local_minima.png">
 <meta property="og:image" content="http://wang-jiahao.github.io/img/blog/overfitting.png">
 <meta property="article:published_time" content="2024-12-21T06:29:15.000Z">
-<meta property="article:modified_time" content="2024-12-21T14:55:45.560Z">
+<meta property="article:modified_time" content="2024-12-24T14:06:57.723Z">
 <meta property="article:author" content="Jiahao Wang">
 <meta property="article:tag" content="深度学习">
 <meta property="article:tag" content="类神经网络">
@@ -330,7 +330,7 @@
 <p>Classification:函数的输出,就是从设定好的选项裡面,选择一个当作输出</p>
 <p>Structured Learning:机器产生有结构的东西的问题——学会创造</p>
 <h1 id="机器学习的一般步骤"><a href="#机器学习的一般步骤" class="headerlink" title="机器学习的一般步骤"></a>机器学习的一般步骤</h1><p>刚刚说了，机器学习实际上就是找到一个函数，能达成我们的目标，拿语言识别举例，我们要找的函数，就是输入为一段音频，输出为这个音频的文字版。而寻找这个函数一般需要3个步骤：（这里以预测youtube的观看人数为例,classification其实同理,即用[1,0,0,0,0,0]这样的one-hot vector表示输出，具体参考<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Wv411h7kN?spm_id_from=333.788.videopod.episodes&vd_source=c06338b0283c611d7a47c62b0ed23dfa&p=22%EF%BC%89">https://www.bilibili.com/video/BV1Wv411h7kN?spm_id_from=333.788.videopod.episodes&amp;vd_source=c06338b0283c611d7a47c62b0ed23dfa&amp;p=22）</a></p>
-<h2 id="1-Function-with-Unknown-Parameters（写出一个带有未知参数的函式）"><a href="#1-Function-with-Unknown-Parameters（写出一个带有未知参数的函式）" class="headerlink" title="1.Function with Unknown Parameters（写出一个带有未知参数的函式）"></a>1.Function with Unknown Parameters（写出一个带有未知参数的函式）</h2><p><img src="/../img/blog/youtube.png" srcset="/img/global/loading.gif" lazyload alt="img"></p>
+<h2 id="1-Function-with-Unknown-Parameters（写出一个带有未知参数的函式）"><a href="#1-Function-with-Unknown-Parameters（写出一个带有未知参数的函式）" class="headerlink" title="1.Function with Unknown Parameters（写出一个带有未知参数的函式）"></a>1.Function with Unknown Parameters（写出一个带有未知参数的函式）</h2><p><img src="/../img/blog/youtube.png" srcset="/img/global/loading.gif" lazyload alt="youtube观看人数预测"></p>
 <ul>
 <li><p>$y$<strong>是我们准备要预测的东西</strong>,我们准备要预测的人</p>
 </li>
@@ -344,7 +344,7 @@
 <h3 id="名词定义："><a href="#名词定义：" class="headerlink" title="名词定义："></a>名词定义<strong>：</strong></h3><p>**Feature:**Function里面我们已知的信息【 $x_1$】</p>
 <p>**Weight:**未知参数，跟feature直接相乘</p>
 <p>**Bias:**未知参数，直接相加</p>
-<h2 id="2-Define-Loss-from-Training-Data"><a href="#2-Define-Loss-from-Training-Data" class="headerlink" title="2.Define Loss from Training Data"></a>2.Define Loss from Training Data</h2><p><img src="/../img/blog/loss.png" srcset="/img/global/loading.gif" lazyload alt="img"></p>
+<h2 id="2-Define-Loss-from-Training-Data"><a href="#2-Define-Loss-from-Training-Data" class="headerlink" title="2.Define Loss from Training Data"></a>2.Define Loss from Training Data</h2><p><img src="/../img/blog/loss.png" srcset="/img/global/loading.gif" lazyload alt="loss function"></p>
 <p>Loss也是一个Function,它的输入,是Model里面的<strong>参数</strong></p>
 <blockquote>
 <p>这里：输入为w,b</p>
@@ -363,7 +363,7 @@
 </ul>
 <p><strong>Error Surface</strong>：试了不同的参数,然后计算它的Loss,画出来的等高线图</p>
 <h2 id="3-Optimization（优化）"><a href="#3-Optimization（优化）" class="headerlink" title="3.Optimization（优化）"></a>3.Optimization（优化）</h2><p>找到能让损失函数值最小的参数。</p>
-<p><img src="/../img/blog/optimization.png" srcset="/img/global/loading.gif" lazyload alt="img"></p>
+<p><img src="/../img/blog/optimization.png" srcset="/img/global/loading.gif" lazyload alt="optimization steps"></p>
 <p><strong>具体方法：Gradient Descent（梯度下降）</strong></p>
 <ol>
 <li><p>随机选取初始值 $w_0$</p>
@@ -378,11 +378,11 @@
 </ol>
 </li>
 </ol>
-<h1 id="train不起来怎么办？"><a href="#train不起来怎么办？" class="headerlink" title="train不起来怎么办？"></a>train不起来怎么办？</h1><p><img src="/../img/blog/%E4%BC%98%E5%8C%96%E6%80%BB%E6%B5%81%E7%A8%8B.png" srcset="/img/global/loading.gif" lazyload alt="屏幕截图 2024-12-19 110210"></p>
+<h1 id="train不起来怎么办？"><a href="#train不起来怎么办？" class="headerlink" title="train不起来怎么办？"></a>train不起来怎么办？</h1><p><img src="/../img/blog/%E4%BC%98%E5%8C%96%E6%80%BB%E6%B5%81%E7%A8%8B.png" srcset="/img/global/loading.gif" lazyload alt="general guide of train"></p>
 <h2 id="1-分析在训练数据上的Loss"><a href="#1-分析在训练数据上的Loss" class="headerlink" title="1. 分析在训练数据上的Loss"></a>1. 分析在训练数据上的Loss</h2><p>首先分析在训练数据上的Loss，如果training data的loss都很大，那么testing data的loss当然大。</p>
 <h3 id="1-Model-Bias"><a href="#1-Model-Bias" class="headerlink" title="(1)Model Bias"></a>(1)Model Bias</h3><p>所有的function集合起来,得到一个function的set.但是这个function的set太小了,没有包含任何一个function,可以让我们的loss变低⇒<strong>可以让loss变低的function,不在model可以描述的范围内。</strong></p>
 <p><strong>⇒解决方法：重新设计一个Model，</strong>一个更复杂的、更有弹性的、有未知参数的、需要更多features的function（还是以预测youtube为例，可以选前七天甚至前一个月的数据作为feature，其次，可以改变model architecture，即多叠几层，或者增加Relu的数量等等）</p>
-<h3 id="2-Optimization"><a href="#2-Optimization" class="headerlink" title="(2)Optimization"></a>(2)Optimization</h3><p><img src="/../img/blog/local_minima.png" srcset="/img/global/loading.gif" lazyload alt="img"></p>
+<h3 id="2-Optimization"><a href="#2-Optimization" class="headerlink" title="(2)Optimization"></a>(2)Optimization</h3><p><img src="/../img/blog/local_minima.png" srcset="/img/global/loading.gif" lazyload alt="local minima"></p>
 <p>可能会卡在local minima（局部极小值&#x2F;鞍点）的地方,没有办法找到一个真的可以让loss很低的参数。(例如卡在$\theta$*,此时gradient也为0，因此不会到真正的最低点)</p>
 <p><strong>⇒解决方法：</strong><a target="_blank" rel="noopener" href="https://diamond-mule-bee.notion.site/02-2-DeepLearning-25ed6d30c1ee446e964bbe2fddc5220f#0f45335b92034851a4e4a3821c565ea2">https://diamond-mule-bee.notion.site/02-2-DeepLearning-25ed6d30c1ee446e964bbe2fddc5220f#0f45335b92034851a4e4a3821c565ea2</a></p>
 <h3 id="3-如何区分两种情况？"><a href="#3-如何区分两种情况？" class="headerlink" title="(3)如何区分两种情况？"></a>(3)如何区分两种情况？</h3><ul>
@@ -394,7 +394,7 @@
 </li>
 </ul>
 <h2 id="2-分析测试数据上的Loss"><a href="#2-分析测试数据上的Loss" class="headerlink" title="2.分析测试数据上的Loss"></a>2.分析测试数据上的Loss</h2><h3 id="Overfitting：training的loss小-testing的loss大-这个有可能是overfitting"><a href="#Overfitting：training的loss小-testing的loss大-这个有可能是overfitting" class="headerlink" title="Overfitting：training的loss小,testing的loss大,这个有可能是overfitting"></a>Overfitting：training的loss小,testing的loss大,这个有可能是overfitting</h3><p>如果你的model它的<strong>自由度很大</strong>的话,它可以<strong>产生非常奇怪的曲线</strong>,导致训练集上的结果好,但是测试集上的loss很大，如图：</p>
-<p><img src="/../img/blog/overfitting.png" srcset="/img/global/loading.gif" lazyload alt="img"></p>
+<p><img src="/../img/blog/overfitting.png" srcset="/img/global/loading.gif" lazyload alt="overfitting"></p>
 <h3 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h3><h3 id="（1）增加训练集"><a href="#（1）增加训练集" class="headerlink" title="（1）增加训练集"></a>（1）增加训练集</h3><p>虽然你的model它的弹性可能很大,但是因为数据样本非常非常的多,它就可以限制住</p>
 <p><strong>Data Augmentation（数据增强）:用一些你对于这个问题的理解,从已有的数据中，自己创造出新的数据⇒注意合理性</strong></p>
 <h3 id="（2）限制模型，使之不要有那么大弹性"><a href="#（2）限制模型，使之不要有那么大弹性" class="headerlink" title="（2）限制模型，使之不要有那么大弹性"></a>（2）限制模型，使之不要有那么大弹性</h3><ul>
@@ -487,7 +487,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年12月21日</div>
+          <div>2024年12月24日</div>
         </div>
       
       
