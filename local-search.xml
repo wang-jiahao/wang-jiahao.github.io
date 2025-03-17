@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>Linux环境搭建+SSH配置</title>
+    <link href="/posts/b695e8d1.html"/>
+    <url>/posts/b695e8d1.html</url>
+    
+    <content type="html"><![CDATA[<p>因为最近在上操作系统这门课，代码需要在Linux上跑，所以下了WSL2</p><p>我的Linux配置： WSL2 和 Ubuntu 24.04</p><p>接下来安装必要的软件、配置 SSH 登录，以及确保可以在这个环境中编辑、编译和调试 C&#x2F;C++ 代码。</p><hr><h2 id="1-安装必要的软件"><a href="#1-安装必要的软件" class="headerlink" title="1. 安装必要的软件"></a>1. 安装必要的软件</h2><p>安装编译器、Git、编辑器和 SSH 服务器。以下是具体步骤：</p><h3 id="1-1-更新包列表"><a href="#1-1-更新包列表" class="headerlink" title="1.1 更新包列表"></a>1.1 更新包列表</h3><p>首先，打开 Ubuntu 终端，运行以下命令以更新软件包列表，确保你安装的是最新版本的软件：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt update<br></code></pre></td></tr></table></figure><h3 id="1-2-安装编译器"><a href="#1-2-安装编译器" class="headerlink" title="1.2 安装编译器"></a>1.2 安装编译器</h3><p>安装 GCC 和 G++：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt install build-essential<br></code></pre></td></tr></table></figure><h3 id="1-3-安装-Git"><a href="#1-3-安装-Git" class="headerlink" title="1.3 安装 Git"></a>1.3 安装 Git</h3><p>Git 是一个版本控制系统，便于你管理代码和课程项目：（Ubuntu自带git，所以无需运行）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt install git<br></code></pre></td></tr></table></figure><h3 id="1-4-安装编辑器"><a href="#1-4-安装编辑器" class="headerlink" title="1.4 安装编辑器"></a>1.4 安装编辑器</h3><p>根据自己的喜好选择一个文本编辑器。以下是几种常见选项：</p><ul><li><p><strong>Vim</strong>：功能强大，但需要一些学习时间：（自带，无需安装）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt install vim<br></code></pre></td></tr></table></figure></li><li><p><strong>Nano</strong>：简单易用，适合新手：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt install nano<br></code></pre></td></tr></table></figure></li><li><p><strong>Visual Studio Code</strong>：功能丰富，支持 WSL&#x2F;WSL2。直接在 Windows 中安装 VS Code，然后通过 WSL 扩展直接编辑 Ubuntu 中的文件。（在 Windows 上访问 <a href="https://code.visualstudio.com/">VS Code 官网</a> 下载并安装，然后在 VS Code 中安装 “WSL” 扩展。）</p></li></ul><h3 id="1-5-安装-SSH-服务器"><a href="#1-5-安装-SSH-服务器" class="headerlink" title="1.5 安装 SSH 服务器"></a>1.5 安装 SSH 服务器</h3><p>为了通过 SSH 登录到 WSL，你需要安装并配置 OpenSSH 服务器。运行以下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt install openssh-server<br></code></pre></td></tr></table></figure><p>安装完成后，启动 SSH 服务：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> service ssh start<br></code></pre></td></tr></table></figure><p>为了确保 SSH 服务在每次启动 WSL 时自动运行，可以运行：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> systemctl <span class="hljs-built_in">enable</span> ssh<br></code></pre></td></tr></table></figure><hr><h2 id="2-配置-SSH-登录"><a href="#2-配置-SSH-登录" class="headerlink" title="2. 配置 SSH 登录"></a>2. 配置 SSH 登录</h2><p>现在，你需要配置 SSH，以便从 Windows 通过 SSH 登录到 WSL 的 Ubuntu 系统。</p><h3 id="2-1-获取-WSL-的-IP-地址"><a href="#2-1-获取-WSL-的-IP-地址" class="headerlink" title="2.1 获取 WSL 的 IP 地址"></a>2.1 获取 WSL 的 IP 地址</h3><p>在 Ubuntu 终端中运行以下命令，查看 WSL 的 IP 地址：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ip addr show eth0 | grep inet<br></code></pre></td></tr></table></figure><p>你会看到类似以下的输出：</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">inet</span> <span class="hljs-number">172.18.240.158</span>/<span class="hljs-number">20</span> brd <span class="hljs-number">172.18.255.255</span> scope global eth0<br></code></pre></td></tr></table></figure><p>记下其中的 IP 地址（例如 <code>172.18.240.158</code>），你将在下一步中使用它。</p><h3 id="2-2-在-Windows-中使用-SSH-客户端"><a href="#2-2-在-Windows-中使用-SSH-客户端" class="headerlink" title="2.2 在 Windows 中使用 SSH 客户端"></a>2.2 在 Windows 中使用 SSH 客户端</h3><p>你可以使用 Windows 自带的 SSH 客户端或第三方工具（如 PuTTY）来连接。</p><ul><li><p><strong>使用 Windows 自带 SSH</strong>：<br>打开 Windows 的 PowerShell 或命令提示符，运行：</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">ssh username@ip_address<br></code></pre></td></tr></table></figure><ul><li>将 <code>username</code> 替换为你的 Ubuntu 用户名（可以通过 <code>whoami</code> 命令在 Ubuntu 终端中查看）。</li><li>将 <code>ip_address</code> 替换为上一步获取的 IP 地址（例如 <code>172.18.240.158</code>）。</li></ul></li><li><p><strong>使用 PuTTY</strong>（可选）：<br>如果你更喜欢图形界面，可以下载并安装 <a href="https://www.putty.org/">PuTTY</a>。打开 PuTTY，输入 IP 地址，端口保持默认（22），选择 “SSH”，然后点击 “Open”。</p></li></ul><p>第一次连接时，可能会出现一个安全警告，点击 “接受” 或 “连接一次” 即可。</p><h3 id="2-3-登录"><a href="#2-3-登录" class="headerlink" title="2.3 登录"></a>2.3 登录</h3><p>输入你的 Ubuntu 用户名和密码，成功登录后，你将看到 Ubuntu 的终端提示符。这意味着 SSH 配置完成！</p><hr><h2 id="3-验证安装"><a href="#3-验证安装" class="headerlink" title="3. 验证安装"></a>3. 验证安装</h2><p>登录后，你可以验证必要的软件是否正确安装：</p><ul><li><p>**检查 GCC 和 G++**：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc --version<br>g++ --version<br></code></pre></td></tr></table></figure><p>如果显示版本号，说明编译器已安装成功。</p></li><li><p><strong>检查 Git</strong>：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git --version<br></code></pre></td></tr></table></figure><p>显示版本号表示 Git 安装正常。</p></li><li><p><strong>检查编辑器</strong>：</p><ul><li>如果安装了 Vim，运行 <code>vim</code>，看看是否打开。</li><li>如果安装了 Nano，运行 <code>nano</code>，检查是否可用。</li><li>如果使用 VS Code，可以在 Windows 中打开 VS Code，通过 WSL 扩展连接到 Ubuntu。</li></ul></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Ubuntu</tag>
+      
+      <tag>Linux</tag>
+      
+      <tag>SSH</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>2048（基于Qt6框架开发）</title>
     <link href="/posts/aaf64fe7.html"/>
     <url>/posts/aaf64fe7.html</url>

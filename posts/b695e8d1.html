@@ -19,24 +19,24 @@
   <meta name="author" content="Jiahao Wang">
   <meta name="keywords" content="博客,CS,图论,算法,数据结构,机器学习,深度学习,C++,C,CS61A,CS61B,CS188,Python,Java,PyTorch">
   
-    <meta name="description" content="基于Qt6框架开发的2048游戏，实现存档，音乐等功能">
+    <meta name="description" content="安装好Linux后搭建编程环境，并通过SSH登录">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2048（基于Qt6框架开发）">
-<meta property="og:url" content="http://wang-jiahao.github.io/posts/aaf64fe7.html">
+<meta property="og:title" content="Linux环境搭建+SSH配置">
+<meta property="og:url" content="http://wang-jiahao.github.io/posts/b695e8d1.html">
 <meta property="og:site_name" content="Zackaria&#39;s Corner">
-<meta property="og:description" content="基于Qt6框架开发的2048游戏，实现存档，音乐等功能">
+<meta property="og:description" content="安装好Linux后搭建编程环境，并通过SSH登录">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-01-19T08:27:32.000Z">
-<meta property="article:modified_time" content="2025-01-19T08:56:09.685Z">
+<meta property="article:published_time" content="2025-03-17T11:04:30.000Z">
+<meta property="article:modified_time" content="2025-03-17T11:13:08.188Z">
 <meta property="article:author" content="Jiahao Wang">
-<meta property="article:tag" content="Qt6">
-<meta property="article:tag" content="C++">
-<meta property="article:tag" content="Games">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="SSH">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>2048（基于Qt6框架开发） - Zackaria&#39;s Corner</title>
+  <title>Linux环境搭建+SSH配置 - Zackaria&#39;s Corner</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -239,7 +239,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="2048（基于Qt6框架开发）"></span>
+            <span id="subtitle" data-typed-text="Linux环境搭建+SSH配置"></span>
           
         </div>
 
@@ -250,8 +250,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-01-19 16:27" pubdate>
-          2025年1月19日 下午
+        <time datetime="2025-03-17 19:04" pubdate>
+          2025年3月17日 晚上
         </time>
       </span>
     
@@ -262,7 +262,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          784 字
         
       </span>
     
@@ -273,7 +273,7 @@
         
         
         
-          17 分钟
+          9 分钟
         
       </span>
     
@@ -319,91 +319,81 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">2048（基于Qt6框架开发）</h1>
+            <h1 id="seo-header">Linux环境搭建+SSH配置</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="2048-Games"><a href="#2048-Games" class="headerlink" title="2048 Games"></a>2048 Games</h1><h2 id="编译环境"><a href="#编译环境" class="headerlink" title="编译环境"></a>编译环境</h2><p>我使用的Qt编译套件：<code>Desktop Qt 6.5.8 MinGW 64-bit</code>(只要是Qt6框架即可)</p>
-<p>Qt Creator版本：<code>Qt Creator 15.0.0 (Enterprise)</code></p>
- <div style="background-color:#f1f9ff; border-left: 5px solid #4285f4; padding: 10px; margin-bottom: 10px;">  注：Qt5框架在播放背景音乐时可能出现问题，因为Qt5中的setMedia在Qt6中改成了setSource</div>
+                <p>因为最近在上操作系统这门课，代码需要在Linux上跑，所以下了WSL2</p>
+<p>我的Linux配置： WSL2 和 Ubuntu 24.04</p>
+<p>接下来安装必要的软件、配置 SSH 登录，以及确保可以在这个环境中编辑、编译和调试 C&#x2F;C++ 代码。</p>
+<hr>
+<h2 id="1-安装必要的软件"><a href="#1-安装必要的软件" class="headerlink" title="1. 安装必要的软件"></a>1. 安装必要的软件</h2><p>安装编译器、Git、编辑器和 SSH 服务器。以下是具体步骤：</p>
+<h3 id="1-1-更新包列表"><a href="#1-1-更新包列表" class="headerlink" title="1.1 更新包列表"></a>1.1 更新包列表</h3><p>首先，打开 Ubuntu 终端，运行以下命令以更新软件包列表，确保你安装的是最新版本的软件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt update<br></code></pre></td></tr></table></figure>
 
-<h2 id="运行步骤"><a href="#运行步骤" class="headerlink" title="运行步骤"></a>运行步骤</h2><h3 id="exe运行"><a href="#exe运行" class="headerlink" title="exe运行"></a>exe运行</h3><p>将build&#x2F;Desktop_Qt_6_5_8_MinGW_64_bit-Release&#x2F;release文件夹中的exe文件下载下来，直接双击2048.exe文件运行即可(需要Qt6框架)</p>
-<p>若没有qt框架，可以将整个release文件夹下载下来，在文件夹里面运行exe文件。</p>
- <div style="background-color:#f1f9ff; border-left: 5px solid #4285f4; padding: 10px; margin-bottom: 10px;">  注：可能出现的2个问题：<br>
-1.弹窗显示找不到Qt6Core.dll。要么是Qt框架太老，要么是没有将Qt编译器加载到环境变量<br>
-2.一直在加载。正常情况，因为wav音频文件比较大，并且打包了所有依赖环境，耐心等待即可🥹</div>
+<h3 id="1-2-安装编译器"><a href="#1-2-安装编译器" class="headerlink" title="1.2 安装编译器"></a>1.2 安装编译器</h3><p>安装 GCC 和 G++：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt install build-essential<br></code></pre></td></tr></table></figure>
+<h3 id="1-3-安装-Git"><a href="#1-3-安装-Git" class="headerlink" title="1.3 安装 Git"></a>1.3 安装 Git</h3><p>Git 是一个版本控制系统，便于你管理代码和课程项目：（Ubuntu自带git，所以无需运行）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt install git<br></code></pre></td></tr></table></figure>
 
-<h3 id="Qt编译运行"><a href="#Qt编译运行" class="headerlink" title="Qt编译运行"></a>Qt编译运行</h3><ol>
-<li>克隆到本地：</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git clone git@github.com:wang-jiahao/2048.git<br></code></pre></td></tr></table></figure>
-
-<ol start="2">
-<li><p>删除<code>2048.pro.user</code>文件与<code>build</code>文件夹。</p>
+<h3 id="1-4-安装编辑器"><a href="#1-4-安装编辑器" class="headerlink" title="1.4 安装编辑器"></a>1.4 安装编辑器</h3><p>根据自己的喜好选择一个文本编辑器。以下是几种常见选项：</p>
+<ul>
+<li><p><strong>Vim</strong>：功能强大，但需要一些学习时间：（自带，无需安装）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt install vim<br></code></pre></td></tr></table></figure></li>
+<li><p><strong>Nano</strong>：简单易用，适合新手：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt install nano<br></code></pre></td></tr></table></figure></li>
+<li><p><strong>Visual Studio Code</strong>：功能丰富，支持 WSL&#x2F;WSL2。直接在 Windows 中安装 VS Code，然后通过 WSL 扩展直接编辑 Ubuntu 中的文件。（在 Windows 上访问 <a target="_blank" rel="noopener" href="https://code.visualstudio.com/">VS Code 官网</a> 下载并安装，然后在 VS Code 中安装 “WSL” 扩展。）</p>
 </li>
-<li><p>Qt Creator打开项目，选择文件<code>2048.pro</code>，然后按默认步骤build即可。</p>
-</li>
-<li><p>打开<code>main.cpp</code>，运行即可。（build时间可能较长，因为wav音频文件比较大）</p>
-</li>
-</ol>
-<h2 id="选题原因"><a href="#选题原因" class="headerlink" title="选题原因"></a>选题原因</h2><p><a target="_blank" rel="noopener" href="https://2048game.com/">2048</a>是一款很火的小游戏。2048在4×4的网格上进行。玩家可以使用上、下、左、右四个方向键移动所有方块。游戏开始时，网格上会出现两个数值为2或4的方块。每次移动后，另一个数值为2或4的新方块会随机出现在空方格上。方块会沿着指定的方向滑动，直到被其它方块或网格边缘阻挡。如果两个相同数值的方块碰撞，它们将合并成一个方块，其数值等于两个方块的数值之和。玩家获取胜利的条件是获得数值为2048的方块。当玩家没有合法的移动方法时，即出现了网格上没有空方格，且相邻方块的数值均不相同的情况，游戏就直接结束。</p>
-<p>因为最近在自学21spring的<a target="_blank" rel="noopener" href="https://sp21.datastructur.es/">CS61B</a>，其中作业的<a target="_blank" rel="noopener" href="https://sp21.datastructur.es/materials/proj/proj0/proj0">proj0</a>就是2048，而我前不久刚好用Java写了<a target="_blank" rel="noopener" href="https://github.com/wang-jiahao/CS61B/tree/master/proj0">这个项目</a>，看到课程的项目要求，索性就自学Qt，用C++重新写了功能更丰富的2048，增加了音乐，新游戏等功能。</p>
-<div style="background-color:#f1f9ff; border-left: 5px solid #4285f4; padding: 10px; margin-bottom: 10px;"><ul>  
-<li><b>2048官网</b>: <a target="_blank" rel="noopener" href="https://2048game.com/">https://2048game.com/</a></li>
-<li><b>CS61B网址(21spring版)</b>: <a target="_blank" rel="noopener" href="https://sp21.datastructur.es/">https://sp21.datastructur.es/</a></li>
-<li><b>proj0网址</b>: <a target="_blank" rel="noopener" href="https://sp21.datastructur.es/materials/proj/proj0/proj0">https://sp21.datastructur.es/materials/proj/proj0/proj0</a></li>
-<li><b>当初我完成的Java版2048</b>: <a target="_blank" rel="noopener" href="https://github.com/wang-jiahao/CS61B/tree/master/proj0">https://github.com/wang-jiahao/CS61B/tree/master/proj0</a></li>
 </ul>
-</div>
+<h3 id="1-5-安装-SSH-服务器"><a href="#1-5-安装-SSH-服务器" class="headerlink" title="1.5 安装 SSH 服务器"></a>1.5 安装 SSH 服务器</h3><p>为了通过 SSH 登录到 WSL，你需要安装并配置 OpenSSH 服务器。运行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt install openssh-server<br></code></pre></td></tr></table></figure>
 
-<h2 id="开发流程"><a href="#开发流程" class="headerlink" title="开发流程"></a>开发流程</h2><ol>
-<li>先参考助教建议<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1g4411H78N/?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&vd_source=c06338b0283c611d7a47c62b0ed23dfa">视频</a>自学qt。</li>
-<li>下载最新版本的Qt Creator及其套件。</li>
-<li>创建通过qmake管理的项目。</li>
-<li>先在Qt的设计页面中增加对象，调整参数，得到美观的ui界面。</li>
-<li>再在mainwindow.h文件中定义需要实现的函数等。</li>
-<li>再在mainwindow.cpp文件中具体实现头文件中的函数，不会实现的功能通过google&#x2F;StackOverflow&#x2F;<a target="_blank" rel="noopener" href="https://doc.qt.io/qt-6/">qt帮助文档</a>&#x2F;ChatGPT解决。</li>
-<li>最后再main.cpp中调用。</li>
-<li>通过得到的exe文件不断发现问题（比如音乐，重新开始，回退功能等），不断重复5-7步骤。</li>
-</ol>
-<h2 id="项目预期"><a href="#项目预期" class="headerlink" title="项目预期"></a>项目预期</h2><ol>
-<li>游戏流畅</li>
-<li>玩家与单位交互流畅</li>
-<li>用户交互界面完整美观</li>
-<li>设计交互方式</li>
-<li>用户操作反馈明确</li>
-<li>实现存档功能</li>
-<li>设计数值等机制</li>
-<li>git提交规范</li>
-<li>体现C++面向对象特性</li>
-<li>多文件编程</li>
-<li>难度适中，游玩体验好</li>
-<li>游戏界面设计美观</li>
-<li>有与游戏内容相符的背景音乐</li>
-</ol>
-<h2 id="最终完成度及得分点"><a href="#最终完成度及得分点" class="headerlink" title="最终完成度及得分点"></a>最终完成度及得分点</h2><h3 id="基础功能（65分）"><a href="#基础功能（65分）" class="headerlink" title="基础功能（65分）"></a>基础功能（65分）</h3><h4 id="游戏逻辑（20分）"><a href="#游戏逻辑（20分）" class="headerlink" title="游戏逻辑（20分）"></a>游戏逻辑（20分）</h4><ul>
-<li>游戏场景（10分）：游戏流畅，无卡顿，提供了try again与new game2个选项，满分</li>
-<li>角色或单位（10分）：该游戏中的单位为包含数字的方块，最初为2个，最高有16个，满分</li>
+<p>安装完成后，启动 SSH 服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> service ssh start<br></code></pre></td></tr></table></figure>
+
+<p>为了确保 SSH 服务在每次启动 WSL 时自动运行，可以运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> systemctl <span class="hljs-built_in">enable</span> ssh<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="2-配置-SSH-登录"><a href="#2-配置-SSH-登录" class="headerlink" title="2. 配置 SSH 登录"></a>2. 配置 SSH 登录</h2><p>现在，你需要配置 SSH，以便从 Windows 通过 SSH 登录到 WSL 的 Ubuntu 系统。</p>
+<h3 id="2-1-获取-WSL-的-IP-地址"><a href="#2-1-获取-WSL-的-IP-地址" class="headerlink" title="2.1 获取 WSL 的 IP 地址"></a>2.1 获取 WSL 的 IP 地址</h3><p>在 Ubuntu 终端中运行以下命令，查看 WSL 的 IP 地址：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ip addr show eth0 | grep inet<br></code></pre></td></tr></table></figure>
+<p>你会看到类似以下的输出：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">inet</span> <span class="hljs-number">172.18.240.158</span>/<span class="hljs-number">20</span> brd <span class="hljs-number">172.18.255.255</span> scope global eth0<br></code></pre></td></tr></table></figure>
+<p>记下其中的 IP 地址（例如 <code>172.18.240.158</code>），你将在下一步中使用它。</p>
+<h3 id="2-2-在-Windows-中使用-SSH-客户端"><a href="#2-2-在-Windows-中使用-SSH-客户端" class="headerlink" title="2.2 在 Windows 中使用 SSH 客户端"></a>2.2 在 Windows 中使用 SSH 客户端</h3><p>你可以使用 Windows 自带的 SSH 客户端或第三方工具（如 PuTTY）来连接。</p>
+<ul>
+<li><p><strong>使用 Windows 自带 SSH</strong>：<br>打开 Windows 的 PowerShell 或命令提示符，运行：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">ssh username@ip_address<br></code></pre></td></tr></table></figure>
+<ul>
+<li>将 <code>username</code> 替换为你的 Ubuntu 用户名（可以通过 <code>whoami</code> 命令在 Ubuntu 终端中查看）。</li>
+<li>将 <code>ip_address</code> 替换为上一步获取的 IP 地址（例如 <code>172.18.240.158</code>）。</li>
 </ul>
-<h4 id="交互界面（25分）"><a href="#交互界面（25分）" class="headerlink" title="交互界面（25分）"></a>交互界面（25分）</h4><ul>
-<li>完整界面（15分）：用户交互界面（ui）完整美观，按钮提示明确，满分</li>
-<li>交互方式（5分）：设计了2种键盘交互方式，通过WSAD或↑↓←→控制方块的移动，满分</li>
-<li>操作反馈（5分）：用户操作反馈明确，按下方向键后画面变化流畅，满分</li>
+</li>
+<li><p><strong>使用 PuTTY</strong>（可选）：<br>如果你更喜欢图形界面，可以下载并安装 <a target="_blank" rel="noopener" href="https://www.putty.org/">PuTTY</a>。打开 PuTTY，输入 IP 地址，端口保持默认（22），选择 “SSH”，然后点击 “Open”。</p>
+</li>
 </ul>
-<h4 id="其他功能（20分）"><a href="#其他功能（20分）" class="headerlink" title="其他功能（20分）"></a>其他功能（20分）</h4><ul>
-<li>存档功能（10分）：关闭游戏后再次打开从存档点可以继续游戏（如果是第一次打开，则为新游戏）；将存档保存在build&#x2F;debug&#x2F;savegame.json文件中，可以直接修改实现进度调整。满分</li>
-<li>数值或升级机制（10分）：设计分数这一数值机制，每次合并得到更大的数字，分数就会加上该数字，5分</li>
+<p>第一次连接时，可能会出现一个安全警告，点击 “接受” 或 “连接一次” 即可。</p>
+<h3 id="2-3-登录"><a href="#2-3-登录" class="headerlink" title="2.3 登录"></a>2.3 登录</h3><p>输入你的 Ubuntu 用户名和密码，成功登录后，你将看到 Ubuntu 的终端提示符。这意味着 SSH 配置完成！</p>
+<hr>
+<h2 id="3-验证安装"><a href="#3-验证安装" class="headerlink" title="3. 验证安装"></a>3. 验证安装</h2><p>登录后，你可以验证必要的软件是否正确安装：</p>
+<ul>
+<li><p>**检查 GCC 和 G++**：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc --version<br>g++ --version<br></code></pre></td></tr></table></figure>
+<p>如果显示版本号，说明编译器已安装成功。</p>
+</li>
+<li><p><strong>检查 Git</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git --version<br></code></pre></td></tr></table></figure>
+<p>显示版本号表示 Git 安装正常。</p>
+</li>
+<li><p><strong>检查编辑器</strong>：</p>
+<ul>
+<li>如果安装了 Vim，运行 <code>vim</code>，看看是否打开。</li>
+<li>如果安装了 Nano，运行 <code>nano</code>，检查是否可用。</li>
+<li>如果使用 VS Code，可以在 Windows 中打开 VS Code，通过 WSL 扩展连接到 Ubuntu。</li>
 </ul>
-<h3 id="代码管理（20分）"><a href="#代码管理（20分）" class="headerlink" title="代码管理（20分）"></a>代码管理（20分）</h3><ul>
-<li>git提交规范（10分）：最开始初始化项目，之后不断优化，提交十余次，且提交合理，满分</li>
-<li>体现C++面向对象特性（5分）：代码封装了许多不同的类，如<code>QApplication</code>,<code>MainWindow</code>等，其中<code>MainWindow</code>继承自<code>QMainWindow</code>。满分</li>
-<li>多文件编程（5分）：<code>2048.pro</code>文件定义如何编译、链接以及生成最终的可执行文件或库，<code>main.cpp</code>文件用于管理主线程，<code>mainwindow.h</code>用于定义主窗口（<code>MainWindow</code>）的功能（包括事件处理，界面更新等），<code>mainwindow.cpp</code>用于实现主窗口的功能，<code>resources.qrc</code>用于管理资源文件（如音乐等）。代码注释清晰、变量名表意明确。满分</li>
-</ul>
-<h3 id="选做内容（15分）"><a href="#选做内容（15分）" class="headerlink" title="选做内容（15分）"></a>选做内容（15分）</h3><ul>
-<li>玩家游戏体验（5分）：难度适中，设计的键盘交互方式符合操作逻辑（如W或↑代表上移等），游玩体验好，满分</li>
-<li>酷炫UI（5分）：游戏界面设计美观，用户每次按下方向键都有方块移动的动态效果，界面元素合理，满分</li>
-<li>背景音乐（5分）：使用C418的Subwoofer Lullaby（minecraft的背景音乐之一），与游戏内容相符，让人怀旧，涤荡心灵，满分</li>
+</li>
 </ul>
 
                 
@@ -423,15 +413,8 @@
     
       <span class="category-chain">
         
-  <a href="/categories/C/" class="category-chain-item">C++</a>
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/C/Qt/" class="category-chain-item">Qt</a>
-  
-  
-
   
 
       </span>
@@ -445,11 +428,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Qt6/" class="print-no-link">#Qt6</a>
+        <a href="/tags/Ubuntu/" class="print-no-link">#Ubuntu</a>
       
-        <a href="/tags/C/" class="print-no-link">#C++</a>
+        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
       
-        <a href="/tags/Games/" class="print-no-link">#Games</a>
+        <a href="/tags/SSH/" class="print-no-link">#SSH</a>
       
     </div>
   
@@ -461,8 +444,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>2048（基于Qt6框架开发）</div>
-      <div>http://wang-jiahao.github.io/posts/aaf64fe7.html</div>
+      <div>Linux环境搭建+SSH配置</div>
+      <div>http://wang-jiahao.github.io/posts/b695e8d1.html</div>
     </div>
     <div class="license-meta">
       
@@ -474,13 +457,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年1月19日</div>
+          <div>2025年3月17日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年1月19日</div>
+          <div>2025年3月17日</div>
         </div>
       
       
@@ -511,18 +494,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/b695e8d1.html" title="Linux环境搭建+SSH配置">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Linux环境搭建+SSH配置</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/4a9de9ff.html" title="动态规划经典问题">
-                        <span class="hidden-mobile">动态规划经典问题</span>
+                      <a href="/posts/aaf64fe7.html" title="2048（基于Qt6框架开发）">
+                        <span class="hidden-mobile">2048（基于Qt6框架开发）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
