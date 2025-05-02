@@ -1,0 +1,906 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/global/Zackaria.png">
+  <link rel="icon" href="/img/global/Zackaria.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#07c1f0">
+  <meta name="author" content="Jiahao Wang">
+  <meta name="keywords" content="博客,CS,图论,算法,数据结构,机器学习,深度学习,C++,C,CS61A,CS61B,CS188,Python,Java,PyTorch">
+  
+    <meta name="description" content="基于Qt6框架开发的2048游戏，实现存档，音乐等功能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2048（基于Qt6框架开发）">
+<meta property="og:url" content="http://wang-jiahao.github.io/posts/aaf64fe7.html">
+<meta property="og:site_name" content="Zackaria&#39;s Corner">
+<meta property="og:description" content="基于Qt6框架开发的2048游戏，实现存档，音乐等功能">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-01-19T08:27:32.000Z">
+<meta property="article:modified_time" content="2025-01-19T08:56:09.685Z">
+<meta property="article:author" content="Jiahao Wang">
+<meta property="article:tag" content="Qt6">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="Games">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>2048（基于Qt6框架开发） - Zackaria&#39;s Corner</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap.css">
+<link rel="stylesheet" href="/css/selection.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wang-jiahao.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/global/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"4ATURf7GEMgcrf4AMW2NgIns-gzGzoHsz","app_key":"PEOHEBjwdHQuyIMZYZq3H8NE","server_url":"https://4aturf7g.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Zackaria&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner/bluesky.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="2048（基于Qt6框架开发）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-01-19 16:27" pubdate>
+          2025年1月19日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          17 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">2048（基于Qt6框架开发）</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="2048-Games"><a href="#2048-Games" class="headerlink" title="2048 Games"></a>2048 Games</h1><h2 id="编译环境"><a href="#编译环境" class="headerlink" title="编译环境"></a>编译环境</h2><p>我使用的Qt编译套件：<code>Desktop Qt 6.5.8 MinGW 64-bit</code>(只要是Qt6框架即可)</p>
+<p>Qt Creator版本：<code>Qt Creator 15.0.0 (Enterprise)</code></p>
+ <div style="background-color:#f1f9ff; border-left: 5px solid #4285f4; padding: 10px; margin-bottom: 10px;">  注：Qt5框架在播放背景音乐时可能出现问题，因为Qt5中的setMedia在Qt6中改成了setSource</div>
+
+<h2 id="运行步骤"><a href="#运行步骤" class="headerlink" title="运行步骤"></a>运行步骤</h2><h3 id="exe运行"><a href="#exe运行" class="headerlink" title="exe运行"></a>exe运行</h3><p>将build&#x2F;Desktop_Qt_6_5_8_MinGW_64_bit-Release&#x2F;release文件夹中的exe文件下载下来，直接双击2048.exe文件运行即可(需要Qt6框架)</p>
+<p>若没有qt框架，可以将整个release文件夹下载下来，在文件夹里面运行exe文件。</p>
+ <div style="background-color:#f1f9ff; border-left: 5px solid #4285f4; padding: 10px; margin-bottom: 10px;">  注：可能出现的2个问题：<br>
+1.弹窗显示找不到Qt6Core.dll。要么是Qt框架太老，要么是没有将Qt编译器加载到环境变量<br>
+2.一直在加载。正常情况，因为wav音频文件比较大，并且打包了所有依赖环境，耐心等待即可🥹</div>
+
+<h3 id="Qt编译运行"><a href="#Qt编译运行" class="headerlink" title="Qt编译运行"></a>Qt编译运行</h3><ol>
+<li>克隆到本地：</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git clone git@github.com:wang-jiahao/2048.git<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>删除<code>2048.pro.user</code>文件与<code>build</code>文件夹。</p>
+</li>
+<li><p>Qt Creator打开项目，选择文件<code>2048.pro</code>，然后按默认步骤build即可。</p>
+</li>
+<li><p>打开<code>main.cpp</code>，运行即可。（build时间可能较长，因为wav音频文件比较大）</p>
+</li>
+</ol>
+<h2 id="选题原因"><a href="#选题原因" class="headerlink" title="选题原因"></a>选题原因</h2><p><a target="_blank" rel="noopener" href="https://2048game.com/">2048</a>是一款很火的小游戏。2048在4×4的网格上进行。玩家可以使用上、下、左、右四个方向键移动所有方块。游戏开始时，网格上会出现两个数值为2或4的方块。每次移动后，另一个数值为2或4的新方块会随机出现在空方格上。方块会沿着指定的方向滑动，直到被其它方块或网格边缘阻挡。如果两个相同数值的方块碰撞，它们将合并成一个方块，其数值等于两个方块的数值之和。玩家获取胜利的条件是获得数值为2048的方块。当玩家没有合法的移动方法时，即出现了网格上没有空方格，且相邻方块的数值均不相同的情况，游戏就直接结束。</p>
+<p>因为最近在自学21spring的<a target="_blank" rel="noopener" href="https://sp21.datastructur.es/">CS61B</a>，其中作业的<a target="_blank" rel="noopener" href="https://sp21.datastructur.es/materials/proj/proj0/proj0">proj0</a>就是2048，而我前不久刚好用Java写了<a target="_blank" rel="noopener" href="https://github.com/wang-jiahao/CS61B/tree/master/proj0">这个项目</a>，看到课程的项目要求，索性就自学Qt，用C++重新写了功能更丰富的2048，增加了音乐，新游戏等功能。</p>
+<div style="background-color:#f1f9ff; border-left: 5px solid #4285f4; padding: 10px; margin-bottom: 10px;"><ul>  
+<li><b>2048官网</b>: <a target="_blank" rel="noopener" href="https://2048game.com/">https://2048game.com/</a></li>
+<li><b>CS61B网址(21spring版)</b>: <a target="_blank" rel="noopener" href="https://sp21.datastructur.es/">https://sp21.datastructur.es/</a></li>
+<li><b>proj0网址</b>: <a target="_blank" rel="noopener" href="https://sp21.datastructur.es/materials/proj/proj0/proj0">https://sp21.datastructur.es/materials/proj/proj0/proj0</a></li>
+<li><b>当初我完成的Java版2048</b>: <a target="_blank" rel="noopener" href="https://github.com/wang-jiahao/CS61B/tree/master/proj0">https://github.com/wang-jiahao/CS61B/tree/master/proj0</a></li>
+</ul>
+</div>
+
+<h2 id="开发流程"><a href="#开发流程" class="headerlink" title="开发流程"></a>开发流程</h2><ol>
+<li>先参考助教建议<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1g4411H78N/?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&vd_source=c06338b0283c611d7a47c62b0ed23dfa">视频</a>自学qt。</li>
+<li>下载最新版本的Qt Creator及其套件。</li>
+<li>创建通过qmake管理的项目。</li>
+<li>先在Qt的设计页面中增加对象，调整参数，得到美观的ui界面。</li>
+<li>再在mainwindow.h文件中定义需要实现的函数等。</li>
+<li>再在mainwindow.cpp文件中具体实现头文件中的函数，不会实现的功能通过google&#x2F;StackOverflow&#x2F;<a target="_blank" rel="noopener" href="https://doc.qt.io/qt-6/">qt帮助文档</a>&#x2F;ChatGPT解决。</li>
+<li>最后再main.cpp中调用。</li>
+<li>通过得到的exe文件不断发现问题（比如音乐，重新开始，回退功能等），不断重复5-7步骤。</li>
+</ol>
+<h2 id="项目预期"><a href="#项目预期" class="headerlink" title="项目预期"></a>项目预期</h2><ol>
+<li>游戏流畅</li>
+<li>玩家与单位交互流畅</li>
+<li>用户交互界面完整美观</li>
+<li>设计交互方式</li>
+<li>用户操作反馈明确</li>
+<li>实现存档功能</li>
+<li>设计数值等机制</li>
+<li>git提交规范</li>
+<li>体现C++面向对象特性</li>
+<li>多文件编程</li>
+<li>难度适中，游玩体验好</li>
+<li>游戏界面设计美观</li>
+<li>有与游戏内容相符的背景音乐</li>
+</ol>
+<h2 id="最终完成度及得分点"><a href="#最终完成度及得分点" class="headerlink" title="最终完成度及得分点"></a>最终完成度及得分点</h2><h3 id="基础功能（65分）"><a href="#基础功能（65分）" class="headerlink" title="基础功能（65分）"></a>基础功能（65分）</h3><h4 id="游戏逻辑（20分）"><a href="#游戏逻辑（20分）" class="headerlink" title="游戏逻辑（20分）"></a>游戏逻辑（20分）</h4><ul>
+<li>游戏场景（10分）：游戏流畅，无卡顿，提供了try again与new game2个选项，满分</li>
+<li>角色或单位（10分）：该游戏中的单位为包含数字的方块，最初为2个，最高有16个，满分</li>
+</ul>
+<h4 id="交互界面（25分）"><a href="#交互界面（25分）" class="headerlink" title="交互界面（25分）"></a>交互界面（25分）</h4><ul>
+<li>完整界面（15分）：用户交互界面（ui）完整美观，按钮提示明确，满分</li>
+<li>交互方式（5分）：设计了2种键盘交互方式，通过WSAD或↑↓←→控制方块的移动，满分</li>
+<li>操作反馈（5分）：用户操作反馈明确，按下方向键后画面变化流畅，满分</li>
+</ul>
+<h4 id="其他功能（20分）"><a href="#其他功能（20分）" class="headerlink" title="其他功能（20分）"></a>其他功能（20分）</h4><ul>
+<li>存档功能（10分）：关闭游戏后再次打开从存档点可以继续游戏（如果是第一次打开，则为新游戏）；将存档保存在build&#x2F;debug&#x2F;savegame.json文件中，可以直接修改实现进度调整。满分</li>
+<li>数值或升级机制（10分）：设计分数这一数值机制，每次合并得到更大的数字，分数就会加上该数字，5分</li>
+</ul>
+<h3 id="代码管理（20分）"><a href="#代码管理（20分）" class="headerlink" title="代码管理（20分）"></a>代码管理（20分）</h3><ul>
+<li>git提交规范（10分）：最开始初始化项目，之后不断优化，提交十余次，且提交合理，满分</li>
+<li>体现C++面向对象特性（5分）：代码封装了许多不同的类，如<code>QApplication</code>,<code>MainWindow</code>等，其中<code>MainWindow</code>继承自<code>QMainWindow</code>。满分</li>
+<li>多文件编程（5分）：<code>2048.pro</code>文件定义如何编译、链接以及生成最终的可执行文件或库，<code>main.cpp</code>文件用于管理主线程，<code>mainwindow.h</code>用于定义主窗口（<code>MainWindow</code>）的功能（包括事件处理，界面更新等），<code>mainwindow.cpp</code>用于实现主窗口的功能，<code>resources.qrc</code>用于管理资源文件（如音乐等）。代码注释清晰、变量名表意明确。满分</li>
+</ul>
+<h3 id="选做内容（15分）"><a href="#选做内容（15分）" class="headerlink" title="选做内容（15分）"></a>选做内容（15分）</h3><ul>
+<li>玩家游戏体验（5分）：难度适中，设计的键盘交互方式符合操作逻辑（如W或↑代表上移等），游玩体验好，满分</li>
+<li>酷炫UI（5分）：游戏界面设计美观，用户每次按下方向键都有方块移动的动态效果，界面元素合理，满分</li>
+<li>背景音乐（5分）：使用C418的Subwoofer Lullaby（minecraft的背景音乐之一），与游戏内容相符，让人怀旧，涤荡心灵，满分</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C++</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/C/Qt/" class="category-chain-item">Qt</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Qt6/" class="print-no-link">#Qt6</a>
+      
+        <a href="/tags/C/" class="print-no-link">#C++</a>
+      
+        <a href="/tags/Games/" class="print-no-link">#Games</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>2048（基于Qt6框架开发）</div>
+      <div>http://wang-jiahao.github.io/posts/aaf64fe7.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Jiahao Wang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年1月19日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年1月19日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/b695e8d1.html" title="Linux环境搭建+SSH配置">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Linux环境搭建+SSH配置</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/4a9de9ff.html" title="动态规划经典问题">
+                        <span class="hidden-mobile">动态规划经典问题</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"wang-jiahao/comments","repo-id":"R_kgDONZtQAQ","category":"Announcements","category-id":"DIC_kwDONZtQAc4Ck9xy","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"bottom","lang":"zh-CN"};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <i class="iconfont icon-copyright"></i> <a href="https://github.com/wang-jiahao" target="_blank" rel="nofollow noopener"><span><font color="#FFA62F">2024-2025</font></span></a> <font color="#F62217"><i class="iconfont icon-love"></i></font> <a href="https://github.com/wang-jiahao" target="_blank" rel="nofollow noopener"><span><font color="#FFA62F">Zackaria</font></span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,1018 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/global/Zackaria.png">
+  <link rel="icon" href="/img/global/Zackaria.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#07c1f0">
+  <meta name="author" content="Jiahao Wang">
+  <meta name="keywords" content="博客,CS,图论,算法,数据结构,机器学习,深度学习,C++,C,CS61A,CS61B,CS188,Python,Java,PyTorch">
+  
+    <meta name="description" content="C++ 继承 虚继承 虚函数 final关键字 头文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="继承和模板类 C++">
+<meta property="og:url" content="http://wang-jiahao.github.io/posts/35825.html">
+<meta property="og:site_name" content="Zackaria&#39;s Corner">
+<meta property="og:description" content="C++ 继承 虚继承 虚函数 final关键字 头文件">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-12-05T14:58:46.000Z">
+<meta property="article:modified_time" content="2024-12-11T05:10:12.684Z">
+<meta property="article:author" content="Jiahao Wang">
+<meta property="article:tag" content="继承">
+<meta property="article:tag" content="模板类">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>继承和模板类 C++ - Zackaria&#39;s Corner</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap.css">
+<link rel="stylesheet" href="/css/selection.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wang-jiahao.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/global/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"4ATURf7GEMgcrf4AMW2NgIns-gzGzoHsz","app_key":"PEOHEBjwdHQuyIMZYZq3H8NE","server_url":"https://4aturf7g.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Zackaria&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner/bluesky.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="继承和模板类 C++"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-12-05 22:58" pubdate>
+          2024年12月5日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          77 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">继承和模板类 C++</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19x4y1E79V?spm_id_from=333.788.videopod.episodes&vd_source=c06338b0283c611d7a47c62b0ed23dfa&p=16">CS106L p16 Part 5.6 Inheritance and Template Classes</a></p>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><h3 id="C-中的继承概述"><a href="#C-中的继承概述" class="headerlink" title="C++中的继承概述"></a>C++中的继承概述</h3><p>继承是面向对象编程（OOP）中的一种机制，它允许创建一个新的类（派生类），该类可以继承并扩展或修改已有类（基类）的属性和方法。在C++中，继承提供了一种组织代码的方式，使得可以在不重复代码的情况下重用和扩展已有的类。</p>
+<p>继承的基本概念如下：</p>
+<ul>
+<li><strong>基类（Base Class）</strong>：也称为父类，它包含一些通用的属性和方法。</li>
+<li><strong>派生类（Derived Class）</strong>：也称为子类，它继承了基类的成员，并可以在此基础上进行扩展或修改。</li>
+</ul>
+<p>C++支持单继承（一个派生类只能继承一个基类）和多继承（一个派生类可以继承多个基类）。C++的继承是通过使用<code>:</code>符号来实现的。</p>
+<h3 id="继承的基本语法"><a href="#继承的基本语法" class="headerlink" title="继承的基本语法"></a>继承的基本语法</h3><p>在C++中，继承的基本语法结构如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">DerivedClass</span> : accessSpecifier BaseClass &#123;<br>    <span class="hljs-comment">// DerivedClass的成员</span><br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>DerivedClass</code> 是派生类的名称。</li>
+<li><code>BaseClass</code> 是基类的名称。</li>
+<li><code>accessSpecifier</code> 是继承方式，可以是<code>public</code>、<code>protected</code>或<code>private</code>，它决定了基类成员在派生类中的可访问性。</li>
+</ul>
+<h3 id="继承的访问控制"><a href="#继承的访问控制" class="headerlink" title="继承的访问控制"></a>继承的访问控制</h3><p>C++允许通过三种访问控制修饰符来指定基类成员在派生类中的可访问性：</p>
+<ol>
+<li><p><strong><code>public</code>继承</strong>：基类的<code>public</code>成员在派生类中依然是<code>public</code>，<code>protected</code>成员在派生类中是<code>protected</code>，<code>private</code>成员不可访问。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Base</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-type">int</span> publicVar;<br><span class="hljs-keyword">protected</span>:<br>    <span class="hljs-type">int</span> protectedVar;<br><span class="hljs-keyword">private</span>:<br>    <span class="hljs-type">int</span> privateVar;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Derived</span> : <span class="hljs-keyword">public</span> Base &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">show</span><span class="hljs-params">()</span> </span>&#123;<br>        std::cout &lt;&lt; publicVar &lt;&lt; std::endl;    <span class="hljs-comment">// 可以访问</span><br>        std::cout &lt;&lt; protectedVar &lt;&lt; std::endl;  <span class="hljs-comment">// 可以访问</span><br>        <span class="hljs-comment">// std::cout &lt;&lt; privateVar &lt;&lt; std::endl;  // 错误，不能访问private成员</span><br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong><code>protected</code>继承</strong>：基类的<code>public</code>和<code>protected</code>成员会变为派生类中的<code>protected</code>，<code>private</code>成员不可访问。</p>
+</li>
+<li><p><strong><code>private</code>继承</strong>：基类的所有成员（无论是<code>public</code>、<code>protected</code>还是<code>private</code>）都会变为派生类中的<code>private</code>，这意味着它们不能被派生类外部访问。</p>
+</li>
+</ol>
+<h3 id="继承的类型"><a href="#继承的类型" class="headerlink" title="继承的类型"></a>继承的类型</h3><ol>
+<li><p><strong>单继承（Single Inheritance）</strong>：一个派生类只继承自一个基类。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Base</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">show</span><span class="hljs-params">()</span> </span>&#123; std::cout &lt;&lt; <span class="hljs-string">&quot;Base class&quot;</span> &lt;&lt; std::endl; &#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Derived</span> : <span class="hljs-keyword">public</span> Base &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">display</span><span class="hljs-params">()</span> </span>&#123; std::cout &lt;&lt; <span class="hljs-string">&quot;Derived class&quot;</span> &lt;&lt; std::endl; &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>多继承（Multiple Inheritance）</strong>：一个派生类可以继承自多个基类。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Base1</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">show1</span><span class="hljs-params">()</span> </span>&#123; std::cout &lt;&lt; <span class="hljs-string">&quot;Base1&quot;</span> &lt;&lt; std::endl; &#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Base2</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">show2</span><span class="hljs-params">()</span> </span>&#123; std::cout &lt;&lt; <span class="hljs-string">&quot;Base2&quot;</span> &lt;&lt; std::endl; &#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Derived</span> : <span class="hljs-keyword">public</span> Base1, <span class="hljs-keyword">public</span> Base2 &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">display</span><span class="hljs-params">()</span> </span>&#123; std::cout &lt;&lt; <span class="hljs-string">&quot;Derived class&quot;</span> &lt;&lt; std::endl; &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>虚继承（Virtual Inheritance）</strong>：解决多继承中的“钻石问题”。虚继承确保派生类只继承基类的一份数据。通过<code>virtual</code>关键字来声明虚继承。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Base</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-type">int</span> baseVar;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span> : <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">public</span> Base &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">showA</span><span class="hljs-params">()</span> </span>&#123; std::cout &lt;&lt; <span class="hljs-string">&quot;Class A&quot;</span> &lt;&lt; std::endl; &#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">B</span> : <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">public</span> Base &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">showB</span><span class="hljs-params">()</span> </span>&#123; std::cout &lt;&lt; <span class="hljs-string">&quot;Class B&quot;</span> &lt;&lt; std::endl; &#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Derived</span> : <span class="hljs-keyword">public</span> A, <span class="hljs-keyword">public</span> B &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">showDerived</span><span class="hljs-params">()</span> </span>&#123; std::cout &lt;&lt; <span class="hljs-string">&quot;Derived Class&quot;</span> &lt;&lt; std::endl; &#125;<br>&#125;;<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="构造函数与析构函数的继承"><a href="#构造函数与析构函数的继承" class="headerlink" title="构造函数与析构函数的继承"></a>构造函数与析构函数的继承</h3><ol>
+<li><p><strong>基类构造函数</strong>：派生类通常不直接调用基类构造函数，而是通过派生类的构造函数隐式调用基类的构造函数。如果基类没有默认构造函数，派生类必须显式调用基类的构造函数。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Base</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">Base</span>(<span class="hljs-type">int</span> x) &#123; std::cout &lt;&lt; <span class="hljs-string">&quot;Base class constructor, x = &quot;</span> &lt;&lt; x &lt;&lt; std::endl; &#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Derived</span> : <span class="hljs-keyword">public</span> Base &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">Derived</span>(<span class="hljs-type">int</span> x) : <span class="hljs-built_in">Base</span>(x) &#123; std::cout &lt;&lt; <span class="hljs-string">&quot;Derived class constructor&quot;</span> &lt;&lt; std::endl; &#125;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-function">Derived <span class="hljs-title">d</span><span class="hljs-params">(<span class="hljs-number">10</span>)</span></span>;  <span class="hljs-comment">// 会调用Base(int)构造函数</span><br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>基类析构函数</strong>：如果派生类的对象被销毁，析构函数会从派生类开始，逐步调用基类的析构函数。如果基类的析构函数是虚拟的，C++将确保在删除通过基类指针指向派生类的对象时，能够正确地调用派生类和基类的析构函数。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Base</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-keyword">virtual</span> ~<span class="hljs-built_in">Base</span>() &#123; std::cout &lt;&lt; <span class="hljs-string">&quot;Base class destructor&quot;</span> &lt;&lt; std::endl; &#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Derived</span> : <span class="hljs-keyword">public</span> Base &#123;<br><span class="hljs-keyword">public</span>:<br>    ~<span class="hljs-built_in">Derived</span>() &#123; std::cout &lt;&lt; <span class="hljs-string">&quot;Derived class destructor&quot;</span> &lt;&lt; std::endl; &#125;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    Base* b = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Derived</span>();<br>    <span class="hljs-keyword">delete</span> b;  <span class="hljs-comment">// 会先调用Derived类的析构函数，再调用Base类的析构函数</span><br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="方法重写与多态"><a href="#方法重写与多态" class="headerlink" title="方法重写与多态"></a>方法重写与多态</h3><p>继承使得派生类可以重写基类的方法。这种现象称为<strong>方法重写（Override）</strong>。如果基类中的方法被标记为<code>virtual</code>，则C++会启用<strong>运行时多态（Runtime Polymorphism）</strong>，即通过基类指针或引用调用派生类的重写方法。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Base</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">display</span><span class="hljs-params">()</span> </span>&#123; std::cout &lt;&lt; <span class="hljs-string">&quot;Base class&quot;</span> &lt;&lt; std::endl; &#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Derived</span> : <span class="hljs-keyword">public</span> Base &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">display</span><span class="hljs-params">()</span> <span class="hljs-keyword">override</span> </span>&#123; std::cout &lt;&lt; <span class="hljs-string">&quot;Derived class&quot;</span> &lt;&lt; std::endl; &#125;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    Base* b = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Derived</span>();<br>    b-&gt;<span class="hljs-built_in">display</span>();  <span class="hljs-comment">// 输出 &quot;Derived class&quot;</span><br>    <span class="hljs-keyword">delete</span> b;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>C++中的继承机制支持代码复用和扩展，可以帮助实现类的层次化结构。通过继承，派生类可以继承基类的属性和方法，进而对其进行修改或扩展，支持单继承和多继承（通过虚继承解决多继承中的问题）。此外，C++支持方法的重写与多态，使得面向对象编程更具灵活性和表达力。在实际编程中，理解并合理运用继承能大大提高代码的可复用性和维护性。</p>
+<h2 id="虚继承"><a href="#虚继承" class="headerlink" title="虚继承"></a>虚继承</h2><p>虚继承（Virtual Inheritance）是C++中多重继承的一种特殊机制，用于解决多重继承中的“菱形继承问题”（Diamond Problem）。为了更好地理解虚继承，我们首先需要了解多重继承、菱形继承问题的概念以及虚继承的解决方案。</p>
+<h3 id="1-多重继承与菱形继承问题"><a href="#1-多重继承与菱形继承问题" class="headerlink" title="1. 多重继承与菱形继承问题"></a>1. 多重继承与菱形继承问题</h3><h4 id="1-1-多重继承"><a href="#1-1-多重继承" class="headerlink" title="1.1 多重继承"></a>1.1 多重继承</h4><p>在C++中，类可以继承多个基类，称为多重继承。例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-type">int</span> a;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">B</span> : <span class="hljs-keyword">public</span> A &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-type">int</span> b;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">C</span> : <span class="hljs-keyword">public</span> A &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-type">int</span> c;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>在上面的例子中，类 <code>B</code> 和类 <code>C</code> 都继承自 <code>A</code>，这是一个典型的多重继承。虽然多重继承在某些情况下是非常有用的，但它可能带来一些问题，尤其是在多个基类之间存在共同部分时。</p>
+<h4 id="1-2-菱形继承问题"><a href="#1-2-菱形继承问题" class="headerlink" title="1.2 菱形继承问题"></a>1.2 菱形继承问题</h4><p>菱形继承问题是指，当一个类通过多个路径继承同一个基类时，基类的成员会被重复继承，从而导致冲突或冗余。这种问题通常出现在多个派生类继承自同一个基类，然后再被另一个类继承的情况下。</p>
+<p>考虑以下示例：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-type">int</span> x;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">B</span> : <span class="hljs-keyword">public</span> A &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-type">int</span> y;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">C</span> : <span class="hljs-keyword">public</span> A &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-type">int</span> z;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">D</span> : <span class="hljs-keyword">public</span> B, <span class="hljs-keyword">public</span> C &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-type">int</span> w;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>在上面的代码中，<code>B</code> 和 <code>C</code> 都继承了 <code>A</code>，而 <code>D</code> 又继承了 <code>B</code> 和 <code>C</code>。这就导致了 <code>D</code> 类中有两个 <code>A</code> 类的副本，这样会带来以下问题：</p>
+<ol>
+<li><strong>数据冗余</strong>：类 <code>D</code> 会有两个 <code>A</code> 类的副本，两个 <code>x</code>。</li>
+<li><strong>歧义问题</strong>：如果 <code>D</code> 类要访问 <code>x</code>，会产生歧义，因为编译器无法确定是通过 <code>B</code> 继承来的 <code>A</code> 还是通过 <code>C</code> 继承来的 <code>A</code>。</li>
+</ol>
+<h3 id="2-虚继承的概念"><a href="#2-虚继承的概念" class="headerlink" title="2. 虚继承的概念"></a>2. 虚继承的概念</h3><p>虚继承就是通过关键字 <code>virtual</code> 来标明基类是以虚拟方式继承的，目的就是解决菱形继承中基类的重复继承问题。虚继承的基本思想是：多个派生类之间共享同一个基类的实例，从而避免重复继承，确保只有一个基类的实例存在。</p>
+<h4 id="2-1-语法"><a href="#2-1-语法" class="headerlink" title="2.1 语法"></a>2.1 语法</h4><p>要实现虚继承，需要在派生类声明继承时使用 <code>virtual</code> 关键字。例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-type">int</span> x;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">B</span> : <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">public</span> A &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-type">int</span> y;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">C</span> : <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">public</span> A &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-type">int</span> z;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">D</span> : <span class="hljs-keyword">public</span> B, <span class="hljs-keyword">public</span> C &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-type">int</span> w;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>在上面的代码中，<code>B</code> 和 <code>C</code> 都是虚继承自 <code>A</code>，而 <code>D</code> 则继承了 <code>B</code> 和 <code>C</code>。这样，<code>D</code> 只有一个 <code>A</code> 类的实例。</p>
+<h4 id="2-2-如何解决菱形继承问题"><a href="#2-2-如何解决菱形继承问题" class="headerlink" title="2.2 如何解决菱形继承问题"></a>2.2 如何解决菱形继承问题</h4><p>虚继承通过在 <code>B</code> 和 <code>C</code> 中将 <code>A</code> 类声明为虚继承，确保 <code>D</code> 类只拥有一个 <code>A</code> 类的实例。即使 <code>B</code> 和 <code>C</code> 都从 <code>A</code> 继承，最终只有一个 <code>A</code> 的副本存在，并且只有一个 <code>x</code> 成员。</p>
+<h3 id="3-虚继承的实现原理"><a href="#3-虚继承的实现原理" class="headerlink" title="3. 虚继承的实现原理"></a>3. 虚继承的实现原理</h3><p>虚继承背后的实现机制比常规继承复杂，因为编译器需要确保不同路径继承的基类共享同一实例。为了实现这一点，编译器需要引入一个虚拟基类表（Virtual Base Table，VBT）。这个表用于维护不同派生类对虚拟基类的引用关系。</p>
+<p>具体来说，虚继承会影响构造函数的调用顺序和数据布局：</p>
+<ul>
+<li><strong>构造顺序</strong>：虚基类的构造函数会在最底层派生类的构造函数调用之前进行调用。这个顺序确保了虚拟基类的唯一实例在派生类构造之前被正确初始化。</li>
+<li><strong>内存布局</strong>：虚继承还可能影响对象的内存布局，因为虚基类的成员需要被唯一实例共享，所以虚基类可能会通过指针或其他机制来访问。</li>
+</ul>
+<h3 id="4-示例与行为分析"><a href="#4-示例与行为分析" class="headerlink" title="4. 示例与行为分析"></a>4. 示例与行为分析</h3><p>以下是一个更详细的例子来说明虚继承的行为：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">A</span>() &#123; cout &lt;&lt; <span class="hljs-string">&quot;A constructor&quot;</span> &lt;&lt; endl; &#125;<br>    <span class="hljs-type">int</span> x;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">B</span> : <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">public</span> A &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">B</span>() &#123; cout &lt;&lt; <span class="hljs-string">&quot;B constructor&quot;</span> &lt;&lt; endl; &#125;<br>    <span class="hljs-type">int</span> y;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">C</span> : <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">public</span> A &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">C</span>() &#123; cout &lt;&lt; <span class="hljs-string">&quot;C constructor&quot;</span> &lt;&lt; endl; &#125;<br>    <span class="hljs-type">int</span> z;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">D</span> : <span class="hljs-keyword">public</span> B, <span class="hljs-keyword">public</span> C &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">D</span>() &#123; cout &lt;&lt; <span class="hljs-string">&quot;D constructor&quot;</span> &lt;&lt; endl; &#125;<br>    <span class="hljs-type">int</span> w;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    D d;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>输出结果：</strong></p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs delphi">A <span class="hljs-function"><span class="hljs-keyword">constructor</span></span><br><span class="hljs-function"><span class="hljs-title">B</span> <span class="hljs-title">constructor</span></span><br><span class="hljs-function"><span class="hljs-title">C</span> <span class="hljs-title">constructor</span></span><br><span class="hljs-function"><span class="hljs-title">D</span> <span class="hljs-title">constructor</span></span><br></code></pre></td></tr></table></figure>
+
+<p><strong>分析：</strong></p>
+<ol>
+<li>虚基类 <code>A</code> 的构造函数被最先调用，确保 <code>A</code> 的实例在派生类之前构造。</li>
+<li><code>B</code> 和 <code>C</code> 的构造函数分别被调用，而不是 <code>D</code> 自己去调用 <code>A</code> 的构造函数。</li>
+<li>最后，<code>D</code> 的构造函数被调用。</li>
+</ol>
+<h3 id="5-虚继承的优缺点"><a href="#5-虚继承的优缺点" class="headerlink" title="5. 虚继承的优缺点"></a>5. 虚继承的优缺点</h3><h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ol>
+<li><strong>解决菱形继承问题</strong>：虚继承通过共享基类的实例，避免了冗余的数据成员和可能的歧义。</li>
+<li><strong>提高代码复用性</strong>：多个派生类可以共同使用同一个基类实例，避免了多次初始化和冗余数据。</li>
+</ol>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ol>
+<li><strong>性能开销</strong>：虚继承需要额外的指针或表格来管理虚基类的共享实例，因此可能带来一定的性能开销。</li>
+<li><strong>复杂性</strong>：虚继承使得类的继承关系变得复杂，构造函数的调用顺序和内存布局需要更加小心。</li>
+</ol>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><p>虚继承是C++提供的一个机制，主要用于解决多重继承中的菱形继承问题，它通过确保多个派生类共享同一个基类实例，避免了冗余和歧义。尽管虚继承增加了程序的复杂性，并可能带来一定的性能开销，但它在处理复杂的继承关系时是非常有用的，尤其是在大规模的面向对象设计中。</p>
+<h2 id="虚函数"><a href="#虚函数" class="headerlink" title="虚函数"></a>虚函数</h2><h3 id="虚函数（Virtual-Function）详解"><a href="#虚函数（Virtual-Function）详解" class="headerlink" title="虚函数（Virtual Function）详解"></a>虚函数（Virtual Function）详解</h3><p>在C++中，虚函数是一种成员函数，其目的是通过基类指针或引用来动态调用派生类的重写版本，从而实现<strong>运行时多态性</strong>。通过虚函数，C++支持<strong>动态绑定</strong>，即在程序运行时确定调用哪个函数，而不是在编译时静态绑定。</p>
+<p>虚函数是面向对象编程中的重要特性之一，使得同一类型的对象能够表现出不同的行为，增强了代码的扩展性和可维护性。</p>
+<h3 id="1-虚函数的基本概念"><a href="#1-虚函数的基本概念" class="headerlink" title="1. 虚函数的基本概念"></a>1. 虚函数的基本概念</h3><h4 id="1-1-什么是虚函数？"><a href="#1-1-什么是虚函数？" class="headerlink" title="1.1 什么是虚函数？"></a>1.1 什么是虚函数？</h4><p>虚函数是基类中声明为 <code>virtual</code> 的成员函数。一个基类中的成员函数如果被声明为虚函数，那么在派生类中可以对其进行重写（覆盖），并且通过基类指针或引用来调用派生类的版本。</p>
+<p>虚函数的语法如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Base</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">display</span><span class="hljs-params">()</span> </span>&#123; <span class="hljs-comment">// 声明虚函数</span><br>        std::cout &lt;&lt; <span class="hljs-string">&quot;Base display&quot;</span> &lt;&lt; std::endl;<br>    &#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Derived</span> : <span class="hljs-keyword">public</span> Base &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">display</span><span class="hljs-params">()</span> <span class="hljs-keyword">override</span> </span>&#123; <span class="hljs-comment">// 重写虚函数</span><br>        std::cout &lt;&lt; <span class="hljs-string">&quot;Derived display&quot;</span> &lt;&lt; std::endl;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h4 id="1-2-虚函数的工作原理"><a href="#1-2-虚函数的工作原理" class="headerlink" title="1.2 虚函数的工作原理"></a>1.2 虚函数的工作原理</h4><p>虚函数的核心在于<strong>动态绑定</strong>（或称为<strong>晚绑定</strong>）。当通过基类的指针或引用调用虚函数时，C++不会立即调用编译时确定的函数，而是根据对象的实际类型（即指针或引用指向的派生类类型）来调用相应的函数。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">Base* basePtr = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Derived</span>();<br>basePtr-&gt;<span class="hljs-built_in">display</span>();  <span class="hljs-comment">// 调用Derived类的display()</span><br></code></pre></td></tr></table></figure>
+
+<p>即使 <code>basePtr</code> 是 <code>Base*</code> 类型，C++会根据它实际指向的对象类型（此处为 <code>Derived</code>）来调用 <code>Derived</code> 中的 <code>display()</code> 方法，而不是 <code>Base</code> 中的版本。</p>
+<h3 id="2-虚函数的实现细节"><a href="#2-虚函数的实现细节" class="headerlink" title="2. 虚函数的实现细节"></a>2. 虚函数的实现细节</h3><p>虚函数的实现依赖于一个称为<strong>虚函数表</strong>（Virtual Function Table，VTable）的机制。每个包含虚函数的类都会有一个虚函数表，该表保存指向类的虚函数的指针。对于一个类的每个对象，它都会包含一个指向虚函数表的指针，称为<strong>虚指针</strong>（VPointer）。</p>
+<h4 id="2-1-虚函数表（VTable）"><a href="#2-1-虚函数表（VTable）" class="headerlink" title="2.1 虚函数表（VTable）"></a>2.1 虚函数表（VTable）</h4><p>虚函数表是一个数组，其中每个元素是指向虚函数的指针。当类中有虚函数时，编译器会为该类生成一个虚函数表，并将所有虚函数的地址存储在表中。</p>
+<ul>
+<li>每个包含虚函数的类都有一个虚函数表。</li>
+<li>每个对象会有一个隐式的指针，指向该类的虚函数表。</li>
+<li>当调用虚函数时，程序会通过虚指针查找虚函数表，并跳转到相应的函数地址。</li>
+</ul>
+<h4 id="2-2-虚指针（VPointer）"><a href="#2-2-虚指针（VPointer）" class="headerlink" title="2.2 虚指针（VPointer）"></a>2.2 虚指针（VPointer）</h4><p>虚指针是编译器自动为每个对象添加的一个指针，用于指向虚函数表。当通过指针或引用调用虚函数时，程序会利用虚指针查找虚函数表，进而确定要调用哪个派生类中的虚函数。</p>
+<h3 id="3-虚函数的应用"><a href="#3-虚函数的应用" class="headerlink" title="3. 虚函数的应用"></a>3. 虚函数的应用</h3><p>虚函数在C++中的主要作用是实现<strong>运行时多态性</strong>，从而使得程序在运行时能够根据对象的实际类型执行不同的操作。常见的应用场景包括：</p>
+<h4 id="3-1-多态性"><a href="#3-1-多态性" class="headerlink" title="3.1 多态性"></a>3.1 多态性</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Animal</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">sound</span><span class="hljs-params">()</span> </span>&#123; <span class="hljs-comment">// 虚函数</span><br>        std::cout &lt;&lt; <span class="hljs-string">&quot;Animal sound&quot;</span> &lt;&lt; std::endl;<br>    &#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Dog</span> : <span class="hljs-keyword">public</span> Animal &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">sound</span><span class="hljs-params">()</span> <span class="hljs-keyword">override</span> </span>&#123; <span class="hljs-comment">// 重写虚函数</span><br>        std::cout &lt;&lt; <span class="hljs-string">&quot;Bark&quot;</span> &lt;&lt; std::endl;<br>    &#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Cat</span> : <span class="hljs-keyword">public</span> Animal &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">sound</span><span class="hljs-params">()</span> <span class="hljs-keyword">override</span> </span>&#123; <span class="hljs-comment">// 重写虚函数</span><br>        std::cout &lt;&lt; <span class="hljs-string">&quot;Meow&quot;</span> &lt;&lt; std::endl;<br>    &#125;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    Animal* animal1 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Dog</span>();<br>    Animal* animal2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Cat</span>();<br><br>    animal1-&gt;<span class="hljs-built_in">sound</span>();  <span class="hljs-comment">// 输出: Bark</span><br>    animal2-&gt;<span class="hljs-built_in">sound</span>();  <span class="hljs-comment">// 输出: Meow</span><br><br>    <span class="hljs-keyword">delete</span> animal1;<br>    <span class="hljs-keyword">delete</span> animal2;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在上述示例中，<code>Animal</code> 类有一个虚函数 <code>sound()</code>，而 <code>Dog</code> 和 <code>Cat</code> 类分别重写了这个函数。通过基类指针调用虚函数时，C++会根据对象的实际类型来决定调用哪个版本的 <code>sound()</code> 方法，从而实现多态性。</p>
+<h4 id="3-2-抽象基类和接口"><a href="#3-2-抽象基类和接口" class="headerlink" title="3.2 抽象基类和接口"></a>3.2 抽象基类和接口</h4><p>虚函数通常与<strong>纯虚函数</strong>结合使用，用于定义<strong>抽象基类</strong>和<strong>接口</strong>。</p>
+<ul>
+<li><strong>纯虚函数</strong>：虚函数后面加 <code>= 0</code> 表示纯虚函数。纯虚函数没有函数体，必须在派生类中实现。包含纯虚函数的类是抽象基类，无法实例化。</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Shape</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span> </span>= <span class="hljs-number">0</span>; <span class="hljs-comment">// 纯虚函数</span><br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Circle</span> : <span class="hljs-keyword">public</span> Shape &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span> <span class="hljs-keyword">override</span> </span>&#123;<br>        std::cout &lt;&lt; <span class="hljs-string">&quot;Drawing Circle&quot;</span> &lt;&lt; std::endl;<br>    &#125;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-comment">// Shape s; // 错误，无法实例化抽象类</span><br>    Circle c;<br>    c.<span class="hljs-built_in">draw</span>();  <span class="hljs-comment">// 输出: Drawing Circle</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在上面的例子中，<code>Shape</code> 是一个抽象基类，包含纯虚函数 <code>draw()</code>。<code>Circle</code> 类继承自 <code>Shape</code> 并实现了 <code>draw()</code> 方法。由于 <code>Shape</code> 是抽象的，无法直接创建其对象，只能通过派生类来实例化。</p>
+<h3 id="4-虚函数的特点"><a href="#4-虚函数的特点" class="headerlink" title="4. 虚函数的特点"></a>4. 虚函数的特点</h3><h4 id="4-1-重写虚函数"><a href="#4-1-重写虚函数" class="headerlink" title="4.1 重写虚函数"></a>4.1 重写虚函数</h4><p>派生类可以重新定义基类的虚函数，称为<strong>重写</strong>（Override）虚函数。使用 <code>override</code> 关键字不仅能够明确表示该函数是重写父类的虚函数，还能帮助编译器检查是否正确重写。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Base</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">display</span><span class="hljs-params">()</span> </span>&#123; std::cout &lt;&lt; <span class="hljs-string">&quot;Base display&quot;</span> &lt;&lt; std::endl; &#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Derived</span> : <span class="hljs-keyword">public</span> Base &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">display</span><span class="hljs-params">()</span> <span class="hljs-keyword">override</span> </span>&#123; std::cout &lt;&lt; <span class="hljs-string">&quot;Derived display&quot;</span> &lt;&lt; std::endl; &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h4 id="4-2-析构函数的虚拟化"><a href="#4-2-析构函数的虚拟化" class="headerlink" title="4.2 析构函数的虚拟化"></a>4.2 析构函数的虚拟化</h4><p>如果一个类具有虚函数，并且这个类被用作基类，则<strong>析构函数</strong>通常也应该声明为虚函数。这样可以确保在删除基类指针指向的派生类对象时，派生类的析构函数也能够被正确调用，避免内存泄漏。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Base</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-keyword">virtual</span> ~<span class="hljs-built_in">Base</span>() &#123; <span class="hljs-comment">// 虚析构函数</span><br>        std::cout &lt;&lt; <span class="hljs-string">&quot;Base destructor&quot;</span> &lt;&lt; std::endl;<br>    &#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Derived</span> : <span class="hljs-keyword">public</span> Base &#123;<br><span class="hljs-keyword">public</span>:<br>    ~<span class="hljs-built_in">Derived</span>() <span class="hljs-keyword">override</span> &#123;<br>        std::cout &lt;&lt; <span class="hljs-string">&quot;Derived destructor&quot;</span> &lt;&lt; std::endl;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h4 id="4-3-虚函数与性能"><a href="#4-3-虚函数与性能" class="headerlink" title="4.3 虚函数与性能"></a>4.3 虚函数与性能</h4><p>虚函数的机制引入了一定的开销，主要体现在以下几个方面：</p>
+<ul>
+<li><strong>虚函数表的查找</strong>：每次通过基类指针或引用调用虚函数时，都需要查找虚函数表，这会带来一定的运行时开销。</li>
+<li><strong>内存开销</strong>：每个包含虚函数的类都需要有虚函数表，且每个对象需要存储一个虚指针，这增加了内存占用。</li>
+</ul>
+<p>不过，这些开销通常是可以接受的，尤其在多态性需求较强的场景中，虚函数的灵活性远远超越了性能上的影响。</p>
+<h3 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h3><p>虚函数是C++支持多态性的一项核心特性，通过它，程序能够在运行时根据对象的实际类型来决定调用哪个函数。虚函数使得C++能够支持动态绑定，避免了静态绑定带来的限制。虚函数广泛应用于实现抽象类、接口、运行时多态等场景，是面向对象编程中非常重要的一部分。</p>
+<p>通过理解虚函数的工作原理、实现细节以及应用场景，程序员可以更有效地设计灵活、可扩展的代码结构。</p>
+<h2 id="final-关键字"><a href="#final-关键字" class="headerlink" title="final 关键字"></a>final 关键字</h2><p>在C++中，<code>final</code> 是一个关键字，用来指定类或成员函数的特性，它的主要作用是：</p>
+<ol>
+<li><strong>防止类被继承</strong>（用于类声明中）。</li>
+<li><strong>防止函数被重写</strong>（用于成员函数声明中）。</li>
+</ol>
+<p><code>final</code> 是 C++11 引入的功能，旨在增强程序设计的安全性和可维护性，避免不必要的继承或函数重写。下面是对 <code>final</code> 关键字的详细解释。</p>
+<h3 id="1-final-用于类"><a href="#1-final-用于类" class="headerlink" title="1. final 用于类"></a>1. <code>final</code> 用于类</h3><p>当 <code>final</code> 用于类声明时，意味着该类不能再被继承。也就是说，任何尝试继承此类的操作都会导致编译错误。</p>
+<h4 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Base</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">display</span><span class="hljs-params">()</span> </span>&#123; std::cout &lt;&lt; <span class="hljs-string">&quot;Base class display&quot;</span> &lt;&lt; std::endl; &#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Derived</span> <span class="hljs-keyword">final</span> : <span class="hljs-keyword">public</span> Base &#123;  <span class="hljs-comment">// Derived 类不能再被继承</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">display</span><span class="hljs-params">()</span> <span class="hljs-keyword">override</span> </span>&#123; std::cout &lt;&lt; <span class="hljs-string">&quot;Derived class display&quot;</span> &lt;&lt; std::endl; &#125;<br>&#125;;<br><br><span class="hljs-comment">// 下面的代码将导致编译错误，因为 Derived 是一个 final 类，不能被继承</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">AnotherDerived</span> : <span class="hljs-keyword">public</span> Derived &#123;  <span class="hljs-comment">// 错误：不能继承 final 类</span><br>    <span class="hljs-comment">// 代码会报错</span><br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>Derived</code> 类被标记为 <code>final</code>，因此任何试图继承自 <code>Derived</code> 的类都会导致编译错误。这是为了防止某些类被不恰当地进一步继承。</p>
+<h3 id="2-final-用于成员函数"><a href="#2-final-用于成员函数" class="headerlink" title="2. final 用于成员函数"></a>2. <code>final</code> 用于成员函数</h3><p><code>final</code> 也可以用于成员函数声明中，表示该函数不能在派生类中被重写。换句话说，如果一个函数被标记为 <code>final</code>，那么派生类不能重写（override）这个函数。</p>
+<h4 id="示例：-1"><a href="#示例：-1" class="headerlink" title="示例："></a>示例：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Base</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">display</span><span class="hljs-params">()</span> <span class="hljs-keyword">final</span> </span>&#123;  <span class="hljs-comment">// 这个成员函数不能在派生类中被重写</span><br>        std::cout &lt;&lt; <span class="hljs-string">&quot;Base class display&quot;</span> &lt;&lt; std::endl;<br>    &#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Derived</span> : <span class="hljs-keyword">public</span> Base &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-comment">// 下面的代码会导致编译错误，因为 display() 函数在 Base 类中是 final</span><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">display</span><span class="hljs-params">()</span> <span class="hljs-keyword">override</span> </span>&#123;  <span class="hljs-comment">// 错误：不能重写 Base 类中的 final 函数</span><br>        std::cout &lt;&lt; <span class="hljs-string">&quot;Derived class display&quot;</span> &lt;&lt; std::endl;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>Base</code> 类中的 <code>display()</code> 函数被标记为 <code>final</code>，这意味着 <code>Derived</code> 类无法重写这个函数。如果尝试在派生类中重写 <code>display()</code> 函数，编译器会报错。</p>
+<h3 id="3-final-与虚函数的结合使用"><a href="#3-final-与虚函数的结合使用" class="headerlink" title="3. final 与虚函数的结合使用"></a>3. <code>final</code> 与虚函数的结合使用</h3><p><code>final</code> 经常与虚函数结合使用，确保某些虚函数在派生类中不能被重写。它提供了一种防止继承体系被错误扩展的机制，确保了接口或行为的一致性。</p>
+<h4 id="示例：-2"><a href="#示例：-2" class="headerlink" title="示例："></a>示例：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Base</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">display</span><span class="hljs-params">()</span> <span class="hljs-keyword">final</span> </span>&#123;  <span class="hljs-comment">// 声明为 final，确保不能被重写</span><br>        std::cout &lt;&lt; <span class="hljs-string">&quot;Base class display&quot;</span> &lt;&lt; std::endl;<br>    &#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Derived</span> : <span class="hljs-keyword">public</span> Base &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">display</span><span class="hljs-params">()</span> <span class="hljs-keyword">override</span> </span>&#123;  <span class="hljs-comment">// 错误，不能重写 final 函数</span><br>        std::cout &lt;&lt; <span class="hljs-string">&quot;Derived class display&quot;</span> &lt;&lt; std::endl;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-final-的应用场景"><a href="#4-final-的应用场景" class="headerlink" title="4. final 的应用场景"></a>4. <code>final</code> 的应用场景</h3><h4 id="4-1-防止不必要的继承"><a href="#4-1-防止不必要的继承" class="headerlink" title="4.1 防止不必要的继承"></a>4.1 防止不必要的继承</h4><p>使用 <code>final</code> 来阻止某些类被继承，这在设计一些不希望被继承的类时非常有用。例如，某些类可能只需要提供固定的行为，并不希望其他类进一步扩展它们的功能。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Singleton</span> <span class="hljs-keyword">final</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">static</span> Singleton&amp; <span class="hljs-title">getInstance</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-type">static</span> Singleton instance;<br>        <span class="hljs-keyword">return</span> instance;<br>    &#125;<br><br><span class="hljs-keyword">private</span>:<br>    <span class="hljs-built_in">Singleton</span>() = <span class="hljs-keyword">default</span>;  <span class="hljs-comment">// 构造函数私有化</span><br>    <span class="hljs-built_in">Singleton</span>(<span class="hljs-type">const</span> Singleton&amp;) = <span class="hljs-keyword">delete</span>;  <span class="hljs-comment">// 禁止拷贝构造</span><br>    Singleton&amp; <span class="hljs-keyword">operator</span>=(<span class="hljs-type">const</span> Singleton&amp;) = <span class="hljs-keyword">delete</span>;  <span class="hljs-comment">// 禁止赋值</span><br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>Singleton</code> 类被标记为 <code>final</code>，并且禁止拷贝和赋值操作，确保它不能被继承并且只能有一个实例。</p>
+<h4 id="4-2-增强代码安全性"><a href="#4-2-增强代码安全性" class="headerlink" title="4.2 增强代码安全性"></a>4.2 增强代码安全性</h4><p>通过使用 <code>final</code> 关键字，程序员可以确保某些函数或类的设计意图不会被无意中改变。例如，如果一个基类的方法已经为所有派生类提供了适当的实现，而不希望它们被重写或修改，可以将该方法标记为 <code>final</code>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Base</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">()</span> <span class="hljs-keyword">final</span> </span>&#123;<br>        <span class="hljs-comment">// 执行固定的操作</span><br>    &#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Derived</span> : <span class="hljs-keyword">public</span> Base &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-comment">// 试图重写 doSomething() 将导致编译错误</span><br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">()</span> <span class="hljs-keyword">override</span> </span>&#123;  <span class="hljs-comment">// 错误：doSomething() 是 final，不能被重写</span><br>        <span class="hljs-comment">// 编译错误</span><br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>通过使用 <code>final</code>，你可以明确控制类的继承结构以及方法的重写行为，从而避免程序中不希望发生的修改。</p>
+<h3 id="5-final-与编译优化"><a href="#5-final-与编译优化" class="headerlink" title="5. final 与编译优化"></a>5. <code>final</code> 与编译优化</h3><p>在某些情况下，<code>final</code> 可以帮助编译器优化代码。比如，当一个类被标记为 <code>final</code> 时，编译器就知道该类不能再被继承，从而可能对该类的虚函数进行更高效的内联处理。编译器可以更好地进行<strong>静态分析</strong>，因为它知道这个类的继承结构是固定的。</p>
+<h3 id="6-总结"><a href="#6-总结" class="headerlink" title="6. 总结"></a>6. 总结</h3><p><code>final</code> 是 C++11 中引入的关键字，主要用于：</p>
+<ol>
+<li><strong>防止类被继承</strong>：在类声明中使用 <code>final</code>，阻止该类被进一步继承。</li>
+<li><strong>防止函数被重写</strong>：在虚函数声明中使用 <code>final</code>，阻止派生类重写该函数。</li>
+</ol>
+<p>使用 <code>final</code> 提高了代码的可维护性和安全性，帮助开发人员明确限制某些类或方法的继承或重写行为，从而避免不必要的扩展或修改。</p>
+<h2 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h2><p>在 C++ 中，<strong>Concepts</strong> 和 <strong>requires</strong> 是 C++20 引入的新特性，它们是用于约束模板类型的工具，旨在提高模板编程的可读性和可维护性。这些特性帮助程序员指定模板参数的要求，从而确保模板类型满足一定的条件。通过 Concepts，程序员可以在编译时进行类型检查，确保模板的类型参数符合预期的行为。</p>
+<h3 id="1-Concepts：概念"><a href="#1-Concepts：概念" class="headerlink" title="1. Concepts：概念"></a>1. Concepts：概念</h3><p>Concept（概念）是对类型要求的命名约定，用来描述一种类型的“能力”或“特性”。概念可以定义模板参数应该具备哪些操作、成员或属性，而 C++ 编译器可以根据这些要求进行类型检查。</p>
+<p>Concept的定义使用 <code>concept</code> 关键字。其作用类似于类型约束，目的是使得模板代码更加类型安全，并且可以提高代码的可读性和可维护性。Concept 允许编译器在模板实例化时检查类型是否符合特定的要求，从而避免在编译时出现不可预测的错误。</p>
+<h4 id="Concept的定义语法："><a href="#Concept的定义语法：" class="headerlink" title="Concept的定义语法："></a>Concept的定义语法：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-keyword">concept</span> ConceptName = &lt;condition&gt;;<br></code></pre></td></tr></table></figure>
+
+<p>其中，<code>ConceptName</code> 是概念的名称，<code>&lt;condition&gt;</code> 是对类型 <code>T</code> 的约束条件，通常是一些类型特征或者操作。</p>
+<h4 id="示例：自定义-Concept"><a href="#示例：自定义-Concept" class="headerlink" title="示例：自定义 Concept"></a>示例：自定义 Concept</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;type_traits&gt;</span></span><br><br><span class="hljs-comment">// 定义一个Concept，要求T类型必须是可加的（支持+操作符）</span><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-keyword">concept</span> Addable = <span class="hljs-built_in">requires</span>(T a, T b) &#123;<br>    &#123; a + b &#125; -&gt; std::same_as&lt;T&gt;; <span class="hljs-comment">// 表示a和b可以相加，并且返回值类型是T</span><br>&#125;;<br><br><span class="hljs-comment">// 使用Concept约束模板参数</span><br><span class="hljs-keyword">template</span> &lt;Addable T&gt;<br><span class="hljs-function">T <span class="hljs-title">add</span><span class="hljs-params">(T a, T b)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> a + b;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    std::cout &lt;&lt; <span class="hljs-built_in">add</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>) &lt;&lt; std::endl;         <span class="hljs-comment">// 可行，int是可加的</span><br>    <span class="hljs-comment">// std::cout &lt;&lt; add(&quot;Hello&quot;, &quot;World&quot;) &lt;&lt; std::endl;  // 错误，char*不支持+操作符</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，我们定义了一个名为 <code>Addable</code> 的概念，它要求类型 <code>T</code> 必须支持加法运算并且返回值类型是 <code>T</code>。在 <code>add</code> 函数模板中，只有满足 <code>Addable</code> 概念的类型 <code>T</code> 才能被使用。</p>
+<h3 id="2-requires：要求表达式"><a href="#2-requires：要求表达式" class="headerlink" title="2. requires：要求表达式"></a>2. <code>requires</code>：要求表达式</h3><p><code>requires</code> 是 C++20 中用于在模板参数中指定约束条件的关键字。它可以用于声明和表达某些条件，限制模板的使用。<code>requires</code> 可以单独使用，也可以与 Concepts 一起使用。</p>
+<p><code>requires</code> 表达式的作用是检查模板参数是否满足某些特定的操作或条件，若条件不满足，编译器会报错。</p>
+<h4 id="requires语法"><a href="#requires语法" class="headerlink" title="requires语法"></a><code>requires</code>语法</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">requires</span> &lt;condition&gt;<br></code></pre></td></tr></table></figure>
+
+<p>在 C++20 中，<code>requires</code> 关键字通常与概念（Concepts）结合使用，用来指定模板的约束条件。例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-keyword">requires</span> std::is_integral_v&lt;T&gt;  <span class="hljs-comment">// T必须是整型</span><br><span class="hljs-function">T <span class="hljs-title">add</span><span class="hljs-params">(T a, T b)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> a + b;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="requires-用于模板参数"><a href="#requires-用于模板参数" class="headerlink" title="requires 用于模板参数"></a><code>requires</code> 用于模板参数</h4><p><code>requires</code> 关键字可以直接用来约束模板参数，表示该模板只适用于满足某些要求的类型。以下是一个带有 <code>requires</code> 关键字的模板示例：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-function"><span class="hljs-keyword">requires</span> <span class="hljs-title">requires</span><span class="hljs-params">(T a, T b)</span> </span>&#123; a + b; &#125;  <span class="hljs-comment">// T支持加法操作</span><br><span class="hljs-function">T <span class="hljs-title">add</span><span class="hljs-params">(T a, T b)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> a + b;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>上面的代码中，<code>requires</code> 表达式检查 <code>T</code> 类型是否可以进行加法操作。如果类型不满足这个要求，编译器将无法实例化 <code>add</code> 函数。</p>
+<h4 id="requires-表达式与-concept-的结合"><a href="#requires-表达式与-concept-的结合" class="headerlink" title="requires 表达式与 concept 的结合"></a><code>requires</code> 表达式与 <code>concept</code> 的结合</h4><p>Concept 是一种可重用的约束条件，可以通过 <code>requires</code> 关键字在模板中更直观地使用。例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-keyword">concept</span> Addable = <span class="hljs-built_in">requires</span>(T a, T b) &#123; a + b; &#125;;<br><br><span class="hljs-keyword">template</span> &lt;Addable T&gt;<br><span class="hljs-function">T <span class="hljs-title">add</span><span class="hljs-params">(T a, T b)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> a + b;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-requires-子句与-SFINAE"><a href="#3-requires-子句与-SFINAE" class="headerlink" title="3. requires 子句与 SFINAE"></a>3. <code>requires</code> 子句与 SFINAE</h3><p><code>requires</code> 还可以用于指定 SFINAE（Substitution Failure Is Not An Error，替代失败不是错误）条件。通常在模板特化或函数重载时，使用 <code>requires</code> 可以根据模板参数类型的特性进行选择。</p>
+<h4 id="示例：SFINAE-与-requires"><a href="#示例：SFINAE-与-requires" class="headerlink" title="示例：SFINAE 与 requires"></a>示例：SFINAE 与 <code>requires</code></h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;type_traits&gt;</span></span><br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-keyword">requires</span> std::is_integral_v&lt;T&gt;  <span class="hljs-comment">// T必须是整型</span><br><span class="hljs-function">T <span class="hljs-title">multiply</span><span class="hljs-params">(T a, T b)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> a * b;<br>&#125;<br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-keyword">requires</span> std::is_floating_point_v&lt;T&gt;  <span class="hljs-comment">// T必须是浮点型</span><br><span class="hljs-function">T <span class="hljs-title">multiply</span><span class="hljs-params">(T a, T b)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> a * b;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    std::cout &lt;&lt; <span class="hljs-built_in">multiply</span>(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>) &lt;&lt; std::endl;        <span class="hljs-comment">// 整型</span><br>    std::cout &lt;&lt; <span class="hljs-built_in">multiply</span>(<span class="hljs-number">3.5</span>, <span class="hljs-number">2.1</span>) &lt;&lt; std::endl;    <span class="hljs-comment">// 浮点型</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这里的 <code>requires</code> 用于函数模板的重载，使得 <code>multiply</code> 函数能够根据传入的类型选择正确的重载版本。</p>
+<h3 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h3><ul>
+<li><strong>Concepts</strong> 提供了一种声明类型要求的方式，允许对模板参数进行约束，使得模板编程更加安全和可读。</li>
+<li><strong><code>requires</code></strong> 是用于定义约束条件的关键字，可以与 Concept 一起使用，或单独在模板函数中进行条件检查。</li>
+<li><code>requires</code> 关键字和 Concepts 的结合能在编译时有效地过滤掉不符合要求的类型，提高了代码的可维护性和类型安全性。</li>
+</ul>
+<p>通过 Concept 和 <code>requires</code>，C++ 模板编程可以更加灵活、清晰和精确地表达类型要求，减少了由于模板不合规类型导致的编译时错误。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C++</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/C/CS106L/" class="category-chain-item">CS106L</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%BB%A7%E6%89%BF/" class="print-no-link">#继承</a>
+      
+        <a href="/tags/%E6%A8%A1%E6%9D%BF%E7%B1%BB/" class="print-no-link">#模板类</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>继承和模板类 C++</div>
+      <div>http://wang-jiahao.github.io/posts/35825.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Jiahao Wang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年12月5日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2024年12月11日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/60866.html" title="RAII 智能指针 C++">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">RAII 智能指针 C++</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"wang-jiahao/comments","repo-id":"R_kgDONZtQAQ","category":"Announcements","category-id":"DIC_kwDONZtQAc4Ck9xy","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"bottom","lang":"zh-CN"};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <i class="iconfont icon-copyright"></i> <a href="https://github.com/wang-jiahao" target="_blank" rel="nofollow noopener"><span><font color="#FFA62F">2024-2025</font></span></a> <font color="#F62217"><i class="iconfont icon-love"></i></font> <a href="https://github.com/wang-jiahao" target="_blank" rel="nofollow noopener"><span><font color="#FFA62F">Zackaria</font></span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

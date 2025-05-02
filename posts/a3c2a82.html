@@ -1,0 +1,974 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/global/Zackaria.png">
+  <link rel="icon" href="/img/global/Zackaria.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#07c1f0">
+  <meta name="author" content="Jiahao Wang">
+  <meta name="keywords" content="博客,CS,图论,算法,数据结构,机器学习,深度学习,C++,C,CS61A,CS61B,CS188,Python,Java,PyTorch">
+  
+    <meta name="description" content="介绍了单源最短路径常用的Dijkstra算法和Bellman-Ford算法，以及多源最短路径常用的Floyd-Warshall算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="单源最短路径 多源最短路径">
+<meta property="og:url" content="http://wang-jiahao.github.io/posts/a3c2a82.html">
+<meta property="og:site_name" content="Zackaria&#39;s Corner">
+<meta property="og:description" content="介绍了单源最短路径常用的Dijkstra算法和Bellman-Ford算法，以及多源最短路径常用的Floyd-Warshall算法">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-12-16T15:22:22.000Z">
+<meta property="article:modified_time" content="2024-12-17T04:44:09.060Z">
+<meta property="article:author" content="Jiahao Wang">
+<meta property="article:tag" content="图">
+<meta property="article:tag" content="贪心">
+<meta property="article:tag" content="Dijkstra算法">
+<meta property="article:tag" content="Bellman-Ford算法">
+<meta property="article:tag" content="Floyd-Warshall算法">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>单源最短路径 多源最短路径 - Zackaria&#39;s Corner</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap.css">
+<link rel="stylesheet" href="/css/selection.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wang-jiahao.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/global/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"4ATURf7GEMgcrf4AMW2NgIns-gzGzoHsz","app_key":"PEOHEBjwdHQuyIMZYZq3H8NE","server_url":"https://4aturf7g.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Zackaria&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner/bluesky.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="单源最短路径 多源最短路径"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-12-16 23:22" pubdate>
+          2024年12月16日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          41 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">单源最短路径 多源最短路径</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42500831/article/details/89608104?ops_request_misc=%257B%2522request%255Fid%2522%253A%25223f125175167567dee887c0b7de5f0dcc%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=3f125175167567dee887c0b7de5f0dcc&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-89608104-null-null.142%5Ev100%5Epc_search_result_base2&utm_term=%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84&spm=1018.2226.3001.4187">单源最短路径(Dijkstra算法)</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_70980326/article/details/133916402?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522689c988ede407f8b1ed22330523e9ca6%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=689c988ede407f8b1ed22330523e9ca6&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-133916402-null-null.142%5Ev100%5Epc_search_result_base2&utm_term=Bellman-Ford%20%E7%AE%97%E6%B3%95&spm=1018.2226.3001.4187">单源最短路径(Bellman-Ford算法)</a></p>
+<h3 id="单源最短路径"><a href="#单源最短路径" class="headerlink" title="单源最短路径"></a>单源最短路径</h3><p><strong>单源最短路径问题（Single-Source Shortest Path Problem）</strong> 是图论中的一个经典问题，目的是在一个加权图中，从一个指定的起点出发，计算到其他所有顶点的最短路径长度。这里的图可以是有向图或无向图，边的权值通常是非负的。该问题广泛应用于路由算法、网络优化、地理信息系统（GIS）等领域。</p>
+<h4 id="问题定义"><a href="#问题定义" class="headerlink" title="问题定义"></a>问题定义</h4><p>给定一个加权图 $G(V,E)$，其中 $V$ 表示顶点集，$E$ 表示边集。每条边 $(u,v)$ 具有一个非负的权重 $w(u,v)$，目标是计算从一个源点 $S$ 到图中所有其他顶点的最短路径。</p>
+<h4 id="常见算法"><a href="#常见算法" class="headerlink" title="常见算法"></a>常见算法</h4><ol>
+<li><strong>Dijkstra 算法</strong>：用于图中所有边的权重为非负数时的单源最短路径问题。</li>
+<li><strong>Bellman-Ford 算法</strong>：能够处理带负权边的情况，并且可以检测负权环，但时间复杂度较高。</li>
+<li><strong>Floyd-Warshall 算法</strong>：用于求解任意两点之间的最短路径，适用于所有顶点之间的最短路径问题，虽然也可以处理负权边，但不适用于负权环。</li>
+</ol>
+<p>这里，我们主要介绍 <strong>Dijkstra 算法</strong>和<strong>Bellman-Ford 算法</strong>，它是解决单源最短路径问题的最常用方法，适用于没有负权边的图。</p>
+<h4 id="Dijkstra-算法"><a href="#Dijkstra-算法" class="headerlink" title="Dijkstra 算法"></a>Dijkstra 算法</h4><p>Dijkstra 算法基于贪心策略，逐步确定最短路径。在每一步，它选择当前距离源点最近的未访问节点，并更新与其邻接的所有节点的最短路径。</p>
+<h4 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h4><ol>
+<li>初始化：设定源点的距离为 0，其他所有节点的距离为无穷大。将源点加入一个未处理的集合。</li>
+<li>在未处理节点中选择距离源点最近的节点。</li>
+<li>更新该节点的所有邻居的最短路径。如果通过当前节点到达某个邻居的路径更短，就更新该邻居的最短距离。</li>
+<li>标记当前节点为已处理，表示其最短路径已确定。</li>
+<li>重复步骤 2 和 3，直到所有节点都被处理完毕。</li>
+</ol>
+<h4 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a>C++实现</h4><p>以下是 Dijkstra 算法的 C++ 实现，使用了优先队列（<code>priority_queue</code>）来高效地选择距离源点最近的节点：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;queue&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;climits&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-comment">// 定义图的结构：邻接表</span><br><span class="hljs-keyword">typedef</span> pair&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt; pii; <span class="hljs-comment">// pair&lt;邻接点, 边的权重&gt;</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dijkstra</span><span class="hljs-params">(<span class="hljs-type">int</span> n, vector&lt;vector&lt;pii&gt;&gt;&amp; adj, <span class="hljs-type">int</span> src)</span> </span>&#123;<br>    <span class="hljs-comment">// 最短路径数组，初始化为无穷大</span><br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">dist</span><span class="hljs-params">(n, INT_MAX)</span></span>;<br>    dist[src] = <span class="hljs-number">0</span>;<br><br>    <span class="hljs-comment">// 优先队列，存储距离和节点，按距离升序排列</span><br>    priority_queue&lt;pii, vector&lt;pii&gt;, greater&lt;pii&gt;&gt; pq;<br>    pq.<span class="hljs-built_in">push</span>(&#123;<span class="hljs-number">0</span>, src&#125;);<br><br>    <span class="hljs-keyword">while</span> (!pq.<span class="hljs-built_in">empty</span>()) &#123;<br>        <span class="hljs-type">int</span> u = pq.<span class="hljs-built_in">top</span>().second; <span class="hljs-comment">// 当前节点</span><br>        <span class="hljs-type">int</span> d = pq.<span class="hljs-built_in">top</span>().first;  <span class="hljs-comment">// 当前最短路径</span><br>        pq.<span class="hljs-built_in">pop</span>();<br><br>        <span class="hljs-comment">// 如果当前路径已经不优于已知路径，跳过</span><br>        <span class="hljs-keyword">if</span> (d &gt; dist[u]) <span class="hljs-keyword">continue</span>;<br><br>        <span class="hljs-comment">// 遍历邻接节点</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; edge : adj[u]) &#123;<br>            <span class="hljs-type">int</span> v = edge.first;    <span class="hljs-comment">// 邻接节点</span><br>            <span class="hljs-type">int</span> weight = edge.second; <span class="hljs-comment">// 边的权重</span><br><br>            <span class="hljs-comment">// 更新最短路径</span><br>            <span class="hljs-keyword">if</span> (dist[u] + weight &lt; dist[v]) &#123;<br>                dist[v] = dist[u] + weight;<br>                pq.<span class="hljs-built_in">push</span>(&#123;dist[v], v&#125;);<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">// 输出从源点到其他节点的最短路径</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">if</span> (dist[i] == INT_MAX)<br>            cout &lt;&lt; <span class="hljs-string">&quot;Node &quot;</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">&quot; is unreachable from source.&quot;</span> &lt;&lt; endl;<br>        <span class="hljs-keyword">else</span><br>            cout &lt;&lt; <span class="hljs-string">&quot;Shortest path to node &quot;</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">&quot; is &quot;</span> &lt;&lt; dist[i] &lt;&lt; endl;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n, m; <span class="hljs-comment">// n是节点数，m是边数</span><br>    cout &lt;&lt; <span class="hljs-string">&quot;Enter the number of nodes and edges: &quot;</span>;<br>    cin &gt;&gt; n &gt;&gt; m;<br><br>    vector&lt;vector&lt;pii&gt;&gt; <span class="hljs-built_in">adj</span>(n);<br>    <br>    cout &lt;&lt; <span class="hljs-string">&quot;Enter the edges (u, v, w):&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) &#123;<br>        <span class="hljs-type">int</span> u, v, w;<br>        cin &gt;&gt; u &gt;&gt; v &gt;&gt; w;<br>        adj[u].<span class="hljs-built_in">push_back</span>(&#123;v, w&#125;);<br>    &#125;<br><br>    <span class="hljs-type">int</span> src;<br>    cout &lt;&lt; <span class="hljs-string">&quot;Enter the source node: &quot;</span>;<br>    cin &gt;&gt; src;<br><br>    <span class="hljs-built_in">dijkstra</span>(n, adj, src);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h4 id="代码解释："><a href="#代码解释：" class="headerlink" title="代码解释："></a>代码解释：</h4><ol>
+<li><strong>输入部分：</strong><ul>
+<li><code>n</code> 是图的顶点数，<code>m</code> 是边的数量。</li>
+<li>每条边由三个整数表示：<code>u</code>、<code>v</code>、<code>w</code>，分别表示从顶点 <code>u</code> 到顶点 <code>v</code> 的边，权重为 <code>w</code>。</li>
+<li><code>source</code> 表示计算单源最短路径的起始顶点。</li>
+</ul>
+</li>
+<li><strong>图的表示：</strong><ul>
+<li>使用 <code>vector&lt;vector&lt;PII&gt;&gt; graph(n)</code> 来存储图的邻接表，每个元素是一个 <code>PII</code> 对，表示一个邻接节点及其边的权重。</li>
+</ul>
+</li>
+<li><strong>Dijkstra 算法：</strong><ul>
+<li>初始化 <code>dist</code> 数组，表示从源点到其他点的最短路径距离，初始值为 <code>INT_MAX</code>，表示不可达。</li>
+<li>使用优先队列 <code>pq</code> 来动态选择当前最短的未访问节点。</li>
+<li>对每个节点的邻接节点进行松弛操作，更新最短路径。</li>
+</ul>
+</li>
+<li><strong>输出结果：</strong><ul>
+<li>输出源点到每个节点的最短距离。如果某个节点不可达，则输出 <code>INF</code>。</li>
+</ul>
+</li>
+</ol>
+<h4 id="时间复杂度："><a href="#时间复杂度：" class="headerlink" title="时间复杂度："></a>时间复杂度：</h4><ul>
+<li><p>使用优先队列（堆）实现 Dijkstra 算法时，时间复杂度为 </p>
+<p>$O((V+E)log⁡V)$</p>
+</li>
+</ul>
+<h4 id="Bellman-Ford-算法简介"><a href="#Bellman-Ford-算法简介" class="headerlink" title="Bellman-Ford 算法简介"></a>Bellman-Ford 算法简介</h4><p>Bellman-Ford 算法是一种用于求解单源最短路径问题的经典算法。与 Dijkstra 算法不同，Bellman-Ford 算法不仅可以处理非负权边的图，还能够处理具有负权边的图，甚至能检测图中是否存在负权环。(在图论中，<strong>负权环</strong>指的是图中一个环（即路径可以回到起点），该环上所有边的权重之和小于零。简单来说，负权环是一个循环路径，沿着该路径走一圈所得到的权重总和是负数。)</p>
+<h4 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h4><p>Bellman-Ford 算法的核心思想是通过逐步“松弛”图中每条边来逐渐逼近最短路径的解。松弛操作指的是，假设当前节点 <code>u</code> 到达节点 <code>v</code> 的路径的已知距离为 <code>d[u]</code> 和 <code>d[v]</code>，如果通过 <code>u</code> 到 <code>v</code> 的路径会使得 <code>d[v]</code> 的值变小（即 <code>d[u] + w(u,v) &lt; d[v]</code>），则更新 <code>d[v]</code>。</p>
+<h4 id="算法步骤-1"><a href="#算法步骤-1" class="headerlink" title="算法步骤"></a>算法步骤</h4><ol>
+<li><strong>初始化</strong>：<ul>
+<li>对于所有节点 <code>v</code>，设置初始距离 <code>d[v]</code> 为无穷大（表示从源节点到该节点不可达）。</li>
+<li>对源节点 <code>s</code>，设置 <code>d[s] = 0</code>，因为源节点到自身的距离为 0。</li>
+</ul>
+</li>
+<li><strong>松弛操作</strong>：<ul>
+<li>对图中的每一条边 <code>(u, v)</code>，如果 <code>d[u] + w(u, v) &lt; d[v]</code>，则更新 <code>d[v] = d[u] + w(u, v)</code>。</li>
+<li>重复上述松弛操作 <code>V - 1</code> 次，其中 <code>V</code> 是图中节点的数量。这是因为最长的最短路径可能经过图中最多 <code>V - 1</code> 条边。</li>
+</ul>
+</li>
+<li><strong>负权环检测</strong>：<ul>
+<li>在完成 <code>V - 1</code> 次松弛操作之后，若仍然存在边 <code>(u, v)</code>，使得 <code>d[u] + w(u, v) &lt; d[v]</code>，则图中存在负权环。</li>
+</ul>
+</li>
+</ol>
+<h4 id="算法时间复杂度"><a href="#算法时间复杂度" class="headerlink" title="算法时间复杂度"></a>算法时间复杂度</h4><ul>
+<li>由于每次松弛操作需要遍历所有的边，而最多需要进行 <code>V - 1</code> 次松弛操作，因此时间复杂度为 **O(V * E)**，其中 <code>V</code> 是图中的节点数，<code>E</code> 是图中的边数。</li>
+</ul>
+<h4 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h4><p><strong>优点</strong>：</p>
+<ul>
+<li>可以处理包含负权边的图，且能够检测负权环。</li>
+<li>算法实现相对简单。</li>
+</ul>
+<p><strong>缺点</strong>：</p>
+<ul>
+<li>时间复杂度相对较高，尤其是在稠密图中，可能不如 Dijkstra 算法高效。</li>
+</ul>
+<h4 id="C-实现代码"><a href="#C-实现代码" class="headerlink" title="C++ 实现代码"></a>C++ 实现代码</h4><p>下面是 Bellman-Ford 算法的 C++ 实现：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;climits&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-comment">// 边的结构体</span><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Edge</span> &#123;<br>    <span class="hljs-type">int</span> u, v, weight;<br>&#125;;<br><br><span class="hljs-comment">// Bellman-Ford 算法</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">BellmanFord</span><span class="hljs-params">(<span class="hljs-type">int</span> V, <span class="hljs-type">int</span> E, vector&lt;Edge&gt;&amp; edges, <span class="hljs-type">int</span> src)</span> </span>&#123;<br>    <span class="hljs-comment">// 初始化距离数组，所有节点距离源节点的距离为无穷大</span><br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">dist</span><span class="hljs-params">(V, INT_MAX)</span></span>;<br>    dist[src] = <span class="hljs-number">0</span>;<br><br>    <span class="hljs-comment">// 松弛操作：对每条边进行 V-1 次松弛</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; V; ++i) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; E; ++j) &#123;<br>            <span class="hljs-type">int</span> u = edges[j].u;<br>            <span class="hljs-type">int</span> v = edges[j].v;<br>            <span class="hljs-type">int</span> weight = edges[j].weight;<br><br>            <span class="hljs-comment">// 如果可以通过 u 到 v 更短，则更新 dist[v]</span><br>            <span class="hljs-keyword">if</span> (dist[u] != INT_MAX &amp;&amp; dist[u] + weight &lt; dist[v]) &#123;<br>                dist[v] = dist[u] + weight;<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">// 检查是否存在负权环</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; E; ++i) &#123;<br>        <span class="hljs-type">int</span> u = edges[i].u;<br>        <span class="hljs-type">int</span> v = edges[i].v;<br>        <span class="hljs-type">int</span> weight = edges[i].weight;<br><br>        <span class="hljs-keyword">if</span> (dist[u] != INT_MAX &amp;&amp; dist[u] + weight &lt; dist[v]) &#123;<br>            cout &lt;&lt; <span class="hljs-string">&quot;Graph contains negative weight cycle&quot;</span> &lt;&lt; endl;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;  <span class="hljs-comment">// 如果发现负权环，则返回 false</span><br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">// 打印每个节点的最短距离</span><br>    cout &lt;&lt; <span class="hljs-string">&quot;Vertex Distance from Source &quot;</span> &lt;&lt; src &lt;&lt; endl;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; V; ++i) &#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;Vertex &quot;</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">&quot;: &quot;</span> &lt;&lt; dist[i] &lt;&lt; endl;<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;  <span class="hljs-comment">// 算法成功执行</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> V = <span class="hljs-number">5</span>;  <span class="hljs-comment">// 图中节点的数量</span><br>    <span class="hljs-type">int</span> E = <span class="hljs-number">8</span>;  <span class="hljs-comment">// 图中边的数量</span><br><br>    <span class="hljs-comment">// 创建图的边</span><br>    vector&lt;Edge&gt; edges = &#123;<br>        &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">-1</span>&#125;, &#123;<span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>&#125;, &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>&#125;, &#123;<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>&#125;, &#123;<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2</span>&#125;,<br>        &#123;<span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>&#125;, &#123;<span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>&#125;, &#123;<span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">-3</span>&#125;<br>    &#125;;<br><br>    <span class="hljs-comment">// 调用 Bellman-Ford 算法，从源节点 0 开始</span><br>    <span class="hljs-built_in">BellmanFord</span>(V, E, edges, <span class="hljs-number">0</span>);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="代码说明"><a href="#代码说明" class="headerlink" title="代码说明"></a>代码说明</h4><ul>
+<li><p><strong>Edge 结构体</strong>：表示图中的一条边，包含起始节点 <code>u</code>，目标节点 <code>v</code> 和边的权重 <code>weight</code>。</p>
+</li>
+<li><p>BellmanFord 函数：</p>
+<ul>
+<li><code>V</code> 表示节点数，<code>E</code> 表示边数，<code>edges</code> 是图中的边。</li>
+<li>在第一次循环中进行 <code>V - 1</code> 次松弛操作，更新最短路径。</li>
+<li>第二次循环用于检查是否存在负权环，如果发现负权环，则输出提示信息并返回 <code>false</code>。</li>
+</ul>
+</li>
+<li><p>main 函数：</p>
+<ul>
+<li>构建一个包含 5 个节点和 8 条边的有向图，图中包含一些负权边。</li>
+</ul>
+</li>
+<li><p>调用 <code>BellmanFord</code> 函数计算从源节点 0 出发的最短路径。</p>
+</li>
+</ul>
+<h4 id="输出示例"><a href="#输出示例" class="headerlink" title="输出示例"></a>输出示例</h4><p>假设运行该程序，输出结果可能如下：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Vertex</span> Distance from Source <span class="hljs-number">0</span><br><span class="hljs-attribute">Vertex</span> <span class="hljs-number">0</span>: <span class="hljs-number">0</span><br><span class="hljs-attribute">Vertex</span> <span class="hljs-number">1</span>: -<span class="hljs-number">1</span><br><span class="hljs-attribute">Vertex</span> <span class="hljs-number">2</span>: <span class="hljs-number">2</span><br><span class="hljs-attribute">Vertex</span> <span class="hljs-number">3</span>: -<span class="hljs-number">2</span><br><span class="hljs-attribute">Vertex</span> <span class="hljs-number">4</span>: <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<p>如上所示，从源节点 <code>0</code> 出发，经过松弛操作后得到每个节点的最短距离。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>Bellman-Ford 算法通过反复松弛每条边来找到图中各个节点到源节点的最短路径。它能够处理包含负权边的图，并且具有较强的负权环检测能力。尽管其时间复杂度较高，但在一些特殊情况下（例如图中可能包含负权边或需要检测负权环）是非常有效的算法。</p>
+<h3 id="全源最短路径"><a href="#全源最短路径" class="headerlink" title="全源最短路径"></a>全源最短路径</h3><p>全源最短路径问题（All-Pairs Shortest Path，简称 APSP）是指给定一个加权图，要求计算图中所有顶点对之间的最短路径长度。与单源最短路径（如 Dijkstra 算法）不同，全源最短路径算法需要计算每一对顶点之间的最短路径。</p>
+<h4 id="常见算法-1"><a href="#常见算法-1" class="headerlink" title="常见算法"></a>常见算法</h4><ol>
+<li><p><strong>Floyd-Warshall 算法</strong></p>
+<p>Floyd-Warshall 算法是一种动态规划算法，用于解决全源最短路径问题。它通过逐步检查所有可能的中间顶点，更新路径的最短值。该算法适用于处理稠密图（即边的数量较多的图），时间复杂度为 $O(V^3)$，其中 V 是图的顶点数。(这个我怎么我感觉我都能想出来🤓)</p>
+</li>
+<li><p><strong>Johnson 算法</strong></p>
+<p>Johnson 算法使用了 Dijkstra 算法来求解全源最短路径。它通过对图进行加权重标定，转化为一组单源最短路径问题。适用于稀疏图（边的数量较少的图），时间复杂度为 $O(V^2 \log V + VE)$，其中 E 是边数，V 是顶点数。</p>
+</li>
+</ol>
+<h4 id="Floyd-Warshall-算法详细介绍"><a href="#Floyd-Warshall-算法详细介绍" class="headerlink" title="Floyd-Warshall 算法详细介绍"></a>Floyd-Warshall 算法详细介绍</h4><p>Floyd-Warshall 算法的核心思想是，假设图中存在一个中间顶点 k，并计算从每个顶点 i 到顶点 j 的最短路径。然后通过反复迭代更新最短路径。具体的更新方式是：</p>
+<p>$$<br>d(i, j) &#x3D; \min(d(i, j), d(i, k) + d(k, j))<br>$$<br>其中，$d(i,j)$ 表示从顶点 i 到顶点 j 的最短路径，k 是图中一个中间顶点。</p>
+<h4 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h4><ol>
+<li>初始化一个 $V \times V$ 的距离矩阵 dist，其中 $dist[i][j]$表示顶点 i 到顶点 j 的初始距离。如果存在边，则为该边的权重，否则为无穷大。</li>
+<li>对于每个顶点 k，遍历所有顶点对 i,j，尝试通过顶点 k 来更新 $dist[i][j]$。</li>
+<li>最终，矩阵 dist 中的值即为所有顶点对之间的最短路径。</li>
+</ol>
+<h4 id="C-实现-1"><a href="#C-实现-1" class="headerlink" title="C++ 实现"></a>C++ 实现</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;climits&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-comment">// 定义无穷大的值</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> INF = INT_MAX;<br><br><span class="hljs-comment">// Floyd-Warshall 算法</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">floydWarshall</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; dist, <span class="hljs-type">int</span> V)</span> </span>&#123;<br>    <span class="hljs-comment">// dist[i][j] 表示从 i 到 j 的最短路径</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = <span class="hljs-number">0</span>; k &lt; V; ++k) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; V; ++i) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; V; ++j) &#123;<br>                <span class="hljs-comment">// 更新最短路径</span><br>                <span class="hljs-keyword">if</span> (dist[i][k] != INF &amp;&amp; dist[k][j] != INF &amp;&amp; dist[i][k] + dist[k][j] &lt; dist[i][j]) &#123;<br>                    dist[i][j] = dist[i][k] + dist[k][j];<br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 打印最短路径矩阵</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">printSolution</span><span class="hljs-params">(<span class="hljs-type">const</span> vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; dist, <span class="hljs-type">int</span> V)</span> </span>&#123;<br>    cout &lt;&lt; <span class="hljs-string">&quot;最短路径矩阵：&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; V; ++i) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; V; ++j) &#123;<br>            <span class="hljs-keyword">if</span> (dist[i][j] == INF)<br>                cout &lt;&lt; <span class="hljs-string">&quot;INF &quot;</span>;<br>            <span class="hljs-keyword">else</span><br>                cout &lt;&lt; dist[i][j] &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>        &#125;<br>        cout &lt;&lt; endl;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-comment">// 顶点数目</span><br>    <span class="hljs-type">int</span> V = <span class="hljs-number">4</span>;<br>    <br>    <span class="hljs-comment">// 初始化图的邻接矩阵</span><br>    vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">dist</span>(V, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-type">int</span>&gt;(V, INF));<br><br>    <span class="hljs-comment">// 自己到自己距离为 0</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; V; ++i) &#123;<br>        dist[i][i] = <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-comment">// 给定图的边和权重</span><br>    dist[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">5</span>;<br>    dist[<span class="hljs-number">0</span>][<span class="hljs-number">2</span>] = <span class="hljs-number">10</span>;<br>    dist[<span class="hljs-number">1</span>][<span class="hljs-number">2</span>] = <span class="hljs-number">3</span>;<br>    dist[<span class="hljs-number">1</span>][<span class="hljs-number">3</span>] = <span class="hljs-number">1</span>;<br>    dist[<span class="hljs-number">2</span>][<span class="hljs-number">3</span>] = <span class="hljs-number">2</span>;<br><br>    <span class="hljs-comment">// 调用 Floyd-Warshall 算法</span><br>    <span class="hljs-built_in">floydWarshall</span>(dist, V);<br><br>    <span class="hljs-comment">// 输出最短路径矩阵</span><br>    <span class="hljs-built_in">printSolution</span>(dist, V);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="代码说明-1"><a href="#代码说明-1" class="headerlink" title="代码说明"></a>代码说明</h4><ol>
+<li><strong>邻接矩阵初始化</strong>：<ul>
+<li>初始化一个 $V \times V $的矩阵 <code>dist</code>，其中 <code>dist[i][j]</code> 代表从顶点 i 到顶点 j 的距离。如果存在边，则设置为该边的权重；否则，设置为 <code>INF</code>（无穷大）。</li>
+</ul>
+</li>
+<li><strong>Floyd-Warshall 算法</strong>：<ul>
+<li>通过三层嵌套的循环来遍历每对顶点 i 和 j，对于每个可能的中间顶点 k，更新 <code>dist[i][j]</code> 为更小的值，即 <code>min(dist[i][j], dist[i][k] + dist[k][j])</code>。</li>
+</ul>
+</li>
+<li><strong>打印结果</strong>：<ul>
+<li>最终，<code>dist</code> 矩阵中存储了每对顶点之间的最短路径。如果某一对顶点之间没有路径，值为 <code>INF</code>。</li>
+</ul>
+</li>
+</ol>
+<h4 id="时间复杂度和空间复杂度"><a href="#时间复杂度和空间复杂度" class="headerlink" title="时间复杂度和空间复杂度"></a>时间复杂度和空间复杂度</h4><ul>
+<li><strong>时间复杂度</strong>：Floyd-Warshall 算法的时间复杂度是$O(V^3)$，因为我们有三重循环，每一重循环都遍历 V 次。</li>
+<li><strong>空间复杂度</strong>：空间复杂度是 $O(V^2)$，用于存储最短路径的矩阵。</li>
+</ul>
+<h4 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h4><p>Floyd-Warshall 算法适用于顶点数量相对较小或者图较为稠密的场景。当图中的边非常多时，它比一些基于优先队列的算法（如 Dijkstra）更高效，尤其是在计算所有顶点对之间的最短路径时。</p>
+<h4 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h4><p>Floyd-Warshall 算法是解决全源最短路径问题的一种经典算法，适用于求解图中任意两点之间的最短路径。尽管其时间复杂度较高，但在处理小规模的图时，它依然是一个非常有效和直观的选择。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="category-chain-item">数据结构与算法</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%9B%BE%E8%AE%BA/" class="category-chain-item">图论</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%9B%BE/" class="print-no-link">#图</a>
+      
+        <a href="/tags/%E8%B4%AA%E5%BF%83/" class="print-no-link">#贪心</a>
+      
+        <a href="/tags/Dijkstra%E7%AE%97%E6%B3%95/" class="print-no-link">#Dijkstra算法</a>
+      
+        <a href="/tags/Bellman-Ford%E7%AE%97%E6%B3%95/" class="print-no-link">#Bellman-Ford算法</a>
+      
+        <a href="/tags/Floyd-Warshall%E7%AE%97%E6%B3%95/" class="print-no-link">#Floyd-Warshall算法</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>单源最短路径 多源最短路径</div>
+      <div>http://wang-jiahao.github.io/posts/a3c2a82.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Jiahao Wang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年12月16日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2024年12月17日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/1f81650b.html" title="Linux推荐课程">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Linux推荐课程</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/ce0afb50.html" title="正则化">
+                        <span class="hidden-mobile">正则化</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"wang-jiahao/comments","repo-id":"R_kgDONZtQAQ","category":"Announcements","category-id":"DIC_kwDONZtQAc4Ck9xy","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"bottom","lang":"zh-CN"};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <i class="iconfont icon-copyright"></i> <a href="https://github.com/wang-jiahao" target="_blank" rel="nofollow noopener"><span><font color="#FFA62F">2024-2025</font></span></a> <font color="#F62217"><i class="iconfont icon-love"></i></font> <a href="https://github.com/wang-jiahao" target="_blank" rel="nofollow noopener"><span><font color="#FFA62F">Zackaria</font></span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

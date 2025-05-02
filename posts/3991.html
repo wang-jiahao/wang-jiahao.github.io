@@ -1,0 +1,906 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/global/Zackaria.png">
+  <link rel="icon" href="/img/global/Zackaria.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#07c1f0">
+  <meta name="author" content="Jiahao Wang">
+  <meta name="keywords" content="博客,CS,图论,算法,数据结构,机器学习,深度学习,C++,C,CS61A,CS61B,CS188,Python,Java,PyTorch">
+  
+    <meta name="description" content="模板元编程 Template-Metaprogramming">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模板元编程 C++">
+<meta property="og:url" content="http://wang-jiahao.github.io/posts/3991.html">
+<meta property="og:site_name" content="Zackaria&#39;s Corner">
+<meta property="og:description" content="模板元编程 Template-Metaprogramming">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-12-05T15:07:00.000Z">
+<meta property="article:modified_time" content="2024-12-11T05:10:12.669Z">
+<meta property="article:author" content="Jiahao Wang">
+<meta property="article:tag" content="元编程">
+<meta property="article:tag" content="模板">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>模板元编程 C++ - Zackaria&#39;s Corner</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap.css">
+<link rel="stylesheet" href="/css/selection.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wang-jiahao.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/global/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"4ATURf7GEMgcrf4AMW2NgIns-gzGzoHsz","app_key":"PEOHEBjwdHQuyIMZYZq3H8NE","server_url":"https://4aturf7g.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Zackaria&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner/bluesky.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="模板元编程 C++"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-12-05 23:07" pubdate>
+          2024年12月5日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          35 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">模板元编程 C++</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19x4y1E79V?spm_id_from=333.788.videopod.episodes&vd_source=c06338b0283c611d7a47c62b0ed23dfa&p=19">CS106L p19 Part 6.3 Template Metaprogramming(Guest Lecture)</a></p>
+<h2 id="Template-Metaprogramming"><a href="#Template-Metaprogramming" class="headerlink" title="Template Metaprogramming"></a>Template Metaprogramming</h2><p>C++中的<strong>Template Metaprogramming</strong>(模板元编程)是一种通过模板技术在编译时进行计算和逻辑推导的技术。模板元编程利用C++模板机制，使得程序的某些部分在编译阶段就能被计算出来，而不是在运行时。这不仅能够提高程序的执行效率，还能为程序员提供更加灵活和强大的工具来设计类型安全、通用性强的代码。</p>
+<h3 id="1-模板元编程的基本概念"><a href="#1-模板元编程的基本概念" class="headerlink" title="1. 模板元编程的基本概念"></a>1. <strong>模板元编程的基本概念</strong></h3><p>在C++中，模板是泛型编程的基础。模板可以用于生成函数、类或结构体的多个实例，具体取决于模板参数。模板元编程正是利用这种机制，通过在编译时计算、推导和选择不同的模板实例，来实现一些复杂的计算和算法。</p>
+<p>模板元编程的核心思想是将计算过程从运行时转移到编译时，从而减少程序的运行时开销。例如，计算一个数的阶乘（factorial）就可以通过模板递归在编译时完成。</p>
+<h3 id="2-模板元编程的基本用法"><a href="#2-模板元编程的基本用法" class="headerlink" title="2. 模板元编程的基本用法"></a>2. <strong>模板元编程的基本用法</strong></h3><h4 id="2-1-递归计算（如阶乘）"><a href="#2-1-递归计算（如阶乘）" class="headerlink" title="2.1 递归计算（如阶乘）"></a>2.1 <strong>递归计算（如阶乘）</strong></h4><p>模板元编程最常见的应用之一是递归计算。在模板元编程中，可以通过递归地嵌套模板实例来实现类似于递归函数的行为。</p>
+<p>例如，计算阶乘：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-comment">// 基础模板，默认阶乘为1</span><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-type">int</span> N&gt;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">factorial</span> &#123;<br>    <span class="hljs-type">static</span> <span class="hljs-type">const</span> <span class="hljs-type">int</span> value = N * factorial&lt;N - <span class="hljs-number">1</span>&gt;::value;<br>&#125;;<br><br><span class="hljs-comment">// 特化模板，当N=0时，阶乘为1</span><br><span class="hljs-keyword">template</span> &lt;&gt;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">factorial</span>&lt;<span class="hljs-number">0</span>&gt; &#123;<br>    <span class="hljs-type">static</span> <span class="hljs-type">const</span> <span class="hljs-type">int</span> value = <span class="hljs-number">1</span>;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    std::cout &lt;&lt; <span class="hljs-string">&quot;Factorial of 5 is &quot;</span> &lt;&lt; factorial&lt;<span class="hljs-number">5</span>&gt;::value &lt;&lt; std::endl;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这里，<code>factorial&lt;N&gt;</code>是一个递归模板，它会计算<code>N * factorial&lt;N-1&gt;::value</code>，直到<code>N</code>为0时，模板特化返回1。这段代码在编译时就会计算出阶乘的值，因此运行时并不需要进行计算。</p>
+<h4 id="2-2-类型推导和SFINAE（Substitution-Failure-Is-Not-An-Error）"><a href="#2-2-类型推导和SFINAE（Substitution-Failure-Is-Not-An-Error）" class="headerlink" title="2.2 类型推导和SFINAE（Substitution Failure Is Not An Error）"></a>2.2 <strong>类型推导和SFINAE（Substitution Failure Is Not An Error）</strong></h4><p>模板元编程中，<code>SFINAE</code>是一个非常重要的概念。<code>SFINAE</code>允许我们根据模板参数的类型来选择不同的模板实例，从而在编译时做出决策。</p>
+<p>以下是一个简单的例子，展示如何使用<code>SFINAE</code>选择性地重载函数模板：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;type_traits&gt;</span></span><br><br><span class="hljs-comment">// 如果类型是整数类型，则启用这个模板</span><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-keyword">typename</span> std::enable_if&lt;std::is_integral&lt;T&gt;::value, <span class="hljs-type">void</span>&gt;::<span class="hljs-function">type</span><br><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(T t)</span> </span>&#123;<br>    std::cout &lt;&lt; <span class="hljs-string">&quot;Integer: &quot;</span> &lt;&lt; t &lt;&lt; std::endl;<br>&#125;<br><br><span class="hljs-comment">// 如果类型是浮点数类型，则启用这个模板</span><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-keyword">typename</span> std::enable_if&lt;std::is_floating_point&lt;T&gt;::value, <span class="hljs-type">void</span>&gt;::<span class="hljs-function">type</span><br><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(T t)</span> </span>&#123;<br>    std::cout &lt;&lt; <span class="hljs-string">&quot;Floating point: &quot;</span> &lt;&lt; t &lt;&lt; std::endl;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-built_in">print</span>(<span class="hljs-number">42</span>);        <span class="hljs-comment">// 输出 Integer: 42</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-number">3.14</span>);      <span class="hljs-comment">// 输出 Floating point: 3.14</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这里，<code>std::enable_if</code>与<code>std::is_integral</code>和<code>std::is_floating_point</code>配合使用，根据传递给模板的类型，选择正确的函数重载。<code>SFINAE</code>确保只有当类型符合要求时，才会激活相应的模板，避免了类型不匹配的错误。</p>
+<h4 id="2-3-常量表达式（constexpr）与模板元编程"><a href="#2-3-常量表达式（constexpr）与模板元编程" class="headerlink" title="2.3 常量表达式（constexpr）与模板元编程"></a>2.3 <strong>常量表达式（constexpr）与模板元编程</strong></h4><p><code>constexpr</code>在C++11中引入，它允许在编译时计算常量值，并与模板元编程配合使用，进一步提高了程序的编译时计算能力。<code>constexpr</code>函数可以在编译时求值，从而让程序更高效。</p>
+<p>例如，可以用<code>constexpr</code>实现一个更简单的阶乘计算：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> <span class="hljs-title">factorial</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> n &lt;= <span class="hljs-number">1</span> ? <span class="hljs-number">1</span> : n * <span class="hljs-built_in">factorial</span>(n - <span class="hljs-number">1</span>);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    std::cout &lt;&lt; <span class="hljs-string">&quot;Factorial of 5 is &quot;</span> &lt;&lt; <span class="hljs-built_in">factorial</span>(<span class="hljs-number">5</span>) &lt;&lt; std::endl;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这种方法比模板元编程的递归方式更加简洁，并且<code>constexpr</code>函数也能在编译时进行求值。</p>
+<h3 id="3-高级模板元编程技巧"><a href="#3-高级模板元编程技巧" class="headerlink" title="3. 高级模板元编程技巧"></a>3. <strong>高级模板元编程技巧</strong></h3><h4 id="3-1-类型列表（Type-List）"><a href="#3-1-类型列表（Type-List）" class="headerlink" title="3.1 类型列表（Type List）"></a>3.1 <strong>类型列表（Type List）</strong></h4><p>在模板元编程中，常常需要操作类型列表。类型列表是一个模板结构，它存储了多个类型，并允许在编译时对这些类型进行处理。例如，可以用类型列表实现编译时的类型遍历或类型计算。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-comment">// 定义类型列表</span><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span>... Types&gt;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">type_list</span> &#123;&#125;;<br><br><span class="hljs-comment">// 类型列表中的第一个类型</span><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T, <span class="hljs-keyword">typename</span>... Rest&gt;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">front</span> &#123;<br>    <span class="hljs-keyword">using</span> type = T;<br>&#125;;<br><br><span class="hljs-comment">// 递归地将类型列表中的第一个类型提取出来</span><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span>... Types&gt;<br><span class="hljs-keyword">using</span> <span class="hljs-type">front_t</span> = <span class="hljs-keyword">typename</span> front&lt;Types...&gt;::type;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">using</span> my_types = type_list&lt;<span class="hljs-type">int</span>, <span class="hljs-type">double</span>, <span class="hljs-type">char</span>&gt;;<br><br>    <span class="hljs-comment">// 提取类型列表中的第一个类型</span><br>    std::cout &lt;&lt; <span class="hljs-string">&quot;First type in the list is: &quot;</span> &lt;&lt; <span class="hljs-built_in">typeid</span>(<span class="hljs-type">front_t</span>&lt;<span class="hljs-type">int</span>, <span class="hljs-type">double</span>, <span class="hljs-type">char</span>&gt;).<span class="hljs-built_in">name</span>() &lt;&lt; std::endl;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="3-2-模板元编程中的-std-tuple-和-std-index-sequence-结合使用"><a href="#3-2-模板元编程中的-std-tuple-和-std-index-sequence-结合使用" class="headerlink" title="3.2 模板元编程中的 std::tuple 和 std::index_sequence 结合使用"></a>3.2 <strong>模板元编程中的</strong> <code>std::tuple</code> <strong>和</strong> <code>std::index_sequence</code> <strong>结合使用</strong></h4><p>C++11引入了<code>std::tuple</code>和<code>std::index_sequence</code>，这为模板元编程提供了更加方便的工具。可以使用这些工具来处理包含多个类型和数据的复杂结构。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;tuple&gt;</span></span><br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span>... Args&gt;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">print_tuple</span><span class="hljs-params">(<span class="hljs-type">const</span> std::tuple&lt;Args...&gt;&amp; t)</span> </span>&#123;<br>    <span class="hljs-built_in">print_tuple_impl</span>(t, std::index_sequence_for&lt;Args...&gt;&#123;&#125;);<br>&#125;<br><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span>... Args, std::<span class="hljs-type">size_t</span>... I&gt;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">print_tuple_impl</span><span class="hljs-params">(<span class="hljs-type">const</span> std::tuple&lt;Args...&gt;&amp; t, std::index_sequence&lt;I...&gt;)</span> </span>&#123;<br>    <span class="hljs-comment">// 展开tuple并打印每个元素</span><br>    ((std::cout &lt;&lt; std::<span class="hljs-built_in">get</span>&lt;I&gt;(t) &lt;&lt; <span class="hljs-string">&quot; &quot;</span>), ...);<br>    std::cout &lt;&lt; std::endl;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-function">std::tuple&lt;<span class="hljs-type">int</span>, <span class="hljs-type">double</span>, <span class="hljs-type">char</span>&gt; <span class="hljs-title">t</span><span class="hljs-params">(<span class="hljs-number">1</span>, <span class="hljs-number">2.5</span>, <span class="hljs-string">&#x27;a&#x27;</span>)</span></span>;<br>    <span class="hljs-built_in">print_tuple</span>(t); <span class="hljs-comment">// 输出: 1 2.5 a</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>std::index_sequence_for&lt;Args...&gt;</code>帮助我们生成一组索引，<code>print_tuple_impl</code>通过展开<code>index_sequence</code>来遍历并打印元组中的每个元素。</p>
+<h3 id="4-模板元编程的优势与挑战"><a href="#4-模板元编程的优势与挑战" class="headerlink" title="4. 模板元编程的优势与挑战"></a>4. <strong>模板元编程的优势与挑战</strong></h3><h4 id="4-1-优势"><a href="#4-1-优势" class="headerlink" title="4.1 优势"></a>4.1 <strong>优势</strong></h4><ol>
+<li><strong>提高性能</strong>：通过在编译时计算，模板元编程可以减少运行时的计算开销，尤其是对于复杂的算法或计算任务。</li>
+<li><strong>增强类型安全性</strong>：模板元编程可以在编译时捕获类型错误，从而提高程序的类型安全性。</li>
+<li><strong>灵活性和可扩展性</strong>：模板元编程能够使代码更加通用和抽象，可以在不同的场景下复用和扩展。</li>
+</ol>
+<h4 id="4-2-挑战"><a href="#4-2-挑战" class="headerlink" title="4.2 挑战"></a>4.2 <strong>挑战</strong></h4><ol>
+<li><strong>代码复杂度</strong>：模板元编程通常使得代码更加复杂，调试和理解起来较为困难，尤其是对于新手。</li>
+<li><strong>编译时性能</strong>：尽管模板元编程能够提高运行时性能，但过多的模板实例化可能会导致编译时间增加。</li>
+<li><strong>错误信息难以理解</strong>：模板错误通常非常难以解读，错误信息冗长且不直观，需要一定的经验来理解和修正。</li>
+</ol>
+<h3 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. <strong>总结</strong></h3><p>C++中的模板元编程是一个强大的工具，允许程序员在编译时进行计算、决策和类型推导，从而优化程序的性能和灵活性。通过递归模板、<code>SFINAE</code>、<code>constexpr</code>、类型列表和<code>std::tuple</code>等工具，可以实现许多高级的编译时计算和类型操作。然而，模板元编程也带来了一些挑战，如代码复杂性、调试困难等，因此在使用时需要平衡其优势和挑战。</p>
+<h2 id="constexpr"><a href="#constexpr" class="headerlink" title="constexpr"></a>constexpr</h2><p><code>constexpr</code> 是 C++11 引入的一个关键字，用于声明常量表达式。常量表达式是指在编译时能够求值的常量。使用 <code>constexpr</code>，可以告诉编译器某个函数或变量在编译时就能够确定其值，从而提高程序的效率。</p>
+<h3 id="1-constexpr-的基本用途"><a href="#1-constexpr-的基本用途" class="headerlink" title="1. constexpr 的基本用途"></a>1. <strong><code>constexpr</code> 的基本用途</strong></h3><h4 id="1-1-声明常量变量"><a href="#1-1-声明常量变量" class="headerlink" title="1.1 声明常量变量"></a>1.1 <strong>声明常量变量</strong></h4><p>最简单的 <code>constexpr</code> 用法是声明常量变量，确保其值在编译时就已经确定，而不是在程序运行时计算。例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> <span class="hljs-title">square</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> x * x;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> value = <span class="hljs-number">5</span>;<br>    <span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> result = <span class="hljs-built_in">square</span>(value);  <span class="hljs-comment">// 在编译时计算</span><br>    std::cout &lt;&lt; <span class="hljs-string">&quot;Square of &quot;</span> &lt;&lt; value &lt;&lt; <span class="hljs-string">&quot; is &quot;</span> &lt;&lt; result &lt;&lt; std::endl;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>value</code> 和 <code>result</code> 都是常量表达式。<code>constexpr</code> 确保 <code>value</code> 和 <code>result</code> 的值在编译时就被确定下来，因此程序运行时不再需要重新计算它们的值。</p>
+<h4 id="1-2-声明常量函数"><a href="#1-2-声明常量函数" class="headerlink" title="1.2 声明常量函数"></a>1.2 <strong>声明常量函数</strong></h4><p><code>constexpr</code> 也可以用于函数的声明。这告诉编译器该函数可以在编译时求值，从而将其计算结果嵌入到生成的代码中，减少运行时开销。</p>
+<p>例如，可以用 <code>constexpr</code> 实现一个求阶乘的函数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> <span class="hljs-title">factorial</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> (n &lt;= <span class="hljs-number">1</span>) ? <span class="hljs-number">1</span> : n * <span class="hljs-built_in">factorial</span>(n - <span class="hljs-number">1</span>);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> result = <span class="hljs-built_in">factorial</span>(<span class="hljs-number">5</span>);  <span class="hljs-comment">// 在编译时计算</span><br>    std::cout &lt;&lt; <span class="hljs-string">&quot;Factorial of 5 is &quot;</span> &lt;&lt; result &lt;&lt; std::endl;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>factorial(5)</code> 是一个常量表达式，编译器会在编译时计算并将结果嵌入到最终的程序中，而不是在运行时调用该函数。</p>
+<h3 id="2-constexpr-的特点"><a href="#2-constexpr-的特点" class="headerlink" title="2. constexpr 的特点"></a>2. <strong><code>constexpr</code> 的特点</strong></h3><h4 id="2-1-编译时求值"><a href="#2-1-编译时求值" class="headerlink" title="2.1 编译时求值"></a>2.1 <strong>编译时求值</strong></h4><p><code>constexpr</code> 的最重要特点是它要求函数的返回值在编译时就可以求出。只有在表达式可以在编译时计算的情况下，<code>constexpr</code> 才能生效。</p>
+<ul>
+<li><code>constexpr</code> 函数中的所有参数和局部变量必须是常量表达式。</li>
+<li>函数体中只能包含常量表达式，可以使用递归、条件表达式等编译时可求值的代码结构。</li>
+</ul>
+<h4 id="2-2-限制"><a href="#2-2-限制" class="headerlink" title="2.2 限制"></a>2.2 <strong>限制</strong></h4><p>尽管 <code>constexpr</code> 提供了很多优势，但它也有一些限制：</p>
+<ul>
+<li><strong>函数体的限制</strong>：<code>constexpr</code> 函数只能包含常量表达式（如常量、字面量、编译时常量），不能使用运行时才能确定的值。</li>
+<li><strong>不能使用动态内存分配</strong>：<code>constexpr</code> 函数不能使用 <code>new</code>、<code>delete</code> 等动态内存分配操作，也不能调用运行时动态确定的函数。</li>
+<li><strong>递归深度限制</strong>：如果使用递归时，递归深度过深可能会导致编译时栈溢出，特别是对于较大的递归函数，可能会受到编译器的限制。</li>
+</ul>
+<h4 id="2-3-编译时和运行时"><a href="#2-3-编译时和运行时" class="headerlink" title="2.3 编译时和运行时"></a>2.3 <strong>编译时和运行时</strong></h4><p>在 C++11 中，<code>constexpr</code> 函数的结果如果能够在编译时计算出来，编译器会将其计算结果嵌入到最终的程序中，这样程序运行时就不需要再执行这些计算。对于不能在编译时确定的值，<code>constexpr</code> 函数依然可以在运行时调用，并且其行为和普通函数一样。</p>
+<p>举个例子：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> <span class="hljs-title">square</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> x * x;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> compile_time_result = <span class="hljs-built_in">square</span>(<span class="hljs-number">5</span>);  <span class="hljs-comment">// 编译时计算</span><br>    <span class="hljs-type">int</span> runtime_value = <span class="hljs-number">10</span>;<br>    <span class="hljs-type">int</span> runtime_result = <span class="hljs-built_in">square</span>(runtime_value);  <span class="hljs-comment">// 运行时计算</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>compile_time_result</code> 会在编译时计算出 <code>25</code>，而 <code>runtime_result</code> 会在程序运行时根据 <code>runtime_value</code> 计算出 <code>100</code>。</p>
+<h3 id="3-constexpr-与-const-的区别"><a href="#3-constexpr-与-const-的区别" class="headerlink" title="3. constexpr 与 const 的区别"></a>3. <strong><code>constexpr</code> 与 <code>const</code> 的区别</strong></h3><ul>
+<li><code>const</code> 用来声明常量，它确保变量的值在程序执行期间不会改变，但它不要求在编译时就能确定值。</li>
+<li><code>constexpr</code> 用来声明常量表达式，要求变量的值必须在编译时就能确定。</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">const</span> <span class="hljs-type">int</span> a = <span class="hljs-number">5</span>;  <span class="hljs-comment">// 运行时可以初始化</span><br><span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> b = <span class="hljs-number">5</span>;  <span class="hljs-comment">// 编译时必须初始化</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>const</code> 可以在运行时通过外部输入或其他计算值进行初始化。</li>
+<li><code>constexpr</code> 则要求常量值必须在编译时已知，因此它的计算必须是确定性的。</li>
+</ul>
+<h3 id="4-constexpr-的应用场景"><a href="#4-constexpr-的应用场景" class="headerlink" title="4. constexpr 的应用场景"></a>4. <strong><code>constexpr</code> 的应用场景</strong></h3><h4 id="4-1-常量计算"><a href="#4-1-常量计算" class="headerlink" title="4.1 常量计算"></a>4.1 <strong>常量计算</strong></h4><p>最常见的应用场景是通过 <code>constexpr</code> 来计算一些在程序运行时需要使用的常量，尤其是那些计算成本较高的常量。例如，计算数学常数、数据结构的尺寸等。</p>
+<h4 id="4-2-优化性能"><a href="#4-2-优化性能" class="headerlink" title="4.2 优化性能"></a>4.2 <strong>优化性能</strong></h4><p>通过将某些计算移到编译时，程序运行时就不需要进行这些计算，从而提升程序的性能。例如，某些复杂的算法可以通过 <code>constexpr</code> 进行编译时计算，避免了运行时的开销。</p>
+<h4 id="4-3-模板元编程"><a href="#4-3-模板元编程" class="headerlink" title="4.3 模板元编程"></a>4.3 <strong>模板元编程</strong></h4><p><code>constexpr</code> 可以与模板元编程结合使用，用来在编译时进行类型推导、计算常量值或实现条件编译等。例如，<code>constexpr</code> 函数可以用于计算模板参数，驱动模板的选择和推导。</p>
+<h3 id="5-总结-1"><a href="#5-总结-1" class="headerlink" title="5. 总结"></a>5. <strong>总结</strong></h3><ul>
+<li><code>constexpr</code> 是 C++11 引入的关键字，用于声明在编译时就能确定值的常量和函数。</li>
+<li><code>constexpr</code> 提供了在编译时进行计算的能力，优化了程序的执行效率，尤其适用于编写常量表达式和编译时计算的场景。</li>
+<li>与 <code>const</code> 不同，<code>constexpr</code> 要求在编译时就能计算出常量值。</li>
+<li><code>constexpr</code> 函数可以包含递归和条件表达式，但有一些限制，如不能使用动态内存分配等。</li>
+</ul>
+<p>通过使用 <code>constexpr</code>，可以显著提升程序的性能和可读性，尤其在常量表达式和模板元编程中，<code>constexpr</code> 是一个非常强大的工具。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C++</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/C/CS106L/" class="category-chain-item">CS106L</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%85%83%E7%BC%96%E7%A8%8B/" class="print-no-link">#元编程</a>
+      
+        <a href="/tags/%E6%A8%A1%E6%9D%BF/" class="print-no-link">#模板</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>模板元编程 C++</div>
+      <div>http://wang-jiahao.github.io/posts/3991.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Jiahao Wang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年12月5日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2024年12月11日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/28191.html" title="图 深度优先遍历 广度优先遍历">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">图 深度优先遍历 广度优先遍历</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/28135.html" title="多线程 C++">
+                        <span class="hidden-mobile">多线程 C++</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"wang-jiahao/comments","repo-id":"R_kgDONZtQAQ","category":"Announcements","category-id":"DIC_kwDONZtQAc4Ck9xy","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"bottom","lang":"zh-CN"};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <i class="iconfont icon-copyright"></i> <a href="https://github.com/wang-jiahao" target="_blank" rel="nofollow noopener"><span><font color="#FFA62F">2024-2025</font></span></a> <font color="#F62217"><i class="iconfont icon-love"></i></font> <a href="https://github.com/wang-jiahao" target="_blank" rel="nofollow noopener"><span><font color="#FFA62F">Zackaria</font></span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

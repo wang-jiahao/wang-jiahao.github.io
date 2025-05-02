@@ -1,0 +1,919 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/global/Zackaria.png">
+  <link rel="icon" href="/img/global/Zackaria.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#07c1f0">
+  <meta name="author" content="Jiahao Wang">
+  <meta name="keywords" content="博客,CS,图论,算法,数据结构,机器学习,深度学习,C++,C,CS61A,CS61B,CS188,Python,Java,PyTorch">
+  
+    <meta name="description" content="类神经网络训练不起来怎么办？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="训练类神经网络一般步骤">
+<meta property="og:url" content="http://wang-jiahao.github.io/posts/a902142a.html">
+<meta property="og:site_name" content="Zackaria&#39;s Corner">
+<meta property="og:description" content="类神经网络训练不起来怎么办？">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://wang-jiahao.github.io/img/blog/youtube.png">
+<meta property="og:image" content="http://wang-jiahao.github.io/img/blog/loss.png">
+<meta property="og:image" content="http://wang-jiahao.github.io/img/blog/optimization.png">
+<meta property="og:image" content="http://wang-jiahao.github.io/img/blog/%E4%BC%98%E5%8C%96%E6%80%BB%E6%B5%81%E7%A8%8B.png">
+<meta property="og:image" content="http://wang-jiahao.github.io/img/blog/local_minima.png">
+<meta property="og:image" content="http://wang-jiahao.github.io/img/blog/overfitting.png">
+<meta property="article:published_time" content="2024-12-21T06:29:15.000Z">
+<meta property="article:modified_time" content="2025-01-19T07:59:30.910Z">
+<meta property="article:author" content="Jiahao Wang">
+<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="类神经网络">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://wang-jiahao.github.io/img/blog/youtube.png">
+  
+  
+  
+  <title>训练类神经网络一般步骤 - Zackaria&#39;s Corner</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap.css">
+<link rel="stylesheet" href="/css/selection.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wang-jiahao.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/global/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"4ATURf7GEMgcrf4AMW2NgIns-gzGzoHsz","app_key":"PEOHEBjwdHQuyIMZYZq3H8NE","server_url":"https://4aturf7g.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Zackaria&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner/bluesky.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="训练类神经网络一般步骤"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-12-21 14:29" pubdate>
+          2024年12月21日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          16 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">训练类神经网络一般步骤</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="什么是机器学习？"><a href="#什么是机器学习？" class="headerlink" title="什么是机器学习？"></a>什么是机器学习？</h1><p>一句话概括：<strong>机器学习就是让机器具备找一个函数的能力</strong>。</p>
+<p>目前机器学习应用的最多的3个问题，分别是<strong>Regression</strong>（回归）、<strong>Classification</strong>（分类）和<strong>Structured Learing</strong>（结构学习）</p>
+<p>Regression：要找的函数,他的输出是一个数值</p>
+<p>Classification:函数的输出,就是从设定好的选项裡面,选择一个当作输出</p>
+<p>Structured Learning:机器产生有结构的东西的问题——学会创造</p>
+<h1 id="机器学习的一般步骤"><a href="#机器学习的一般步骤" class="headerlink" title="机器学习的一般步骤"></a>机器学习的一般步骤</h1><p>刚刚说了，机器学习实际上就是找到一个函数，能达成我们的目标，拿语言识别举例，我们要找的函数，就是输入为一段音频，输出为这个音频的文字版。而寻找这个函数一般需要3个步骤：（这里以预测youtube的观看人数为例,classification其实同理,即用[1,0,0,0,0,0]这样的one-hot vector表示输出，具体参考<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Wv411h7kN?spm_id_from=333.788.videopod.episodes&vd_source=c06338b0283c611d7a47c62b0ed23dfa&p=22%EF%BC%89">https://www.bilibili.com/video/BV1Wv411h7kN?spm_id_from=333.788.videopod.episodes&amp;vd_source=c06338b0283c611d7a47c62b0ed23dfa&amp;p=22）</a></p>
+<h2 id="1-Function-with-Unknown-Parameters（写出一个带有未知参数的函式）"><a href="#1-Function-with-Unknown-Parameters（写出一个带有未知参数的函式）" class="headerlink" title="1.Function with Unknown Parameters（写出一个带有未知参数的函式）"></a>1.Function with Unknown Parameters（写出一个带有未知参数的函式）</h2><p><img src="/../img/blog/youtube.png" srcset="/img/global/loading.gif" lazyload alt="youtube观看人数预测"></p>
+<ul>
+<li><p>$y$<strong>是我们准备要预测的东西</strong>,我们准备要预测的人</p>
+</li>
+<li><p>$x_1$<strong>是这个频道前一天总共观看的人数</strong>,跟y一样都是数值,</p>
+</li>
+<li><p><strong>b跟w是未知的参数,它是准备要透过资料去找出来的</strong>,我们还不知道w跟b应该是多少</p>
+<p><strong>猜测：</strong>未来点阅次数的函式F,是前一天的点阅次数,乘上w 再加上b</p>
+<p>⇒猜测往往就来自于对这个问题本质上的了解⇒<strong>Domain knowledge</strong></p>
+</li>
+</ul>
+<h3 id="名词定义："><a href="#名词定义：" class="headerlink" title="名词定义："></a>名词定义<strong>：</strong></h3><p>**Feature:**Function里面我们已知的信息【 $x_1$】</p>
+<p>**Weight:**未知参数，跟feature直接相乘</p>
+<p>**Bias:**未知参数，直接相加</p>
+<h2 id="2-Define-Loss-from-Training-Data"><a href="#2-Define-Loss-from-Training-Data" class="headerlink" title="2.Define Loss from Training Data"></a>2.Define Loss from Training Data</h2><p><img src="/../img/blog/loss.png" srcset="/img/global/loading.gif" lazyload alt="loss function"></p>
+<p>Loss也是一个Function,它的输入,是Model里面的<strong>参数</strong></p>
+<blockquote>
+<p>这里：输入为w,b</p>
+</blockquote>
+<ul>
+<li><p><strong>物理意义：Function输出的值代表,现在如果我们把这一组未知的参数,设定某一个数值的时候,这笔数值好还是不好。</strong></p>
+<p><strong>L越大,代表一组参数越不好,这个大L越小,代表现在这一组参数越好</strong></p>
+</li>
+<li><p><strong>计算方法：求取估测的值跟实际的值（Label） 之间的差距</strong></p>
+<ul>
+<li>MAE(mean absolute error) </li>
+<li>MSE(mean square error)</li>
+<li>Cross-entropy:计算<strong>概率分布</strong>之间的差距</li>
+</ul>
+</li>
+</ul>
+<p><strong>Error Surface</strong>：试了不同的参数,然后计算它的Loss,画出来的等高线图</p>
+<h2 id="3-Optimization（优化）"><a href="#3-Optimization（优化）" class="headerlink" title="3.Optimization（优化）"></a>3.Optimization（优化）</h2><p>找到能让损失函数值最小的参数。</p>
+<p><img src="/../img/blog/optimization.png" srcset="/img/global/loading.gif" lazyload alt="optimization steps"></p>
+<p><strong>具体方法：Gradient Descent（梯度下降）</strong></p>
+<ol>
+<li><p>随机选取初始值 $w_0$</p>
+</li>
+<li><p>计算在 $w&#x3D;w_0$的时候,<em>w</em>这个参数对<em>loss</em>的微分是多少</p>
+</li>
+<li><p>根据微分（梯度）的方向，改变参数的值</p>
+<p><strong>改变的大小取决于：</strong></p>
+<ol>
+<li>斜率的大小</li>
+<li>学习率的大小<strong>（超参数）</strong></li>
+</ol>
+</li>
+</ol>
+<h1 id="train不起来怎么办？"><a href="#train不起来怎么办？" class="headerlink" title="train不起来怎么办？"></a>train不起来怎么办？</h1><p><img src="/../img/blog/%E4%BC%98%E5%8C%96%E6%80%BB%E6%B5%81%E7%A8%8B.png" srcset="/img/global/loading.gif" lazyload alt="general guide of train"></p>
+<h2 id="1-分析在训练数据上的Loss"><a href="#1-分析在训练数据上的Loss" class="headerlink" title="1. 分析在训练数据上的Loss"></a>1. 分析在训练数据上的Loss</h2><p>首先分析在训练数据上的Loss，如果training data的loss都很大，那么testing data的loss当然大。</p>
+<h3 id="1-Model-Bias"><a href="#1-Model-Bias" class="headerlink" title="(1)Model Bias"></a>(1)Model Bias</h3><p>所有的function集合起来,得到一个function的set.但是这个function的set太小了,没有包含任何一个function,可以让我们的loss变低⇒<strong>可以让loss变低的function,不在model可以描述的范围内。</strong></p>
+<p><strong>⇒解决方法：重新设计一个Model，</strong>一个更复杂的、更有弹性的、有未知参数的、需要更多features的function（还是以预测youtube为例，可以选前七天甚至前一个月的数据作为feature，其次，可以改变model architecture，即多叠几层，或者增加Relu的数量等等）</p>
+<h3 id="2-Optimization"><a href="#2-Optimization" class="headerlink" title="(2)Optimization"></a>(2)Optimization</h3><p><img src="/../img/blog/local_minima.png" srcset="/img/global/loading.gif" lazyload alt="local minima"></p>
+<p>可能会卡在local minima（局部极小值&#x2F;鞍点）的地方,没有办法找到一个真的可以让loss很低的参数。(例如卡在$\theta$*,此时gradient也为0，因此不会到真正的最低点)</p>
+<p><strong>⇒解决方法：</strong><a target="_blank" rel="noopener" href="https://diamond-mule-bee.notion.site/02-2-DeepLearning-25ed6d30c1ee446e964bbe2fddc5220f#0f45335b92034851a4e4a3821c565ea2">https://diamond-mule-bee.notion.site/02-2-DeepLearning-25ed6d30c1ee446e964bbe2fddc5220f#0f45335b92034851a4e4a3821c565ea2</a></p>
+<h3 id="3-如何区分两种情况？"><a href="#3-如何区分两种情况？" class="headerlink" title="(3)如何区分两种情况？"></a>(3)如何区分两种情况？</h3><ul>
+<li><p>Start from shallower networks (or other models), which are easier to train.</p>
+<p>看到一个你从来没有做过的问题,也许你可以先跑一些比较小的,比较浅的network,或甚至用一些,不是deep learning的方法⇒**比较容易做Optimize的,**它们比较不会有optimization失败的问题</p>
+</li>
+<li><p>If deeper networks do not obtain smaller loss on training data, then there is optimization issue.</p>
+<p>如果你发现你深的model,跟浅的model比起来,深的model明明弹性比较大,但loss却没有办法比浅的model压得更低,那就代表说你的<strong>optimization</strong>有问题</p>
+</li>
+</ul>
+<h2 id="2-分析测试数据上的Loss"><a href="#2-分析测试数据上的Loss" class="headerlink" title="2.分析测试数据上的Loss"></a>2.分析测试数据上的Loss</h2><h3 id="Overfitting：training的loss小-testing的loss大-这个有可能是overfitting"><a href="#Overfitting：training的loss小-testing的loss大-这个有可能是overfitting" class="headerlink" title="Overfitting：training的loss小,testing的loss大,这个有可能是overfitting"></a>Overfitting：training的loss小,testing的loss大,这个有可能是overfitting</h3><p>如果你的model它的<strong>自由度很大</strong>的话,它可以<strong>产生非常奇怪的曲线</strong>,导致训练集上的结果好,但是测试集上的loss很大，如图：</p>
+<p><img src="/../img/blog/overfitting.png" srcset="/img/global/loading.gif" lazyload alt="overfitting"></p>
+<h3 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h3><h3 id="（1）增加训练集"><a href="#（1）增加训练集" class="headerlink" title="（1）增加训练集"></a>（1）增加训练集</h3><p>虽然你的model它的弹性可能很大,但是因为数据样本非常非常的多,它就可以限制住</p>
+<p><strong>Data Augmentation（数据增强）:用一些你对于这个问题的理解,从已有的数据中，自己创造出新的数据⇒注意合理性</strong></p>
+<h3 id="（2）限制模型，使之不要有那么大弹性"><a href="#（2）限制模型，使之不要有那么大弹性" class="headerlink" title="（2）限制模型，使之不要有那么大弹性"></a>（2）限制模型，使之不要有那么大弹性</h3><ul>
+<li>给它<strong>比较少的参数（比如神经元的数目）；模型共用参数</strong></li>
+<li>使用<strong>比较少的features</strong>（feature selecting，利用domain knowledge筛选你认为有用的feature，去除没用的knowledge）</li>
+<li>Early Stopping</li>
+<li>Regularization</li>
+<li>Dropout</li>
+</ul>
+<h2 id="3-如何选出有较低testing-loss的模型？"><a href="#3-如何选出有较低testing-loss的模型？" class="headerlink" title="3.如何选出有较低testing-loss的模型？"></a>3.如何选出有较低testing-loss的模型？</h2><p><strong>Cross Validation</strong></p>
+<ol>
+<li>把Training的资料分成两半,一部分叫作Training Set,一部分是Validation Set</li>
+<li>在Validation Set上面,去衡量它们的分数,你根据Validation Set上面的分数,去挑选结果，不要管在public testing set上的结果，避免overfiting</li>
+</ol>
+<p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://diamond-mule-bee.notion.site/01-Regression-db3f17ba626a43668e016d09d39e35e5#a0f58993757b45da878ed97bbe309538">01-Regression</a></p>
+<p><a target="_blank" rel="noopener" href="https://diamond-mule-bee.notion.site/02-1-DeepLearning-General-Guidance-9e355df2c60d45b48038304cf122d103">02.1-DeepLearning-General Guidance</a></p>
+<p><a target="_blank" rel="noopener" href="https://diamond-mule-bee.notion.site/02-2-DeepLearning-25ed6d30c1ee446e964bbe2fddc5220f">02.2-DeepLearning-类神经网络优化技巧</a></p>
+<p><a target="_blank" rel="noopener" href="https://diamond-mule-bee.notion.site/02-3-DeepLearning-Loss-of-Classification-b6ffdac5af43440bbd703d9521046bd4">02.3-DeepLearning-Loss of Classification</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="category-chain-item">深度学习</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%9B%BD%E7%AB%8B%E5%8F%B0%E6%B9%BE%E5%A4%A7%E5%AD%A6%EF%BC%9A%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="category-chain-item">国立台湾大学：李宏毅机器学习</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="print-no-link">#深度学习</a>
+      
+        <a href="/tags/%E7%B1%BB%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="print-no-link">#类神经网络</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>训练类神经网络一般步骤</div>
+      <div>http://wang-jiahao.github.io/posts/a902142a.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Jiahao Wang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年12月21日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年1月19日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/4a9de9ff.html" title="动态规划经典问题">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">动态规划经典问题</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/1f81650b.html" title="Linux推荐课程">
+                        <span class="hidden-mobile">Linux推荐课程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"wang-jiahao/comments","repo-id":"R_kgDONZtQAQ","category":"Announcements","category-id":"DIC_kwDONZtQAc4Ck9xy","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"bottom","lang":"zh-CN"};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <i class="iconfont icon-copyright"></i> <a href="https://github.com/wang-jiahao" target="_blank" rel="nofollow noopener"><span><font color="#FFA62F">2024-2025</font></span></a> <font color="#F62217"><i class="iconfont icon-love"></i></font> <a href="https://github.com/wang-jiahao" target="_blank" rel="nofollow noopener"><span><font color="#FFA62F">Zackaria</font></span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

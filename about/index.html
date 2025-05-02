@@ -1,0 +1,756 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/global/Zackaria.png">
+  <link rel="icon" href="/img/global/Zackaria.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#07c1f0">
+  <meta name="author" content="Jiahao Wang">
+  <meta name="keywords" content="博客,CS,图论,算法,数据结构,机器学习,深度学习,C++,C,CS61A,CS61B,CS188,Python,Java,PyTorch">
+  
+    <meta name="description" content="你好，我是一名来自南京大学智能软件与工程学院的大二学生，遇见即为缘分！ 此网站用于记录我的计算机自学历程，偶尔也会上传我的课程笔记和随笔，也欢迎大家与我分享交流，共同进步。 我的CS自学历程始于大二，没错，我大一摆了一年，哈哈！如果你还不知道如何规划自己的CS自学，不妨看看北大信科大佬写的CS自学指南。  兴趣爱好 乒乓球🏓 网球🎾 旅游🧳  正在学习的课程  CS61A   CS106L">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于">
+<meta property="og:url" content="http://wang-jiahao.github.io/about/index.html">
+<meta property="og:site_name" content="Zackaria&#39;s Corner">
+<meta property="og:description" content="你好，我是一名来自南京大学智能软件与工程学院的大二学生，遇见即为缘分！ 此网站用于记录我的计算机自学历程，偶尔也会上传我的课程笔记和随笔，也欢迎大家与我分享交流，共同进步。 我的CS自学历程始于大二，没错，我大一摆了一年，哈哈！如果你还不知道如何规划自己的CS自学，不妨看看北大信科大佬写的CS自学指南。  兴趣爱好 乒乓球🏓 网球🎾 旅游🧳  正在学习的课程  CS61A   CS106L">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://wang-jiahao.github.io/img/blog/dragon.jpg">
+<meta property="article:published_time" content="2025-04-27T09:59:13.936Z">
+<meta property="article:modified_time" content="2025-04-19T07:41:05.275Z">
+<meta property="article:author" content="Jiahao Wang">
+<meta property="article:tag" content="博客,CS,图论,算法,数据结构,机器学习,深度学习,C++,C,CS61A,CS61B,CS188,Python,Java,PyTorch">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://wang-jiahao.github.io/img/blog/dragon.jpg">
+  
+  
+  
+  <title>关于 - Zackaria&#39;s Corner</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap.css">
+<link rel="stylesheet" href="/css/selection.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wang-jiahao.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/global/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"4ATURf7GEMgcrf4AMW2NgIns-gzGzoHsz","app_key":"PEOHEBjwdHQuyIMZYZq3H8NE","server_url":"https://4aturf7g.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 80vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Zackaria&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner/malong.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="关于"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          >
+          
+            <div class="about-avatar">
+              <img src="/img/global/Zackaria.png" srcset="/img/global/loading.gif" lazyload class="img-fluid" alt="avatar">
+            </div>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<div class="text-center">
+  <div class="about-info">
+    <div class="about-name">Jiahao Wang</div>
+    <div class="about-intro">惟日孜孜，无敢逸豫</div>
+    <div class="about-icons">
+      
+        
+        
+        
+        <a href=https://github.com/wang-jiahao class="
+           hint--bottom hint--rounded"
+           aria-label="GitHub"
+           target="_blank"
+        >
+          <i class="iconfont icon-github-fill" aria-hidden="true"></i>
+          
+        </a>
+      
+        
+        
+        
+        <a  class="qr-trigger
+           "
+           
+           target="_self"
+        >
+          <i class="iconfont icon-wechat-fill" aria-hidden="true"></i>
+          
+            <img class="qr-img" src="/img/global/wechat.jpg" srcset="/img/global/loading.gif" lazyload alt="qrcode" />
+          
+        </a>
+      
+        
+        
+        
+        <a  class="qr-trigger
+           "
+           
+           target="_self"
+        >
+          <i class="iconfont icon-qq-fill" aria-hidden="true"></i>
+          
+            <img class="qr-img" src="/img/global/qq.jpg" srcset="/img/global/loading.gif" lazyload alt="qrcode" />
+          
+        </a>
+      
+        
+        
+        
+        <a href=https://www.zhihu.com/people/77-69-88-43 class="
+           hint--bottom hint--rounded"
+           aria-label="知乎"
+           target="_blank"
+        >
+          <i class="iconfont icon-zhihu-fill" aria-hidden="true"></i>
+          
+        </a>
+      
+        
+        
+        
+        <a href=https://stackoverflow.com/users/27463021/zackaria class="
+           hint--bottom hint--rounded"
+           aria-label="Stack Overflow"
+           target="_blank"
+        >
+          <i class="iconfont icon-stack-overflow-fill" aria-hidden="true"></i>
+          
+        </a>
+      
+        
+        
+        
+        <a href=mailto:jiahaowang@smail.nju.edu.cn class="
+           hint--bottom hint--rounded"
+           aria-label="Email"
+           target="_blank"
+        >
+          <i class="iconfont icon-mail" aria-hidden="true"></i>
+          
+        </a>
+      
+        
+        
+        
+        <a href=https://space.bilibili.com/485115901 class="
+           hint--bottom hint--rounded"
+           aria-label="Bilibili"
+           target="_blank"
+        >
+          <i class="iconfont icon-bilibili" aria-hidden="true"></i>
+          
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<article class="about-content page-content mt-5">
+  <div class="markdown-body">
+    <p>你好，我是一名来自<a target="_blank" rel="noopener" href="https://www.nju.edu.cn/">南京大学</a><a target="_blank" rel="noopener" href="https://ise.nju.edu.cn/">智能软件与工程学院</a>的大二学生，遇见即为缘分！</p>
+<p>此网站用于记录我的计算机自学历程，偶尔也会上传我的课程笔记和随笔，也欢迎大家与我分享交流，共同进步。</p>
+<p>我的CS自学历程始于大二，没错，我大一摆了一年，哈哈！如果你还不知道如何规划自己的CS自学，不妨看看北大信科大佬写的<a target="_blank" rel="noopener" href="https://csdiy.wiki/">CS自学指南</a>。</p>
+<p><img src="/../img/blog/dragon.jpg" srcset="/img/global/loading.gif" lazyload alt="苏州龙！"></p>
+<h1 id="兴趣爱好"><a href="#兴趣爱好" class="headerlink" title="兴趣爱好"></a>兴趣爱好</h1><ul>
+<li>乒乓球🏓</li>
+<li>网球🎾</li>
+<li>旅游🧳</li>
+</ul>
+<h1 id="正在学习的课程"><a href="#正在学习的课程" class="headerlink" title="正在学习的课程"></a>正在学习的课程</h1><ul>
+<li><input checked="" disabled="" type="checkbox"> CS61A </li>
+<li><input checked="" disabled="" type="checkbox"> CS106L</li>
+<li><input checked="" disabled="" type="checkbox"> CS61B </li>
+<li><input checked="" disabled="" type="checkbox"> MIT-Missing-Semester</li>
+<li><input checked="" disabled="" type="checkbox"> CS188 </li>
+<li><input checked="" disabled="" type="checkbox"> 李宏毅深度学习</li>
+<li><input disabled="" type="checkbox"> NJU-OS(GPT-2 并行推理)</li>
+<li><input disabled="" type="checkbox"> CS640（Lab6）</li>
+</ul>
+<h1 id="正在学习的技能"><a href="#正在学习的技能" class="headerlink" title="正在学习的技能"></a>正在学习的技能</h1><ul>
+<li><input checked="" disabled="" type="checkbox"> Git</li>
+<li><input checked="" disabled="" type="checkbox"> Anaconda</li>
+<li><input checked="" disabled="" type="checkbox"> Linux</li>
+<li><input checked="" disabled="" type="checkbox"> Markdown</li>
+<li><input checked="" disabled="" type="checkbox"> C++</li>
+<li><input checked="" disabled="" type="checkbox"> python</li>
+<li><input checked="" disabled="" type="checkbox"> GNU Make</li>
+<li><input checked="" disabled="" type="checkbox"> Numpy</li>
+<li><input checked="" disabled="" type="checkbox"> Pytorch</li>
+<li><input checked="" disabled="" type="checkbox"> Shell</li>
+<li><input checked="" disabled="" type="checkbox"> Scheme</li>
+<li><input checked="" disabled="" type="checkbox"> SQL</li>
+<li><input checked="" disabled="" type="checkbox"> Vue</li>
+<li><input checked="" disabled="" type="checkbox"> html</li>
+<li><input checked="" disabled="" type="checkbox"> CSS</li>
+<li><input checked="" disabled="" type="checkbox"> JavaScript</li>
+<li><input checked="" disabled="" type="checkbox"> TypeScript</li>
+<li><input disabled="" type="checkbox"> 盲打（目前60wpm）</li>
+<li><input disabled="" type="checkbox"> LaTeX</li>
+<li><input disabled="" type="checkbox"> Vim</li>
+<li><input disabled="" type="checkbox"> Docker</li>
+</ul>
+<h1 id="目前掌握的技能"><a href="#目前掌握的技能" class="headerlink" title="目前掌握的技能"></a>目前掌握的技能</h1><h2 id="LaTeX-一点点，还在学🤣"><a href="#LaTeX-一点点，还在学🤣" class="headerlink" title="LaTeX (一点点，还在学🤣)"></a>LaTeX (一点点，还在学🤣)</h2><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-built_in">$</span><span class="hljs-built_in">$</span><br><span class="hljs-keyword">\sqrt</span>&#123;<span class="hljs-keyword">\frac</span>&#123;<span class="hljs-keyword">\displaystyle</span>3<span class="hljs-keyword">\pi</span><span class="hljs-built_in">^</span>2-<span class="hljs-keyword">\sum</span><span class="hljs-built_in">_</span>&#123;q=0&#125;<span class="hljs-built_in">^</span>&#123;<span class="hljs-keyword">\infty</span>&#125;(z+<span class="hljs-keyword">\hat</span> L)<span class="hljs-built_in">^</span>&#123;q&#125;<br><span class="hljs-keyword">\exp</span>(<span class="hljs-keyword">\symrm</span>&#123;i&#125;q<span class="hljs-built_in">^</span>2 <span class="hljs-keyword">\hbar</span> x)&#125;&#123;<span class="hljs-keyword">\displaystyle</span> (<span class="hljs-keyword">\symsfup</span>&#123;Tr&#125;<span class="hljs-keyword">\symbfcal</span>&#123;A&#125;)<br><span class="hljs-keyword">\left</span>(<span class="hljs-keyword">\symbf</span><span class="hljs-keyword">\Lambda</span><span class="hljs-built_in">_</span>&#123;j<span class="hljs-built_in">_</span>1j<span class="hljs-built_in">_</span>2&#125;<span class="hljs-built_in">^</span>&#123;i<span class="hljs-built_in">_</span>1i<span class="hljs-built_in">_</span>2&#125;<span class="hljs-keyword">\Gamma</span><span class="hljs-built_in">_</span>&#123;i<span class="hljs-built_in">_</span>1i<span class="hljs-built_in">_</span>2&#125;<span class="hljs-built_in">^</span>&#123;j<span class="hljs-built_in">_</span>1j<span class="hljs-built_in">_</span>2&#125;<br><span class="hljs-keyword">\hookrightarrow</span><span class="hljs-keyword">\vec</span> D<span class="hljs-keyword">\cdot</span> <span class="hljs-keyword">\symbf</span> P <span class="hljs-keyword">\right</span>)&#125;&#125;<br>=<span class="hljs-keyword">\underbrace</span>&#123;<span class="hljs-keyword">\widetilde</span>&#123;<span class="hljs-keyword">\left</span><span class="hljs-keyword">\langle</span> <span class="hljs-keyword">\frac</span>&#123;<span class="hljs-keyword">\notin</span> <span class="hljs-keyword">\emptyset</span>&#125;<br>&#123;<span class="hljs-keyword">\varpi</span><span class="hljs-keyword">\alpha</span><span class="hljs-built_in">_</span>&#123;k<span class="hljs-keyword">\uparrow</span>&#125;&#125;<span class="hljs-keyword">\middle</span><span class="hljs-keyword">\vert</span><br><span class="hljs-keyword">\frac</span>&#123;<span class="hljs-keyword">\partial</span><span class="hljs-built_in">_</span><span class="hljs-keyword">\mu</span> T<span class="hljs-built_in">_</span>&#123;<span class="hljs-keyword">\mu</span><span class="hljs-keyword">\nu</span>&#125;&#125;&#123;2&#125;<span class="hljs-keyword">\right</span><span class="hljs-keyword">\rangle</span>&#125;&#125;<span class="hljs-built_in">_</span>&#123;<span class="hljs-keyword">\mathrm</span>&#123;K&#125;<span class="hljs-built_in">_</span>3<br><span class="hljs-keyword">\mathrm</span>&#123;Fe&#125;(<span class="hljs-keyword">\mathrm</span>&#123;CN&#125;)<span class="hljs-built_in">_</span>6&#125; ,<span class="hljs-keyword">\forall</span> z <span class="hljs-keyword">\in</span> <span class="hljs-keyword">\mathbb</span>&#123;R&#125;<br><span class="hljs-built_in">$</span><span class="hljs-built_in">$</span><br>下面是用上述LaTeX编写的数学公式<br></code></pre></td></tr></table></figure>
+
+<p>$$<br>\sqrt{\frac{\displaystyle3\pi^2-\sum_{q&#x3D;0}^{\infty}(z+\hat L)^{q}<br>\exp(\symrm{i}q^2 \hbar x)}{\displaystyle (\symsfup{Tr}\symbfcal{A})<br>\left(\symbf\Lambda_{j_1j_2}^{i_1i_2}\Gamma_{i_1i_2}^{j_1j_2}<br>\hookrightarrow\vec D\cdot \symbf P \right)}}<br>&#x3D;\underbrace{\widetilde{\left\langle \frac{\notin \emptyset}<br>{\varpi\alpha_{k\uparrow}}\middle\vert<br>\frac{\partial_\mu T_{\mu\nu}}{2}\right\rangle}}_{\mathrm{K}_3<br>\mathrm{Fe}(\mathrm{CN})_6} ,\forall z \in \mathbb{R}<br>$$</p>
+<h2 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-quote">&gt; Talk is cheap. Show me the code. [^1]</span><br>这个网站的文章就是用MarkDown写的!<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Talk is cheap. Show me the code. <sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="quoted from Linus.">[1]</span></a></sup></p>
+</blockquote>
+<h2 id="Programming-👨‍💻-C-C-Python-Java"><a href="#Programming-👨‍💻-C-C-Python-Java" class="headerlink" title="Programming 👨‍💻(C,C++,Python,Java)"></a>Programming 👨‍💻(C,C++,Python,Java)</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T, <span class="hljs-keyword">typename</span> U&gt;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">is_same</span> &#123;<br>    <span class="hljs-type">static</span> <span class="hljs-type">const</span> <span class="hljs-type">bool</span> value = <span class="hljs-literal">false</span>;<br>&#125;;<br><br><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">is_same</span>&lt;T, T&gt; &#123;<br>    <span class="hljs-type">static</span> <span class="hljs-type">const</span> <span class="hljs-type">bool</span> value = <span class="hljs-literal">true</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;background-color:#f1f9ff; border-left: 5px solid #4285f4; padding: 10px; margin-bottom: 10px;&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>title<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>: Zackaria&#x27;s Corner<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>intro<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>: 惟日孜孜，无敢逸豫<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>link<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>: <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://wang-jiahao.github.io&quot;</span>&gt;</span>https://wang-jiahao.github.io<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>avatar<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>: <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://wang-jiahao.github.io/favicon.ico&quot;</span>&gt;</span>https://wang-jiahao.github.io/favicon.ico<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<div style="background-color:#f1f9ff; border-left: 5px solid #4285f4; padding: 10px; margin-bottom: 10px;">
+<ul>
+  <li><b>title</b>: Zackaria's Corner</li>
+  <li><b>intro</b>: 惟日孜孜，无敢逸豫</li>
+  <li><b>link</b>: <a href="https://wang-jiahao.github.io">https://wang-jiahao.github.io</a></li>
+  <li><b>avatar</b>: <a href="https://wang-jiahao.github.io/favicon.ico">https://wang-jiahao.github.io/favicon.ico</a></li>
+</ul>
+</div>
+
+
+
+<section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>quoted from Linus.
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+  </div>
+
+  
+    <!-- Comments -->
+    <article id="comments" lazyload>
+      
+      
+        
+      
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"wang-jiahao/comments","repo-id":"R_kgDONZtQAQ","category":"Announcements","category-id":"DIC_kwDONZtQAc4Ck9xy","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"bottom","lang":"zh-CN"};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+</article>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <i class="iconfont icon-copyright"></i> <a href="https://github.com/wang-jiahao" target="_blank" rel="nofollow noopener"><span><font color="#FFA62F">2024-2025</font></span></a> <font color="#F62217"><i class="iconfont icon-love"></i></font> <a href="https://github.com/wang-jiahao" target="_blank" rel="nofollow noopener"><span><font color="#FFA62F">Zackaria</font></span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,1141 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/global/Zackaria.png">
+  <link rel="icon" href="/img/global/Zackaria.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#07c1f0">
+  <meta name="author" content="Jiahao Wang">
+  <meta name="keywords" content="博客,CS,图论,算法,数据结构,机器学习,深度学习,C++,C,CS61A,CS61B,CS188,Python,Java,PyTorch">
+  
+    <meta name="description" content="fstream RAII smart_pointers">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RAII 智能指针 C++">
+<meta property="og:url" content="http://wang-jiahao.github.io/posts/60866.html">
+<meta property="og:site_name" content="Zackaria&#39;s Corner">
+<meta property="og:description" content="fstream RAII smart_pointers">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-12-05T15:03:25.000Z">
+<meta property="article:modified_time" content="2024-12-11T05:10:12.669Z">
+<meta property="article:author" content="Jiahao Wang">
+<meta property="article:tag" content="RAII">
+<meta property="article:tag" content="智能指针">
+<meta property="article:tag" content="文件流">
+<meta property="article:tag" content="异常处理">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>RAII 智能指针 C++ - Zackaria&#39;s Corner</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap.css">
+<link rel="stylesheet" href="/css/selection.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wang-jiahao.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/global/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"4ATURf7GEMgcrf4AMW2NgIns-gzGzoHsz","app_key":"PEOHEBjwdHQuyIMZYZq3H8NE","server_url":"https://4aturf7g.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Zackaria&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner/bluesky.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="RAII 智能指针 C++"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-12-05 23:03" pubdate>
+          2024年12月5日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          95 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">RAII 智能指针 C++</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19x4y1E79V?spm_id_from=333.788.videopod.episodes&vd_source=c06338b0283c611d7a47c62b0ed23dfa&p=17">CS106L p17 Part 6.1 RAII and Smart Pointers</a></p>
+<h2 id="RAII"><a href="#RAII" class="headerlink" title="RAII"></a>RAII</h2><p><strong>RAII（Resource Acquisition Is Initialization）</strong> 是 C++ 编程中一种非常重要且常用的编程技术，旨在通过对象生命周期管理资源（如内存、文件句柄、网络连接等）的获取和释放，确保资源能够在程序执行过程中得到有效管理并避免资源泄露。RAII 的核心思想是“资源的获取就是初始化，资源的释放就是对象销毁时进行的析构操作”。</p>
+<h3 id="1-RAII-的基本原理"><a href="#1-RAII-的基本原理" class="headerlink" title="1. RAII 的基本原理"></a>1. RAII 的基本原理</h3><p>RAII 的基本思想是通过在对象的构造函数中获得资源，并在对象的析构函数中释放资源。换句话说，资源（如内存、文件句柄、数据库连接等）通过对象的生命周期来管理，确保资源在对象超出作用域时自动释放，从而避免了手动释放资源的复杂性。</p>
+<h4 id="关键点："><a href="#关键点：" class="headerlink" title="关键点："></a>关键点：</h4><ul>
+<li><strong>资源的获取</strong>：在对象的构造函数中获得资源，通常在构造函数中进行动态内存分配、文件打开、数据库连接等操作。</li>
+<li><strong>资源的释放</strong>：在对象的析构函数中释放资源，通常在析构函数中执行释放内存、关闭文件、断开数据库连接等操作。</li>
+</ul>
+<h3 id="2-RAII-的工作原理"><a href="#2-RAII-的工作原理" class="headerlink" title="2. RAII 的工作原理"></a>2. RAII 的工作原理</h3><p>RAII 在 C++ 中依赖于自动变量的生命周期。程序中定义的局部变量在作用域结束时会被销毁，而其析构函数会被自动调用。如果这些变量管理了某些资源（如内存、文件、互斥锁等），那么在析构函数中释放这些资源，就能确保资源得到了及时的释放。</p>
+<p>举个例子，假设我们有一个管理文件资源的类 <code>FileGuard</code>，它在对象创建时打开文件，在对象销毁时自动关闭文件。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;fstream&gt;</span></span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">FileGuard</span> &#123;<br><span class="hljs-keyword">private</span>:<br>    std::ifstream file;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-comment">// 构造函数中打开文件</span><br>    <span class="hljs-built_in">FileGuard</span>(<span class="hljs-type">const</span> std::string&amp; filename) &#123;<br>        file.<span class="hljs-built_in">open</span>(filename);<br>        <span class="hljs-keyword">if</span> (!file) &#123;<br>            <span class="hljs-keyword">throw</span> std::<span class="hljs-built_in">runtime_error</span>(<span class="hljs-string">&quot;File could not be opened.&quot;</span>);<br>        &#125;<br>        std::cout &lt;&lt; <span class="hljs-string">&quot;File opened successfully!&quot;</span> &lt;&lt; std::endl;<br>    &#125;<br>    <br>    <span class="hljs-comment">// 析构函数中关闭文件</span><br>    ~<span class="hljs-built_in">FileGuard</span>() &#123;<br>        <span class="hljs-keyword">if</span> (file.<span class="hljs-built_in">is_open</span>()) &#123;<br>            file.<span class="hljs-built_in">close</span>();<br>            std::cout &lt;&lt; <span class="hljs-string">&quot;File closed.&quot;</span> &lt;&lt; std::endl;<br>        &#125;<br>    &#125;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">try</span> &#123;<br>        <span class="hljs-function">FileGuard <span class="hljs-title">fg</span><span class="hljs-params">(<span class="hljs-string">&quot;example.txt&quot;</span>)</span></span>;  <span class="hljs-comment">// 自动打开文件</span><br>        <span class="hljs-comment">// 在此处可以进行文件操作</span><br>    &#125; <span class="hljs-built_in">catch</span> (<span class="hljs-type">const</span> std::exception&amp; e) &#123;<br>        std::cout &lt;&lt; e.<span class="hljs-built_in">what</span>() &lt;&lt; std::endl;<br>    &#125;<br>    <span class="hljs-comment">// 当fg超出作用域时，它会被销毁，析构函数自动关闭文件</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>FileGuard</code> 类负责打开和关闭文件。通过在构造函数中打开文件，并在析构函数中关闭文件，我们确保了文件始终在使用后被关闭，即使在发生异常时也能自动关闭文件。这就是 RAII 的一个典型应用。</p>
+<h4 id="输出："><a href="#输出：" class="headerlink" title="输出："></a>输出：</h4><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs fortran"><span class="hljs-keyword">File</span> <span class="hljs-keyword">opened</span> successfully<span class="hljs-comment">!</span><br><span class="hljs-keyword">File</span> closed.<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-RAII-的优点"><a href="#3-RAII-的优点" class="headerlink" title="3. RAII 的优点"></a>3. RAII 的优点</h3><p>RAII 的核心优势之一就是它确保了资源的自动释放，避免了资源泄漏。它提供了以下几个明显的优点：</p>
+<ul>
+<li><strong>自动管理资源</strong>：RAII 自动管理资源的生命周期，不需要手动释放。程序员不必担心忘记释放资源，或因异常导致资源没有释放。</li>
+<li><strong>异常安全</strong>：在 RAII 中，资源的释放发生在对象的析构函数中，这样即使发生异常，也能确保资源会被正确释放（避免了资源泄漏）。因此，RAII 提供了一种异常安全的机制，即使在复杂的控制流中（例如，在异常发生时）也能保持资源的正确管理。</li>
+<li><strong>简化代码</strong>：RAII 使得资源的管理更加直观和简洁。程序员只需要关注对象的创建和销毁，而不需要显式地释放资源。</li>
+<li><strong>增强可维护性</strong>：由于资源管理是与对象的生命周期紧密绑定的，程序的维护和扩展更加方便。对象的创建、使用和销毁过程通常在同一个地方进行管理，减少了跨多个函数或类管理资源的复杂性。</li>
+</ul>
+<h3 id="4-RAII-和资源泄漏"><a href="#4-RAII-和资源泄漏" class="headerlink" title="4. RAII 和资源泄漏"></a>4. RAII 和资源泄漏</h3><p>资源泄漏通常发生在程序没有正确释放资源的情况下。RAII 通过将资源的获取和释放与对象的生命周期紧密关联起来，从而有效避免了资源泄漏。例如，在上述 <code>FileGuard</code> 类中，无论是正常退出作用域还是发生异常，<code>fg</code> 对象都会被销毁，<code>~FileGuard</code> 析构函数会被自动调用，从而确保了文件被正确关闭。</p>
+<p>假设不使用 RAII，我们可能需要手动在每个可能的退出点释放资源：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">openFile</span><span class="hljs-params">(<span class="hljs-type">const</span> std::string&amp; filename)</span> </span>&#123;<br>    std::ifstream file;<br>    file.<span class="hljs-built_in">open</span>(filename);<br>    <br>    <span class="hljs-keyword">if</span> (!file) &#123;<br>        std::cerr &lt;&lt; <span class="hljs-string">&quot;Failed to open file.&quot;</span> &lt;&lt; std::endl;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br><br>    <span class="hljs-comment">// 其他处理代码</span><br><br>    file.<span class="hljs-built_in">close</span>();  <span class="hljs-comment">// 必须显式关闭文件</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>如果在文件打开后发生异常（例如在“其他处理代码”中发生了异常），那么 <code>file.close()</code> 可能就永远不会被执行，导致资源泄漏。而使用 RAII 技术，可以避免这种问题。</p>
+<h3 id="5-RAII-的应用场景"><a href="#5-RAII-的应用场景" class="headerlink" title="5. RAII 的应用场景"></a>5. RAII 的应用场景</h3><p>RAII 不仅适用于内存管理，还可以应用于其他资源的管理。以下是一些常见的应用场景：</p>
+<ul>
+<li><p><strong>动态内存管理</strong>：使用 <code>std::unique_ptr</code> 和 <code>std::shared_ptr</code> 来管理动态分配的内存。<code>std::unique_ptr</code> 在对象生命周期结束时自动释放内存，避免了手动释放内存的麻烦。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">std::unique_ptr&lt;<span class="hljs-type">int</span>&gt; ptr = std::<span class="hljs-built_in">make_unique</span>&lt;<span class="hljs-type">int</span>&gt;(<span class="hljs-number">10</span>);  <span class="hljs-comment">// 自动分配内存</span><br><span class="hljs-comment">// ptr 超出作用域时，内存会自动释放</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>文件管理</strong>：如前所述，通过定义一个类来在对象构造时打开文件，在析构时自动关闭文件，避免了文件泄漏问题。</p>
+</li>
+<li><p><strong>锁管理</strong>：使用 <code>std::lock_guard</code> 或 <code>std::unique_lock</code> 等来管理互斥锁的获取和释放。锁在构造时被获取，在析构时自动释放，避免死锁和锁没有释放的问题。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp">std::mutex mtx;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">threadSafeFunction</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-function">std::lock_guard&lt;std::mutex&gt; <span class="hljs-title">lock</span><span class="hljs-params">(mtx)</span></span>;  <span class="hljs-comment">// 锁定互斥量</span><br>    <span class="hljs-comment">// 执行线程安全操作</span><br>&#125;  <span class="hljs-comment">// 当lock超出作用域时，mutex会自动解锁</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>数据库连接</strong>：使用 RAII 管理数据库连接。当对象创建时建立数据库连接，析构时断开连接，确保连接始终处于正确的状态。</p>
+</li>
+</ul>
+<h3 id="6-RAII-的限制"><a href="#6-RAII-的限制" class="headerlink" title="6. RAII 的限制"></a>6. RAII 的限制</h3><p>尽管 RAII 是一种非常有用的技术，但它也有一些限制和挑战：</p>
+<ul>
+<li><strong>资源的类型限制</strong>：RAII 主要适用于那些在对象销毁时需要释放的资源。如果资源的释放不依赖于对象的生命周期（例如某些全局资源或跨多个对象共享的资源），RAII 可能就不适用。</li>
+<li><strong>跨线程资源管理</strong>：在多线程环境中，RAII 可能无法有效地管理共享资源的访问，特别是在多个线程之间共享资源时，需要额外的同步机制来保证线程安全。</li>
+</ul>
+<h3 id="7-总结"><a href="#7-总结" class="headerlink" title="7. 总结"></a>7. 总结</h3><p>RAII（Resource Acquisition Is Initialization）是 C++ 中一种强大且优雅的技术，它通过将资源的管理与对象的生命周期绑定，自动管理资源的获取和释放，避免了资源泄漏和内存管理的复杂性。RAII 不仅可以用于内存管理，还可以广泛应用于文件、网络连接、数据库连接、互斥锁等资源的管理，是 C++ 编程中非常重要的设计思想之一。</p>
+<h2 id="Smart-Pointer"><a href="#Smart-Pointer" class="headerlink" title="Smart Pointer"></a>Smart Pointer</h2><p>C++中的<strong>智能指针</strong>（smart pointer）是一种封装原始指针（raw pointer）的对象，它通过自动管理内存的分配和释放，帮助程序员避免内存泄漏和悬空指针等问题。智能指针的核心思想是将动态内存的管理从程序员手中转移到一个管理对象（智能指针）中，减少手动管理内存的复杂性和风险。</p>
+<p>C++标准库提供了几种类型的智能指针，主要包括：</p>
+<ul>
+<li><code>std::unique_ptr</code></li>
+<li><code>std::shared_ptr</code></li>
+<li><code>std::weak_ptr</code></li>
+</ul>
+<p>这些智能指针是C++11引入的，旨在提高代码的安全性和可维护性，特别是在复杂的内存管理场景中。</p>
+<h3 id="1-std-unique-ptr"><a href="#1-std-unique-ptr" class="headerlink" title="1. std::unique_ptr"></a>1. <code>std::unique_ptr</code></h3><p><code>std::unique_ptr</code> 是最基本的智能指针，它表示对动态分配内存的独占所有权。一个 <code>std::unique_ptr</code> 在任何时候只能指向一个对象，并且该指针是唯一的（即只能有一个 <code>std::unique_ptr</code> 拥有某个资源）。当 <code>std::unique_ptr</code> 被销毁时，它所管理的对象会自动被销毁，内存会被释放。</p>
+<h4 id="特性："><a href="#特性：" class="headerlink" title="特性："></a>特性：</h4><ul>
+<li><strong>独占所有权</strong>：每个资源只能由一个 <code>std::unique_ptr</code> 拥有，不能复制（没有复制构造函数和复制赋值运算符）。</li>
+<li><strong>自动释放内存</strong>：当 <code>std::unique_ptr</code> 超出作用域时，它会自动调用析构函数释放资源，避免了手动 <code>delete</code> 的需要。</li>
+</ul>
+<h4 id="使用示例："><a href="#使用示例：" class="headerlink" title="使用示例："></a>使用示例：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;memory&gt;</span>  <span class="hljs-comment">// 引入 std::unique_ptr</span></span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">MyClass</span>() &#123;<br>        std::cout &lt;&lt; <span class="hljs-string">&quot;MyClass constructor\n&quot;</span>;<br>    &#125;<br>    ~<span class="hljs-built_in">MyClass</span>() &#123;<br>        std::cout &lt;&lt; <span class="hljs-string">&quot;MyClass destructor\n&quot;</span>;<br>    &#125;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-comment">// 创建一个 unique_ptr，管理 MyClass 对象</span><br>    std::unique_ptr&lt;MyClass&gt; ptr1 = std::<span class="hljs-built_in">make_unique</span>&lt;MyClass&gt;();<br><br>    <span class="hljs-comment">// ptr1 离开作用域时，MyClass 的对象会被销毁，自动释放内存</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>输出：</strong></p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs delphi">MyClass <span class="hljs-function"><span class="hljs-keyword">constructor</span></span><br><span class="hljs-function"><span class="hljs-title">MyClass</span> <span class="hljs-title">destructor</span></span><br></code></pre></td></tr></table></figure>
+
+<h4 id="转移所有权："><a href="#转移所有权：" class="headerlink" title="转移所有权："></a>转移所有权：</h4><p><code>std::unique_ptr</code> 的所有权不能被复制，但可以通过 <code>std::move</code> 转移所有权。转移所有权后，原来的 <code>std::unique_ptr</code> 变为空指针（<code>nullptr</code>）。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">std::unique_ptr&lt;MyClass&gt; ptr2 = std::<span class="hljs-built_in">move</span>(ptr1);  <span class="hljs-comment">// 转移所有权</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="2-std-shared-ptr"><a href="#2-std-shared-ptr" class="headerlink" title="2. std::shared_ptr"></a>2. <code>std::shared_ptr</code></h3><p><code>std::shared_ptr</code> 是一种<strong>共享所有权</strong>的智能指针，允许多个指针共享同一块内存资源。每当创建一个新的 <code>std::shared_ptr</code> 来指向同一个对象时，它们的引用计数会增加。当一个 <code>std::shared_ptr</code> 被销毁时，引用计数会减少，直到没有任何 <code>shared_ptr</code> 指向该对象时，资源会被释放。</p>
+<h4 id="特性：-1"><a href="#特性：-1" class="headerlink" title="特性："></a>特性：</h4><ul>
+<li><strong>共享所有权</strong>：多个 <code>std::shared_ptr</code> 可以共同拥有同一个资源。每个指针都可以访问资源，并通过引用计数机制来判断何时释放资源。</li>
+<li><strong>引用计数</strong>：每个 <code>std::shared_ptr</code> 都会持有一个引用计数，记录有多少个智能指针共享这个资源。当引用计数归零时，资源会自动释放。</li>
+</ul>
+<h4 id="使用示例：-1"><a href="#使用示例：-1" class="headerlink" title="使用示例："></a>使用示例：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;memory&gt;</span>  <span class="hljs-comment">// 引入 std::shared_ptr</span></span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">MyClass</span>() &#123;<br>        std::cout &lt;&lt; <span class="hljs-string">&quot;MyClass constructor\n&quot;</span>;<br>    &#125;<br>    ~<span class="hljs-built_in">MyClass</span>() &#123;<br>        std::cout &lt;&lt; <span class="hljs-string">&quot;MyClass destructor\n&quot;</span>;<br>    &#125;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-comment">// 创建一个 shared_ptr，管理 MyClass 对象</span><br>    std::shared_ptr&lt;MyClass&gt; ptr1 = std::<span class="hljs-built_in">make_shared</span>&lt;MyClass&gt;();<br><br>    std::cout &lt;&lt; <span class="hljs-string">&quot;ptr1 use_count: &quot;</span> &lt;&lt; ptr<span class="hljs-number">1.</span><span class="hljs-built_in">use_count</span>() &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br><br>    <span class="hljs-comment">// 创建另一个 shared_ptr，指向相同的对象</span><br>    std::shared_ptr&lt;MyClass&gt; ptr2 = ptr1;<br><br>    std::cout &lt;&lt; <span class="hljs-string">&quot;ptr1 use_count: &quot;</span> &lt;&lt; ptr<span class="hljs-number">1.</span><span class="hljs-built_in">use_count</span>() &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br>    std::cout &lt;&lt; <span class="hljs-string">&quot;ptr2 use_count: &quot;</span> &lt;&lt; ptr<span class="hljs-number">2.</span><span class="hljs-built_in">use_count</span>() &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br><br>    <span class="hljs-comment">// 退出作用域时，ptr1 和 ptr2 都会被销毁，引用计数为 0，资源自动释放</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>输出：</strong></p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs delphi">MyClass <span class="hljs-function"><span class="hljs-keyword">constructor</span></span><br><span class="hljs-function"><span class="hljs-title">ptr1</span> <span class="hljs-title">use_count</span>:</span> <span class="hljs-number">1</span><br>ptr1 use_count: <span class="hljs-number">2</span><br>ptr2 use_count: <span class="hljs-number">2</span><br>MyClass <span class="hljs-function"><span class="hljs-keyword">destructor</span></span><br></code></pre></td></tr></table></figure>
+
+<h4 id="引用计数："><a href="#引用计数：" class="headerlink" title="引用计数："></a>引用计数：</h4><ul>
+<li><code>use_count()</code> 方法返回当前 <code>std::shared_ptr</code> 所管理资源的引用计数。</li>
+</ul>
+<h4 id="循环引用："><a href="#循环引用：" class="headerlink" title="循环引用："></a>循环引用：</h4><p><code>std::shared_ptr</code> 的引用计数机制可能导致<strong>循环引用</strong>的问题。例如，两个对象通过 <code>shared_ptr</code> 相互持有对方的指针，这样会导致它们永远不会被销毁，造成内存泄漏。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span>;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">B</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    std::shared_ptr&lt;A&gt; a;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    std::shared_ptr&lt;B&gt; b;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    std::shared_ptr&lt;A&gt; a = std::<span class="hljs-built_in">make_shared</span>&lt;A&gt;();<br>    std::shared_ptr&lt;B&gt; b = std::<span class="hljs-built_in">make_shared</span>&lt;B&gt;();<br><br>    a-&gt;b = b;<br>    b-&gt;a = a;  <span class="hljs-comment">// 循环引用，内存不会被释放</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>为避免循环引用的问题，可以使用 <code>std::weak_ptr</code>。</p>
+<h3 id="3-std-weak-ptr"><a href="#3-std-weak-ptr" class="headerlink" title="3. std::weak_ptr"></a>3. <code>std::weak_ptr</code></h3><p><code>std::weak_ptr</code> 是一种不拥有对象的智能指针，它主要用来解决 <code>std::shared_ptr</code> 中的循环引用问题。<code>std::weak_ptr</code> 不会增加引用计数，因此它不会影响对象的生命周期。<code>std::weak_ptr</code> 主要用于观察某个对象是否已经被销毁，或者作为缓存机制的补充。</p>
+<h4 id="特性：-2"><a href="#特性：-2" class="headerlink" title="特性："></a>特性：</h4><ul>
+<li><strong>不增加引用计数</strong>：<code>std::weak_ptr</code> 不会导致引用计数增加，因此它不会阻止对象的销毁。</li>
+<li>**可以转换为 <code>shared_ptr</code>**：通过调用 <code>std::weak_ptr::lock()</code>，可以将 <code>std::weak_ptr</code> 转换为一个 <code>std::shared_ptr</code>。如果对象已经被销毁，<code>lock()</code> 会返回一个空指针。</li>
+</ul>
+<h4 id="使用示例：-2"><a href="#使用示例：-2" class="headerlink" title="使用示例："></a>使用示例：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;memory&gt;</span>  <span class="hljs-comment">// 引入 std::weak_ptr</span></span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">MyClass</span>() &#123;<br>        std::cout &lt;&lt; <span class="hljs-string">&quot;MyClass constructor\n&quot;</span>;<br>    &#125;<br>    ~<span class="hljs-built_in">MyClass</span>() &#123;<br>        std::cout &lt;&lt; <span class="hljs-string">&quot;MyClass destructor\n&quot;</span>;<br>    &#125;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    std::shared_ptr&lt;MyClass&gt; ptr1 = std::<span class="hljs-built_in">make_shared</span>&lt;MyClass&gt;();<br>    std::weak_ptr&lt;MyClass&gt; weakPtr = ptr1;  <span class="hljs-comment">// weak_ptr 不增加引用计数</span><br><br>    std::cout &lt;&lt; <span class="hljs-string">&quot;ptr1 use_count: &quot;</span> &lt;&lt; ptr<span class="hljs-number">1.</span><span class="hljs-built_in">use_count</span>() &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br><br>    std::shared_ptr&lt;MyClass&gt; ptr2 = weakPtr.<span class="hljs-built_in">lock</span>();  <span class="hljs-comment">// 将 weak_ptr 转换为 shared_ptr</span><br>    <span class="hljs-keyword">if</span> (ptr2) &#123;<br>        std::cout &lt;&lt; <span class="hljs-string">&quot;Successfully locked weak_ptr\n&quot;</span>;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        std::cout &lt;&lt; <span class="hljs-string">&quot;Failed to lock weak_ptr\n&quot;</span>;<br>    &#125;<br><br>    ptr<span class="hljs-number">1.</span><span class="hljs-built_in">reset</span>();  <span class="hljs-comment">// 销毁 ptr1</span><br><br>    std::shared_ptr&lt;MyClass&gt; ptr3 = weakPtr.<span class="hljs-built_in">lock</span>();  <span class="hljs-comment">// weak_ptr 转换失败</span><br>    <span class="hljs-keyword">if</span> (ptr3) &#123;<br>        std::cout &lt;&lt; <span class="hljs-string">&quot;Successfully locked weak_ptr\n&quot;</span>;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        std::cout &lt;&lt; <span class="hljs-string">&quot;Failed to lock weak_ptr\n&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>输出：</strong></p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs oxygene">MyClass <span class="hljs-keyword">constructor</span><br><span class="hljs-title function_">ptr1</span> <span class="hljs-title function_">use_count</span>: <span class="hljs-number">1</span><br>Successfully <span class="hljs-keyword">locked</span> weak_ptr<br>MyClass <span class="hljs-keyword">destructor</span><br><span class="hljs-title function_">Failed</span> <span class="hljs-title function_">to</span> <span class="hljs-title function_">lock</span> <span class="hljs-title function_">weak_ptr</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h3><p>C++中的智能指针（<code>std::unique_ptr</code>、<code>std::shared_ptr</code> 和 <code>std::weak_ptr</code>）是现代C++中非常重要的工具，它们帮助程序员有效地管理动态内存和其他资源，减少内存泄漏、悬空指针和重复释放资源等问题。每种智能指针有其独特的使用场景：</p>
+<ul>
+<li>**<code>std::unique_ptr</code>**：用于独占资源，适用于动态内存管理，资源的所有权不能被共享。</li>
+<li>**<code>std::shared_ptr</code>**：用于共享资源，适用于多个指针共享同一块内存，引用计数机制确保资源在没有指针指向时被释放。</li>
+<li>**<code>std::weak_ptr</code>**：用于避免循环引用，允许观察资源而不干扰其生命周期。</li>
+</ul>
+<p>通过智能指针的使用，可以大大简化内存管理并提升程序的安全性和可维护性。</p>
+<h2 id="文件流"><a href="#文件流" class="headerlink" title="文件流"></a>文件流</h2><p>在C++中，文件流（<code>fstream</code>）是用于处理文件输入输出的类库。它允许程序读取和写入文件，广泛应用于文件操作。文件流提供了三个主要的类，分别对应不同的操作方式：</p>
+<ol>
+<li><code>ifstream</code>（Input File Stream）：用于从文件中读取数据。</li>
+<li><code>ofstream</code>（Output File Stream）：用于将数据写入文件。</li>
+<li><code>fstream</code>（File Stream）：即可以读取也可以写入文件。</li>
+</ol>
+<h3 id="1-ifstream（输入文件流）"><a href="#1-ifstream（输入文件流）" class="headerlink" title="1. ifstream（输入文件流）"></a>1. <strong><code>ifstream</code>（输入文件流）</strong></h3><p><code>ifstream</code> 是用来从文件读取数据的流对象。它继承自 <code>istream</code> 类，并可以通过成员函数如 <code>open()</code> 和 <code>close()</code> 来操作文件。</p>
+<h4 id="示例：使用-ifstream-读取文件内容"><a href="#示例：使用-ifstream-读取文件内容" class="headerlink" title="示例：使用 ifstream 读取文件内容"></a>示例：使用 <code>ifstream</code> 读取文件内容</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;fstream&gt;</span> <span class="hljs-comment">// 引入文件流头文件</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-function">std::ifstream <span class="hljs-title">file</span><span class="hljs-params">(<span class="hljs-string">&quot;example.txt&quot;</span>)</span></span>; <span class="hljs-comment">// 打开文件</span><br>    <span class="hljs-keyword">if</span> (!file) &#123; <span class="hljs-comment">// 检查文件是否成功打开</span><br>        std::cerr &lt;&lt; <span class="hljs-string">&quot;无法打开文件!&quot;</span> &lt;&lt; std::endl;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>    &#125;<br>    <br>    std::string line;<br>    <span class="hljs-keyword">while</span> (std::<span class="hljs-built_in">getline</span>(file, line)) &#123; <span class="hljs-comment">// 逐行读取文件</span><br>        std::cout &lt;&lt; line &lt;&lt; std::endl; <span class="hljs-comment">// 输出文件内容</span><br>    &#125;<br>    <br>    file.<span class="hljs-built_in">close</span>(); <span class="hljs-comment">// 关闭文件流</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="ifstream-常用成员函数："><a href="#ifstream-常用成员函数：" class="headerlink" title="ifstream 常用成员函数："></a><code>ifstream</code> 常用成员函数：</h4><ul>
+<li><code>open()</code>: 打开文件进行读取。</li>
+<li><code>close()</code>: 关闭文件。</li>
+<li><code>getline()</code>: 逐行读取文件内容。</li>
+<li><code>eof()</code>: 检查是否到达文件末尾。</li>
+<li><code>fail()</code>: 检查文件操作是否成功。</li>
+</ul>
+<h3 id="2-ofstream（输出文件流）"><a href="#2-ofstream（输出文件流）" class="headerlink" title="2. ofstream（输出文件流）"></a>2. <strong><code>ofstream</code>（输出文件流）</strong></h3><p><code>ofstream</code> 用于向文件写入数据。它继承自 <code>ostream</code> 类，可以通过 <code>open()</code> 函数打开文件，使用 <code>&lt;&lt;</code> 运算符将数据写入文件。</p>
+<h4 id="示例：使用-ofstream-写入文件内容"><a href="#示例：使用-ofstream-写入文件内容" class="headerlink" title="示例：使用 ofstream 写入文件内容"></a>示例：使用 <code>ofstream</code> 写入文件内容</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;fstream&gt;</span> <span class="hljs-comment">// 引入文件流头文件</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-function">std::ofstream <span class="hljs-title">file</span><span class="hljs-params">(<span class="hljs-string">&quot;output.txt&quot;</span>)</span></span>; <span class="hljs-comment">// 打开文件进行写入</span><br>    <span class="hljs-keyword">if</span> (!file) &#123; <span class="hljs-comment">// 检查文件是否成功打开</span><br>        std::cerr &lt;&lt; <span class="hljs-string">&quot;无法打开文件!&quot;</span> &lt;&lt; std::endl;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>    &#125;<br>    <br>    file &lt;&lt; <span class="hljs-string">&quot;Hello, World!&quot;</span> &lt;&lt; std::endl; <span class="hljs-comment">// 向文件写入数据</span><br>    file &lt;&lt; <span class="hljs-string">&quot;C++ 文件流示例。&quot;</span> &lt;&lt; std::endl;<br>    <br>    file.<span class="hljs-built_in">close</span>(); <span class="hljs-comment">// 关闭文件流</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="ofstream-常用成员函数："><a href="#ofstream-常用成员函数：" class="headerlink" title="ofstream 常用成员函数："></a><code>ofstream</code> 常用成员函数：</h4><ul>
+<li><code>open()</code>: 打开文件进行写入。</li>
+<li><code>close()</code>: 关闭文件。</li>
+<li><code>flush()</code>: 将缓冲区内容强制写入文件。</li>
+<li><code>eof()</code>: 检查是否到达文件末尾。</li>
+</ul>
+<h3 id="3-fstream（文件流）"><a href="#3-fstream（文件流）" class="headerlink" title="3. fstream（文件流）"></a>3. <strong><code>fstream</code>（文件流）</strong></h3><p><code>fstream</code> 类结合了 <code>ifstream</code> 和 <code>ofstream</code> 的功能，它既可以用于读取文件，也可以用于写入文件。使用 <code>fstream</code> 可以在一个程序中同时执行文件的输入输出操作。</p>
+<h4 id="示例：使用-fstream-进行读写操作"><a href="#示例：使用-fstream-进行读写操作" class="headerlink" title="示例：使用 fstream 进行读写操作"></a>示例：使用 <code>fstream</code> 进行读写操作</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;fstream&gt;</span> <span class="hljs-comment">// 引入文件流头文件</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-function">std::fstream <span class="hljs-title">file</span><span class="hljs-params">(<span class="hljs-string">&quot;example.txt&quot;</span>, std::ios::in | std::ios::out)</span></span>; <span class="hljs-comment">// 打开文件进行读写</span><br>    <span class="hljs-keyword">if</span> (!file) &#123; <span class="hljs-comment">// 检查文件是否成功打开</span><br>        std::cerr &lt;&lt; <span class="hljs-string">&quot;无法打开文件!&quot;</span> &lt;&lt; std::endl;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>    &#125;<br>    <br>    <span class="hljs-comment">// 读取文件</span><br>    std::string line;<br>    <span class="hljs-keyword">while</span> (std::<span class="hljs-built_in">getline</span>(file, line)) &#123;<br>        std::cout &lt;&lt; line &lt;&lt; std::endl; <span class="hljs-comment">// 输出文件内容</span><br>    &#125;<br>    <br>    <span class="hljs-comment">// 移动文件指针到文件开头</span><br>    file.<span class="hljs-built_in">clear</span>(); <span class="hljs-comment">// 清除 EOF 标志</span><br>    file.<span class="hljs-built_in">seekg</span>(<span class="hljs-number">0</span>, std::ios::beg); <span class="hljs-comment">// 文件读取指针移到文件开头</span><br>    <br>    <span class="hljs-comment">// 向文件写入数据</span><br>    file &lt;&lt; <span class="hljs-string">&quot;\n新的数据行\n&quot;</span>;<br>    <br>    file.<span class="hljs-built_in">close</span>(); <span class="hljs-comment">// 关闭文件流</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="fstream-常用成员函数："><a href="#fstream-常用成员函数：" class="headerlink" title="fstream 常用成员函数："></a><code>fstream</code> 常用成员函数：</h4><ul>
+<li><code>open()</code>: 打开文件进行读写操作。</li>
+<li><code>close()</code>: 关闭文件流。</li>
+<li><code>seekg()</code>: 设置读取文件的指针位置。</li>
+<li><code>seekp()</code>: 设置写入文件的指针位置。</li>
+<li><code>eof()</code>: 检查是否到达文件末尾。</li>
+<li><code>clear()</code>: 清除文件流状态标志。</li>
+</ul>
+<h3 id="文件操作模式"><a href="#文件操作模式" class="headerlink" title="文件操作模式"></a>文件操作模式</h3><p>在打开文件时，除了可以指定文件名外，还可以传递一个文件打开模式。常用的打开模式包括：</p>
+<ul>
+<li><strong><code>std::ios::in</code></strong>: 打开文件用于输入（读取）。</li>
+<li><strong><code>std::ios::out</code></strong>: 打开文件用于输出（写入）。</li>
+<li><strong><code>std::ios::app</code></strong>: 打开文件用于追加写入（文件末尾）。</li>
+<li><strong><code>std::ios::ate</code></strong>: 打开文件并将文件指针指向文件末尾。</li>
+<li><strong><code>std::ios::trunc</code></strong>: 打开文件并清空文件内容（默认行为，当以 <code>std::ios::out</code> 模式打开时）。</li>
+<li><strong><code>std::ios::binary</code></strong>: 以二进制模式打开文件。</li>
+</ul>
+<h4 id="示例：使用不同的文件模式"><a href="#示例：使用不同的文件模式" class="headerlink" title="示例：使用不同的文件模式"></a>示例：使用不同的文件模式</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;fstream&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-function">std::ofstream <span class="hljs-title">file</span><span class="hljs-params">(<span class="hljs-string">&quot;example.txt&quot;</span>, std::ios::app)</span></span>; <span class="hljs-comment">// 以追加模式打开文件</span><br>    <span class="hljs-keyword">if</span> (!file) &#123;<br>        std::cerr &lt;&lt; <span class="hljs-string">&quot;无法打开文件!&quot;</span> &lt;&lt; std::endl;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>    &#125;<br>    <br>    file &lt;&lt; <span class="hljs-string">&quot;追加的内容&quot;</span> &lt;&lt; std::endl;<br>    file.<span class="hljs-built_in">close</span>();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="错误处理和流状态"><a href="#错误处理和流状态" class="headerlink" title="错误处理和流状态"></a>错误处理和流状态</h3><p>在文件操作中，错误处理是一个重要环节。流类提供了几个成员函数来检测流的状态：</p>
+<ul>
+<li><strong><code>fail()</code></strong>: 流的操作失败时返回 <code>true</code>。</li>
+<li><strong><code>eof()</code></strong>: 是否到达文件末尾。</li>
+<li><strong><code>good()</code></strong>: 流的状态是否正常。</li>
+<li><strong><code>bad()</code></strong>: 流的状态是否出现致命错误。</li>
+</ul>
+<h4 id="错误处理示例："><a href="#错误处理示例：" class="headerlink" title="错误处理示例："></a>错误处理示例：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;fstream&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-function">std::ifstream <span class="hljs-title">file</span><span class="hljs-params">(<span class="hljs-string">&quot;nonexistent.txt&quot;</span>)</span></span>;<br>    <span class="hljs-keyword">if</span> (!file) &#123; <span class="hljs-comment">// 检查是否成功打开文件</span><br>        std::cerr &lt;&lt; <span class="hljs-string">&quot;文件打开失败!&quot;</span> &lt;&lt; std::endl;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-comment">// 读取文件操作</span><br>    file.<span class="hljs-built_in">close</span>();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>C++中的文件流类库提供了一系列强大和灵活的接口来操作文件，无论是读取、写入还是同时进行文件的输入输出操作。通过使用 <code>ifstream</code>、<code>ofstream</code> 和 <code>fstream</code>，程序员可以轻松实现各种文件操作，并且可以在不同模式下打开文件。流状态的管理也是进行文件操作时需要注意的重点。</p>
+<h2 id="重定向（指定输入来源或输出去向）"><a href="#重定向（指定输入来源或输出去向）" class="headerlink" title="重定向（指定输入来源或输出去向）"></a>重定向（指定输入来源或输出去向）</h2><p><code>freopen(&quot;input.txt&quot;, &quot;r&quot;, stdin);</code> 这一行是 C 或 C++ 中的一个标准库函数 <code>freopen</code> 的调用。它的作用是重新指定标准输入流（<code>stdin</code>）的来源，使其从文件 <code>input.txt</code> 中读取数据，而不是从默认的标准输入设备（通常是键盘）读取。</p>
+<h3 id="解释："><a href="#解释：" class="headerlink" title="解释："></a>解释：</h3><p><code>freopen</code> 函数用于重新打开一个文件并将其与一个标准流（如 <code>stdin</code>、<code>stdout</code> 或 <code>stderr</code>）关联。其基本语法是：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">FILE* <span class="hljs-title function_">freopen</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span>* filename, <span class="hljs-type">const</span> <span class="hljs-type">char</span>* mode, FILE* stream)</span>;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>filename</code>: 要打开的文件名（可以是相对路径或绝对路径）。</li>
+<li><code>mode</code>: 文件的打开模式（类似于 <code>fopen</code> 的模式，比如 <code>&quot;r&quot;</code>、<code>&quot;w&quot;</code> 等）。</li>
+<li><code>stream</code>: 要重定向的标准流，通常是 <code>stdin</code>（标准输入）、<code>stdout</code>（标准输出）或 <code>stderr</code>（标准错误输出）。</li>
+</ul>
+<h3 id="在你的例子中："><a href="#在你的例子中：" class="headerlink" title="在你的例子中："></a>在你的例子中：</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">freopen(<span class="hljs-string">&quot;input.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>, <span class="hljs-built_in">stdin</span>);<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>input.txt</code>：这是你想要打开的文件名，它作为标准输入流的数据来源。</li>
+<li><code>&quot;r&quot;</code>：表示以“只读”模式打开文件。</li>
+<li><code>stdin</code>：是标准输入流，表示程序从哪里读取输入数据。默认情况下，它指向键盘输入。通过 <code>freopen</code>，你将标准输入流重定向到 <code>input.txt</code> 文件。</li>
+</ul>
+<h3 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h3><p>这行代码的作用是将标准输入重定向为从 <code>input.txt</code> 文件中读取数据。之后，所有从标准输入读取的数据（例如通过 <code>scanf</code> 或 <code>cin</code>）都会从 <code>input.txt</code> 文件中获取，而不是从键盘输入。</p>
+<h3 id="示例代码："><a href="#示例代码：" class="headerlink" title="示例代码："></a>示例代码：</h3><p>假设有一个 <code>input.txt</code> 文件，内容如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs">5<br>10<br>15<br></code></pre></td></tr></table></figure>
+
+<p>如果你有如下的 C++ 代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstdio&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-comment">// 将标准输入重定向到 input.txt 文件</span><br>    <span class="hljs-built_in">freopen</span>(<span class="hljs-string">&quot;input.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>, stdin);<br><br>    <span class="hljs-type">int</span> a, b, c;<br>    std::cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;  <span class="hljs-comment">// 从 input.txt 文件中读取三个整数</span><br><br>    std::cout &lt;&lt; <span class="hljs-string">&quot;a: &quot;</span> &lt;&lt; a &lt;&lt; <span class="hljs-string">&quot;, b: &quot;</span> &lt;&lt; b &lt;&lt; <span class="hljs-string">&quot;, c: &quot;</span> &lt;&lt; c &lt;&lt; std::endl;<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>这时程序执行时，<code>std::cin</code> 会从 <code>input.txt</code> 文件中读取数据。</p>
+</li>
+<li><p><code>input.txt</code> 文件的内容会按顺序被读取并存储到 <code>a</code>、<code>b</code> 和 <code>c</code> 变量中。</p>
+</li>
+<li><p>程序输出的结果将是：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">a</span>: <span class="hljs-number">5</span>, b: <span class="hljs-number">10</span>, c: <span class="hljs-number">15</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="使用场景："><a href="#使用场景：" class="headerlink" title="使用场景："></a>使用场景：</h3><ul>
+<li><strong>文件输入重定向</strong>：这种用法常见于处理文件输入输出的程序中。通过将 <code>stdin</code> 重定向为文件，可以模拟用户从文件中提供输入，特别在批量测试中非常有用。</li>
+<li><strong>多文件处理</strong>：如果程序需要处理多个输入文件，可以用 <code>freopen</code> 来切换不同的输入源，而不需要修改程序中所有读取输入的代码。</li>
+<li><strong>竞赛编程</strong>：在编程竞赛中，常常会将输入从文件中读取，而不是通过键盘输入。这时使用 <code>freopen</code> 可以方便地将标准输入重定向到文件。</li>
+</ul>
+<h3 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h3><ul>
+<li>在使用 <code>freopen</code> 时，一定要确保文件存在且可访问，否则会导致程序出现错误。如果 <code>freopen</code> 打开文件失败，它会返回 <code>nullptr</code>，这时应该检查返回值来处理错误。</li>
+<li><code>freopen</code> 会关闭原本的 <code>stdin</code>，如果你需要恢复标准输入，可以在适当的时机调用 <code>freopen</code> 重新将标准输入流恢复为控制台或其他流。</li>
+</ul>
+<h3 id="示例代码中的错误处理："><a href="#示例代码中的错误处理：" class="headerlink" title="示例代码中的错误处理："></a>示例代码中的错误处理：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstdio&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-comment">// 将标准输入重定向到 input.txt 文件</span><br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">freopen</span>(<span class="hljs-string">&quot;input.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>, stdin) == <span class="hljs-literal">nullptr</span>) &#123;<br>        std::cerr &lt;&lt; <span class="hljs-string">&quot;无法打开 input.txt 文件&quot;</span> &lt;&lt; std::endl;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;  <span class="hljs-comment">// 出现错误时退出</span><br>    &#125;<br><br>    <span class="hljs-type">int</span> a, b, c;<br>    std::cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;<br><br>    std::cout &lt;&lt; <span class="hljs-string">&quot;a: &quot;</span> &lt;&lt; a &lt;&lt; <span class="hljs-string">&quot;, b: &quot;</span> &lt;&lt; b &lt;&lt; <span class="hljs-string">&quot;, c: &quot;</span> &lt;&lt; c &lt;&lt; std::endl;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在上面的代码中，如果 <code>freopen</code> 无法成功打开 <code>input.txt</code> 文件，程序会输出错误信息并退出。</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p><code>freopen(&quot;input.txt&quot;, &quot;r&quot;, stdin);</code> 通过将标准输入流重定向到文件 <code>input.txt</code>，使得后续通过 <code>std::cin</code> 或 <code>scanf</code> 的输入都来自该文件，而不是来自键盘。这种方法在需要从文件读取输入数据时非常有用。</p>
+<h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><p>C++中的异常处理是一种程序控制机制，它使程序能够在运行时检测并响应错误或异常情况，从而避免程序崩溃并允许程序员采取适当的补救措施。C++的异常处理系统通过关键字 <code>try</code>、<code>catch</code> 和 <code>throw</code> 来实现，这种机制与其他语言如Java或Python中的异常处理机制有相似之处，但也具有其独特性。</p>
+<h3 id="1-异常的基本概念"><a href="#1-异常的基本概念" class="headerlink" title="1. 异常的基本概念"></a>1. 异常的基本概念</h3><p>在C++中，异常是一种被抛出的对象，通常用于指示程序发生了错误或不正常的情况。抛出的异常通常是一个对象的实例，这个对象可以是任何类型，C++并不限制异常的类型，因此，程序员可以定义自己的异常类型。</p>
+<p>异常处理机制的基本目标是：</p>
+<ul>
+<li><strong>捕获异常</strong>：当发生异常时，程序能够捕获异常并做出适当的处理。</li>
+<li><strong>恢复程序流</strong>：程序能够在处理完异常后恢复正常的控制流。</li>
+</ul>
+<h3 id="2-异常处理的关键字"><a href="#2-异常处理的关键字" class="headerlink" title="2. 异常处理的关键字"></a>2. 异常处理的关键字</h3><p>C++中异常处理的核心有三个关键字：<code>try</code>、<code>throw</code> 和 <code>catch</code>。</p>
+<h4 id="2-1-try-块"><a href="#2-1-try-块" class="headerlink" title="2.1 try 块"></a>2.1 <code>try</code> 块</h4><p><code>try</code> 块用于包含可能会抛出异常的代码。其基本语法如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">try</span> &#123;<br>    <span class="hljs-comment">// 可能抛出异常的代码</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>try</code> 块中的代码会被正常执行，如果在执行过程中抛出了异常，则控制流会立即跳转到相应的 <code>catch</code> 块。</p>
+<h4 id="2-2-throw-关键字"><a href="#2-2-throw-关键字" class="headerlink" title="2.2 throw 关键字"></a>2.2 <code>throw</code> 关键字</h4><p><code>throw</code> 关键字用于抛出异常。它后面跟着异常对象，异常对象可以是任何类型的对象。常见的做法是抛出类对象、基础类型或标准库异常类的实例。</p>
+<p>抛出异常的基本语法如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">throw</span> exception_object;<br></code></pre></td></tr></table></figure>
+
+<p>例如，抛出一个整数类型的异常：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">throw</span> <span class="hljs-number">10</span>;  <span class="hljs-comment">// 抛出整数 10</span><br></code></pre></td></tr></table></figure>
+
+<p>或者抛出一个自定义的异常对象：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyException</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">const</span> <span class="hljs-type">char</span>* <span class="hljs-title">what</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> <span class="hljs-keyword">noexcept</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;An error occurred!&quot;</span>;<br>    &#125;<br>&#125;;<br><br><span class="hljs-keyword">throw</span> <span class="hljs-built_in">MyException</span>();<br></code></pre></td></tr></table></figure>
+
+<h4 id="2-3-catch-块"><a href="#2-3-catch-块" class="headerlink" title="2.3 catch 块"></a>2.3 <code>catch</code> 块</h4><p><code>catch</code> 块用于捕获 <code>try</code> 块中抛出的异常，并对其进行处理。<code>catch</code> 块必须紧随 <code>try</code> 块之后，且它可以根据异常的类型定义不同的处理方式。</p>
+<p>基本语法如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">try</span> &#123;<br>    <span class="hljs-comment">// 可能抛出异常的代码</span><br>&#125; <span class="hljs-built_in">catch</span> (exception_type&amp; e) &#123;<br>    <span class="hljs-comment">// 异常处理代码</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>其中，<code>exception_type</code> 是捕获的异常类型，<code>e</code> 是该类型的引用变量，允许在 <code>catch</code> 块中访问异常对象。</p>
+<p>例如，捕获并处理整数类型的异常：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">try</span> &#123;<br>    <span class="hljs-keyword">throw</span> <span class="hljs-number">10</span>;<br>&#125; <span class="hljs-built_in">catch</span> (<span class="hljs-type">int</span> e) &#123;<br>    std::cout &lt;&lt; <span class="hljs-string">&quot;Caught an integer exception: &quot;</span> &lt;&lt; e &lt;&lt; std::endl;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-异常传递与处理过程"><a href="#3-异常传递与处理过程" class="headerlink" title="3. 异常传递与处理过程"></a>3. 异常传递与处理过程</h3><p>当异常发生时，程序会开始从 <code>try</code> 块中的代码执行位置开始寻找一个合适的 <code>catch</code> 块来处理该异常。如果在当前函数内没有找到匹配的 <code>catch</code> 块，异常会被传递到调用该函数的上层函数中，并继续进行匹配过程，直到找到合适的 <code>catch</code> 块或者程序终止。</p>
+<p>在C++中，异常处理是基于栈展开机制进行的。即当异常发生时，程序会依次销毁栈上所有的局部对象，执行它们的析构函数，这一过程称为“栈展开”。这种机制有助于确保资源能够被正确地释放。</p>
+<h3 id="4-自定义异常类型"><a href="#4-自定义异常类型" class="headerlink" title="4. 自定义异常类型"></a>4. 自定义异常类型</h3><p>C++允许程序员定义自己的异常类型。自定义异常通常通过继承标准异常类（如 <code>std::exception</code>）来实现。<code>std::exception</code> 是C++标准库中所有异常类的基类，它提供了一个 <code>what()</code> 方法来返回异常的描述信息。</p>
+<p>自定义异常类的例子：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;exception&gt;</span></span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyException</span> : <span class="hljs-keyword">public</span> std::exception &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">const</span> <span class="hljs-type">char</span>* <span class="hljs-title">what</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> <span class="hljs-keyword">noexcept</span> <span class="hljs-keyword">override</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Custom exception occurred!&quot;</span>;<br>    &#125;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">try</span> &#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-built_in">MyException</span>();<br>    &#125; <span class="hljs-built_in">catch</span> (<span class="hljs-type">const</span> MyException&amp; e) &#123;<br>        std::cout &lt;&lt; e.<span class="hljs-built_in">what</span>() &lt;&lt; std::endl;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="5-异常处理中的资源管理"><a href="#5-异常处理中的资源管理" class="headerlink" title="5. 异常处理中的资源管理"></a>5. 异常处理中的资源管理</h3><p>在异常处理中，资源管理是一个重要的考虑因素。为了避免资源泄露，C++推荐使用 RAII（Resource Acquisition Is Initialization）模式来管理资源。RAII是通过在对象的生命周期内管理资源来确保资源得到适时释放的一种技术。</p>
+<p>例如，使用 <code>std::unique_ptr</code> 或 <code>std::shared_ptr</code> 来管理动态分配的内存，可以确保即使发生异常，内存也能自动释放。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;memory&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">function</span><span class="hljs-params">()</span> </span>&#123;<br>    std::unique_ptr&lt;<span class="hljs-type">int</span>&gt; p = std::<span class="hljs-built_in">make_unique</span>&lt;<span class="hljs-type">int</span>&gt;(<span class="hljs-number">10</span>);<br>    <span class="hljs-comment">// 其他可能抛出异常的操作</span><br>    <span class="hljs-comment">// p会在函数结束时自动释放内存</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="6-异常规范（Exception-Specification）"><a href="#6-异常规范（Exception-Specification）" class="headerlink" title="6. 异常规范（Exception Specification）"></a>6. 异常规范（Exception Specification）</h3><p>在C++98和C++03中，函数可以声明它们可能抛出哪些类型的异常，使用 <code>throw</code> 关键字。例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">myFunction</span><span class="hljs-params">()</span> <span class="hljs-title">throw</span> <span class="hljs-params">(std::exception)</span></span>;<br></code></pre></td></tr></table></figure>
+
+<p>这表示 <code>myFunction</code> 可能抛出 <code>std::exception</code> 类型的异常。然而，这种异常规范在C++11及以后版本被废弃，取而代之的是 noexcept 关键字，后者用于声明函数不会抛出任何异常：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">myFunction</span><span class="hljs-params">()</span> <span class="hljs-keyword">noexcept</span> </span>&#123;<br>    <span class="hljs-comment">// 这个函数不会抛出异常</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="7-异常安全"><a href="#7-异常安全" class="headerlink" title="7. 异常安全"></a>7. 异常安全</h3><p>在编写C++程序时，必须考虑异常安全。异常安全指的是程序在发生异常时，能够保持一致性并防止资源泄漏。C++提供了不同级别的异常安全保证：</p>
+<ul>
+<li><strong>基本保证（Basic Guarantee）</strong>：即使发生异常，程序的状态不会处于不一致的状态。对象的析构函数将被正确调用，资源将被释放。</li>
+<li><strong>强保证（Strong Guarantee）</strong>：即使发生异常，程序的状态也不会发生变化，相当于回滚到异常发生前的状态。</li>
+<li><strong>无保证（No Guarantee）</strong>：没有提供任何保证，异常发生时可能会破坏程序状态。</li>
+</ul>
+<p>对于复杂的代码，通常使用“强保证”或“基本保证”来确保程序在异常发生时的稳定性。</p>
+<h3 id="8-总结"><a href="#8-总结" class="headerlink" title="8. 总结"></a>8. 总结</h3><p>C++的异常处理机制为程序员提供了一种优雅的方式来处理运行时错误。通过 <code>try</code>、<code>catch</code> 和 <code>throw</code> 关键字，程序员可以在错误发生时捕获并处理异常，避免程序崩溃。同时，C++中的异常处理还涉及到自定义异常类型、异常规范、资源管理和异常安全等多个方面，这些都需要程序员仔细设计和实现。</p>
+<h2 id="标准库中的异常类"><a href="#标准库中的异常类" class="headerlink" title="标准库中的异常类"></a>标准库中的异常类</h2><p>是的，C++标准库包含了一些用于异常处理的类。这些异常类都继承自 <code>std::exception</code> 类，<code>std::exception</code> 是所有标准异常类的基类，它提供了基本的异常信息功能。除了 <code>std::exception</code>，C++标准库还定义了一些具体的异常类，用于表示不同类型的错误情况。</p>
+<p>以下是一些常见的C++标准库异常类的概述：</p>
+<h3 id="1-std-exception"><a href="#1-std-exception" class="headerlink" title="1. std::exception"></a>1. <code>std::exception</code></h3><p><code>std::exception</code> 是所有标准异常类的基类。它提供了一个 <code>what()</code> 成员函数，用于返回关于异常的描述信息。通常可以通过重载这个函数来提供自定义的异常信息。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;exception&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">func</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">throw</span> std::<span class="hljs-built_in">exception</span>();<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">try</span> &#123;<br>        <span class="hljs-built_in">func</span>();<br>    &#125; <span class="hljs-built_in">catch</span> (<span class="hljs-type">const</span> std::exception&amp; e) &#123;<br>        std::cout &lt;&lt; <span class="hljs-string">&quot;Caught exception: &quot;</span> &lt;&lt; e.<span class="hljs-built_in">what</span>() &lt;&lt; std::endl;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>输出：</strong></p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">Caught <span class="hljs-keyword">exception</span>: std::<span class="hljs-keyword">exception</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="2-std-runtime-error"><a href="#2-std-runtime-error" class="headerlink" title="2. std::runtime_error"></a>2. <code>std::runtime_error</code></h3><p><code>std::runtime_error</code> 是 <code>std::exception</code> 的派生类，用于表示程序运行时发生的错误，通常用于逻辑错误、状态不一致等。它的构造函数接受一个 <code>const char*</code> 类型的参数，用来提供详细的错误信息。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdexcept&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">func</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">throw</span> std::<span class="hljs-built_in">runtime_error</span>(<span class="hljs-string">&quot;Runtime error occurred!&quot;</span>);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">try</span> &#123;<br>        <span class="hljs-built_in">func</span>();<br>    &#125; <span class="hljs-built_in">catch</span> (<span class="hljs-type">const</span> std::runtime_error&amp; e) &#123;<br>        std::cout &lt;&lt; <span class="hljs-string">&quot;Caught exception: &quot;</span> &lt;&lt; e.<span class="hljs-built_in">what</span>() &lt;&lt; std::endl;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>输出：</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">Caught</span> exception: Runtime <span class="hljs-literal">error</span> occurred!<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-std-logic-error"><a href="#3-std-logic-error" class="headerlink" title="3. std::logic_error"></a>3. <code>std::logic_error</code></h3><p><code>std::logic_error</code> 也是 <code>std::exception</code> 的一个派生类，用于表示程序逻辑上的错误，通常是违反了某种约定、使用不当等。例如，访问空指针、无效的输入等问题可能会引发此类异常。</p>
+<p>常见的 <code>std::logic_error</code> 的子类有：</p>
+<ul>
+<li><code>std::invalid_argument</code>：表示传递给函数的参数无效。</li>
+<li><code>std::domain_error</code>：表示输入值不在定义的范围内。</li>
+<li><code>std::length_error</code>：表示容器超出了允许的最大长度。</li>
+<li><code>std::out_of_range</code>：表示尝试访问超出范围的元素。</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdexcept&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">func</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (n &lt; <span class="hljs-number">0</span>) &#123;<br>        <span class="hljs-keyword">throw</span> std::<span class="hljs-built_in">invalid_argument</span>(<span class="hljs-string">&quot;Negative number is not allowed!&quot;</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">try</span> &#123;<br>        <span class="hljs-built_in">func</span>(<span class="hljs-number">-5</span>);<br>    &#125; <span class="hljs-built_in">catch</span> (<span class="hljs-type">const</span> std::invalid_argument&amp; e) &#123;<br>        std::cout &lt;&lt; <span class="hljs-string">&quot;Caught exception: &quot;</span> &lt;&lt; e.<span class="hljs-built_in">what</span>() &lt;&lt; std::endl;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>输出：</strong></p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xquery">Caught exception: Negative<span class="hljs-built_in"> number</span> <span class="hljs-literal">is</span><span class="hljs-built_in"> not</span> allowed!<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-std-bad-alloc"><a href="#4-std-bad-alloc" class="headerlink" title="4. std::bad_alloc"></a>4. <code>std::bad_alloc</code></h3><p><code>std::bad_alloc</code> 是 <code>std::exception</code> 的一个派生类，专门用来表示内存分配失败的异常。它通常在 <code>new</code> 操作符无法分配内存时抛出。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;new&gt;</span>  <span class="hljs-comment">// 引入 std::bad_alloc</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">try</span> &#123;<br>        <span class="hljs-type">int</span>* arr = <span class="hljs-keyword">new</span> <span class="hljs-type">int</span>[<span class="hljs-number">1000000000</span>];  <span class="hljs-comment">// 试图分配过多的内存</span><br>    &#125; <span class="hljs-built_in">catch</span> (<span class="hljs-type">const</span> std::bad_alloc&amp; e) &#123;<br>        std::cout &lt;&lt; <span class="hljs-string">&quot;Caught exception: &quot;</span> &lt;&lt; e.<span class="hljs-built_in">what</span>() &lt;&lt; std::endl;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>输出：</strong></p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">Caught <span class="hljs-keyword">exception</span>: std::bad_alloc<br></code></pre></td></tr></table></figure>
+
+<h3 id="5-std-out-of-range"><a href="#5-std-out-of-range" class="headerlink" title="5. std::out_of_range"></a>5. <code>std::out_of_range</code></h3><p><code>std::out_of_range</code> 继承自 <code>std::logic_error</code>，用于表示访问容器中不存在的元素，通常出现在数组、向量、字符串等容器的下标超出有效范围时。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdexcept&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    std::vector&lt;<span class="hljs-type">int</span>&gt; v = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>&#125;;<br><br>    <span class="hljs-keyword">try</span> &#123;<br>        std::cout &lt;&lt; v.<span class="hljs-built_in">at</span>(<span class="hljs-number">5</span>) &lt;&lt; std::endl;  <span class="hljs-comment">// 超出范围</span><br>    &#125; <span class="hljs-built_in">catch</span> (<span class="hljs-type">const</span> std::out_of_range&amp; e) &#123;<br>        std::cout &lt;&lt; <span class="hljs-string">&quot;Caught exception: &quot;</span> &lt;&lt; e.<span class="hljs-built_in">what</span>() &lt;&lt; std::endl;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>输出：</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">Caught exception: vector::_M_range_check: __n (which <span class="hljs-keyword">is</span> <span class="hljs-number">5</span>) &gt;= <span class="hljs-keyword">this</span>-&gt;size() (which <span class="hljs-keyword">is</span> <span class="hljs-number">3</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="6-std-overflow-error-和-std-underflow-error"><a href="#6-std-overflow-error-和-std-underflow-error" class="headerlink" title="6. std::overflow_error 和 std::underflow_error"></a>6. <code>std::overflow_error</code> 和 <code>std::underflow_error</code></h3><p><code>std::overflow_error</code> 和 <code>std::underflow_error</code> 都是继承自 <code>std::runtime_error</code> 的异常类，分别用于表示算术运算中的溢出和下溢错误。</p>
+<p>例如，溢出可能发生在数值运算时，如超出了类型的最大表示范围。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdexcept&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">try</span> &#123;<br>        <span class="hljs-keyword">throw</span> std::<span class="hljs-built_in">overflow_error</span>(<span class="hljs-string">&quot;Overflow error occurred!&quot;</span>);<br>    &#125; <span class="hljs-built_in">catch</span> (<span class="hljs-type">const</span> std::overflow_error&amp; e) &#123;<br>        std::cout &lt;&lt; <span class="hljs-string">&quot;Caught exception: &quot;</span> &lt;&lt; e.<span class="hljs-built_in">what</span>() &lt;&lt; std::endl;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>输出：</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">Caught</span> exception: Overflow <span class="hljs-literal">error</span> occurred!<br></code></pre></td></tr></table></figure>
+
+<h3 id="7-std-ios-base-failure"><a href="#7-std-ios-base-failure" class="headerlink" title="7. std::ios_base::failure"></a>7. <code>std::ios_base::failure</code></h3><p><code>std::ios_base::failure</code> 是一个用于处理输入输出流错误的异常类。它继承自 <code>std::exception</code>，通常在流操作失败时抛出，例如读取或写入文件时发生错误。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;fstream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdexcept&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">try</span> &#123;<br>        <span class="hljs-function">std::ifstream <span class="hljs-title">file</span><span class="hljs-params">(<span class="hljs-string">&quot;non_existent_file.txt&quot;</span>)</span></span>;<br>        <span class="hljs-keyword">if</span> (!file) &#123;<br>            <span class="hljs-keyword">throw</span> std::ios_base::<span class="hljs-built_in">failure</span>(<span class="hljs-string">&quot;Failed to open file!&quot;</span>);<br>        &#125;<br>    &#125; <span class="hljs-built_in">catch</span> (<span class="hljs-type">const</span> std::ios_base::failure&amp; e) &#123;<br>        std::cout &lt;&lt; <span class="hljs-string">&quot;Caught exception: &quot;</span> &lt;&lt; e.<span class="hljs-built_in">what</span>() &lt;&lt; std::endl;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>输出：</strong></p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs fsharp">Caught <span class="hljs-keyword">exception</span><span class="hljs-operator">:</span> Failed <span class="hljs-keyword">to</span> <span class="hljs-keyword">open</span> file<span class="hljs-operator">!</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="8-std-bad-cast-和-std-bad-typeid"><a href="#8-std-bad-cast-和-std-bad-typeid" class="headerlink" title="8. std::bad_cast 和 std::bad_typeid"></a>8. <code>std::bad_cast</code> 和 <code>std::bad_typeid</code></h3><ul>
+<li><code>std::bad_cast</code>：当尝试进行不合法的类型转换（例如，<code>dynamic_cast</code> 失败）时抛出此异常。</li>
+<li><code>std::bad_typeid</code>：当对一个空指针调用 <code>typeid</code> 时抛出此异常。</li>
+</ul>
+<h3 id="9-总结"><a href="#9-总结" class="headerlink" title="9. 总结"></a>9. 总结</h3><p>C++标准库提供了丰富的异常类，能够涵盖程序中多种常见的错误类型。通过继承自 <code>std::exception</code> 和其它专门的子类，C++的异常机制能够为程序提供强大的错误处理能力。这些标准异常类帮助程序员捕获和处理各种不同类型的错误，确保程序的稳定性和健壮性。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C++</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/C/CS106L/" class="category-chain-item">CS106L</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/RAII/" class="print-no-link">#RAII</a>
+      
+        <a href="/tags/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/" class="print-no-link">#智能指针</a>
+      
+        <a href="/tags/%E6%96%87%E4%BB%B6%E6%B5%81/" class="print-no-link">#文件流</a>
+      
+        <a href="/tags/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="print-no-link">#异常处理</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>RAII 智能指针 C++</div>
+      <div>http://wang-jiahao.github.io/posts/60866.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Jiahao Wang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年12月5日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2024年12月11日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/28135.html" title="多线程 C++">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">多线程 C++</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/35825.html" title="继承和模板类 C++">
+                        <span class="hidden-mobile">继承和模板类 C++</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"wang-jiahao/comments","repo-id":"R_kgDONZtQAQ","category":"Announcements","category-id":"DIC_kwDONZtQAc4Ck9xy","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"bottom","lang":"zh-CN"};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <i class="iconfont icon-copyright"></i> <a href="https://github.com/wang-jiahao" target="_blank" rel="nofollow noopener"><span><font color="#FFA62F">2024-2025</font></span></a> <font color="#F62217"><i class="iconfont icon-love"></i></font> <a href="https://github.com/wang-jiahao" target="_blank" rel="nofollow noopener"><span><font color="#FFA62F">Zackaria</font></span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

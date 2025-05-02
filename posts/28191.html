@@ -1,0 +1,1110 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/global/Zackaria.png">
+  <link rel="icon" href="/img/global/Zackaria.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#07c1f0">
+  <meta name="author" content="Jiahao Wang">
+  <meta name="keywords" content="博客,CS,图论,算法,数据结构,机器学习,深度学习,C++,C,CS61A,CS61B,CS188,Python,Java,PyTorch">
+  
+    <meta name="description" content="介绍了图的定义和DFS,BFS的代码实现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图 深度优先遍历 广度优先遍历">
+<meta property="og:url" content="http://wang-jiahao.github.io/posts/28191.html">
+<meta property="og:site_name" content="Zackaria&#39;s Corner">
+<meta property="og:description" content="介绍了图的定义和DFS,BFS的代码实现">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-12-05T15:55:31.000Z">
+<meta property="article:modified_time" content="2024-12-11T05:10:12.669Z">
+<meta property="article:author" content="Jiahao Wang">
+<meta property="article:tag" content="图">
+<meta property="article:tag" content="DFS">
+<meta property="article:tag" content="BFS">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>图 深度优先遍历 广度优先遍历 - Zackaria&#39;s Corner</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap.css">
+<link rel="stylesheet" href="/css/selection.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wang-jiahao.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/global/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"4ATURf7GEMgcrf4AMW2NgIns-gzGzoHsz","app_key":"PEOHEBjwdHQuyIMZYZq3H8NE","server_url":"https://4aturf7g.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Zackaria&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner/bluesky.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="图 深度优先遍历 广度优先遍历"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-12-05 23:55" pubdate>
+          2024年12月5日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          22 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">图 深度优先遍历 广度优先遍历</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><a href="https://wang-jiahao.github.io/files/13.%E5%9B%BE%E5%8F%8A%E5%85%B6%E9%81%8D%E5%8E%86.pdf">图及其遍历.pdf</a></p>
+<h2 id="图，BFS-DFS"><a href="#图，BFS-DFS" class="headerlink" title="图，BFS, DFS"></a>图，BFS, DFS</h2><h3 id="1-图的定义与应用"><a href="#1-图的定义与应用" class="headerlink" title="1. 图的定义与应用"></a>1. 图的定义与应用</h3><ul>
+<li>图是由<strong>节点</strong>（顶点）和<strong>边</strong>构成的数据结构，广泛应用于交通网络、通信网络、社交网络等。</li>
+<li>常见的图问题包括：<ul>
+<li>图着色（节点染色，最少颜色数目）</li>
+<li>最短路径（最小移动次数或最小代价）</li>
+<li>复杂问题如魔方复原等。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="2-图的表示方式"><a href="#2-图的表示方式" class="headerlink" title="2. 图的表示方式"></a>2. 图的表示方式</h3><h4 id="邻接矩阵（Adjacency-Matrix）"><a href="#邻接矩阵（Adjacency-Matrix）" class="headerlink" title="邻接矩阵（Adjacency Matrix）"></a>邻接矩阵（Adjacency Matrix）</h4><ul>
+<li><p>使用一个二维矩阵表示图，矩阵大小为 n×nn \times n （nn 是顶点数）。</p>
+</li>
+<li><p>特点：</p>
+<ul>
+<li><strong>优点</strong>：快速查询两个节点是否相邻。</li>
+<li><strong>缺点</strong>：空间复杂度为 Θ(n2)\Theta(n^2)，不适合稀疏图。</li>
+</ul>
+</li>
+<li><p>示例代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">const</span> <span class="hljs-type">int</span> INF = <span class="hljs-number">1e9</span>; <span class="hljs-comment">// 表示无穷大</span><br><span class="hljs-type">int</span> adjMatrix[<span class="hljs-number">100</span>][<span class="hljs-number">100</span>]; <span class="hljs-comment">// 假设最多有100个节点</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">initializeMatrix</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; ++j) &#123;<br>            adjMatrix[i][j] = (i == j ? <span class="hljs-number">0</span> : INF); <span class="hljs-comment">// 自环为0，其他初始化为无穷大</span><br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="邻接表（Adjacency-List）"><a href="#邻接表（Adjacency-List）" class="headerlink" title="邻接表（Adjacency List）"></a>邻接表（Adjacency List）</h4><ul>
+<li><p>使用链表或向量（vector）存储每个节点的邻接信息。</p>
+</li>
+<li><p>特点：</p>
+<ul>
+<li><strong>优点</strong>：空间复杂度为 Θ(n+m)\Theta(n + m) （mm 是边数），适合稀疏图。</li>
+<li><strong>缺点</strong>：查询两个节点是否相邻速度较慢。</li>
+</ul>
+</li>
+<li><p>示例代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br>vector&lt;<span class="hljs-type">int</span>&gt; adjList[<span class="hljs-number">100</span>]; <span class="hljs-comment">// 假设最多有100个节点</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">addEdge</span><span class="hljs-params">(<span class="hljs-type">int</span> u, <span class="hljs-type">int</span> v)</span> </span>&#123;<br>    adjList[u].<span class="hljs-built_in">push_back</span>(v);<br>    adjList[v].<span class="hljs-built_in">push_back</span>(u); <span class="hljs-comment">// 如果是无向图</span><br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h3 id="3-图的遍历算法"><a href="#3-图的遍历算法" class="headerlink" title="3. 图的遍历算法"></a>3. 图的遍历算法</h3><h4 id="广度优先搜索（BFS）"><a href="#广度优先搜索（BFS）" class="headerlink" title="广度优先搜索（BFS）"></a>广度优先搜索（BFS）</h4><ul>
+<li><p><strong>特点</strong>：按层遍历节点，常用于最短路径计算。</p>
+</li>
+<li><p>实现思路</p>
+<p>：</p>
+<ol>
+<li>使用队列维护待访问节点。</li>
+<li>每次访问队首节点，并将其所有未访问的邻接节点加入队列。</li>
+</ol>
+</li>
+<li><p>示例代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;queue&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">BFS</span><span class="hljs-params">(<span class="hljs-type">int</span> start, <span class="hljs-type">int</span> n)</span> </span>&#123;<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">bool</span>&gt; <span class="hljs-title">visited</span><span class="hljs-params">(n, <span class="hljs-literal">false</span>)</span></span>;<br>    queue&lt;<span class="hljs-type">int</span>&gt; q;<br>    q.<span class="hljs-built_in">push</span>(start);<br>    visited[start] = <span class="hljs-literal">true</span>;<br><br>    <span class="hljs-keyword">while</span> (!q.<span class="hljs-built_in">empty</span>()) &#123;<br>        <span class="hljs-type">int</span> node = q.<span class="hljs-built_in">front</span>(); q.<span class="hljs-built_in">pop</span>();<br>        <span class="hljs-comment">// 访问当前节点</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> neighbor : adjList[node]) &#123;<br>            <span class="hljs-keyword">if</span> (!visited[neighbor]) &#123;<br>                q.<span class="hljs-built_in">push</span>(neighbor);<br>                visited[neighbor] = <span class="hljs-literal">true</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="深度优先搜索（DFS）"><a href="#深度优先搜索（DFS）" class="headerlink" title="深度优先搜索（DFS）"></a>深度优先搜索（DFS）</h4><ul>
+<li><p><strong>特点</strong>：尽可能深入探索一条路径，遇到死胡同时回溯。</p>
+</li>
+<li><p><strong>实现方式</strong>：可以递归或用栈实现。</p>
+</li>
+<li><p>示例代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">DFS</span><span class="hljs-params">(<span class="hljs-type">int</span> node, vector&lt;<span class="hljs-type">bool</span>&gt;&amp; visited)</span> </span>&#123;<br>    visited[node] = <span class="hljs-literal">true</span>;<br>    <span class="hljs-comment">// 访问当前节点</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> neighbor : adjList[node]) &#123;<br>        <span class="hljs-keyword">if</span> (!visited[neighbor]) &#123;<br>            <span class="hljs-built_in">DFS</span>(neighbor, visited);<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">startDFS</span><span class="hljs-params">(<span class="hljs-type">int</span> start, <span class="hljs-type">int</span> n)</span> </span>&#123;<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">bool</span>&gt; <span class="hljs-title">visited</span><span class="hljs-params">(n, <span class="hljs-literal">false</span>)</span></span>;<br>    <span class="hljs-built_in">DFS</span>(start, visited);<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h3 id="4-BFS与DFS的比较"><a href="#4-BFS与DFS的比较" class="headerlink" title="4. BFS与DFS的比较"></a>4. BFS与DFS的比较</h3><table>
+<thead>
+<tr>
+<th><strong>算法</strong></th>
+<th><strong>优点</strong></th>
+<th><strong>缺点</strong></th>
+<th><strong>时间复杂度</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BFS</td>
+<td>找最短路径，层次遍历直观</td>
+<td>内存开销大（需要维护队列）</td>
+<td>O(n+m)O(n + m)</td>
+</tr>
+<tr>
+<td>DFS</td>
+<td>内存使用低，适合搜索深层信息</td>
+<td>无法保证最短路径</td>
+<td>O(n+m)O(n + m)</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="5-应用与扩展"><a href="#5-应用与扩展" class="headerlink" title="5. 应用与扩展"></a>5. 应用与扩展</h3><ul>
+<li>BFS的扩展：<ul>
+<li>求无权图的最短路径。</li>
+<li>遍历所有连通分量。</li>
+</ul>
+</li>
+<li>DFS的扩展：<ul>
+<li>生成DFS树，记录每个节点的发现和完成时间。</li>
+<li>边分类（树边、回边、前向边、交叉边）。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>如需更详细的代码或具体例子，可以根据课程内容的重点深入补充！</p>
+<h2 id="图的定义与分类"><a href="#图的定义与分类" class="headerlink" title="图的定义与分类"></a>图的定义与分类</h2><h3 id="1-什么是图？"><a href="#1-什么是图？" class="headerlink" title="1. 什么是图？"></a>1. 什么是图？</h3><p>图（Graph）是一种数据结构，由 <strong>顶点（Vertex）</strong> 和 <strong>边（Edge）</strong> 组成，表示事物之间的关系。一个图通常记为 G&#x3D;(V,E)G &#x3D; (V, E)，其中：</p>
+<ul>
+<li>VV 是顶点的集合，表示图中的所有节点。</li>
+<li>EE 是边的集合，表示节点之间的连接关系。</li>
+</ul>
+<h3 id="2-无权图（Unweighted-Graph）"><a href="#2-无权图（Unweighted-Graph）" class="headerlink" title="2. 无权图（Unweighted Graph）"></a>2. 无权图（Unweighted Graph）</h3><ul>
+<li><strong>无权图</strong>是一类特殊的图，在无权图中，每条边没有权重，即所有边的代价或距离视为相等（通常为1）。</li>
+<li>无权图通常用于简化问题，例如寻找两点之间的最短路径等。</li>
+</ul>
+<p><strong>示例：</strong></p>
+<ul>
+<li>如果 AA 和 BB 之间有一条边，这条边没有具体的权重，仅表示 AA 和 BB 之间有连接关系。</li>
+</ul>
+<p>无权图的一个简单表示：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ada">A <span class="hljs-comment">--- B</span><br>|     |<br>C <span class="hljs-comment">--- D</span><br></code></pre></td></tr></table></figure>
+
+<p>在上述图中，所有边的权重隐含为1（默认值），因此路径的长度等于经过的边数。</p>
+<hr>
+<h3 id="3-图的分类"><a href="#3-图的分类" class="headerlink" title="3. 图的分类"></a>3. 图的分类</h3><p>根据顶点和边的不同特性，图可以分为多种类型。</p>
+<h4 id="3-1-按边是否有方向分类"><a href="#3-1-按边是否有方向分类" class="headerlink" title="3.1 按边是否有方向分类"></a>3.1 按边是否有方向分类</h4><ol>
+<li><p><strong>无向图（Undirected Graph）</strong>：</p>
+<ul>
+<li>图中的边没有方向，即 (u,v)(u, v) 和 (v,u)(v, u) 表示同一条边。</li>
+<li>无向图适用于对称关系，如社交网络中的“好友关系”。</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ada">A <span class="hljs-comment">--- B</span><br>|     |<br>C <span class="hljs-comment">--- D</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>有向图（Directed Graph，或Digraph）</strong>：</p>
+<ul>
+<li>图中的边有方向，即 (u,v)(u, v) 表示从 uu 到 vv 的有向边，(v,u)(v, u) 表示从 vv 到 uu 的另一条独立的有向边。</li>
+<li>有向图适用于单向关系，如网页之间的超链接、任务的依赖关系。</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">A</span> → <span class="hljs-selector-tag">B</span><br>↑   ↓<br>C ← D<br></code></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<h4 id="3-2-按边是否有权分类"><a href="#3-2-按边是否有权分类" class="headerlink" title="3.2 按边是否有权分类"></a>3.2 按边是否有权分类</h4><ol>
+<li><p><strong>无权图（Unweighted Graph）</strong>：</p>
+<ul>
+<li>边没有权重，所有边的代价相等。</li>
+<li>通常用于简单的路径或连通性问题。</li>
+</ul>
+</li>
+<li><p><strong>有权图（Weighted Graph）</strong>：</p>
+<ul>
+<li>边带有权重，用于表示边的“代价”或“距离”。</li>
+<li>有权图适用于需要考虑代价的场景，例如最短路径（Dijkstra算法）或最小生成树（Kruskal算法）。</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs brainfuck"><span class="hljs-comment">A</span> <span class="hljs-literal">--</span><span class="hljs-comment">3</span><span class="hljs-literal">--</span> <span class="hljs-comment">B</span><br><span class="hljs-comment">|      /</span><br><span class="hljs-comment">2     4</span><br><span class="hljs-comment">|   /</span><br><span class="hljs-comment">C</span> <span class="hljs-literal">--</span><span class="hljs-comment">5</span><span class="hljs-literal">--</span> <span class="hljs-comment">D</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<h4 id="3-3-按是否允许边重复或自环分类"><a href="#3-3-按是否允许边重复或自环分类" class="headerlink" title="3.3 按是否允许边重复或自环分类"></a>3.3 按是否允许边重复或自环分类</h4><ol>
+<li><strong>简单图（Simple Graph）</strong>：<ul>
+<li>无自环（边的两个端点相同，如 (u,u)(u, u)）且没有重边（两个顶点之间有多条边）。</li>
+</ul>
+</li>
+<li><strong>多重图（Multi Graph）</strong>：<ul>
+<li>允许有重边，即两个节点之间可以有多条边。</li>
+</ul>
+</li>
+<li><strong>伪图（Pseudo Graph）</strong>：<ul>
+<li>允许有自环。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h4 id="3-4-按图的连通性分类"><a href="#3-4-按图的连通性分类" class="headerlink" title="3.4 按图的连通性分类"></a>3.4 按图的连通性分类</h4><ol>
+<li><p><strong>连通图（Connected Graph）</strong>：</p>
+<ul>
+<li>对于无向图，任意两个顶点之间都有路径相连。</li>
+<li>对于有向图，若任意两个顶点之间都存在路径（无论方向），则称为强连通图（Strongly Connected Graph）。</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs brainfuck"><span class="hljs-comment">A</span> <span class="hljs-literal">---</span> <span class="hljs-comment">B</span> <span class="hljs-literal">---</span> <span class="hljs-comment">C</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>非连通图（Disconnected Graph）</strong>：</p>
+<ul>
+<li>图中存在不连通的部分，即某些顶点之间没有路径相连。</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">A</span> --- <span class="hljs-selector-tag">B</span>     C<br></code></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<h4 id="3-5-特殊图的分类"><a href="#3-5-特殊图的分类" class="headerlink" title="3.5 特殊图的分类"></a>3.5 特殊图的分类</h4><ol>
+<li><p><strong>完全图（Complete Graph）</strong>：</p>
+<ul>
+<li>图中任意两个顶点之间都有边相连。</li>
+<li>一个有 nn 个顶点的完全图有 n(n−1)2\frac{n(n-1)}{2} 条边。</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ada">A <span class="hljs-comment">--- B</span><br>| \ / |<br>C <span class="hljs-comment">--- D</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>树（Tree）</strong>：</p>
+<ul>
+<li>一种特殊的连通无向图，没有环路，且任意两个节点之间有唯一路径。</li>
+<li>树是一个有 nn 个节点和 n−1n-1 条边的无向连通图。</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mathematica">  <span class="hljs-variable">A</span><br> <span class="hljs-operator">/</span> \<br><span class="hljs-variable">B</span>   <span class="hljs-built_in">C</span><br>   <span class="hljs-operator">/</span> \<br>  <span class="hljs-built_in">D</span>   <span class="hljs-built_in">E</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>二分图（Bipartite Graph）</strong>：</p>
+<ul>
+<li>图的顶点集合可以分为两个不相交的子集 UU 和 VV，且所有边的两个端点分别属于 UU 和 VV。</li>
+<li>典型应用：匹配问题（如婚姻匹配、任务分配）。</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css">U: &#123;<span class="hljs-selector-tag">A</span>, <span class="hljs-selector-tag">B</span>&#125;<br>V: &#123;C, D&#125;<br>Edges: &#123; (<span class="hljs-selector-tag">A</span>, C), (<span class="hljs-selector-tag">B</span>, C), (<span class="hljs-selector-tag">B</span>, D) &#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>稀疏图和稠密图</strong>：</p>
+<ul>
+<li><strong>稀疏图（Sparse Graph）</strong>：边数接近于顶点数， ∣E∣≈O(∣V∣)|E| \approx O(|V|)。</li>
+<li><strong>稠密图（Dense Graph）</strong>：边数接近于最大可能边数， ∣E∣≈O(∣V∣2)|E| \approx O(|V|^2)。</li>
+</ul>
+</li>
+<li><p><strong>平面图（Planar Graph）</strong>：</p>
+<ul>
+<li>图可以嵌入平面且没有边相交。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="4-图的表示方法"><a href="#4-图的表示方法" class="headerlink" title="4. 图的表示方法"></a>4. 图的表示方法</h3><p>图通常有两种表示方法：</p>
+<ol>
+<li><strong>邻接矩阵</strong>：<ul>
+<li>使用 n×nn \times n 的矩阵存储，适合稠密图。</li>
+<li>时间复杂度：<ul>
+<li>查询节点是否相邻：O(1)O(1)</li>
+<li>遍历节点的所有邻居：O(n)O(n)。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>邻接表</strong>：<ul>
+<li>使用数组或链表存储每个节点的邻居列表，适合稀疏图。</li>
+<li>时间复杂度：<ul>
+<li>查询节点是否相邻：O(n)O(n)</li>
+<li>遍历节点的所有邻居：O(k)O(k)，其中 kk 是邻居数。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="5-图分类的总结表"><a href="#5-图分类的总结表" class="headerlink" title="5. 图分类的总结表"></a>5. 图分类的总结表</h3><table>
+<thead>
+<tr>
+<th>分类依据</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>边方向</strong></td>
+<td>无向图、有向图</td>
+<td>边是否有方向</td>
+</tr>
+<tr>
+<td><strong>边权重</strong></td>
+<td>无权图、有权图</td>
+<td>边是否带权重</td>
+</tr>
+<tr>
+<td><strong>边特性</strong></td>
+<td>简单图、多重图、伪图</td>
+<td>是否允许重边或自环</td>
+</tr>
+<tr>
+<td><strong>连通性</strong></td>
+<td>连通图、非连通图</td>
+<td>节点是否都连通</td>
+</tr>
+<tr>
+<td><strong>特殊结构</strong></td>
+<td>完全图、树、二分图</td>
+<td>特定性质的图</td>
+</tr>
+<tr>
+<td><strong>边的稠密程度</strong></td>
+<td>稀疏图、稠密图</td>
+<td>图的边数与节点数的关系</td>
+</tr>
+<tr>
+<td><strong>几何属性</strong></td>
+<td>平面图</td>
+<td>图是否可以嵌入平面且无边相交</td>
+</tr>
+</tbody></table>
+<p>通过这些分类，可以根据问题的特性选择合适的算法和表示方式。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="category-chain-item">数据结构与算法</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%9B%BE%E8%AE%BA/" class="category-chain-item">图论</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%9B%BE/" class="print-no-link">#图</a>
+      
+        <a href="/tags/DFS/" class="print-no-link">#DFS</a>
+      
+        <a href="/tags/BFS/" class="print-no-link">#BFS</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>图 深度优先遍历 广度优先遍历</div>
+      <div>http://wang-jiahao.github.io/posts/28191.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Jiahao Wang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年12月5日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2024年12月11日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/57313.html" title="最小生成树">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">最小生成树</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/3991.html" title="模板元编程 C++">
+                        <span class="hidden-mobile">模板元编程 C++</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"wang-jiahao/comments","repo-id":"R_kgDONZtQAQ","category":"Announcements","category-id":"DIC_kwDONZtQAc4Ck9xy","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"bottom","lang":"zh-CN"};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <i class="iconfont icon-copyright"></i> <a href="https://github.com/wang-jiahao" target="_blank" rel="nofollow noopener"><span><font color="#FFA62F">2024-2025</font></span></a> <font color="#F62217"><i class="iconfont icon-love"></i></font> <a href="https://github.com/wang-jiahao" target="_blank" rel="nofollow noopener"><span><font color="#FFA62F">Zackaria</font></span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

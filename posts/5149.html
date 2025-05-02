@@ -1,0 +1,892 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/global/Zackaria.png">
+  <link rel="icon" href="/img/global/Zackaria.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#07c1f0">
+  <meta name="author" content="Jiahao Wang">
+  <meta name="keywords" content="博客,CS,图论,算法,数据结构,机器学习,深度学习,C++,C,CS61A,CS61B,CS188,Python,Java,PyTorch">
+  
+    <meta name="description" content="介绍了机器学习中的基本概念">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习基本概念">
+<meta property="og:url" content="http://wang-jiahao.github.io/posts/5149.html">
+<meta property="og:site_name" content="Zackaria&#39;s Corner">
+<meta property="og:description" content="介绍了机器学习中的基本概念">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-12-09T14:56:27.000Z">
+<meta property="article:modified_time" content="2024-12-11T05:10:12.669Z">
+<meta property="article:author" content="Jiahao Wang">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="Machine Learning">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>机器学习基本概念 - Zackaria&#39;s Corner</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap.css">
+<link rel="stylesheet" href="/css/selection.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wang-jiahao.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/global/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"4ATURf7GEMgcrf4AMW2NgIns-gzGzoHsz","app_key":"PEOHEBjwdHQuyIMZYZq3H8NE","server_url":"https://4aturf7g.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Zackaria&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner/bluesky.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="机器学习基本概念"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-12-09 22:56" pubdate>
+          2024年12月9日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          24 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">机器学习基本概念</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Wv411h7kN?spm_id_from=333.788.videopod.episodes&vd_source=c06338b0283c611d7a47c62b0ed23dfa&p=3">第一节 2021 - (上) - 机器学习基本概念简介</a></p>
+<p><a target="_blank" rel="noopener" href="https://diamond-mule-bee.notion.site/01-Regression-db3f17ba626a43668e016d09d39e35e5#6aac348ef027455e825a2969e071000f">高质量笔记</a></p>
+<p>机器学习（Machine Learning，简称ML）是一种让计算机通过数据和经验进行学习、改进和决策的技术。它是人工智能（AI）领域的一个重要分支，旨在通过算法使计算机能够自动识别数据中的模式和规律，从而做出预测或决策。机器学习广泛应用于自然语言处理、计算机视觉、推荐系统、语音识别等多个领域。</p>
+<p>以下是机器学习的基本概念和相关内容的详细介绍：</p>
+<h3 id="1-机器学习的定义"><a href="#1-机器学习的定义" class="headerlink" title="1. 机器学习的定义"></a>1. <strong>机器学习的定义</strong></h3><p>机器学习是人工智能的一个分支，它使得计算机系统通过从数据中提取信息、寻找规律，并进行自我改进，而不需要显式编程。传统编程依赖于人工编码规则，而机器学习则依赖于通过训练数据建立模型，然后通过模型做出预测或判断。</p>
+<h3 id="2-机器学习的主要类型"><a href="#2-机器学习的主要类型" class="headerlink" title="2. 机器学习的主要类型"></a>2. <strong>机器学习的主要类型</strong></h3><p>根据学习过程和目标的不同，机器学习主要分为以下几种类型：</p>
+<h4 id="2-1-监督学习（Supervised-Learning）"><a href="#2-1-监督学习（Supervised-Learning）" class="headerlink" title="2.1 监督学习（Supervised Learning）"></a>2.1 监督学习（Supervised Learning）</h4><p>监督学习是一种通过已标注的数据进行学习的方式。数据集包含输入数据和对应的标签（目标值），算法通过学习这些输入和标签之间的关系，来预测新的输入数据的标签。常见的任务包括分类和回归。</p>
+<ul>
+<li><strong>分类</strong>：预测数据所属的类别，如垃圾邮件检测、图像识别。</li>
+<li><strong>回归</strong>：预测连续的数值，如股票价格预测、房价预测。</li>
+</ul>
+<p>常用的监督学习算法包括：</p>
+<ul>
+<li>线性回归（Linear Regression）</li>
+<li>支持向量机（SVM，Support Vector Machine）</li>
+<li>决策树（Decision Tree）</li>
+<li>k近邻算法（K-Nearest Neighbors, KNN）</li>
+<li>神经网络（Neural Networks）</li>
+</ul>
+<h4 id="2-2-无监督学习（Unsupervised-Learning）"><a href="#2-2-无监督学习（Unsupervised-Learning）" class="headerlink" title="2.2 无监督学习（Unsupervised Learning）"></a>2.2 无监督学习（Unsupervised Learning）</h4><p>无监督学习与监督学习不同，它不依赖于标签数据，而是从未标记的数据中寻找内在的结构或模式。无监督学习的目标通常是数据的聚类、降维等。</p>
+<ul>
+<li><strong>聚类</strong>：将数据集中的数据点分成若干个类别，常见的算法有K-means、层次聚类（Hierarchical Clustering）等。</li>
+<li><strong>降维</strong>：减少数据中的特征数量，同时尽可能保留数据的主要信息，常用的算法有主成分分析（PCA）。</li>
+</ul>
+<h4 id="2-3-半监督学习（Semi-supervised-Learning）"><a href="#2-3-半监督学习（Semi-supervised-Learning）" class="headerlink" title="2.3 半监督学习（Semi-supervised Learning）"></a>2.3 半监督学习（Semi-supervised Learning）</h4><p>半监督学习介于监督学习和无监督学习之间，它利用大量未标记数据和少量标记数据的组合来进行训练。这种方法特别适用于标注数据成本高但未标数据丰富的情况。</p>
+<h4 id="2-4-强化学习（Reinforcement-Learning）"><a href="#2-4-强化学习（Reinforcement-Learning）" class="headerlink" title="2.4 强化学习（Reinforcement Learning）"></a>2.4 强化学习（Reinforcement Learning）</h4><p>强化学习是一种让智能体（agent）通过与环境交互来学习策略的学习方式。智能体通过在环境中执行动作，观察结果，并根据结果调整策略。目标是通过不断的试错过程，学习到最优的行为策略。</p>
+<ul>
+<li>强化学习的核心概念包括<strong>奖励（Reward）</strong>、<strong>状态（State）</strong>、**动作（Action）**和**策略（Policy）**。</li>
+<li>常见的强化学习算法包括Q-learning、深度强化学习（Deep Reinforcement Learning）等。</li>
+</ul>
+<h3 id="3-机器学习的工作流程"><a href="#3-机器学习的工作流程" class="headerlink" title="3. 机器学习的工作流程"></a>3. <strong>机器学习的工作流程</strong></h3><p>机器学习的流程通常分为以下几个阶段：</p>
+<ol>
+<li><strong>数据收集</strong>：获取并收集相关的数据，数据质量对模型的训练效果至关重要。</li>
+<li><strong>数据预处理</strong>：清洗数据、去除噪声、填补缺失值、标准化&#x2F;归一化数据等。</li>
+<li><strong>特征工程</strong>：选择、提取和转换特征，以便用于模型的训练。</li>
+<li><strong>模型选择</strong>：根据任务选择合适的机器学习算法和模型。</li>
+<li><strong>模型训练</strong>：将数据输入到模型中，利用训练数据进行学习。</li>
+<li><strong>模型评估</strong>：使用测试集（未参与训练的数据）来评估模型的性能，常用评估指标有准确率、精确率、召回率、F1分数等。</li>
+<li><strong>模型优化</strong>：通过调整超参数、选择不同算法或增加数据量等方式优化模型。</li>
+<li><strong>模型部署与应用</strong>：将训练好的模型部署到实际应用中，如推荐系统、预测系统等。</li>
+</ol>
+<h3 id="4-常见的机器学习算法"><a href="#4-常见的机器学习算法" class="headerlink" title="4. 常见的机器学习算法"></a>4. <strong>常见的机器学习算法</strong></h3><p>以下是几种常用的机器学习算法：</p>
+<h4 id="4-1-线性回归（Linear-Regression）"><a href="#4-1-线性回归（Linear-Regression）" class="headerlink" title="4.1 线性回归（Linear Regression）"></a>4.1 线性回归（Linear Regression）</h4><p>线性回归用于解决回归问题，即预测一个连续的数值。它假设输入特征与输出之间存在线性关系。通过最小化误差平方和，模型可以找到最佳的回归线。</p>
+<h4 id="4-2-支持向量机（SVM，Support-Vector-Machine）"><a href="#4-2-支持向量机（SVM，Support-Vector-Machine）" class="headerlink" title="4.2 支持向量机（SVM，Support Vector Machine）"></a>4.2 支持向量机（SVM，Support Vector Machine）</h4><p>支持向量机是一个强大的分类和回归模型，特别适合高维数据。它的目标是找到一个超平面，以最大化类别间的间隔，从而实现良好的分类。</p>
+<h4 id="4-3-决策树（Decision-Tree）"><a href="#4-3-决策树（Decision-Tree）" class="headerlink" title="4.3 决策树（Decision Tree）"></a>4.3 决策树（Decision Tree）</h4><p>决策树是一个树状结构，用于决策或分类。每个节点代表一个特征，分支代表特征值，叶子节点代表类别标签或预测值。它直观易懂，适用于分类和回归任务。</p>
+<h4 id="4-4-K近邻（KNN，K-Nearest-Neighbors）"><a href="#4-4-K近邻（KNN，K-Nearest-Neighbors）" class="headerlink" title="4.4 K近邻（KNN，K-Nearest Neighbors）"></a>4.4 K近邻（KNN，K-Nearest Neighbors）</h4><p>KNN是一种基于实例的学习方法，分类时根据输入样本与训练样本之间的距离来决定分类标签。KNN简单且易于理解，但在大数据集上计算效率较低。</p>
+<h4 id="4-5-神经网络（Neural-Networks）"><a href="#4-5-神经网络（Neural-Networks）" class="headerlink" title="4.5 神经网络（Neural Networks）"></a>4.5 神经网络（Neural Networks）</h4><p>神经网络模拟了生物神经系统的工作方式。它由多个节点（神经元）组成，通过激活函数连接成层级结构。神经网络在图像识别、语音处理等领域表现突出。</p>
+<h4 id="4-6-随机森林（Random-Forest）"><a href="#4-6-随机森林（Random-Forest）" class="headerlink" title="4.6 随机森林（Random Forest）"></a>4.6 随机森林（Random Forest）</h4><p>随机森林是一种集成学习方法，通过构建多棵决策树并取它们的平均值或投票结果来提高模型的稳定性和准确性。它广泛应用于分类和回归问题。</p>
+<h3 id="5-过拟合与欠拟合"><a href="#5-过拟合与欠拟合" class="headerlink" title="5. 过拟合与欠拟合"></a>5. <strong>过拟合与欠拟合</strong></h3><p>在机器学习中，<strong>过拟合（Overfitting）</strong>和<strong>欠拟合（Underfitting）</strong>是常见的问题：</p>
+<ul>
+<li><strong>过拟合</strong>：模型在训练集上表现很好，但在测试集上效果差。过拟合通常发生在模型过于复杂时，能够“记住”训练数据中的噪声和细节。</li>
+<li><strong>欠拟合</strong>：模型过于简单，无法捕捉到数据中的规律，导致训练集和测试集的性能都很差。</li>
+</ul>
+<p>解决过拟合和欠拟合的方法包括选择适当的模型复杂度、使用正则化技术、增加训练数据、交叉验证等。</p>
+<h3 id="6-评估与调优"><a href="#6-评估与调优" class="headerlink" title="6. 评估与调优"></a>6. <strong>评估与调优</strong></h3><p>机器学习模型的评估和调优是确保其性能的重要步骤。常用的评估指标有：</p>
+<ul>
+<li><strong>准确率（Accuracy）</strong>：正确分类的样本数占总样本数的比例。</li>
+<li><strong>精确率（Precision）</strong>：预测为正类的样本中，真正正类的比例。</li>
+<li><strong>召回率（Recall）</strong>：实际为正类的样本中，预测为正类的比例。</li>
+<li><strong>F1分数</strong>：精确率和召回率的调和平均数，常用来衡量模型在分类问题中的综合表现。</li>
+</ul>
+<p>超参数调优（如通过网格搜索或随机搜索）和交叉验证（如K折交叉验证）可以进一步提高模型的性能。</p>
+<h3 id="7-深度学习（Deep-Learning）"><a href="#7-深度学习（Deep-Learning）" class="headerlink" title="7. 深度学习（Deep Learning）"></a>7. <strong>深度学习（Deep Learning）</strong></h3><p>深度学习是机器学习的一个子领域，特别关注多层神经网络（深度神经网络）的训练和优化。深度学习通过自动提取特征、端到端的学习方式，尤其在计算机视觉、自然语言处理等领域表现出色。</p>
+<p>常见的深度学习模型有：</p>
+<ul>
+<li>卷积神经网络（CNN）：用于图像处理和计算机视觉。</li>
+<li>循环神经网络（RNN）：用于序列数据处理，如语音识别和自然语言处理。</li>
+<li>生成对抗网络（GAN）：用于生成数据，如图像生成。</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>机器学习是通过让计算机学习数据中的模式和规律，从而在未知数据上做出预测或决策的技术。它涉及监督学习、无监督学习、半监督学习、强化学习等多种学习类型，并通过不同的算法和技术来解决实际问题。机器学习的应用范围广泛，几乎涉及所有行业，并在不断推动科技发展和创新。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="category-chain-item">深度学习</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%9B%BD%E7%AB%8B%E5%8F%B0%E6%B9%BE%E5%A4%A7%E5%AD%A6%EF%BC%9A%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="category-chain-item">国立台湾大学：李宏毅机器学习</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="print-no-link">#机器学习</a>
+      
+        <a href="/tags/Machine-Learning/" class="print-no-link">#Machine Learning</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>机器学习基本概念</div>
+      <div>http://wang-jiahao.github.io/posts/5149.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Jiahao Wang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年12月9日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2024年12月11日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/20392.html" title="CS自学资源整理（持续更新）">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">CS自学资源整理（持续更新）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/57313.html" title="最小生成树">
+                        <span class="hidden-mobile">最小生成树</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"wang-jiahao/comments","repo-id":"R_kgDONZtQAQ","category":"Announcements","category-id":"DIC_kwDONZtQAc4Ck9xy","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"bottom","lang":"zh-CN"};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <i class="iconfont icon-copyright"></i> <a href="https://github.com/wang-jiahao" target="_blank" rel="nofollow noopener"><span><font color="#FFA62F">2024-2025</font></span></a> <font color="#F62217"><i class="iconfont icon-love"></i></font> <a href="https://github.com/wang-jiahao" target="_blank" rel="nofollow noopener"><span><font color="#FFA62F">Zackaria</font></span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

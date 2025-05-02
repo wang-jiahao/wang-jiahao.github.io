@@ -1,0 +1,67 @@
+.hljs-comment, .hljs-quote {
+    color: #ff6262;
+    font-family: auto;
+    font-style: normal;
+  }
+  
+  
+  figure.highlight {
+    background: #838383;
+    border-radius: 5px;
+    padding-top: 30px;
+    box-shadow: 0 5px 10px #a1a1a1;
+  }
+  
+  [data-user-color-scheme='dark'] figure.highlight {
+    background: #000;
+  }
+  
+  /* 该伪元素用于展示代码语言,若不需要可删除 */
+  figure.highlight::before {
+    content: attr(data-type);
+    z-index: 999;
+    color: #ff8d33;
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 2px;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  figure.highlight::after {
+    background: #fc625d;
+    border-radius: 100%;
+    box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+    content: '';
+    height: 12px;
+    width: 12px;
+    position: absolute;
+    top: 9px;
+    left: 12px;
+  }
+  
+  .hljs {
+    background-color: #00000000;
+  }
+  
+  /* 代码块颜色 */
+  figure.highlight tr {
+    background-color: #f9fffa;
+  }
+  
+  [data-user-color-scheme='dark'] .markdown-body table tr {
+    background-color: #25272d;
+  }
+  
+  figure.highlight > table {
+    border-radius: 0 0 5px 5px;
+  }
+  
+  .gutter {
+    background-color: #f9fffa;
+  }
+  
+  [data-user-color-scheme='dark'] .gutter {
+    background-color: #25272d;
+  }
