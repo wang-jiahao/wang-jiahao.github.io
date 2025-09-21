@@ -19,15 +19,15 @@
   <meta name="author" content="Jiahao Wang">
   <meta name="keywords" content="博客,CS,图论,算法,数据结构,机器学习,深度学习,C++,C,CS61A,CS61B,CS188,Python,Java,PyTorch">
   
-    <meta name="description" content="介绍了机器学习中的基本概念">
+    <meta name="description" content="机器学习中十分常见的两个概念">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习基本概念">
-<meta property="og:url" content="http://wang-jiahao.github.io/posts/5149.html">
+<meta property="og:title" content="查准率与查全率">
+<meta property="og:url" content="http://wang-jiahao.github.io/posts/985c0fb7.html">
 <meta property="og:site_name" content="Zackaria&#39;s Corner">
-<meta property="og:description" content="介绍了机器学习中的基本概念">
+<meta property="og:description" content="机器学习中十分常见的两个概念">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-12-09T14:56:27.000Z">
-<meta property="article:modified_time" content="2025-09-21T13:06:14.019Z">
+<meta property="article:published_time" content="2025-09-21T13:03:36.000Z">
+<meta property="article:modified_time" content="2025-09-21T13:06:24.716Z">
 <meta property="article:author" content="Jiahao Wang">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="Machine Learning">
@@ -35,7 +35,7 @@
   
   
   
-  <title>机器学习基本概念 - Zackaria&#39;s Corner</title>
+  <title>查准率与查全率 - Zackaria&#39;s Corner</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -238,7 +238,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="机器学习基本概念"></span>
+            <span id="subtitle" data-typed-text="查准率与查全率"></span>
           
         </div>
 
@@ -249,8 +249,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-12-09 22:56" pubdate>
-          2024年12月9日 晚上
+        <time datetime="2025-09-21 21:03" pubdate>
+          2025年9月21日 晚上
         </time>
       </span>
     
@@ -261,7 +261,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.1k 字
+          1.8k 字
         
       </span>
     
@@ -272,7 +272,7 @@
         
         
         
-          24 分钟
+          20 分钟
         
       </span>
     
@@ -318,81 +318,140 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">机器学习基本概念</h1>
+            <h1 id="seo-header">查准率与查全率</h1>
             
             
               <div class="markdown-body">
                 
-                <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Wv411h7kN?spm_id_from=333.788.videopod.episodes&vd_source=c06338b0283c611d7a47c62b0ed23dfa&p=3">第一节 2021 - (上) - 机器学习基本概念简介</a></p>
-<p><a target="_blank" rel="noopener" href="https://diamond-mule-bee.notion.site/01-Regression-db3f17ba626a43668e016d09d39e35e5#6aac348ef027455e825a2969e071000f">高质量笔记</a></p>
-<p>机器学习（Machine Learning，简称ML）是一种让计算机通过数据和经验进行学习、改进和决策的技术。它是人工智能（AI）领域的一个重要分支，旨在通过算法使计算机能够自动识别数据中的模式和规律，从而做出预测或决策。机器学习广泛应用于自然语言处理、计算机视觉、推荐系统、语音识别等多个领域。</p>
-<p>以下是机器学习的基本概念和相关内容的详细介绍：</p>
-<h3 id="1-机器学习的定义"><a href="#1-机器学习的定义" class="headerlink" title="1. 机器学习的定义"></a>1. <strong>机器学习的定义</strong></h3><p>机器学习是人工智能的一个分支，它使得计算机系统通过从数据中提取信息、寻找规律，并进行自我改进，而不需要显式编程。传统编程依赖于人工编码规则，而机器学习则依赖于通过训练数据建立模型，然后通过模型做出预测或判断。</p>
-<h3 id="2-机器学习的主要类型"><a href="#2-机器学习的主要类型" class="headerlink" title="2. 机器学习的主要类型"></a>2. <strong>机器学习的主要类型</strong></h3><p>根据学习过程和目标的不同，机器学习主要分为以下几种类型：</p>
-<h4 id="2-1-监督学习（Supervised-Learning）"><a href="#2-1-监督学习（Supervised-Learning）" class="headerlink" title="2.1 监督学习（Supervised Learning）"></a>2.1 监督学习（Supervised Learning）</h4><p>监督学习是一种通过已标注的数据进行学习的方式。数据集包含输入数据和对应的标签（目标值），算法通过学习这些输入和标签之间的关系，来预测新的输入数据的标签。常见的任务包括分类和回归。</p>
+                <p><strong>查准率 (Precision)</strong> 和 **查全率 (Recall)**。</p>
+<p>这两个指标主要用于评估 <strong>分类模型</strong> 的性能，尤其是在处理 <strong>类别不平衡</strong> 的数据集时，它们比单纯的“准确率 (Accuracy)”要重要得多。</p>
+<hr>
+<h3 id="一、为什么需要查准率和查全率？（准确率的陷阱）"><a href="#一、为什么需要查准率和查全率？（准确率的陷阱）" class="headerlink" title="一、为什么需要查准率和查全率？（准确率的陷阱）"></a>一、为什么需要查准率和查全率？（准确率的陷阱）</h3><p>在解释它们之前，我们先看看只用“准确率”有什么问题。</p>
+<p><strong>准确率 (Accuracy) &#x3D; (预测正确的样本数) &#x2F; (总样本数)</strong></p>
+<p>假设有一个癌症预测任务，数据集中有 1000 个人，其中：</p>
 <ul>
-<li><strong>分类</strong>：预测数据所属的类别，如垃圾邮件检测、图像识别。</li>
-<li><strong>回归</strong>：预测连续的数值，如股票价格预测、房价预测。</li>
+<li>990 人是健康的 (负类 Negative)</li>
+<li>10 人是癌症患者 (正类 Positive)</li>
 </ul>
-<p>常用的监督学习算法包括：</p>
+<p>现在我们有一个很“懒”的模型，它不管输入是什么，一律预测为“健康”。它的预测结果是：</p>
 <ul>
-<li>线性回归（Linear Regression）</li>
-<li>支持向量机（SVM，Support Vector Machine）</li>
-<li>决策树（Decision Tree）</li>
-<li>k近邻算法（K-Nearest Neighbors, KNN）</li>
-<li>神经网络（Neural Networks）</li>
+<li>正确预测了 990 个健康的人。</li>
+<li>错误地将 10 个癌症患者也预测为“健康”。</li>
 </ul>
-<h4 id="2-2-无监督学习（Unsupervised-Learning）"><a href="#2-2-无监督学习（Unsupervised-Learning）" class="headerlink" title="2.2 无监督学习（Unsupervised Learning）"></a>2.2 无监督学习（Unsupervised Learning）</h4><p>无监督学习与监督学习不同，它不依赖于标签数据，而是从未标记的数据中寻找内在的结构或模式。无监督学习的目标通常是数据的聚类、降维等。</p>
+<p>这个模型的准确率是多少？<br>Accuracy &#x3D; 990 &#x2F; 1000 &#x3D; 99%</p>
+<p>看！准确率高达 99%，但这个模型 <strong>毫无用处</strong>，因为它一个真正的癌症患者都找不出来。</p>
+<p>这个例子说明，在类别不平衡（一个类的样本远多于另一个类）的情况下，准确率会产生严重的误导。这时，我们就需要查准率和查全率来更精细地评估模型。</p>
+<hr>
+<h3 id="二、基础：混淆矩阵-Confusion-Matrix"><a href="#二、基础：混淆矩阵-Confusion-Matrix" class="headerlink" title="二、基础：混淆矩阵 (Confusion Matrix)"></a>二、基础：混淆矩阵 (Confusion Matrix)</h3><p>要理解查准率和查全率，必须先理解混淆矩阵。混淆矩阵是一个表格，它展示了模型预测结果与真实标签之间的对比。</p>
+<p>我们还是用上面的例子，把“癌症患者”定义为 **正类 (Positive)**，“健康人”定义为 **负类 (Negative)**。</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"><strong>预测为正类 (癌症)</strong></th>
+<th align="left"><strong>预测为负类 (健康)</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>实际为正类 (癌症)</strong></td>
+<td align="left"><strong>TP (True Positive)</strong><br>真阳性</td>
+<td align="left"><strong>FN (False Negative)</strong><br>假阴性</td>
+</tr>
+<tr>
+<td align="left"><strong>实际为负类 (健康)</strong></td>
+<td align="left"><strong>FP (False Positive)</strong><br>假阳性</td>
+<td align="left"><strong>TN (True Negative)</strong><br>真阴性</td>
+</tr>
+</tbody></table>
 <ul>
-<li><strong>聚类</strong>：将数据集中的数据点分成若干个类别，常见的算法有K-means、层次聚类（Hierarchical Clustering）等。</li>
-<li><strong>降维</strong>：减少数据中的特征数量，同时尽可能保留数据的主要信息，常用的算法有主成分分析（PCA）。</li>
+<li><strong>TP (True Positive)<strong>：</strong>真</strong>实的<strong>正</strong>类，被模型<strong>正确地</strong>预测为<strong>正</strong>类。（本来是癌症，预测也是癌症）</li>
+<li><strong>FN (False Negative)<strong>：</strong>假</strong>的<strong>负</strong>类，即真实是<strong>正</strong>类，但被模型<strong>错误地</strong>预测为<strong>负</strong>类。（本来是癌症，<strong>漏报</strong>了，预测为健康）</li>
+<li><strong>FP (False Positive)<strong>：</strong>假</strong>的<strong>正</strong>类，即真实是<strong>负</strong>类，但被模型<strong>错误地</strong>预测为<strong>正</strong>类。（本来是健康，<strong>误报</strong>了，预测为癌症）</li>
+<li><strong>TN (True Negative)<strong>：</strong>真</strong>实的<strong>负</strong>类，被模型<strong>正确地</strong>预测为<strong>负</strong>类。（本来是健康，预测也是健康）</li>
 </ul>
-<h4 id="2-3-半监督学习（Semi-supervised-Learning）"><a href="#2-3-半监督学习（Semi-supervised-Learning）" class="headerlink" title="2.3 半监督学习（Semi-supervised Learning）"></a>2.3 半监督学习（Semi-supervised Learning）</h4><p>半监督学习介于监督学习和无监督学习之间，它利用大量未标记数据和少量标记数据的组合来进行训练。这种方法特别适用于标注数据成本高但未标数据丰富的情况。</p>
-<h4 id="2-4-强化学习（Reinforcement-Learning）"><a href="#2-4-强化学习（Reinforcement-Learning）" class="headerlink" title="2.4 强化学习（Reinforcement Learning）"></a>2.4 强化学习（Reinforcement Learning）</h4><p>强化学习是一种让智能体（agent）通过与环境交互来学习策略的学习方式。智能体通过在环境中执行动作，观察结果，并根据结果调整策略。目标是通过不断的试错过程，学习到最优的行为策略。</p>
+<hr>
+<h3 id="三、查准-率-Precision"><a href="#三、查准-率-Precision" class="headerlink" title="三、查准-率 (Precision)"></a>三、查准-率 (Precision)</h3><p><strong>查准率</strong>，又称 <strong>精确率</strong>。它回答的问题是：<br><strong>“在所有被模型预测为‘正类’的样本中，有多少是真正的‘正类’？”</strong></p>
+<p><strong>公式：</strong><br><code>Precision = TP / (TP + FP)</code></p>
 <ul>
-<li>强化学习的核心概念包括<strong>奖励（Reward）</strong>、<strong>状态（State）</strong>、**动作（Action）**和**策略（Policy）**。</li>
-<li>常见的强化学习算法包括Q-learning、深度强化学习（Deep Reinforcement Learning）等。</li>
+<li><strong>分母 (TP + FP)<strong>：所有被模型</strong>预测为正类</strong>的样本总数（即模型“认为”是癌症的人）。</li>
+<li>**分子 (TP)**：其中预测对的部分。</li>
 </ul>
-<h3 id="3-机器学习的工作流程"><a href="#3-机器学习的工作流程" class="headerlink" title="3. 机器学习的工作流程"></a>3. <strong>机器学习的工作流程</strong></h3><p>机器学习的流程通常分为以下几个阶段：</p>
-<ol>
-<li><strong>数据收集</strong>：获取并收集相关的数据，数据质量对模型的训练效果至关重要。</li>
-<li><strong>数据预处理</strong>：清洗数据、去除噪声、填补缺失值、标准化&#x2F;归一化数据等。</li>
-<li><strong>特征工程</strong>：选择、提取和转换特征，以便用于模型的训练。</li>
-<li><strong>模型选择</strong>：根据任务选择合适的机器学习算法和模型。</li>
-<li><strong>模型训练</strong>：将数据输入到模型中，利用训练数据进行学习。</li>
-<li><strong>模型评估</strong>：使用测试集（未参与训练的数据）来评估模型的性能，常用评估指标有准确率、精确率、召回率、F1分数等。</li>
-<li><strong>模型优化</strong>：通过调整超参数、选择不同算法或增加数据量等方式优化模型。</li>
-<li><strong>模型部署与应用</strong>：将训练好的模型部署到实际应用中，如推荐系统、预测系统等。</li>
-</ol>
-<h3 id="4-常见的机器学习算法"><a href="#4-常见的机器学习算法" class="headerlink" title="4. 常见的机器学习算法"></a>4. <strong>常见的机器学习算法</strong></h3><p>以下是几种常用的机器学习算法：</p>
-<h4 id="4-1-线性回归（Linear-Regression）"><a href="#4-1-线性回归（Linear-Regression）" class="headerlink" title="4.1 线性回归（Linear Regression）"></a>4.1 线性回归（Linear Regression）</h4><p>线性回归用于解决回归问题，即预测一个连续的数值。它假设输入特征与输出之间存在线性关系。通过最小化误差平方和，模型可以找到最佳的回归线。</p>
-<h4 id="4-2-支持向量机（SVM，Support-Vector-Machine）"><a href="#4-2-支持向量机（SVM，Support-Vector-Machine）" class="headerlink" title="4.2 支持向量机（SVM，Support Vector Machine）"></a>4.2 支持向量机（SVM，Support Vector Machine）</h4><p>支持向量机是一个强大的分类和回归模型，特别适合高维数据。它的目标是找到一个超平面，以最大化类别间的间隔，从而实现良好的分类。</p>
-<h4 id="4-3-决策树（Decision-Tree）"><a href="#4-3-决策树（Decision-Tree）" class="headerlink" title="4.3 决策树（Decision Tree）"></a>4.3 决策树（Decision Tree）</h4><p>决策树是一个树状结构，用于决策或分类。每个节点代表一个特征，分支代表特征值，叶子节点代表类别标签或预测值。它直观易懂，适用于分类和回归任务。</p>
-<h4 id="4-4-K近邻（KNN，K-Nearest-Neighbors）"><a href="#4-4-K近邻（KNN，K-Nearest-Neighbors）" class="headerlink" title="4.4 K近邻（KNN，K-Nearest Neighbors）"></a>4.4 K近邻（KNN，K-Nearest Neighbors）</h4><p>KNN是一种基于实例的学习方法，分类时根据输入样本与训练样本之间的距离来决定分类标签。KNN简单且易于理解，但在大数据集上计算效率较低。</p>
-<h4 id="4-5-神经网络（Neural-Networks）"><a href="#4-5-神经网络（Neural-Networks）" class="headerlink" title="4.5 神经网络（Neural Networks）"></a>4.5 神经网络（Neural Networks）</h4><p>神经网络模拟了生物神经系统的工作方式。它由多个节点（神经元）组成，通过激活函数连接成层级结构。神经网络在图像识别、语音处理等领域表现突出。</p>
-<h4 id="4-6-随机森林（Random-Forest）"><a href="#4-6-随机森林（Random-Forest）" class="headerlink" title="4.6 随机森林（Random Forest）"></a>4.6 随机森林（Random Forest）</h4><p>随机森林是一种集成学习方法，通过构建多棵决策树并取它们的平均值或投票结果来提高模型的稳定性和准确性。它广泛应用于分类和回归问题。</p>
-<h3 id="5-过拟合与欠拟合"><a href="#5-过拟合与欠拟合" class="headerlink" title="5. 过拟合与欠拟合"></a>5. <strong>过拟合与欠拟合</strong></h3><p>在机器学习中，<strong>过拟合（Overfitting）</strong>和<strong>欠拟合（Underfitting）</strong>是常见的问题：</p>
+<p><strong>直观理解：</strong><br>查准率衡量的是你<strong>预测的“准不准”</strong>。如果你的模型预测了10个人是癌症患者 (TP+FP&#x3D;10)，但其中只有 8 个是真的癌症患者 (TP&#x3D;8)，那么查准率就是 80%。它反映了模型<strong>避免误报 (FP) 的能力</strong>。</p>
+<p><strong>一个比喻：</strong><br>你用渔网撒网捕鱼。“查准率”就好比：<strong>在你捞上来的所有东西（鱼、虾、水草、靴子）里，鱼的比例有多高？</strong> 查准率高，意味着你捞上来的大部分都是鱼，没捞太多垃圾。</p>
+<p><strong>何时看重查准率？</strong><br>当你希望<strong>预测为正类的结果尽可能准确</strong>时。因为“误报”的代价很高。</p>
 <ul>
-<li><strong>过拟合</strong>：模型在训练集上表现很好，但在测试集上效果差。过拟合通常发生在模型过于复杂时，能够“记住”训练数据中的噪声和细节。</li>
-<li><strong>欠拟合</strong>：模型过于简单，无法捕捉到数据中的规律，导致训练集和测试集的性能都很差。</li>
+<li><strong>垃圾邮件过滤</strong>：你不想把重要的邮件错误地标记为垃圾邮件 (FP)，宁愿放过一些垃圾邮件 (FN)。</li>
+<li><strong>股票推荐系统</strong>：推荐用户购买的股票必须是大概率上涨的，如果推荐错了 (FP)，用户会亏钱。</li>
 </ul>
-<p>解决过拟合和欠拟合的方法包括选择适当的模型复杂度、使用正则化技术、增加训练数据、交叉验证等。</p>
-<h3 id="6-评估与调优"><a href="#6-评估与调优" class="headerlink" title="6. 评估与调优"></a>6. <strong>评估与调优</strong></h3><p>机器学习模型的评估和调优是确保其性能的重要步骤。常用的评估指标有：</p>
+<hr>
+<h3 id="四、查全率-Recall"><a href="#四、查全率-Recall" class="headerlink" title="四、查全率 (Recall)"></a>四、查全率 (Recall)</h3><p><strong>查全率</strong>，又称 <strong>召回率</strong>。它回答的问题是：<br><strong>“在所有真实为‘正类’的样本中，有多少被模型成功地找出来了？”</strong></p>
+<p><strong>公式：</strong><br><code>Recall = TP / (TP + FN)</code></p>
 <ul>
-<li><strong>准确率（Accuracy）</strong>：正确分类的样本数占总样本数的比例。</li>
-<li><strong>精确率（Precision）</strong>：预测为正类的样本中，真正正类的比例。</li>
-<li><strong>召回率（Recall）</strong>：实际为正类的样本中，预测为正类的比例。</li>
-<li><strong>F1分数</strong>：精确率和召回率的调和平均数，常用来衡量模型在分类问题中的综合表现。</li>
+<li><strong>分母 (TP + FN)<strong>：数据集中</strong>所有真实为正类</strong>的样本总数（即总共有多少癌症患者）。</li>
+<li>**分子 (TP)**：其中被你找出来的部分。</li>
 </ul>
-<p>超参数调优（如通过网格搜索或随机搜索）和交叉验证（如K折交叉验证）可以进一步提高模型的性能。</p>
-<h3 id="7-深度学习（Deep-Learning）"><a href="#7-深度学习（Deep-Learning）" class="headerlink" title="7. 深度学习（Deep Learning）"></a>7. <strong>深度学习（Deep Learning）</strong></h3><p>深度学习是机器学习的一个子领域，特别关注多层神经网络（深度神经网络）的训练和优化。深度学习通过自动提取特征、端到端的学习方式，尤其在计算机视觉、自然语言处理等领域表现出色。</p>
-<p>常见的深度学习模型有：</p>
+<p><strong>直观理解：</strong><br>查全率衡量的是你<strong>找得“全不全”</strong>。如果总共有 10 个癌症患者 (TP+FN&#x3D;10)，你的模型找出了 7 个 (TP&#x3D;7)，那么查全率就是 70%。它反映了模型<strong>避免漏报 (FN) 的能力</strong>。</p>
+<p><strong>一个比喻：</strong><br>还是用捕鱼的比喻。“查全率”就好比：<strong>池塘里总共有 100 条鱼，你这一网捞上来了多少条？</strong> 查全率高，意味着你把大部分鱼都捞起来了，没漏掉多少。</p>
+<p><strong>何时看重查全率？</strong><br>当你希望<strong>尽可能地找出所有正类样本</strong>时。因为“漏报”的代价很高。</p>
 <ul>
-<li>卷积神经网络（CNN）：用于图像处理和计算机视觉。</li>
-<li>循环神经网络（RNN）：用于序列数据处理，如语音识别和自然语言处理。</li>
-<li>生成对抗网络（GAN）：用于生成数据，如图像生成。</li>
+<li><strong>癌症诊断</strong>：你绝不想漏掉任何一个真正的癌症患者 (FN)，宁愿误诊一些健康人 (FP) 让他们再去做进一步检查。</li>
+<li><strong>金融欺诈检测</strong>：宁愿错杀一千（将正常交易误判为欺诈），也不可放过一个（漏掉真正的欺诈交易）。</li>
 </ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>机器学习是通过让计算机学习数据中的模式和规律，从而在未知数据上做出预测或决策的技术。它涉及监督学习、无监督学习、半监督学习、强化学习等多种学习类型，并通过不同的算法和技术来解决实际问题。机器学习的应用范围广泛，几乎涉及所有行业，并在不断推动科技发展和创新。</p>
+<hr>
+<h3 id="五、查准率和查全率的权衡-Trade-off"><a href="#五、查准率和查全率的权衡-Trade-off" class="headerlink" title="五、查准率和查全率的权衡 (Trade-off)"></a>五、查准率和查全率的权衡 (Trade-off)</h3><p>这两个指标通常是<strong>相互制约</strong>的。</p>
+<p>想象一下模型的决策**门槛 (Threshold)**：</p>
+<ul>
+<li><strong>提高门槛</strong>（变得更“严格”）：模型只有在非常有把握时才预测为“正类”。<ul>
+<li><strong>结果</strong>：FP 会减少（更少误报），所以 <strong>查准率 (Precision) 会上升</strong>。</li>
+<li><strong>代价</strong>：FN 会增加（更多漏报），因为一些不太明显的正类被放过了，所以 <strong>查全率 (Recall) 会下降</strong>。</li>
+</ul>
+</li>
+<li><strong>降低门槛</strong>（变得更“宽松”）：模型稍微有点怀疑就预测为“正类”。<ul>
+<li><strong>结果</strong>：FN 会减少（更少漏报），所以 <strong>查全率 (Recall) 会上升</strong>。</li>
+<li><strong>代价</strong>：FP 会增加（更多误报），因为很多模棱两可的负类被误判了，所以 <strong>查准-率 (Precision) 会下降</strong>。</li>
+</ul>
+</li>
+</ul>
+<p>这种权衡关系可以用 <strong>P-R 曲线 (Precision-Recall Curve)</strong> 来可视化。</p>
+<hr>
+<h3 id="六、F1-分数-F1-Score-：一个综合指标"><a href="#六、F1-分数-F1-Score-：一个综合指标" class="headerlink" title="六、F1 分数 (F1-Score)：一个综合指标"></a>六、F1 分数 (F1-Score)：一个综合指标</h3><p>既然两者相互制约，我们有时需要一个能同时兼顾两者的综合指标。<strong>F1 分数</strong> 就是查准率和查全率的 <strong>调和平均数</strong>。</p>
+<p><strong>公式：</strong><br>$$F1 &#x3D; 2 * (P * R) &#x2F; (P + R)$$</p>
+<ul>
+<li><strong>特点</strong>：F1 分数会同时考虑 Precision 和 Recall。只有当两者都比较高时，F1 分数才会高。如果其中一个特别低，F1 分数也会被拉得很低。</li>
+<li><strong>用途</strong>：当你想在查准率和查全率之间寻求一个平衡时，F1 分数是一个很好的参考指标。</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><table>
+<thead>
+<tr>
+<th align="left">指标</th>
+<th align="left">关注点</th>
+<th align="left">公式</th>
+<th align="left">通俗解释</th>
+<th align="left">适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>查准率(Precision)</strong></td>
+<td align="left">预测的准确性</td>
+<td align="left"><code>TP / (TP + FP)</code></td>
+<td align="left">在你挑出来的瓜里，保熟的比例有多高？</td>
+<td align="left"><strong>误报代价高</strong>（垃圾邮件、股票推荐）</td>
+</tr>
+<tr>
+<td align="left"><strong>查全率(Recall)</strong></td>
+<td align="left">查找的全面性</td>
+<td align="left"><code>TP / (TP + FN)</code></td>
+<td align="left">瓜田里所有熟的瓜，你挑出来了多少？</td>
+<td align="left"><strong>漏报代价高</strong>（疾病诊断、金融反欺诈）</td>
+</tr>
+<tr>
+<td align="left"><strong>F1 分数(F1-Score)</strong></td>
+<td align="left">两者的平衡</td>
+<td align="left">调和平均数</td>
+<td align="left">保熟率和检出率的综合得分</td>
+<td align="left">需要平衡二者时</td>
+</tr>
+</tbody></table>
 
                 
               </div>
@@ -416,7 +475,7 @@
   
     <span>></span>
     
-  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%9B%BD%E7%AB%8B%E5%8F%B0%E6%B9%BE%E5%A4%A7%E5%AD%A6%EF%BC%9A%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="category-chain-item">国立台湾大学：李宏毅机器学习</a>
+  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="category-chain-item">深度学习</a>
   
   
 
@@ -447,8 +506,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>机器学习基本概念</div>
-      <div>http://wang-jiahao.github.io/posts/5149.html</div>
+      <div>查准率与查全率</div>
+      <div>http://wang-jiahao.github.io/posts/985c0fb7.html</div>
     </div>
     <div class="license-meta">
       
@@ -460,7 +519,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年12月9日</div>
+          <div>2025年9月21日</div>
         </div>
       
       
@@ -497,18 +556,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/20392.html" title="CS自学资源整理（持续更新）">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">CS自学资源整理（持续更新）</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/57313.html" title="最小生成树">
-                        <span class="hidden-mobile">最小生成树</span>
+                      <a href="/posts/b695e8d1.html" title="Linux环境搭建+SSH配置">
+                        <span class="hidden-mobile">Linux环境搭建+SSH配置</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

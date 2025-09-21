@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>查准率与查全率</title>
+    <link href="/posts/985c0fb7.html"/>
+    <url>/posts/985c0fb7.html</url>
+    
+    <content type="html"><![CDATA[<p><strong>查准率 (Precision)</strong> 和 **查全率 (Recall)**。</p><p>这两个指标主要用于评估 <strong>分类模型</strong> 的性能，尤其是在处理 <strong>类别不平衡</strong> 的数据集时，它们比单纯的“准确率 (Accuracy)”要重要得多。</p><hr><h3 id="一、为什么需要查准率和查全率？（准确率的陷阱）"><a href="#一、为什么需要查准率和查全率？（准确率的陷阱）" class="headerlink" title="一、为什么需要查准率和查全率？（准确率的陷阱）"></a>一、为什么需要查准率和查全率？（准确率的陷阱）</h3><p>在解释它们之前，我们先看看只用“准确率”有什么问题。</p><p><strong>准确率 (Accuracy) &#x3D; (预测正确的样本数) &#x2F; (总样本数)</strong></p><p>假设有一个癌症预测任务，数据集中有 1000 个人，其中：</p><ul><li>990 人是健康的 (负类 Negative)</li><li>10 人是癌症患者 (正类 Positive)</li></ul><p>现在我们有一个很“懒”的模型，它不管输入是什么，一律预测为“健康”。它的预测结果是：</p><ul><li>正确预测了 990 个健康的人。</li><li>错误地将 10 个癌症患者也预测为“健康”。</li></ul><p>这个模型的准确率是多少？<br>Accuracy &#x3D; 990 &#x2F; 1000 &#x3D; 99%</p><p>看！准确率高达 99%，但这个模型 <strong>毫无用处</strong>，因为它一个真正的癌症患者都找不出来。</p><p>这个例子说明，在类别不平衡（一个类的样本远多于另一个类）的情况下，准确率会产生严重的误导。这时，我们就需要查准率和查全率来更精细地评估模型。</p><hr><h3 id="二、基础：混淆矩阵-Confusion-Matrix"><a href="#二、基础：混淆矩阵-Confusion-Matrix" class="headerlink" title="二、基础：混淆矩阵 (Confusion Matrix)"></a>二、基础：混淆矩阵 (Confusion Matrix)</h3><p>要理解查准率和查全率，必须先理解混淆矩阵。混淆矩阵是一个表格，它展示了模型预测结果与真实标签之间的对比。</p><p>我们还是用上面的例子，把“癌症患者”定义为 **正类 (Positive)**，“健康人”定义为 **负类 (Negative)**。</p><table><thead><tr><th align="left"></th><th align="left"><strong>预测为正类 (癌症)</strong></th><th align="left"><strong>预测为负类 (健康)</strong></th></tr></thead><tbody><tr><td align="left"><strong>实际为正类 (癌症)</strong></td><td align="left"><strong>TP (True Positive)</strong><br>真阳性</td><td align="left"><strong>FN (False Negative)</strong><br>假阴性</td></tr><tr><td align="left"><strong>实际为负类 (健康)</strong></td><td align="left"><strong>FP (False Positive)</strong><br>假阳性</td><td align="left"><strong>TN (True Negative)</strong><br>真阴性</td></tr></tbody></table><ul><li><strong>TP (True Positive)<strong>：</strong>真</strong>实的<strong>正</strong>类，被模型<strong>正确地</strong>预测为<strong>正</strong>类。（本来是癌症，预测也是癌症）</li><li><strong>FN (False Negative)<strong>：</strong>假</strong>的<strong>负</strong>类，即真实是<strong>正</strong>类，但被模型<strong>错误地</strong>预测为<strong>负</strong>类。（本来是癌症，<strong>漏报</strong>了，预测为健康）</li><li><strong>FP (False Positive)<strong>：</strong>假</strong>的<strong>正</strong>类，即真实是<strong>负</strong>类，但被模型<strong>错误地</strong>预测为<strong>正</strong>类。（本来是健康，<strong>误报</strong>了，预测为癌症）</li><li><strong>TN (True Negative)<strong>：</strong>真</strong>实的<strong>负</strong>类，被模型<strong>正确地</strong>预测为<strong>负</strong>类。（本来是健康，预测也是健康）</li></ul><hr><h3 id="三、查准-率-Precision"><a href="#三、查准-率-Precision" class="headerlink" title="三、查准-率 (Precision)"></a>三、查准-率 (Precision)</h3><p><strong>查准率</strong>，又称 <strong>精确率</strong>。它回答的问题是：<br><strong>“在所有被模型预测为‘正类’的样本中，有多少是真正的‘正类’？”</strong></p><p><strong>公式：</strong><br><code>Precision = TP / (TP + FP)</code></p><ul><li><strong>分母 (TP + FP)<strong>：所有被模型</strong>预测为正类</strong>的样本总数（即模型“认为”是癌症的人）。</li><li>**分子 (TP)**：其中预测对的部分。</li></ul><p><strong>直观理解：</strong><br>查准率衡量的是你<strong>预测的“准不准”</strong>。如果你的模型预测了10个人是癌症患者 (TP+FP&#x3D;10)，但其中只有 8 个是真的癌症患者 (TP&#x3D;8)，那么查准率就是 80%。它反映了模型<strong>避免误报 (FP) 的能力</strong>。</p><p><strong>一个比喻：</strong><br>你用渔网撒网捕鱼。“查准率”就好比：<strong>在你捞上来的所有东西（鱼、虾、水草、靴子）里，鱼的比例有多高？</strong> 查准率高，意味着你捞上来的大部分都是鱼，没捞太多垃圾。</p><p><strong>何时看重查准率？</strong><br>当你希望<strong>预测为正类的结果尽可能准确</strong>时。因为“误报”的代价很高。</p><ul><li><strong>垃圾邮件过滤</strong>：你不想把重要的邮件错误地标记为垃圾邮件 (FP)，宁愿放过一些垃圾邮件 (FN)。</li><li><strong>股票推荐系统</strong>：推荐用户购买的股票必须是大概率上涨的，如果推荐错了 (FP)，用户会亏钱。</li></ul><hr><h3 id="四、查全率-Recall"><a href="#四、查全率-Recall" class="headerlink" title="四、查全率 (Recall)"></a>四、查全率 (Recall)</h3><p><strong>查全率</strong>，又称 <strong>召回率</strong>。它回答的问题是：<br><strong>“在所有真实为‘正类’的样本中，有多少被模型成功地找出来了？”</strong></p><p><strong>公式：</strong><br><code>Recall = TP / (TP + FN)</code></p><ul><li><strong>分母 (TP + FN)<strong>：数据集中</strong>所有真实为正类</strong>的样本总数（即总共有多少癌症患者）。</li><li>**分子 (TP)**：其中被你找出来的部分。</li></ul><p><strong>直观理解：</strong><br>查全率衡量的是你<strong>找得“全不全”</strong>。如果总共有 10 个癌症患者 (TP+FN&#x3D;10)，你的模型找出了 7 个 (TP&#x3D;7)，那么查全率就是 70%。它反映了模型<strong>避免漏报 (FN) 的能力</strong>。</p><p><strong>一个比喻：</strong><br>还是用捕鱼的比喻。“查全率”就好比：<strong>池塘里总共有 100 条鱼，你这一网捞上来了多少条？</strong> 查全率高，意味着你把大部分鱼都捞起来了，没漏掉多少。</p><p><strong>何时看重查全率？</strong><br>当你希望<strong>尽可能地找出所有正类样本</strong>时。因为“漏报”的代价很高。</p><ul><li><strong>癌症诊断</strong>：你绝不想漏掉任何一个真正的癌症患者 (FN)，宁愿误诊一些健康人 (FP) 让他们再去做进一步检查。</li><li><strong>金融欺诈检测</strong>：宁愿错杀一千（将正常交易误判为欺诈），也不可放过一个（漏掉真正的欺诈交易）。</li></ul><hr><h3 id="五、查准率和查全率的权衡-Trade-off"><a href="#五、查准率和查全率的权衡-Trade-off" class="headerlink" title="五、查准率和查全率的权衡 (Trade-off)"></a>五、查准率和查全率的权衡 (Trade-off)</h3><p>这两个指标通常是<strong>相互制约</strong>的。</p><p>想象一下模型的决策**门槛 (Threshold)**：</p><ul><li><strong>提高门槛</strong>（变得更“严格”）：模型只有在非常有把握时才预测为“正类”。<ul><li><strong>结果</strong>：FP 会减少（更少误报），所以 <strong>查准率 (Precision) 会上升</strong>。</li><li><strong>代价</strong>：FN 会增加（更多漏报），因为一些不太明显的正类被放过了，所以 <strong>查全率 (Recall) 会下降</strong>。</li></ul></li><li><strong>降低门槛</strong>（变得更“宽松”）：模型稍微有点怀疑就预测为“正类”。<ul><li><strong>结果</strong>：FN 会减少（更少漏报），所以 <strong>查全率 (Recall) 会上升</strong>。</li><li><strong>代价</strong>：FP 会增加（更多误报），因为很多模棱两可的负类被误判了，所以 <strong>查准-率 (Precision) 会下降</strong>。</li></ul></li></ul><p>这种权衡关系可以用 <strong>P-R 曲线 (Precision-Recall Curve)</strong> 来可视化。</p><hr><h3 id="六、F1-分数-F1-Score-：一个综合指标"><a href="#六、F1-分数-F1-Score-：一个综合指标" class="headerlink" title="六、F1 分数 (F1-Score)：一个综合指标"></a>六、F1 分数 (F1-Score)：一个综合指标</h3><p>既然两者相互制约，我们有时需要一个能同时兼顾两者的综合指标。<strong>F1 分数</strong> 就是查准率和查全率的 <strong>调和平均数</strong>。</p><p><strong>公式：</strong><br>$$F1 &#x3D; 2 * (P * R) &#x2F; (P + R)$$</p><ul><li><strong>特点</strong>：F1 分数会同时考虑 Precision 和 Recall。只有当两者都比较高时，F1 分数才会高。如果其中一个特别低，F1 分数也会被拉得很低。</li><li><strong>用途</strong>：当你想在查准率和查全率之间寻求一个平衡时，F1 分数是一个很好的参考指标。</li></ul><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><table><thead><tr><th align="left">指标</th><th align="left">关注点</th><th align="left">公式</th><th align="left">通俗解释</th><th align="left">适用场景</th></tr></thead><tbody><tr><td align="left"><strong>查准率(Precision)</strong></td><td align="left">预测的准确性</td><td align="left"><code>TP / (TP + FP)</code></td><td align="left">在你挑出来的瓜里，保熟的比例有多高？</td><td align="left"><strong>误报代价高</strong>（垃圾邮件、股票推荐）</td></tr><tr><td align="left"><strong>查全率(Recall)</strong></td><td align="left">查找的全面性</td><td align="left"><code>TP / (TP + FN)</code></td><td align="left">瓜田里所有熟的瓜，你挑出来了多少？</td><td align="left"><strong>漏报代价高</strong>（疾病诊断、金融反欺诈）</td></tr><tr><td align="left"><strong>F1 分数(F1-Score)</strong></td><td align="left">两者的平衡</td><td align="left">调和平均数</td><td align="left">保熟率和检出率的综合得分</td><td align="left">需要平衡二者时</td></tr></tbody></table>]]></content>
+    
+    
+    <categories>
+      
+      <category>机器学习</category>
+      
+      <category>深度学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>机器学习</tag>
+      
+      <tag>Machine Learning</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Linux环境搭建+SSH配置</title>
     <link href="/posts/b695e8d1.html"/>
     <url>/posts/b695e8d1.html</url>
@@ -319,7 +348,7 @@
     
     <categories>
       
-      <category>深度学习</category>
+      <category>机器学习</category>
       
       <category>国立台湾大学：李宏毅机器学习</category>
       
