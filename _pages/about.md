@@ -23,9 +23,9 @@ redirect_from:
 
 I’m currently a junior majoring in Software Engineering at Nanjing University (NJU).
 
-**Research interests:** post-training and evaluation for multimodal large language models.
+Previously, I was an intern at [NJU-LINK Lab](https://www.nju-link.com/zh/) led by [Prof. Jiaheng Liu](https://liujiaheng.github.io/).
 
-Previously, I was an intern at NJU-LINK Lab (led by Prof. Jiaheng Liu).
+**Research interests:** post-training and evaluation for multimodal large language models.
 
 # 📖 Educations
 - *2023.09 - now*, &nbsp;Software Engineering at [Nanjing University](https://www.nju.edu.cn/)
@@ -44,9 +44,41 @@ Previously, I was an intern at NJU-LINK Lab (led by Prof. Jiaheng Liu).
       <!-- 使用 <sup>*</sup> 来标注共一，并使用 et al. 缩略 -->
       <b>Jiahao Wang</b><sup>*</sup>, An Ping<sup>*</sup>, Yanghai Wang<sup>*</sup>, Yuanxing Zhang, Shihao Li, et al.<br>
       <i>ACM Multimedia (ACMMM), 2026, Under Review</i> <br>
+      <a href="/Paper/OmniCap-IF.pdf">
+        <img src="https://img.shields.io/badge/Paper-PDF-red?style=flat-square&logo=adobeacrobatreader&logoColor=white" alt="PDF">
+      </a>
       <p style="font-size: 0.85em; color: #586069; margin-top: 8px;">
-        The paper will be open-sourced as soon as possible.
+        The dataset and model will be open-sourced as soon as possible.
       </p>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td width="35%">
+      <!-- 建议：在这里放置论文的 Pipeline 图或效果对比图 -->
+      <!-- 如果你还没有图，可以先用下面这张占位图，后续替换为自己仓库里的图片链接 -->
+      <img src="../Figure/avbench.svg" width="100%">
+    </td>
+    <td width="65%">
+      <b>T2AV-Compass: Towards Unified Evaluation for Text-to-Audio-Video Generation</b><br>
+      <!-- 使用 <sup>*</sup> 来标注共一，并使用 et al. 缩略 -->
+      Zhe Cao<sup>*</sup>, Tao Wang<sup>*</sup>, Jiaming Wang<sup>*</sup>, Yanghai Wang<sup>*</sup>, Yuanxing Zhang, <b>Jiahao Wang</b> et al.<br>
+      <i>ICML, 2026, Under Review</i> <br>
+      <!-- 按钮链接区域 -->
+      <a href="https://arxiv.org/pdf/2512.21094">
+        <img src="https://img.shields.io/badge/Paper-PDF-red?style=flat-square&logo=adobeacrobatreader&logoColor=white" alt="Paper">
+      </a>
+      <a href="https://github.com/NJU-LINK/T2AV-Compass">
+        <img src="https://img.shields.io/badge/Code-GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="Code">
+      </a>
+      <a href="https://huggingface.co/datasets/NJU-LINK/T2AV-Compass">
+          <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Data-FFD21E?style=flat-square">
+      </a>
+      <a href="https://nju-link.github.io/T2AV-Compass/">
+        <img src="https://img.shields.io/badge/Project-Website-blue?style=flat-square&logo=googlechrome&logoColor=white" alt="Website">
+      </a>
     </td>
   </tr>
 </table>
@@ -66,35 +98,6 @@ Previously, I was an intern at NJU-LINK Lab (led by Prof. Jiaheng Liu).
       <p style="font-size: 0.85em; color: #586069; margin-top: 8px;">
         The paper will be open-sourced as soon as possible.
       </p>
-    </td>
-  </tr>
-</table>
-
-<table>
-  <tr>
-    <td width="35%">
-      <!-- 建议：在这里放置论文的 Pipeline 图或效果对比图 -->
-      <!-- 如果你还没有图，可以先用下面这张占位图，后续替换为自己仓库里的图片链接 -->
-      <img src="../Figure/avbench.svg" width="100%">
-    </td>
-    <td width="65%">
-      <b>T2AV-Compass: Towards Unified Evaluation for Text-to-Audio-Video Generation</b><br>
-      <!-- 使用 <sup>*</sup> 来标注共一，并使用 et al. 缩略 -->
-      Zhe Cao<sup>*</sup>, Tao Wang<sup>*</sup>, Jiaming Wang<sup>*</sup>, Yanghai Wang<sup>*</sup>, Yuanxing Zhang, <b>Jiahao Wang</b> et al.<br>
-      <i>CVPR 2026 Workshop VGBE</i> <br>
-      <!-- 按钮链接区域 -->
-      <a href="https://arxiv.org/pdf/2512.21094">
-        <img src="https://img.shields.io/badge/Paper-PDF-red?style=flat-square&logo=adobeacrobatreader&logoColor=white" alt="Paper">
-      </a>
-      <a href="https://github.com/NJU-LINK/T2AV-Compass">
-        <img src="https://img.shields.io/badge/Code-GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="Code">
-      </a>
-      <a href="https://huggingface.co/datasets/NJU-LINK/T2AV-Compass">
-          <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Data-FFD21E?style=flat-square">
-      </a>
-      <a href="https://nju-link.github.io/T2AV-Compass/">
-        <img src="https://img.shields.io/badge/Project-Website-blue?style=flat-square&logo=googlechrome&logoColor=white" alt="Website">
-      </a>
     </td>
   </tr>
 </table>
