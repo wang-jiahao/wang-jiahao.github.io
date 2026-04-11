@@ -43,7 +43,7 @@ Previously, I was an intern at [NJU-LINK Lab](https://www.nju-link.com/zh/) led 
       <b>OmniCap-IF: Benchmarking and Improving Instruction Following Abilities for Omni-Video Captioning</b><br>
       <!-- 使用 <sup>*</sup> 来标注共一，并使用 et al. 缩略 -->
       <b>Jiahao Wang</b><sup>*</sup>, An Ping<sup>*</sup>, Yanghai Wang<sup>*</sup>, Yuanxing Zhang, Shihao Li, et al.<br>
-      <i>ACM Multimedia (ACMMM), 2026, Under Review</i> <br>
+      <i>ACM MM, 2026, Under Review</i> <br>
       <a href="/Paper/OmniCap-IF.pdf">
         <img src="https://img.shields.io/badge/Paper-PDF-red?style=flat-square&logo=adobeacrobatreader&logoColor=white" alt="PDF">
       </a>
