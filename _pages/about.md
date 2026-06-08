@@ -61,7 +61,6 @@ Previously, I was an intern at [NJU-LINK Lab](https://www.nju-link.com/zh/) led 
     </td>
   </tr>
 </table>
-
 <table>
   <tr>
     <td width="35%">
@@ -76,6 +75,15 @@ Previously, I was an intern at [NJU-LINK Lab](https://www.nju-link.com/zh/) led 
       <i>ACM MM, 2026, Under Review</i> <br>
       <a href="/Paper/OmniCap-IF.pdf">
         <img src="https://img.shields.io/badge/Paper-PDF-red?style=flat-square&logo=adobeacrobatreader&logoColor=white" alt="PDF">
+      </a>
+      <a href="https://github.com/NJU-LINK/OmniCap-IF">
+        <img src="https://img.shields.io/badge/Code-GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="Code">
+      </a>
+      <a href="https://huggingface.co/datasets/NJU-LINK/OmniCap-IF">
+          <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Data-FFD21E?style=flat-square">
+      </a>
+      <a href="https://nju-link.github.io/OmniCap-IF/">
+        <img src="https://img.shields.io/badge/Project-Website-blue?style=flat-square&logo=googlechrome&logoColor=white" alt="Website">
       </a>
       <p style="font-size: 0.85em; color: #586069; margin-top: 8px;">
         The dataset and model will be open-sourced as soon as possible.
@@ -111,6 +119,7 @@ Previously, I was an intern at [NJU-LINK Lab](https://www.nju-link.com/zh/) led 
     </td>
   </tr>
 </table>
+
 
 <table>
   <tr>
