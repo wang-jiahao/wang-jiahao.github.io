@@ -23,12 +23,37 @@ redirect_from:
 
 I’m currently a junior majoring in Software Engineering at Nanjing University (NJU).
 
-Previously, I was an intern at [NJU-LINK Lab](https://www.nju-link.com/zh/) led by [Prof. Jiaheng Liu](https://liujiaheng.github.io/).
+I’m currently a research intern at [NJU-LINK Lab](https://www.nju-link.com/zh/) led by [Prof. Jiaheng Liu](https://liujiaheng.github.io/).
 
 **Research interests:** post-training and evaluation for multimodal large language models.
 
 # 📖 Educations
 - *2023.09 - now*, &nbsp;Software Engineering at [Nanjing University](https://www.nju.edu.cn/)
+
+# 💼 Experience
+
+<div class="experience-list">
+  <div class="experience-item">
+    <div class="experience-logo">
+      <img src="../Figure/Alibaba-Group.svg" alt="Alibaba Group logo">
+    </div>
+    <div class="experience-details">
+      <div class="experience-date">2026.07 - Present</div>
+      <div class="experience-role">Agentic Coding Intern</div>
+      <div>Alibaba Group</div>
+    </div>
+  </div>
+  <div class="experience-item">
+    <div class="experience-logo">
+      <img src="../Figure/NJU-LINK.png" alt="NJU-LINK Lab logo">
+    </div>
+    <div class="experience-details">
+      <div class="experience-date">2025.08 - Present</div>
+      <div class="experience-role">Research Intern</div>
+      <div><a href="https://www.nju-link.com/zh/">NJU-LINK Lab</a>, Nanjing University</div>
+    </div>
+  </div>
+</div>
 
 # 📝 Publications
 
@@ -44,7 +69,8 @@ Previously, I was an intern at [NJU-LINK Lab](https://www.nju-link.com/zh/) led 
 </b><br>
       <!-- 使用 <sup>*</sup> 来标注共一，并使用 et al. 缩略 -->
       Yanghai Wang<sup>*</sup>, <b>Jiahao Wang</b><sup>*</sup>, Jiafu Tang<sup>*</sup>, Yuanxing Zhang, Zhe Cao et al.<br>
-      <i>EMNLP, 2026, Under Review</i> <br>
+      Nanjing University × Kling, Kuaishou<br>
+      <i>Under Review</i> <br>
       <!-- 按钮链接区域 -->
       <a href="/Paper/AVSCap.pdf">
         <img src="https://img.shields.io/badge/Paper-PDF-red?style=flat-square&logo=adobeacrobatreader&logoColor=white" alt="Paper">
@@ -72,7 +98,8 @@ Previously, I was an intern at [NJU-LINK Lab](https://www.nju-link.com/zh/) led 
       <b>OmniCap-IF: Benchmarking and Improving Instruction Following Abilities for Omni-Video Captioning</b><br>
       <!-- 使用 <sup>*</sup> 来标注共一，并使用 et al. 缩略 -->
       <b>Jiahao Wang</b><sup>*</sup>, An Ping<sup>*</sup>, Yanghai Wang<sup>*</sup>, Yuanxing Zhang, Shihao Li, et al.<br>
-      <i>ACM MM, 2026, Under Review</i> <br>
+      Nanjing University × Kling, Kuaishou<br>
+      <i>Under Review</i> <br>
       <a href="/Paper/OmniCap-IF.pdf">
         <img src="https://img.shields.io/badge/Paper-PDF-red?style=flat-square&logo=adobeacrobatreader&logoColor=white" alt="PDF">
       </a>
@@ -132,7 +159,7 @@ Previously, I was an intern at [NJU-LINK Lab](https://www.nju-link.com/zh/) led 
       <b>AdaptiveOmniAgent: Dynamic Routing for Audio-Visual Understanding</b><br>
       <!-- 使用 <sup>*</sup> 来标注共一，并使用 et al. 缩略 -->
       Jiafu Tang<sup>*</sup>, Haowen Chen<sup>*</sup>, Yanghai Wang, Yue Ding, <b>Jiahao Wang</b>, et al.<br>
-      <i>EMNLP, 2026, Under Review</i> <br>
+      <i>Under Review</i> <br>
       <p style="font-size: 0.85em; color: #586069; margin-top: 8px;">
         The paper will be open-sourced as soon as possible.
       </p>
@@ -152,7 +179,7 @@ Previously, I was an intern at [NJU-LINK Lab](https://www.nju-link.com/zh/) led 
       <b>LVSG-Bench: Towards Benchmarking Long-form Video Script Generation Capabilities of Multimodal LLMs</b><br>
       <!-- 使用 <sup>*</sup> 来标注共一，并使用 et al. 缩略 -->
       Yanghai Wang<sup>*</sup>, Zhe Cao<sup>*</sup>, Yuanxing Zhang, Yifan Yao, <b>Jiahao Wang</b> et al.<br>
-      <i>ECCV, 2026, Under Review</i> <br>
+      <i>Under Review</i> <br>
       <p style="font-size: 0.85em; color: #586069; margin-top: 8px;">
         The paper will be open-sourced as soon as possible.
       </p>
