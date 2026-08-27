@@ -30,40 +30,6 @@ I’m currently a research intern at [NJU-LINK Lab](https://www.nju-link.com/zh/
 # 📖 Educations
 - *2023.09 - now*, &nbsp;Software Engineering at [Nanjing University](https://www.nju.edu.cn/)
 
-<span class='anchor' id='experience'></span>
-
-# 💼 Experience
-
-<table>
-  <tr>
-    <td width="25%" style="vertical-align: middle;">
-      <div style="height: 76px; padding: 10px; display: flex; align-items: center; justify-content: center; border: 1px solid #d9dfe5; border-radius: 4px; background: #fff;">
-        <img src="../Figure/Alibaba-Group.svg" alt="Alibaba Group logo" style="max-width: 100%; max-height: 56px; width: auto; object-fit: contain;">
-      </div>
-    </td>
-    <td width="75%" style="vertical-align: middle;">
-      2026.07 - Present<br>
-      <b>Agentic Coding Intern</b><br>
-      Alibaba Group
-    </td>
-  </tr>
-</table>
-
-<table>
-  <tr>
-    <td width="25%" style="vertical-align: middle;">
-      <div style="height: 76px; padding: 10px; display: flex; align-items: center; justify-content: center; border: 1px solid #d9dfe5; border-radius: 4px; background: #fff;">
-        <img src="../Figure/NJU-LINK.png" alt="NJU-LINK Lab logo" style="max-width: 100%; max-height: 56px; width: auto; object-fit: contain;">
-      </div>
-    </td>
-    <td width="75%" style="vertical-align: middle;">
-      2025.08 - Present<br>
-      <b>Research Intern</b><br>
-      <a href="https://www.nju-link.com/zh/">NJU-LINK Lab</a>, Nanjing University
-    </td>
-  </tr>
-</table>
-
 # 📝 Publications
 
 <table>
@@ -78,7 +44,7 @@ I’m currently a research intern at [NJU-LINK Lab](https://www.nju-link.com/zh/
 </b><br>
       <!-- 使用 <sup>*</sup> 来标注共一，并使用 et al. 缩略 -->
       Yanghai Wang<sup>*</sup>, <b>Jiahao Wang</b><sup>*</sup>, Jiafu Tang<sup>*</sup>, Yuanxing Zhang, Zhe Cao et al.<br>
-      Nanjing University × Kling, Kuaishou<br>
+      <i>EMNLP, 2026</i><br>
       <!-- 按钮链接区域 -->
       <a href="https://arxiv.org/abs/2607.12820">
         <img src="https://img.shields.io/badge/Paper-PDF-red?style=flat-square&logo=adobeacrobatreader&logoColor=white" alt="Paper">
@@ -188,3 +154,37 @@ I’m currently a research intern at [NJU-LINK Lab](https://www.nju-link.com/zh/
 <p align="right">
   <small><sup>*</sup> Equal Contribution</small>
 </p>
+
+<span class='anchor' id='experience'></span>
+
+# 💼 Experience
+
+<table>
+  <tr>
+    <td width="25%" style="vertical-align: middle;">
+      <div style="height: 76px; padding: 10px; display: flex; align-items: center; justify-content: center; border: 1px solid #d9dfe5; border-radius: 4px; background: #fff;">
+        <img src="../Figure/Alibaba-Group.svg" alt="Alibaba Group logo" style="max-width: 100%; max-height: 56px; width: auto; object-fit: contain;">
+      </div>
+    </td>
+    <td width="75%" style="vertical-align: middle;">
+      2026.07 - Present<br>
+      <b>Agentic Coding Intern</b><br>
+      Alibaba Group
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td width="25%" style="vertical-align: middle;">
+      <div style="height: 76px; padding: 10px; display: flex; align-items: center; justify-content: center; border: 1px solid #d9dfe5; border-radius: 4px; background: #fff;">
+        <img src="../Figure/NJU-LINK.png" alt="NJU-LINK Lab logo" style="max-width: 100%; max-height: 56px; width: auto; object-fit: contain;">
+      </div>
+    </td>
+    <td width="75%" style="vertical-align: middle;">
+      2025.08 - Present<br>
+      <b>Research Intern</b><br>
+      <a href="https://www.nju-link.com/zh/">NJU-LINK Lab</a>, Nanjing University
+    </td>
+  </tr>
+</table>
