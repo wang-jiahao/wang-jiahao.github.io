@@ -168,13 +168,23 @@ html[data-theme="dark"] .social-icons .fa-github-square {
   color: #e6edf3;
 }
 
-.masthead__menu-theme-item {
-  padding-left: 0.35rem;
+.author__urls a,
+.author__urls i,
+.author__urls span,
+.author__urls_sm a,
+.author__urls_sm i,
+.author__urls_sm span {
+  transition: none;
 }
 
-.greedy-nav .theme-toggle {
-  position: static;
-  right: auto;
+.masthead__inner-wrap {
+  padding-right: 4rem;
+}
+
+.masthead > .theme-toggle {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
   display: inline-flex;
   visibility: visible;
   align-items: center;
@@ -189,14 +199,16 @@ html[data-theme="dark"] .social-icons .fa-github-square {
   border-radius: 50%;
   box-shadow: none;
   cursor: pointer;
+  transform: translateY(-50%);
+  z-index: 30;
 }
 
-.greedy-nav .theme-toggle:hover {
+.masthead > .theme-toggle:hover {
   color: var(--theme-link-hover);
   background-color: var(--theme-control-hover);
 }
 
-.greedy-nav .theme-toggle:focus-visible {
+.masthead > .theme-toggle:focus-visible {
   outline: 2px solid var(--theme-link);
   outline-offset: 2px;
 }
@@ -222,15 +234,6 @@ html[data-theme="dark"] .theme-toggle__icon--sun {
 
 html[data-theme="dark"] .theme-toggle__icon--moon {
   display: block;
-}
-
-.greedy-nav .hidden-links .masthead__menu-theme-item {
-  padding: 0.25rem;
-}
-
-.greedy-nav .hidden-links .theme-toggle {
-  width: 100%;
-  border-radius: 0.25rem;
 }
 
 @media (max-width: 924px) {

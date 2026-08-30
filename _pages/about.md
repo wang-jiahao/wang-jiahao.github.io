@@ -17,9 +17,9 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-# 👋 About me
+# About me
 
-**Hello! I’m Wangjiahao (王佳豪) 👋**
+**Hello! I’m Wangjiahao (王佳豪)**
 
 I’m currently a junior majoring in Software Engineering at Nanjing University (NJU).
 
@@ -27,8 +27,8 @@ I’m currently a research intern at [NJU-LINK Lab](https://www.nju-link.com/zh/
 
 **Research interests:** post-training and evaluation for multimodal large language models.
 
-# 📖 Educations
-- *2023.09 - now*, &nbsp;Software Engineering at [Nanjing University](https://www.nju.edu.cn/)
+# 📖 Education
+- *2023.09 - Present*, &nbsp;Undergraduate student pursuing a Bachelor of Engineering (B.Eng.) in Software Engineering at [Nanjing University](https://www.nju.edu.cn/)
 
 # 📝 Publications
 
