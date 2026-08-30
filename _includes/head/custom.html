@@ -5,6 +5,27 @@
 {% endif %}
 {% endunless %}
 
+<meta name="theme-color" content="#ffffff">
+<script>
+  (function () {
+    var storageKey = "homepage-theme";
+    var storedTheme = null;
+
+    try {
+      storedTheme = window.localStorage.getItem(storageKey);
+    } catch (error) {}
+
+    var systemTheme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+    var initialTheme = storedTheme === "dark" || storedTheme === "light"
+      ? storedTheme
+      : systemTheme;
+
+    document.documentElement.setAttribute("data-theme", initialTheme);
+  })();
+</script>
+
 <link rel="apple-touch-icon" href="{{ avatar_icon }}">
 <link rel="icon" href="{{ avatar_icon }}">
 <link rel="stylesheet" href="assets/css/academicons.css" />
