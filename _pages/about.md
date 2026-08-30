@@ -25,10 +25,10 @@ I’m currently a junior majoring in Software Engineering at Nanjing University 
 
 I’m currently a research intern at [NJU-LINK Lab](https://www.nju-link.com/zh/) led by [Prof. Jiaheng Liu](https://liujiaheng.github.io/).
 
-**Research interests:** post-training and evaluation for multimodal large language models.
+**Research interests:** Post-Training and Evaluation for Multimodal Large Language Models; Agentic Coding.
 
 # 📖 Education
-- *2023.09 - Present*, &nbsp;Undergraduate student pursuing a Bachelor of Engineering (B.Eng.) in Software Engineering at [Nanjing University](https://www.nju.edu.cn/)
+- *2023.09 - 2027.06*, &nbsp;B.Eng. in Software Engineering at [Nanjing University](https://www.nju.edu.cn/)
 
 # 📝 Publications
 
@@ -44,7 +44,7 @@ I’m currently a research intern at [NJU-LINK Lab](https://www.nju-link.com/zh/
 </b><br>
       <!-- 使用 <sup>*</sup> 来标注共一，并使用 et al. 缩略 -->
       Yanghai Wang<sup>*</sup>, <b>Jiahao Wang</b><sup>*</sup>, Jiafu Tang<sup>*</sup>, Yuanxing Zhang, Zhe Cao et al.<br>
-      <i>EMNLP, 2026</i><br>
+      <i>EMNLP, 2026 (Main)</i><br>
       <!-- 按钮链接区域 -->
       <a href="https://arxiv.org/abs/2607.12820">
         <img src="https://img.shields.io/badge/Paper-PDF-red?style=flat-square&logo=adobeacrobatreader&logoColor=white" alt="Paper">
