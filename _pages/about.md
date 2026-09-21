@@ -1,190 +1,71 @@
 ---
+layout: home
 permalink: /
-title: ""
-excerpt: ""
-author_profile: true
-redirect_from: 
+title: Jiahao Wang
+description: Jiahao Wang, an undergraduate at Nanjing University working on multimodal large language models and Agentic Coding.
+redirect_from:
   - /about/
   - /about.html
 ---
 
-{% if site.google_scholar_stats_use_cdn %}
-{% assign gsDataBaseUrl = "https://cdn.jsdelivr.net/gh/" | append: site.repository | append: "@" %}
-{% else %}
-{% assign gsDataBaseUrl = "https://raw.g·1ithubusercontent.com/" | append: site.repository | append: "/" %}
-{% endif %}
-{% assign url = gsDataBaseUrl | append: "google-scholar-stats/gs_data_shieldsio.json" %}
+<section class="profile" id="about-me" aria-labelledby="profile-title">
+  <div class="profile-copy">
+    <p class="eyebrow">Nanjing University</p>
+    <div class="name-line"><h1 id="profile-title">Jiahao Wang</h1></div>
+    <div class="profile-intro">
+      <p>I'm an undergraduate in Software Engineering at <a href="https://www.nju.edu.cn/" target="_blank" rel="noopener noreferrer">Nanjing University</a>, and a research intern at <a href="https://www.nju-link.com/zh/" target="_blank" rel="noopener noreferrer">NJU-LINK Lab</a> led by <a href="https://liujiaheng.github.io/" target="_blank" rel="noopener noreferrer">Prof. Jiaheng Liu</a>.</p>
+      <p>My research focuses on <strong>post-training and evaluation for multimodal large language models</strong>, and <strong>Agentic Coding</strong>.</p>
+    </div>
+    <nav class="contact-links" aria-label="Contact and academic profiles">
+      <a href="mailto:{{ site.author.email }}">Email <span aria-hidden="true">↗</span></a>
+      <a href="{{ site.author.googlescholar }}" target="_blank" rel="noopener noreferrer">Google Scholar <span aria-hidden="true">↗</span></a>
+      <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </div>
+  <figure class="profile-portrait">
+    <img src="{{ '/assets/images/profile.webp' | relative_url }}" alt="Jiahao Wang's illustrated profile avatar" width="400" height="400" fetchpriority="high">
+    <figcaption>{{ site.author.location }}</figcaption>
+  </figure>
+</section>
 
-<span class='anchor' id='about-me'></span>
+<section class="content-section news-section" id="news" aria-labelledby="news-title">
+  <div class="section-heading"><h2 id="news-title">News</h2></div>
+  <ul class="news-list">
+    {% for item in site.data.news %}
+    <li class="news-item"><time class="news-date" datetime="{{ item.date }}">{{ item.display_date }}</time><p>{{ item.text }}</p></li>
+    {% endfor %}
+  </ul>
+</section>
 
-# About me
+<section class="content-section" id="publications" aria-labelledby="publications-title">
+  <span class="legacy-anchor" id="-publications" aria-hidden="true"></span>
+  <div class="section-heading"><h2 id="publications-title">Publications</h2><span class="section-note"><sup>*</sup> Equal contribution</span></div>
+  <div class="publication-list">
+    {% for paper in site.data.publications %}{% include publication.html paper=paper %}{% endfor %}
+  </div>
+</section>
 
-**Hello! I’m Wangjiahao (王佳豪)**
+<section class="content-section" id="experience" aria-labelledby="experience-title">
+  <div class="section-heading"><h2 id="experience-title">Experience</h2></div>
+  <div class="career-list">
+    <article class="career-entry">
+      <p class="entry-date"><time datetime="2026-07">Jul 2026</time> <span aria-hidden="true">—</span> Present</p>
+      <div class="entry-copy"><h3>Agentic Coding Intern</h3><p>Alibaba Group</p></div>
+      <div class="entry-logo"><img src="{{ '/Figure/Alibaba-Group.svg' | relative_url }}" alt="Alibaba Group" width="132" height="48" loading="lazy"></div>
+    </article>
+    <article class="career-entry">
+      <p class="entry-date"><time datetime="2025-08">Aug 2025</time> <span aria-hidden="true">—</span> Present</p>
+      <div class="entry-copy"><h3>Research Intern</h3><p><a href="https://www.nju-link.com/zh/" target="_blank" rel="noopener noreferrer">NJU-LINK Lab</a>, Nanjing University</p></div>
+      <div class="entry-logo"><img src="{{ '/Figure/NJU-LINK.png' | relative_url }}" alt="NJU-LINK Lab" width="132" height="48" loading="lazy"></div>
+    </article>
+  </div>
+</section>
 
-I’m currently a junior majoring in Software Engineering at Nanjing University (NJU).
-
-I’m currently a research intern at [NJU-LINK Lab](https://www.nju-link.com/zh/) led by [Prof. Jiaheng Liu](https://liujiaheng.github.io/).
-
-**Research interests:** Post-Training and Evaluation for Multimodal Large Language Models; Agentic Coding.
-
-# 📖 Education
-- *2023.09 - 2027.06*, &nbsp;B.Eng. in Software Engineering at [Nanjing University](https://www.nju.edu.cn/)
-
-# 📝 Publications
-
-<table>
-  <tr>
-    <td width="35%">
-      <!-- 建议：在这里放置论文的 Pipeline 图或效果对比图 -->
-      <!-- 如果你还没有图，可以先用下面这张占位图，后续替换为自己仓库里的图片链接 -->
-      <img src="../Figure/AVSCap.png" width="100%">
-    </td>
-    <td width="65%">
-      <b>AVSCap: Orchestrating Audio-Visual Synergy for Omni-modal Video Captioning
-</b><br>
-      <!-- 使用 <sup>*</sup> 来标注共一，并使用 et al. 缩略 -->
-      Yanghai Wang<sup>*</sup>, <b>Jiahao Wang</b><sup>*</sup>, Jiafu Tang<sup>*</sup>, Yuanxing Zhang, Zhe Cao et al.<br>
-      <i>EMNLP, 2026 (Main)</i><br>
-      <!-- 按钮链接区域 -->
-      <a href="https://arxiv.org/abs/2607.12820">
-        <img src="https://img.shields.io/badge/Paper-PDF-red?style=flat-square&logo=adobeacrobatreader&logoColor=white" alt="Paper">
-      </a>
-      <a href="https://github.com/NJU-LINK/AVSCap">
-        <img src="https://img.shields.io/badge/Code-GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="Code">
-      </a>
-      <a href="https://huggingface.co/datasets/NJU-LINK/AVSCapBench">
-          <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Data-FFD21E?style=flat-square">
-      </a>
-      <a href="https://nju-link.github.io/AVSCap/">
-        <img src="https://img.shields.io/badge/Project-Website-blue?style=flat-square&logo=googlechrome&logoColor=white" alt="Website">
-      </a>
-    </td>
-  </tr>
-</table>
-<table>
-  <tr>
-    <td width="35%">
-      <!-- 建议：在这里放置论文的 Pipeline 图或效果对比图 -->
-      <!-- 如果你还没有图，可以先用下面这张占位图，后续替换为自己仓库里的图片链接 -->
-      <img src="../Figure/OmniCap-IF.svg?text=OmniCap-IF+Teaser" width="100%">
-    </td>
-    <td width="65%">
-      <b>OmniCap-IF: Benchmarking and Improving Instruction Following Abilities for Omni-Video Captioning</b><br>
-      <!-- 使用 <sup>*</sup> 来标注共一，并使用 et al. 缩略 -->
-      <b>Jiahao Wang</b><sup>*</sup>, An Ping<sup>*</sup>, Yanghai Wang<sup>*</sup>, Yuanxing Zhang, Shihao Li, et al.<br>
-      Nanjing University × Kling, Kuaishou<br>
-      <a href="https://arxiv.org/abs/2606.08572">
-        <img src="https://img.shields.io/badge/Paper-PDF-red?style=flat-square&logo=adobeacrobatreader&logoColor=white" alt="PDF">
-      </a>
-      <a href="https://github.com/NJU-LINK/OmniCap-IF">
-        <img src="https://img.shields.io/badge/Code-GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="Code">
-      </a>
-      <a href="https://huggingface.co/datasets/NJU-LINK/OmniCap-IF">
-          <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Data-FFD21E?style=flat-square">
-      </a>
-      <a href="https://nju-link.github.io/OmniCap-IF/">
-        <img src="https://img.shields.io/badge/Project-Website-blue?style=flat-square&logo=googlechrome&logoColor=white" alt="Website">
-      </a>
-    </td>
-  </tr>
-</table>
-<table>
-  <tr>
-    <td width="35%">
-      <!-- 建议：在这里放置论文的 Pipeline 图或效果对比图 -->
-      <!-- 如果你还没有图，可以先用下面这张占位图，后续替换为自己仓库里的图片链接 -->
-      <img src="../Figure/avbench.svg" width="100%">
-    </td>
-    <td width="65%">
-      <b>T2AV-Compass: Towards Unified Evaluation for Text-to-Audio-Video Generation</b><br>
-      <!-- 使用 <sup>*</sup> 来标注共一，并使用 et al. 缩略 -->
-      Zhe Cao<sup>*</sup>, Tao Wang<sup>*</sup>, Jiaming Wang<sup>*</sup>, Yanghai Wang<sup>*</sup>, Yuanxing Zhang, <b>Jiahao Wang</b> et al.<br>
-      <i>ICML, 2026</i> <br>
-      <!-- 按钮链接区域 -->
-      <a href="https://arxiv.org/pdf/2512.21094">
-        <img src="https://img.shields.io/badge/Paper-PDF-red?style=flat-square&logo=adobeacrobatreader&logoColor=white" alt="Paper">
-      </a>
-      <a href="https://github.com/NJU-LINK/T2AV-Compass">
-        <img src="https://img.shields.io/badge/Code-GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="Code">
-      </a>
-      <a href="https://huggingface.co/datasets/NJU-LINK/T2AV-Compass">
-          <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Data-FFD21E?style=flat-square">
-      </a>
-      <a href="https://nju-link.github.io/T2AV-Compass/">
-        <img src="https://img.shields.io/badge/Project-Website-blue?style=flat-square&logo=googlechrome&logoColor=white" alt="Website">
-      </a>
-    </td>
-  </tr>
-</table>
-
-
-<table>
-  <tr>
-    <td width="35%">
-      <!-- 建议：在这里放置论文的 Pipeline 图或效果对比图 -->
-      <!-- 如果你还没有图，可以先用下面这张占位图，后续替换为自己仓库里的图片链接 -->
-      <img src="../Figure/OmniAgent.png" width="100%">
-    </td>
-    <td width="65%">
-      <b>AdaptiveOmniAgent: Dynamic Routing for Audio-Visual Understanding</b><br>
-      <!-- 使用 <sup>*</sup> 来标注共一，并使用 et al. 缩略 -->
-      Jiafu Tang<sup>*</sup>, Haowen Chen<sup>*</sup>, Yanghai Wang, Yue Ding, <b>Jiahao Wang</b>, et al.<br>
-      <i>Under Review</i> <br>
-    </td>
-  </tr>
-</table>
-
-
-<table>
-  <tr>
-    <td width="35%">
-      <!-- 建议：在这里放置论文的 Pipeline 图或效果对比图 -->
-      <!-- 如果你还没有图，可以先用下面这张占位图，后续替换为自己仓库里的图片链接 -->
-      <img src="../Figure/LVSG.svg" width="100%">
-    </td>
-    <td width="65%">
-      <b>LVSG-Bench: Towards Benchmarking Long-form Video Script Generation Capabilities of Multimodal LLMs</b><br>
-      <!-- 使用 <sup>*</sup> 来标注共一，并使用 et al. 缩略 -->
-      Yanghai Wang<sup>*</sup>, Zhe Cao<sup>*</sup>, Yuanxing Zhang, Yifan Yao, <b>Jiahao Wang</b> et al.<br>
-      <i>Under Review</i> <br>
-    </td>
-  </tr>
-</table>
-
-<p align="right">
-  <small><sup>*</sup> Equal Contribution</small>
-</p>
-
-<span class='anchor' id='experience'></span>
-
-# 💼 Experience
-
-<table>
-  <tr>
-    <td width="25%" style="vertical-align: middle;">
-      <div style="height: 76px; padding: 10px; display: flex; align-items: center; justify-content: center; border: 1px solid #d9dfe5; border-radius: 4px; background: #fff;">
-        <img src="../Figure/Alibaba-Group.svg" alt="Alibaba Group logo" style="max-width: 100%; max-height: 56px; width: auto; object-fit: contain;">
-      </div>
-    </td>
-    <td width="75%" style="vertical-align: middle;">
-      2026.07 - Present<br>
-      <b>Agentic Coding Intern</b><br>
-      Alibaba Group
-    </td>
-  </tr>
-</table>
-
-<table>
-  <tr>
-    <td width="25%" style="vertical-align: middle;">
-      <div style="height: 76px; padding: 10px; display: flex; align-items: center; justify-content: center; border: 1px solid #d9dfe5; border-radius: 4px; background: #fff;">
-        <img src="../Figure/NJU-LINK.png" alt="NJU-LINK Lab logo" style="max-width: 100%; max-height: 56px; width: auto; object-fit: contain;">
-      </div>
-    </td>
-    <td width="75%" style="vertical-align: middle;">
-      2025.08 - Present<br>
-      <b>Research Intern</b><br>
-      <a href="https://www.nju-link.com/zh/">NJU-LINK Lab</a>, Nanjing University
-    </td>
-  </tr>
-</table>
+<section class="content-section education-section" id="education" aria-labelledby="education-title">
+  <span class="legacy-anchor" id="-education" aria-hidden="true"></span>
+  <div class="section-heading"><h2 id="education-title">Education</h2></div>
+  <article class="career-entry education-entry">
+    <p class="entry-date"><time datetime="2023-09">Sep 2023</time> <span aria-hidden="true">—</span> <time datetime="2027-06">Jun 2027</time></p>
+    <div class="entry-copy"><h3><a href="https://www.nju.edu.cn/" target="_blank" rel="noopener noreferrer">Nanjing University</a></h3><p>B.Eng. in Software Engineering</p></div>
+  </article>
+</section>
