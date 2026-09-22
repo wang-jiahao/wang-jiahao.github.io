@@ -13,7 +13,7 @@ redirect_from:
     <p class="eyebrow">Nanjing University</p>
     <div class="name-line"><h1 id="profile-title">Jiahao Wang</h1></div>
     <div class="profile-intro">
-      <p>I'm an undergraduate in Software Engineering at <a href="https://www.nju.edu.cn/" target="_blank" rel="noopener noreferrer">Nanjing University</a>, and a research intern at <a href="https://www.nju-link.com/zh/" target="_blank" rel="noopener noreferrer">NJU-LINK Lab</a> led by <a href="https://liujiaheng.github.io/" target="_blank" rel="noopener noreferrer">Prof. Jiaheng Liu</a>.</p>
+      <p>I'm an undergraduate in Software Engineering at <a href="https://www.nju.edu.cn/" target="_blank" rel="noopener noreferrer">Nanjing University</a>. I will soon begin my Ph.D. at <a href="https://www.nju-link.com/zh/" target="_blank" rel="noopener noreferrer">NJU-LINK Lab</a> under the supervision of <a href="https://liujiaheng.github.io/" target="_blank" rel="noopener noreferrer">Prof. Jiaheng Liu</a>.</p>
       <p>My research focuses on <strong>post-training and evaluation for multimodal large language models</strong>, and <strong>Agentic Coding</strong>.</p>
     </div>
     <nav class="contact-links" aria-label="Contact and academic profiles">
