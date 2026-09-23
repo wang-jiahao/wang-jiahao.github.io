@@ -1,0 +1,338 @@
+{
+  "title": "听到的字段 ≠ 焦点字段？无障碍审查",
+  "case_id": "mmtb-accessibility",
+  "model": "gpt-5.6-sol",
+  "harness": "Codex 0.146.0",
+  "score": 1.0,
+  "passed": true,
+  "calls": [
+    {
+      "id": 1,
+      "call_id": "call_CXLXGYJHwZdnZGjoH9dfdt3i",
+      "phase": "completed",
+      "timestamp": "2026-09-22T16:06:56.341Z",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"pwd && rg --files assets && sed -n '1,200p' assets/form_schema.json && ffprobe -v error -show_entries format=duration -show_streams -of json assets/recording.mp4\",\"workdir\":\"/app\",\"yield_time_ms\":10000,\"max_output_tokens\":12000}); text(r.output)\n",
+      "output": "Script completed\nWall time 0.2 seconds\nOutput:\n\n/app\nassets/recording.mp4\nassets/form_schema.json\n{\n  \"fields\": [\n    {\n      \"id\": \"fullname\",\n      \"label\": \"Full legal name\",\n      \"type\": \"text\"\n    },\n    {\n      \"id\": \"email\",\n      \"label\": \"Email address\",\n      \"type\": \"email\"\n    },\n    {\n      \"id\": \"phone\",\n      \"label\": \"Phone number\",\n      \"type\": \"tel\"\n    },\n    {\n      \"id\": \"dob\",\n      \"label\": \"Date of birth\",\n      \"type\": \"date\"\n    },\n    {\n      \"id\": \"address\",\n      \"label\": \"Mailing address\",\n      \"type\": \"text\"\n    },\n    {\n      \"id\": \"household\",\n      \"label\": \"Household size\",\n      \"type\": \"number\"\n    },\n    {\n      \"id\": \"newsletter\",\n      \"label\": \"Communication preferences (decision letters by email)\",\n      \"type\": \"checkbox\"\n    }\n  ],\n  \"tester_note\": \"The form is presented to a screen-reader user. The bottom yellow status bar shows the current screen-reader announcement (debug overlay). The blue ring shows the visually-focused field. A11y bug: when these two diverge the user is being misled about where the keyboard focus actually is.\"\n}{\n    \"streams\": [\n        {\n            \"index\": 0,\n            \"codec_name\": \"h264\",\n            \"codec_long_name\": \"H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10\",\n            \"profile\": \"High\",\n            \"codec_type\": \"video\",\n            \"codec_tag_string\": \"avc1\",\n            \"codec_tag\": \"0x31637661\",\n            \"width\": 1920,\n            \"height\": 1080,\n            \"coded_width\": 1920,\n            \"coded_height\": 1080,\n            \"closed_captions\": 0,\n            \"film_grain\": 0,\n            \"has_b_frames\": 2,\n            \"pix_fmt\": \"yuv420p\",\n            \"level\": 40,\n            \"chroma_location\": \"left\",\n            \"field_order\": \"progressive\",\n            \"refs\": 1,\n            \"is_avc\": \"true\",\n            \"nal_length_size\": \"4\",\n            \"id\": \"0x1\",\n            \"r_frame_rate\": \"30/1\",\n            \"avg_frame_rate\": \"30/1\",\n            \"time_base\": \"1/15360\",\n            \"start_pts\": 0,\n            \"start_time\": \"0.000000\",\n            \"duration_ts\": 714240,\n            \"duration\": \"46.500000\",\n            \"bit_rate\": \"121761\",\n            \"bits_per_raw_sample\": \"8\",\n            \"nb_frames\": \"1395\",\n            \"extradata_size\": 47,\n            \"disposition\": {\n                \"default\": 1,\n                \"dub\": 0,\n                \"original\": 0,\n                \"comment\": 0,\n                \"lyrics\": 0,\n                \"karaoke\": 0,\n                \"forced\": 0,\n                \"hearing_impaired\": 0,\n                \"visual_impaired\": 0,\n                \"clean_effects\": 0,\n                \"attached_pic\": 0,\n                \"timed_thumbnails\": 0,\n                \"non_diegetic\": 0,\n                \"captions\": 0,\n                \"descriptions\": 0,\n                \"metadata\": 0,\n                \"dependent\": 0,\n                \"still_image\": 0,\n                \"multilayer\": 0\n            },\n            \"tags\": {\n                \"language\": \"und\",\n                \"handler_name\": \"VideoHandler\",\n                \"vendor_id\": \"[0][0][0][0]\",\n                \"encoder\": \"Lavc60.31.102 libx264\"\n            }\n        },\n        {\n            \"index\": 1,\n            \"codec_name\": \"aac\",\n            \"codec_long_name\": \"AAC (Advanced Audio Coding)\",\n            \"profile\": \"LC\",\n            \"codec_type\": \"audio\",\n            \"codec_tag_string\": \"mp4a\",\n            \"codec_tag\": \"0x6134706d\",\n            \"sample_fmt\": \"fltp\",\n            \"sample_rate\": \"44100\",\n            \"channels\": 2,\n            \"channel_layout\": \"stereo\",\n            \"bits_per_sample\": 0,\n            \"initial_padding\": 0,\n            \"id\": \"0x2\",\n            \"r_frame_rate\": \"0/0\",\n            \"avg_frame_rate\": \"0/0\",\n            \"time_base\": \"1/44100\",\n            \"start_pts\": 0,\n            \"start_time\": \"0.000000\",\n            \"duration_ts\": 2051664,\n            \"duration\": \"46.522993\",\n            \"bit_rate\": \"192424\",\n            \"nb_frames\": \"2005\",\n            \"extradata_size\": 5,\n            \"disposition\": {\n                \"default\": 1,\n                \"dub\": 0,\n                \"original\": 0,\n                \"comment\": 0,\n                \"lyrics\": 0,\n                \"karaoke\": 0,\n                \"forced\": 0,\n                \"hearing_impaired\": 0,\n                \"visual_impaired\": 0,\n                \"clean_effects\": 0,\n                \"attached_pic\": 0,\n                \"timed_thumbnails\": 0,\n                \"non_diegetic\": 0,\n                \"captions\": 0,\n                \"descriptions\": 0,\n                \"metadata\": 0,\n                \"dependent\": 0,\n                \"still_image\": 0,\n                \"multilayer\": 0\n            },\n            \"tags\": {\n                \"language\": \"und\",\n                \"handler_name\": \"SoundHandler\",\n                \"vendor_id\": \"[0][0][0][0]\"\n            }\n        }\n    ],\n    \"format\": {\n        \"duration\": \"46.522993\"\n    }\n}\n",
+      "images": [],
+      "messages": [
+        "I’ll inspect the schema, extract the audio for transcription, and sample the video during each speaking interval to identify the blue-ring field. Then I’ll create and validate the six-row CSV."
+      ],
+      "wait": false,
+      "operations": 1
+    },
+    {
+      "id": 2,
+      "call_id": "call_mAD4elksoSawTKjXKHJh4EaH",
+      "phase": "completed",
+      "timestamp": "2026-09-22T16:07:09.956Z",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"ffmpeg -hide_banner -i assets/recording.mp4 -af silencedetect=noise=-35dB:d=0.3 -f null - 2>&1 | rg 'silence_(start|end)'\",\"workdir\":\"/app\",\"yield_time_ms\":10000,\"max_output_tokens\":4000}); text(r.output)\n",
+      "output": "Script completed\nWall time 0.7 seconds\nOutput:\n\n[silencedetect @ 0xffff5c003540] silence_start: 0\n[silencedetect @ 0xffff5c003540] silence_end: 0.454263 | silence_duration: 0.454263\n[silencedetect @ 0xffff5c003540] silence_start: 2.681905\n[silencedetect @ 0xffff5c003540] silence_end: 3.117415 | silence_duration: 0.43551\n[silencedetect @ 0xffff5c003540] silence_start: 5.71483\n[silencedetect @ 0xffff5c003540] silence_end: 6.45068 | silence_duration: 0.73585\n[silencedetect @ 0xffff5c003540] silence_start: 10.367302\n[silencedetect @ 0xffff5c003540] silence_end: 11.111542 | silence_duration: 0.74424\n[silencedetect @ 0xffff5c003540] silence_start: 15.38\n[silencedetect @ 0xffff5c003540] silence_end: 15.791701 | silence_duration: 0.411701\n[silencedetect @ 0xffff5c003540] silence_start: 16.26127\n[silencedetect @ 0xffff5c003540] silence_end: 17.008889 | silence_duration: 0.747619\n[silencedetect @ 0xffff5c003540] silence_start: 21.277256\n[silencedetect @ 0xffff5c003540] silence_end: 21.689025 | silence_duration: 0.411769\n[silencedetect @ 0xffff5c003540] silence_start: 22.158163\n[silencedetect @ 0xffff5c003540] silence_end: 23.00805 | silence_duration: 0.849887\n[silencedetect @ 0xffff5c003540] silence_start: 28.646485\n[silencedetect @ 0xffff5c003540] silence_end: 29.564921 | silence_duration: 0.918435\n[silencedetect @ 0xffff5c003540] silence_start: 31.403878\n[silencedetect @ 0xffff5c003540] silence_end: 31.775125 | silence_duration: 0.371247\nframe= 1065 fps=0.0 q=-0.0 size=N/A time=00:00:35.50 bitrate=N/A speed=69.3x    \r[silencedetect @ 0xffff5c003540] silence_start: 37.044331\n[silencedetect @ 0xffff5c003540] silence_end: 37.617166 | silence_duration: 0.572834\n[silencedetect @ 0xffff5c003540] silence_start: 38.081633\n[silencedetect @ 0xffff5c003540] silence_end: 38.91263 | silence_duration: 0.830998\n[silencedetect @ 0xffff5c003540] silence_start: 41.446916\n[silencedetect @ 0xffff5c003540] silence_end: 42.514512 | silence_duration: 1.067596\n[silencedetect @ 0xffff5c003540] silence_start: 43.636689\n[silencedetect @ 0xffff5c003540] silence_end: 46.532789 | silence_duration: 2.8961\n",
+      "images": [],
+      "messages": [],
+      "wait": false,
+      "operations": 1
+    },
+    {
+      "id": 3,
+      "call_id": "call_w1eMedFGjelP1NPlpHNdhAdf",
+      "phase": "completed",
+      "timestamp": "2026-09-22T16:07:24.503Z",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"command -v whisper || true; command -v whisper-cli || true; python - <<'PY'\\nimport importlib.util\\nfor x in ['whisper','faster_whisper','speech_recognition','torch']:\\n print(x, bool(importlib.util.find_spec(x)))\\nPY\\nffmpeg -hide_banner -loglevel error -i assets/recording.mp4 -vn -ac 1 -ar 16000 /tmp/recording.wav -y\\nmkdir -p /tmp/frames\\nffmpeg -hide_banner -loglevel error -i assets/recording.mp4 -vf \\\"fps=1/3,scale=960:-1,tile=4x4\\\" -frames:v 1 /tmp/contact.jpg -y\",\"workdir\":\"/app\",\"yield_time_ms\":10000,\"max_output_tokens\":2000}); if (r.output) text(r.output); const im=await tools.view_image({path:\"/tmp/contact.jpg\",detail:\"original\"}); image(im.image_url);\n",
+      "output": "Script completed\nWall time 0.9 seconds\nOutput:\n\nwhisper False\nfaster_whisper False\nspeech_recognition False\ntorch False\n",
+      "images": [
+        "assets/mmtb/runs/accessibility-sync-audit/trace/call_003_1.jpg"
+      ],
+      "messages": [
+        "The audio contains six longer announcement clusters plus short lead-in/wrap sounds, with a few natural pauses inside utterances. I’m resolving the spoken labels directly rather than treating every silence boundary as a separate event."
+      ],
+      "wait": false,
+      "operations": 2
+    },
+    {
+      "id": 4,
+      "call_id": "call_Wb6I94uI8TSSIOTCao3ho4go",
+      "phase": "completed",
+      "timestamp": "2026-09-22T16:07:38.280Z",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"python -m pip install --quiet faster-whisper\",\"workdir\":\"/app\",\"yield_time_ms\":1000,\"max_output_tokens\":3000}); text(JSON.stringify(r))\n",
+      "output": "Script completed\nWall time 1.2 seconds\nOutput:\n\n{\"chunk_id\":\"ecf300\",\"wall_time_seconds\":1.00249182,\"session_id\":32053,\"original_token_count\":0,\"output\":\"\"}",
+      "images": [],
+      "messages": [],
+      "wait": false,
+      "operations": 1
+    },
+    {
+      "id": 5,
+      "call_id": "call_lI6s230k7ZiIOXh4Xyt6Ho5q",
+      "phase": "completed",
+      "timestamp": "2026-09-22T16:07:54.002Z",
+      "name": "exec",
+      "input": "const r = await tools.write_stdin({session_id:32053,chars:\"\",yield_time_ms:1000,max_output_tokens:3000}); text(r.output)\n",
+      "output": "Script completed\nWall time 5.0 seconds\nOutput:\n",
+      "images": [],
+      "messages": [],
+      "wait": true,
+      "operations": 1
+    },
+    {
+      "id": 6,
+      "call_id": "call_XdjOQkKQjLxX2hwob6523xhp",
+      "phase": "completed",
+      "timestamp": "2026-09-22T16:08:14.775Z",
+      "name": "exec",
+      "input": "const r = await tools.write_stdin({session_id:32053,chars:\"\",yield_time_ms:1000,max_output_tokens:3000}); text(r.output)\n",
+      "output": "Script completed\nWall time 5.0 seconds\nOutput:\n",
+      "images": [],
+      "messages": [],
+      "wait": true,
+      "operations": 1
+    },
+    {
+      "id": 7,
+      "call_id": "call_yMRHQtcW8B3PlU5NWyxMhTvp",
+      "phase": "completed",
+      "timestamp": "2026-09-22T16:08:30.760Z",
+      "name": "exec",
+      "input": "const r = await tools.write_stdin({session_id:32053,chars:\"\",yield_time_ms:1000,max_output_tokens:3000}); text(r.output)\n",
+      "output": "Script completed\nWall time 5.0 seconds\nOutput:\n",
+      "images": [],
+      "messages": [],
+      "wait": true,
+      "operations": 1
+    },
+    {
+      "id": 8,
+      "call_id": "call_IkZPgJhJuZHpvwgiWsT8qTxl",
+      "phase": "completed",
+      "timestamp": "2026-09-22T16:08:54.888Z",
+      "name": "exec",
+      "input": "const r = await tools.write_stdin({session_id:32053,chars:\"\",yield_time_ms:1000,max_output_tokens:3000}); text(r.output)\n",
+      "output": "Script completed\nWall time 5.0 seconds\nOutput:\n",
+      "images": [],
+      "messages": [],
+      "wait": true,
+      "operations": 1
+    },
+    {
+      "id": 9,
+      "call_id": "call_u9OVSvYcICJ21ao0yn5QyDTR",
+      "phase": "completed",
+      "timestamp": "2026-09-22T16:09:09.549Z",
+      "name": "exec",
+      "input": "const r = await tools.write_stdin({session_id:32053,chars:\"\",yield_time_ms:1000,max_output_tokens:3000}); text(r.output)\n",
+      "output": "Script completed\nWall time 5.0 seconds\nOutput:\n",
+      "images": [],
+      "messages": [],
+      "wait": true,
+      "operations": 1
+    },
+    {
+      "id": 10,
+      "call_id": "call_0QbciJxy1VXfuKEcjww83yj2",
+      "phase": "completed",
+      "timestamp": "2026-09-22T16:09:23.963Z",
+      "name": "exec",
+      "input": "const r = await tools.write_stdin({session_id:32053,chars:\"\",yield_time_ms:10000,max_output_tokens:3000}); text(r.output)\n",
+      "output": "Script completed\nWall time 10.0 seconds\nOutput:\n",
+      "images": [],
+      "messages": [],
+      "wait": true,
+      "operations": 1
+    },
+    {
+      "id": 11,
+      "call_id": "call_kjOTQu13EtBFFZUNOGspSORU",
+      "phase": "completed",
+      "timestamp": "2026-09-22T16:10:35.837Z",
+      "name": "exec",
+      "input": "const r = await tools.write_stdin({session_id:32053,chars:\"\",yield_time_ms:10000,max_output_tokens:3000}); text(r.output)\n",
+      "output": "Script completed\nWall time 10.0 seconds\nOutput:\n\nWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv\n",
+      "images": [],
+      "messages": [],
+      "wait": true,
+      "operations": 1
+    },
+    {
+      "id": 12,
+      "call_id": "call_b87mBU7aMoeZiY36W4WmsfG4",
+      "phase": "completed",
+      "timestamp": "2026-09-22T16:10:58.710Z",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"python - <<'PY'\\nfrom faster_whisper import WhisperModel\\nm=WhisperModel('base.en', device='cpu', compute_type='int8')\\nsegs, info=m.transcribe('/tmp/recording.wav', beam_size=5, word_timestamps=True, vad_filter=False)\\nfor s in segs:\\n print(f'{s.start:.2f}-{s.end:.2f}: {s.text}')\\n for w in s.words:\\n  print(f'  {w.start:.2f}-{w.end:.2f} {w.word}')\\nPY\",\"workdir\":\"/app\",\"yield_time_ms\":1000,\"max_output_tokens\":8000}); text(JSON.stringify(r))\n",
+      "output": "Script completed\nWall time 1.2 seconds\nOutput:\n\n{\"chunk_id\":\"94f14f\",\"wall_time_seconds\":1.002347055,\"session_id\":54974,\"original_token_count\":0,\"output\":\"\"}",
+      "images": [],
+      "messages": [],
+      "wait": false,
+      "operations": 1
+    },
+    {
+      "id": 13,
+      "call_id": "call_AzDF9v3G1Uej0o8G3dmLRhk1",
+      "phase": "completed",
+      "timestamp": "2026-09-22T16:11:10.400Z",
+      "name": "exec",
+      "input": "const r = await tools.write_stdin({session_id:54974,chars:\"\",yield_time_ms:10000,max_output_tokens:8000}); text(r.output)\n",
+      "output": "Script completed\nWall time 10.0 seconds\nOutput:\n\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n",
+      "images": [],
+      "messages": [],
+      "wait": true,
+      "operations": 1
+    },
+    {
+      "id": 14,
+      "call_id": "call_fi3EK9lk8TsvYPpJkC1B4pbO",
+      "phase": "completed",
+      "timestamp": "2026-09-22T16:11:31.252Z",
+      "name": "exec",
+      "input": "const r = await tools.write_stdin({session_id:54974,chars:\"\",yield_time_ms:10000,max_output_tokens:8000}); text(r.output)\n",
+      "output": "Script completed\nWall time 10.0 seconds\nOutput:\n",
+      "images": [],
+      "messages": [],
+      "wait": true,
+      "operations": 1
+    },
+    {
+      "id": 15,
+      "call_id": "call_Mj54havSwLjBTf6HqBlinAPq",
+      "phase": "completed",
+      "timestamp": "2026-09-22T16:11:52.047Z",
+      "name": "exec",
+      "input": "const r = await tools.write_stdin({session_id:54974,chars:\"\",yield_time_ms:10000,max_output_tokens:8000}); text(r.output)\n",
+      "output": "Script completed\nWall time 10.1 seconds\nOutput:\n",
+      "images": [],
+      "messages": [],
+      "wait": true,
+      "operations": 1
+    },
+    {
+      "id": 16,
+      "call_id": "call_7420omn8i1o5lrm4h6SSQCeN",
+      "phase": "completed",
+      "timestamp": "2026-09-22T16:12:10.502Z",
+      "name": "exec",
+      "input": "const r = await tools.write_stdin({session_id:54974,chars:\"\",yield_time_ms:10000,max_output_tokens:8000}); text(r.output)\n",
+      "output": "Script completed\nWall time 10.0 seconds\nOutput:\n",
+      "images": [],
+      "messages": [],
+      "wait": true,
+      "operations": 1
+    },
+    {
+      "id": 17,
+      "call_id": "call_kN16Q7411RYP3mXR7lOOQyDo",
+      "phase": "completed",
+      "timestamp": "2026-09-22T16:12:34.789Z",
+      "name": "exec",
+      "input": "const r = await tools.write_stdin({session_id:54974,chars:\"\",yield_time_ms:10000,max_output_tokens:8000}); text(r.output)\n",
+      "output": "Script completed\nWall time 0.0 seconds\nOutput:\n\n0.00-5.66:  Personal information form, step two of four, six form fields and a communication preferences group.\n  0.00-0.54  Personal\n  0.54-0.96  information\n  0.96-1.54  form,\n  1.74-1.90  step\n  1.90-2.20  two\n  2.20-2.30  of\n  2.30-2.56  four,\n  2.92-3.20  six\n  3.20-3.54  form\n  3.54-3.86  fields\n  3.86-4.12  and\n  4.12-4.20  a\n  4.20-4.44  communication\n  4.44-5.28  preferences\n  5.28-5.66  group.\n6.46-10.30:  Edit text, full legal name required, currently Jane Marie Torres, end of edit.\n  6.46-6.54  Edit\n  6.54-6.84  text,\n  7.02-7.18  full\n  7.18-7.38  legal\n  7.38-7.72  name\n  7.72-8.08  required,\n  8.46-8.72  currently\n  8.72-9.06  Jane\n  9.06-9.30  Marie\n  9.30-9.62  Torres,\n  9.94-10.02  end\n  10.02-10.16  of\n  10.16-10.30  edit.\n10.84-16.18:  Edit text, email address required, currently Jane Torres at example.org, end of edit.\n  10.84-11.20  Edit\n  11.20-11.54  text,\n  11.72-11.88  email\n  11.88-12.20  address\n  12.20-12.64  required,\n  13.06-13.24  currently\n  13.24-13.64  Jane\n  13.64-14.14  Torres\n  14.14-14.44  at\n  14.44-14.68  example\n  14.68-15.30 .org,\n  15.62-15.88  end\n  15.88-16.06  of\n  16.06-16.18  edit.\n16.60-22.08:  Edit text, email address required, currently Jane Torres at example.org, end of edit.\n  16.60-17.10  Edit\n  17.10-17.38  text,\n  17.60-17.78  email\n  17.78-18.12  address\n  18.12-18.56  required,\n  18.96-19.08  currently\n  19.08-19.54  Jane\n  19.54-19.98  Torres\n  19.98-20.34  at\n  20.34-20.58  example\n  20.58-21.22 .org,\n  21.54-21.78  end\n  21.78-21.94  of\n  21.94-22.08  edit.\n22.50-28.58:  Edit text, date of birth required, format month day year, currently 0418 1989, end of edit.\n  22.50-23.10  Edit\n  23.10-23.48  text,\n  23.66-23.72  date\n  23.72-23.86  of\n  23.86-24.02  birth\n  24.02-24.40  required,\n  24.86-25.06  format\n  25.06-25.28  month\n  25.28-25.56  day\n  25.56-25.76  year,\n  25.96-26.16  currently\n  26.16-27.02  0418\n  27.02-27.36  1989,\n  28.16-28.30  end\n  28.30-28.42  of\n  28.42-28.58  edit.\n29.58-38.02:  Edit text, mailing address required, currently 120 Main Street, apartment 5B Brookfield, Wisconsin 53005, end of edit.\n  29.36-29.66  Edit\n  29.66-29.96  text,\n  30.16-30.32  mailing\n  30.32-30.70  address\n  30.70-31.12  required,\n  32.02-32.02  currently\n  32.02-32.60  120\n  32.60-33.08  Main\n  33.08-33.38  Street,\n  33.54-33.72  apartment\n  33.72-34.32  5B\n  34.32-34.80  Brookfield,\n  34.96-35.16  Wisconsin\n  35.16-37.12  53005,\n  37.66-37.68  end\n  37.68-37.86  of\n  37.86-38.02  edit.\n38.64-43.38:  Checkbox, send me decision letters by email checked, end of fields list.\n  38.64-39.24  Checkbox,\n  39.48-39.60  send\n  39.60-39.74  me\n  39.74-39.94  decision\n  39.94-40.30  letters\n  40.30-40.62  by\n  40.62-40.88  email\n  40.88-41.32  checked,\n  42.46-42.60  end\n  42.60-42.76  of\n  42.76-43.00  fields\n  43.00-43.38  list.\n",
+      "images": [],
+      "messages": [
+        "The frame sequence shows the focus progressing through the form, including a non-sequential jump near the final events. The speech model is downloading now; once its timestamped transcript completes, I’ll pair each utterance with its exact frame rather than infer labels from navigation order."
+      ],
+      "wait": true,
+      "operations": 1
+    },
+    {
+      "id": 18,
+      "call_id": "call_W6sbmLUM0VFqCLDwcGu7sUG9",
+      "phase": "completed",
+      "timestamp": "2026-09-22T16:12:52.874Z",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"mkdir -p /tmp/eventframes; for spec in 1:8 2:13 3:19 4:25 5:33 6:40; do n=${spec%%:*}; t=${spec##*:}; ffmpeg -hide_banner -loglevel error -ss \\\"$t\\\" -i assets/recording.mp4 -frames:v 1 \\\"/tmp/eventframes/event${n}.png\\\" -y; done\\nmontage /tmp/eventframes/event{1,2,3,4,5,6}.png -thumbnail 960x540 -tile 2x3 -geometry +0+0 /tmp/events.png\",\"workdir\":\"/app\",\"yield_time_ms\":10000,\"max_output_tokens\":1000}); if (r.output) text(r.output); const im=await tools.view_image({path:\"/tmp/events.png\",detail:\"original\"}); image(im.image_url);\n",
+      "output": "Script failed\nWall time 1.4 seconds\nOutput:\n\n/bin/bash: line 2: montage: command not found\n\nScript error:\nunable to locate image at `/tmp/events.png`: No such file or directory (os error 2)",
+      "images": [],
+      "messages": [],
+      "wait": false,
+      "operations": 2
+    },
+    {
+      "id": 19,
+      "call_id": "call_lKR6fGSh6qsITHr03ObVW1om",
+      "phase": "completed",
+      "timestamp": "2026-09-22T16:13:07.321Z",
+      "name": "exec",
+      "input": "for (const n of [1,2,3,4,5,6]) { const im=await tools.view_image({path:`/tmp/eventframes/event${n}.png`,detail:\"high\"}); text(`event${n}`); image(im.image_url); }\n",
+      "output": "Script completed\nWall time 0.0 seconds\nOutput:\n\nevent1\nevent2\nevent3\nevent4\nevent5\nevent6",
+      "images": [
+        "assets/mmtb/runs/accessibility-sync-audit/trace/call_019_1.png",
+        "assets/mmtb/runs/accessibility-sync-audit/trace/call_019_2.png",
+        "assets/mmtb/runs/accessibility-sync-audit/trace/call_019_3.png",
+        "assets/mmtb/runs/accessibility-sync-audit/trace/call_019_4.png",
+        "assets/mmtb/runs/accessibility-sync-audit/trace/call_019_5.png",
+        "assets/mmtb/runs/accessibility-sync-audit/trace/call_019_6.png"
+      ],
+      "messages": [],
+      "wait": false,
+      "operations": 6
+    },
+    {
+      "id": 20,
+      "call_id": "call_fuwVgWo1HUOF3mvVdKfLfyc3",
+      "phase": "completed",
+      "timestamp": "2026-09-22T16:13:42.115Z",
+      "name": "exec",
+      "input": "const patch = \"*** Begin Patch\\n*** Add File: /app/submission/desync_log.csv\\n+event_idx,sr_field,visual_field,desync\\n+1,fullname,fullname,no\\n+2,email,email,no\\n+3,email,phone,yes\\n+4,dob,dob,no\\n+5,address,household,yes\\n+6,newsletter,newsletter,no\\n*** End Patch\";\ntext(await tools.apply_patch(patch));\n",
+      "output": "Script completed\nWall time 0.0 seconds\nOutput:\n\n{}",
+      "images": [],
+      "messages": [],
+      "wait": false,
+      "operations": 1
+    },
+    {
+      "id": 21,
+      "call_id": "call_feLMVSc6GiGw8OUtS2ZXfazP",
+      "phase": "completed",
+      "timestamp": "2026-09-22T16:14:11.479Z",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({cmd:\"python - <<'PY'\\nimport csv,json\\np='submission/desync_log.csv'\\nwith open('assets/form_schema.json') as f: ids={x['id'] for x in json.load(f)['fields']}\\nwith open(p,newline='') as f: rows=list(csv.DictReader(f))\\nassert rows and list(rows[0]) == ['event_idx','sr_field','visual_field','desync']\\nassert len(rows)==6\\nassert [int(r['event_idx']) for r in rows]==list(range(1,7))\\nassert all(r['sr_field'] in ids and r['visual_field'] in ids for r in rows)\\nassert all(r['desync']==('yes' if r['sr_field']!=r['visual_field'] else 'no') for r in rows)\\nprint(open(p).read(), end='')\\nprint('VALID: header, 6 ordered rows, canonical IDs, and desync values checked')\\nPY\",\"workdir\":\"/app\",\"yield_time_ms\":10000,\"max_output_tokens\":2000}); text(r.output)\n",
+      "output": "Script completed\nWall time 0.1 seconds\nOutput:\n\nevent_idx,sr_field,visual_field,desync\n1,fullname,fullname,no\n2,email,email,no\n3,email,phone,yes\n4,dob,dob,no\n5,address,household,yes\n6,newsletter,newsletter,no\nVALID: header, 6 ordered rows, canonical IDs, and desync values checked\n",
+      "images": [],
+      "messages": [],
+      "wait": false,
+      "operations": 1
+    }
+  ],
+  "raw_links": [
+    {
+      "label": "完成段原始 JSONL",
+      "url": "research/mmtb/local_runs/accessibility-sync-audit/completed/rollout-1.jsonl"
+    }
+  ],
+  "counts": {
+    "benchmark": "MMTB",
+    "case": "听到的字段 ≠ 焦点字段？无障碍审查",
+    "case_id": "mmtb-accessibility",
+    "source_kind": "本地实测 · 不限时",
+    "model": "gpt-5.6-sol",
+    "harness": "Codex 0.146.0",
+    "responses": 22,
+    "outer_tools": 21,
+    "expanded_tools": 28,
+    "wait": 12,
+    "nonwait": 16,
+    "score": 1.0,
+    "passed": true,
+    "note": "单次独立运行"
+  },
+  "artifacts": [
+    {
+      "label": "desync_log.csv",
+      "url": "assets/mmtb/runs/accessibility-sync-audit/desync_log.csv"
+    }
+  ],
+  "key_calls": [
+    1,
+    3,
+    4,
+    11,
+    12,
+    17,
+    18,
+    19,
+    20,
+    21
+  ]
+}

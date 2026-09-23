@@ -1,0 +1,133 @@
+{
+  "expected_row_count": 6,
+  "submitted_rows": [
+    {
+      "event_idx": 1,
+      "sr_field": "fullname",
+      "visual_field": "fullname",
+      "desync": "no"
+    },
+    {
+      "event_idx": 2,
+      "sr_field": "email",
+      "visual_field": "email",
+      "desync": "no"
+    },
+    {
+      "event_idx": 3,
+      "sr_field": "email",
+      "visual_field": "phone",
+      "desync": "yes"
+    },
+    {
+      "event_idx": 4,
+      "sr_field": "dob",
+      "visual_field": "dob",
+      "desync": "no"
+    },
+    {
+      "event_idx": 5,
+      "sr_field": "address",
+      "visual_field": "household",
+      "desync": "yes"
+    },
+    {
+      "event_idx": 6,
+      "sr_field": "newsletter",
+      "visual_field": "newsletter",
+      "desync": "no"
+    }
+  ],
+  "pair_results": [
+    {
+      "event": 1,
+      "matched": true,
+      "row": {
+        "event_idx": 1,
+        "sr_field": "fullname",
+        "visual_field": "fullname",
+        "desync": "no"
+      },
+      "gold": {
+        "sr": "fullname",
+        "vis": "fullname",
+        "desync": "no"
+      }
+    },
+    {
+      "event": 2,
+      "matched": true,
+      "row": {
+        "event_idx": 2,
+        "sr_field": "email",
+        "visual_field": "email",
+        "desync": "no"
+      },
+      "gold": {
+        "sr": "email",
+        "vis": "email",
+        "desync": "no"
+      }
+    },
+    {
+      "event": 3,
+      "matched": true,
+      "row": {
+        "event_idx": 3,
+        "sr_field": "email",
+        "visual_field": "phone",
+        "desync": "yes"
+      },
+      "gold": {
+        "sr": "email",
+        "vis": "phone",
+        "desync": "yes"
+      }
+    },
+    {
+      "event": 4,
+      "matched": true,
+      "row": {
+        "event_idx": 4,
+        "sr_field": "dob",
+        "visual_field": "dob",
+        "desync": "no"
+      },
+      "gold": {
+        "sr": "dob",
+        "vis": "dob",
+        "desync": "no"
+      }
+    },
+    {
+      "event": 5,
+      "matched": true,
+      "row": {
+        "event_idx": 5,
+        "sr_field": "address",
+        "visual_field": "household",
+        "desync": "yes"
+      },
+      "gold": {
+        "sr": "address",
+        "vis": "household",
+        "desync": "yes"
+      }
+    },
+    {
+      "event": 6,
+      "matched": true,
+      "row": {
+        "event_idx": 6,
+        "sr_field": "newsletter",
+        "visual_field": "newsletter",
+        "desync": "no"
+      },
+      "gold": {
+        "sr": "newsletter",
+        "vis": "newsletter",
+        "desync": "no"
+      }
+    }
+  ]
+}

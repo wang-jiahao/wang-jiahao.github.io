@@ -1,0 +1,2035 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>多模态案例</title>
+<style>
+:root{--bg:#f4f3ee;--paper:#fffefa;--ink:#172c32;--muted:#647374;--line:#d9deda;--accent:#166f68;--soft:#e4efea;--warm:#b97131}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;font-size:15px;line-height:1.65}button,a,input{font:inherit}button{cursor:pointer}a{color:var(--accent);text-underline-offset:3px}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #dc9949;outline-offset:3px}.top{min-height:70px;height:auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:var(--paper);gap:15px}.brand{font-weight:700;letter-spacing:.03em}.brand span{color:var(--accent);font-weight:500;margin-left:12px}.top small{color:var(--muted)}.shell{display:grid;grid-template-columns:260px minmax(0,1fr);max-width:1600px;margin:auto}.side{padding:24px 18px;position:sticky;top:0;height:100vh;overflow:auto;border-right:1px solid var(--line)}.side button{border:0;background:transparent;text-align:left;width:100%;padding:10px 12px;border-radius:7px;line-height:1.5;color:var(--ink);margin:2px 0}.side button:hover{background:#e9ece5}.side button.active{background:var(--ink);color:#fff}.side .group{font-size:12px;letter-spacing:.07em;font-weight:650;color:var(--muted);padding:21px 12px 4px}.side .num{font-family:monospace;color:#869693;margin-right:8px}.side .active .num{color:#a2dcd3}.sidefoot{padding:25px 12px;font-size:12px;color:var(--muted)}main{padding:40px 44px 70px;min-width:0}h1,h2,h3,p{margin-top:0}h1{font-size:38px;line-height:1.28;letter-spacing:-.025em;margin-bottom:18px;font-weight:650}h2{font-size:22px;margin:32px 0 12px;font-weight:600}h3{font-size:17px;margin:0 0 10px}p{margin-bottom:14px}.eyebrow{color:var(--accent);font-size:12px;letter-spacing:.12em;font-weight:650;margin-bottom:12px}.lead{color:#52686c;max-width:880px;font-size:17px}.tags{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.tag{font-size:12px;color:var(--accent);background:var(--soft);padding:3px 9px;border-radius:4px}.tag.gray{background:#e9ece6;color:#52666b}.intro{border-bottom:1px solid var(--line);padding-bottom:20px}.status{margin:18px 0;padding:14px 18px;border-left:3px solid var(--accent);background:var(--soft);font-size:14px}.status.warn{border-color:var(--warm);background:#f5ebdc}.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-weight:500;font-size:12px}td.numeric{font-variant-numeric:tabular-nums;font-weight:650;white-space:nowrap}td small{color:var(--muted)}.overview-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin:22px 0 35px}.tile{padding:0;border:1px solid var(--line);border-radius:10px;background:var(--paper);overflow:hidden;text-align:left;color:var(--ink);box-shadow:0 2px 6px #172c3205}.tile:hover{border-color:var(--accent);transform:translateY(-2px)}.tile img{width:100%;height:145px;object-fit:cover;display:block;background:var(--ink)}.tile .copy{padding:15px}.tile .copy h3{line-height:1.5;font-weight:600}.tile .copy small{color:var(--muted);font-size:12px}.caseid{font-family:monospace;font-size:12px;color:var(--muted);overflow-wrap:anywhere}.media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}.media-grid.single{grid-template-columns:1fr}figure{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:9px;overflow:hidden;min-width:0}figure img,figure video{display:block;width:100%;max-height:430px;object-fit:contain;background:#111b20}figure img{cursor:zoom-in}figure audio{width:calc(100% - 24px);margin:14px 12px 6px}figcaption{padding:10px 13px;font-size:12px;line-height:1.5;color:#566b6c}figure .wave{height:180px;max-height:180px;object-fit:cover}.media-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:0 13px 11px}.media-actions a,.media-actions button{font-size:12px}.smallbtn{border:1px solid var(--line);background:white;border-radius:4px;padding:2px 8px;color:var(--accent)}.contentcols{display:grid;grid-template-columns:1.2fr 1fr;gap:30px;margin-top:26px}.block{padding-top:17px;border-top:1px solid var(--line)}.block p,.block li{font-size:14px}.steps{padding-left:20px;margin:12px 0}.steps li{padding:4px 0}.note{font-size:13px;color:var(--muted);margin:12px 0}.refs{display:flex;gap:9px 20px;flex-wrap:wrap;padding:12px 0;font-size:13px}details{margin:16px 0;border-top:1px solid var(--line);padding-top:13px}summary{cursor:pointer;color:var(--accent);font-size:14px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#ebeee7;padding:18px;border-radius:6px;font-size:12px;max-height:520px;overflow:auto;line-height:1.6}.scorebar{display:inline-block;width:70px;height:5px;background:var(--line);margin-left:10px;vertical-align:middle}.scorebar span{display:block;height:5px;background:var(--accent)}.pass{color:var(--accent)}.fail{color:#976334}.empty{padding:16px 0;color:var(--muted);font-size:14px}.footer{margin-top:40px;border-top:1px solid var(--line);padding-top:18px;font-size:12px;color:var(--muted)}.toplinks{display:flex;gap:12px 16px;flex-wrap:wrap;font-size:13px}.sectionhead{display:flex;align-items:baseline;justify-content:space-between;gap:15px;margin-top:30px}.sectionhead h2{margin:0}.sectionhead span{font-size:12px;color:var(--muted)}.media-grid.many img{height:260px;object-fit:contain}.navbottom{display:flex;justify-content:space-between;margin-top:30px;gap:15px}.navbottom button{background:transparent;border:1px solid var(--line);padding:8px 13px;border-radius:5px;color:var(--accent)}
+@media(min-width:1350px){main{padding:45px 60px}.tile img{height:170px}}
+@media(max-width:980px){.shell{grid-template-columns:210px minmax(0,1fr)}main{padding:28px 25px}.overview-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.contentcols{grid-template-columns:1fr}.media-grid{grid-template-columns:1fr}h1{font-size:30px}}
+@media(max-width:650px){.top{height:auto;min-height:65px;padding:14px 18px;flex-wrap:wrap}.brand span{display:none}.shell{display:block}.side{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:9px 12px;display:flex;overflow-x:auto;gap:4px}.side .group,.sidefoot{display:none}.side button{width:auto;min-width:max-content;font-size:12px;padding:8px}.side .num{display:none}main{padding:25px 18px}.overview-grid{gap:10px}.tile .copy{padding:11px}.tile img{height:105px}.tile h3{font-size:14px}h1{font-size:27px}.lead{font-size:15px}.sectionhead{display:block}th,td{padding:9px 7px}.scorebar{display:none}.media-grid.many img{height:auto}}
+
+.question-solution{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;margin:28px 0;align-items:start}
+.question-solution>section{min-width:0;border-top:1px solid var(--line);padding-top:18px}
+.question-solution h3{font-size:18px;margin-bottom:15px}.question-copy p{overflow-wrap:anywhere;line-height:1.8;font-size:14px}
+.question-copy code{font-size:12px;overflow-wrap:anywhere;background:#e9eee7;padding:1px 3px;border-radius:3px}
+.original-short{font-size:13px;color:#52686c}.original-short p{font-size:13px;line-height:1.7}.original-question{margin-top:20px}
+.reference-answer{margin-top:16px;padding:12px 15px;background:var(--soft);font-size:14px}
+@media(max-width:650px){.question-solution{grid-template-columns:1fr;gap:18px}}
+.execution-table td:last-child,.execution-table th:last-child{white-space:nowrap}.reference-title{margin-top:22px!important;font-size:15px!important}.reference-table td,.reference-table th{padding:8px 7px;font-size:13px}
+</style></head><body>
+<header class="top"><div class="brand">OMNI AGENT CASEBOOK <span>案例与评测证据</span></div><div class="toplinks"><a href="ale_traces.html">ALE 轨迹</a><a href="mmtb_traces.html">MMTB 轨迹</a><a href="step_comparison.html">步数对比</a><a href="selected_case_scores.csv" download>评分数据 ↗</a></div></header><div class="shell"><nav class="side" aria-label="案例目录" id="nav"></nav><main id="main"></main></div>
+<script id="dataset" type="application/json">{
+  "benchmarks": [
+    {
+      "id": "ale",
+      "name": "Agents’ Last Exam"
+    },
+    {
+      "id": "mmtb",
+      "name": "MMTB"
+    },
+    {
+      "id": "vbench",
+      "name": "AgenticVBench"
+    },
+    {
+      "id": "omni",
+      "name": "OmniGAIA"
+    },
+    {
+      "id": "wild",
+      "name": "WildClawBench"
+    },
+    {
+      "id": "uni",
+      "name": "UniClawBench"
+    }
+  ],
+  "cases": [
+    {
+      "id": "ale-storyboard",
+      "benchmark": "ale",
+      "title": "11 分钟动画 → 修复前镜头日志",
+      "subtitle": "视觉时序 + DOCX · 官方单次 1.0000",
+      "task_id": "visual_media/video_storyboard_001",
+      "original": "## Context\n\nA small restoration studio is about to begin a scan + remaster pass on a public-domain print of a vintage Yasuji Murata animation. Before any restoration work starts, the pipeline requires an **archival shot log / continuity report** of the source print: a temporal, per-shot factual record of what is on screen, written by an archival assistant editor.\n\nThe QC team has handed you a **restoration fact-check brief** (a list of factual visual questions about the film). Your shot log must preserve enough detail that downstream QC engineers can verify every item in the brief by reading the log alone. As the archivist, you record facts — you do **not** answer the brief's questions or insert interpretation. Answering is the QC engineers' job.\n\n## Input Files\n- Source print: `E:\\agenthle\\visual_media\\video_storyboard_001\\base\\input\\Yasuji_Murata-_A_Wolf_is_a_Wolf_(1931).ogv`\n- QC fact-check brief: `E:\\agenthle\\visual_media\\video_storyboard_001\\base\\input\\video_storyboard_qa_set.docx`\n\n## Software\n- Use any DOCX-capable workflow available on the VM.\n- A task-local launcher is available at: `E:\\agenthle\\visual_media\\video_storyboard_001\\base\\software\\launch_word_processor.cmd`\n\n## Your Task\n1. Inspect the full source print end-to-end.\n2. Read the QC brief so the log preserves the facts each item in the brief depends on.\n3. Produce a concise, complete shot log in temporal order.\n4. Organize the log as shots or segments. Each shot or segment must include:\n   - shot or segment ID\n   - start time and end time\n   - brief visual description\n   - key actions or events\n   - important objects, people, animals, and scene details\n   - visible on-screen text or dialogue relevant to the brief\n5. Do **not** answer the brief's questions in the log. Record only the observable facts a QC engineer would need to answer them.\n6. Use only information grounded in the source print. Do not add external knowledge, plot context, or interpretation.\n\n## Output\n- Save the final readable Word document exactly here: `E:\\agenthle\\visual_media\\video_storyboard_001\\base\\output\\storyboard.docx`\n- The output file must be a valid `.docx` file named `storyboard.docx`.\n",
+      "media": [
+        {
+          "kind": "video",
+          "src": "assets/ale/previews/storyboard_input.mp4",
+          "label": "输入动画 · H.264 播放预览 · 全长约 11:16",
+          "seek": 416,
+          "seek_label": "跳到 06:56 松鼠爬梯"
+        }
+      ],
+      "steps": [
+        "step 14–15：按任务要求读取 DOCX 中的十道 QC 问题和选项，确定日志需要保留的事实。",
+        "step 34–61：FFmpeg 每 2 秒取一帧，生成 338 帧、10 张 contact sheets，并读图建立全片时间线。",
+        "step 65–101：针对松鼠爬梯、猴子登场和过桥先后等疑点，抽高分辨率局部帧重新确认。",
+        "step 116–130：python-docx 写入 37 segments、metadata 和实体索引；检查结构，遇控制台编码错误后改用 UTF-8 文件回读。"
+      ],
+      "scores": [
+        {
+          "model": "claude-opus-4-8",
+          "harness": "claude_code",
+          "score": 1.0,
+          "passed": null
+        }
+      ],
+      "input_files": [
+        {
+          "label": "原始动画 OGV",
+          "src": "assets/ale/inputs/video_storyboard_001/base/input/Yasuji_Murata-_A_Wolf_is_a_Wolf_(1931).ogv",
+          "description": "43,694,574 bytes；400×300，约 29.97 fps，676.22 秒，含音轨",
+          "url": "https://huggingface.co/datasets/agents-last-exam/agents-last-exam-data/blob/d93bb510e472dcaa406f09fc800797268567ca5c/tasks/visual_media/video_storyboard_001/base/input/Yasuji_Murata-_A_Wolf_is_a_Wolf_(1931).ogv"
+        },
+        {
+          "label": "原始 QC brief DOCX",
+          "src": "assets/ale/inputs/video_storyboard_001/base/input/video_storyboard_qa_set.docx",
+          "description": "31,105 bytes；10 道选择题及选项，是明示输入",
+          "url": "https://huggingface.co/datasets/agents-last-exam/agents-last-exam-data/blob/d93bb510e472dcaa406f09fc800797268567ca5c/tasks/visual_media/video_storyboard_001/base/input/video_storyboard_qa_set.docx"
+        }
+      ],
+      "input_text": "QA Set for the Uploaded Video\nA Wolf is a Wolf (1931)\nQ1. Which animal is the main antagonist throughout the film?\nA. A fox\nB. A wolf\nC. A bear\nD. A tiger\nQ2. Which animal appears later as the clever helper who leads the final counterplan?   \nA. A monkey\nB. A deer\nC. A bird\nD. A dog\nQ3. During the village warning sequence, which animal is shown climbing a ladder attached to a house? \nA. A rabbit\nB. A monkey\nC. A squirrel\nD. A raccoon dog\nQ4. What visual form introduces the monkey before the final plan is fully carried out?   \nA. A reflection in water\nB. A shadow silhouette\nC. A painting on a wall\nD. A mask on the ground\nQ5. Before the climax at the ravine, where is the wolf repeatedly shown moving?   \nA. Across snowy or rocky mountain terrain\nB. Inside a city street\nC. On a boat at sea\nD. In a factory\nQ6. What obstacle separates the sides in the final showdown?\nA. A river\nB. A wall of fire\nC. A deep ravine or chasm\nD. A locked gate\nQ7. What do the monkeys create so someone can cross the gap? \nA. A wooden bridge\nB. A rope ladder\nC. A chain of monkeys forming a living bridge\nD. A stone staircase\nQ8. Who crosses the living bridge first?\nA. The wolf\nB. A rabbit\nC. The monkey\nD. The squirrel\nQ9. What does the wolf do immediately after seeing the crossing method work? \nA. It runs back to the village\nB. It steps onto the living bridge and follows\nC. It hides behind a rock\nD. It starts digging under the cliff\nQ10. What is the final outcome for the wolf at the end of the bridge sequence?\nA. It safely reaches the far side\nB. It becomes trapped in a house\nC. It is tied to a tree\nD. It falls into the ravine\n",
+      "evidence_media": [
+        {
+          "kind": "image",
+          "src": "assets/ale/previews/storyboard_416s.jpg",
+          "label": "原片 06:56 关键帧：松鼠爬梯（对应 step 69）"
+        },
+        {
+          "kind": "image",
+          "src": "assets/ale/previews/storyboard_506s.jpg",
+          "label": "原片 08:26 关键帧：猴子剪影（对应 step 88）"
+        }
+      ],
+      "confirmed": [
+        "全片粗采样后，通过多轮局部抽帧复查关键事件。",
+        "生成脚本和日志显示 37 个片段；DOCX 为 45,368 bytes，含 3 张表，可被 python-docx 打开。",
+        "官方轨迹总分为 1.0，官方页面标记为 PASS。"
+      ],
+      "limits": [
+        "当前评分检查文档能否支持十道 QC 问题，不逐镜头核验时间边界。37 个片段覆盖全片时间范围，其中部分片段合并了多个镜头。",
+        "任务要求先阅读 brief，问题驱动的回看符合任务合同；评分覆盖范围集中于这些问题。",
+        "轨迹未记录音频分析或 Word 页面渲染；短镜头覆盖、屏幕文字完整性和页面版式未独立验证。"
+      ],
+      "timeline": [
+        {
+          "stage": "读取委托与 brief",
+          "detail": "读取全部 10 题，建立检查目标",
+          "start": 14,
+          "end": 15,
+          "url": "ale_traces.html#storyboard/14"
+        },
+        {
+          "stage": "全片扫描",
+          "detail": "338 帧 → 10 张接触表 → 视觉时间线",
+          "start": 34,
+          "end": 61,
+          "url": "ale_traces.html#storyboard/34"
+        },
+        {
+          "stage": "第一次回看",
+          "detail": "300–508 秒附近的角色、松鼠与伪装",
+          "start": 65,
+          "end": 76,
+          "url": "ale_traces.html#storyboard/65"
+        },
+        {
+          "stage": "结局回看",
+          "detail": "猴子先过桥、狼跟随、桥断开与坠落",
+          "start": 79,
+          "end": 101,
+          "url": "ale_traces.html#storyboard/79"
+        },
+        {
+          "stage": "生成 DOCX",
+          "detail": "写入 37 segments、metadata 与实体索引",
+          "start": 116,
+          "end": 119,
+          "url": "ale_traces.html#storyboard/116"
+        },
+        {
+          "stage": "交付前检查",
+          "detail": "结构检查与部分文字回读，没有页面渲染",
+          "start": 121,
+          "end": 130,
+          "url": "ale_traces.html#storyboard/121"
+        }
+      ],
+      "overview_image": "assets/ale/previews/storyboard_416s.jpg",
+      "artifact_notice": "最终交付记录：storyboard.docx，45,368 bytes，37 个片段、3 张表。已核对保存与结构检查日志，但尚未取得这次运行的 DOCX 原文件。页面中的 QC brief DOCX 是任务输入。",
+      "run": true,
+      "question_display": {
+        "mode": "summary",
+        "text": "为一部待扫描修复的老动画制作按时间排序的镜头日志。完整检查原片，并阅读 QC 事实核查 brief，让后续人员仅凭日志就能核查其中的事实。\n\n每个镜头或片段包含 ID、起止时间、画面描述、关键动作、人物/动物/物体与场景，以及相关屏幕文字或对白。只记录原片中可观察到的内容，不加入外部知识、剧情解释，也不直接回答 brief 的问题。\n\n使用任意支持 DOCX 的工作流程，在任务 output/ 目录交付可正常读取的 storyboard.docx。"
+      }
+    },
+    {
+      "id": "ale-music",
+      "benchmark": "ale",
+      "title": "管弦乐录音 → 27 声部总谱与 MIDI",
+      "subtitle": "音频内容恢复 + Dorico · 官方单次 0.2221",
+      "task_id": "visual_media/music_transcription",
+      "original": "Goal: Transcribe a recorded piece into musical notation, export both a PDF score and a MIDI file with correct instrument assignments. You may use any music notation software available on the system.\n\nRead the task specification from task_brief.json at E:\\agenthle\\audio\\music_transcription\\dorico_prelude\\input\\task_brief.json. It contains:\n- title: the title of the piece\n- composer: the composer of the piece\n- tempo_bpm: the tempo of the song\n- instruments: list of instruments to transcribe, each with name, clef, and GM program number\n\nInput audio files are available in the input directory:\n- E:\\agenthle\\audio\\music_transcription\\dorico_prelude\\input\\reference_song.mp3 — MP3 recording of the target song\n\nSteps:\n1. Listen to the reference audio to identify all instrumental parts.\n2. Open a music notation software and create a new project.\n3. Fill in the Title and Composer from task_brief.json in the project info.\n4. Add players/instruments matching those listed in task_brief.json.\n5. Configure the time signature, key signature, and tempo marking based on what you hear.\n6. Transcribe all notes, rhythms, dynamics, articulations, and expression markings for each part.\n7. Format the score layout professionally (proper spacing, alignment, readable note density).\n8. Configure playback: assign each instrument to the correct General MIDI (GM) program number as specified in task_brief.json.\n9. Export outputs:\n   - Export a PDF of the full score. Save it as E:\\agenthle\\audio\\music_transcription\\dorico_prelude\\output\\transcription.pdf\n   - Export MIDI: save as E:\\agenthle\\audio\\music_transcription\\dorico_prelude\\output\\transcription.mid\n10. Take ONE final screenshot showing the notation software with the score visible (showing some instrument staves):\n    save_milestone_screenshot(path=\"E:\\agenthle\\audio\\music_transcription\\dorico_prelude\\output\\overview.png\", description=\"Overview of the transcribed score\")\n\nOutput files (all saved to E:\\agenthle\\audio\\music_transcription\\dorico_prelude\\output):\n- transcription.pdf: Exported PDF of the complete score with all parts.\n- transcription.mid: Exported MIDI file. Each track must have correct MIDI Program Change messages matching the GM program numbers in task_brief.json.\n- overview.png: Screenshot of the notation software showing the transcribed score with instrument staves visible.\n",
+      "media": [
+        {
+          "kind": "audio",
+          "src": "assets/ale/inputs/music_transcription/dorico_prelude/input/reference_song.mp3",
+          "label": "官方原始输入 · Dorico Prelude · 139.488 秒",
+          "waveform": "assets/ale/previews/music_input_wave.png"
+        }
+      ],
+      "steps": [
+        "step 28–34：librosa 仅读取前 60 秒，估计 123.046875 BPM 和全局 chroma；agent 最终采用 brief 的 140 BPM。",
+        "step 37、40、44：明确把完整转谱替换成 32 小节、A 大调、4/4 的 A–E–F#m–D 模板音乐；生成脚本直接构造音符，不是逐音符转录。",
+        "step 59–558：导入 MusicXML 到 Dorico，经历窗口焦点、教程弹窗与导出菜单等多轮 GUI 重试，最终形成 8 页 PDF。",
+        "step 585–587：自行核对 27/27 GM program；这只能证明与输入配置一致，不能证明旋律和节奏来自录音。"
+      ],
+      "scores": [
+        {
+          "model": "anthropic/claude-opus-4.7",
+          "harness": "openclaw",
+          "score": 0.2220804767923586,
+          "passed": null
+        }
+      ],
+      "input_files": [
+        {
+          "label": "原始管弦乐 MP3",
+          "src": "assets/ale/inputs/music_transcription/dorico_prelude/input/reference_song.mp3",
+          "description": "4,463,744 bytes；解码时长 139.488 秒",
+          "url": "https://huggingface.co/datasets/agents-last-exam/agents-last-exam-data/blob/d93bb510e472dcaa406f09fc800797268567ca5c/tasks/visual_media/music_transcription/dorico_prelude/input/reference_song.mp3"
+        },
+        {
+          "label": "原始任务配置 JSON",
+          "src": "assets/ale/inputs/music_transcription/dorico_prelude/input/task_brief.json",
+          "description": "Dorico Prelude / Akinola / 140 BPM / 27 声部；与 Trace step 5 内容一致",
+          "url": "https://huggingface.co/datasets/agents-last-exam/agents-last-exam-data/blob/d93bb510e472dcaa406f09fc800797268567ca5c/tasks/visual_media/music_transcription/dorico_prelude/input/task_brief.json"
+        }
+      ],
+      "input_text": "{\n  \"title\": \"Dorico Prelude\",\n  \"composer\": \"Akinola\",\n  \"tempo_bpm\": 140,\n  \"instruments\": [\n    {\n      \"name\": \"Flute 1\",\n      \"clef\": \"treble\",\n      \"gm_program\": 73\n    },\n    {\n      \"name\": \"Flute 2\",\n      \"clef\": \"treble\",\n      \"gm_program\": 73\n    },\n    {\n      \"name\": \"Oboe\",\n      \"clef\": \"treble\",\n      \"gm_program\": 68\n    },\n    {\n      \"name\": \"Clarinet (B Flat) 1\",\n      \"clef\": \"treble\",\n      \"gm_program\": 73\n    },\n    {\n      \"name\": \"Clarinet (B Flat) 2\",\n      \"clef\": \"bass\",\n      \"gm_program\": 73\n    },\n    {\n      \"name\": \"Bassoon 1\",\n      \"clef\": \"bass\",\n      \"gm_program\": 70\n    },\n    {\n      \"name\": \"Bassoon 2\",\n      \"clef\": \"bass\",\n      \"gm_program\": 70\n    },\n    {\n      \"name\": \"Contrabassoon\",\n      \"clef\": \"bass\",\n      \"gm_program\": 70\n    },\n    {\n      \"name\": \"Horn (F) 1\",\n      \"clef\": \"bass\",\n      \"gm_program\": 60\n    },\n    {\n      \"name\": \"Horn (F) 2\",\n      \"clef\": \"bass\",\n      \"gm_program\": 60\n    },\n    {\n      \"name\": \"Horn (F) 3\",\n      \"clef\": \"bass\",\n      \"gm_program\": 60\n    },\n    {\n      \"name\": \"Horn (F) 4\",\n      \"clef\": \"bass\",\n      \"gm_program\": 60\n    },\n    {\n      \"name\": \"Trumpet (B Flat)\",\n      \"clef\": \"bass\",\n      \"gm_program\": 73\n    },\n    {\n      \"name\": \"Trombone 1\",\n      \"clef\": \"bass\",\n      \"gm_program\": 57\n    },\n    {\n      \"name\": \"Trombone 2\",\n      \"clef\": \"bass\",\n      \"gm_program\": 57\n    },\n    {\n      \"name\": \"Bass Trombone\",\n      \"clef\": \"bass\",\n      \"gm_program\": 57\n    },\n    {\n      \"name\": \"Tuba\",\n      \"clef\": \"treble\",\n      \"gm_program\": 58\n    },\n    {\n      \"name\": \"Timpani [Track]\",\n      \"clef\": \"bass\",\n      \"gm_program\": 47\n    },\n    {\n      \"name\": \"Glockenspiel [Track]\",\n      \"clef\": \"treble\",\n      \"gm_program\": 9\n    },\n    {\n      \"name\": \"Clash Cymbal [Track]\",\n      \"clef\": \"percussion\",\n      \"gm_program\": null\n    },\n    {\n      \"name\": \"Harp\",\n      \"clef\": \"treble\",\n      \"gm_program\": 46\n    },\n    {\n      \"name\": \"Keys [Track]\",\n      \"clef\": \"treble\",\n      \"gm_program\": 0\n    },\n    {\n      \"name\": \"Violin I (10)\",\n      \"clef\": \"treble\",\n      \"gm_program\": 40\n    },\n    {\n      \"name\": \"Violin II (8)\",\n      \"clef\": \"treble\",\n      \"gm_program\": 40\n    },\n    {\n      \"name\": \"Viola (6)\",\n      \"clef\": \"treble\",\n      \"gm_program\": 41\n    },\n    {\n      \"name\": \"Violoncello (4)\",\n      \"clef\": \"treble\",\n      \"gm_program\": 42\n    },\n    {\n      \"name\": \"Contrabass (2)\",\n      \"clef\": \"bass\",\n      \"gm_program\": 43\n    }\n  ]\n}",
+      "evidence_media": [
+        {
+          "kind": "image",
+          "src": "assets/ale/trace/case3_score_page_1.jpg",
+          "label": "模型总谱 PDF 预览 · 第 1 页"
+        },
+        {
+          "kind": "image",
+          "src": "assets/ale/trace/case3_score_page_8.jpg",
+          "label": "模型总谱 PDF 预览 · 第 8 页"
+        }
+      ],
+      "confirmed": [
+        "原始录音时长 139.488 秒；官方产物预览包含八页总谱。",
+        "step 37 计划生成 32 小节模板音乐；step 44 的代码直接实现了固定和声与各声部的音符生成。",
+        "轨迹记录了 PDF、MIDI 和软件截图的提交，以及 MIDI program 的自检。"
+      ],
+      "limits": [
+        "生成代码以模板音乐替代录音转谱，输出内容没有经过逐声部音符恢复。",
+        "27/27 是 agent 的 GM program 自检结果，不是官方评分子项；轨迹仅保存总分。",
+        "当前输入的名称、大小、时长和 brief 内容与历史记录相符；历史运行未记录输入哈希，无法进行逐字节版本核验。"
+      ],
+      "timeline": [
+        {
+          "stage": "读配置",
+          "detail": "取得 27 声部和既定 140 BPM",
+          "start": 3,
+          "end": 5,
+          "url": "ale_traces.html#music/3"
+        },
+        {
+          "stage": "有限音频分析",
+          "detail": "前 60 秒 beat/chroma，另探测完整时长",
+          "start": 28,
+          "end": 36,
+          "url": "ale_traces.html#music/28"
+        },
+        {
+          "stage": "关键偏离",
+          "detail": "把逐声部转谱改为固定 32 小节创作",
+          "start": 37,
+          "end": 46,
+          "url": "ale_traces.html#music/37"
+        },
+        {
+          "stage": "生成 MIDI",
+          "detail": "独立脚本控制 GM program 与固定力度",
+          "start": 49,
+          "end": 58,
+          "url": "ale_traces.html#music/49"
+        },
+        {
+          "stage": "Dorico 交付",
+          "detail": "导入、GUI 重试、导出八页 PDF",
+          "start": 59,
+          "end": 558,
+          "url": "ale_traces.html#music/59"
+        },
+        {
+          "stage": "自检与提交",
+          "detail": "核对文件、页面和 GM，不比较原录音音符",
+          "start": 559,
+          "end": 587,
+          "url": "ale_traces.html#music/559"
+        }
+      ],
+      "overview_image": "assets/ale/previews/music_input_wave.png",
+      "all_output_pages": [
+        "assets/ale/trace/case3_score_page_1.jpg",
+        "assets/ale/trace/case3_score_page_2.jpg",
+        "assets/ale/trace/case3_score_page_3.jpg",
+        "assets/ale/trace/case3_score_page_4.jpg",
+        "assets/ale/trace/case3_score_page_5.jpg",
+        "assets/ale/trace/case3_score_page_6.jpg",
+        "assets/ale/trace/case3_score_page_7.jpg",
+        "assets/ale/trace/case3_score_page_8.jpg"
+      ],
+      "run": true,
+      "question_display": {
+        "mode": "summary",
+        "text": "把给定的管弦乐录音转成完整总谱和 MIDI。先读取 task_brief.json 中的标题、作曲者、速度与各乐器的名称、谱号和 GM program，再聆听 reference_song.mp3，识别全部声部。\n\n在制谱软件中新建项目，按要求设置乐器和作品信息；根据音频恢复拍号、调号、全部音符、节奏、力度、奏法与表情，并排成专业、可读的总谱。播放时每个声部的 GM program 必须与 brief 一致。\n\n在任务 output/ 目录交付 transcription.pdf、transcription.mid，以及显示制谱软件和乐谱的 overview.png。"
+      }
+    },
+    {
+      "id": "ale-chroma",
+      "benchmark": "ale",
+      "title": "白鹤原视频 → 参考引导绿幕抠像",
+      "subtitle": "视觉分割 + Resolve · 官方单次 0.5674",
+      "task_id": "visual_media/chroma_key_from_reference",
+      "original": "\nGoal: Isolate the foreground subject from the source composite clip and produce a video of that subject on a flat green-screen background, matching the look of the green target plate preview.\n\nRemote workspace:\n- Task folder: E:\\agenthle\\visual_media\\chroma_key_from_reference\\crane_flyingsky\n\nSoftware:\n- Launch DaVinci Resolve using: E:\\agenthle\\visual_media\\chroma_key_from_reference\\crane_flyingsky\\software\\DaVinci Resolve.lnk\n- No starter `.drp` project is packaged with this task. Create a new Resolve project yourself for the task run.\n\nInputs (already on remote desktop):\n- Input assets live under: E:\\agenthle\\visual_media\\chroma_key_from_reference\\crane_flyingsky\\input\n- Source composite clip — the foreground subject already merged with its scene background: E:\\agenthle\\visual_media\\chroma_key_from_reference\\crane_flyingsky\\input\\input.mp4\n- Green target plate preview — a frame showing the expected look of the isolated subject on a flat green background: E:\\agenthle\\visual_media\\chroma_key_from_reference\\crane_flyingsky\\input\\input.png\n\nWhat to do:\n- Create a new Resolve project and import the task assets from the task folder.\n- Matte/roto the foreground subject out of the source composite clip — separate the subject from its merged scene background.\n- Replace every non-subject pixel with a flat green (#00FF00) background so the result matches the green target plate preview.\n- Do NOT keep any of the original scene background pixels in the final render — the only non-subject region of any output frame must be solid green.\n- The final video must show only the isolated foreground subject on a solid green background, for every frame.\n\nOutput:\n- Export/render to: E:\\agenthle\\visual_media\\chroma_key_from_reference\\crane_flyingsky\\output\\output.mp4\n",
+      "media": [
+        {
+          "kind": "video",
+          "src": "assets/ale/inputs/chroma_key_from_reference/crane_flyingsky/input/input.mp4",
+          "label": "官方原始输入视频 · 自然天空背景 · 241 帧 / 24 fps"
+        },
+        {
+          "kind": "image",
+          "src": "assets/ale/inputs/chroma_key_from_reference/crane_flyingsky/input/input.png",
+          "label": "输入参考图 · 白鹤与目标绿色背景"
+        }
+      ],
+      "steps": [
+        "step 44–68：OpenCV 抽帧，主模型查看 frame 0/120/240，识别白鹤与相近白云，放弃简单按颜色抠像。",
+        "step 95–163：rembg / U²-Net 为 241 帧独立生成 mask，再合成到绿色背景；没有跨帧追踪或时序平滑代码。",
+        "step 308–383：Resolve 把 PNG 序列误当单帧，agent 改用 FFmpeg 生成 ProRes 中间视频再导入。",
+        "step 585–599：Resolve 导出完成，检查 241 帧、单一连通域与两个角落的背景色；该自检不足以证明全轮廓或全背景正确。"
+      ],
+      "scores": [
+        {
+          "model": "claude-opus-4-8",
+          "harness": "claude_code",
+          "score": 0.5674291278881924,
+          "passed": null
+        }
+      ],
+      "input_files": [
+        {
+          "label": "原始视频 MP4",
+          "src": "assets/ale/inputs/chroma_key_from_reference/crane_flyingsky/input/input.mp4",
+          "description": "2,270,910 bytes；1280×544，24 fps，241 帧",
+          "url": "https://huggingface.co/datasets/agents-last-exam/agents-last-exam-data/blob/d93bb510e472dcaa406f09fc800797268567ca5c/tasks/visual_media/chroma_key_from_reference/crane_flyingsky/input/input.mp4"
+        },
+        {
+          "label": "目标参考 PNG",
+          "src": "assets/ale/inputs/chroma_key_from_reference/crane_flyingsky/input/input.png",
+          "description": "55,249 bytes；单帧目标外观提示，不是隐藏参考视频",
+          "url": "https://huggingface.co/datasets/agents-last-exam/agents-last-exam-data/blob/d93bb510e472dcaa406f09fc800797268567ca5c/tasks/visual_media/chroma_key_from_reference/crane_flyingsky/input/input.png"
+        }
+      ],
+      "input_text": "输入 input.png 明示需要保留的白鹤及目标绿色背景。隐藏 reference.mp4 / breakpoint.json 不在公开输入包中，本次没有取得。",
+      "evidence_media": [
+        {
+          "kind": "image",
+          "src": "assets/ale/trace/chroma_step98_frame0.jpg",
+          "label": "step 98 · U²-Net 首帧中间合成图"
+        },
+        {
+          "kind": "image",
+          "src": "assets/ale/trace/chroma_step163_frame120.jpg",
+          "label": "step 163 · 第 120 帧中间结果"
+        },
+        {
+          "kind": "image",
+          "src": "assets/ale/trace/chroma_step585_render_complete.jpg",
+          "label": "step 585 · Resolve 导出完成"
+        }
+      ],
+      "confirmed": [
+        "主模型查看少量静帧，U²-Net 独立处理全部 241 帧。分割在 Python 中完成，Resolve 负责导入、时间线和导出。",
+        "step 585 显示 Resolve 导出完成；日志记录最终 MP4 为 2,169,848 bytes、1280×544、24 fps、241 帧、约 10.05 秒。",
+        "最终自检统计连通域并采样两个角落的颜色，没有检查全部主体边缘或背景像素。"
+      ],
+      "limits": [
+        "总分为 0.5674；缺少逐帧评分明细，无法定位具体失分帧和缺陷。",
+        "轮廓缺失、背景残留和时序抖动需要逐帧证据验证，少量预览不足以确认。",
+        "完整任务指令要求将自然背景替换为纯绿；任务卡的一句 summary 与该指令不一致。"
+      ],
+      "timeline": [
+        {
+          "stage": "看输入与参考",
+          "detail": "识别白鹤；主模型实际看三个源视频静帧",
+          "start": 14,
+          "end": 68,
+          "url": "ale_traces.html#chroma/14"
+        },
+        {
+          "stage": "外部分割",
+          "detail": "下载 U²-Net，逐帧生成并合成 mask",
+          "start": 95,
+          "end": 156,
+          "url": "ale_traces.html#chroma/95"
+        },
+        {
+          "stage": "局部检查",
+          "detail": "单一连通域检查，查看中段结果",
+          "start": 159,
+          "end": 166,
+          "url": "ale_traces.html#chroma/159"
+        },
+        {
+          "stage": "导入受阻",
+          "detail": "PNG 序列被当作单帧，改做 ProRes 中间片",
+          "start": 308,
+          "end": 383,
+          "url": "ale_traces.html#chroma/308"
+        },
+        {
+          "stage": "软件交付",
+          "detail": "导入时间线、设置 H.264、Resolve render 完成",
+          "start": 385,
+          "end": 588,
+          "url": "ale_traces.html#chroma/385"
+        },
+        {
+          "stage": "最终自检",
+          "detail": "解码、帧数、连通域、角落色；未核对隐藏轮廓",
+          "start": 589,
+          "end": 599,
+          "url": "ale_traces.html#chroma/589"
+        }
+      ],
+      "overview_image": "assets/ale/previews/chroma_input_target.jpg",
+      "artifact_notice": "最终交付记录：output.mp4，2,169,848 bytes，约 10.05 秒、241 帧。已核对导出和视频探测日志，但尚未取得这次运行的最终 MP4；下方为中间合成图与导出完成截图。",
+      "run": true,
+      "question_display": {
+        "mode": "summary",
+        "text": "从自然场景背景中分离白鹤，制作主体位于纯绿背景上的视频，外观应匹配给定的绿色目标参考图。\n\n输入为 input.mp4 和 input.png。启动 DaVinci Resolve，自行新建项目并导入素材，完成主体抠像；每一帧的所有非主体区域都必须替换为 #00FF00，不保留任何原场景背景。\n\n最终每帧只显示白鹤和纯绿背景，导出到任务目录的 output/output.mp4。"
+      }
+    },
+    {
+      "id": "mmtb-multicam",
+      "benchmark": "mmtb",
+      "title": "三路机位 → 跟随当前发言人剪辑",
+      "subtitle": "视频 + 音频 · 多机位剪辑",
+      "task_id": "multicam-active-speaker-cut",
+      "original": "# Task: Multicam active-speaker cut from 3 ISO + boom mix\n\n## Scenario\n\nYou are the editor on a 3-camera dialogue scene. The production team\nhas delivered:\n\n- Three **ISO camera angles**, each framing one named person\n  continuously for the full 30 s of the take. The person's name is\n  burned in as a chyron overlay across the lower third of the frame.\n- One **boom mix** — a separate clean mono audio track that carries\n  only the **active speaker** at any given moment. When a different\n  person becomes the active speaker, the boom mix switches to that\n  person's voice. (Each ISO camera also carries the boom mix as its\n  audio track for backup, so the per-camera audio does not tell you\n  which person is framed by that camera — the camera ↔ person\n  association is established by the chyron overlay only.)\n\nYour job is to assemble a single-camera cut that **switches to\nwhichever ISO angle frames the currently active speaker**, second by\nsecond, and to record your switching decisions in a JSON cut list.\n\n## Input\n\n- `./assets/cam1.mp4` — ISO camera 1, 30 s, 480×270 H.264 + AAC mono\n  22050 Hz @ 24 fps. Frames one person continuously.\n- `./assets/cam2.mp4` — ISO camera 2, same format. Frames a different\n  person continuously.\n- `./assets/cam3.mp4` — ISO camera 3, same format. Frames a third\n  person continuously.\n- `./assets/boom.wav` — boom mix, 30 s mono PCM 22050 Hz. Carries the\n  active speaker only.\n\n## Output\n\nProduce both files:\n\n1. `./output/cut_list.json` — your switching decisions, one entry per\n   second:\n   ```json\n   {\n     \"cut_list\": [\n       {\"t\": 0, \"cam\": \"cam1\"},\n       {\"t\": 1, \"cam\": \"cam1\"},\n       {\"t\": 2, \"cam\": \"cam2\"},\n       ...\n     ]\n   }\n   ```\n   Exactly 30 entries, one for each second `t = 0 ... 29`. The `cam`\n   field must be one of `\"cam1\"`, `\"cam2\"`, `\"cam3\"`. The `t` field\n   is the integer second index.\n\n2. `./output/cut.mp4` — a 30 s 480×270 video that, for each second\n   `t`, shows the frames of the camera you selected for that second.\n   The audio track on `cut.mp4` should be the boom mix.\n",
+      "media": [
+        {
+          "kind": "video",
+          "src": "assets/mmtb/multicam-active-speaker-cut/cam1.mp4",
+          "label": "输入 cam1 · 人名条：Cory Booker"
+        },
+        {
+          "kind": "video",
+          "src": "assets/mmtb/multicam-active-speaker-cut/cam2.mp4",
+          "label": "输入 cam2 · 人名条：Mazie Hirono"
+        },
+        {
+          "kind": "video",
+          "src": "assets/mmtb/multicam-active-speaker-cut/cam3.mp4",
+          "label": "输入 cam3 · 人名条：Pat Toomey"
+        },
+        {
+          "kind": "audio",
+          "src": "assets/mmtb/multicam-active-speaker-cut/boom.wav",
+          "label": "输入 boom.wav · 当前发言人的混合语音",
+          "waveform": "assets/mmtb/previews/multicam-active-speaker-cut_wave.png"
+        }
+      ],
+      "steps": [
+        "按人名条建立对应关系：cam1—Cory Booker；cam2—Mazie Hirono；cam3—Pat Toomey。",
+        "官方参考切换序列由八个连续时间段组成，展开后对应 30 条逐秒记录。",
+        "oracle 按参考标签提取对应机位的一秒视频片段，拼接后加入 boom.wav，生成 cut_list.json 和 cut.mp4。"
+      ],
+      "scores": [
+        {
+          "model": "gpt-5.6-sol",
+          "harness": "Codex 0.146.0",
+          "score": 0.8333,
+          "passed": false,
+          "source_label": "本地实测 · 不限时"
+        }
+      ],
+      "overview_image": "assets/mmtb/previews/multicam_overview.jpg",
+      "reference_table": {
+        "title": "官方参考切换表",
+        "columns": [
+          "秒索引 t",
+          "机位"
+        ],
+        "rows": [
+          [
+            "0–4",
+            "cam1"
+          ],
+          [
+            "5–9",
+            "cam2"
+          ],
+          [
+            "10–14",
+            "cam3"
+          ],
+          [
+            "15–17",
+            "cam2"
+          ],
+          [
+            "18–19",
+            "cam1"
+          ],
+          [
+            "20–25",
+            "cam3"
+          ],
+          [
+            "26–27",
+            "cam2"
+          ],
+          [
+            "28–29",
+            "cam1"
+          ]
+        ]
+      },
+      "local_run": {
+        "benchmark": "MMTB",
+        "case": "三路机位 → 跟随当前发言人剪辑",
+        "case_id": "mmtb-multicam",
+        "source_kind": "本地实测 · 不限时",
+        "model": "gpt-5.6-sol",
+        "harness": "Codex 0.146.0",
+        "responses": 45,
+        "outer_tools": 44,
+        "expanded_tools": 44,
+        "wait": 25,
+        "nonwait": 19,
+        "score": 0.8333,
+        "passed": false,
+        "note": "含中断前与恢复后两段；未重复计入导入历史"
+      },
+      "deliverables": [
+        {
+          "label": "cut_list.json",
+          "url": "assets/mmtb/runs/multicam-active-speaker-cut/cut_list.json"
+        },
+        {
+          "label": "cut.mp4",
+          "url": "assets/mmtb/runs/multicam-active-speaker-cut/cut.mp4"
+        }
+      ],
+      "score_note": "本地实测于 2026-09-22–23 完成；整体不限时，依赖由模型自行安装。分数由原版官方 verifier 计算。",
+      "local_evaluation": "当前 verifier 的部分分为正确逐秒机位标签数 / 30。二值成功要求 30 个标签全对，且 cut.mp4 存在、可探测时长并在 30±1 秒内。代码没有核验成片像素是否来自 JSON 指定机位，也没有比较输出音轨。",
+      "execution_links": [
+        {
+          "label": "查看完整工具轨迹",
+          "url": "mmtb_traces.html#multicam-active-speaker-cut/1"
+        },
+        {
+          "label": "逐项评分原始记录",
+          "url": "research/mmtb/local_runs/multicam-active-speaker-cut/details.json"
+        },
+        {
+          "label": "与 ALE 的步数对比",
+          "url": "step_comparison.html"
+        }
+      ],
+      "timeline": [
+        {
+          "stage": "读取人物标签",
+          "detail": "探测素材并抽帧；确认 cam1 为 Cory Booker、cam2 为 Mazie Hirono、cam3 为 Pat Toomey。",
+          "start": 1,
+          "end": 7,
+          "evidence_label": "调用 1–7",
+          "url": "mmtb_traces.html#multicam-active-speaker-cut/1"
+        },
+        {
+          "stage": "安装与网络恢复",
+          "detail": "首次安装期间网关连续断连；保留轨迹并在重建容器中继续，自行检查和重装依赖。",
+          "start": 8,
+          "end": 26,
+          "evidence_label": "调用 8–26",
+          "url": "mmtb_traces.html#multicam-active-speaker-cut/8"
+        },
+        {
+          "stage": "分析独立音轨",
+          "detail": "提取逐秒音高与声学特征；安装 faster-whisper，用 tiny.en 转录 boom.wav。",
+          "start": 27,
+          "end": 38,
+          "evidence_label": "调用 27–38",
+          "url": "mmtb_traces.html#multicam-active-speaker-cut/27"
+        },
+        {
+          "stage": "确定切换方案",
+          "detail": "把 30 秒概括成六个固定 5 秒块，写出 30 条机位选择；遗漏了部分块内切换。",
+          "start": 39,
+          "end": 39,
+          "evidence_label": "调用 39",
+          "url": "mmtb_traces.html#multicam-active-speaker-cut/39"
+        },
+        {
+          "stage": "导出视频",
+          "detail": "用 FFmpeg 按方案裁剪拼接，并加入 boom 音轨；生成 30 秒、720 帧的 MP4。",
+          "start": 40,
+          "end": 41,
+          "evidence_label": "调用 40–41",
+          "url": "mmtb_traces.html#multicam-active-speaker-cut/40"
+        },
+        {
+          "stage": "检查交付",
+          "detail": "检查 JSON、视频来源和音轨；修正音频自检中的数组长度错误。",
+          "start": 42,
+          "end": 44,
+          "evidence_label": "调用 42–44",
+          "url": "mmtb_traces.html#multicam-active-speaker-cut/42"
+        }
+      ],
+      "evidence_media": [
+        {
+          "kind": "video",
+          "src": "assets/mmtb/runs/multicam-active-speaker-cut/cut.mp4",
+          "label": "本地实测模型成品 · 30 秒 · 机位判定 25/30 正确",
+          "seek": 18,
+          "seek_label": "查看 18 秒附近的机位错误"
+        }
+      ],
+      "output_table": {
+        "title": "逐秒机位错误（仅列不一致项）",
+        "columns": [
+          "秒 t",
+          "官方机位",
+          "模型机位"
+        ],
+        "rows": [
+          [
+            "18",
+            "cam1",
+            "cam2"
+          ],
+          [
+            "19",
+            "cam1",
+            "cam2"
+          ],
+          [
+            "25",
+            "cam3",
+            "cam1"
+          ],
+          [
+            "26",
+            "cam2",
+            "cam1"
+          ],
+          [
+            "27",
+            "cam2",
+            "cam1"
+          ]
+        ]
+      },
+      "confirmed": [
+        "交付 cut_list.json 和 cut.mp4；视频为 30.000 秒、480×270、24 fps，带原始 boom 音轨。",
+        "官方逐秒判定正确 25/30，部分分 0.8333；完整成功要求 30/30，故本次未通过。",
+        "独立抽查 30 个中点画面，均与模型提交的切换表一致；输出音轨与原 boom 的波形相似度为 0.99995。"
+      ],
+      "limits": [
+        "模型使用六个固定 5 秒块，但官方标注包含块内切换；第 18、19、25、26、27 秒选错机位。",
+        "视频导出正常，失分发生在发言人到机位的对应判断。",
+        "第一题保留了网络中断前和恢复后的执行段。恢复段另有一次长连接重试，未提供评分或答案反馈。"
+      ],
+      "question_display": {
+        "mode": "summary",
+        "text": "给定三路各 30 秒的机位视频和一条独立的 boom.wav 语音。每路视频用画面下方的人名条标记人物；各路视频都附带同一条混合语音，不能根据某个视频的音轨直接判断画面里是谁。\n\n逐秒识别当前发言人，并选择标记该人物的机位。交付 cut_list.json，包含 t=0…29 的 30 条机位选择记录；同时交付 30 秒、480×270 的 cut.mp4，按选择结果切换画面，声音使用 boom.wav。"
+      }
+    },
+    {
+      "id": "mmtb-piano",
+      "benchmark": "mmtb",
+      "title": "对照乐谱 → 找出钢琴演奏错误",
+      "subtitle": "乐谱图 + 音频 · 练习纠错",
+      "task_id": "piano-practice-feedback",
+      "original": "# Task: Flag the mistakes in a piano-practice recording against the printed score\n\n## Objective\n\nYou are reviewing a piano student's practice take. They sent you the\nprinted sheet music they were trying to play, at `./sheet_music.png`,\nand the audio of their attempt, at `./recording.wav`. Read the score,\nlisten to the recording, and identify every place where the student\ndeviated from what's written.\n\nThere are three kinds of mistake to flag:\n\n- **`wrong_pitch`** — the student played a different note than the\n  score asks for at that point in the piece.\n- **`missed`** — the student skipped a note from the score entirely\n  (no audible note at that moment in the recording).\n- **`timing_error`** — the student played the correct note, but\n  noticeably early or late (more than 200 ms off).\n\n## Output format\n\nWrite `./feedback.json` with one entry per detected mistake:\n\n```json\n{\n  \"mistakes\": [\n    {\n      \"score_note_idx\": 0,\n      \"type\": \"wrong_pitch\",\n      \"expected_pitch\": 60,\n      \"played_pitch\": 62,\n      \"time_sec\": 1.23\n    },\n    {\n      \"score_note_idx\": 0,\n      \"type\": \"missed\",\n      \"time_sec\": 1.23\n    },\n    {\n      \"score_note_idx\": 0,\n      \"type\": \"timing_error\",\n      \"expected_time_sec\": 1.23,\n      \"played_time_sec\": 1.55,\n      \"delta_sec\": 0.32\n    }\n  ]\n}\n```\n\nField semantics:\n\n- `score_note_idx`: zero-indexed position of the note in the printed\n  score (counting left-to-right, the first note on the staff is index\n  0; if a bar holds four notes, they are indices 0-3 in the first\n  bar, 4-7 in the second, and so on).\n- `type`: one of `wrong_pitch`, `missed`, `timing_error`.\n- `expected_pitch` / `played_pitch`: integer MIDI pitch (middle C = 60,\n  C above middle C = 72). Required for `wrong_pitch`.\n- `time_sec`: the recording timestamp where the mistake occurs.\n  Required for `wrong_pitch` and `missed`.\n- `expected_time_sec` / `played_time_sec` / `delta_sec`: required for\n  `timing_error` (`delta_sec` = `played - expected`, signed).\n\nOnly list actual mistakes; correctly-played notes should not appear\nin `feedback.json`.\n",
+      "media": [
+        {
+          "kind": "image",
+          "src": "assets/mmtb/piano-practice-feedback/sheet_music.png",
+          "label": "输入乐谱 · 32 音单旋律练习曲"
+        },
+        {
+          "kind": "audio",
+          "src": "assets/mmtb/piano-practice-feedback/recording.wav",
+          "label": "输入练习录音 · 合成钢琴演奏",
+          "waveform": "assets/mmtb/previews/piano-practice-feedback_wave.png"
+        }
+      ],
+      "steps": [
+        "官方参考清单包含五处预设偏差：两处错音、一处漏音和两处时间偏差。",
+        "音符索引从 0 开始。索引 19 延后 0.40 秒，索引 29 提前 0.35 秒。",
+        "oracle 将五项异常逐条写入 feedback.json；实际匹配还包括错音音高或提前/延后的方向与大小。"
+      ],
+      "scores": [
+        {
+          "model": "gpt-5.6-sol",
+          "harness": "Codex 0.146.0",
+          "score": 0.8,
+          "passed": true,
+          "source_label": "本地实测 · 不限时"
+        }
+      ],
+      "overview_image": "assets/mmtb/piano-practice-feedback/sheet_music.png",
+      "reference_table": {
+        "title": "官方参考错误清单",
+        "columns": [
+          "音符索引",
+          "类型",
+          "偏差"
+        ],
+        "rows": [
+          [
+            "6",
+            "错音",
+            "MIDI 71 → 70"
+          ],
+          [
+            "13",
+            "漏音",
+            "7.8 秒处未发声"
+          ],
+          [
+            "19",
+            "时间错误",
+            "延后 0.40 秒"
+          ],
+          [
+            "24",
+            "错音",
+            "MIDI 65 → 64"
+          ],
+          [
+            "29",
+            "时间错误",
+            "提前 0.35 秒"
+          ]
+        ]
+      },
+      "media_layout": "stack",
+      "local_run": {
+        "benchmark": "MMTB",
+        "case": "对照乐谱 → 找出钢琴演奏错误",
+        "case_id": "mmtb-piano",
+        "source_kind": "本地实测 · 不限时",
+        "model": "gpt-5.6-sol",
+        "harness": "Codex 0.146.0",
+        "responses": 31,
+        "outer_tools": 30,
+        "expanded_tools": 32,
+        "wait": 22,
+        "nonwait": 10,
+        "score": 0.8,
+        "passed": true,
+        "note": "单次独立运行"
+      },
+      "deliverables": [
+        {
+          "label": "feedback.json",
+          "url": "assets/mmtb/runs/piano-practice-feedback/feedback.json"
+        }
+      ],
+      "score_note": "本地实测于 2026-09-22–23 完成；整体不限时，依赖由模型自行安装。分数由原版官方 verifier 计算。",
+      "local_evaluation": "逐项匹配索引与错误类型；错音的 played_pitch 容差为 ±1 半音，时间错误须方向正确且 delta_sec 与真值相差不超过 0.25 秒。以错误清单 F1 计部分分，F1≥0.7 为成功。原文要求的部分字段未进入当前匹配判据。",
+      "execution_links": [
+        {
+          "label": "查看完整工具轨迹",
+          "url": "mmtb_traces.html#piano-practice-feedback/1"
+        },
+        {
+          "label": "逐项评分原始记录",
+          "url": "research/mmtb/local_runs/piano-practice-feedback/details.json"
+        },
+        {
+          "label": "与 ALE 的步数对比",
+          "url": "step_comparison.html"
+        }
+      ],
+      "timeline": [
+        {
+          "stage": "读乐谱与录音",
+          "detail": "查看乐谱，读出 32 个音符与 100 BPM，检查 WAV 格式和已有依赖。",
+          "start": 1,
+          "end": 2,
+          "evidence_label": "调用 1–2",
+          "url": "mmtb_traces.html#piano-practice-feedback/1"
+        },
+        {
+          "stage": "自行安装分析库",
+          "detail": "安装 NumPy、SciPy、librosa、SoundFile 等；从发起安装到日志确认完成约 10 分 35 秒。",
+          "start": 3,
+          "end": 25,
+          "evidence_label": "调用 3–25",
+          "url": "mmtb_traces.html#piano-practice-feedback/3"
+        },
+        {
+          "stage": "提取音符信息",
+          "detail": "用起音检测、CQT 和 pYIN 获取音符时间与音高。",
+          "start": 26,
+          "end": 27,
+          "evidence_label": "调用 26–27",
+          "url": "mmtb_traces.html#piano-practice-feedback/26"
+        },
+        {
+          "stage": "复核歧义位置",
+          "detail": "用 FFT 和更细的起音窗口检查八度、重复音及时间偏差。",
+          "start": 28,
+          "end": 29,
+          "evidence_label": "调用 28–29",
+          "url": "mmtb_traces.html#piano-practice-feedback/28"
+        },
+        {
+          "stage": "生成反馈并自检",
+          "detail": "写入五项错误，检查字段和时间差的一致性。",
+          "start": 30,
+          "end": 30,
+          "evidence_label": "调用 30",
+          "url": "mmtb_traces.html#piano-practice-feedback/30"
+        }
+      ],
+      "evidence_media": [],
+      "output_table": {
+        "title": "模型提交与官方标注对照",
+        "columns": [
+          "音符索引",
+          "模型提交",
+          "官方核对"
+        ],
+        "rows": [
+          [
+            "13",
+            "漏音，7.8 秒",
+            "正确"
+          ],
+          [
+            "19",
+            "延后 0.40 秒",
+            "正确"
+          ],
+          [
+            "20",
+            "漏音，12.0 秒",
+            "误报"
+          ],
+          [
+            "24",
+            "MIDI 65 → 64",
+            "正确"
+          ],
+          [
+            "29",
+            "提前 0.35 秒",
+            "正确"
+          ],
+          [
+            "6",
+            "未提交",
+            "漏检：MIDI 71 → 70"
+          ]
+        ]
+      },
+      "confirmed": [
+        "交付 feedback.json，共五项异常；官方匹配为 4 个正确、1 个误报、1 个漏检。",
+        "Precision = Recall = F1 = 0.80，达到 F1 ≥ 0.70 的通过门槛。",
+        "完整运行约 14 分 14 秒；依赖安装与确认占其中约 10 分 35 秒。"
+      ],
+      "limits": [
+        "漏掉索引 6 的错音，额外把索引 20 报为漏音。",
+        "本题允许部分错误仍通过；0.80 表示错误检测 F1，不是整个乐谱 80% 的音符正确。",
+        "当前 verifier 匹配索引、类型和关键音高/时间偏差，并不逐一核验原文要求的所有字段。"
+      ],
+      "question_display": {
+        "mode": "summary",
+        "text": "学生提供了打印乐谱 sheet_music.png 和练习录音 recording.wav。对照乐谱，找出所有错音、漏音，以及正确音符提前或延后超过 200 毫秒的情况。\n\n将错误写入 feedback.json。每项注明从 0 开始的乐谱音符索引和错误类型；错音填写应奏/实奏 MIDI 音高，漏音和错音填写时间；时间错误填写预期时间、实际时间和带正负号的偏差。只列错误，不列正确弹奏的音符。"
+      }
+    },
+    {
+      "id": "mmtb-accessibility",
+      "benchmark": "mmtb",
+      "title": "听到的字段 ≠ 焦点字段？无障碍审查",
+      "subtitle": "视频 + 音频 · 屏幕阅读器审查",
+      "task_id": "accessibility-sync-audit",
+      "original": "# Task: Accessibility A/V-sync audit — screen-reader vs visible focus\n\n## Objective\n\nYou are an accessibility tester reviewing a 47 s screen-recording of\na public-benefits portal's personal-information form. The recording\nshows a fixed yellow status bar at the bottom of the screen which\nindicates ONLY whether the screen reader is currently speaking — it\ndoes NOT mirror the spoken text. The actual screen-reader\nannouncements are heard via the audio track only.\n\nThe form on the page has a strong **blue focus ring** around the\nvisually-focused field at each moment.\n\nIn well-formed apps the screen-reader announcement (audio) and the\nvisible focus ring (visual) point to the same field. In this app\nthere are A/V-sync **bugs**: in some events the screen reader\nannounces field X while the focus ring is around a different field\nY. A keyboard-only or blind user would land in a confusing state.\n\nYour job is to log each focus event with both the screen-reader's\nannounced field (from audio) and the visually-focused field (from\nthe blue focus ring), and flag every desync.\n\nInputs (`./assets/`):\n\n- `recording.mp4` — 47 s, 1920×1080. Single TTS voice playing the\n  screen-reader announcements; no other audio.\n- `form_schema.json` — list of canonical field IDs and labels.\n\n## Output\n\nWrite `./submission/desync_log.csv` with header:\n\n```\nevent_idx,sr_field,visual_field,desync\n```\n\nand **exactly 6 data rows**, ordered by `event_idx` 1..6 in the order\nthe events occur in the recording (one row per focus event;\nthe intro and wrap segments do not count as events).\n\n- `event_idx` — 1..6.\n- `sr_field` — the canonical field id the screen reader is\n  announcing in audio (use ids from `form_schema.json`: `fullname`,\n  `email`, `phone`, `dob`, `address`, `household`, `newsletter`).\n- `visual_field` — the canonical field id with the visible blue\n  focus ring during this event.\n- `desync` — `yes` if `sr_field != visual_field`, else `no`.\n\n`./submission/` does not exist — create it.\n\n## Notes\n\n- The bottom yellow status bar shows only \"🔊 speaking...\" while the\n  screen reader is mid-utterance and \"— silent —\" otherwise. The\n  spoken text is **not** mirrored to the bar; you must listen to the\n  audio.\n- Ignore intro and wrap segments — they have no focus ring and the\n  screen reader is silent.\n",
+      "media": [
+        {
+          "kind": "video",
+          "src": "assets/mmtb/accessibility-sync-audit/recording.mp4",
+          "label": "输入录屏 · 语音播报与蓝色焦点框",
+          "seek": 17,
+          "seek_label": "跳到 00:17 对照音画",
+          "attachments": [
+            {
+              "label": "字段表 form_schema.json",
+              "src": "assets/mmtb/accessibility-sync-audit/form_schema.json"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        "逐事件对应语音字段和可见焦点，官方参考答案中的事件 3 和事件 5 存在不同步。",
+        "事件 3 播报 email，焦点却在 phone；事件 5 播报 address，焦点却在 household。",
+        "其余四个事件的音画字段一致。oracle 按 1…6 的顺序写入六行 CSV。"
+      ],
+      "scores": [
+        {
+          "model": "gpt-5.6-sol",
+          "harness": "Codex 0.146.0",
+          "score": 1.0,
+          "passed": true,
+          "source_label": "本地实测 · 不限时"
+        },
+        {
+          "model": "GPT-5.2",
+          "harness": "Codex CLI",
+          "score": 0.0,
+          "passed": false,
+          "source_label": "论文 Table 19"
+        },
+        {
+          "model": "Gemini-3.1-Pro",
+          "harness": "Terminus-MM",
+          "score": 1.0,
+          "passed": true,
+          "source_label": "论文 Table 19"
+        }
+      ],
+      "overview_image": "assets/mmtb/previews/accessibility-sync-audit_recording.jpg",
+      "reference_table": {
+        "title": "官方参考核查表",
+        "columns": [
+          "事件",
+          "语音字段",
+          "焦点字段",
+          "不同步"
+        ],
+        "rows": [
+          [
+            "1",
+            "fullname",
+            "fullname",
+            "no"
+          ],
+          [
+            "2",
+            "email",
+            "email",
+            "no"
+          ],
+          [
+            "3",
+            "email",
+            "phone",
+            "yes"
+          ],
+          [
+            "4",
+            "dob",
+            "dob",
+            "no"
+          ],
+          [
+            "5",
+            "address",
+            "household",
+            "yes"
+          ],
+          [
+            "6",
+            "newsletter",
+            "newsletter",
+            "no"
+          ]
+        ]
+      },
+      "score_note": "本地实测于 2026-09-22–23 完成；整体不限时，依赖由模型自行安装。分数由原版官方 verifier 计算。 论文记录采用不同模型、harness 与预算，与本次实测分开标注。",
+      "local_run": {
+        "benchmark": "MMTB",
+        "case": "听到的字段 ≠ 焦点字段？无障碍审查",
+        "case_id": "mmtb-accessibility",
+        "source_kind": "本地实测 · 不限时",
+        "model": "gpt-5.6-sol",
+        "harness": "Codex 0.146.0",
+        "responses": 22,
+        "outer_tools": 21,
+        "expanded_tools": 28,
+        "wait": 12,
+        "nonwait": 16,
+        "score": 1.0,
+        "passed": true,
+        "note": "单次独立运行"
+      },
+      "deliverables": [
+        {
+          "label": "desync_log.csv",
+          "url": "assets/mmtb/runs/accessibility-sync-audit/desync_log.csv"
+        }
+      ],
+      "local_evaluation": "CSV 表头必须正确且恰好六行；按事件索引比较 sr_field、visual_field、desync，三个字段均对才算该行正确。当前可执行代码 PASS_THRESHOLD=5，至少 5/6 行正确得 reward=1，否则 reward=0。文件顶部说明的“≥4/6”是未同步更新的注释。",
+      "execution_links": [
+        {
+          "label": "查看完整工具轨迹",
+          "url": "mmtb_traces.html#accessibility-sync-audit/1"
+        },
+        {
+          "label": "逐项评分原始记录",
+          "url": "research/mmtb/local_runs/accessibility-sync-audit/details.json"
+        },
+        {
+          "label": "与 ALE 的步数对比",
+          "url": "step_comparison.html"
+        }
+      ],
+      "timeline": [
+        {
+          "stage": "定位事件与画面",
+          "detail": "读取字段表、检测静音区间、抽出视频联系表。",
+          "start": 1,
+          "end": 3,
+          "evidence_label": "调用 1–3",
+          "url": "mmtb_traces.html#accessibility-sync-audit/1"
+        },
+        {
+          "stage": "安装语音识别",
+          "detail": "自行安装 faster-whisper，并等待安装完成。",
+          "start": 4,
+          "end": 11,
+          "evidence_label": "调用 4–11",
+          "url": "mmtb_traces.html#accessibility-sync-audit/4"
+        },
+        {
+          "stage": "转录语音",
+          "detail": "用 base.en / CPU int8 得到带词级时间戳的播报文本。",
+          "start": 12,
+          "end": 17,
+          "evidence_label": "调用 12–17",
+          "url": "mmtb_traces.html#accessibility-sync-audit/12"
+        },
+        {
+          "stage": "查看六次焦点",
+          "detail": "抽出六个时刻的帧；拼图命令缺失后，逐张查看事件画面。",
+          "start": 18,
+          "end": 19,
+          "evidence_label": "调用 18–19",
+          "url": "mmtb_traces.html#accessibility-sync-audit/18"
+        },
+        {
+          "stage": "写入并校验 CSV",
+          "detail": "记录音频字段、视觉字段和不同步标志，检查六行数据及字段合法性。",
+          "start": 20,
+          "end": 21,
+          "evidence_label": "调用 20–21",
+          "url": "mmtb_traces.html#accessibility-sync-audit/20"
+        }
+      ],
+      "evidence_media": [
+        {
+          "kind": "image",
+          "src": "assets/mmtb/runs/accessibility-sync-audit/trace/call_019_3.png",
+          "label": "模型实际查看的事件 3 画面 · 音频 email，焦点 phone"
+        },
+        {
+          "kind": "image",
+          "src": "assets/mmtb/runs/accessibility-sync-audit/trace/call_019_5.png",
+          "label": "模型实际查看的事件 5 画面 · 音频 address，焦点 household"
+        }
+      ],
+      "output_table": {
+        "title": "模型交付的六行核查结果",
+        "columns": [
+          "事件",
+          "语音字段",
+          "焦点字段",
+          "不同步",
+          "官方核对"
+        ],
+        "rows": [
+          [
+            "1",
+            "fullname",
+            "fullname",
+            "no",
+            "正确"
+          ],
+          [
+            "2",
+            "email",
+            "email",
+            "no",
+            "正确"
+          ],
+          [
+            "3",
+            "email",
+            "phone",
+            "yes",
+            "正确"
+          ],
+          [
+            "4",
+            "dob",
+            "dob",
+            "no",
+            "正确"
+          ],
+          [
+            "5",
+            "address",
+            "household",
+            "yes",
+            "正确"
+          ],
+          [
+            "6",
+            "newsletter",
+            "newsletter",
+            "no",
+            "正确"
+          ]
+        ]
+      },
+      "confirmed": [
+        "交付 desync_log.csv，六行数据全部与官方标注一致，得分 1.00，通过。",
+        "准确找出事件 3 的 email / phone 错配和事件 5 的 address / household 错配。",
+        "此次使用本地 Whisper 转录加视频读图；完成主模型响应 22 次，外层工具调用记录 21 次。"
+      ],
+      "limits": [
+        "这里是本地不限时实测，论文中的 GPT-5.2 / Codex 与 Gemini-3.1-Pro / Terminus-MM 分数另列。",
+        "一次 exec 循环查看六张图：在外层日志中是一次调用，展开后是六次读图操作。",
+        "实际 verifier 门槛为至少 5/6 行正确；此次 6/6，不受旧注释“4/6”的差异影响。"
+      ],
+      "question_display": {
+        "mode": "summary",
+        "text": "审查一段约 47 秒的表单录屏。音轨是屏幕阅读器的字段播报，画面中的蓝色边框表示当前键盘焦点。黄色状态栏只显示是否正在说话，不显示播报内容。\n\n按时间顺序记录六次焦点事件：语音说的是哪个字段、蓝色边框实际在哪个字段，以及两者是否不同步。忽略开头和结尾的无焦点片段，字段 ID 使用 form_schema.json 给定的名称。\n\n创建 submission/，写入 desync_log.csv，表头为 event_idx,sr_field,visual_field,desync，恰好六行数据。音画字段不一致填 yes，一致填 no。"
+      }
+    },
+    {
+      "id": "vbench-repair",
+      "benchmark": "vbench",
+      "title": "修复局部噪声，保留干净语音",
+      "subtitle": "Repair · 音频修复",
+      "task_id": "exp-dns-denoise-task01",
+      "original": "# Clean Up A Noisy Recording\n\nI have a short mono speech recording at `/workspace/materials/noisy.wav`.\nFor a stretch in it, there's a lot of background noise mixed on\ntop of the voice — it's hard to make out what's being said. Outside\nthat stretch the recording is clean.\n\nPlease clean up the noisy stretch so the voice comes through clearly.\nLeave the already-clean parts unchanged.\n\n## What to deliver\n\n- `/workspace/output/enhanced.wav` — 16-bit PCM mono at 16 kHz, same\n  total length (sample count) as the input.\n\n## Environment\n\n- CPU only, ~30 min timeout. Internet available for `pip install`.\n",
+      "media": [
+        {
+          "kind": "audio",
+          "src": "assets/vbench/repair/input/noisy.wav",
+          "label": "官方输入 · noisy.wav"
+        },
+        {
+          "kind": "audio",
+          "src": "assets/vbench/repair/golden/clean.wav",
+          "label": "官方评测参考 · clean.wav（不是模型成品）"
+        }
+      ],
+      "reference": "隐藏参考标明噪声区间为 12.5–22.5 秒。这个位置不是题目直接告诉 agent 的。",
+      "steps": [
+        "定位噪声区间，选择语音增强方法。",
+        "只处理受损区间，保留其余音频与原始长度。",
+        "交付 WAV，按区间内增强质量与区间外保真分别评测。"
+      ],
+      "scores": [],
+      "question_display": {
+        "mode": "translation",
+        "text": "清理一段有噪声的录音\n\n/workspace/materials/noisy.wav 是一段短的单声道语音录音。其中有一段混入了大量背景噪声，使说话内容难以听清；其余部分是干净的。\n\n请清理有噪声的片段，使人声清晰，并保持已经干净的部分不变。\n\n交付 /workspace/output/enhanced.wav：16 kHz、16-bit PCM、单声道，采样点数必须与输入完全相同。\n\n运行环境只有 CPU，超时约 30 分钟，可联网使用 pip install。"
+      }
+    },
+    {
+      "id": "vbench-assembly",
+      "benchmark": "vbench",
+      "title": "12 选 4：按分镜语言组装影片",
+      "subtitle": "Assembly · 视觉选片与拼接",
+      "task_id": "agentic-vbench-assembly-task1",
+      "original": "# Video Assembly Task — `A Person With Long Hair In A Dark Suit W`\n\nYou are given **12 candidate video clips**: `1.mp4`, `2.mp4`, …, `12.mp4`.\nYour job is to assemble a **4-shot sequence** that matches the storyboard below.\n\n## Additional notes\n\n- Stay inside this working directory. Don't read, write, or search\n  files outside it — no parent directories, no other paths on the\n  system.\n- Don't try to identify the source film or look it up online.\n  Don't search for the original film, transcripts, or related\n  metadata to compare against the clips — work only from the bytes\n  you've been given. (Other web lookups, e.g. tool docs, are fine.)\n\n## What to submit\n\n1. **`/workspace/output/solution.mp4`** — the 4 clips concatenated\n   in slot order. Each picked clip is used in full, exactly once.\n2. **`/workspace/output/solution.json`** — a manifest describing what's\n   in the final video. (Schema and rules below.)\n\n## What to do\n\n1. **For each storyboard slot below**, pick the candidate whose video best matches the storyboard's five fields (`description`, `shot_size`, `camera_angle`, `lens_size`, `camera_movement`). Choose the candidate that matches the **most** of these fields, weighing each field by how much it actually defines that particular shot — not every field carries the same importance for every shot. Judge by what is on screen.\n2. **Concatenate** the picked clips in slot order (1 → 2 → 3 → …).\n3. **Submit** the result as `/workspace/output/solution.mp4`.\n\n## Also submit a manifest\n\nOnce `/workspace/output/solution.mp4` is finalized, write **`/workspace/output/solution.json`** describing what's actually in the final video. Use any assembly method you prefer — the verifier checks the manifest against the actual video content, so misreporting will fail.\n\n### Format\n\n```json\n{\n  \"segments\": [\n    {\"output\": [0.0, 2.0], \"source\": \"3\", \"source_range\": [0.0, 2.0]},\n    {\"output\": [2.0, 3.5], \"source\": \"7\", \"source_range\": [0.0, 1.5]}\n  ]\n}\n```\n\n### Rules\n\n- Exactly **4 entries**, one per slot, in slot order.\n- Intervals are **half-open** `[start, end)` — end is exclusive.\n- `output` — time range where this clip appears in `solution.mp4`.\n- `source` — clip number as a string (`\"3\"` for `3.mp4`).\n- `source_range` — portion of the clip you used; full clip is `[0, clip_duration]`.\n- Segments must be **contiguous**: each `output[0]` equals the previous `output[1]`; first starts at `0.0`, last ends at `solution.mp4`'s total duration.\n\n### Example\n\nIf Slot 1 → `3.mp4` (2.0s, used in full) and Slot 2 → `7.mp4` (1.5s, used in full):\n\n```json\n{\n  \"segments\": [\n    {\"output\": [0.0, 2.0], \"source\": \"3\", \"source_range\": [0.0, 2.0]},\n    {\"output\": [2.0, 3.5], \"source\": \"7\", \"source_range\": [0.0, 1.5]}\n  ]\n}\n```\n\nRepeat for all 4 slots.\n\n---\n\n## Shot Language Reference\n\nDefinitions for the cinematic terms used in the storyboard fields.\n\n### `shot_size`\n\n- **Extreme Wide** — Frames the subject from a great distance so that the surrounding environment overwhelmingly dominates the image. It is used to establish scale, location, and context, often making the subject appear small or isolated within a vast setting.\n- **Wide** — Shows the subject from head to toe, although not necessarily filling the frame. The focus is still largely on the environment, but the subject is more prominent than in an EWS. It shows the subject within their surroundings, providing context.\n- **Medium Wide** — Frames the subject from the knees up, situating them between a full body shot and a medium shot. It balances character body language with a sense of the immediate surroundings, often used for dialogue and group staging.\n- **Medium** — Frames the subject from the waist up, a standard framing for conversation and everyday action. It conveys both facial expression and upper-body gesture while retaining modest environmental context.\n- **Medium Close Up** — Frames the subject from roughly the chest or shoulders up, tightening focus on the face while still showing some upper body. It is commonly used for dialogue and emotionally engaged moments without fully isolating the subject.\n- **Close Up** — Frames a specific part of the subject, typically the head and face, from the neck up. It tightly frames the character's face, emphasizing their emotional state and reactions. Little to no background is visible.\n- **Extreme Close Up** — Frames only a small portion or detail of the subject, such as the eyes, mouth, or a specific object. It is used to create intensity, highlight a crucial detail, or convey strong emotion or tension.\n\n### `camera_angle`\n\n- **Eye level** — An eye-level shot positions the camera at the subject's eyeline and looks horizontally, treating the subject as a peer of the viewer. It is the neutral, baseline angle — neither empowering nor diminishing — and is the most common framing in conversation, observation, and unobtrusive narration. It registers as 'normal' precisely because it minimizes editorial implication.\n- **Shoulder level** — A shoulder-level shot positions the camera at roughly the height of the subject's shoulders, slightly below true eye level. Many directors prefer it to a literal eye-level shot because it keeps the actor's head near the top of the frame and reduces unflattering head room, producing a more cinematic register. It maintains a near-neutral psychological tone but with a faintly heroic lean.\n- **Hip level** — A hip-level (or 'cowboy') shot positions the camera at roughly waist height. It is a classic Western framing used when a character's hands are in play near the hip — drawing a weapon, holstering a tool, leaning on a counter — and is also useful when one subject is seated while another stands. The framing emphasizes hand action and bodily presence without yet feeling like a low angle.\n- **Knee level** — A knee-level shot positions the camera approximately at the height of the subject's knees. It is often used to follow a character's walking or sneaking action without revealing the face, and when combined with a low-angle tilt up, it amplifies the subject's superiority or menace. It is also a common framing for shots that feature legwork, footing, or contact with the ground.\n- **Ground level** — A ground-level shot positions the camera directly on or just above the floor or ground plane. It is most commonly used to follow feet, dust, water, or low-moving objects, and to track a character walking past without showing their face or upper body. The framing emphasizes the texture of the ground and the feet's relationship to it.\n- **Low angle** — A low angle shot positions the camera below the subject's eyeline and looks upward, making the subject appear larger, dominant, powerful, or intimidating. It can also convey awe, heroism, or psychological superiority, and is frequently used to elevate villains and authority figures.\n- **High angle** — A high angle shot looks down on the subject from above their eyeline, tending to make them appear smaller, weaker, vulnerable, or isolated. It is often used to diminish a character's power or to give the audience an observational, sometimes pitying, perspective.\n- **Overhead** — An overhead shot, sometimes called a bird's-eye or top shot, places the camera directly above the subject pointing straight down, flattening the scene into a graphic, map-like composition. It is commonly used for interiors or mid-range action to reveal spatial relationships, choreography, or to create a detached, omniscient feel.\n- **Aerial** — An aerial shot is captured from an aircraft, helicopter, or drone at substantial altitude, offering a sweeping, wide-scope view of landscapes, cityscapes, or large-scale action. It is often used as an establishing shot to convey geography, scale, and epic scope, or to provide dynamic movement over an environment.\n- **Dutch angle** — A Dutch angle, also called a Dutch tilt or canted angle, rolls the camera on its lens axis so the horizon is no longer level, creating a sense of unease, disorientation, tension, or psychological instability. It is commonly used in thrillers, horror, and action sequences to signal that something is wrong or off-balance.\n\n### `lens_size`\n\n- **Ultra Wide & Fisheye** — Lenses with focal lengths shorter than ~24mm (full-frame equivalent), with fisheye variants typically ~8–15mm. They offer a broader field of view and often introduce edge distortion, with fisheyes producing a pronounced curved, spherical warping of straight lines.\n- **Wide** — Wide-angle lenses typically span ~24–35mm (full-frame equivalent) and capture a broader field of view than the human eye without the extreme distortion of ultra wides. They emphasize environment and spatial context while exaggerating the sense of depth between foreground and background.\n- **Medium** — Medium or normal lenses cover roughly ~35–70mm (full-frame equivalent), with 50mm approximating the perspective of the human eye. They render scenes with natural proportions, neutral field of view, and minimal geometric distortion.\n- **Long Lens** — Long or telephoto lenses typically start at ~85mm and extend well beyond (full-frame equivalent), offering a narrow field of view. They compress spatial depth, making the foreground and background elements appear closer, and isolate subjects from their surroundings.\n\n### `camera_movement`\n\n- **Static** — The camera remains completely locked off on a tripod or fixed mount with no translation, rotation, or focal length change. Used to create stability, observational distance, or formal composition, letting subject motion carry the scene.\n- **Push in** — The camera body physically moves toward the subject along a dolly, track, slider, gimbal, or Steadicam while focal length stays constant. It intensifies emotion, directs attention inward, and draws the audience into the subject's psychology.\n- **Pull out** — The camera body physically retreats away from the subject on a dolly, track, or stabilizer while focal length stays constant. It reveals surrounding context, isolates the subject, or releases emotional tension built up in a scene.\n- **Zoom in** — The camera stays physically stationary while the lens's focal length lengthens, magnifying the subject optically. It is often used for sudden emphasis, a surveillance feel, or a stylized punch-in.\n- **Zoom out** — The camera stays stationary while the lens's focal length shortens, optically widening the field of view. It can reveal context, diminish a subject, or deliver a reveal without any physical camera motion.\n- **Pan left** — The camera pivots horizontally to the left around a fixed vertical axis on its tripod or head, with the body itself not translating. It is used to follow action, scan a space, or reveal something to the subject's left.\n- **Pan right** — The camera pivots horizontally to the right around a fixed vertical axis, while the body remains in place. It follows rightward motion, scans a landscape, or redirects attention across a scene.\n- **Tilt up** — The camera pivots upward on its horizontal axis while remaining in the same physical location. It reveals height, establishes scale, or moves the gaze from a lower element to a higher one.\n- **Tilt down** — The camera pivots downward on its horizontal axis from a fixed position. It redirects attention from a higher element to a lower one, reveals something below, or follows a falling motion.\n- **Boom up** — The entire camera body rises vertically on a crane, jib, pedestal, or gimbal while its angle stays essentially level. It is used to lift the viewpoint over obstacles, reveal scale, or create a rising, elevating emotional beat.\n- **Boom down** — The camera body descends vertically on a crane, jib, or pedestal while its angle remains constant. It lowers the viewpoint toward ground level, often to meet a subject, conclude a reveal, or ground the scene.\n- **Dolly left** — The camera body translates laterally to the left on a dolly, track, slider, or stabilizer, keeping its heading forward. Also called trucking or tracking left, it follows subjects moving leftward or sweeps sideways through a space.\n- **Dolly right** — The camera body translates laterally to the right on a dolly, track, or stabilizer, heading kept forward. Also called trucking or tracking right, it follows rightward action or traverses a setting sideways.\n- **Dolly forward** — The camera body translates forward on a dolly or wheeled rig, often pacing a subject also moving forward. Unlike a push in, which approaches a stationary subject and grows its scale, a dolly forward shares the subject's momentum, keeping the subject's frame size roughly stable.\n- **Dolly backward** — The camera body translates backward on a dolly or wheeled rig, often pacing a subject moving toward the lens. Unlike a pull out, which retreats from a stationary subject and shrinks its scale, a dolly backward shares the subject's forward momentum, keeping the subject's frame size roughly stable.\n- **Arc** — The camera travels along a curved or circular path around the subject while keeping the subject framed, typically via a circular dolly track, Steadicam, or gimbal. It emphasizes a subject, reveals dimensionality, or creates dynamic orbital energy.\n- **Camera roll** — The camera rotates around its own lens (optical) axis, so the horizon spins within the frame while the camera does not translate. It conveys disorientation, intoxication, weightlessness, or action-driven chaos.\n- **Dolly zoom** — The camera physically dollies in one direction while the lens simultaneously zooms in the opposite direction, so the subject's size in frame remains constant but the background perspective warps. Known as the Vertigo effect, it visualizes psychological unease, dread, or revelation.\n\n---\n\n## Storyboard\n\n### Slot 1\n\n- **description**: A person with long hair in a dark suit walks away from the camera across a wet street toward a large, classical building with illuminated columns. The person is centered in the frame, facing away from the camera, with their arms swinging naturally by their sides. The brightly lit building facade casts the person in silhouette.\n- **shot_size**: `Wide`\n- **camera_angle**: `Low angle`\n- **lens_size**: `Wide`\n- **camera_movement**: `Dolly forward`\n\n### Slot 2\n\n- **description**: A man with long dark hair tied back, wearing a dark suit, walks down a museum corridor lined with illuminated glass display cases containing Egyptian artifacts. He faces directly away from the camera, his arms swinging naturally at his sides as he walks forward.\n- **shot_size**: `Medium Wide`\n- **camera_angle**: `Eye level`\n- **lens_size**: `Wide`\n- **camera_movement**: `Dolly forward`\n\n### Slot 3\n\n- **description**: A man with long dark hair in a dark suit walks steadily toward the camera through a museum exhibit featuring Egyptian murals and artifacts. He faces directly toward the camera with a neutral expression, his arms relaxed at his sides as he advances. the camera very slowly pushes in, causing him to grow larger in the frame against the brightly lit background.\n- **shot_size**: `Medium Wide`\n- **camera_angle**: `Low angle`\n- **lens_size**: `Wide`\n- **camera_movement**: `Push in`\n\n### Slot 4\n\n- **description**: A man with long dark hair and a beard, wearing a dark suit, walks forward through a museum hall lined with illuminated glass display cases; he faces three-quarter toward camera-left with a neutral expression, looking at the exhibits. The man turns his head and body to face away from the camera, continuing his walk down the hall. The camera slowly dollies left toward the end of the shot.\n- **shot_size**: `Medium Wide`\n- **camera_angle**: `Eye level`\n- **lens_size**: `Medium`\n- **camera_movement**: `Dolly left`\n\n## Done when\n\nBoth `/workspace/output/solution.mp4` and `/workspace/output/solution.json` exist.\n\n---\n\n## Workspace layout\n\n- The candidate clips have been pre-downloaded to `/workspace/materials/`\n  (named `1.mp4` through `N.mp4`). Read them from there.\n- Use `/workspace/work/` for any intermediate scratch files.\n- Use `/workspace/output/` only for the two final deliverables.\n- `ffmpeg` and `ffprobe` are available on `PATH`.\n",
+      "media": [
+        {
+          "kind": "image",
+          "src": "assets/previews/assembly-contact-sheet.jpg",
+          "label": "由官方 12 段输入视频各抽一帧制作的素材总览"
+        },
+        {
+          "kind": "video",
+          "src": "assets/vbench/assembly/10.mp4",
+          "label": "官方候选 10 · 示例片段"
+        },
+        {
+          "kind": "video",
+          "src": "assets/vbench/assembly/4.mp4",
+          "label": "官方候选 4 · 示例片段"
+        }
+      ],
+      "reference": "官方 oracle 参考顺序：10 → 4 → 6 → 8。",
+      "steps": [
+        "槽 1：人物背向镜头穿过湿街，朝亮着立柱的建筑行走。",
+        "槽 2：人物背向镜头穿过有埃及文物展柜的走廊。",
+        "槽 3：人物迎面行走，镜头缓慢推进。",
+        "槽 4：人物转身继续前行，镜头向左移动。"
+      ],
+      "scores": [],
+      "question_display": {
+        "mode": "summary",
+        "text": "从 12 段候选视频中选出 4 段，按四个分镜槽位组装。每槽给出画面描述、景别、拍摄角度、镜头焦段和镜头运动；应根据实际画面选择最符合这些要求的片段。\n\n按槽位顺序拼接，每个选中的片段完整使用一次。交付 solution.mp4 和 solution.json，记录每段的源文件、源时间范围与成片时间范围；manifest 必须与真实视频一致，片段之间连续无间隙。\n\n只使用给定素材，不查找原电影或相关字幕、元数据；文件操作限制在任务工作目录内。"
+      }
+    },
+    {
+      "id": "vbench-repurpose",
+      "benchmark": "vbench",
+      "title": "把 Piper 改编成 60 秒叙事短片",
+      "subtitle": "Repurpose · 叙事、剪辑与配音",
+      "task_id": "silent-piper",
+      "original": "You are a video editor. We're a YouTube channel called *The Animation Library*. We publish weekly retrospectives on landmark short films, and our audience is animation lovers, film students, and parents who love sitting down with their kids to watch one of these every Sunday morning. The film I'm sending you with this brief is Pixar's *Piper*. I'd like you to cut a 60-second narrative repurpose of it for the channel.\n\nWhat I'm looking for is the *feeling* of the film, condensed. *Piper* is wordless on purpose, so dropping our usual narrator on top of it is a creative call we should be careful with. Please bring in a fresh voice for this one and let one narrator carry the whole piece, beginning to end, so the repurposed cut reads as a single told story rather than a multi-host explainer. The voice should be warm, curious, a little hushed when the world gets big and frightening for the bird, and unhurried when she discovers what's actually under the water. Think of how a good picture-book reader sounds when she reaches a page she loves.\n\nThe arc to honor: a tiny creature gets knocked down by the thing she most needs, hides, comes back, learns a new way to meet it from an unlikely teacher, and ends the day at home in a place that earlier terrified her. Don't telegraph the turn. Let the viewer feel the fear before they feel the wonder. Open on something that pulls a cold viewer in immediately rather than a slow setup, and end on a brief title card with our channel name (a second or two, not a multi-second pad).\n\nDeliver an MP4 at 1920×1080, exactly sixty seconds, with stereo audio for YouTube upload. Send it back to me here and I'll get it into the schedule for next Sunday.\n\n— Maya, *The Animation Library*\n\n## Deliverables\n\n- The source video is at `/workspace/materials/source.mp4`.\n- Write your final repurposed cut to **`/workspace/output/repurpose.mp4`** (this exact path and filename).\n- The container has `ffmpeg`, `python3`, and a pre-cached Whisper \"base\" model. Internet is available for `pip install`.\n- You have ~30 minutes for the agent step. Aim for a watchable output rather than the perfect cut.\n",
+      "media": [
+        {
+          "kind": "video",
+          "src": "assets/vbench/silent_piper.mp4",
+          "label": "输入影片 · Piper"
+        }
+      ],
+      "steps": [
+        "用能吸引陌生观众的画面开场。",
+        "让恐惧先于奇观出现，保持关键转折与因果顺序。",
+        "由一个温暖、好奇的叙述声音讲完整个故事，输出符合规格的视频。"
+      ],
+      "scores": [],
+      "question_display": {
+        "mode": "summary",
+        "text": "为 YouTube 频道 The Animation Library，把动画 Piper 改编成恰好 60 秒的叙事短片。新增一位贯穿全片的旁白，声音温暖、好奇，并随小鸟的恐惧和发现调整节奏。\n\n保留“受挫—躲藏—再次尝试—从意外的老师那里学到方法—适应环境”的故事弧线；先让观众感到害怕，再呈现惊奇，不提前揭示转折。开场要迅速吸引观众，结尾放约 1–2 秒频道名卡。\n\n交付 1920×1080、立体声、恰好 60 秒的 MP4，保存为 /workspace/output/repurpose.mp4。输入为 source.mp4；可用 FFmpeg、Python 和 Whisper，任务时限约 30 分钟。"
+      }
+    },
+    {
+      "id": "omni-2",
+      "benchmark": "omni",
+      "title": "从抗议照片与音频推算时间差",
+      "subtitle": "图像 + 音频 · 历史",
+      "task_id": "2",
+      "original": "Calculate the number of months (rounded to the nearest whole number) between the large anti-cuts protest in London pictured and the official launch of the debt-relief campaign discussed in the audio.",
+      "media": [
+        {
+          "kind": "audio",
+          "src": "assets/omni/audios/1Qs9w1XlJKE.wav",
+          "label": "官方题目输入 · audio"
+        },
+        {
+          "kind": "image",
+          "src": "assets/omni/images/000000263381.jpg",
+          "label": "官方题目输入 · image"
+        }
+      ],
+      "reference": "20 个月（官方标注答案）",
+      "steps": [
+        "照片中的伦敦眼、NO CUTS 标语与 TUC 标识 → 识别 March for the Alternative。",
+        "音频 → 识别 Rolling Jubilee 债务减免行动。",
+        "分别检索日期 2011-03-26 与 2012-11-15，再换算为月数。"
+      ],
+      "scores": [],
+      "question_display": {
+        "mode": "translation",
+        "text": "计算图片所示的伦敦大型反削支抗议活动，与音频中讨论的债务减免运动正式启动日期之间，相隔多少个月。将结果四舍五入为最接近的整数。"
+      }
+    },
+    {
+      "id": "omni-7",
+      "benchmark": "omni",
+      "title": "听出背景法语歌，再查音乐史",
+      "subtitle": "带音轨视频 · 音乐",
+      "task_id": "7",
+      "original": "This video features a French song performed by its composer, Charles Trenet. Calculate the number of years between the disbanding of his early musical duo and the first release of his recording of this song.",
+      "media": [
+        {
+          "kind": "video",
+          "src": "assets/omni/videos/7321010343067618592.mp4",
+          "label": "官方题目输入 · video"
+        }
+      ],
+      "reference": "10 年（官方标注答案）",
+      "steps": [
+        "听歌识别 La Mer。",
+        "检索 Charles and Johnny 组合于 1936 年解散。",
+        "检索 Trenet 录音首发于 1946 年，计算 1946 − 1936 = 10。"
+      ],
+      "scores": [],
+      "question_display": {
+        "mode": "translation",
+        "text": "视频中有一首由作曲者 Charles Trenet 本人演唱的法语歌曲。请计算：从他早年音乐二人组合解散，到他本人演唱的这首歌的录音首次发行，相隔多少年。"
+      }
+    },
+    {
+      "id": "omni-9",
+      "benchmark": "omni",
+      "title": "旁白叫错名字时，相信哪条线索",
+      "subtitle": "带音轨视频 · 影视",
+      "task_id": "9",
+      "original": "Watch the provided video clip. In it, a character undergoes a transformation from a green tiger into a young man with green hair during a forest meeting. The narrator refers to this character with an incorrect name due to a localization error. Your task is to: 1) Identify the TV series this clip is from. 2) Visually identify the actual character who undergoes this transformation. 3) Identify the actor who portrays this character. 4) Calculate the number of days between this actor's birth date and the original U.S. air date of the episode in which this forest meeting occurs.",
+      "media": [
+        {
+          "kind": "video",
+          "src": "assets/omni/videos/7253793316922346754.mp4",
+          "label": "官方题目输入 · video"
+        }
+      ],
+      "reference": "8,452 天（官方标注答案）",
+      "steps": [
+        "视觉线索识别 Titans 与 Beast Boy / Gar Logan，纠正旁白里的错误姓名。",
+        "检索演员 Ryan Potter，出生日期为 1995-09-12。",
+        "检索 S1E4 Doom Patrol 首播日 2018-11-02，计算日期差。"
+      ],
+      "scores": [],
+      "question_display": {
+        "mode": "translation",
+        "text": "观看提供的视频片段。在一次森林会面中，一个角色由绿色老虎变成绿发青年。由于本地化错误，旁白把这个角色的名字叫错了。\n\n请完成：\n1. 识别片段出自哪部电视剧。\n2. 根据画面，识别真正发生变身的角色。\n3. 找出饰演该角色的演员。\n4. 计算从演员出生日期，到包含这次森林会面的那一集在美国首次播出的日期，相隔多少天。"
+      }
+    },
+    {
+      "id": "wild-2",
+      "benchmark": "wild",
+      "title": "从半场比赛中剪出指定球员全部进球",
+      "subtitle": "视频 → 精确片段 + cut sheet",
+      "task_id": "05_Creative_Synthesis_task_2_goal_highlights",
+      "original": "This is a full first-half video of a La Liga match between Real Betis and FC Barcelona, located at `/tmp_workspace/first_half.mp4`.\n\nBased on this video, compile a **goal highlights reel for Barcelona's #7 Ferran Torres from the first half**.\n\n### Requirements\n\n1. Total highlights duration must be **30 seconds or less**\n2. Must include **all** of Ferran Torres's goals from the first half\n3. Each goal clip should cover the complete sequence from the start of the attacking play to the ball hitting the net\n4. **Do not include post-goal celebrations**\n5. Goal clips can be directly concatenated — no transition effects needed\n6. Maintain original video quality; do not add text, watermarks, or visual effects\n\n### Output Requirements\n\n- Save the highlights video as `/tmp_workspace/results/highlights.mp4`\n- Format: MP4 (H.264 encoding)\n- Also save a cut sheet file at `/tmp_workspace/results/cut_sheet.json` documenting each goal clip, in the following format:\n\n```json\n[\n  {\n    \"goal_number\": 1,\n    \"source_start\": \"MM:SS\",\n    \"source_end\": \"MM:SS\",\n    \"description\": \"Brief description\"\n  }\n]\n```\n\nWhere `source_start` and `source_end` are positions in the source video file in \"MM:SS\" format (e.g., \"17:50\" to \"18:02\").\n\nIf you need image/video understanding or multimodal capabilities, you can call the OpenRouter API (base_url available via the `OPENROUTER_BASE_URL` environment variable, API key available via the `OPENROUTER_API_KEY` environment variable).",
+      "media": [
+        {
+          "kind": "video",
+          "src": "assets/wild/claude_fable5/05_Creative_Synthesis_task_2_goal_highlights/highlights.mp4",
+          "label": "官方运行产物 · Claude Fable 5 / OpenClaw"
+        }
+      ],
+      "steps": [
+        "读视频处理 skill，用 ffprobe 检查源视频，再用 ffmpeg 抽帧。",
+        "调用视觉模型读取比分牌并逐步缩小进球位置。",
+        "定位三次进球的起止点，拼接并输出 cut sheet。"
+      ],
+      "scores": [
+        {
+          "model": "Claude Fable 5",
+          "harness": "OpenClaw",
+          "score": 0.769,
+          "passed": null
+        },
+        {
+          "model": "Qwen3.8-Max",
+          "harness": "OpenClaw",
+          "score": 0.0,
+          "passed": null
+        }
+      ],
+      "question_display": {
+        "mode": "summary",
+        "text": "根据皇家贝蒂斯对巴塞罗那的上半场完整视频，剪出巴萨 7 号 Ferran Torres 的全部进球。\n\n总时长不超过 30 秒。每个片段必须覆盖从进攻开始到球入网的完整过程，排除进球后的庆祝。直接拼接即可；保留原画质，不加文字、水印、视觉特效或转场。\n\n交付 H.264 格式的 highlights.mp4，以及 cut_sheet.json。剪辑表逐球记录编号、在源视频中的开始/结束时间（MM:SS）和描述。输入位于 /tmp_workspace/first_half.mp4，输出放在 results/；需要时可调用配置好的 OpenRouter 多模态 API。"
+      }
+    },
+    {
+      "id": "wild-11",
+      "benchmark": "wild",
+      "title": "英语发布会 → 两分钟中文配音",
+      "subtitle": "视频 + 语音 → 转录、翻译与配音",
+      "task_id": "05_Creative_Synthesis_task_11_video_en_to_zh_dub",
+      "original": "工作目录 `/tmp_workspace/` 中有一段英语演讲视频 `/tmp_workspace/recording.mp4`。\n\n请将该视频前两分钟的英语内容翻译并配音为中文。将英文转录、中文翻译、配音视频分别输出为 `/tmp_workspace/results/transcript_en.txt`、`/tmp_workspace/results/transcript_zh.txt`、`/tmp_workspace/results/output.mp4 (仅两分钟)`。\n\n配音视频保持原始画面，仅替换音轨。\n\n如果需要图像理解或多模态生成能力，可以调用 OpenRouter API（base_url 通过环境变量 `OPENROUTER_BASE_URL` 获取，API Key 通过环境变量 `OPENROUTER_API_KEY` 获取）。",
+      "media": [
+        {
+          "kind": "video",
+          "src": "assets/wild/claude_fable5/05_Creative_Synthesis_task_11_video_en_to_zh_dub/output.mp4",
+          "label": "模型成品 · Claude Fable 5 / OpenClaw · 中文配音从 01:36 开始"
+        },
+        {
+          "kind": "video",
+          "src": "assets/wild/qwen3.8-max/05_Creative_Synthesis_task_11_video_en_to_zh_dub/output.mp4",
+          "label": "官方运行产物 · Qwen3.8-Max / OpenClaw"
+        }
+      ],
+      "reference": "两次公开运行的 audio_quality 都记为 0。评分代码在音频评审异常时也保留 0，归档分数本身不足以区分质量问题和评审失败；不可直接解释为“没有中文配音”。",
+      "steps": [
+        "用 ffmpeg 提取前 120 秒与音轨，调用音频模型做转录。",
+        "按段翻译，并用 edge-tts 合成中文语音、调整节奏。",
+        "对齐语音时间并与原画面合并，输出三个交付文件。"
+      ],
+      "scores": [
+        {
+          "model": "Claude Fable 5",
+          "harness": "OpenClaw",
+          "score": 0.5614,
+          "passed": null
+        },
+        {
+          "model": "Qwen3.8-Max",
+          "harness": "OpenClaw",
+          "score": 0.5586,
+          "passed": null
+        }
+      ],
+      "question_display": {
+        "mode": "original"
+      }
+    },
+    {
+      "id": "wild-6",
+      "benchmark": "wild",
+      "title": "12 件单品 → 4 套搭配与模特图",
+      "subtitle": "图片理解 → 结构化编排 + 图像生成",
+      "task_id": "05_Creative_Synthesis_task_6_clothing_outfit_to_model_image",
+      "original": "`/tmp_workspace/clothing_photos/` 目录中有 12 张服饰单品平铺图（`item_01.jpg` 至 `item_12.jpg`），包含上衣、下装和鞋子。\n\n请完成以下工作：\n\n1. 判断每件单品的类别与特征。\n2. 将 12 件单品分成 4 套完整穿搭，每套包含 1 件上衣、1 件下装、1 双鞋，不遗漏不重复。\n3. 将分类与搭配结果保存到 `/tmp_workspace/results/outfits.json`（每套含 `outfit_id`、`style`、`gender`（female/male）、`top`/`bottom`/`shoes` 各含 `original_file`、`category`、`description`（中文））。`category` 必须使用以下标准分类名称之一：`上衣`、`裤子`、`裙子`、`鞋子`。\n4. 为每套搭配生成全身模特展示图，保存为 `/tmp_workspace/results/model_outfit_1.png` 至 `/tmp_workspace/results/model_outfit_4.png`。\n\n如果需要图像理解或多模态生成能力，可以调用 OpenRouter API（base_url 通过环境变量 `OPENROUTER_BASE_URL` 获取，API Key 通过环境变量 `OPENROUTER_API_KEY` 获取）。",
+      "media": [
+        {
+          "kind": "image",
+          "src": "assets/wild/claude_fable5/05_Creative_Synthesis_task_6_clothing_outfit_to_model_image/model_outfit_1.png",
+          "label": "官方运行产物 · Fable 5 第 1 套"
+        },
+        {
+          "kind": "image",
+          "src": "assets/wild/claude_fable5/05_Creative_Synthesis_task_6_clothing_outfit_to_model_image/model_outfit_2.png",
+          "label": "官方运行产物 · Fable 5 第 2 套"
+        },
+        {
+          "kind": "image",
+          "src": "assets/wild/claude_fable5/05_Creative_Synthesis_task_6_clothing_outfit_to_model_image/model_outfit_3.png",
+          "label": "官方运行产物 · Fable 5 第 3 套"
+        },
+        {
+          "kind": "image",
+          "src": "assets/wild/claude_fable5/05_Creative_Synthesis_task_6_clothing_outfit_to_model_image/model_outfit_4.png",
+          "label": "官方运行产物 · Fable 5 第 4 套"
+        },
+        {
+          "kind": "image",
+          "src": "assets/wild/inputs/item_01.jpg",
+          "label": "官方输入单品示例 · item_01"
+        },
+        {
+          "kind": "image",
+          "src": "assets/wild/inputs/item_03.jpg",
+          "label": "官方输入单品示例 · item_03"
+        },
+        {
+          "kind": "image",
+          "src": "assets/wild/inputs/item_07.jpg",
+          "label": "官方输入单品示例 · item_07"
+        },
+        {
+          "kind": "image",
+          "src": "assets/wild/inputs/item_10.jpg",
+          "label": "官方输入单品示例 · item_10"
+        }
+      ],
+      "steps": [
+        "读取 12 张单品图，调用视觉模型分析类别和外观。",
+        "安排四套搭配，写出 outfits.json 并检查不重不漏。",
+        "以各套三件原图为参考调用图像生成模型，检查成图文件。"
+      ],
+      "scores": [
+        {
+          "model": "Claude Fable 5",
+          "harness": "OpenClaw",
+          "score": 0.907,
+          "passed": null
+        },
+        {
+          "model": "Qwen3.8-Max",
+          "harness": "OpenClaw",
+          "score": 0.987,
+          "passed": null
+        }
+      ],
+      "question_display": {
+        "mode": "original"
+      }
+    },
+    {
+      "id": "uni-12",
+      "benchmark": "uni",
+      "title": "散乱会议照片 → 可靠纪要与冲突清单",
+      "subtitle": "图像 · 跨图整合",
+      "task_id": "task_104_12_meeting_notes_synthesis",
+      "original": "`sources/meeting_notes_raw/` contains the raw materials from my most recent\nmeeting, mixed together with:\n- Photos of handwritten notes\n- Photos of whiteboards\n- Screenshots of slides or documents\n- Supplemental sticky notes photographed casually after the meeting\n\nPlease help me turn these messy materials into meeting notes that I can actually\nuse later.\n\nRequirements:\n1. First read through and understand the content in these images, and determine\n   which pieces of information correspond to each other and which are duplicate\n   records.\n2. Organize the meeting content into `/tmp_workspace/results/meeting_summary.md`,\n   including at least:\n   - What topics were discussed in the meeting\n   - Decisions that have already been made\n   - Issues that are still undecided\n   - Clear action items, owners, and timelines (if they can be determined from\n     the images)\n3. If records in different images contradict each other or anything is hard to\n   read, list those separately in `/tmp_workspace/results/meeting_uncertainties.md`\n   instead of pretending they are certain.\n4. Your organization must be clearly based on the actual content in the images,\n   not just a generic summary.\n",
+      "media": [
+        {
+          "kind": "image",
+          "src": "assets/uni/injection/104_multimodal/task_104_12_meeting_notes_synthesis/sources/meeting_notes_raw/note_handwritten_1.jpg",
+          "label": "官方输入 · note_handwritten_1.jpg"
+        },
+        {
+          "kind": "image",
+          "src": "assets/uni/injection/104_multimodal/task_104_12_meeting_notes_synthesis/sources/meeting_notes_raw/whiteboard_photo.jpg",
+          "label": "官方输入 · whiteboard_photo.jpg"
+        },
+        {
+          "kind": "image",
+          "src": "assets/uni/injection/104_multimodal/task_104_12_meeting_notes_synthesis/sources/meeting_notes_raw/doc_screenshot.png",
+          "label": "官方输入 · doc_screenshot.png"
+        },
+        {
+          "kind": "image",
+          "src": "assets/uni/injection/104_multimodal/task_104_12_meeting_notes_synthesis/sources/meeting_notes_raw/note_handwritten_2.jpg",
+          "label": "官方输入 · note_handwritten_2.jpg"
+        },
+        {
+          "kind": "image",
+          "src": "assets/uni/injection/104_multimodal/task_104_12_meeting_notes_synthesis/sources/meeting_notes_raw/sticky_photo.jpg",
+          "label": "官方输入 · sticky_photo.jpg"
+        },
+        {
+          "kind": "image",
+          "src": "assets/uni/injection/104_multimodal/task_104_12_meeting_notes_synthesis/sources/meeting_notes_raw/projector_slide.png",
+          "label": "官方输入 · projector_slide.png"
+        }
+      ],
+      "steps": [
+        "从 6 张图提取会议主题、决定与关键指标。",
+        "将责任人、行动、截止日期连起来，区分已决与待定。",
+        "单列冲突，例如 invite-step drop 的 37%/38%、CVR 目标 8.5%/9%。"
+      ],
+      "scores": [
+        {
+          "model": "claude-opus-4.8",
+          "harness": "openclaw",
+          "score": 0.96,
+          "passed": true
+        },
+        {
+          "model": "claude-sonnet-4.6",
+          "harness": "openclaw",
+          "score": 0.97,
+          "passed": true
+        },
+        {
+          "model": "gemini-3-flash-preview",
+          "harness": "openclaw",
+          "score": 0.8,
+          "passed": false
+        },
+        {
+          "model": "gemini-3.1-flash-lite-preview",
+          "harness": "openclaw",
+          "score": 0.8,
+          "passed": false
+        },
+        {
+          "model": "gemini-3.1-pro-preview",
+          "harness": "openclaw",
+          "score": 0.96,
+          "passed": true
+        },
+        {
+          "model": "gpt-4.1",
+          "harness": "openclaw",
+          "score": 0.97,
+          "passed": true
+        },
+        {
+          "model": "gpt-5.4",
+          "harness": "openclaw",
+          "score": 0.96,
+          "passed": true
+        },
+        {
+          "model": "gpt-5.4-mini",
+          "harness": "openclaw",
+          "score": 0.97,
+          "passed": true
+        },
+        {
+          "model": "kimi-k2.6",
+          "harness": "openclaw",
+          "score": 1.0,
+          "passed": true
+        },
+        {
+          "model": "qwen3.5-plus",
+          "harness": "openclaw",
+          "score": 0.97,
+          "passed": true
+        },
+        {
+          "model": "claude-opus-4.8",
+          "harness": "nanobot",
+          "score": 0.0,
+          "passed": false
+        },
+        {
+          "model": "gpt-5.4",
+          "harness": "nanobot",
+          "score": 0.3,
+          "passed": false
+        },
+        {
+          "model": "kimi-k2.6",
+          "harness": "nanobot",
+          "score": 1.0,
+          "passed": true
+        },
+        {
+          "model": "claude-opus-4.8",
+          "harness": "openclaw_edict",
+          "score": 0.98,
+          "passed": true
+        },
+        {
+          "model": "gpt-5.4",
+          "harness": "openclaw_edict",
+          "score": 0.45,
+          "passed": false
+        },
+        {
+          "model": "kimi-k2.6",
+          "harness": "openclaw_edict",
+          "score": 1.0,
+          "passed": true
+        }
+      ],
+      "question_display": {
+        "mode": "summary",
+        "text": "把 sources/meeting_notes_raw/ 中混杂的手写笔记、白板照片、幻灯片/文档截图和会后便签，整理成真正可用的会议纪要。\n\n先读懂各图，判断信息之间的对应关系并去重。将讨论主题、已作出的决定、未决问题，以及能从图中确定的行动项、责任人和时间安排，写入 meeting_summary.md。\n\n跨图矛盾或难以辨认的信息单独写入 meeting_uncertainties.md，不得假装确定。内容必须依据图片本身，不能套用通用总结；两个文件均保存到 /tmp_workspace/results/。"
+      }
+    },
+    {
+      "id": "uni-31",
+      "benchmark": "uni",
+      "title": "匿名歌曲 → 逐句对齐 LRC",
+      "subtitle": "音频 · 听辨 + 时间对齐",
+      "task_id": "task_104_31_bye_bye_love_lrc",
+      "original": "Please open the audio file:\n/tmp_workspace/clawbench/sources/song.mp3\n\nThis is an anonymous song. Do not try to infer the song title, singer, version, or existing lyrics\nfrom the filename, metadata, internet information, or memory; the final lyrics and timestamps\nmust be based only on this audio.\n\nYou must actually play and listen to this audio and transcribe it yourself. Do not download lyrics,\nexisting LRC/SRT files, lyric-site text, or rely on memory; the final lyrics and timestamps\nmust be based on this audio.\n\nPlease generate a timestamped lyrics file based on this audio and save it as:\n/tmp_workspace/results/song_generated.lrc\n\nRequirements:\n1. Use standard LRC format, with each line like [mm:ss.xx]lyrics\n2. Align each audible natural sentence or phrase line by line; do not compress the whole song into only a few lines\n3. After completing the first draft, listen to the audio again and check whether the timestamps and lyrics\n   have any obvious deviations\n4. If you find anything unsuitable, directly modify the LRC file instead of outputting a separate new version\n5. Finally, also save a brief note at /tmp_workspace/results/song_notes.md explaining which time ranges\n   you reviewed carefully\n\nIf `/tmp_workspace/results/` does not exist, create it first.\n",
+      "media": [
+        {
+          "kind": "audio",
+          "src": "assets/uni/injection/104_multimodal/task_104_31_bye_bye_love_lrc/sources/song.mp3",
+          "label": "官方输入 · 匿名 song.mp3，148.464 秒"
+        }
+      ],
+      "steps": [
+        "听本地音频，按可听见的自然句或短语转录。",
+        "为每句写 [mm:ss.xx] 时间戳，覆盖整段约 148.464 秒。",
+        "复听检查偏差，直接修订 LRC 并记录复查范围。"
+      ],
+      "scores": [
+        {
+          "model": "claude-opus-4.8",
+          "harness": "openclaw",
+          "score": 0.0,
+          "passed": false
+        },
+        {
+          "model": "claude-sonnet-4.6",
+          "harness": "openclaw",
+          "score": 0.56,
+          "passed": false
+        },
+        {
+          "model": "gemini-3-flash-preview",
+          "harness": "openclaw",
+          "score": 0.45,
+          "passed": false
+        },
+        {
+          "model": "gemini-3.1-flash-lite-preview",
+          "harness": "openclaw",
+          "score": 0.13,
+          "passed": false
+        },
+        {
+          "model": "gemini-3.1-pro-preview",
+          "harness": "openclaw",
+          "score": 0.75,
+          "passed": false
+        },
+        {
+          "model": "gpt-4.1",
+          "harness": "openclaw",
+          "score": 0.15,
+          "passed": false
+        },
+        {
+          "model": "gpt-5.4",
+          "harness": "openclaw",
+          "score": 0.15,
+          "passed": false
+        },
+        {
+          "model": "gpt-5.4-mini",
+          "harness": "openclaw",
+          "score": 0.12,
+          "passed": false
+        },
+        {
+          "model": "kimi-k2.6",
+          "harness": "openclaw",
+          "score": 0.5,
+          "passed": false
+        },
+        {
+          "model": "qwen3.5-plus",
+          "harness": "openclaw",
+          "score": 0.72,
+          "passed": false
+        },
+        {
+          "model": "claude-opus-4.8",
+          "harness": "nanobot",
+          "score": 0.3,
+          "passed": false
+        },
+        {
+          "model": "gpt-5.4",
+          "harness": "nanobot",
+          "score": 0.3,
+          "passed": false
+        },
+        {
+          "model": "kimi-k2.6",
+          "harness": "nanobot",
+          "score": 0.0,
+          "passed": false
+        },
+        {
+          "model": "claude-opus-4.8",
+          "harness": "openclaw_edict",
+          "score": 0.84,
+          "passed": false
+        },
+        {
+          "model": "gpt-5.4",
+          "harness": "openclaw_edict",
+          "score": 0.24,
+          "passed": false
+        },
+        {
+          "model": "kimi-k2.6",
+          "harness": "openclaw_edict",
+          "score": 0.1,
+          "passed": false
+        }
+      ],
+      "question_display": {
+        "mode": "summary",
+        "text": "实际播放并聆听本地匿名歌曲 song.mp3，自行转录歌词并生成逐句时间戳。不得根据文件名、元数据、歌名/歌手识别、网络歌词、已有字幕或记忆补全内容；歌词和时间必须只依据这段音频。\n\n生成标准 LRC，每行采用 [mm:ss.xx]歌词，并按可听见的自然句或短语逐行对齐，不能把整首歌压成几行。\n\n初稿完成后复听，检查歌词和时间偏差，直接修正原文件。将 song_generated.lrc 与说明重点复查时间段的 song_notes.md 保存到 /tmp_workspace/results/；目录不存在则先创建。"
+      }
+    },
+    {
+      "id": "uni-36",
+      "benchmark": "uni",
+      "title": "8 分钟电影对白 → 完整 SRT",
+      "subtitle": "视频 + 音频 · 密集对话转录",
+      "task_id": "task_104_36_his_girl_friday_dialogue_subtitles",
+      "original": "Please open the video file:\n/tmp_workspace/clawbench/sources/clip.mp4\n\nYou must actually play, watch, and listen to the local video clip, then\ntranscribe it yourself. Do not download existing subtitles, scripts, movie\ndialogue transcripts, or rely on movie knowledge; the final subtitles and\ntimeline must be based on this local video.\n\nPlease generate a subtitle file for this movie dialogue clip and save it as:\n/tmp_workspace/results/clip.srt\n\nRequirements:\n1. Use standard SRT format\n2. Split subtitles according to the actual speech; do not compress the whole\n   passage into one very long subtitle block\n3. After completing the first draft, watch the video again from the beginning\n   and check whether the subtitles in the first 60 seconds have any timing\n   misalignment\n4. If you find problems, modify the SRT file directly\n5. Finally, save /tmp_workspace/results/clip_notes.md describing which\n   sections you focused on reviewing\n\nIf `/tmp_workspace/results/` does not exist, create it first.\n",
+      "media": [
+        {
+          "kind": "video",
+          "src": "assets/uni/injection/104_multimodal/task_104_36_his_girl_friday_dialogue_subtitles/sources/clip.mp4",
+          "label": "官方输入 · His Girl Friday，约 8 分钟"
+        }
+      ],
+      "steps": [
+        "逐句处理约 480 秒的本地片段。",
+        "生成语义与时间边界合理的标准 SRT。",
+        "复核前 60 秒并修正，留下具体复查说明。"
+      ],
+      "scores": [
+        {
+          "model": "claude-opus-4.8",
+          "harness": "openclaw",
+          "score": 0.7,
+          "passed": false
+        },
+        {
+          "model": "claude-sonnet-4.6",
+          "harness": "openclaw",
+          "score": 0.45,
+          "passed": false
+        },
+        {
+          "model": "gemini-3-flash-preview",
+          "harness": "openclaw",
+          "score": 0.35,
+          "passed": false
+        },
+        {
+          "model": "gemini-3.1-flash-lite-preview",
+          "harness": "openclaw",
+          "score": 0.4,
+          "passed": false
+        },
+        {
+          "model": "gemini-3.1-pro-preview",
+          "harness": "openclaw",
+          "score": 0.45,
+          "passed": false
+        },
+        {
+          "model": "gpt-4.1",
+          "harness": "openclaw",
+          "score": 0.2,
+          "passed": false
+        },
+        {
+          "model": "gpt-5.4",
+          "harness": "openclaw",
+          "score": 0.3,
+          "passed": false
+        },
+        {
+          "model": "gpt-5.4-mini",
+          "harness": "openclaw",
+          "score": 0.19,
+          "passed": false
+        },
+        {
+          "model": "kimi-k2.6",
+          "harness": "openclaw",
+          "score": 0.7,
+          "passed": false
+        },
+        {
+          "model": "qwen3.5-plus",
+          "harness": "openclaw",
+          "score": 0.5,
+          "passed": false
+        },
+        {
+          "model": "claude-opus-4.8",
+          "harness": "nanobot",
+          "score": 0.2,
+          "passed": false
+        },
+        {
+          "model": "gpt-5.4",
+          "harness": "nanobot",
+          "score": 0.2,
+          "passed": false
+        },
+        {
+          "model": "kimi-k2.6",
+          "harness": "nanobot",
+          "score": 0.0,
+          "passed": false
+        },
+        {
+          "model": "claude-opus-4.8",
+          "harness": "openclaw_edict",
+          "score": 0.7,
+          "passed": false
+        },
+        {
+          "model": "gpt-5.4",
+          "harness": "openclaw_edict",
+          "score": 0.35,
+          "passed": false
+        },
+        {
+          "model": "kimi-k2.6",
+          "harness": "openclaw_edict",
+          "score": 0.45,
+          "passed": false
+        }
+      ],
+      "question_display": {
+        "mode": "summary",
+        "text": "实际播放、观看并聆听本地 clip.mp4，自行转录整段电影对白，生成标准 SRT。不得下载已有字幕、剧本、对白文本或依赖电影知识；字幕和时间轴必须依据这个本地片段。\n\n按真实语句拆分字幕，不得把整段压成一个长字幕块。初稿完成后从头复看，重点检查前 60 秒的时间同步问题，并直接修正 SRT。\n\n将 clip.srt 和说明重点复查片段的 clip_notes.md 保存到 /tmp_workspace/results/；目录不存在则先创建。"
+      }
+    }
+  ]
+}</script>
+<script>
+const D=JSON.parse(document.getElementById('dataset').textContent),probes={
+  "assets/vbench/silent_piper.mp4": {
+    "duration_seconds": 200.55,
+    "has_audio": true,
+    "bytes": 13904434,
+    "poster": "assets/previews/assets_vbench_silent_piper.jpg"
+  },
+  "assets/vbench/assembly/7.mp4": {
+    "duration_seconds": 4.54,
+    "has_audio": true,
+    "bytes": 985952,
+    "poster": "assets/previews/assets_vbench_assembly_7.jpg"
+  },
+  "assets/vbench/assembly/6.mp4": {
+    "duration_seconds": 5.3,
+    "has_audio": true,
+    "bytes": 804539,
+    "poster": "assets/previews/assets_vbench_assembly_6.jpg"
+  },
+  "assets/vbench/assembly/4.mp4": {
+    "duration_seconds": 5.17,
+    "has_audio": true,
+    "bytes": 843161,
+    "poster": "assets/previews/assets_vbench_assembly_4.jpg"
+  },
+  "assets/vbench/assembly/5.mp4": {
+    "duration_seconds": 5.29,
+    "has_audio": true,
+    "bytes": 1492499,
+    "poster": "assets/previews/assets_vbench_assembly_5.jpg"
+  },
+  "assets/vbench/assembly/1.mp4": {
+    "duration_seconds": 5.29,
+    "has_audio": true,
+    "bytes": 1401809,
+    "poster": "assets/previews/assets_vbench_assembly_1.jpg"
+  },
+  "assets/vbench/assembly/2.mp4": {
+    "duration_seconds": 5.06,
+    "has_audio": true,
+    "bytes": 1043855,
+    "poster": "assets/previews/assets_vbench_assembly_2.jpg"
+  },
+  "assets/vbench/assembly/3.mp4": {
+    "duration_seconds": 6.03,
+    "has_audio": true,
+    "bytes": 1547611,
+    "poster": "assets/previews/assets_vbench_assembly_3.jpg"
+  },
+  "assets/vbench/assembly/11.mp4": {
+    "duration_seconds": 6.75,
+    "has_audio": true,
+    "bytes": 2655414,
+    "poster": "assets/previews/assets_vbench_assembly_11.jpg"
+  },
+  "assets/vbench/assembly/10.mp4": {
+    "duration_seconds": 4.57,
+    "has_audio": true,
+    "bytes": 766909,
+    "poster": "assets/previews/assets_vbench_assembly_10.jpg"
+  },
+  "assets/vbench/assembly/12.mp4": {
+    "duration_seconds": 4.02,
+    "has_audio": true,
+    "bytes": 749806,
+    "poster": "assets/previews/assets_vbench_assembly_12.jpg"
+  },
+  "assets/vbench/assembly/8.mp4": {
+    "duration_seconds": 6.77,
+    "has_audio": true,
+    "bytes": 1146753,
+    "poster": "assets/previews/assets_vbench_assembly_8.jpg"
+  },
+  "assets/vbench/assembly/9.mp4": {
+    "duration_seconds": 5.17,
+    "has_audio": true,
+    "bytes": 1013530,
+    "poster": "assets/previews/assets_vbench_assembly_9.jpg"
+  },
+  "assets/ale/previews/storyboard_input.mp4": {
+    "duration_seconds": 676.22,
+    "has_audio": true,
+    "bytes": 29862043,
+    "poster": "assets/previews/assets_ale_previews_storyboard_input.jpg"
+  },
+  "assets/ale/inputs/chroma_key_from_reference/crane_flyingsky/input/input.mp4": {
+    "duration_seconds": 10.04,
+    "has_audio": false,
+    "bytes": 2270910,
+    "poster": "assets/previews/assets_ale_inputs_chroma_key_from_reference_crane_flyingsky_input_input.jpg"
+  },
+  "assets/wild/claude_fable5/05_Creative_Synthesis_task_11_video_en_to_zh_dub/output.mp4": {
+    "duration_seconds": 120.05,
+    "has_audio": true,
+    "bytes": 10673261,
+    "poster": "assets/previews/assets_wild_claude_fable5_05_Creative_Synthesis_task_11_video_en_to_zh_dub_output.jpg"
+  },
+  "assets/wild/claude_fable5/05_Creative_Synthesis_task_2_goal_highlights/highlights.mp4": {
+    "duration_seconds": 29.98,
+    "has_audio": true,
+    "bytes": 27569649,
+    "poster": "assets/previews/assets_wild_claude_fable5_05_Creative_Synthesis_task_2_goal_highlights_highlights.jpg"
+  },
+  "assets/wild/qwen3.8-max/05_Creative_Synthesis_task_11_video_en_to_zh_dub/output.mp4": {
+    "duration_seconds": 120.02,
+    "has_audio": true,
+    "bytes": 65181660,
+    "poster": "assets/previews/assets_wild_qwen3.8-max_05_Creative_Synthesis_task_11_video_en_to_zh_dub_output.jpg"
+  },
+  "assets/uni/injection/104_multimodal/task_104_36_his_girl_friday_dialogue_subtitles/sources/clip.mp4": {
+    "duration_seconds": 480.01,
+    "has_audio": true,
+    "bytes": 48757443,
+    "poster": "assets/previews/assets_uni_injection_104_multimodal_task_104_36_his_girl_friday_dialogue_subtitles_sources_clip.jpg"
+  },
+  "assets/omni/videos/7253793316922346754.mp4": {
+    "duration_seconds": 55.43,
+    "has_audio": true,
+    "bytes": 4212636,
+    "poster": "assets/previews/assets_omni_videos_7253793316922346754.jpg"
+  },
+  "assets/omni/videos/7321010343067618592.mp4": {
+    "duration_seconds": 60.63,
+    "has_audio": true,
+    "bytes": 3691816,
+    "poster": "assets/previews/assets_omni_videos_7321010343067618592.jpg"
+  },
+  "assets/mmtb/multicam-active-speaker-cut/cam1.mp4": {
+    "duration_seconds": 30.0,
+    "has_audio": true,
+    "bytes": 1564958,
+    "poster": "assets/mmtb/previews/multicam-active-speaker-cut_cam1.jpg"
+  },
+  "assets/mmtb/multicam-active-speaker-cut/cam3.mp4": {
+    "duration_seconds": 30.0,
+    "has_audio": true,
+    "bytes": 1439591,
+    "poster": "assets/mmtb/previews/multicam-active-speaker-cut_cam3.jpg"
+  },
+  "assets/mmtb/multicam-active-speaker-cut/cam2.mp4": {
+    "duration_seconds": 30.0,
+    "has_audio": true,
+    "bytes": 1041160,
+    "poster": "assets/mmtb/previews/multicam-active-speaker-cut_cam2.jpg"
+  },
+  "assets/mmtb/accessibility-sync-audit/recording.mp4": {
+    "duration_seconds": 46.52,
+    "has_audio": true,
+    "bytes": 1879206,
+    "poster": "assets/mmtb/previews/accessibility-sync-audit_recording.jpg"
+  }
+};const E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const primary=c=>{if(c.overview_image)return c.overview_image;const m=c.media.find(x=>x.kind==='image')||c.media.find(x=>x.kind==='video');if(m)return m.kind==='image'?m.src:probes[m.src]?.poster;return c.id==='vbench-repair'?'assets/previews/repair-wave.png':'assets/previews/song-wave.png'};
+function links(ls){return ls.map(l=>`<a href="${E(l.url)}" target="_blank" rel="noopener">${E(l.label)} ↗</a>`).join('')}
+function show(id){
+ document.querySelectorAll('audio,video').forEach(m=>m.pause());
+ const c=D.cases.find(x=>x.id===id);
+ document.getElementById('nav').innerHTML=`<button data-id="overview" class="${!c?'active':''}">全部案例</button>`+D.benchmarks.map(b=>`<div class="group">${E(b.name)}</div>`+D.cases.filter(x=>x.benchmark===b.id).map((x,i)=>`<button data-id="${x.id}" class="${c?.id===x.id?'active':''}"><span class="num">0${i+1}</span>${E(x.title)}</button>`).join('')).join('');
+ document.querySelectorAll('[data-id]').forEach(b=>b.onclick=()=>location.hash=b.dataset.id);
+ const main=document.getElementById('main');main.innerHTML=c?caseView(c):overview();
+ main.querySelectorAll('[data-case]').forEach(b=>b.onclick=()=>location.hash=b.dataset.case);
+ main.querySelectorAll('[data-seek]').forEach(b=>b.onclick=()=>{const m=main.querySelector(`#${b.dataset.target}`);m.currentTime=Number(b.dataset.seek);m.play()});
+ main.querySelectorAll('figure img').forEach(i=>i.onclick=()=>window.open(i.src,'_blank'));
+ document.title=c?c.title+' · '+D.benchmarks.find(b=>b.id===c.benchmark).name:'多模态案例';window.scrollTo(0,0);
+}
+
+function overview(){return D.benchmarks.map(b=>`<div class="sectionhead"><h2>${E(b.name)}</h2></div><div class="overview-grid">${D.cases.filter(c=>c.benchmark===b.id).map(c=>`<button class="tile" data-case="${c.id}"><img src="${E(primary(c))}" alt="${E(c.title)}"><div class="copy"><small>${E(c.subtitle)}</small><h3>${E(c.title)}</h3></div></button>`).join('')}</div>`).join('')}
+
+function renderMedia(m,i,c){let body='',poster=m.poster||probes[m.src]?.poster;if(m.kind==='video')body=`<video id="media-${i}" controls preload="metadata" playsinline ${poster?`poster="${E(poster)}"`:''} src="${E(m.src)}"></video>`;else if(m.kind==='audio'){let wave=m.waveform||(c.id==='vbench-repair'?(m.src.includes('noisy.wav')?'assets/previews/repair-wave.png':null):c.id==='uni-31'?'assets/previews/song-wave.png':null);body=(wave?`<img class="wave" src="${wave}" alt="原始输入音频的波形预览">`:'')+`<audio id="media-${i}" controls preload="metadata" src="${E(m.src)}"></audio>`;}else body=`<img loading="lazy" src="${E(m.src)}" alt="${E(m.label)}">`;let seek=m.seek??(c.id==='wild-11'&&m.kind==='video'?96:c.id==='vbench-repair'&&m.kind==='audio'?12.5:null),seekLabel=m.seek_label||(c.id==='wild-11'?'跳到 01:36 配音段':'听 12.5 秒起片段');return `<figure>${body}<figcaption>${E(m.label)}${probes[m.src]?` · ${(probes[m.src].duration_seconds/60).toFixed(2)} 分钟`:''}</figcaption><div class="media-actions"><a href="${E(m.src)}" target="_blank">打开原文件 ↗</a>${seek!==null?`<button class="smallbtn" data-target="media-${i}" data-seek="${seek}">${E(seekLabel)}</button>`:''}${(m.attachments||[]).map(a=>`<a href="${E(a.src)}" target="_blank">${E(a.label)} ↗</a>`).join('')}</div></figure>`}
+function aleInputs(c){if(!c.run)return '';return `<div class="tablewrap"><table><thead><tr><th>原始输入</th><th>内容</th></tr></thead><tbody>${c.input_files.map(f=>`<tr><td><a href="${E(f.src)}" target="_blank">${E(f.label)}</a></td><td>${E(f.description)}</td></tr>`).join('')}</tbody></table></div><details><summary>输入 brief / 配置原文</summary><pre>${E(c.input_text)}</pre></details>`}
+
+function dataTable(t){if(!t)return '';return `<h3 class="reference-title">${E(t.title)}</h3><div class="tablewrap reference-table"><table><thead><tr>${t.columns.map(x=>`<th>${E(x)}</th>`).join('')}</tr></thead><tbody>${t.rows.map(row=>`<tr>${row.map(x=>`<td>${E(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`}
+function aleEvidence(c){if(!c.run&&!c.local_run)return '';const media=c.evidence_media||[];return `<h2>执行过程${c.local_run?' · 本地实测':''}</h2>${c.local_run?`<p class="note">gpt-5.6-sol / Codex 0.146.0 · 整体不限时，依赖自行安装。${c.id==='mmtb-multicam'?'第一题含网络中断前与恢复后两段。':''}</p>`:''}<div class="tablewrap"><table class="execution-table"><thead><tr><th>阶段</th><th>实际操作 / 结果</th><th>原始证据</th></tr></thead><tbody>${c.timeline.map(t=>`<tr><td>${E(t.stage)}</td><td>${E(t.detail)}</td><td><a href="${E(t.url)}" target="_blank">${E(t.evidence_label||`step ${t.start}–${t.end}`)} ↗</a></td></tr>`).join('')}</tbody></table></div>${c.execution_links?`<div class="refs">${links(c.execution_links)}</div>`:''}<h2>中间结果与交付</h2>${c.artifact_notice?`<p class="note">${E(c.artifact_notice)}</p>`:''}${media.length?`<div class="media-grid ${media.length===1?'single':''} ${media.length>2?'many':''}">${media.map((m,i)=>renderMedia(m,i+50,c)).join('')}</div>`:''}${c.deliverables?`<div class="refs">${c.deliverables.map(d=>`<a href="${E(d.url)}" target="_blank" rel="noopener">模型交付 · ${E(d.label)} ↗</a>`).join('')}</div>`:''}${dataTable(c.output_table)}${c.all_output_pages?`<details><summary>查看全部 8 页官方 PDF 产物预览</summary><div class="refs">${c.all_output_pages.map((p,i)=>`<a href="${p}" target="_blank">第 ${i+1} 页 ↗</a>`).join('')}</div></details>`:''}<div class="contentcols"><div class="block"><h3>执行结果</h3><ul class="steps">${c.confirmed.map(x=>`<li>${E(x)}</li>`).join('')}</ul></div><div class="block"><h3>结果分析</h3><ul class="steps">${c.limits.map(x=>`<li>${E(x)}</li>`).join('')}</ul></div></div>${c.local_evaluation?`<h3 class="reference-title">本题怎样计分与判定通过</h3><p class="note">${E(c.local_evaluation)}</p>`:''}`}
+
+function scoreTable(c){if(!c.scores.length)return '';const provenance=c.scores.some(s=>s.source_label),pass=['uni','mmtb'].includes(c.benchmark);return `<h2>模型表现</h2><div class="tablewrap"><table><thead><tr><th>模型</th><th>Harness</th><th>得分</th>${pass?'<th>是否通过</th>':''}${provenance?'<th>记录来源</th>':''}</tr></thead><tbody>${c.scores.map(s=>`<tr><td>${E(s.model)}</td><td>${E(s.harness)}</td><td class="numeric">${s.score.toFixed(['wild','ale','mmtb'].includes(c.benchmark)?4:2)}</td>${pass?`<td><span class="${s.passed?'pass':'fail'}">${s.passed?'通过':'未通过'}</span></td>`:''}${provenance?`<td>${E(s.source_label||'官方公开记录')}</td>`:''}</tr>`).join('')}</tbody></table></div>${c.score_note?`<p class="note">${E(c.score_note)}</p>`:''}${c.id==='wild-11'?`<p class="note">${E(c.reference)}</p>`:''}`}
+function textBlocks(text){return String(text||'').trim().split(/\n\s*\n/).map(p=>`<p>${E(p).replace(/`([^`]+)`/g,'<code>$1</code>').replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>')}</p>`).join('')}
+function referenceTable(c){const t=c.reference_table;if(!t)return '';return `<h3 class="reference-title">${E(t.title)}</h3><div class="tablewrap reference-table"><table><thead><tr>${t.columns.map(x=>`<th>${E(x)}</th>`).join('')}</tr></thead><tbody>${t.rows.map(row=>`<tr>${row.map(x=>`<td>${E(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`}
+function questionSolution(c){
+ const q=c.question_display;const native=q.mode==='original';const short=q.mode==='translation';
+ const leftTitle=native?'题目':short?'题目（中文翻译）':'题目（中文摘要）';
+ const headings={'omni':'官方 annotated_solution（中文摘要）','wild':'Fable 5 执行摘要','uni':'任务流程摘要','ale':'被测模型执行摘要','mmtb':'官方参考答案（中文摘要）'};
+ const rightTitle=headings[c.benchmark]||({'vbench-repair':'处理流程与参考信息','vbench-assembly':'官方分镜与参考顺序','vbench-repurpose':'制作流程摘要'}[c.id]);
+ const answer=['omni-2','omni-7','omni-9','vbench-repair','vbench-assembly'].includes(c.id)?`<div class="reference-answer">${E(c.reference)}</div>`:'';
+ return `<div class="question-solution"><section class="question-copy"><h3>${leftTitle}</h3>${textBlocks(native?c.original:q.text)}${native?'':`<details class="original-question" ${short?'open':''}><summary>题目原文</summary>${short?`<div class="original-short">${textBlocks(c.original)}</div>`:`<pre>${E(c.original)}</pre>`}</details>`}</section><section><h3>${E(rightTitle)}</h3><ol class="steps">${c.steps.map(s=>`<li>${E(s)}</li>`).join('')}</ol>${answer}${referenceTable(c)}</section></div>`;
+}
+
+function caseView(c){const b=D.benchmarks.find(x=>x.id===c.benchmark),index=D.cases.indexOf(c);return `<div class="intro"><div class="eyebrow">${E(b.name)} / CASE ${String(index+1).padStart(2,'0')}</div><h1>${E(c.title)}</h1><div class="caseid">Task ID · ${E(c.task_id)}</div><div class="tags"><span class="tag">${E(c.subtitle)}</span></div></div><h2>${c.benchmark==='ale'?'原始输入':'案例素材'}</h2><div class="media-grid ${c.media.length===1||c.media_layout==='stack'?'single':''} ${c.media.length>3?'many':''}">${c.media.map((m,i)=>renderMedia(m,i,c)).join('')}</div>${questionSolution(c)}${aleInputs(c)}${aleEvidence(c)}${scoreTable(c)}<div class="navbottom"><button data-case="${D.cases[Math.max(0,index-1)].id}">← 上一个 case</button><button data-case="${D.cases[Math.min(D.cases.length-1,index+1)].id}">下一个 case →</button></div>`}
+
+window.addEventListener('hashchange',()=>show(location.hash.slice(1)));show(location.hash.slice(1));
+</script></body></html>
