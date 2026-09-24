@@ -1,0 +1,60 @@
+{
+  "checked_on": "2026-09-24",
+  "scope": "Official best retained run as displayed; scores shown to four decimal places. Summaries transcribed from visible official pages, not reconstructed full trace JSON.",
+  "runs": {
+    "aerobics": {
+      "task": "aerobics_wc2026_portugal_trio_difficulty_scoring",
+      "model": "gemini-3.1-pro-preview",
+      "harness": "Gemini CLI",
+      "score": 1.0,
+      "trace_available": false,
+      "source": "https://agents-last-exam.org/traces",
+      "observed": "The archived run scored 1.0000; the workbook matched all eight ordered FIG-code and credited-value pairs. The log reports 26 successful tool calls, but commands, observations and screenshots were not preserved."
+    },
+    "wbc": {
+      "task": "humanoid_wbc_policy_evaluation",
+      "model": "glm-5.1",
+      "harness": "OpenClaw",
+      "score": 0.8375,
+      "trace_available": true,
+      "source": "https://agents-last-exam.org/traces",
+      "observed": "Agent report lists all eight cases, eight 200-frame 1280x720 MP4 demos, and a schema-valid JSON; classifications: failed, failed, failed, failed, successful, failed, successful, nearly_successful. Original final binaries not retrieved. GUI/image-only filter contains no events."
+    },
+    "human-mesh": {
+      "task": "human_mesh_animation_reproduction",
+      "model": "gpt-5.5",
+      "harness": "Codex",
+      "score": 0.4391,
+      "trace_available": true,
+      "source": "https://agents-last-exam.org/traces",
+      "observed": "Saved final.blend and exactly 60 OBJ frames. Agent reports 30 fps and 16834 vertices / 15583 faces per frame. Viewer provides 24 agent-saved images; export_faces.png, export_faces_final.png and export_contact.png previews saved locally."
+    },
+    "skeletal": {
+      "task": "skeletal_animation_reproduction",
+      "model": "gpt-5.5",
+      "harness": "Codex",
+      "score": 0.4506,
+      "trace_available": true,
+      "source": "https://agents-last-exam.org/traces",
+      "observed": "Saved final.blend and preview.mp4; agent reports 512x500, 30fps, 13.63s preview and an armature with all 19 named bones. Viewer provides 24 agent-saved images; submission_stills_sheet.png and raw_import.png previews saved locally."
+    },
+    "butterfly": {
+      "task": "butterfly_flap_animation",
+      "model": "opus-4.7",
+      "harness": "Claude Code",
+      "score": 1.0,
+      "trace_available": true,
+      "source": "https://agents-last-exam.org/traces",
+      "observed": "Official PASS 1.0000. Final reply states AE rendered an AVI which was transcoded into output.mp4; a later exit code 1 came from terminating AE after successful render. Saved official step164 image of frame_05.png."
+    },
+    "cubase": {
+      "task": "project_migration",
+      "model": "gpt-5.5",
+      "harness": "Codex",
+      "score": 0.0,
+      "trace_available": true,
+      "source": "https://agents-last-exam.org/traces",
+      "observed": "Saved partial migrated_project.cpr and overview.png; replaced many missing Kontakt orchestral tracks with HALion Sonic/HSO presets; stems folder is empty, remaining choir/harp/piano and routing unfinished. Official chapters cover inventory 1-146, strings 147-607, winds/brass 608-1304, percussion 1305-1528, remaining routing 1529-1591, partial save 1592-1666. Saved official step1644 overview screenshot."
+    }
+  }
+}

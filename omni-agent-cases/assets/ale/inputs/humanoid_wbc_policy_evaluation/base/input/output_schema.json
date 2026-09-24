@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Humanoid whole-body-control policy evaluation report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "task_id",
+    "evaluations",
+    "summary"
+  ],
+  "properties": {
+    "task_id": {
+      "const": "humanoid_wbc_policy_evaluation"
+    },
+    "evaluations": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "case_id",
+          "motion",
+          "mjlab_task",
+          "motion_file",
+          "checkpoint_file",
+          "verdict",
+          "confidence",
+          "evidence"
+        ],
+        "properties": {
+          "case_id": {
+            "type": "string"
+          },
+          "motion": {
+            "type": "string"
+          },
+          "mjlab_task": {
+            "type": "string"
+          },
+          "motion_file": {
+            "type": "string"
+          },
+          "checkpoint_file": {
+            "type": "string"
+          },
+          "verdict": {
+            "enum": [
+              "successful",
+              "nearly_successful",
+              "failed"
+            ]
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "evidence": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "observation",
+              "visual_demo_path"
+            ],
+            "properties": {
+              "observation": {
+                "type": "string",
+                "minLength": 20
+              },
+              "visual_demo_path": {
+                "type": "string",
+                "pattern": "^visual_demos/[A-Za-z0-9_\\-]+\\.(mp4|webm)$"
+              },
+              "notes": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "successful",
+        "nearly_successful",
+        "failed",
+        "overall_notes"
+      ],
+      "properties": {
+        "successful": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "nearly_successful": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "failed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "overall_notes": {
+          "type": "string",
+          "minLength": 20
+        }
+      }
+    }
+  }
+}

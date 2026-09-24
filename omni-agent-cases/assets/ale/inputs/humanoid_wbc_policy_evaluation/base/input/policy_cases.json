@@ -1,0 +1,84 @@
+{
+  "cases": [
+    {
+      "case_id": "case_01_veo_walk_flat_kwxg9y8l",
+      "motion": "veo-test-2-walk",
+      "mjlab_task": "Mjlab-Tracking-Flat-Unitree-G1",
+      "motion_file": "motions/veo-test-2-walk.npz",
+      "checkpoint_file": "policies/1.veo-test-2-walk_kwxg9y8l.pt",
+      "play_command": "uv run --extra cpu play Mjlab-Tracking-Flat-Unitree-G1 --agent trained --motion-file motions/veo-test-2-walk.npz --checkpoint-file policies/1.veo-test-2-walk_kwxg9y8l.pt --no-terminations True --device cpu --strict False",
+      "video_command": "uv run --extra cpu play Mjlab-Tracking-Flat-Unitree-G1 --agent trained --motion-file motions/veo-test-2-walk.npz --checkpoint-file policies/1.veo-test-2-walk_kwxg9y8l.pt --no-terminations True --device cpu --strict False --video True --video-length 317 --video-height 720 --video-width 1280",
+      "expected_demo_path": "visual_demos/case_01_veo_walk_flat_kwxg9y8l.mp4"
+    },
+    {
+      "case_id": "case_02_male_walk_hop_flat_em349tfj",
+      "motion": "male_walk_hop",
+      "mjlab_task": "Mjlab-Tracking-Flat-Unitree-G1",
+      "motion_file": "motions/male_walk_hop.npz",
+      "checkpoint_file": "policies/2.male_walk_hop_em349tfj.pt",
+      "play_command": "uv run --extra cpu play Mjlab-Tracking-Flat-Unitree-G1 --agent trained --motion-file motions/male_walk_hop.npz --checkpoint-file policies/2.male_walk_hop_em349tfj.pt --no-terminations True --device cpu --strict False",
+      "video_command": "uv run --extra cpu play Mjlab-Tracking-Flat-Unitree-G1 --agent trained --motion-file motions/male_walk_hop.npz --checkpoint-file policies/2.male_walk_hop_em349tfj.pt --no-terminations True --device cpu --strict False --video True --video-length 270 --video-height 720 --video-width 1280",
+      "expected_demo_path": "visual_demos/case_02_male_walk_hop_flat_em349tfj.mp4"
+    },
+    {
+      "case_id": "case_03_sitting_chair_7zlbjqi4",
+      "motion": "sitting",
+      "mjlab_task": "Mjlab-Tracking-Chair-Unitree-G1",
+      "motion_file": "motions/sitting.npz",
+      "checkpoint_file": "policies/3.sitting_7zlbjqi4.pt",
+      "play_command": "uv run --extra cpu play Mjlab-Tracking-Chair-Unitree-G1 --agent trained --motion-file motions/sitting.npz --checkpoint-file policies/3.sitting_7zlbjqi4.pt --no-terminations True --device cpu --strict False",
+      "video_command": "uv run --extra cpu play Mjlab-Tracking-Chair-Unitree-G1 --agent trained --motion-file motions/sitting.npz --checkpoint-file policies/3.sitting_7zlbjqi4.pt --no-terminations True --device cpu --strict False --video True --video-length 317 --video-height 720 --video-width 1280",
+      "expected_demo_path": "visual_demos/case_03_sitting_chair_7zlbjqi4.mp4"
+    },
+    {
+      "case_id": "case_04_gemini_chair_step_m1d7v37h",
+      "motion": "gemini_walk_and_sit",
+      "mjlab_task": "Mjlab-Tracking-ChairAndStep-Unitree-G1",
+      "motion_file": "motions/gemini_walk_and_sit_correct.npz",
+      "checkpoint_file": "policies/4.gemini_walk_and_sit_m1d7v37h.pt",
+      "play_command": "uv run --extra cpu play Mjlab-Tracking-ChairAndStep-Unitree-G1 --agent trained --motion-file motions/gemini_walk_and_sit_correct.npz --checkpoint-file policies/4.gemini_walk_and_sit_m1d7v37h.pt --no-terminations True --device cpu --strict False",
+      "video_command": "uv run --extra cpu play Mjlab-Tracking-ChairAndStep-Unitree-G1 --agent trained --motion-file motions/gemini_walk_and_sit_correct.npz --checkpoint-file policies/4.gemini_walk_and_sit_m1d7v37h.pt --no-terminations True --device cpu --strict False --video True --video-length 319 --video-height 720 --video-width 1280",
+      "expected_demo_path": "visual_demos/case_04_gemini_chair_step_m1d7v37h.mp4"
+    },
+    {
+      "case_id": "case_05_lowstairs_0dk7n238",
+      "motion": "lowstairs",
+      "mjlab_task": "Mjlab-Tracking-lowstairs-Unitree-G1",
+      "motion_file": "motions/lowstairs.npz",
+      "checkpoint_file": "policies/5.lowstairs_0dk7n238.pt",
+      "play_command": "uv run --extra cpu play Mjlab-Tracking-lowstairs-Unitree-G1 --agent trained --motion-file motions/lowstairs.npz --checkpoint-file policies/5.lowstairs_0dk7n238.pt --no-terminations True --device cpu",
+      "video_command": "uv run --extra cpu play Mjlab-Tracking-lowstairs-Unitree-G1 --agent trained --motion-file motions/lowstairs.npz --checkpoint-file policies/5.lowstairs_0dk7n238.pt --no-terminations True --device cpu --video True --video-length 317 --video-height 720 --video-width 1280",
+      "expected_demo_path": "visual_demos/case_05_lowstairs_0dk7n238.mp4"
+    },
+    {
+      "case_id": "case_06_lowstairs_vdd319dz",
+      "motion": "lowstairs",
+      "mjlab_task": "Mjlab-Tracking-lowstairs-Unitree-G1",
+      "motion_file": "motions/lowstairs.npz",
+      "checkpoint_file": "policies/6.lowstairs_vdd319dz.pt",
+      "play_command": "uv run --extra cpu play Mjlab-Tracking-lowstairs-Unitree-G1 --agent trained --motion-file motions/lowstairs.npz --checkpoint-file policies/6.lowstairs_vdd319dz.pt --no-terminations True --device cpu",
+      "video_command": "uv run --extra cpu play Mjlab-Tracking-lowstairs-Unitree-G1 --agent trained --motion-file motions/lowstairs.npz --checkpoint-file policies/6.lowstairs_vdd319dz.pt --no-terminations True --device cpu --video True --video-length 317 --video-height 720 --video-width 1280",
+      "expected_demo_path": "visual_demos/case_06_lowstairs_vdd319dz.mp4"
+    },
+    {
+      "case_id": "case_07_lowstairs_cyyp71b5",
+      "motion": "lowstairs",
+      "mjlab_task": "Mjlab-Tracking-lowstairs-Unitree-G1",
+      "motion_file": "motions/lowstairs.npz",
+      "checkpoint_file": "policies/7.lowstairs_cyyp71b5.pt",
+      "play_command": "uv run --extra cpu play Mjlab-Tracking-lowstairs-Unitree-G1 --agent trained --motion-file motions/lowstairs.npz --checkpoint-file policies/7.lowstairs_cyyp71b5.pt --no-terminations True --device cpu",
+      "video_command": "uv run --extra cpu play Mjlab-Tracking-lowstairs-Unitree-G1 --agent trained --motion-file motions/lowstairs.npz --checkpoint-file policies/7.lowstairs_cyyp71b5.pt --no-terminations True --device cpu --video True --video-length 317 --video-height 720 --video-width 1280",
+      "expected_demo_path": "visual_demos/case_07_lowstairs_cyyp71b5.mp4"
+    },
+    {
+      "case_id": "case_08_fall_getup_flat_os6wfu5w",
+      "motion": "fallAndGetUp1",
+      "mjlab_task": "Mjlab-Tracking-Flat-Unitree-G1",
+      "motion_file": "motions/fallAndGetUp1.npz",
+      "checkpoint_file": "policies/8.fallAndGetUp1_os6wfu5w.pt",
+      "play_command": "uv run --extra cpu play Mjlab-Tracking-Flat-Unitree-G1 --agent trained --motion-file motions/fallAndGetUp1.npz --checkpoint-file policies/8.fallAndGetUp1_os6wfu5w.pt --no-terminations True --device cpu",
+      "video_command": "uv run --extra cpu play Mjlab-Tracking-Flat-Unitree-G1 --agent trained --motion-file motions/fallAndGetUp1.npz --checkpoint-file policies/8.fallAndGetUp1_os6wfu5w.pt --no-terminations True --device cpu --video True --video-length 8400 --video-height 360 --video-width 640",
+      "expected_demo_path": "visual_demos/case_08_fall_getup_flat_os6wfu5w.mp4"
+    }
+  ]
+}

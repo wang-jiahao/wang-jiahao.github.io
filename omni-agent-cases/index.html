@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>多模态案例</title>
 <style>
-:root{--bg:#f4f3ee;--paper:#fffefa;--ink:#172c32;--muted:#647374;--line:#d9deda;--accent:#166f68;--soft:#e4efea;--warm:#b97131}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;font-size:15px;line-height:1.65}button,a,input{font:inherit}button{cursor:pointer}a{color:var(--accent);text-underline-offset:3px}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #dc9949;outline-offset:3px}.top{min-height:70px;height:auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:var(--paper);gap:15px}.brand{font-weight:700;letter-spacing:.03em}.brand span{color:var(--accent);font-weight:500;margin-left:12px}.top small{color:var(--muted)}.shell{display:grid;grid-template-columns:260px minmax(0,1fr);max-width:1600px;margin:auto}.side{padding:24px 18px;position:sticky;top:0;height:100vh;overflow:auto;border-right:1px solid var(--line)}.side button{border:0;background:transparent;text-align:left;width:100%;padding:10px 12px;border-radius:7px;line-height:1.5;color:var(--ink);margin:2px 0}.side button:hover{background:#e9ece5}.side button.active{background:var(--ink);color:#fff}.side .group{font-size:12px;letter-spacing:.07em;font-weight:650;color:var(--muted);padding:21px 12px 4px}.side .num{font-family:monospace;color:#869693;margin-right:8px}.side .active .num{color:#a2dcd3}.sidefoot{padding:25px 12px;font-size:12px;color:var(--muted)}main{padding:40px 44px 70px;min-width:0}h1,h2,h3,p{margin-top:0}h1{font-size:38px;line-height:1.28;letter-spacing:-.025em;margin-bottom:18px;font-weight:650}h2{font-size:22px;margin:32px 0 12px;font-weight:600}h3{font-size:17px;margin:0 0 10px}p{margin-bottom:14px}.eyebrow{color:var(--accent);font-size:12px;letter-spacing:.12em;font-weight:650;margin-bottom:12px}.lead{color:#52686c;max-width:880px;font-size:17px}.tags{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.tag{font-size:12px;color:var(--accent);background:var(--soft);padding:3px 9px;border-radius:4px}.tag.gray{background:#e9ece6;color:#52666b}.intro{border-bottom:1px solid var(--line);padding-bottom:20px}.status{margin:18px 0;padding:14px 18px;border-left:3px solid var(--accent);background:var(--soft);font-size:14px}.status.warn{border-color:var(--warm);background:#f5ebdc}.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-weight:500;font-size:12px}td.numeric{font-variant-numeric:tabular-nums;font-weight:650;white-space:nowrap}td small{color:var(--muted)}.overview-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin:22px 0 35px}.tile{padding:0;border:1px solid var(--line);border-radius:10px;background:var(--paper);overflow:hidden;text-align:left;color:var(--ink);box-shadow:0 2px 6px #172c3205}.tile:hover{border-color:var(--accent);transform:translateY(-2px)}.tile img{width:100%;height:145px;object-fit:cover;display:block;background:var(--ink)}.tile .copy{padding:15px}.tile .copy h3{line-height:1.5;font-weight:600}.tile .copy small{color:var(--muted);font-size:12px}.caseid{font-family:monospace;font-size:12px;color:var(--muted);overflow-wrap:anywhere}.media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}.media-grid.single{grid-template-columns:1fr}figure{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:9px;overflow:hidden;min-width:0}figure img,figure video{display:block;width:100%;max-height:430px;object-fit:contain;background:#111b20}figure img{cursor:zoom-in}figure audio{width:calc(100% - 24px);margin:14px 12px 6px}figcaption{padding:10px 13px;font-size:12px;line-height:1.5;color:#566b6c}figure .wave{height:180px;max-height:180px;object-fit:cover}.media-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:0 13px 11px}.media-actions a,.media-actions button{font-size:12px}.smallbtn{border:1px solid var(--line);background:white;border-radius:4px;padding:2px 8px;color:var(--accent)}.contentcols{display:grid;grid-template-columns:1.2fr 1fr;gap:30px;margin-top:26px}.block{padding-top:17px;border-top:1px solid var(--line)}.block p,.block li{font-size:14px}.steps{padding-left:20px;margin:12px 0}.steps li{padding:4px 0}.note{font-size:13px;color:var(--muted);margin:12px 0}.refs{display:flex;gap:9px 20px;flex-wrap:wrap;padding:12px 0;font-size:13px}details{margin:16px 0;border-top:1px solid var(--line);padding-top:13px}summary{cursor:pointer;color:var(--accent);font-size:14px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#ebeee7;padding:18px;border-radius:6px;font-size:12px;max-height:520px;overflow:auto;line-height:1.6}.scorebar{display:inline-block;width:70px;height:5px;background:var(--line);margin-left:10px;vertical-align:middle}.scorebar span{display:block;height:5px;background:var(--accent)}.pass{color:var(--accent)}.fail{color:#976334}.empty{padding:16px 0;color:var(--muted);font-size:14px}.footer{margin-top:40px;border-top:1px solid var(--line);padding-top:18px;font-size:12px;color:var(--muted)}.toplinks{display:flex;gap:12px 16px;flex-wrap:wrap;font-size:13px}.sectionhead{display:flex;align-items:baseline;justify-content:space-between;gap:15px;margin-top:30px}.sectionhead h2{margin:0}.sectionhead span{font-size:12px;color:var(--muted)}.media-grid.many img{height:260px;object-fit:contain}.navbottom{display:flex;justify-content:space-between;margin-top:30px;gap:15px}.navbottom button{background:transparent;border:1px solid var(--line);padding:8px 13px;border-radius:5px;color:var(--accent)}
+:root{--bg:#f4f3ee;--paper:#fffefa;--ink:#172c32;--muted:#647374;--line:#d9deda;--accent:#166f68;--soft:#e4efea;--warm:#b97131}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;font-size:15px;line-height:1.65}button,a,input{font:inherit}button{cursor:pointer}a{color:var(--accent);text-underline-offset:3px}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #dc9949;outline-offset:3px}.top{min-height:70px;height:auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:var(--paper);gap:15px}.brand{font-weight:700;letter-spacing:.03em}.brand span{color:var(--accent);font-weight:500;margin-left:12px}.top small{color:var(--muted)}.shell{display:grid;grid-template-columns:260px minmax(0,1fr);max-width:1600px;margin:auto}.side{padding:24px 18px;position:sticky;top:0;height:100vh;overflow:auto;border-right:1px solid var(--line)}.side button{border:0;background:transparent;text-align:left;width:100%;padding:10px 12px;border-radius:7px;line-height:1.5;color:var(--ink);margin:2px 0}.side button:hover{background:#e9ece5}.side button.active{background:var(--ink);color:#fff}.side .group{font-size:12px;letter-spacing:.07em;font-weight:650;color:var(--muted);padding:21px 12px 4px}.side .num{font-family:monospace;color:#869693;margin-right:8px}.side .active .num{color:#a2dcd3}.sidefoot{padding:25px 12px;font-size:12px;color:var(--muted)}main{padding:40px 44px 70px;min-width:0}h1,h2,h3,p{margin-top:0}h1{font-size:38px;line-height:1.28;letter-spacing:-.025em;margin-bottom:18px;font-weight:650}h2{font-size:22px;margin:32px 0 12px;font-weight:600}h3{font-size:17px;margin:0 0 10px}p{margin-bottom:14px}.eyebrow{color:var(--accent);font-size:12px;letter-spacing:.12em;font-weight:650;margin-bottom:12px}.lead{color:#52686c;max-width:880px;font-size:17px}.tags{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.tag{font-size:12px;color:var(--accent);background:var(--soft);padding:3px 9px;border-radius:4px}.tag.gray{background:#e9ece6;color:#52666b}.intro{border-bottom:1px solid var(--line);padding-bottom:20px}.status{margin:18px 0;padding:14px 18px;border-left:3px solid var(--accent);background:var(--soft);font-size:14px}.status.warn{border-color:var(--warm);background:#f5ebdc}.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-weight:500;font-size:12px}td.numeric{font-variant-numeric:tabular-nums;font-weight:650;white-space:nowrap}td small{color:var(--muted)}.overview-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin:22px 0 35px}.tile{padding:0;border:1px solid var(--line);border-radius:10px;background:var(--paper);overflow:hidden;text-align:left;color:var(--ink);box-shadow:0 2px 6px #172c3205}.tile:hover{border-color:var(--accent);transform:translateY(-2px)}.tile img{width:100%;height:145px;object-fit:cover;display:block;background:var(--ink)}.tile .copy{padding:15px}.tile .copy h3{line-height:1.5;font-weight:600}.tile .copy small{color:var(--muted);font-size:12px}.caseid{font-family:monospace;font-size:12px;color:var(--muted);overflow-wrap:anywhere}.media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}.media-grid.single{grid-template-columns:1fr}figure{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:9px;overflow:hidden;min-width:0}figure img,figure video{display:block;width:100%;max-height:430px;object-fit:contain;background:#111b20}figure img{cursor:zoom-in}figure audio{width:calc(100% - 24px);margin:14px 12px 6px}figcaption{padding:10px 13px;font-size:12px;line-height:1.5;color:#566b6c}figure .wave{height:180px;max-height:180px;object-fit:cover}.media-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:0 13px 11px}.media-actions a,.media-actions button{font-size:12px}.smallbtn{border:1px solid var(--line);background:white;border-radius:4px;padding:2px 8px;color:var(--accent)}.contentcols{display:grid;grid-template-columns:1.2fr 1fr;gap:30px;margin-top:26px}.block{padding-top:17px;border-top:1px solid var(--line)}.block p,.block li{font-size:14px}.steps{padding-left:20px;margin:12px 0}.steps li{padding:4px 0}.note{font-size:13px;color:var(--muted);margin:12px 0}.refs a{overflow-wrap:anywhere}.refs{display:flex;gap:9px 20px;flex-wrap:wrap;padding:12px 0;font-size:13px}details{margin:16px 0;border-top:1px solid var(--line);padding-top:13px}summary{cursor:pointer;color:var(--accent);font-size:14px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#ebeee7;padding:18px;border-radius:6px;font-size:12px;max-height:520px;overflow:auto;line-height:1.6}.scorebar{display:inline-block;width:70px;height:5px;background:var(--line);margin-left:10px;vertical-align:middle}.scorebar span{display:block;height:5px;background:var(--accent)}.pass{color:var(--accent)}.fail{color:#976334}.empty{padding:16px 0;color:var(--muted);font-size:14px}.footer{margin-top:40px;border-top:1px solid var(--line);padding-top:18px;font-size:12px;color:var(--muted)}.toplinks{display:flex;gap:12px 16px;flex-wrap:wrap;font-size:13px}.sectionhead{display:flex;align-items:baseline;justify-content:space-between;gap:15px;margin-top:30px}.sectionhead h2{margin:0}.sectionhead span{font-size:12px;color:var(--muted)}.media-grid.many img{height:260px;object-fit:contain}.navbottom{display:flex;justify-content:space-between;margin-top:30px;gap:15px}.navbottom button{background:transparent;border:1px solid var(--line);padding:8px 13px;border-radius:5px;color:var(--accent)}
 @media(min-width:1350px){main{padding:45px 60px}.tile img{height:170px}}
 @media(max-width:980px){.shell{grid-template-columns:210px minmax(0,1fr)}main{padding:28px 25px}.overview-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.contentcols{grid-template-columns:1fr}.media-grid{grid-template-columns:1fr}h1{font-size:30px}}
 @media(max-width:650px){.top{height:auto;min-height:65px;padding:14px 18px;flex-wrap:wrap}.brand span{display:none}.shell{display:block}.side{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:9px 12px;display:flex;overflow-x:auto;gap:4px}.side .group,.sidefoot{display:none}.side button{width:auto;min-width:max-content;font-size:12px;padding:8px}.side .num{display:none}main{padding:25px 18px}.overview-grid{gap:10px}.tile .copy{padding:11px}.tile img{height:105px}.tile h3{font-size:14px}h1{font-size:27px}.lead{font-size:15px}.sectionhead{display:block}th,td{padding:9px 7px}.scorebar{display:none}.media-grid.many img{height:auto}}
@@ -415,6 +415,616 @@
       "question_display": {
         "mode": "summary",
         "text": "从自然场景背景中分离白鹤，制作主体位于纯绿背景上的视频，外观应匹配给定的绿色目标参考图。\n\n输入为 input.mp4 和 input.png。启动 DaVinci Resolve，自行新建项目并导入素材，完成主体抠像；每一帧的所有非主体区域都必须替换为 #00FF00，不保留任何原场景背景。\n\n最终每帧只显示白鹤和纯绿背景，导出到任务目录的 output/output.mp4。"
+      }
+    },
+    {
+      "id": "ale-aerobics",
+      "benchmark": "ale",
+      "task_id": "other/aerobics_wc2026_portugal_trio_difficulty_scoring",
+      "title": "健美操比赛 → 难度动作评分表",
+      "subtitle": "比赛视频 + FIG 规则 → Excel · Linux / Docker",
+      "original": "You are working on Ubuntu.\n\n## Your Task\nInspect the routine video and the FIG Aerobic Gymnastics Code of Points, then\nproduce a difficulty-element spreadsheet for the routine.\n\n## Visible Inputs\n- Video: `variant_1/input/trio.mov`\n- Rulebook PDF: `variant_1/input/FIG Aerobic Gymnastics Code of Points (2025-2028).pdf`\n\n## Output\nWrite exactly one spreadsheet to `variant_1/output/difficulty_element_log.xlsx`.\n\nThe spreadsheet must contain exactly these four columns:\n- `element_name`\n- `FIG_code`\n- `credited_value`\n- `meets_minimum_standard`\n\nUse one row per detected difficulty element, in chronological order.\nThe total D-score implied by the `credited_value` column should fall between\n`7.0` and `7.2`.\n",
+      "public_case": true,
+      "summary_heading": "官方保留的评分结果",
+      "steps": [
+        "官网保留的 Gemini CLI / Gemini 3.1 Pro Preview 运行得分 1.0000，标记为 PASS。",
+        "官网确认其表格的 8 个 FIG 编码和计分值按时间顺序全部匹配隐藏参考，表头与总分范围也符合要求。",
+        "官网报告 26 次成功工具调用，但只保存了题目和最终回复；逐条命令、观察和截图缺失，不能重建做题过程。"
+      ],
+      "media": [
+        {
+          "kind": "video",
+          "src": "assets/ale/previews/aerobics_input.mp4",
+          "poster": "assets/ale/previews/aerobics_input.jpg",
+          "label": "官方输入比赛视频 · H.264 网页预览；原始 MOV 另附链接",
+          "open_label": "打开网页预览"
+        }
+      ],
+      "scores": [
+        {
+          "model": "gemini-3.1-pro-preview",
+          "harness": "Gemini CLI",
+          "score": 1.0,
+          "passed": true,
+          "source_label": "官方公开运行"
+        }
+      ],
+      "score_note": "模型名称和总分依官网所选运行显示，分数显示到四位小数；不是多次运行均值。",
+      "input_files": [
+        {
+          "label": "trio.mov",
+          "src": "https://huggingface.co/datasets/agents-last-exam/agents-last-exam-data/resolve/d93bb510e472dcaa406f09fc800797268567ca5c/tasks/other/aerobics_wc2026_portugal_trio_difficulty_scoring/variant_1/input/trio.mov",
+          "description": "官方原始 MOV · 约 162 MB"
+        },
+        {
+          "label": "FIG Aerobic Gymnastics Code of Points (2025-2028).pdf",
+          "src": "assets/ale/inputs/aerobics_wc2026_portugal_trio_difficulty_scoring/variant_1/input/FIG Aerobic Gymnastics Code of Points (2025-2028).pdf",
+          "description": "原始 FIG 规则 PDF"
+        }
+      ],
+      "input_text": "",
+      "evidence_media": [],
+      "confirmed": [
+        "官方结果说明：八项动作的 FIG_code 和 credited_value 顺序匹配，得分 1.0。",
+        "可直接播放完整输入视频，并下载规则 PDF。"
+      ],
+      "limits": [
+        "逐条记录缺失，具体回看、检索规则和修正动作判断的过程未知。",
+        "26 是官网报告的成功工具调用数，无法凭现有记录逐条复算。"
+      ],
+      "public_links": [
+        {
+          "label": "官方运行页面（搜索 aerobics_wc2026_portugal_trio_difficulty_scoring）",
+          "url": "https://agents-last-exam.org/traces"
+        },
+        {
+          "label": "官方任务与评分说明",
+          "url": "https://github.com/rdi-berkeley/agents-last-exam/blob/d10fb61a14f9719774c3520c5763068b28ef5546/tasks/other/aerobics_wc2026_portugal_trio_difficulty_scoring/task_card.json"
+        },
+        {
+          "label": "官方执行与评测代码",
+          "url": "https://github.com/rdi-berkeley/agents-last-exam/blob/d10fb61a14f9719774c3520c5763068b28ef5546/tasks/other/aerobics_wc2026_portugal_trio_difficulty_scoring/main.py"
+        },
+        {
+          "label": "完整官方输入目录",
+          "url": "https://huggingface.co/datasets/agents-last-exam/agents-last-exam-data/tree/d93bb510e472dcaa406f09fc800797268567ca5c/tasks/other/aerobics_wc2026_portugal_trio_difficulty_scoring/variant_1/input"
+        }
+      ],
+      "overview_image": "assets/ale/previews/aerobics_input.jpg",
+      "artifact_notice": "该题有官方成绩与结果摘要，但官网明确标记 Trajectory unavailable；未取得该次提交的 XLSX 原文件。",
+      "public_evaluation": "XLSX 必须可读、表头精确匹配、恰好 8 行，总 credited_value 在 7.0–7.2；再按顺序精确匹配隐藏参考中的 FIG_code 与 credited_value。当前 meets_minimum_standard 是信息列，不影响得分。",
+      "environment_note": "当前官方任务为 cpu-free-ubuntu，位于 Docker 支持清单。正式评分仍需要获批的任务参考数据；普通 Docker 可用不代表数据权限已经满足。",
+      "question_display": {
+        "mode": "translation",
+        "text": "你在 Ubuntu 上工作。查看提供的三人操比赛视频与 FIG《有氧体操评分规则》，识别难度动作，并按发生顺序制作表格。\n\n输入为 variant_1/input/trio.mov 和 FIG Aerobic Gymnastics Code of Points (2025-2028).pdf。只交付一个 variant_1/output/difficulty_element_log.xlsx。\n\n表格必须恰有四列：element_name、FIG_code、credited_value、meets_minimum_standard。每个检测到的难度动作占一行；credited_value 列合计应在 7.0–7.2 之间。"
+      }
+    },
+    {
+      "id": "ale-human-mesh",
+      "benchmark": "ale",
+      "task_id": "visual_media/human_mesh_animation_reproduction",
+      "title": "参考动作 → 人体网格动画与 60 帧 OBJ",
+      "subtitle": "视频 + 3D 网格 → Blender / OBJ · CPU Windows VM",
+      "original": "You are a 3D artist using Blender 4.3 on a Windows VM.\n\nRig and animate the provided human mesh so it matches the motion shown in the reference video.\n\nAgent-visible inputs:\n- Mesh: `base\\input\\character.obj`\n- Material sidecar: `base\\input\\character.mtl`\n- Reference motion video: `base\\input\\reference.mp4`\n\nRequired submission:\n- Save the Blender scene to `base\\output\\submission\\final.blend`\n- Export exactly 60 OBJ frames to `base\\output\\submission\\mesh_seq`\n- Use frame names `frame_0001.obj` through `frame_0060.obj`\n\nRequirements:\n- Animate at 30 fps.\n- Export frames 1..60 inclusive.\n- Preserve the character identity, proportions, topology, and overall geometry while reproducing the motion.",
+      "public_case": true,
+      "summary_heading": "官网所选运行的结果摘要",
+      "steps": [
+        "官网 Codex / GPT-5.5 运行报告已保存 final.blend 和 60 个 OBJ 帧。",
+        "模型自检称场景为 30 fps、帧号 1–60，每帧保留 16,834 个顶点和 15,583 个面。",
+        "官网总分 0.4391，属于部分完成；文件数量和拓扑自检不等于运动轨迹与参考完全一致。"
+      ],
+      "media": [
+        {
+          "kind": "video",
+          "src": "assets/ale/inputs/human_mesh_animation_reproduction/base/input/reference.mp4",
+          "poster": "assets/ale/previews/human_mesh_input.jpg",
+          "label": "官方输入参考动作视频 · 要复现的动作"
+        }
+      ],
+      "scores": [
+        {
+          "model": "gpt-5.5",
+          "harness": "Codex",
+          "score": 0.4391,
+          "passed": false,
+          "source_label": "官方公开运行"
+        }
+      ],
+      "score_note": "模型名称和总分依官网所选运行显示，分数显示到四位小数；不是多次运行均值。",
+      "input_files": [
+        {
+          "label": "character.obj",
+          "src": "assets/ale/inputs/human_mesh_animation_reproduction/base/input/character.obj",
+          "description": "待绑定和动画的人体网格"
+        },
+        {
+          "label": "character.mtl",
+          "src": "assets/ale/inputs/human_mesh_animation_reproduction/base/input/character.mtl",
+          "description": "原始材质描述"
+        },
+        {
+          "label": "reference.mp4",
+          "src": "assets/ale/inputs/human_mesh_animation_reproduction/base/input/reference.mp4",
+          "description": "动作目标视频"
+        }
+      ],
+      "input_text": "",
+      "evidence_media": [
+        {
+          "kind": "image",
+          "src": "assets/ale/trace/human_mesh_art_2.jpg",
+          "label": "官网保存的候选导出序列预览 · export_contact.png"
+        },
+        {
+          "kind": "image",
+          "src": "assets/ale/trace/human_mesh_art_1.jpg",
+          "label": "官网保存的导出检查图 · export_faces_final.png"
+        }
+      ],
+      "confirmed": [
+        "官网展示 24 张 agent 保存的图像；本页保留两张与候选导出相关的预览。",
+        "模型最终报告声明完成所需文件，官方给出 0.4391。"
+      ],
+      "limits": [
+        "目前没有该次运行的逐帧 Chamfer 明细，不能仅凭总分定位每一帧的误差。",
+        "预览图可显示姿态变化，但不能替代完整网格序列检查。"
+      ],
+      "public_links": [
+        {
+          "label": "官方运行页面（搜索 human_mesh_animation_reproduction）",
+          "url": "https://agents-last-exam.org/traces"
+        },
+        {
+          "label": "官方任务与评分说明",
+          "url": "https://github.com/rdi-berkeley/agents-last-exam/blob/d10fb61a14f9719774c3520c5763068b28ef5546/tasks/visual_media/human_mesh_animation_reproduction/task_card.json"
+        },
+        {
+          "label": "官方执行与评测代码",
+          "url": "https://github.com/rdi-berkeley/agents-last-exam/blob/d10fb61a14f9719774c3520c5763068b28ef5546/tasks/visual_media/human_mesh_animation_reproduction/main.py"
+        },
+        {
+          "label": "完整官方输入目录",
+          "url": "https://huggingface.co/datasets/agents-last-exam/agents-last-exam-data/tree/d93bb510e472dcaa406f09fc800797268567ca5c/tasks/visual_media/human_mesh_animation_reproduction/base/input"
+        }
+      ],
+      "overview_image": "assets/ale/previews/human_mesh_input.jpg",
+      "artifact_notice": "已取得官网保存的模型导出预览图；尚未取得该次运行的 final.blend 和 60 个 OBJ 原文件。",
+      "public_evaluation": "先检查 final.blend 可打开且恰有 60 个可读 OBJ 帧。将每帧与隐藏参考的同一时刻网格做归一化对称 Chamfer 距离比较，最终分数为 exp(-40 × mean_ncd)。归一化使用输入角色的固定包围盒对角线。",
+      "environment_note": "当前任务配置为 cpu-free 的 Windows VM，使用 Blender。Linux 宿主可走官方 CPU QEMU/KVM 路线，但要有可用 /dev/kvm；任务文本和当前软件包版本可能不同，复现时须记录。",
+      "question_display": {
+        "mode": "translation",
+        "text": "在 Windows VM 中使用 Blender 4.3，为给定人体网格绑定骨骼并制作动画，使动作匹配参考视频。\n\n输入为 base/input/character.obj、character.mtl 和 reference.mp4。保留角色身份、比例、拓扑和整体几何。\n\n交付 base/output/submission/final.blend；以 30 fps 导出第 1–60 帧，恰好 60 个 OBJ，命名为 frame_0001.obj 到 frame_0060.obj，放入 mesh_seq/。"
+      }
+    },
+    {
+      "id": "ale-skeletal",
+      "benchmark": "ale",
+      "task_id": "visual_media/skeletal_animation_reproduction",
+      "title": "参考视频 → 角色骨骼动画与工程回放",
+      "subtitle": "视频 + 角色模型 → Blender 工程与预览 · 默认 GPU VM",
+      "original": "You are a 3D artist using Blender.\n\nYour task is to rig and animate the provided character so that it reproduces the body motion shown in the reference video.\n\nOfficial input:\n- Unrigged mesh: `skeletal_animation_reproduction_singing_anime_character\\input\\Singing.obj`\n- Material sidecar: `skeletal_animation_reproduction_singing_anime_character\\input\\Singing.mtl`\n- Reference animation video: `skeletal_animation_reproduction_singing_anime_character\\input\\reference.mp4`\n\nRequired submission:\n- Save a Blender scene named `final.blend` to `skeletal_animation_reproduction_singing_anime_character\\output\\submission\\final.blend`\n- Render and save a matching preview video named `preview.mp4` to `skeletal_animation_reproduction_singing_anime_character\\output\\submission\\preview.mp4`\n\nRequired bone naming:\nYour armature MUST use the following bone names exactly (case-sensitive):\n  pelvis, spine, chest, neck, head,\n  clavicle.L, upper_arm.L, lower_arm.L, hand.L,\n  clavicle.R, upper_arm.R, lower_arm.R, hand.R,\n  thigh.L, shin.L, foot.L,\n  thigh.R, shin.R, foot.R\nYou may add extra bones, but all 19 listed above must be present with these exact names.\n\nNotes:\n- Focus on body motion.\n- Evaluation will compare your `preview.mp4` against a hidden clean reference and also replay your `.blend`.\n- Your `.blend` must contain the actual rig and animation that produce the submitted preview.",
+      "public_case": true,
+      "summary_heading": "官网所选运行的结果摘要",
+      "steps": [
+        "官网 Codex / GPT-5.5 运行报告交付 final.blend 和 preview.mp4。",
+        "模型自检称预览为 512×500、30 fps、13.63 秒，并确认一个 armature 中包含所有 19 个指定骨骼名。",
+        "官方得分 0.4506，属于部分完成；有骨架和可播放文件不代表动作匹配、回放一致性与所有评分项均通过。"
+      ],
+      "media": [
+        {
+          "kind": "video",
+          "src": "assets/ale/inputs/skeletal_animation_reproduction/skeletal_animation_reproduction_singing_anime_character/input/reference.mp4",
+          "poster": "assets/ale/previews/skeletal_input.jpg",
+          "label": "官方输入参考动画 · 身体运动目标"
+        }
+      ],
+      "scores": [
+        {
+          "model": "gpt-5.5",
+          "harness": "Codex",
+          "score": 0.4506,
+          "passed": false,
+          "source_label": "官方公开运行"
+        }
+      ],
+      "score_note": "模型名称和总分依官网所选运行显示，分数显示到四位小数；不是多次运行均值。",
+      "input_files": [
+        {
+          "label": "Singing.obj",
+          "src": "assets/ale/inputs/skeletal_animation_reproduction/skeletal_animation_reproduction_singing_anime_character/input/Singing.obj",
+          "description": "待绑定的角色网格"
+        },
+        {
+          "label": "Singing.mtl",
+          "src": "assets/ale/inputs/skeletal_animation_reproduction/skeletal_animation_reproduction_singing_anime_character/input/Singing.mtl",
+          "description": "材质描述"
+        },
+        {
+          "label": "Singing.fbm/s.png",
+          "src": "assets/ale/inputs/skeletal_animation_reproduction/skeletal_animation_reproduction_singing_anime_character/input/Singing.fbm/s.png",
+          "description": "角色贴图"
+        },
+        {
+          "label": "Singing.fbm/s-n.png",
+          "src": "assets/ale/inputs/skeletal_animation_reproduction/skeletal_animation_reproduction_singing_anime_character/input/Singing.fbm/s-n.png",
+          "description": "法线贴图"
+        },
+        {
+          "label": "task_brief.md",
+          "src": "assets/ale/inputs/skeletal_animation_reproduction/skeletal_animation_reproduction_singing_anime_character/input/task_brief.md",
+          "description": "原始任务 brief"
+        }
+      ],
+      "input_text": "",
+      "evidence_media": [
+        {
+          "kind": "image",
+          "src": "assets/ale/trace/skeletal_art_0.jpg",
+          "label": "官网保存的模型提交预览接触表 · submission_stills_sheet.png"
+        },
+        {
+          "kind": "image",
+          "src": "assets/ale/trace/skeletal_art_1.jpg",
+          "label": "官网保存的原始模型导入检查图 · raw_import.png"
+        }
+      ],
+      "confirmed": [
+        "模型声明工程、预览视频及 19 个骨骼名已齐备；官网展示总分 0.4506。",
+        "官网保存 24 张 agent 图像，本页展示候选预览和导入检查图。"
+      ],
+      "limits": [
+        "缺少该次运行的四个评分子项，不能直接断言失分只来自某一关节或某一帧。",
+        "工程回放和视频预览是两个验收对象，仅凭预览图无法证明二者一致。"
+      ],
+      "public_links": [
+        {
+          "label": "官方运行页面（搜索 skeletal_animation_reproduction）",
+          "url": "https://agents-last-exam.org/traces"
+        },
+        {
+          "label": "官方任务与评分说明",
+          "url": "https://github.com/rdi-berkeley/agents-last-exam/blob/d10fb61a14f9719774c3520c5763068b28ef5546/tasks/visual_media/skeletal_animation_reproduction/task_card.json"
+        },
+        {
+          "label": "官方执行与评测代码",
+          "url": "https://github.com/rdi-berkeley/agents-last-exam/blob/d10fb61a14f9719774c3520c5763068b28ef5546/tasks/visual_media/skeletal_animation_reproduction/main.py"
+        },
+        {
+          "label": "完整官方输入目录",
+          "url": "https://huggingface.co/datasets/agents-last-exam/agents-last-exam-data/tree/d93bb510e472dcaa406f09fc800797268567ca5c/tasks/visual_media/skeletal_animation_reproduction/skeletal_animation_reproduction_singing_anime_character/input"
+        }
+      ],
+      "overview_image": "assets/ale/previews/skeletal_input.jpg",
+      "artifact_notice": "已取得官网保存的过程图和提交预览图；未取得该次 final.blend 或 preview.mp4 原文件。",
+      "public_evaluation": "先通过文件、可用骨架和非平凡动画的有效性门槛；随后按 35% 视频匹配、20% 工程回放与预览一致性、30% 最小骨架覆盖、15% VLM 判断加权。需要隐藏参考视频/骨架信息，并会回放真实 .blend。",
+      "environment_note": "官方默认 g2-standard-8 / gpu-free，Blender 环境；标准本地 CPU QEMU 路径不能直接替代 GPU 配置。评测还涉及渲染及视觉 judge。",
+      "question_display": {
+        "mode": "summary",
+        "text": "给提供的角色网格绑定骨骼，制作与参考视频相匹配的身体动作。输入包括 Singing.obj、Singing.mtl、贴图和 reference.mp4。\n\n交付 final.blend 和 preview.mp4。骨架必须包含题目规定的 19 个精确骨骼名，允许另加骨骼。\n\n工程内必须有真正能生成预览的骨骼和动画；评分既比较视频，也重新打开工程回放，不能只交一个与工程无关的视频。"
+      }
+    },
+    {
+      "id": "ale-butterfly",
+      "benchmark": "ale",
+      "task_id": "visual_media/butterfly_flap_animation",
+      "title": "蝴蝶原图 → 四次振翅与曲线飞行",
+      "subtitle": "图片 → 2.5D 动画成片 · AE 可替代",
+      "original": "Create a butterfly wing-flap animation in Adobe After Effects.\n\nRemote workspace:\n- Task folder: base\n\nSoftware:\n- Launch Adobe After Effects using: base\\software\\launch_after_effects.bat\n- The installed After Effects version may differ from the original submission; use the available AE version opened by this launcher.\n- After Effects is the intended tool, but if AE is not available in the environment, any other way to achieve the goal is welcome (the output MP4 is what gets evaluated).\n\nVisible inputs:\n- Source butterfly artwork: base\\input\\butterfly.jpeg\n- Detailed task spec: base\\input\\task_spec.md\n\nWhat to do:\n1. Import the butterfly image into After Effects.\n2. Split or mask the butterfly into a central body plus left and right wings.\n3. Set wing anchor points near the wing-body joints.\n4. Animate the wings with repeated Y-rotation or equivalent perspective deformation.\n5. Produce exactly 4 complete wing flap cycles: open -> closed -> open.\n6. Move the butterfly along a smooth curved 2.5D-style path through the frame with at least 2 Y-direction turning points.\n7. Keep the butterfly texture recognizably tied to the source image at fully open moments.\n8. Use a plain dark or black background so the butterfly motion remains clear.\n\nExport requirements:\n- Export one H.264 MP4.\n- Frame rate: 30 fps.\n- Duration: 4.0 to 5.5 seconds.\n- Save the final render exactly here: base\\output\\output.mp4\n\nDo not modify files under input/. Write only the final MP4 under output/.\n",
+      "public_case": true,
+      "summary_heading": "官网所选运行的结果摘要",
+      "steps": [
+        "官网 Claude Code / Opus 4.7 运行得分 1.0000，标记为 PASS。",
+        "模型最终说明：After Effects 成功渲染 AVI，随后转码为最终 output.mp4。",
+        "轨迹末段读取了导出视频帧用于检查；最后出现的退出码 1 被模型解释为渲染成功后终止 AE 的清理操作。"
+      ],
+      "media": [
+        {
+          "kind": "image",
+          "src": "assets/ale/inputs/butterfly_flap_animation/base/input/butterfly.jpeg",
+          "label": "官方输入蝴蝶图片 · 动画必须保留其可辨识形状与纹理"
+        }
+      ],
+      "scores": [
+        {
+          "model": "opus-4.7",
+          "harness": "Claude Code",
+          "score": 1.0,
+          "passed": true,
+          "source_label": "官方公开运行"
+        }
+      ],
+      "score_note": "模型名称和总分依官网所选运行显示，分数显示到四位小数；不是多次运行均值。",
+      "input_files": [
+        {
+          "label": "butterfly.jpeg",
+          "src": "assets/ale/inputs/butterfly_flap_animation/base/input/butterfly.jpeg",
+          "description": "原始蝴蝶素材"
+        },
+        {
+          "label": "task_spec.md",
+          "src": "assets/ale/inputs/butterfly_flap_animation/base/input/task_spec.md",
+          "description": "原始动画和导出要求"
+        }
+      ],
+      "input_text": "# Butterfly Flap Animation Task\n\n## Goal\n\nCreate a seamless animation of the provided butterfly image flapping its wings while\nmoving along a smooth curved path in a 2.5D-style composition.\n\n## Input Asset\n\n- `input/butterfly.jpeg`: the source butterfly artwork. Reuse this visual texture in the\n  final animation.\n\n## Required Animation\n\n1. Split or mask the butterfly into a central body and left/right wings.\n2. Set wing anchor points near the wing-body joints.\n3. Animate the wings with repeated Y-rotation or an equivalent perspective deformation.\n4. Produce exactly 4 complete wing flap cycles. One complete cycle is open -> closed -> open.\n5. Make the butterfly move along a smooth curved path through the frame.\n6. The trajectory should include at least 2 Y-axis turning points.\n7. Avoid abrupt jumps in position or velocity.\n8. Keep the butterfly texture recognizably identical to the source image, especially on open-wing frames.\n9. Use a plain dark or black background so the butterfly motion remains clear.\n\n## Export Requirements\n\n- Export one H.264 MP4.\n- Frame rate: 30 fps.\n- Duration: 4.0 to 5.5 seconds.\n- Output path: `output/output.mp4`.\n\n## Software\n\nUse Adobe After Effects from the task-local `software/` launcher. The installed AE\nversion may differ from the submitter's original version as long as the launcher opens\na usable Adobe After Effects installation.\n",
+      "evidence_media": [
+        {
+          "kind": "image",
+          "src": "assets/ale/trace/butterfly_step_0164_11.jpg",
+          "label": "官方轨迹 step 164 · 模型检查的导出视频帧 frame_05.png"
+        }
+      ],
+      "confirmed": [
+        "官网记录为满分 1.0；公开回复明确说明 AVI 渲染及 MP4 转码已完成。",
+        "可直接查看输入原图与模型在最终检查阶段读取的帧。"
+      ],
+      "limits": [
+        "单张检查帧不能独立证明四次周期、完整飞行路径或时长；这些属于视频级验收。",
+        "当前评分采用公开合同的可计算指标，隐藏参考 MP4 不作为逐帧答案键；历史运行与当前代码版本应区分。"
+      ],
+      "public_links": [
+        {
+          "label": "官方运行页面（搜索 butterfly_flap_animation）",
+          "url": "https://agents-last-exam.org/traces"
+        },
+        {
+          "label": "官方任务与评分说明",
+          "url": "https://github.com/rdi-berkeley/agents-last-exam/blob/d10fb61a14f9719774c3520c5763068b28ef5546/tasks/visual_media/butterfly_flap_animation/task_card.json"
+        },
+        {
+          "label": "官方执行与评测代码",
+          "url": "https://github.com/rdi-berkeley/agents-last-exam/blob/d10fb61a14f9719774c3520c5763068b28ef5546/tasks/visual_media/butterfly_flap_animation/main.py"
+        },
+        {
+          "label": "完整官方输入目录",
+          "url": "https://huggingface.co/datasets/agents-last-exam/agents-last-exam-data/tree/d93bb510e472dcaa406f09fc800797268567ca5c/tasks/visual_media/butterfly_flap_animation/base/input"
+        }
+      ],
+      "overview_image": "assets/ale/inputs/butterfly_flap_animation/base/input/butterfly.jpeg",
+      "artifact_notice": "这里展示官方轨迹中保存的导出检查帧，不是完整最终 MP4；该次最终视频原文件尚未取得。",
+      "public_evaluation": "时长/fps 20%、前景检测 15%、振翅周期及幅度 30%、路径转折/范围/平滑度 25%、展开时源图形状保持 10%。要求约 4 个振翅周期；振翅或路径分项过低还会限制总分上限。",
+      "environment_note": "当前默认是 gpu-free / GPU VM，但任务合同允许 AE 不可用时换其他实现。因此可研究 Linux/脚本版本，并明确标记环境改动；不能将改造版直接当成原样官方配置。",
+      "question_display": {
+        "mode": "summary",
+        "text": "把提供的蝴蝶图片制作成振翅飞行动画。将身体和左右翅膀分开处理，把旋转锚点放在翅根，用 Y 轴旋转或等效透视变形完成恰好 4 次“展开→闭合→展开”的周期。\n\n蝴蝶沿平滑曲线运动，Y 方向至少有两次转折；完全展开时保留原图可辨识的纹理，背景使用纯暗色或黑色。\n\n交付 output/output.mp4：H.264、30 fps、4.0–5.5 秒。优先使用 After Effects，但任务明确允许 AE 不可用时采用其他实现。"
+      }
+    },
+    {
+      "id": "ale-cubase",
+      "benchmark": "ale",
+      "task_id": "visual_media/project_migration",
+      "title": "缺失插件的音乐工程 → Cubase 项目迁移",
+      "subtitle": "原生工程 → 插件替换、分轨导出 · Licensed Windows",
+      "original": "Goal: Migrate a Cubase project to this computer by replacing all missing/invalid VST plugins with equivalent ones from the available plugins, then export stems and a mixdown.\n\nSoftware:\n- Cubase: \\software\\Cubase.lnk\n\nInput:\n- Cubase project: \\input\\project.cpr\n\nBefore you begin:\n1. Generate the list of VST3 plugins installed on this VM and save it to `\\output\\available_vsts.txt`. In PowerShell:\n   `$roots = @('C:\\Program Files\\Common Files\\VST3','C:\\Program Files (x86)\\Common Files\\VST3'); $items = @(); foreach ($r in $roots) { if (Test-Path $r) { $items += Get-ChildItem -Path $r -Recurse -Filter *.vst3 -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Name } }; ($items | Sort-Object -Unique) | Out-File -FilePath '\\output\\available_vsts.txt' -Encoding ascii`\n2. Open the Cubase project at `\\input\\project.cpr` using the Cubase shortcut at `\\software\\Cubase.lnk` (e.g. double-click the .lnk, or `Start-Process '\\software\\Cubase.lnk'`).\n\nSteps:\n1. When the \"Missing Plugins\" dialog appears, note all unavailable VST plugins.\n2. For each track with a missing VST instrument or effect:\n   a. Open the track's instrument or insert slot.\n   b. Replace the missing VST with a functionally equivalent one from the available plugins listed in `\\output\\available_vsts.txt`.\n   c. Choose a preset or patch that best approximates the original sound character (e.g., replace a missing string library with an available string patch).\n3. Play back the project and verify all tracks produce audible, artifact-free audio.\n4. Export stems: for each track/channel as organized in the project (do NOT split or reorganize tracks — export exactly as the project defines them), solo it and export audio mixdown (WAV, 44.1 kHz or higher) to \\output\\stems\\<track_name>.wav\n5. Save the migrated project to \\output\\migrated_project.cpr\n6. Take a screenshot of the Cubase MixConsole or arrange view showing all tracks with their replaced plugins visible:\n   save_milestone_screenshot(path=\"\\output\\overview.png\", description=\"Cubase project with replaced plugins\")\n\nOutput files (all saved to \\output):\n- migrated_project.cpr: Cubase project with all missing VSTs replaced.\n- stems/: Per-track solo WAV exports (one per track).\n- overview.png: Screenshot of MixConsole or arrange view.\n",
+      "public_case": true,
+      "summary_heading": "官网所选运行的结果摘要",
+      "steps": [
+        "官网 Codex / GPT-5.5 运行先盘点插件，并记录缺失插件警告。",
+        "它用 HALion Sonic / HSO 类预设替换了许多缺失的 Kontakt 管弦乐音轨；随后处理木管、铜管和打击乐。",
+        "合唱、竖琴、钢琴以及部分路由/效果替换没有完成。模型保存了部分迁移工程和截图，但明确表示未导出 stems。",
+        "官方成绩为 0.0000。公开最终回复称 stems/ 目录为空，与当前评分器的零分门槛一致。"
+      ],
+      "media": [
+        {
+          "kind": "image",
+          "src": "assets/ale/trace/cubase_step_1644_98.jpg",
+          "label": "官方运行 step 1644 · 保存 overview.png 时的 Cubase 界面"
+        }
+      ],
+      "scores": [
+        {
+          "model": "gpt-5.5",
+          "harness": "Codex",
+          "score": 0.0,
+          "passed": false,
+          "source_label": "官方公开运行"
+        }
+      ],
+      "score_note": "模型名称和总分依官网所选运行显示，分数显示到四位小数；不是多次运行均值。",
+      "input_files": [
+        {
+          "label": "project.cpr",
+          "src": "assets/ale/inputs/project_migration/celeste_symphonic_suite/input/project.cpr",
+          "description": "官方输入工程，约 32.4 MB；需 Cubase 打开。这不是模型迁移后的工程。"
+        }
+      ],
+      "input_text": "",
+      "evidence_media": [],
+      "confirmed": [
+        "官网总分为 0；轨迹提供插件盘点、分乐器替换、路由受阻和部分保存的阶段。",
+        "公开最终回复主动说明了没有完成 stems 导出，没有把部分工程当成完整交付。"
+      ],
+      "limits": [
+        "保存 .cpr 与截图仍不足以通过评测，音频 stems 是硬门槛。",
+        "插件替代、音源配置和路由具有较高环境依赖，不能只用文件存在性判断迁移质量。"
+      ],
+      "public_links": [
+        {
+          "label": "官方运行页面（搜索 project_migration）",
+          "url": "https://agents-last-exam.org/traces"
+        },
+        {
+          "label": "官方任务与评分说明",
+          "url": "https://github.com/rdi-berkeley/agents-last-exam/blob/d10fb61a14f9719774c3520c5763068b28ef5546/tasks/visual_media/project_migration/task_card.json"
+        },
+        {
+          "label": "官方执行与评测代码",
+          "url": "https://github.com/rdi-berkeley/agents-last-exam/blob/d10fb61a14f9719774c3520c5763068b28ef5546/tasks/visual_media/project_migration/main.py"
+        },
+        {
+          "label": "完整官方输入目录",
+          "url": "https://huggingface.co/datasets/agents-last-exam/agents-last-exam-data/tree/d93bb510e472dcaa406f09fc800797268567ca5c/tasks/visual_media/project_migration/celeste_symphonic_suite/input"
+        }
+      ],
+      "overview_image": "assets/ale/trace/cubase_step_1644_98.jpg",
+      "media_heading": "任务工程与公开界面",
+      "artifact_notice": "可查看官方导出的界面截图预览；未取得该次 migrated_project.cpr 原文件。模型最终回复明确指出 stems/ 为空，不能展示不存在的分轨成品。",
+      "output_table": {
+        "title": "公开最终回复中的交付状态",
+        "columns": [
+          "交付物",
+          "模型报告的状态"
+        ],
+        "rows": [
+          [
+            "migrated_project.cpr",
+            "已保存，部分迁移"
+          ],
+          [
+            "overview.png",
+            "已保存；本页为官方截图预览"
+          ],
+          [
+            "stems/",
+            "空目录，未导出"
+          ],
+          [
+            "合唱 / 竖琴 / 钢琴及部分路由",
+            "未完全处理"
+          ]
+        ]
+      },
+      "public_evaluation": "先检查 migrated_project.cpr、至少一条非静音 WAV stem，以及通过 Cubase 界面检查的截图。门槛通过后，20% 为参考轨道对应的 stem 完整性，80% 为基于 MFCC 的音色相似度；缺少 stems 时直接得 0。",
+      "environment_note": "官方使用 cpu-license Windows 环境与 Cubase Pro 15；需要合法软件激活，并准备插件/音源。它属于许可证和 GUI 工作流都较重的任务。",
+      "question_display": {
+        "mode": "summary",
+        "text": "打开提供的 Cubase 工程，盘点本机 VST3 插件，并记录缺失或失效的插件。逐轨选择功能和音色接近的可用插件或音源替代，检查回放是否正常。\n\n按原工程的轨道/通道结构逐轨 solo，导出 WAV stems，采样率至少 44.1 kHz。保存 migrated_project.cpr，并截取显示替换后轨道的 Cubase 界面 overview.png。\n\n提交工程、stems/ 和截图；不能因为工程能打开就省略音频交付。"
+      }
+    },
+    {
+      "id": "ale-wbc",
+      "benchmark": "ale",
+      "task_id": "engineering/humanoid_wbc_policy_evaluation",
+      "title": "机器人策略回放 → 八组运动表现评估",
+      "subtitle": "仿真 + 运动演示 → 分类 JSON · Linux / Docker（可选）",
+      "original": "You are evaluating whole-body-control policy rollouts for a Unitree G1 humanoid in mjlab.\n\n## Variant\n`base`: 8 humanoid whole-body-control policy evaluation cases\n\n## Input Files\n- Task brief: `/input/task_brief.md`\n- Policy case list: `/input/policy_cases.json`\n- Required JSON output schema: `/input/output_schema.json`\n- mjlab runtime archive and exported package list: `/input/runtime_env`\n- Offline motion and checkpoint archives: `/input/runtime_env/motions-1.zip`\n  and `/input/runtime_env/policies.zip`\n- Offline installer inside `mjlab.zip`: `mjlab (Copy)/install_offline.sh`\n\n## What You Must Do\n1. Inspect the 8 policy cases in `/input/policy_cases.json`.\n2. Extract `mjlab.zip`, run `bash install_offline.sh ./mjlab-runtime`, and use\n   `./mjlab-runtime/bin/play` with the remaining arguments from each listed\n   `play_command` or `video_command` to observe each policy against its\n   reference motion. The runtime archive, motion files, and policy checkpoints\n   are staged under `/input/runtime_env`.\n3. For each case, save a visible motion demo artifact. The supplied\n   `video_command` adds mjlab's existing `--video` flag; mjlab writes those\n   videos under the run/checkpoint log directory, so copy or rename the\n   recorded artifact into `/output/visual_demos`.\n4. Classify every case as exactly one of `successful`, `nearly_successful`, or\n   `failed`, using the definitions in `/input/task_brief.md`.\n5. Save the final JSON report at `/output/policy_evaluation_report.json` and one visible motion\n   demo artifact per case under `/output/visual_demos`.\n\n## Output Requirements\n- The final answer must include `policy_evaluation_report.json` and a\n  `visual_demos/` directory.\n- It must validate against `/input/output_schema.json`.\n- Include all 8 case IDs exactly once.\n- Preserve the exact `case_id`, `motion`, `mjlab_task`, `motion_file`, and `checkpoint_file`\n  values from `/input/policy_cases.json`.\n- Each evaluation item must include `evidence.visual_demo_path`, pointing to a\n  visible playback artifact under `visual_demos/`. Accepted formats are\n  `.mp4`, `.webm`, `.gif`, and `.html`.\n- Do not write final answers outside `/output`.\n",
+      "public_case": true,
+      "summary_heading": "官网所选运行的结果摘要",
+      "steps": [
+        "官网 OpenClaw / GLM-5.1 运行得分 0.8375，属于部分完成。",
+        "模型最终报告称已评估全部 8 组，生成 8 个演示 MP4（每个 200 帧、1280×720）并保存符合 schema 的 JSON。",
+        "模型报告的分类为 2 个 successful、1 个 nearly_successful、5 个 failed；这些是它对机器人策略的判断，不是 benchmark 的通过数。"
+      ],
+      "media": [
+        {
+          "kind": "image",
+          "src": "assets/ale/previews/wbc_inputs.svg",
+          "label": "根据官方 policy_cases.json 绘制的输入清单示意 · 非运行截图"
+        }
+      ],
+      "scores": [
+        {
+          "model": "glm-5.1",
+          "harness": "OpenClaw",
+          "score": 0.8375,
+          "passed": false,
+          "source_label": "官方公开运行"
+        }
+      ],
+      "score_note": "模型名称和总分依官网所选运行显示，分数显示到四位小数；不是多次运行均值。",
+      "input_files": [
+        {
+          "label": "policy_cases.json",
+          "src": "assets/ale/inputs/humanoid_wbc_policy_evaluation/base/input/policy_cases.json",
+          "description": "8 组动作、checkpoint 和运行命令"
+        },
+        {
+          "label": "output_schema.json",
+          "src": "assets/ale/inputs/humanoid_wbc_policy_evaluation/base/input/output_schema.json",
+          "description": "必须遵守的输出 JSON schema"
+        },
+        {
+          "label": "task_brief.md",
+          "src": "assets/ale/inputs/humanoid_wbc_policy_evaluation/base/input/task_brief.md",
+          "description": "分类定义和任务说明"
+        }
+      ],
+      "input_text": "# Humanoid Whole-Body-Control Policy Evaluation\n\nEvaluate the 8 Unitree G1 motion-tracking policy cases listed in\n`policy_cases.json`. The required motion files and policy checkpoints are\nprovided locally in `input/runtime_env/motions-1.zip` and\n`input/runtime_env/policies.zip`; do not log in to W&B and do not fetch private\nW&B artifacts.\n\nFor each case, unpack the mjlab runtime archive and the two asset zips into your\nworking directory, run the listed `video_command` for the complete motion,\nwatch the policy behavior against the reference motion, save the recorded\nplayback video, and classify it using the following rules in order:\n\n- `failed`: the robot has an unrecovered fall, slides away, or otherwise cannot\n  complete the intended motion in a meaningful way. This includes a fall after\n  initially good tracking. For a get-up motion, failure to recover is decisive;\n  the scripted initial fall is not itself a failure.\n- `successful`: the robot executes the motion with stable balance and close\n  reference tracking, allowing a slight delay or offset in the final few steps\n  that does not disrupt the gait or completion of the motion.\n- `nearly_successful`: the robot mostly executes the motion without the\n  unrecovered failure above, but shows visible instability or a persistent\n  tracking deficit beyond the permitted final-step exception.\n\nA slight delay or offset confined to the last few steps does not by itself\nmake a rollout nearly_successful: if balance, gait, and meaningful reference\ntracking are otherwise maintained, use successful. Use nearly_successful for\nvisible instability or a persistent tracking deficit beyond this final-step exception,\nprovided the motion is mostly executed without an unrecovered failure.\nAn unrecovered fall that prevents completion is failed, even if tracking was\ninitially good. For a get-up motion, judge the recovery, not the scripted fall.\nDescribe visible robot/reference tracking; do not infer stair contacts or stair\ncompletion from a render that does not show the stair geometry. An abrupt\nendpoint reset is not a successful recovery.\n\nRun `uv sync --python 3.11 --extra cpu --no-dev --locked` from the extracted\nmjlab project before using the listed commands. The included lockfile pins the\nvalidated Linux CPU runtime. The command paths in\n`policy_cases.json` are relative paths after extracting\n`motions-1.zip` and `policies.zip` into the mjlab working directory. If you\nextract them elsewhere, replace only the file paths with your local extracted\npaths while preserving the other command flags.\n\nThe longest case uses 640x360 video to keep the runtime's in-memory frame\nbuffer within the VM memory budget. It still records the complete motion;\nshorter cases use 1280x720.\n\nWrite one JSON file named `policy_evaluation_report.json` in the runtime output\ndirectory, plus a `visual_demos/` directory containing one `.mp4` or `.webm`\nplayback video per case. The file must validate against `output_schema.json`.\n",
+      "evidence_media": [],
+      "confirmed": [
+        "官网保存总分 0.8375；模型最终回复列出了八组分类和演示文件。",
+        "任务输入确实包含离线动作与策略包，并要求运行策略后给出可见证据。"
+      ],
+      "limits": [
+        "缺少该次运行的逐案例官方判分与视频原件，不能把模型自报的八组分类当成参考标签。",
+        "任务主要是仿真与运动评估，作为可选多模态案例；当前材料不能证明主模型实际逐段观看了所有视频。",
+        "策略 rollout 的物理 reward 与 ALE benchmark 总分不是同一个指标。"
+      ],
+      "public_links": [
+        {
+          "label": "官方运行页面（搜索 humanoid_wbc_policy_evaluation）",
+          "url": "https://agents-last-exam.org/traces"
+        },
+        {
+          "label": "官方任务与评分说明",
+          "url": "https://github.com/rdi-berkeley/agents-last-exam/blob/d10fb61a14f9719774c3520c5763068b28ef5546/tasks/engineering/humanoid_wbc_policy_evaluation/task_card.json"
+        },
+        {
+          "label": "官方执行与评测代码",
+          "url": "https://github.com/rdi-berkeley/agents-last-exam/blob/d10fb61a14f9719774c3520c5763068b28ef5546/tasks/engineering/humanoid_wbc_policy_evaluation/main.py"
+        },
+        {
+          "label": "完整官方输入目录",
+          "url": "https://huggingface.co/datasets/agents-last-exam/agents-last-exam-data/tree/d93bb510e472dcaa406f09fc800797268567ca5c/tasks/engineering/humanoid_wbc_policy_evaluation/base/input"
+        }
+      ],
+      "overview_image": "assets/ale/previews/wbc_inputs.svg",
+      "artifact_notice": "未取得该次 JSON 和 8 个演示 MP4 原件；官网图像筛选中未见可展示截图。本页示意图仅展示真实输入清单，不是仿真输出。",
+      "output_table": {
+        "title": "模型最终报告中的策略分类（不是官方参考答案）",
+        "columns": [
+          "案例",
+          "动作",
+          "模型分类"
+        ],
+        "rows": [
+          [
+            "01",
+            "veo-test-2-walk",
+            "failed"
+          ],
+          [
+            "02",
+            "male_walk_hop",
+            "failed"
+          ],
+          [
+            "03",
+            "sitting",
+            "failed"
+          ],
+          [
+            "04",
+            "gemini_walk_and_sit",
+            "failed"
+          ],
+          [
+            "05",
+            "lowstairs",
+            "successful"
+          ],
+          [
+            "06",
+            "lowstairs",
+            "failed"
+          ],
+          [
+            "07",
+            "lowstairs",
+            "successful"
+          ],
+          [
+            "08",
+            "fallAndGetUp1",
+            "nearly_successful"
+          ]
+        ]
+      },
+      "public_evaluation": "先校验 JSON schema、8 个案例 ID 与关键输入配置。分类正确率占 70%，符合要求的视觉证据占 30%。没有该次运行的两个子分，不能只从总分反推具体错误案例。",
+      "environment_note": "官方 cpu-free-ubuntu / Docker 支持任务，使用 mjlab、MuJoCo、PyTorch。离线运行时、motions 和 checkpoints 体积较大；它不是无需运行仿真的普通视频问答。",
+      "question_display": {
+        "mode": "summary",
+        "text": "评估 Unitree G1 的 8 组全身控制策略。读取策略清单，使用提供的 mjlab 离线运行环境、动作文件和 checkpoint，按每组命令运行策略并观察它与参考运动的关系。\n\n每组保存一份可见的运动演示，并按 brief 的定义分类为 successful、nearly_successful 或 failed。\n\n交付 policy_evaluation_report.json 和 visual_demos/。包含全部 8 个 case ID，保留输入给定的动作、任务、动作文件和 checkpoint 字段；每条报告引用对应演示文件。"
       }
     },
     {
@@ -2009,13 +2619,15 @@ function show(id){
  document.title=c?c.title+' · '+D.benchmarks.find(b=>b.id===c.benchmark).name:'多模态案例';window.scrollTo(0,0);
 }
 
-function overview(){return D.benchmarks.map(b=>`<div class="sectionhead"><h2>${E(b.name)}</h2></div><div class="overview-grid">${D.cases.filter(c=>c.benchmark===b.id).map(c=>`<button class="tile" data-case="${c.id}"><img src="${E(primary(c))}" alt="${E(c.title)}"><div class="copy"><small>${E(c.subtitle)}</small><h3>${E(c.title)}</h3></div></button>`).join('')}</div>`).join('')}
+function overview(){return D.benchmarks.map(b=>`<div class="sectionhead"><h2>${E(b.name)}</h2>${b.id==='ale'?'<span>9 项已选任务 · 含可选 WBC</span>':''}</div><div class="overview-grid">${D.cases.filter(c=>c.benchmark===b.id).map(c=>`<button class="tile" data-case="${c.id}"><img src="${E(primary(c))}" alt="${E(c.title)}"><div class="copy"><small>${E(c.subtitle)}</small><h3>${E(c.title)}</h3></div></button>`).join('')}</div>`).join('')}
 
-function renderMedia(m,i,c){let body='',poster=m.poster||probes[m.src]?.poster;if(m.kind==='video')body=`<video id="media-${i}" controls preload="metadata" playsinline ${poster?`poster="${E(poster)}"`:''} src="${E(m.src)}"></video>`;else if(m.kind==='audio'){let wave=m.waveform||(c.id==='vbench-repair'?(m.src.includes('noisy.wav')?'assets/previews/repair-wave.png':null):c.id==='uni-31'?'assets/previews/song-wave.png':null);body=(wave?`<img class="wave" src="${wave}" alt="原始输入音频的波形预览">`:'')+`<audio id="media-${i}" controls preload="metadata" src="${E(m.src)}"></audio>`;}else body=`<img loading="lazy" src="${E(m.src)}" alt="${E(m.label)}">`;let seek=m.seek??(c.id==='wild-11'&&m.kind==='video'?96:c.id==='vbench-repair'&&m.kind==='audio'?12.5:null),seekLabel=m.seek_label||(c.id==='wild-11'?'跳到 01:36 配音段':'听 12.5 秒起片段');return `<figure>${body}<figcaption>${E(m.label)}${probes[m.src]?` · ${(probes[m.src].duration_seconds/60).toFixed(2)} 分钟`:''}</figcaption><div class="media-actions"><a href="${E(m.src)}" target="_blank">打开原文件 ↗</a>${seek!==null?`<button class="smallbtn" data-target="media-${i}" data-seek="${seek}">${E(seekLabel)}</button>`:''}${(m.attachments||[]).map(a=>`<a href="${E(a.src)}" target="_blank">${E(a.label)} ↗</a>`).join('')}</div></figure>`}
-function aleInputs(c){if(!c.run)return '';return `<div class="tablewrap"><table><thead><tr><th>原始输入</th><th>内容</th></tr></thead><tbody>${c.input_files.map(f=>`<tr><td><a href="${E(f.src)}" target="_blank">${E(f.label)}</a></td><td>${E(f.description)}</td></tr>`).join('')}</tbody></table></div><details><summary>输入 brief / 配置原文</summary><pre>${E(c.input_text)}</pre></details>`}
+function renderMedia(m,i,c){let body='',poster=m.poster||probes[m.src]?.poster;if(m.kind==='video')body=`<video id="media-${i}" controls preload="metadata" playsinline ${poster?`poster="${E(poster)}"`:''} src="${E(m.src)}"></video>`;else if(m.kind==='audio'){let wave=m.waveform||(c.id==='vbench-repair'?(m.src.includes('noisy.wav')?'assets/previews/repair-wave.png':null):c.id==='uni-31'?'assets/previews/song-wave.png':null);body=(wave?`<img class="wave" src="${wave}" alt="原始输入音频的波形预览">`:'')+`<audio id="media-${i}" controls preload="metadata" src="${E(m.src)}"></audio>`;}else body=`<img loading="lazy" src="${E(m.src)}" alt="${E(m.label)}">`;let seek=m.seek??(c.id==='wild-11'&&m.kind==='video'?96:c.id==='vbench-repair'&&m.kind==='audio'?12.5:null),seekLabel=m.seek_label||(c.id==='wild-11'?'跳到 01:36 配音段':'听 12.5 秒起片段');return `<figure>${body}<figcaption>${E(m.label)}${probes[m.src]?` · ${(probes[m.src].duration_seconds/60).toFixed(2)} 分钟`:''}</figcaption><div class="media-actions"><a href="${E(m.src)}" target="_blank">${E(m.open_label||'打开原文件')} ↗</a>${seek!==null?`<button class="smallbtn" data-target="media-${i}" data-seek="${seek}">${E(seekLabel)}</button>`:''}${(m.attachments||[]).map(a=>`<a href="${E(a.src)}" target="_blank">${E(a.label)} ↗</a>`).join('')}</div></figure>`}
+function aleInputs(c){if(!c.input_files?.length)return '';return `<div class="tablewrap"><table><thead><tr><th>原始输入</th><th>内容</th></tr></thead><tbody>${c.input_files.map(f=>`<tr><td><a href="${E(f.src)}" target="_blank" rel="noopener">${E(f.label)}</a></td><td>${E(f.description)}</td></tr>`).join('')}</tbody></table></div>${c.input_text?`<details><summary>输入 brief / 配置原文</summary><pre>${E(c.input_text)}</pre></details>`:''}`}
 
 function dataTable(t){if(!t)return '';return `<h3 class="reference-title">${E(t.title)}</h3><div class="tablewrap reference-table"><table><thead><tr>${t.columns.map(x=>`<th>${E(x)}</th>`).join('')}</tr></thead><tbody>${t.rows.map(row=>`<tr>${row.map(x=>`<td>${E(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`}
 function aleEvidence(c){if(!c.run&&!c.local_run)return '';const media=c.evidence_media||[];return `<h2>执行过程${c.local_run?' · 本地实测':''}</h2>${c.local_run?`<p class="note">gpt-5.6-sol / Codex 0.146.0 · 整体不限时，依赖自行安装。${c.id==='mmtb-multicam'?'第一题含网络中断前与恢复后两段。':''}</p>`:''}<div class="tablewrap"><table class="execution-table"><thead><tr><th>阶段</th><th>实际操作 / 结果</th><th>原始证据</th></tr></thead><tbody>${c.timeline.map(t=>`<tr><td>${E(t.stage)}</td><td>${E(t.detail)}</td><td><a href="${E(t.url)}" target="_blank">${E(t.evidence_label||`step ${t.start}–${t.end}`)} ↗</a></td></tr>`).join('')}</tbody></table></div>${c.execution_links?`<div class="refs">${links(c.execution_links)}</div>`:''}<h2>中间结果与交付</h2>${c.artifact_notice?`<p class="note">${E(c.artifact_notice)}</p>`:''}${media.length?`<div class="media-grid ${media.length===1?'single':''} ${media.length>2?'many':''}">${media.map((m,i)=>renderMedia(m,i+50,c)).join('')}</div>`:''}${c.deliverables?`<div class="refs">${c.deliverables.map(d=>`<a href="${E(d.url)}" target="_blank" rel="noopener">模型交付 · ${E(d.label)} ↗</a>`).join('')}</div>`:''}${dataTable(c.output_table)}${c.all_output_pages?`<details><summary>查看全部 8 页官方 PDF 产物预览</summary><div class="refs">${c.all_output_pages.map((p,i)=>`<a href="${p}" target="_blank">第 ${i+1} 页 ↗</a>`).join('')}</div></details>`:''}<div class="contentcols"><div class="block"><h3>执行结果</h3><ul class="steps">${c.confirmed.map(x=>`<li>${E(x)}</li>`).join('')}</ul></div><div class="block"><h3>结果分析</h3><ul class="steps">${c.limits.map(x=>`<li>${E(x)}</li>`).join('')}</ul></div></div>${c.local_evaluation?`<h3 class="reference-title">本题怎样计分与判定通过</h3><p class="note">${E(c.local_evaluation)}</p>`:''}`}
+
+function publicEvidence(c){if(!c.public_case)return '';const media=c.evidence_media||[];return `<h2>公开结果与交付证据</h2>${c.artifact_notice?`<p class="note">${E(c.artifact_notice)}</p>`:''}${media.length?`<div class="media-grid ${media.length===1?'single':''}">${media.map((m,i)=>renderMedia(m,i+70,c)).join('')}</div>`:''}${dataTable(c.output_table)}<div class="contentcols"><section class="block"><h3>已公开的结果</h3><ul class="steps">${c.confirmed.map(x=>`<li>${E(x)}</li>`).join('')}</ul></section><section class="block"><h3>结果分析与证据范围</h3><ul class="steps">${c.limits.map(x=>`<li>${E(x)}</li>`).join('')}</ul></section></div><h3 class="reference-title">怎样评分（当前公开代码）</h3><p>${E(c.public_evaluation)}</p><details><summary>复现环境</summary><p>${E(c.environment_note)}</p></details><div class="refs">${links(c.public_links)}</div>`}
 
 function scoreTable(c){if(!c.scores.length)return '';const provenance=c.scores.some(s=>s.source_label),pass=['uni','mmtb'].includes(c.benchmark);return `<h2>模型表现</h2><div class="tablewrap"><table><thead><tr><th>模型</th><th>Harness</th><th>得分</th>${pass?'<th>是否通过</th>':''}${provenance?'<th>记录来源</th>':''}</tr></thead><tbody>${c.scores.map(s=>`<tr><td>${E(s.model)}</td><td>${E(s.harness)}</td><td class="numeric">${s.score.toFixed(['wild','ale','mmtb'].includes(c.benchmark)?4:2)}</td>${pass?`<td><span class="${s.passed?'pass':'fail'}">${s.passed?'通过':'未通过'}</span></td>`:''}${provenance?`<td>${E(s.source_label||'官方公开记录')}</td>`:''}</tr>`).join('')}</tbody></table></div>${c.score_note?`<p class="note">${E(c.score_note)}</p>`:''}${c.id==='wild-11'?`<p class="note">${E(c.reference)}</p>`:''}`}
 function textBlocks(text){return String(text||'').trim().split(/\n\s*\n/).map(p=>`<p>${E(p).replace(/`([^`]+)`/g,'<code>$1</code>').replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>')}</p>`).join('')}
@@ -2024,12 +2636,12 @@ function questionSolution(c){
  const q=c.question_display;const native=q.mode==='original';const short=q.mode==='translation';
  const leftTitle=native?'题目':short?'题目（中文翻译）':'题目（中文摘要）';
  const headings={'omni':'官方 annotated_solution（中文摘要）','wild':'Fable 5 执行摘要','uni':'任务流程摘要','ale':'被测模型执行摘要','mmtb':'官方参考答案（中文摘要）'};
- const rightTitle=headings[c.benchmark]||({'vbench-repair':'处理流程与参考信息','vbench-assembly':'官方分镜与参考顺序','vbench-repurpose':'制作流程摘要'}[c.id]);
+ const rightTitle=c.summary_heading||headings[c.benchmark]||({'vbench-repair':'处理流程与参考信息','vbench-assembly':'官方分镜与参考顺序','vbench-repurpose':'制作流程摘要'}[c.id]);
  const answer=['omni-2','omni-7','omni-9','vbench-repair','vbench-assembly'].includes(c.id)?`<div class="reference-answer">${E(c.reference)}</div>`:'';
  return `<div class="question-solution"><section class="question-copy"><h3>${leftTitle}</h3>${textBlocks(native?c.original:q.text)}${native?'':`<details class="original-question" ${short?'open':''}><summary>题目原文</summary>${short?`<div class="original-short">${textBlocks(c.original)}</div>`:`<pre>${E(c.original)}</pre>`}</details>`}</section><section><h3>${E(rightTitle)}</h3><ol class="steps">${c.steps.map(s=>`<li>${E(s)}</li>`).join('')}</ol>${answer}${referenceTable(c)}</section></div>`;
 }
 
-function caseView(c){const b=D.benchmarks.find(x=>x.id===c.benchmark),index=D.cases.indexOf(c);return `<div class="intro"><div class="eyebrow">${E(b.name)} / CASE ${String(index+1).padStart(2,'0')}</div><h1>${E(c.title)}</h1><div class="caseid">Task ID · ${E(c.task_id)}</div><div class="tags"><span class="tag">${E(c.subtitle)}</span></div></div><h2>${c.benchmark==='ale'?'原始输入':'案例素材'}</h2><div class="media-grid ${c.media.length===1||c.media_layout==='stack'?'single':''} ${c.media.length>3?'many':''}">${c.media.map((m,i)=>renderMedia(m,i,c)).join('')}</div>${questionSolution(c)}${aleInputs(c)}${aleEvidence(c)}${scoreTable(c)}<div class="navbottom"><button data-case="${D.cases[Math.max(0,index-1)].id}">← 上一个 case</button><button data-case="${D.cases[Math.min(D.cases.length-1,index+1)].id}">下一个 case →</button></div>`}
+function caseView(c){const b=D.benchmarks.find(x=>x.id===c.benchmark),index=D.cases.indexOf(c);return `<div class="intro"><div class="eyebrow">${E(b.name)} / CASE ${String(index+1).padStart(2,'0')}</div><h1>${E(c.title)}</h1><div class="caseid">Task ID · ${E(c.task_id)}</div><div class="tags"><span class="tag">${E(c.subtitle)}</span></div></div><h2>${E(c.media_heading||(c.benchmark==='ale'?'原始输入':'案例素材'))}</h2><div class="media-grid ${c.media.length===1||c.media_layout==='stack'?'single':''} ${c.media.length>3?'many':''}">${c.media.map((m,i)=>renderMedia(m,i,c)).join('')}</div>${questionSolution(c)}${aleInputs(c)}${aleEvidence(c)}${publicEvidence(c)}${scoreTable(c)}<div class="navbottom"><button data-case="${D.cases[Math.max(0,index-1)].id}">← 上一个 case</button><button data-case="${D.cases[Math.min(D.cases.length-1,index+1)].id}">下一个 case →</button></div>`}
 
 window.addEventListener('hashchange',()=>show(location.hash.slice(1)));show(location.hash.slice(1));
 </script></body></html>
