@@ -194,3 +194,15 @@ h1 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(42px, 4.5v
   .content-section { margin-bottom: 30px; }
   .section-heading { break-after: avoid; }
 }
+
+/* Voluntary support: retain a white background for the original QR in both themes. */
+.site-nav { flex-wrap: wrap; }
+.sponsor-card { display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 42px; align-items: center; padding: 28px 0; border-top: 1px solid var(--line); }
+.sponsor-copy h3 { color: var(--ink); margin: 0 0 14px; font-size: 20px; }
+.sponsor-copy p { color: var(--body); line-height: 1.85; margin: 0 0 16px; }
+.sponsor-copy>a { display: inline-block; padding: 8px 0; }
+.sponsor-qr { margin: 0; text-align: center; }
+.sponsor-qr>a { display: block; background: #fff; border-radius: 10px; overflow: hidden; }
+.sponsor-qr img { display: block; width: 100%; height: auto; }
+.sponsor-qr figcaption { margin-top: 12px; color: var(--muted); font-size: 11px; line-height: 1.7; }
+@media (max-width: 700px) { .sponsor-card { grid-template-columns: minmax(0, 1fr); gap: 24px; } .sponsor-qr { width: min(260px, 100%); justify-self: center; } .sponsor-section .section-heading { flex-wrap: wrap; gap: 8px; } }
