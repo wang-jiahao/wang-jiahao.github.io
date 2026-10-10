@@ -71,6 +71,17 @@ redirect_from:
 </section>
 
 
+<section class="content-section game-section" id="gulou" aria-labelledby="gulou-title">
+  <div class="section-heading"><h2 id="gulou-title">Gulou · 鼓楼</h2><span class="section-note">A campus you can explore</span></div>
+  <div class="game-copy">
+    <p>A browser game recreating Nanjing University's Gulou campus. Built over 11 days with GPT 6 Astra and more than a thousand visual references, it lets you walk, cycle, and fly past familiar buildings through day, night, and rain.</p>
+    <nav class="contact-links" aria-label="Gulou project links">
+      <a href="https://wang-jiahao.github.io/gulou/" target="_blank" rel="noopener noreferrer">Explore the campus <span aria-hidden="true">↗</span></a>
+      <a href="https://github.com/wang-jiahao/gulou" target="_blank" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span></a>
+    </nav>
+  </div>
+</section>
+
 <section class="content-section sponsor-section" id="sponsor" aria-labelledby="sponsor-title">
   <div class="section-heading"><h2 id="sponsor-title">Sponsor</h2><span class="section-note">A little support goes a long way</span></div>
   <div class="sponsor-card">

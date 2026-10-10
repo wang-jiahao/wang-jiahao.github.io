@@ -112,14 +112,16 @@ h1 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(42px, 4.5v
 .entry-logo img { width: 114px; height: 34px; object-fit: contain; }
 .education-entry { grid-template-columns: 192px minmax(0, 1fr); }
 .education-section { margin-bottom: 67px; }
+.game-copy { padding-top: 23px; max-width: 850px; }
+.game-copy .contact-links { margin-top: 15px; }
 .site-footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 24px 0 34px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
 .footer-dot { margin: 0 7px; }
 .site-footer a { color: var(--muted); white-space: nowrap; }
 .site-footer a:hover { color: var(--accent); }
 @media (min-width: 1600px) { :root { --width: 1140px; } .profile { gap: 100px; } }
 @media (max-width: 900px) {
-  .header-inner { gap: 22px; }
-  .site-nav { gap: 18px; }
+  .header-inner { gap: 16px; }
+  .site-nav { gap: 14px; flex-wrap: wrap; justify-content: flex-end; padding: 10px 0; }
   .profile { grid-template-columns: minmax(0, 1fr) 152px; gap: 42px; padding: 57px 0; }
   .profile-portrait img { width: 152px; height: 152px; }
   .profile-intro { font-size: 15px; }
@@ -134,7 +136,7 @@ h1 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(42px, 4.5v
   .header-inner { display: grid; grid-template-columns: 1fr auto; gap: 0; padding: 12px 24px 8px; }
   .wordmark { font-size: 17px; }
   .theme-switch { grid-column: 2; grid-row: 1; width: 32px; height: 32px; }
-  .site-nav { grid-column: 1 / -1; grid-row: 2; margin: 5px 0 0; justify-content: space-between; gap: 13px; }
+  .site-nav { grid-column: 1 / -1; grid-row: 2; margin: 5px 0 0; justify-content: flex-start; gap: 2px 16px; padding: 0; }
   .site-nav a { font-size: 12px; padding: 5px 0; }
   .site-nav .nav-about { display: none; }
   .site-main, .site-footer { width: calc(100% - 48px); }
