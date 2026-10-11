@@ -72,7 +72,7 @@ redirect_from:
 
 
 <section class="content-section game-section" id="gulou" aria-labelledby="gulou-title">
-  <div class="section-heading"><h2 id="gulou-title">Gulou · 鼓楼</h2><span class="section-note">A campus you can explore</span></div>
+  <div class="section-heading"><h2 id="gulou-title">Gulou</h2><span class="section-note">A campus you can explore</span></div>
   <div class="game-copy">
     <p>A browser game recreating Nanjing University's Gulou campus. Built over 11 days with GPT 6 Astra and more than a thousand visual references, it lets you walk, cycle, and fly past familiar buildings through day, night, and rain.</p>
     <nav class="contact-links" aria-label="Gulou project links">
