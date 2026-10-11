@@ -81,19 +81,3 @@ redirect_from:
     </nav>
   </div>
 </section>
-
-<section class="content-section sponsor-section" id="sponsor" aria-labelledby="sponsor-title">
-  <div class="section-heading"><h2 id="sponsor-title">Sponsor</h2><span class="section-note">A little support goes a long way</span></div>
-  <div class="sponsor-card">
-    <div class="sponsor-copy">
-      <h3>Help me keep building</h3>
-      <p>Projects like Gulou, my walkable Nanjing University campus, take many hours of development and a substantial amount of AI tokens. If you enjoy what I make, a small contribution helps cover the cost of the next iteration.</p>
-      <p>Support is entirely optional. Sharing feedback, reporting issues, and contributing campus references are just as welcome.</p>
-      <a href="{{ '/assets/images/wechat-appreciation.png' | relative_url }}" download="Zackaria-WeChat-appreciation.png">Save appreciation code <span aria-hidden="true">↓</span></a>
-    </div>
-    <figure class="sponsor-qr">
-      <a href="{{ '/assets/images/wechat-appreciation.png' | relative_url }}" target="_blank" rel="noopener noreferrer" aria-label="Open Zackaria's WeChat appreciation code at full size"><img src="{{ '/assets/images/wechat-appreciation.png' | relative_url }}" alt="Zackaria's WeChat appreciation code" width="1152" height="1152" loading="lazy"></a>
-      <figcaption>Scan with WeChat · 微信赞赏<br>On mobile, save the image and open it in WeChat.</figcaption>
-    </figure>
-  </div>
-</section>
