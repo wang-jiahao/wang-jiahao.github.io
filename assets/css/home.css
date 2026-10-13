@@ -68,7 +68,7 @@ h1 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(42px, 4.5v
 .profile-intro a { text-decoration: underline; text-decoration-color: var(--line); }
 .profile-intro a:hover { text-decoration-color: var(--accent); }
 .contact-links { display: flex; gap: 25px; flex-wrap: wrap; margin-top: 24px; }
-.contact-links a { font-size: 13px; font-weight: 550; }
+.contact-links a { display: inline-flex; align-items: center; white-space: nowrap; font-size: 13px; font-weight: 550; }
 .contact-links span { display: inline-block; margin-left: 3px; font-size: 12px; opacity: .7; }
 .profile-portrait { align-self: center; }
 .profile-portrait img { width: 192px; height: 192px; object-fit: cover; border-radius: 8px; }
@@ -183,7 +183,7 @@ h1 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(42px, 4.5v
   h1 { font-size: 33px; }
   .profile-portrait img { width: 62px; height: 62px; }
   .name-line { padding-right: 72px; }
-  .contact-links { gap: 18px; }
+  .contact-links { gap: 12px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 @media print {

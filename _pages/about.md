@@ -20,6 +20,7 @@ redirect_from:
       <a href="mailto:{{ site.author.email }}">Email <span aria-hidden="true">↗</span></a>
       <a href="{{ site.author.googlescholar }}" target="_blank" rel="noopener noreferrer">Google Scholar <span aria-hidden="true">↗</span></a>
       <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      <a href="{{ '/assets/files/jiahao-wang-cv.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" title="简历（PDF）">CV <span aria-hidden="true">↗</span></a>
     </nav>
   </div>
   <figure class="profile-portrait">
