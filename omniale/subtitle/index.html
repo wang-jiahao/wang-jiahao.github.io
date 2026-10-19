@@ -1,3 +1,7 @@
+---
+layout: null
+sitemap: false
+---
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow">
 <title>OmniALE C1 · 中文字幕交付质检</title><style>
 :root{--bg:#f4f3ee;--paper:#fffefa;--ink:#172c32;--muted:#647374;--line:#d9deda;--accent:#166f68;--soft:#e4efea;--warm:#b97131}
@@ -40,7 +44,7 @@ details>summary{cursor:pointer;color:var(--accent);font-size:14px}
 <p class="note">reel2.mp4 · 原片 4:48–6:16（英文原声）</p></div>
 </div>
 <p class="note">另给：<a href="assets/reel1.zh-Hans.srt">reel1.zh-Hans.srt</a>、<a href="assets/reel2.zh-Hans.srt">reel2.zh-Hans.srt</a>、
-<a href="assets/glossary.md">译名表</a>。<b>不提供英文字幕稿</b>，台词内容必须从原声获得。网页上的两段视频为压缩预览版（便于在线播放），案例包内为原始码率文件。</p>
+<a href="assets/glossary.txt">译名表</a>。<b>不提供英文字幕稿</b>，台词内容必须从原声获得。网页上的两段视频为压缩预览版（便于在线播放），案例包内为原始码率文件。</p>
 
 <h3>供应商交付的字幕（含注入的问题）</h3>
 <div class="grid"><div class="card"><table><tr><th>#</th><th>时间</th><th>reel1</th></tr><tr><td class='num'>1</td><td class='num'>00:04.70 → 00:06.79</td><td>主引擎已点火</td></tr><tr><td class='num'>2</td><td class='num'>00:06.87 → 00:10.00</td><td><i>4、3、2、1</i></td></tr><tr><td class='num'>3</td><td class='num'>00:23.25 → 00:24.41</td><td>你真是个混蛋，汤姆</td></tr><tr><td class='num'>4</td><td class='num'>00:24.50 → 00:27.25</td><td>听着，西莉亚，<br>我们得追随各自的热爱</td></tr><tr><td class='num'>5</td><td class='num'>00:27.33 → 00:30.20</td><td>你有你的机器人<br>而我只想在太空里大展身手</td></tr><tr><td class='num'>6</td><td class='num'>00:30.66 → 00:34.70</td><td>你为什么就不承认<br>我的机械手把你吓坏了？</td></tr><tr><td class='num'>7</td><td class='num'>00:34.79 → 00:36.00</td><td>我没有被吓到，只是……</td></tr><tr><td class='num'>8</td><td class='num'>00:37.66 → 00:38.62</td><td>好吧，好吧！</td></tr><tr><td class='num'>9</td><td class='num'>00:38.70 → 00:42.54</td><td>我是被吓坏了！我做噩梦<br>梦见被那些巨大的死亡机械爪追杀！</td></tr><tr><td class='num'>10</td><td class='num'>00:42.08 → 00:45.58</td><td>⬆ 四十年后</td></tr><tr><td class='num'>11</td><td class='num'>00:42.62 → 00:45.54</td><td>随你怎么说吧，汤姆<br>我们完了</td></tr><tr><td class='num'>12</td><td class='num'>00:49.79 → 00:53.70</td><td>机器人记忆已同步并锁定</td></tr><tr><td class='num'>13</td><td class='num'>01:00.91 → 01:02.66</td><td>真是太诡异了</td></tr><tr><td class='num'>14</td><td class='num'>01:05.00 → 01:09.87</td><td>⬆ 钢铁之泪</td></tr></table></div>
@@ -256,4 +260,4 @@ v4 及更早版本的问题是分数没有刻度（19 项里 15 项人人满分�
 
 <p class="note" style="margin-top:40px">影片 <i>Tears of Steel</i> © Blender Foundation，CC BY 3.0（mango.blender.org）；中文译文为本案例原创。
 案例说明、真值与评分脚本见本页末尾的「案例文件」。</p>
-<h2>案例文件</h2><ul class="dl"><li><a href="files/case_card.md">case_card.md</a> — 案例完整设计说明（动机、真值构建、评分、版本演进）</li><li><a href="files/verify.py">verify.py</a> — 确定性评分脚本</li><li><a href="files/subqc_rules.py">subqc_rules.py</a> — 交付规范检查器（真值构建与验收共用）</li><li><a href="files/ground_truth.json">ground_truth.json</a> — 隐藏真值（23 项 + 陷阱）</li><li><a href="files/RESULTS.md">RESULTS.md</a> — 实测结果与逐项通过率</li></ul><p class="note">评分脚本是确定性的：按结构化字段匹配，不用 LLM 裁判，同一份提交多次评分结果一致。</p></main></body></html>
+<h2>案例文件</h2><ul class="dl"><li><a href="files/case_card.txt">case_card.md</a> — 案例完整设计说明（动机、真值构建、评分、版本演进）</li><li><a href="files/verify.py">verify.py</a> — 确定性评分脚本</li><li><a href="files/subqc_rules.py">subqc_rules.py</a> — 交付规范检查器（真值构建与验收共用）</li><li><a href="files/ground_truth.json">ground_truth.json</a> — 隐藏真值（23 项 + 陷阱）</li><li><a href="files/RESULTS.txt">RESULTS.md</a> — 实测结果与逐项通过率</li></ul><p class="note">评分脚本是确定性的：按结构化字段匹配，不用 LLM 裁判，同一份提交多次评分结果一致。markdown 文件以 .txt 提供，便于在浏览器里直接查看。</p></main></body></html>
