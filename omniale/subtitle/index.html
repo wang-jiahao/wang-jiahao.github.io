@@ -195,6 +195,27 @@ details>summary{cursor:pointer;color:var(--accent);font-size:14px}
 <p>MMTB 在字幕、配音、口型质检方向有 9 道题（caption-speech-mismatch、dub-speaker-mismatch、narration-visual-align 等），说明这是有代表性的真实工作。但每道题都只查<b>一个维度</b>，交付物是不一致区间的清单。本案例把它做成<b>完整的交付规范审核</b>：</p>
 <table><tr><th></th><th>MMTB 同类题</th><th>本案例</th></tr><tr><td>审核维度</td><td>单一：字幕与语音是否一致</td><td>18 条规范条款：排版（T1–T6）、对白（D1–D4）、画面文字（F1–F3）、时间轴（S1–S5）</td></tr><tr><td>例外</td><td>基本没有</td><td>大量例外：语音跨切点可以不吸附；为吸附切点可以提前入点；与台词重复的界面文字不翻译；片头署名不翻译；反应镜头不用斜体</td></tr><tr><td>模态</td><td>多为单一模态比对</td><td>必须同时听（语音起止、台词内容）、看（镜头切换、画面文字、说话人是否在场景中）、读（规范、译名表）</td></tr><tr><td>交付</td><td>区间清单</td><td>逐条问题（条款编号 + 严重程度）+ 时间轴修正 + 每个片段的分级结论</td></tr><tr><td>判断</td><td>是否不一致</td><td>两个片段结论不同（一个附意见通过，一个退回），判错一个就整题不通过</td></tr></table>
 
+<h2>为什么是 C 类而不是 A/B 类</h2>
+<p>proposal 的分类规则是<b>看主要交付与验收目标</b>，不看任务用到了哪些模态或工具。按这条规则：</p>
+<ul><li><b>不是 A 类（创作与适配）</b>：A 类的交付物是一件新的媒体成品。本案例不产出任何媒体——</li></ul>
+<p>  视频、字幕文件都是输入，Agent 交的是 <code>qc_report.json</code> 与 <code>qc_summary.md</code>。</p>
+<ul><li><b>不是 B 类（修订与维护）</b>：B 类的交付物是<b>改好的媒体资产本身</b>，验收对象是修订后的文件。</li></ul>
+<p>  本案例不要求重新交付字幕文件，验收对象是&quot;判断&quot;：逐条违规的条款归类、严重程度，以及两个片段</p>
+<p>  各自能否交付的结论。proposal 也明确写了<b>仅要求审查的任务不得强行编辑</b>。</p>
+<ul><li><b>属于 C1（专业分析、评审与反馈）</b>：交付物是一份带条款依据的专业意见 + 一个放行/退回的决策，</li></ul>
+<p>  评分打的是这份意见的精确率与召回率。对应代表性工作包 <b>C5「多版本交付包质检与授权修复」</b>。</p>
+<h3>三处确实有歧义的地方</h3>
+<p>1. <b><code>fix</code> 字段偏向 B 类</b>：真值要求对每条违规给出修正后的时间码或文字。这是&quot;编辑&quot;动作的雏形，</p>
+<p>   但它只作为判断的证据被当文本比对，不生成任何新文件，且权重仅 0.10。若要求 Agent 直接交出</p>
+<p>   改好的 SRT 并按文件验收，这道题就会变成 B 类。</p>
+<p>2. <b>23 项里有 6 项是纯机械可查的</b>（行长、单条时长、最小间隔等，只读 SRT 加规范就能判定），</p>
+<p>   这部分更像工具链任务而非专业判断。不过这 6 项恰好都落在&quot;人人满分&quot;区，对模型排序不提供信息；</p>
+<p>   真正拉开差距的 15 项都必须听原声或看画面才能发现。</p>
+<p>3. <b>规范是完整给出的</b>，Agent 不需要自己去找适用标准。有些 C 类任务的难点正在于&quot;检索并选定</p>
+<p>   适用条款&quot;，本案例把这一层去掉了，难度集中在跨模态核对与边界判断上。</p>
+<p>综合来看它是典型的 C1，但不是最&quot;纯&quot;的 C1：纯度上的瑕疵在于保留了 <code>fix</code> 这个编辑性字段，</p>
+<p>以及一部分可被规则检查器直接覆盖的条款。</p>
+
 <h2>实测结果（v5 最终版）</h2>
 <table><tr><th>模型</th><th>harness</th><th>总分</th><th>通过</th><th>严重问题</th><th>一般问题</th><th>精确率</th><th>两段结论</th></tr><tr><td>gpt-6.1-sol</td><td>Codex</td><td><b>0.879</b></td><td>❌</td><td>9/10</td><td>10/13</td><td>1.00</td><td>对</td></tr><tr><td>glm-5.3</td><td>Codex</td><td><b>0.791</b></td><td>❌</td><td>7/10</td><td>10/13</td><td>0.89</td><td>对</td></tr><tr><td>claude-opus-5</td><td>Claude Code</td><td><b>0.768</b></td><td>❌</td><td>5/10</td><td>11/13</td><td>1.00</td><td>对</td></tr><tr><td>gpt-6-sol</td><td>Codex</td><td><b>0.735</b></td><td>❌</td><td>7/10</td><td>11/13</td><td>0.78</td><td>对</td></tr><tr><td>qwen3.8-max</td><td>Codex</td><td><b>0.680</b></td><td>❌</td><td>5/10</td><td>10/13</td><td>0.88</td><td>错</td></tr><tr><td>kimi-k3</td><td>Codex</td><td><b>0.654</b></td><td>❌</td><td>4/10</td><td>9/13</td><td>1.00</td><td>对</td></tr><tr><td>deepseek-v4-pro</td><td>Codex</td><td><b>0.369</b></td><td>❌</td><td>1/10</td><td>6/13</td><td>1.00</td><td>对</td></tr></table>
 <p class="note">GPT 系列用 Codex CLI（reasoning effort high），Claude 系列用 Claude Code（effort high）；均不限时、不开 web search、空 Python venv。
