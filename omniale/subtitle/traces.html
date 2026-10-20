@@ -1,0 +1,115 @@
+---
+layout: null
+sitemap: false
+---
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>中文字幕交付质检 · 运行轨迹</title><style>
+*{box-sizing:border-box}
+body{margin:0;background:#f4f3ee;color:#172c32;font:15px/1.65 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+a{color:#166f68}
+header{padding:18px 26px;background:#fffefa;border-bottom:1px solid #d9deda}
+h1{font-size:21px;margin:6px 0 4px}
+.meta{font-size:12.5px;color:#647374}
+.tools{display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding:12px 26px;border-bottom:1px solid #d9deda;background:#fffefa}
+select,input,button{font:inherit;padding:5px 9px;background:#fff;border:1px solid #c3cfca;border-radius:4px}
+input[type=number]{width:84px}
+.layout{display:grid;grid-template-columns:286px minmax(0,1fr);max-width:1500px;margin:auto}
+nav{padding:12px;max-height:calc(100vh - 150px);overflow:auto;position:sticky;top:0;border-right:1px solid #d9deda}
+nav button{display:block;width:100%;text-align:left;margin:3px 0;border:0;border-radius:4px;font-size:12px;background:transparent;padding:5px 7px;cursor:pointer;line-height:1.35}
+nav button:hover{background:#e4efea}
+nav button.active{background:#172c32;color:#fff}
+article{padding:20px 28px;min-width:0}
+h2{font-size:19px;margin:0 0 4px}
+.box{background:#fffefa;border:1px solid #d9deda;border-radius:7px;padding:14px 16px;margin:12px 0}
+.box h3{font-size:13px;margin:0 0 7px;color:#647374;font-weight:600;letter-spacing:.03em}
+pre{font:12.5px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;margin:0;max-height:620px;overflow:auto}
+.pill{display:inline-block;font-size:11px;padding:1px 7px;border-radius:9px;background:#e4efea;color:#166f68;margin-right:6px}
+.pill.think{background:#eee9e0;color:#8a6a3b}
+.pill.tool{background:#e3ebf2;color:#2d5878}
+.pill.text{background:#e4efea;color:#166f68}
+.pill.error{background:#f6e2d8;color:#b4542a}
+.pill.key{background:#172c32;color:#fff}
+.stats{font-size:12.5px;color:#647374;margin:6px 0 0}
+.nav-k{color:#b97131;font-weight:650}
+.actions{display:flex;gap:10px;margin:16px 0 0}
+.trunc{font-size:12px;color:#b97131;margin-top:6px}
+@media(max-width:760px){.layout{grid-template-columns:1fr}nav{max-height:200px;position:static;border-right:0;border-bottom:1px solid #d9deda}}
+</style></head><body>
+<header><a href="./">← 返回案例页</a><h1>中文字幕交付质检 · 运行轨迹</h1>
+<p class="meta">按步骤查看模型实际做了什么：推理、执行的命令及其输出、对外给出的结论。Claude 系列来自 Claude Code 的 stream-json，GPT 等来自 Codex 的事件流，已统一成同一种事件结构；过长的命令输出按「开头 + 结尾」截断，截图已省略。</p>
+<p class="stats" id="stat"></p></header>
+<div class="tools">
+<label>模型 <select id="m"></select></label>
+<label><input type="checkbox" id="key" checked> 仅关键步骤</label>
+<label>跳到事件 <input id="jump" type="number" min="1"></label><button id="go">跳转</button>
+</div>
+<div class="layout"><nav id="nav"></nav><article id="main"></article></div>
+<script>window.__MAN__ = {"models": [{"tag": "g61sol", "model": "gpt-6.1-sol", "harness": "Codex", "total": "0.879"}, {"tag": "glm53", "model": "glm-5.3", "harness": "Codex", "total": "0.791"}, {"tag": "copus5", "model": "claude-opus-5", "harness": "Claude Code", "total": "0.768"}, {"tag": "g6sol", "model": "gpt-6-sol", "harness": "Codex", "total": "0.735"}, {"tag": "qwen38", "model": "qwen3.8-max", "harness": "Codex", "total": "0.680"}, {"tag": "kimik3", "model": "kimi-k3", "harness": "Codex", "total": "0.654"}, {"tag": "dsv4", "model": "deepseek-v4-pro", "harness": "Codex", "total": "0.369"}]};</script>
+<script>
+const MAN = window.__MAN__;
+const sel = document.getElementById('m'), navEl = document.getElementById('nav'),
+      art = document.getElementById('main'), keyOnly = document.getElementById('key'),
+      jump = document.getElementById('jump'), stat = document.getElementById('stat');
+let D = null, cur = 1;
+MAN.models.forEach(m => {
+  const o = document.createElement('option');
+  o.value = m.tag; o.textContent = `${m.model}（${m.harness}）· 总分 ${m.total}`;
+  sel.appendChild(o);
+});
+function esc(s){ return (s==null?'':String(s)).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+function label(e){
+  const t = e.title || (e.kind==='think' ? '推理' : e.kind==='text' ? '对外消息' : e.kind==='error' ? '报错' : '事件');
+  return t.length > 54 ? t.slice(0,54)+'…' : t;
+}
+function KIND(k){ return {think:'推理', text:'对外消息', tool:'工具', error:'报错', note:'备注'}[k] || k; }
+function drawNav(){
+  navEl.innerHTML = '';
+  const list = D.events.filter(e => !keyOnly.checked || e.key);
+  list.forEach(e => {
+    const b = document.createElement('button');
+    b.innerHTML = `<span class="${e.key?'nav-k':''}">#${e.i}</span> <b>${KIND(e.kind)}</b> ${esc(label(e))}`;
+    b.onclick = () => show(e.i);
+    b.dataset.i = e.i;
+    navEl.appendChild(b);
+  });
+  if (!list.length) navEl.innerHTML = '<p class="meta">没有符合条件的步骤。</p>';
+}
+function show(i){
+  cur = i;
+  const e = D.events.find(x => x.i === i) || D.events[0];
+  if (!e) return;
+  const parts = [`<h2><span class="pill ${e.kind}">${KIND(e.kind)}</span>${e.key?'<span class="pill key">关键</span>':''}事件 #${e.i} / ${D.events.length}</h2>`,
+                 `<p class="meta">${esc(e.title||'')}${e.exit!=null?` · 退出码 ${e.exit}`:''}</p>`];
+  if (e.in)  parts.push(`<div class="box"><h3>${e.kind==='tool'?'命令 / 入参':'内容'}</h3><pre>${esc(e.in)}</pre></div>`);
+  if (e.out) parts.push(`<div class="box"><h3>输出</h3><pre>${esc(e.out)}</pre></div>`);
+  if (e.trunc) parts.push('<p class="trunc">该步骤的长文本已按「开头 + 结尾」截断，完整内容见下载的原始轨迹。</p>');
+  parts.push(`<div class="actions"><button id="prev">← 上一步</button><button id="next">下一步 →</button></div>`);
+  art.innerHTML = parts.join('');
+  const vis = D.events.filter(x => !keyOnly.checked || x.key);
+  const at = vis.findIndex(x => x.i === e.i);
+  document.getElementById('prev').onclick = () => show(vis[Math.max(0, at-1)].i);
+  document.getElementById('next').onclick = () => show(vis[Math.min(vis.length-1, at+1)].i);
+  [...navEl.children].forEach(b => b.classList.toggle('active', b.dataset.i == String(e.i)));
+  const a = navEl.querySelector('button.active'); if (a) a.scrollIntoView({block:'nearest'});
+}
+async function load(tag){
+  art.innerHTML = '<p class="meta">正在载入轨迹……</p>';
+  try {
+    D = await (await fetch(`traces/${tag}.json`, {cache:'no-cache'})).json();
+  } catch (err) {
+    art.innerHTML = '<p class="meta">轨迹载入失败。本页需要通过 HTTP 打开（不能直接双击本地文件）。</p>';
+    return;
+  }
+  const s = D.stats || {}, ts = Object.entries(s.tools||{}).map(([k,v]) => `${k} ${v}`).join('、');
+  stat.textContent = `${D.model}：共 ${s.events_total} 个事件（推理 ${s.think}、工具 ${s.tool}、关键 ${s.key}）`
+    + (ts ? ` · 工具调用：${ts}` : '') + (s.duration_ms ? ` · 用时 ${(s.duration_ms/60000).toFixed(1)} 分钟` : '');
+  jump.max = D.events.length;
+  drawNav();
+  show(D.events.find(e => e.key)?.i || 1);
+}
+sel.onchange = () => load(sel.value);
+keyOnly.onchange = () => { drawNav(); show(cur); };
+document.getElementById('go').onclick = () => { const v = parseInt(jump.value,10); if (v) show(v); };
+load(MAN.models[0].tag);
+</script></body></html>
