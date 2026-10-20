@@ -179,11 +179,22 @@ P1 = 系统性归因"忽略调号中的升 G"，P2 = "第二遍照搬第一遍�
 
 <h2>三、运行轨迹</h2>
 <p>每个模型的完整执行过程都保留了下来：推理、执行的每一条命令及其输出、以及最后给出的结论。</p>
-<table><tr><th>模型</th><th>事件数</th><th>其中工具调用</th><th>显式推理步</th><th>乐谱图像进入上下文</th><th>自行安装的关键依赖</th></tr><tr><td>claude-opus-5</td><td>198</td><td>121</td><td>74</td><td>20 次</td><td>mir_eval, onnxruntime</td></tr><tr><td>kimi-k3</td><td>451</td><td>180</td><td>182</td><td>4 次</td><td>basic-pitch, piano_transcription_inference, pretty_midi, pymupdf, torch</td></tr><tr><td>gpt-6.1-sol</td><td>72</td><td>60</td><td>0</td><td>0 次</td><td>—</td></tr><tr><td>glm-5.3</td><td>104</td><td>48</td><td>42</td><td>12 次</td><td>basic-pitch, librosa, opencv-python-headless, pymupdf</td></tr><tr><td>gpt-6-sol</td><td>37</td><td>30</td><td>0</td><td>0 次</td><td>librosa, pymupdf</td></tr></table>
-<p class="note">两种 harness 都不能直接"听"音频或"看"图片，必须自己装工具、把媒体转成可分析的形式。
-"乐谱图像进入上下文"统计的是模型真的把翻拍照片（或其裁剪）作为图像看了几次：
-Claude Code 可直接读取图片，Codex 侧需要显式调用看图工具——
-<b>两个 GPT 模型一次都没有看过乐谱</b>，它们只用 pdftoppm/OpenCV 对像素做了程序化处理。</p>
+<table><tr><th>模型</th><th>事件数</th><th>工具调用</th><th>可见推理步</th><th>运行时报错</th><th>乐谱图像进入上下文</th><th>自行安装的依赖</th></tr><tr><td>claude-opus-5</td><td>198</td><td>121</td><td>74</td><td>0</td><td>20</td><td>librosa、matplotlib、mir_eval、numpy、onnxruntime、pretty_midi、pymupdf 等 10 个</td></tr><tr><td>kimi-k3</td><td>455</td><td>180</td><td>182</td><td>4</td><td>0</td><td>audioread、basic-pitch、librosa、numpy、onnxruntime、piano_transcription_inference、pillow 等 12 个</td></tr><tr><td>gpt-6.1-sol</td><td>100</td><td>61</td><td>0</td><td>27</td><td>0</td><td>librosa、matplotlib、numpy、opencv-python-headless、pymupdf、scipy、soundfile</td></tr><tr><td>glm-5.3</td><td>105</td><td>49</td><td>42</td><td>0</td><td>0</td><td>basic-pitch、librosa、matplotlib、opencv-python-headless、pymupdf、scipy、soundfile</td></tr><tr><td>gpt-6-sol</td><td>38</td><td>31</td><td>0</td><td>0</td><td>0</td><td>librosa、matplotlib、pymupdf、scipy、soundfile</td></tr></table>
+<div class="card"><h3 style="margin-top:0">读这张表时必须注意的三件事（都是 harness 层面的差异，不是模型能力差异）</h3>
+<ul>
+<li><b>"可见推理步"不等于有没有推理。</b>它统计的是轨迹里能看到的推理文本条数。
+我们这套网关对所有模型都没有开启推理摘要（<code>supports_reasoning_summaries=false</code>），
+OpenAI 系模型因此不回传任何可见推理，两个 GPT 模型都是 0；
+而 GLM、Kimi 的接口无论是否请求摘要都会把推理内容一并返回，所以它们有数百条。
+<b>0 只说明看不到，不说明没想。</b></li>
+<li><b>Codex 侧这 4 次运行都没有可用的视觉通道。</b>Codex 这边唯一能把图片送进上下文的办法是
+<code>node_repl</code> MCP 的 <code>emitImage</code>，而这个调用<b>每次都失败</b>了
+（glm-5.3 在钢琴题上试过一次，报 tool call error）。所以本案例里<b>只有 claude-opus-5 真正看到了乐谱</b>
+（20 次图像进入上下文），其余 4 个模型全程只能用 PyMuPDF/OpenCV 对像素做程序化处理，靠五线间距反推音高。
+这对读谱类错误的检出是结构性的劣势，评价排序时需要把它单独计入。</li>
+<li><b>gpt-6.1-sol 的 27 次报错全部是网关限流重连</b>（"Rate limit reached … tokens per min"
+后跟 "Reconnecting… 1/5"），不是它自己的程序出错。</li>
+</ul></div>
 <a class="big" href="traces.html">打开运行轨迹浏览器 →</a>
 
 <h2>四、失败分析</h2>
@@ -215,7 +226,7 @@ Claude Code 可直接读取图片，Codex 侧需要显式调用看图工具—�
 "Then sys3: m.10 ≈ m.2 (arpeggiated chord!), <b>m.11 ≈ m.3 (dotted rhythms)</b>, m.12 ≈ m.4-ish……"
 <p class="note" style="margin:8px 0 0">第 11 小节恰恰是"学生照搬了第 3 小节"的位置。把平行段落当成相同，
 等于先天排除了发现 G08、G09 的可能。gpt-6.1-sol 则裁出了第 11、15、7 小节的图像（事件 #42），
-但它全程没有把任何图像读进上下文，裁好的图没有被看过。</p></div>
+但 Codex 侧没有可用的看图通道，裁好的图只能继续交给程序处理，它自己看不到。</p></div>
 
 <div class="quote"><div class="src">翻拍件把读谱变成了像素算术：kimi-k3 推断第 1 小节旋律音（轨迹事件 #65）</div>
 "the hollow notehead at display ~660,330 → full x = 620+660/2 = 950, y = 360+330/2 = 525 → idx=(525-406)/16.63=7.2 → F4??
@@ -246,16 +257,16 @@ gpt-6-sol 与 glm-5.3 都报了第 2 小节第 3 拍的节奏问题——那是�
 <h3>逐模型</h3>
 <ul>
 <li><b>claude-opus-5（0.625）</b>：9/20 命中，
-读图次数最多（20 次），并用 basic-pitch 做了音高转写。两条误报都是记号读错；
-G04、G05 报到了位置但音高/拍位判错。</li>
-<li><b>kimi-k3（0.571）</b>：451 个事件、180 次工具调用，
-是耗时最长的一次运行，自建了读谱与音频时间轴两条流水线。<b>零误报</b>（精确率 1.00）——报出来的全对，
-但只敢报 8 条，召回 0.40。</li>
+是<b>唯一真正看到乐谱图像的模型</b>（20 次图像进入上下文），并用 basic-pitch 做了音高转写。
+两条误报都是记号读错；G04、G05 报到了位置但音高/拍位判错。</li>
+<li><b>kimi-k3（0.571）</b>：455 个事件、180 次工具调用，
+是耗时最长的一次运行，自建了读谱与音频时间轴两条流水线（装了 piano_transcription_inference 与 torch）。
+<b>零误报</b>（精确率 1.00）——报出来的全对，但只敢报 8 条，召回 0.40。</li>
 <li><b>gpt-6.1-sol（0.538）</b>：命中数与 opus-5 相同，但 3 条误报里有 2 条把第 7 小节真人演奏的
-rubato 判成了节奏错误，且 P1 没有归组。全程没看过乐谱。</li>
-<li><b>glm-5.3（0.367）</b>：看了 12 次乐谱，但只报了 7 条、命中 5 条；
+rubato 判成了节奏错误，且 P1 没有归组。整个运行被网关限流打断 27 次。</li>
+<li><b>glm-5.3（0.367）</b>：尝试过把乐谱图片送进上下文但调用失败，只报了 7 条、命中 5 条；
 上周跟进判成"6 项里 5 项仍存在"（真值是 3 项仍存在、2 项已改、1 项部分改），跟进分 0.67。</li>
-<li><b>gpt-6-sol（0.335）</b>：37 个事件就收工，只报了 5 条错误，
+<li><b>gpt-6-sol（0.335）</b>：38 个事件就收工，只报了 5 条错误，
 召回 0.20 为最低。</li>
 </ul>
 
