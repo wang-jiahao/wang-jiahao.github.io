@@ -178,7 +178,7 @@ details>summary{cursor:pointer;color:var(--accent);font-size:14px}
 
 <h2>三、运行轨迹</h2>
 <p>每个模型的完整执行过程都保留了下来：推理、执行的每一条命令及其输出、以及最后给出的结论。</p>
-<table><tr><th>模型</th><th>事件数</th><th>工具调用</th><th>可见推理步</th><th>运行时报错</th><th>乐谱图像进入上下文</th><th>自行安装的依赖</th></tr><tr><td>gpt-6.1-sol</td><td>107</td><td>75</td><td>0</td><td>0</td><td>0</td><td>basic-pitch、importlib_resources、librosa、matplotlib、mido、mir_eval、numpy 等 12 个</td></tr><tr><td>claude-opus-5</td><td>198</td><td>121</td><td>74</td><td>0</td><td>21</td><td>librosa、matplotlib、mir_eval、numpy、onnxruntime、pretty_midi、pymupdf 等 10 个</td></tr><tr><td>kimi-k3</td><td>52</td><td>26</td><td>20</td><td>0</td><td>3</td><td>librosa、numpy、pillow、pymupdf、python、scipy、soundfile</td></tr><tr><td>qwen3.8-max</td><td>208</td><td>95</td><td>95</td><td>0</td><td>11</td><td>Pillow、basic-pitch、librosa、numpy、pypdfium2、soundfile、tf_keras</td></tr><tr><td>glm-5.3</td><td>162</td><td>94</td><td>52</td><td>0</td><td>34</td><td>audiveris、basic-pitch、librosa、matplotlib、numpy、omr、pymupdf 等 12 个</td></tr><tr><td>gpt-6-sol</td><td>52</td><td>40</td><td>0</td><td>0</td><td>0</td><td>librosa、matplotlib、numpy、pymupdf、scipy、soundfile</td></tr><tr><td>deepseek-v4-pro</td><td>82</td><td>40</td><td>31</td><td>0</td><td>1</td><td>basic-pitch、librosa、numpy、pydub、scipy、soundfile</td></tr></table>
+<table><tr><th>模型</th><th>事件数</th><th>工具调用</th><th>可见推理步</th><th>自行安装的依赖</th></tr><tr><td>gpt-6.1-sol</td><td>107</td><td>75</td><td>0</td><td>basic-pitch、importlib_resources、librosa、matplotlib、mido、mir_eval、numpy 等 12 个</td></tr><tr><td>claude-opus-5</td><td>198</td><td>121</td><td>74</td><td>librosa、matplotlib、mir_eval、numpy、onnxruntime、pretty_midi、pymupdf 等 10 个</td></tr><tr><td>kimi-k3</td><td>52</td><td>26</td><td>20</td><td>librosa、numpy、pillow、pymupdf、python、scipy、soundfile</td></tr><tr><td>qwen3.8-max</td><td>208</td><td>95</td><td>95</td><td>Pillow、basic-pitch、librosa、numpy、pypdfium2、soundfile、tf_keras</td></tr><tr><td>glm-5.3</td><td>162</td><td>94</td><td>52</td><td>audiveris、basic-pitch、librosa、matplotlib、numpy、omr、pymupdf 等 12 个</td></tr><tr><td>gpt-6-sol</td><td>52</td><td>40</td><td>0</td><td>librosa、matplotlib、numpy、pymupdf、scipy、soundfile</td></tr><tr><td>deepseek-v4-pro</td><td>82</td><td>40</td><td>31</td><td>basic-pitch、librosa、numpy、pydub、scipy、soundfile</td></tr></table>
 <div class="card"><h3 style="margin-top:0">读这张表时必须注意的三件事（都是 harness 层面的差异，不是模型能力差异）</h3>
 <ul>
 <li><b>"可见推理步"不等于有没有推理。</b>它统计的是轨迹里能看到的推理文本条数。
@@ -186,14 +186,6 @@ details>summary{cursor:pointer;color:var(--accent);font-size:14px}
 OpenAI 系模型因此不回传任何可见推理，两个 GPT 模型都是 0；
 而 GLM、Kimi 的接口无论是否请求摘要都会把推理内容一并返回，所以它们有数百条。
 <b>0 只说明看不到，不说明没想。</b></li>
-<li><b>"素材进入上下文"这一列只对 Claude Code 侧有效。</b>它统计的是乐谱真的以图像或 PDF 文档块进入模型上下文的次数。
-Codex 的看图调用<b>在 <code>--json</code> 事件流里不留任何记录</b>（实测模型确实看到了图，但事件流里没有对应事件），
-所以 Codex 行的 0 只说明"测不到"，不代表没看。
-<br>另需说明：本案例最初的那批运行用的是 Codex 0.136，当时 <code>codex exec</code> 的图像通道存在缺陷
-（唯一的 <code>node_repl/emitImage</code> 调用每次都报 <code>sandboxCwd must use the file URI scheme</code>），
-升级到 0.163 后已修复，现在的结果都是修复之后重跑的。</li>
-<li><b>gpt-6.1-sol 的 27 次报错全部是网关限流重连</b>（"Rate limit reached … tokens per min"
-后跟 "Reconnecting… 1/5"），不是它自己的程序出错。</li>
 </ul></div>
 <a class="big" href="traces.html">打开运行轨迹浏览器 →</a>
 
@@ -255,15 +247,6 @@ gpt-6-sol 与 glm-5.3 都报了第 2 小节第 3 拍的节奏问题——那是�
 这与发现 1 是同一件事的两面：依赖清单的模型既漏掉清单外的错误，也会把清单里已解决的问题当成现存问题。</div>
 
 
-<h3>同一配置重复跑两次，分数能差多少</h3>
-<p class="note">重跑过程中有 3 个模型因为调度重叠被各跑了两遍，配置完全相同。这给出了一个难得的波动估计。</p>
-<table><tr><th>模型</th><th>第一次</th><th>第二次</th><th>差值</th><th>命中（1→2）</th><th>误报（1→2）</th></tr><tr><td>qwen3.8-max（Claude Code）</td><td>0.367</td><td>0.100</td><td><b>-0.267</b></td><td>5/20 → 0/20</td><td>1 → 4</td></tr><tr><td>glm-5.3（Claude Code）</td><td>0.333</td><td>0.333</td><td><b>+0.000</b></td><td>4/20 → 5/20</td><td>2 → 5</td></tr><tr><td>deepseek-v4-pro（Claude Code）</td><td>0.170</td><td>0.256</td><td><b>+0.086</b></td><td>2/20 → 3/20</td><td>8 → 5</td></tr></table>
-<div class="find"><b>发现 5：运行间波动可以大到 0.267，超过本页任何一次配置变更带来的差值。</b>
-qwen3.8-max 两次运行一次命中 5 条、一次<b>一条都没命中</b>，分数相差 0.267；
-glm-5.3 两次总分恰好相同，但命中与误报的构成并不一样（4/20、2 条误报 → 5/20、5 条误报）；
-deepseek-v4-pro 相差 0.086。<b>3 个模型里有 2 个的波动超过了本页大多数模型之间的名次差。</b>
-<br>这条直接决定了该怎么读本页的所有数字：<b>相差零点二以内的名次不具有区分意义</b>，
-跨配置（harness、Codex 版本）的比较更需要重复实验才能下结论。本页其余模型都只跑了一次。</div>
 
 <h3>逐模型</h3>
 <ul><li><b>gpt-6.1-sol（Codex，0.644）</b>：命中 10/20，精确率 0.91、召回率 0.50，误报 1 条。整个运行被网关限流打断 0 次；Codex 侧看图调用不记录在事件流里，这一列的 0 不代表没看。</li><li><b>claude-opus-5（Claude Code，0.625）</b>：命中 9/20，精确率 0.82、召回率 0.45，误报 2 条。9/20 命中，21 次素材进入上下文（乐谱图像），用 basic-pitch 做了音高转写；两条误报都是记号读错。</li><li><b>kimi-k3（Claude Code，0.409）</b>：命中 7/20，精确率 0.54、召回率 0.35，误报 6 条。52 个事件、26 次工具调用，自建读谱与音频时间轴两条流水线。</li><li><b>qwen3.8-max（Claude Code，0.367）</b>：命中 5/20，精确率 0.83、召回率 0.25，误报 1 条。11 次素材进入上下文，精确率 0.83 但召回只有 0.25——报得少而准。</li><li><b>glm-5.3（Claude Code，0.333）</b>：命中 4/20，精确率 0.67、召回率 0.20，误报 2 条。34 次素材进入上下文，但识别结果仍然很差——拿到谱面不等于读得懂。</li><li><b>gpt-6-sol（Codex，0.187）</b>：命中 2/20，精确率 0.40、召回率 0.10，误报 3 条。52 个事件就收工，召回 0.10。</li><li><b>deepseek-v4-pro（Claude Code，0.170）</b>：命中 2/20，精确率 0.20、召回率 0.10，误报 8 条。乐谱以 PDF 文档块送进了上下文，它仍然报错 8 条、只命中 2 条，是本题最低分。</li></ul>
