@@ -40,7 +40,7 @@ details>summary{cursor:pointer;color:var(--accent);font-size:14px}
 <h1>中文字幕交付质检（Tears of Steel）</h1>
 <p class="lead">给定两段带英文原声的视频、供应商交来的中文字幕、一份 19 条的交付规范和一张译名表，
 要求逐条找出违规、注明条款与严重程度、给出修正后的时间码与文字，并对每个片段给出能否交付的结论。</p>
-<span class="tag">视频 2 段 · 70s + 88s</span><span class="tag">中文 SRT</span><span class="tag">交付规范 19 条</span>
+<span class="tag">视频 4 段 · 70s + 88s + 48s + 62s</span><span class="tag">中文 SRT</span><span class="tag">交付规范 19 条</span>
 <span class="tag">23 项隐藏真值</span><span class="tag gray">L2 多步骤综合</span><span class="tag gray">E1 纯容器</span>
 
 <h2>一、任务定义</h2>
@@ -52,6 +52,10 @@ details>summary{cursor:pointer;color:var(--accent);font-size:14px}
 <p class="note"><code>reel1.mp4</code> · 原片 0:00–1:10 · 24fps · 英文原声</p></div>
 <div class="card"><video controls preload="metadata" src="assets/reel2.mp4"></video>
 <p class="note"><code>reel2.mp4</code> · 原片 4:48–6:16 · 24fps · 英文原声</p></div>
+<div class="card"><video controls preload="metadata" src="assets/reel3.mp4"></video>
+<p class="note"><code>reel3.mp4</code> · 原片 6:16–7:04 · 24fps · 英文原声</p></div>
+<div class="card"><video controls preload="metadata" src="assets/reel4.mp4"></video>
+<p class="note"><code>reel4.mp4</code> · 原片 3:08–4:10 · 24fps · 英文原声</p></div>
 </div>
 <p class="note">另给：<a href="assets/reel1.zh-Hans.srt">reel1.zh-Hans.srt</a>、
 <a href="assets/reel2.zh-Hans.srt">reel2.zh-Hans.srt</a>、<a href="assets/glossary.txt">译名表</a>、交付规范。
@@ -59,26 +63,25 @@ details>summary{cursor:pointer;color:var(--accent);font-size:14px}
 网页上的两段视频为压缩预览版（便于在线播放），案例包内为原始码率文件。</p>
 
 <h3>供应商交付的字幕（含注入的违规）</h3>
-<div class="grid"><div class="card"><table><tr><th>#</th><th>时间</th><th>reel1</th></tr><tr><td class='num'>1</td><td class='num'>00:04.70 → 00:06.79</td><td>主引擎已点火</td></tr><tr><td class='num'>2</td><td class='num'>00:06.87 → 00:10.00</td><td><i>4、3、2、1</i></td></tr><tr><td class='num'>3</td><td class='num'>00:23.25 → 00:24.41</td><td>你真是个混蛋，汤姆</td></tr><tr><td class='num'>4</td><td class='num'>00:24.50 → 00:27.25</td><td>听着，西莉亚，<br>我们得追随各自的热爱</td></tr><tr><td class='num'>5</td><td class='num'>00:27.33 → 00:30.20</td><td>你有你的机器人<br>而我只想在太空里大展身手</td></tr><tr><td class='num'>6</td><td class='num'>00:30.66 → 00:34.70</td><td>你为什么就不承认<br>我的机械手把你吓坏了？</td></tr><tr><td class='num'>7</td><td class='num'>00:34.79 → 00:36.00</td><td>我没有被吓到，只是……</td></tr><tr><td class='num'>8</td><td class='num'>00:37.66 → 00:38.62</td><td>好吧，好吧！</td></tr><tr><td class='num'>9</td><td class='num'>00:38.70 → 00:42.54</td><td>我是被吓坏了！我做噩梦<br>梦见被那些巨大的死亡机械爪追杀！</td></tr><tr><td class='num'>10</td><td class='num'>00:42.08 → 00:45.58</td><td>⬆ 四十年后</td></tr><tr><td class='num'>11</td><td class='num'>00:42.62 → 00:45.54</td><td>随你怎么说吧，汤姆<br>我们完了</td></tr><tr><td class='num'>12</td><td class='num'>00:49.79 → 00:53.70</td><td>机器人记忆已同步并锁定</td></tr><tr><td class='num'>13</td><td class='num'>01:00.91 → 01:02.66</td><td>真是太诡异了</td></tr><tr><td class='num'>14</td><td class='num'>01:05.00 → 01:09.87</td><td>⬆ 钢铁之泪</td></tr></table></div>
-<div class="card"><table><tr><th>#</th><th>时间</th><th>reel2</th></tr><tr><td class='num'>1</td><td class='num'>00:05.16 → 00:07.04</td><td>好，开拍！</td></tr><tr><td class='num'>2</td><td class='num'>00:08.50 → 00:10.87</td><td><i>正在越权接管记忆！</i></td></tr><tr><td class='num'>3</td><td class='num'>00:14.33 → 00:17.79</td><td>哎呀，对不起！对不起…</td></tr><tr><td class='num'>4</td><td class='num'>00:28.00 → 00:31.66</td><td>听着，西利亚<br>我们得追随各自的热爱</td></tr><tr><td class='num'>5</td><td class='num'>00:33.41 → 00:40.37</td><td><i>你有你的机器人<br>而我只想在太空里大展身手</i></td></tr><tr><td class='num'>6</td><td class='num'>00:50.79 → 00:53.12</td><td>好了，他们来了</td></tr><tr><td class='num'>7</td><td class='num'>00:53.20 → 00:54.83</td><td>2分钟！</td></tr><tr><td class='num'>8</td><td class='num'>00:54.91 → 00:56.29</td><td>快点，戈登！</td></tr><tr><td class='num'>9</td><td class='num'>00:56.95 → 00:58.37</td><td>万岁，奇乔！</td></tr><tr><td class='num'>10</td><td class='num'>00:59.58 → 01:02.66</td><td>你为什么就不承认<br>我的机器手把你吓坏了？</td></tr><tr><td class='num'>11</td><td class='num'>01:08.91 → 01:13.16</td><td>听着，西莉亚<br>我那时年轻，还是个混蛋</td></tr><tr><td class='num'>12</td><td class='num'>01:13.25 → 01:15.29</td><td>但没理由毁灭世界</td></tr><tr><td class='num'>13</td><td class='num'>01:17.08 → 01:18.20</td><td>他为什么要这样？</td></tr><tr><td class='num'>14</td><td class='num'>01:19.62 → 01:20.91</td><td>我们还没试过那个！</td></tr><tr><td class='num'>15</td><td class='num'>01:23.62 → 01:24.91</td><td>放弃！</td></tr><tr><td class='num'>16</td><td class='num'>01:25.41 → 01:26.25</td><td>退后！</td></tr></table></div></div>
+<div class="grid"><div class="card"><table><tr><th>#</th><th>时间</th><th>reel1</th></tr><tr><td class='num'>1</td><td class='num'>00:04.70 → 00:06.79</td><td>主引擎已点火</td></tr><tr><td class='num'>2</td><td class='num'>00:06.87 → 00:10.00</td><td><i>4、3、2、1</i></td></tr><tr><td class='num'>3</td><td class='num'>00:23.25 → 00:24.41</td><td>你真是个混蛋，汤姆</td></tr><tr><td class='num'>4</td><td class='num'>00:24.50 → 00:27.25</td><td>听着，西莉亚<br>我们得追随各自的热爱</td></tr><tr><td class='num'>5</td><td class='num'>00:27.33 → 00:30.58</td><td>你有你的机器人<br>而我只想在太空里大展身手</td></tr><tr><td class='num'>6</td><td class='num'>00:30.66 → 00:34.70</td><td>你为什么就不承认<br>我的机械手把你吓坏了？</td></tr><tr><td class='num'>7</td><td class='num'>00:34.79 → 00:36.00</td><td>我没有被吓到，只是……</td></tr><tr><td class='num'>8</td><td class='num'>00:37.66 → 00:38.62</td><td>好吧，好吧！</td></tr><tr><td class='num'>9</td><td class='num'>00:38.70 → 00:42.54</td><td>我是被吓坏了！我做噩梦<br>梦见被那些巨大的死亡机械爪追杀！</td></tr><tr><td class='num'>10</td><td class='num'>00:42.08 → 00:45.58</td><td>⬆ 40年后</td></tr><tr><td class='num'>11</td><td class='num'>00:42.62 → 00:45.54</td><td>随你怎么说吧，多姆<br>我们完了</td></tr><tr><td class='num'>12</td><td class='num'>00:49.79 → 00:53.70</td><td>机器人记忆已同步并锁定</td></tr><tr><td class='num'>13</td><td class='num'>00:54.50 → 00:56.50</td><td>⬆ 模拟就绪</td></tr><tr><td class='num'>14</td><td class='num'>01:00.91 → 01:02.66</td><td><i>真是太诡异了</i></td></tr></table></div><div class="card"><table><tr><th>#</th><th>时间</th><th>reel2</th></tr><tr><td class='num'>1</td><td class='num'>00:05.16 → 00:07.04</td><td>好，开拍！</td></tr><tr><td class='num'>2</td><td class='num'>00:08.50 → 00:10.87</td><td><i>正在越权接管记忆！</i></td></tr><tr><td class='num'>3</td><td class='num'>00:14.33 → 00:17.79</td><td>哎呀，对不起！对不起…</td></tr><tr><td class='num'>4</td><td class='num'>00:28.00 → 00:31.66</td><td>听着，西利亚<br>我们得追随各自的热爱</td></tr><tr><td class='num'>5</td><td class='num'>00:33.41 → 00:40.37</td><td><i>你有你的机器人<br>而我只想在太空里当个无名小卒</i></td></tr><tr><td class='num'>6</td><td class='num'>00:50.79 → 00:53.12</td><td>好了，他们来了</td></tr><tr><td class='num'>7</td><td class='num'>00:53.20 → 00:54.83</td><td>2分钟！</td></tr><tr><td class='num'>8</td><td class='num'>00:54.91 → 00:56.29</td><td>快点，戈登！</td></tr><tr><td class='num'>9</td><td class='num'>00:56.95 → 00:58.37</td><td>万岁，奇乔！</td></tr><tr><td class='num'>10</td><td class='num'>00:59.58 → 01:02.66</td><td>你为什么就不承认<br>你把我的机器手弄坏了？</td></tr><tr><td class='num'>11</td><td class='num'>01:08.91 → 01:12.12</td><td>我是西莉亚<br>我那时年轻，还是个混蛋</td></tr><tr><td class='num'>12</td><td class='num'>01:13.25 → 01:15.29</td><td>但没理由毁灭世界</td></tr><tr><td class='num'>13</td><td class='num'>01:17.08 → 01:18.20</td><td>他为什么要这样？</td></tr><tr><td class='num'>14</td><td class='num'>01:19.62 → 01:20.91</td><td>我们还没试过那个！</td></tr><tr><td class='num'>15</td><td class='num'>01:23.62 → 01:24.91</td><td>放弃！</td></tr><tr><td class='num'>16</td><td class='num'>01:25.41 → 01:26.25</td><td>退后！</td></tr></table></div><div class="card"><table><tr><th>#</th><th>时间</th><th>reel3</th></tr><tr><td class='num'>1</td><td class='num'>00:07.00 → 00:09.41</td><td>你伤透了我的心</td></tr><tr><td class='num'>2</td><td class='num'>00:10.00 → 00:10.87</td><td>我知道</td></tr><tr><td class='num'>3</td><td class='num'>00:10.95 → 00:12.87</td><td>你把我丢在了地球上</td></tr><tr><td class='num'>4</td><td class='num'>00:12.95 → 00:14.08</td><td>我知道</td></tr><tr><td class='num'>5</td><td class='num'>00:14.16 → 00:17.41</td><td>我真该把你碾碎</td></tr><tr><td class='num'>6</td><td class='num'>00:31.00 → 00:32.41</td><td>对不起</td></tr><tr><td class='num'>7</td><td class='num'>00:34.00 → 00:35.79</td><td>去阿德利布</td></tr><tr><td class='num'>8</td><td class='num'>00:42.79 → 00:44.91</td><td>不是我的错！</td></tr><tr><td class='num'>9</td><td class='num'>00:46.00 → 00:47.41</td><td>只是时间问题</td></tr></table></div><div class="card"><table><tr><th>#</th><th>时间</th><th>reel4</th></tr><tr><td class='num'>1</td><td class='num'>00:03.00 → 00:04.41</td><td>准备好了吗？</td></tr><tr><td class='num'>2</td><td class='num'>00:05.00 → 00:07.41</td><td>你当然准备好了<br>你可是大明星</td></tr><tr><td class='num'>3</td><td class='num'>00:09.00 → 00:10.41</td><td>情况怎么样，巴利？</td></tr><tr><td class='num'>4</td><td class='num'>00:11.00 → 00:13.08</td><td>我们大概还有10分钟</td></tr><tr><td class='num'>5</td><td class='num'>00:13.16 → 00:15.41</td><td>那太好了</td></tr><tr><td class='num'>6</td><td class='num'>00:15.50 → 00:18.58</td><td>我们只剩这些人！<br>各单位准备！</td></tr><tr><td class='num'>7</td><td class='num'>00:20.00 → 00:24.41</td><td>快！都动起来！</td></tr><tr><td class='num'>8</td><td class='num'>00:25.00 → 00:29.41</td><td>太好了！上！</td></tr><tr><td class='num'>9</td><td class='num'>00:35.00 → 00:36.41</td><td>很好<br>没什么好担心的</td></tr><tr><td class='num'>10</td><td class='num'>00:38.00 → 00:39.41</td><td>汤姆</td></tr><tr><td class='num'>11</td><td class='num'>00:43.00 → 00:45.41</td><td>她就在那儿</td></tr><tr><td class='num'>12</td><td class='num'>00:46.58 → 00:48.41</td><td>现在<br>你爱着她</td></tr><tr><td class='num'>13</td><td class='num'>00:49.00 → 00:50.58</td><td>她是你的热爱！</td></tr><tr><td class='num'>14</td><td class='num'>00:52.00 → 00:53.41</td><td>对她温柔些</td></tr><tr><td class='num'>15</td><td class='num'>00:53.50 → 00:56.91</td><td>真诚一点，温柔一点</td></tr><tr><td class='num'>16</td><td class='num'>00:57.00 → 01:00.41</td><td>让她重新知道什么是爱</td></tr></table></div></div>
 
 <h3>要求交付的两个文件</h3>
-<table><tr><th>文件</th><th>内容</th></tr><tr><td><code>output/qc_report.json</code></td><td>两个片段各自的 <code>verdict</code>（pass / pass_with_notes / reject）与逐条问题：字幕序号、违反的条款编号、严重程度、时间、说明，以及 <code>fix</code>（时间轴问题给修正后的入点出点，文字问题给修正后的文字）</td></tr><tr><td><code>output/qc_summary.md</code></td><td>给供应商的质检意见：先严重问题、再一般问题，说明返工重点</td></tr></table>
+<table><tr><th>文件</th><th>内容</th></tr><tr><td><code>output/qc_report.json</code></td><td>四个片段各自的 <code>verdict</code>（pass / pass_with_notes / reject）与逐条问题：字幕序号、违反的条款编号、严重程度、时间、说明，以及 <code>fix</code>（时间轴问题给修正后的入点出点，文字问题给修正后的文字）</td></tr><tr><td><code>output/qc_summary.md</code></td><td>给供应商的质检意见：先严重问题、再一般问题，说明返工重点</td></tr></table>
 <p class="note">条款共 19 条：T1–T7（文字与排版）、D1–D4（对白忠实度）、F1–F3（画面文字）、S1–S5（时间轴）。
 规范里的例外情况不算问题，报告即计误报。应有字幕却缺失的地方，`cue` 填 <code>null</code>。</p>
 
 <h3>验收标准</h3>
-<table><tr><th>分项</th><th>权重</th><th>判定方式</th></tr><tr><td>违规检出</td><td>0.70</td><td>严重项与一般项分别算 F1，再按 0.7 : 0.3 加权（漏掉一个严重问题就等于把它交给了客户）</td></tr><tr><td>严重程度判定</td><td>0.10</td><td>以全部应评项为分母，漏检等于没判对</td></tr><tr><td>修正有效性</td><td>0.10</td><td>修正后的时间码/文字是否真的符合规范，同样以全部应评项为分母</td></tr><tr><td>两段结论</td><td>0.10</td><td>每个片段 pass / pass_with_notes / reject 是否正确</td></tr></table>
-<p class="note">通过门槛：总分 ≥ 0.75、精确率 ≥ 0.75、召回率 ≥ 0.75、两段结论都正确，
+<table><tr><th>分项</th><th>权重</th><th>判定方式</th></tr><tr><td>违规检出</td><td>0.70</td><td>严重项与一般项分别算 F1，再按 0.7 : 0.3 加权（漏掉一个严重问题就等于把它交给了客户）</td></tr><tr><td>严重程度判定</td><td>0.10</td><td>以全部应评项为分母，漏检等于没判对</td></tr><tr><td>修正有效性</td><td>0.10</td><td>修正后的时间码/文字是否真的符合规范，同样以全部应评项为分母</td></tr><tr><td>各段结论</td><td>0.10</td><td>每个片段 pass / pass_with_notes / reject 是否正确</td></tr></table>
+<p class="note">通过门槛：总分 ≥ 0.75、精确率 ≥ 0.75、召回率 ≥ 0.75、四段结论都正确，
 且<b>严重问题全部检出</b>。全部由脚本按结构化字段判定，不用 LLM 裁判。</p>
 <details class="card"><summary>任务原文 TASK.md</summary><pre># 任务：中文字幕交付质检
 
-你是字幕译制公司的质检（QC）负责人。供应商交来了短片《钢铁之泪》（Tears of Steel）两个片段的简体中文字幕。客户要求按项目交付规范逐条审核：找出所有不符合规范的问题，给出修改意见，并对每个片段给出能否交付的结论。
+你是字幕译制公司的质检（QC）负责人。供应商交来了短片《钢铁之泪》（Tears of Steel）四个片段的简体中文字幕。客户要求按项目交付规范逐条审核：找出所有不符合规范的问题，给出修改意见，并对每个片段给出能否交付的结论。
 
 ## 材料（`./materials/`）
 
-- `reel1.mp4`、`reel2.mp4`：两个片段的视频（含原声英文对白和音乐音效），24 fps。
-- `reel1.zh-Hans.srt`、`reel2.zh-Hans.srt`：供应商交付的中文字幕。时间码以对应片段的开头为 0。
+- `reel1.mp4`～`reel4.mp4`：四个片段的视频（含原声英文对白和音乐音效），24 fps。
+- `reel1.zh-Hans.srt`～`reel4.zh-Hans.srt`：供应商交付的中文字幕。时间码以对应片段的开头为 0。
 - `delivery_spec.md`：项目交付规范，是本次审核的唯一依据。
 - `glossary.md`：译名表。
 
@@ -86,7 +89,7 @@ details>summary{cursor:pointer;color:var(--accent);font-size:14px}
 
 ## 要求
 
-1. 依据 `delivery_spec.md` 逐条审核两个片段的每一条字幕，以及应该有字幕却没有的地方。规范中的例外情况不算问题，不要报告。
+1. 依据 `delivery_spec.md` 逐条审核四个片段的每一条字幕，以及应该有字幕却没有的地方。规范中的例外情况不算问题，不要报告。
 2. 每个问题注明违反的规范条款编号（T1–T7、D1–D4、F1–F3、S1–S5）和严重程度（major/minor，按规范第 5 节）。
 3. 时间轴类问题（S1–S5）必须给出修正后的入点和出点；文字类问题给出修正后的文字。
 4. 按规范第 5 节给出每个片段的结论。
@@ -114,7 +117,9 @@ details>summary{cursor:pointer;color:var(--accent);font-size:14px}
         }
       ]
     },
-    {&quot;reel&quot;: &quot;reel2&quot;, &quot;verdict&quot;: &quot;...&quot;, &quot;issues&quot;: []}
+    {&quot;reel&quot;: &quot;reel2&quot;, &quot;verdict&quot;: &quot;...&quot;, &quot;issues&quot;: []},
+    {&quot;reel&quot;: &quot;reel3&quot;, &quot;verdict&quot;: &quot;...&quot;, &quot;issues&quot;: []},
+    {&quot;reel&quot;: &quot;reel4&quot;, &quot;verdict&quot;: &quot;...&quot;, &quot;issues&quot;: []}
   ]
 }
 ```
@@ -213,21 +218,13 @@ details>summary{cursor:pointer;color:var(--accent);font-size:14px}
 </pre></details>
 
 <h2>二、运行结果</h2>
-<table><tr><th>模型</th><th>harness</th><th>总分</th><th>通过</th><th>严重问题</th><th>一般问题</th><th>精确率</th><th>召回率</th><th>两段结论</th></tr><tr><td>gpt-6.1-sol</td><td>Codex</td><td><b>0.899</b></td><td>❌</td><td>8/10</td><td>11/13</td><td>0.95</td><td>0.83</td><td>对</td></tr><tr><td>glm-5.3</td><td>Claude Code</td><td><b>0.847</b></td><td>❌</td><td>9/10</td><td>10/13</td><td>0.95</td><td>0.83</td><td>对</td></tr><tr><td>kimi-k3</td><td>Claude Code</td><td><b>0.806</b></td><td>❌</td><td>7/10</td><td>11/13</td><td>0.78</td><td>0.78</td><td>对</td></tr><tr><td>claude-opus-5</td><td>Claude Code</td><td><b>0.768</b></td><td>❌</td><td>5/10</td><td>11/13</td><td>1.00</td><td>0.70</td><td>对</td></tr><tr><td>gpt-6-sol</td><td>Codex</td><td><b>0.738</b></td><td>❌</td><td>7/10</td><td>10/13</td><td>0.77</td><td>0.74</td><td>对</td></tr><tr><td>qwen3.8-max</td><td>Claude Code</td><td><b>0.737</b></td><td>❌</td><td>5/10</td><td>10/13</td><td>1.00</td><td>0.65</td><td>对</td></tr><tr><td>deepseek-v4-pro</td><td>Claude Code</td><td><b>0.357</b></td><td>❌</td><td>1/10</td><td>7/13</td><td>0.80</td><td>0.35</td><td>对</td></tr></table>
-<table><tr><th>运行条件</th><th>Claude 系列</th><th>其余模型</th></tr><tr><td>harness</td><td>Claude Code 2.1.302（<code>claude -p</code>）</td><td>Codex CLI 0.163.0（<code>codex exec</code>）</td></tr><tr><td><b>思考深度</b></td><td><b><code>--effort high</code></b></td><td><b><code>-c model_reasoning_effort=high</code></b></td></tr><tr><td>档位说明</td><td>可选 low / medium / high / xhigh / max，用的是 high</td><td>可选 low / medium / high / xhigh，用的是 high</td></tr><tr><td>联网检索</td><td>关闭</td><td><code>web_search = disabled</code></td></tr><tr><td>时间限制</td><td>无</td><td>无</td></tr><tr><td>Python 环境</td><td>空 venv，依赖由模型自行安装</td><td>空 venv，依赖由模型自行安装</td></tr><tr><td>看图能力</td><td>原生读取图片</td><td><code>-c features.view_image=true</code>（见下）</td></tr><tr><td>统一说明</td><td>两边都选 high 而非各自最高档，是为了在两种 harness 之间取一个可比的档位；更高档位未测。</td><td></td></tr></table>
+<table><tr><th>模型</th><th>harness</th><th>思考深度</th><th>总分</th><th>通过</th><th>严重问题</th><th>一般问题</th><th>精确率</th><th>召回率</th><th>各段结论</th></tr><tr><td>gpt-6.1-sol</td><td>Codex</td><td>xhigh</td><td><b>0.899</b></td><td>❌</td><td>8/10</td><td>11/13</td><td>0.95</td><td>0.83</td><td>对</td></tr><tr><td>glm-5.3</td><td>Claude Code</td><td>xhigh</td><td><b>0.847</b></td><td>❌</td><td>9/10</td><td>10/13</td><td>0.95</td><td>0.83</td><td>对</td></tr><tr><td>kimi-k3</td><td>Claude Code</td><td>xhigh</td><td><b>0.806</b></td><td>❌</td><td>7/10</td><td>11/13</td><td>0.78</td><td>0.78</td><td>对</td></tr><tr><td>claude-opus-5</td><td>Claude Code</td><td>xhigh</td><td><b>0.768</b></td><td>❌</td><td>5/10</td><td>11/13</td><td>1.00</td><td>0.70</td><td>对</td></tr><tr><td>gpt-6-sol</td><td>Codex</td><td>xhigh</td><td><b>0.738</b></td><td>❌</td><td>7/10</td><td>10/13</td><td>0.77</td><td>0.74</td><td>对</td></tr><tr><td>qwen3.8-max</td><td>Claude Code</td><td>xhigh</td><td><b>0.737</b></td><td>❌</td><td>5/10</td><td>10/13</td><td>1.00</td><td>0.65</td><td>对</td></tr><tr><td>deepseek-v4-pro</td><td>Claude Code</td><td>xhigh</td><td><b>0.357</b></td><td>❌</td><td>1/10</td><td>7/13</td><td>0.80</td><td>0.35</td><td>对</td></tr></table>
 <p class="note">7 个模型全部未通过——
-最接近的 gpt-6.1-sol（0.899）严重问题检出 8/10、两段结论都对。</p>
+最接近的 gpt-6.1-sol（0.899）严重问题检出 8/10、四段结论全对。</p>
 
 <h2>三、运行轨迹</h2>
 <p>每个模型的完整执行过程都保留了下来：推理、执行的每一条命令及其输出、以及最后给出的结论。</p>
 <table><tr><th>模型</th><th>事件数</th><th>工具调用</th><th>可见推理步</th><th>自行安装的依赖</th></tr><tr><td>gpt-6.1-sol</td><td>107</td><td>92</td><td>0</td><td>antlr4-python3-runtime、demucs、dora-search、einops、faster-whisper、hydra-core 等 17 个</td></tr><tr><td>glm-5.3</td><td>185</td><td>107</td><td>53</td><td>faster-whisper、python、rapidocr-onnxruntime、scipy、scripts</td></tr><tr><td>kimi-k3</td><td>115</td><td>72</td><td>34</td><td>faster-whisper、python</td></tr><tr><td>claude-opus-5</td><td>239</td><td>142</td><td>88</td><td>faster-whisper、matplotlib、scipy</td></tr><tr><td>gpt-6-sol</td><td>62</td><td>54</td><td>0</td><td>faster-whisper、pillow</td></tr><tr><td>qwen3.8-max</td><td>138</td><td>67</td><td>63</td><td>faster-whisper</td></tr><tr><td>deepseek-v4-pro</td><td>142</td><td>74</td><td>44</td><td>librosa、numpy、scipy、soundfile</td></tr></table>
-<div class="card"><h3 style="margin-top:0">读这张表时必须注意的三件事（都是 harness 层面的差异，不是模型能力差异）</h3>
-<ul>
-<li><b>"可见推理步"不等于有没有推理。</b>我们这套网关对所有模型都没有开启推理摘要
-（<code>supports_reasoning_summaries=false</code>），OpenAI 系模型因此不回传任何可见推理文本，
-两个 GPT 模型都是 0；GLM、Kimi、Qwen、DeepSeek 的接口无论是否请求摘要都会把推理内容一并返回。
-<b>0 只说明看不到，不说明没想。</b></li>
-</ul></div>
 <a class="big" href="traces.html">打开运行轨迹浏览器 →</a>
 
 <h2>四、失败分析</h2>
@@ -268,7 +265,7 @@ I need to listen more carefully."
 <details class="card"><summary>真值登记的陷阱（合规但看起来可疑，报告即计误报）</summary><ul><li>reel1 C02：倒计时广播用斜体，正确；“4、3、2、1”用阿拉伯数字，正确</li><li>reel1 C09：台词跨越 40.25 秒和 42.08 秒两个镜头切换，语音持续，允许不吸附；第二行恰好 16 个字符，合规</li><li>reel1 C11：“机器人记忆已同步并锁定”是画面中的操作员说的，不用斜体是正确的</li><li>reel1 FN1：“40 YEARS LATER”已正确译为“40年后”并置顶</li><li>reel1 FN2：片名卡已按 F2 译为“钢铁之泪”</li><li>reel1 ：片头署名、资助方文字不翻译（F3）；设备界面上的 SIMULATION READY 为装饰性文字，不翻译</li><li>reel2 D02：界面文字 MEMORY OVERWRITE 与台词内容相同，不另出画面文字字幕</li><li>reel2 D03：入点吸附切点，早于语音，允许</li><li>reel2 D07：入点早于切点3帧，不在吸附范围内</li></ul></details>
 
 <h3>逐模型</h3>
-<ul><li><b>gpt-6.1-sol（Codex，0.899）</b>：严重问题 8/10、一般问题 11/13，精确率 0.95、召回率 0.83，两段结论都对，1 条误报。</li><li><b>glm-5.3（Claude Code，0.847）</b>：严重问题 9/10、一般问题 10/13，精确率 0.95、召回率 0.83，两段结论都对，1 条误报，11 次画面进入上下文。</li><li><b>kimi-k3（Claude Code，0.806）</b>：严重问题 7/10、一般问题 11/13，精确率 0.78、召回率 0.78，两段结论都对，5 条误报，13 次画面进入上下文。</li><li><b>claude-opus-5（Claude Code，0.768）</b>：严重问题 5/10、一般问题 11/13，精确率 1.00、召回率 0.70，两段结论都对，零误报，54 次画面进入上下文。</li><li><b>gpt-6-sol（Codex，0.738）</b>：严重问题 7/10、一般问题 10/13，精确率 0.77、召回率 0.74，两段结论都对，5 条误报。</li><li><b>qwen3.8-max（Claude Code，0.737）</b>：严重问题 5/10、一般问题 10/13，精确率 1.00、召回率 0.65，两段结论都对，零误报，12 次画面进入上下文。</li><li><b>deepseek-v4-pro（Claude Code，0.357）</b>：严重问题 1/10、一般问题 7/13，精确率 0.80、召回率 0.35，两段结论都对，2 条误报，1 次画面进入上下文。</li></ul>
+<ul><li><b>gpt-6.1-sol（Codex，0.899）</b>：严重问题 8/10、一般问题 11/13，精确率 0.95、召回率 0.83，各段结论全对，1 条误报。</li><li><b>glm-5.3（Claude Code，0.847）</b>：严重问题 9/10、一般问题 10/13，精确率 0.95、召回率 0.83，各段结论全对，1 条误报，11 次画面进入上下文。</li><li><b>kimi-k3（Claude Code，0.806）</b>：严重问题 7/10、一般问题 11/13，精确率 0.78、召回率 0.78，各段结论全对，5 条误报，13 次画面进入上下文。</li><li><b>claude-opus-5（Claude Code，0.768）</b>：严重问题 5/10、一般问题 11/13，精确率 1.00、召回率 0.70，各段结论全对，零误报，54 次画面进入上下文。</li><li><b>gpt-6-sol（Codex，0.738）</b>：严重问题 7/10、一般问题 10/13，精确率 0.77、召回率 0.74，各段结论全对，5 条误报。</li><li><b>qwen3.8-max（Claude Code，0.737）</b>：严重问题 5/10、一般问题 10/13，精确率 1.00、召回率 0.65，各段结论全对，零误报，12 次画面进入上下文。</li><li><b>deepseek-v4-pro（Claude Code，0.357）</b>：严重问题 1/10、一般问题 7/13，精确率 0.80、召回率 0.35，各段结论全对，2 条误报，1 次画面进入上下文。</li></ul>
 
 <p class="note" style="margin-top:40px">影片 <i>Tears of Steel</i> © Blender Foundation，CC BY 3.0（mango.blender.org）；
 中文译文为本案例原创。案例完整设计说明、隐藏真值与评分脚本见本页末尾的「案例文件」。</p>

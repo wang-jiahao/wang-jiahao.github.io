@@ -4,7 +4,8 @@ Usage: python verify.py <output_dir> [--gt ground_truth.json] [--json result.jso
 
 Scoring:
   0.60 * issue-detection F1   (match on reel + cue number + rule; a missing subtitle matches on rule D4 + time)
-  0.10 * severity accuracy    (matched issues whose major/minor label is right)
+  0.10 * severity accuracy    (分母＝全部真值项)
+  0.10 * fix validity         (时间轴类给修正入出点、文字类给修正文字；分母＝全部真值项)
   0.15 * timing-fix validity  (all submitted in/out fixes of a reel are applied together, as in the corrected file;
                                a matched S1–S5 issue counts as fixed if that cue then has no timing violation)
   0.15 * verdicts             (per reel: pass / pass_with_notes / reject)
@@ -154,22 +155,37 @@ def main():
         # severity + fix validity
         fix_detail = {}
         sev_all += len(gts)                                  # 分母＝全部真值项（漏掉＝没标对）
-        fix_all += sum(1 for g in gts if g["rule"] in TIMING)  # 分母＝全部时间轴真值项
+        # 分母＝全部真值项：时间轴类要给出修正后的入点/出点，文字类要给出修正后的文字（任务书的硬性要求）
+        fix_all += len(gts)
         for gi, pi in matched.items():
             g, p = gts[gi], preds[pi]
             sev_n += 1
             sev_ok += str(p.get("severity", "")).strip().lower() == g["severity"]
+            fix_n += 1
+            fx = p.get("fix") or {}
             if g["rule"] in TIMING:
-                fix_n += 1
-                fx = p.get("fix") or {}
                 fi, fo = to_frames(fx.get("in")), to_frames(fx.get("out"))
                 ok = False
                 if fi is not None and fo is not None and fo > fi:
                     remaining = [x for x in after
                                  if x[1] in TIMING and (x[0] == g["cue"] or (x[1] == "S4" and x[0] == g["cue"] - 1))]
                     ok = not remaining
-                fix_ok += ok
-                fix_detail[f"cue{g['cue']}-{g['rule']}"] = ok
+            elif g["rule"] in ("D2", "F1", "T3"):
+                # 只错在标记（斜体、置顶）或时长上，文字本身不变：给出 fix 即可
+                ok = bool(fx)
+            elif g["rule"] == "F3":
+                # 多译出来的画面文字，正确的修正是整条删除（文字留空）
+                ok = "text" in fx
+            else:
+                # 文字类：必须给出修正后的文字，且不能原样抄回交付版
+                txt = str(fx.get("text") or "").strip()
+                cur = ""
+                if g["cue"] is not None:
+                    c0 = next((c for c in cues if c["cue"] == g["cue"]), None)
+                    cur = chr(10).join(c0["lines"]).strip() if c0 else ""
+                ok = bool(txt) and txt != cur
+            fix_ok += ok
+            fix_detail[f"cue{g['cue']}-{g['rule']}"] = ok
         got_v = str(sub.get(reel, {}).get("verdict", "")).strip()
         # 结论的可辩护性：中性项意味着无法判定谁对。把模型在中性项上报告的问题（按它自己标的严重程度）
         # 并入真值后推出的结论，也视为正确。
