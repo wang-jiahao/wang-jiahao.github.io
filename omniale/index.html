@@ -33,7 +33,7 @@ details>summary{cursor:pointer;color:var(--accent);font-size:14px}
 .case{display:grid;grid-template-columns:260px minmax(0,1fr);text-decoration:none;color:inherit;
 background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:16px 0}
 .case:hover{border-color:var(--accent);box-shadow:0 1px 10px rgba(22,111,104,.10)}
-.cover{width:100%;height:100%;min-height:152px;object-fit:cover;border:0;border-radius:0;display:block;background:#172c32}
+.cover{width:100%;height:146px;object-fit:cover;align-self:start;border:0;border-radius:0;display:block;background:#172c32}
 .body{padding:16px 20px}
 .badge{font-size:11.5px;letter-spacing:.06em;color:var(--accent);font-weight:650;margin-bottom:6px}
 .ext{color:#8a6a3b;background:#f3ece1;border-radius:4px;padding:1px 6px;margin-left:8px;font-weight:500}
@@ -41,54 +41,44 @@ background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow
 .desc{margin:0 0 10px;color:#52686c;font-size:14px;line-height:1.65}
 .sc{margin:0;font-size:12.5px;color:#647374;font-variant-numeric:tabular-nums}
 .sc b{color:var(--ink)}
-@media(max-width:700px){.case{grid-template-columns:1fr}.cover{height:160px}}
+@media(max-width:700px){.case{grid-template-columns:1fr}.cover{height:auto;aspect-ratio:16/9}}
 </style></head><body><main>
 <div class="eyebrow">OMNIALE · 专业音视频智能体评测基准</div>
 <h1>案例汇总</h1>
-<p class="lead">给 Agent 原始素材和一份要求，看它能不能交出可以直接用的成果。
+<p class="lead">给 Agent 原始素材和一份要求，看它能不能交出可以直接用的成果。<br>
 每个案例包含：任务定义、运行结果、运行轨迹与失败分析。</p>
 
 <a class="case" href="piano/">
-<img class="cover" src="covers/piano.jpg" alt="">
+<img class="cover" src="covers/piano.jpg?v=2" alt="">
 <div class="body">
 <div class="badge">C 分析与决策支持 · C1</div>
 <h3>对照乐谱批改钢琴回课录音</h3>
-<p class="desc">学生用手机录了一遍钢琴作业，连乐谱也是手机翻拍的。让 Agent 当老师：听出哪里弹错了，归纳错误背后的共同原因，复查上周布置的问题改没改，再切出录音片段作为证据、写出练习计划。难点在于要分清真错误和演奏者本来就该有的音乐处理。</p>
+<p class="desc">学生用手机录了一遍钢琴作业，连乐谱也是手机翻拍的。让 Agent 当老师：听出哪里弹错了，归纳错误背后的共同原因，复查上周布置的问题改没改，再切出录音片段作为证据、写出练习计划。</p>
 <p class="sc">gpt-6.1-sol <b>64.56</b> · claude-opus-5 64.17 · gpt-6-sol 50.55 · qwen3.8-max 43.77 · glm-5.3 41.63 · kimi-k3 26.78 · deepseek-v4-pro 24.44（百分制）</p>
 </div></a>
-<a class="case" href="subtitle/">
-<img class="cover" src="covers/subtitle.jpg" alt="">
-<div class="body">
-<div class="badge">C 分析与决策支持 · C1</div>
-<h3>中文字幕交付质检</h3>
-<p class="desc">供应商交来了几段影片的中文字幕。让 Agent 按客户的交付规范逐条审核：哪里译错了、哪里时间轴不对、哪里该有字幕却没有，给出修改意见，并判断每段片子能不能交付。不提供英文台词稿，内容只能靠听。</p>
-<p class="sc">结果重跑中，稍后更新</p>
-</div></a>
 <a class="case" href="https://nanxiang-git.github.io/OmniALE/#A4" target="_blank" rel="noopener">
-<img class="cover" src="covers/a4.jpg" alt="">
+<img class="cover" src="covers/a4.jpg?v=2" alt="">
 <div class="body">
-<div class="badge">A 创作与适配 · A4<span class="ext">↗ 外部页面</span></div>
+<div class="badge">A 创作与适配 · A4</div>
 <h3>真实中国手语视频 → 中英文可切换字幕</h3>
-<p class="desc">给一段没有字幕、也没有声音的中国手语视频，让 Agent 看懂每个人在表达什么，写成中文和英文两套字幕，并交付可以切换语言的成片。镜头彼此独立，不能靠背景文字猜，也不能把它们编成一个故事。</p>
+<p class="desc">给一段没有字幕、也没有声音的中国手语视频，让 Agent 看懂每个人在表达什么，写成中文和英文两套字幕，并交付可以切换语言的成片。</p>
 <p class="sc">gpt-6-astra 39.00 · gpt-6-sol 35.57 · gpt-6-luna 26.99 · glm-5.3-flash 21.57（百分制）</p>
 </div></a>
 <a class="case" href="https://nanxiang-git.github.io/OmniALE/#A6" target="_blank" rel="noopener">
-<img class="cover" src="covers/a6.jpg" alt="">
+<img class="cover" src="covers/a6.jpg?v=2" alt="">
 <div class="body">
-<div class="badge">A 创作与适配 · A6<span class="ext">↗ 外部页面</span></div>
+<div class="badge">A 创作与适配 · A6</div>
 <h3>真实钢琴演奏 → 乐谱（MusicXML / MIDI / PDF）</h3>
-<p class="desc">给一段 77 秒的真人钢琴演奏视频，让 Agent 把这次实际弹出来的音符记成乐谱。要同时听录音和看键盘画面，弹错的地方也要照实记下来，不能拿记忆里的出版谱顶替。</p>
+<p class="desc">给一段 77 秒的真人钢琴演奏视频，让 Agent 把这次实际弹出来的音符记成乐谱，要同时听录音和看键盘画面。</p>
 <p class="sc">gpt-6-sol 33.01 · gpt-6-astra 14.02 · kimi-k3 6.25 · glm-5.3-flash 5.59（百分制）</p>
 </div></a>
 <a class="case" href="https://walnutpz.github.io/omniale/filmfix-pro/" target="_blank" rel="noopener">
-<img class="cover" src="covers/b1.jpg" alt="">
+<img class="cover" src="covers/b1.jpg?v=2" alt="">
 <div class="body">
-<div class="badge">B 修订与维护 · B1<span class="ext">↗ 外部页面</span></div>
+<div class="badge">B 修订与维护 · B1</div>
 <h3>影片交接 Pro：按会议决定修订三部片子</h3>
-<p class="desc">前任剪辑师留下三部片子的粗剪、三轮会议讨论和交接邮件。让 Agent 从讨论里判断哪些决定仍然有效，据此修改画面、声音和字幕，并自己找出没人报告过的故障——同一段素材用在不同位置，处理方式可能不一样。</p>
+<p class="desc">前任剪辑师留下三部片子的粗剪、三轮会议讨论和交接邮件。让 Agent 从讨论里判断哪些决定仍然有效，据此修改画面、声音和字幕，并自己找出没人报告过的故障。</p>
 <p class="sc">gpt-6-astra <b>67.10</b> · gpt-6.1-sol 65.43 · claude-opus-5 48.41 · kimi-k3 47.39 · gpt-6-luna 44.51 · deepseek-v4.1-flash 42.95 · glm-5.3-flash 40.68 · gpt-6-sol 38.01（百分制）</p>
 </div></a>
 
-<p class="note">A、B 类案例由各自作者部署，点击跳转到对应页面；C 类两个案例在本站。
-各案例的评分口径不同，分数不可跨案例直接比较。</p>
 </main></body></html>
