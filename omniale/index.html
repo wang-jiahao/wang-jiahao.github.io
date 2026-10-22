@@ -45,9 +45,25 @@ background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow
 </style></head><body><main>
 <div class="eyebrow">OMNIALE · 专业音视频智能体评测基准</div>
 <h1>案例汇总</h1>
-<p class="lead">每个案例都是一次真实的专业委托：给 Agent 原始素材和一份要求，看它能不能交出可以直接用的成果。
-点开卡片是该案例的完整页面——任务定义、运行结果、运行轨迹与失败分析。</p>
+<p class="lead">给 Agent 原始素材和一份要求，看它能不能交出可以直接用的成果。
+每个案例包含：任务定义、运行结果、运行轨迹与失败分析。</p>
 
+<a class="case" href="piano/">
+<img class="cover" src="covers/piano.jpg" alt="">
+<div class="body">
+<div class="badge">C 分析与决策支持 · C1</div>
+<h3>对照乐谱批改钢琴回课录音</h3>
+<p class="desc">学生用手机录了一遍钢琴作业，连乐谱也是手机翻拍的。让 Agent 当老师：听出哪里弹错了，归纳错误背后的共同原因，复查上周布置的问题改没改，再切出录音片段作为证据、写出练习计划。难点在于要分清真错误和演奏者本来就该有的音乐处理。</p>
+<p class="sc">gpt-6.1-sol <b>64.56</b> · claude-opus-5 64.17 · gpt-6-sol 50.55 · qwen3.8-max 43.77 · glm-5.3 41.63 · kimi-k3 26.78 · deepseek-v4-pro 24.44（百分制）</p>
+</div></a>
+<a class="case" href="subtitle/">
+<img class="cover" src="covers/subtitle.jpg" alt="">
+<div class="body">
+<div class="badge">C 分析与决策支持 · C1</div>
+<h3>中文字幕交付质检</h3>
+<p class="desc">供应商交来了几段影片的中文字幕。让 Agent 按客户的交付规范逐条审核：哪里译错了、哪里时间轴不对、哪里该有字幕却没有，给出修改意见，并判断每段片子能不能交付。不提供英文台词稿，内容只能靠听。</p>
+<p class="sc">结果重跑中，稍后更新</p>
+</div></a>
 <a class="case" href="https://nanxiang-git.github.io/OmniALE/#A4" target="_blank" rel="noopener">
 <img class="cover" src="covers/a4.jpg" alt="">
 <div class="body">
@@ -70,25 +86,9 @@ background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow
 <div class="badge">B 修订与维护 · B1<span class="ext">↗ 外部页面</span></div>
 <h3>影片交接 Pro：按会议决定修订三部片子</h3>
 <p class="desc">前任剪辑师留下三部片子的粗剪、三轮会议讨论和交接邮件。让 Agent 从讨论里判断哪些决定仍然有效，据此修改画面、声音和字幕，并自己找出没人报告过的故障——同一段素材用在不同位置，处理方式可能不一样。</p>
-<p class="sc">gpt-6-astra 60.15 · 其余模型尚未公布（百分制）</p>
-</div></a>
-<a class="case" href="subtitle/">
-<img class="cover" src="covers/subtitle.jpg" alt="">
-<div class="body">
-<div class="badge">C 分析与决策支持 · C1</div>
-<h3>中文字幕交付质检</h3>
-<p class="desc">供应商交来了几段影片的中文字幕。让 Agent 按客户的交付规范逐条审核：哪里译错了、哪里时间轴不对、哪里该有字幕却没有，给出修改意见，并判断每段片子能不能交付。不提供英文台词稿，内容只能靠听。</p>
-<p class="sc">结果重跑中，稍后更新</p>
-</div></a>
-<a class="case" href="piano/">
-<img class="cover" src="covers/piano.jpg" alt="">
-<div class="body">
-<div class="badge">C 分析与决策支持 · C1</div>
-<h3>对照乐谱批改钢琴回课录音</h3>
-<p class="desc">学生用手机录了一遍钢琴作业，连乐谱也是手机翻拍的。让 Agent 当老师：听出哪里弹错了，归纳错误背后的共同原因，复查上周布置的问题改没改，再切出录音片段作为证据、写出练习计划。难点在于要分清真错误和演奏者本来就该有的音乐处理。</p>
-<p class="sc">gpt-6.1-sol <b>0.646</b> · claude-opus-5 0.642 · gpt-6-sol 0.505 · qwen3.8-max 0.438 · glm-5.3 0.416 · kimi-k3 0.268 · deepseek-v4-pro 0.244</p>
+<p class="sc">gpt-6-astra <b>67.10</b> · gpt-6.1-sol 65.43 · claude-opus-5 48.41 · kimi-k3 47.39 · gpt-6-luna 44.51 · deepseek-v4.1-flash 42.95 · glm-5.3-flash 40.68 · gpt-6-sol 38.01（百分制）</p>
 </div></a>
 
 <p class="note">A、B 类案例由各自作者部署，点击跳转到对应页面；C 类两个案例在本站。
-各案例的满分标准不同（本站 C 类满分为 1.0，A、B 类为百分制），分数不可跨案例直接比较。</p>
+各案例的评分口径不同，分数不可跨案例直接比较。</p>
 </main></body></html>
