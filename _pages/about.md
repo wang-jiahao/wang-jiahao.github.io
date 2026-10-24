@@ -70,15 +70,3 @@ redirect_from:
     <div class="entry-copy"><h3><a href="https://www.nju.edu.cn/" target="_blank" rel="noopener noreferrer">Nanjing University</a></h3><p>B.Eng. in Software Engineering</p></div>
   </article>
 </section>
-
-
-<section class="content-section game-section" id="gulou" aria-labelledby="gulou-title">
-  <div class="section-heading"><h2 id="gulou-title">Gulou</h2><span class="section-note">A campus you can explore</span></div>
-  <div class="game-copy">
-    <p>A browser game recreating Nanjing University's Gulou campus. Built over 11 days with GPT 6 Astra and more than a thousand visual references, it lets you walk, cycle, drive, and fly past familiar buildings through day, night, and rain.</p>
-    <nav class="contact-links" aria-label="Gulou project links">
-      <a href="https://wang-jiahao.github.io/gulou/" target="_blank" rel="noopener noreferrer">Explore the campus <span aria-hidden="true">↗</span></a>
-      <a href="https://github.com/wang-jiahao/gulou" target="_blank" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span></a>
-    </nav>
-  </div>
-</section>
