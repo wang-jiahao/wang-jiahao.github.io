@@ -1,11 +1,11 @@
 # RoomSound：Codex CLI 测试报告
 
-2026-11-03。三份有效运行均使用 Codex CLI 0.166.0-alpha.5.1、NJU Link Responses API、显式 xhigh、允许联网，从独立空项目完成交付。素材为同一 R3 场景，评分为 content-v2 + driver-v3。
+2026-11-03。三份有效运行均使用 Codex CLI 0.166.0-alpha.5.1、NJU Link Responses API、显式 xhigh，从独立空项目完成交付。素材为同一 R3 场景，统一复核评分为 content-v3 + driver-v4。Shell联网实测通过；原浏览器助手拦截外站的局限已披露并修复。
 
 | 模型 | effort 设置 | 内容 /50 | 实现 /48 | 审查 /2 | 总分 |
 |---|---|---:|---:|---:|---:|
 | gpt-6.1-sol | xhigh | 24.62 | 48.00 | 1.50 | **74.12** |
-| gpt-6-astra | xhigh | 23.55 | 48.00 | 1.50 | **73.05** |
+| gpt-6-astra | xhigh | 23.55 | 47.76 | 1.50 | **72.81** |
 | gpt-6.1-terra | xhigh | 8.02 | 48.00 | 1.50 | **57.52** |
 
 ## 输入和运行条件
@@ -26,7 +26,11 @@ gpt-6.1-terra：14 个事件，书签 0/10，主动弃答 8 道。时序宏 F1 0
 
 Sol覆盖六类声音但时间边界与方向仍有缺口；Astra音乐方向−135°，金标+45°，且语音事件仅19.4秒／金标38.1秒；Terra漏掉domestic和laughter。时长按人物事件相加，允许重叠。
 
-三者均通过预定工程测试48/48：基础播放器、真实FOA PCM、音画同步、筛选、Follow、书签导航、字段校验、拖拽、撤销重做、派生状态和导入导出持久化。参考解确定性98/98；其主观审查未用于验证完整100分。
+Sol、Terra通过预定工程测试48/48。Astra47.7647058824/48：新增对原题合法空数组导入的验收，在实际交付场景发现旧活跃事件DOM未清理导致轨迹访问异常、空状态未持久化；其余已测实现项通过。参考解确定性98/98；其主观审查未用于验证完整100分。
+
+本次复核补严书签引用的实际支撑区间与数组类型，修复未采样的虚假类别获得满分的漏洞，并补齐参考解q5的笑声引用。保持全部权重、金标区间和时间容差；三模型内容分不变。原评分记录保留，正式分数见上表。
+
+浏览器助手此前主动中止外站请求。现移除该拦截并继承正常代理，同一context访问公共GitHub代码返回200；R4使用修复后的助手。R3候选生产代码、原始媒体和交付内容未改，不能把R3描述成所有浏览器工具路径均开放。
 
 审查使用gpt-6-luna high，四个半分项，去除文本中的候选模型名称和运行目录。三者均通过证据溯源、推断校准和手机可用性；桌面首屏播放／进度控件在大画面下方，各扣0.5分。
 
@@ -46,8 +50,8 @@ Sol耗时包含浏览器音频后端修复；Astra包含三次网关并发限流
 
 ## 文件
 
-- gpt-6.1-sol：`r3-sol-codex-xhigh-04`；评分 `D:\Desktop\Omni Agents\starss23_iteration\case8-starss-scene-b\iteration\results\r3-codex-sol-04-v3\result.json`。
-- gpt-6-astra：`r3-astra-codex-xhigh-01`；评分 `D:\Desktop\Omni Agents\starss23_iteration\case8-starss-scene-b\iteration\results\r3-codex-astra-01-v3\result.json`。
-- gpt-6.1-terra：`r3-terra-codex-xhigh-02`；评分 `D:\Desktop\Omni Agents\starss23_iteration\case8-starss-scene-b\iteration\results\r3-codex-terra-02-v3\result.json`。
+- gpt-6.1-sol：`r3-sol-codex-xhigh-04`；评分 `D:\Desktop\Omni Agents\starss23_iteration\case8-starss-scene-b\iteration\results\r3-codex-sol-04-v4\result.json`。
+- gpt-6-astra：`r3-astra-codex-xhigh-01`；评分 `D:\Desktop\Omni Agents\starss23_iteration\case8-starss-scene-b\iteration\results\r3-codex-astra-01-v4\result.json`。
+- gpt-6.1-terra：`r3-terra-codex-xhigh-02`；评分 `D:\Desktop\Omni Agents\starss23_iteration\case8-starss-scene-b\iteration\results\r3-codex-terra-02-v4\result.json`。
 
 原始交付与完整运行在 D:/Desktop/RoomSound_Codex/。前端ZIP保留原始源文件字节，媒体在展示页单独提供。网站：https://wang-jiahao.github.io/omniale/roomsound/#codex-results 。

@@ -1,5 +1,5 @@
 {
-  "version": "roomsound-r3-audited-v3",
+  "version": "roomsound-r3-codex-audited-v4",
   "maximum": 100,
   "score_without_judge": 56.02,
   "score_interval": [
@@ -18,7 +18,7 @@
     },
     "scene": {
       "clip": "fold4_room24_mix014",
-      "start": 50.0
+      "start": 50
     },
     "base": {
       "score": 11.9293,
@@ -42,19 +42,19 @@
             "tp": 0,
             "fp": 0,
             "fn": 600,
-            "f1": 0.0
+            "f1": 0
           },
           "laughter": {
             "tp": 0,
             "fp": 0,
             "fn": 129,
-            "f1": 0.0
+            "f1": 0
           },
           "music": {
             "tp": 600,
             "fp": 0,
             "fn": 0,
-            "f1": 1.0
+            "f1": 1
           },
           "speech": {
             "tp": 130,
@@ -80,7 +80,8 @@
       "limitations": [
         "Official audible boundaries have not been independently human re-annotated.",
         "25-degree gate and 100ms sampling are not a full perceptual judgment."
-      ]
+      ],
+      "unsampled_false_classes": []
     },
     "identity": {
       "idf1": 0.05861581920903955,
@@ -92,74 +93,101 @@
       }
     },
     "review_semantics": {
-      "fraction": 0.0,
+      "fraction": 0,
       "rows": [
         {
           "id": "q1",
           "pass": false,
           "error": "Missing or invalid review fields/references",
           "historical_pass": false,
-          "reference_relation_supported": false
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
         },
         {
           "id": "q2",
           "pass": false,
           "error": "Missing or invalid review fields/references",
           "historical_pass": false,
-          "reference_relation_supported": false
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
         },
         {
           "id": "q3",
           "pass": false,
           "error": "Missing or invalid review fields/references",
           "historical_pass": false,
-          "reference_relation_supported": false
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
         },
         {
           "id": "q4",
           "pass": false,
-          "time_iou": 0.0,
+          "time_iou": 0,
           "temporal": false,
           "source_ok": true,
           "class_ok": true,
           "evidence_ok": true,
           "historical_pass": false,
-          "reference_relation_supported": false
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
         },
         {
           "id": "q5",
           "pass": false,
           "error": "Missing or invalid review fields/references",
           "historical_pass": false,
-          "reference_relation_supported": false
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
         },
         {
           "id": "q6",
           "pass": false,
           "error": "Missing or invalid review fields/references",
           "historical_pass": false,
-          "reference_relation_supported": false
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
         },
         {
           "id": "q7",
           "pass": false,
           "error": "Missing or invalid review fields/references",
           "historical_pass": false,
-          "reference_relation_supported": false
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
         },
         {
           "id": "q8",
           "pass": false,
           "error": "Missing or invalid review fields/references",
           "historical_pass": false,
-          "reference_relation_supported": false
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
         },
         {
           "id": "q9",
           "pass": false,
           "error": "Missing or invalid review fields/references",
           "historical_pass": false,
-          "reference_relation_supported": false
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
         },
         {
           "id": "q10",
@@ -170,14 +198,16 @@
           "class_ok": true,
           "evidence_ok": true,
           "historical_pass": false,
-          "reference_relation_supported": false
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
         }
       ],
-      "points": 0.0,
-      "version": "r3-review-references-v2"
+      "points": 0,
+      "version": "r3-review-references-v3"
     },
-    "historical_score": 8.018918992565991,
-    "version": "roomsound-r3-content-audited-v2"
+    "version": "roomsound-r3-content-audited-v3"
   },
   "implementation": {
     "score": 48,
@@ -412,31 +442,31 @@
         },
         {
           "mode": "playing_seam",
-          "t": 4.7702,
+          "t": 4.7679,
           "yaw": 179,
           "pass": true
         },
         {
           "mode": "playing_seam",
-          "t": 5.0327,
+          "t": 5.0312,
           "yaw": -180,
           "pass": true
         },
         {
           "mode": "playing_seam",
-          "t": 5.3024,
+          "t": 5.2952,
           "yaw": -179,
           "pass": true
         },
         {
           "mode": "playing_seam",
-          "t": 5.5782,
+          "t": 5.5749,
           "yaw": -177,
           "pass": true
         },
         {
           "mode": "playing_seam",
-          "t": 5.8598,
+          "t": 5.8521,
           "yaw": -176,
           "pass": true
         },
@@ -749,6 +779,18 @@
           "pass": true
         },
         {
+          "step": "valid_empty_import",
+          "pass": true
+        },
+        {
+          "step": "empty_import_persists",
+          "pass": true
+        },
+        {
+          "step": "reset_recovers_after_empty",
+          "pass": true
+        },
+        {
           "step": "edits_persist_across_reload",
           "pass": true
         },
@@ -759,16 +801,25 @@
         {
           "step": "reset_persists",
           "pass": true
+        },
+        {
+          "step": "valid_empty_import_actual_scene",
+          "pass": true,
+          "errors": [],
+          "message": ""
+        },
+        {
+          "step": "actual_empty_import_persists",
+          "pass": true
+        },
+        {
+          "step": "actual_empty_reset_recovers",
+          "pass": true
         }
       ]
     }
   ],
-  "evaluated_at": "2026-11-03T11:17:56.974Z",
-  "score": 57.52,
-  "judge_reuse": {
-    "from_result": "iteration\\results\\r3-codex-terra-02\\result.json",
-    "reason": "Same unmodified submission, same evidence/command trace and byte-identical cached base screenshots; change affects only edit test stimulus. No stochastic re-judging."
-  },
+  "evaluated_at": "2026-11-03T15:30:51.513Z",
   "framework": "Codex CLI",
   "run_id": "r3-terra-codex-xhigh-02",
   "protocol": {
@@ -806,10 +857,11 @@
       }
     ]
   },
-  "test_amendment": {
-    "version": "driver-v3",
-    "change": "Do not wait for disabled Apply; remove unrequested no-selection error-text criterion. Grade all four specified invalid-field rules independently.",
-    "unchanged_base_reused_from": "iteration\\results\\r3-codex-terra-02\\v2",
-    "base_result_sha256": "d78b76578c8036fbe0dee51f7d417124fc540a19b968397c58f7d0fedfe6fcc9"
-  }
+  "audit": {
+    "prior_result": "D:\\Desktop\\Omni Agents\\starss23_iteration\\case8-starss-scene-b\\iteration\\results\\r3-codex-terra-02-v3\\result.json",
+    "unchanged_base_reused": true,
+    "unchanged_screenshots_judgement_reused": true,
+    "reason": "Correct existing empty-import contract and reference support; weights unchanged."
+  },
+  "score": 57.52
 }

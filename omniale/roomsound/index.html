@@ -122,19 +122,19 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 <p class="note">音频验收会换入<b>已知的四通道探针信号</b>，实测不同朝向下各频点的真实幅度——不是看代码里有没有 <code>yaw</code> 变量，也不只看左右响度比。</p>
 
 <h2>二、运行结果</h2>
-<h3 id="codex-results">Codex CLI · 三个模型</h3>
-<p>三次均使用 <b>Codex CLI 0.166.0-alpha.5.1</b>、NJU Link，显式设置 <b>xhigh</b>，允许联网，从独立空项目正常完成交付。使用相同素材、共享感知缓存、内容 v2 和 driver-v3。</p>
+<h3 id="codex-results">R3 · Codex CLI 三个模型</h3>
+<p>三次均使用 <b>Codex CLI 0.166.0-alpha.5.1</b>、NJU Link，显式设置 <b>xhigh</b>，从独立空项目正常完成交付。使用相同素材、共享感知缓存，统一复核为内容 v3 和 driver-v4。</p>
 <div class="table-scroll"><table class="codex-table"><tr><th>模型</th><th>推理强度</th><th>总分</th><th>内容 /50</th><th>实现 /48</th><th>审查 /2</th></tr><tr><td>gpt-6.1-sol</td><td>xhigh</td><td class="num"><b>74.12</b></td><td class="num">24.62</td><td class="num">48.00</td><td class="num">1.5</td></tr>
-<tr><td>gpt-6-astra</td><td>xhigh</td><td class="num"><b>73.05</b></td><td class="num">23.55</td><td class="num">48.00</td><td class="num">1.5</td></tr>
+<tr><td>gpt-6-astra</td><td>xhigh</td><td class="num"><b>72.81</b></td><td class="num">23.55</td><td class="num">47.76</td><td class="num">1.5</td></tr>
 <tr><td>gpt-6.1-terra</td><td>xhigh</td><td class="num"><b>57.52</b></td><td class="num">8.02</td><td class="num">48.00</td><td class="num">1.5</td></tr></table></div>
-<p>三者都通过预定的工程验收，得到 <b>48/48</b>，主要分差来自声音事件推断。参考解的确定性部分为 <b>98/98</b>。</p>
+<p>Sol、Terra 的实现为 <b>48/48</b>；Astra 在合法空导入的复核中暴露状态异常，实现为 <b>47.76/48</b>。主要分差仍来自声音事件推断。参考解的确定性部分为 <b>98/98</b>。</p>
 <div class="table-scroll"><table class="codex-table"><tr><th>模型</th><th>类别时序 F1</th><th>类别＋方向 F1</th><th>分段覆盖</th><th>人物 IDF1</th><th>书签</th></tr><tr><td>gpt-6.1-sol</td><td class="num">0.703</td><td class="num">0.497</td><td class="num">0.539</td><td class="num">0.488</td><td class="num">2/10</td></tr>
 <tr><td>gpt-6-astra</td><td class="num">0.689</td><td class="num">0.461</td><td class="num">0.408</td><td class="num">0.434</td><td class="num">3/10</td></tr>
 <tr><td>gpt-6.1-terra</td><td class="num">0.395</td><td class="num">0.104</td><td class="num">0.196</td><td class="num">0.059</td><td class="num">0/10</td></tr></table></div>
 <h3>最终交付截图</h3><div class="model-grid"><figure><a href="assets/codex-sol-desktop.png"><img loading="lazy" src="assets/codex-sol-desktop.png" alt="Codex + Sol 的最终交付"></a><figcaption>Codex + Sol · 74.12 · <a href="assets/codex-sol-mobile.png">手机截图</a></figcaption></figure>
-<figure><a href="assets/codex-astra-desktop.png"><img loading="lazy" src="assets/codex-astra-desktop.png" alt="Codex + Astra 的最终交付"></a><figcaption>Codex + Astra · 73.05 · <a href="assets/codex-astra-mobile.png">手机截图</a></figcaption></figure>
+<figure><a href="assets/codex-astra-desktop.png"><img loading="lazy" src="assets/codex-astra-desktop.png" alt="Codex + Astra 的最终交付"></a><figcaption>Codex + Astra · 72.81 · <a href="assets/codex-astra-mobile.png">手机截图</a></figcaption></figure>
 <figure><a href="assets/codex-terra-desktop.png"><img loading="lazy" src="assets/codex-terra-desktop.png" alt="Codex + Terra 的最终交付"></a><figcaption>Codex + Terra · 57.52 · <a href="assets/codex-terra-mobile.png">手机截图</a></figcaption></figure></div>
-<p class="note">三次均可使用 shell、文件编辑、图片查看、依赖安装、联网和浏览器工具，也可进一步分析信号。没有原生音频输入，亦未设额外的回合、工具、取帧或截图次数上限。</p>
+<p class="note">三次Shell联网已验证，可使用文件编辑、图片、依赖安装和浏览器工具；没有原生音频输入或额外回合／工具／截图次数上限。复核发现原浏览器助手曾拦截外站请求，现已移除并验证浏览器HTTPS200；R4使用修复后的助手。</p>
 
 <h2>三、运行轨迹</h2>
 <div class="table-scroll"><table class="codex-table"><tr><th>模型</th><th>执行命令</th><th>声音事件</th><th>书签弃答</th><th>输出 token</th><th>运行时长</th></tr><tr><td>gpt-6.1-sol</td><td class="num">35</td><td class="num">50</td><td class="num">5/10</td><td class="num">54,651</td><td class="num">38m14s</td></tr>
@@ -151,12 +151,23 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 <h3>Terra：完成交互产品，声音目录不完整</h3>
 <p>Terra 交付 14 个事件，仅标出 music、speech、bell、clapping 四类，漏掉 domestic 和 laughter，只建立一个人物轨加背景代理。类别＋方向 F1 为 0.104，人物 IDF1 为 0.059；书签 0/10，八道主动弃答。</p>
 <h3>共同的可用性问题</h3>
-<p>三者均通过预定工程测试，得到 48/48，包括真实 FOA 波形解码、同步、筛选、Follow、编辑、拖拽、撤销重做和导入导出。三次独立审查均为 1.5/2：证据溯源、推断校准和手机可用性通过，桌面首屏的播放／进度控件位于大画面下方，各失去半分。工程满分表示通过这批验收项。</p>
+<p>Sol、Terra 的实现为48/48。Astra为47.76/48：在有活跃事件的原始交付场景中导入合法空列表，旧的活跃事件视图未清理，出现轨迹访问异常，且空状态未正确持久化。三次审查均为1.5/2：证据溯源、推断校准和手机可用性通过；桌面首屏的播放／进度控件位于大画面下方，各失去半分。</p>
 <p class="note">上述时长按人物事件相加，允许重叠重复计时。每个模型各一次有效运行，尚未估计重复采样方差。</p>
+
+<h2 id="iteration-r4">五、题目迭代验证：补录、删除与拆分</h2>
+<p>声音目录会漏标、误报或把两段声音连成一段。R4 在修订工作台中增加直接补录事件、删除误报、拆分错误长段的操作，并要求保留方向轨迹、原子撤销重做、书签失效、筛选和持久化一致。</p>
+<p>素材、感知工具及 <b>50/48/2</b> 总权重保持不变；五个工作台分组内，原功能与新增修订检查各占一半。这是独立题目版本，下面的单次验证与上面的 R3 三模型比较分别记录。</p>
+<div class="table-scroll"><table class="codex-table"><tr><th>任务</th><th>模型</th><th>总分</th><th>内容 /50</th><th>实现 /48</th><th>审查 /2</th></tr><tr><td>R4 修订工作台</td><td>gpt-6.1-sol · Codex xhigh</td><td class="num"><b>77.08</b></td><td class="num">27.08</td><td class="num">48.00</td><td class="num">2.0</td></tr></table></div>
+<p>参考解确定性 <b>98/98</b>；新增操作的 <b>37/37</b> 项检查通过，两个故障反例分别在撤销历史与拆分轨迹上失分。Sol 同样通过全部修订检查，正常完成于约 <b>37 分 33 秒</b>，Shell 与浏览器联网均在实际沙箱内验证 HTTPS200。</p>
+<p>这组新需求有实际用途，但这次没有难住 Sol。它的方向与人物归属推断更准，首屏播放控件也更易找到，内容和审查得分均提高；不能把总分差单独归因于任务变化。当前不为降低成绩继续叠加要求。</p>
+<div class="grid2"><figure><a href="assets/codex-r4-sol-desktop.png"><img loading="lazy" src="assets/codex-r4-sol-desktop.png" alt="R4 Codex Sol 首屏与声音时间线"></a><figcaption>R4 Sol：播放器与时间线</figcaption></figure><figure><a href="assets/codex-r4-sol-mobile.png"><img loading="lazy" src="assets/codex-r4-sol-mobile.png" alt="R4 Codex Sol 手机页面"></a><figcaption>R4 Sol：手机页面</figcaption></figure></div>
+<p class="note"><a href="files/R4-TASK.txt">R4 题面</a> · <a href="files/codex-r4-sol-result.json">完整评分</a> · <a href="files/codex-r4-sol-submission.zip">原始前端交付</a> · <a href="files/codex-r4-sol-evidence.txt">证据说明</a> · <a href="files/codex-r4-sol-protocol.json">运行设置</a> · <a href="files/r4-run-audit.json">轨迹审计</a> · <a href="files/r4-calibration.json">反例校准</a> · <a href="files/r4-calibration-count-amendment.json">检查数量更正</a>。每个任务版本仅一次有效采样；没有重复采样方差估计。</p>
 
 <h2>案例文件</h2><ul class="note">
 <li><a href="files/TASK.txt">完整题面</a> · <a href="files/CLI_PROTOCOL.txt">Codex 运行约定</a> · <a href="media/manifest.json">素材规格与摘要</a></li>
 <li><a href="files/cli-results.json">三模型成绩与条件</a> · <a href="files/cli-report.zh-CN.txt">Codex 测试报告</a> · <a href="files/cli-trace-audit.json">轨迹审计</a></li>
+<li><a href="files/content-v3-regression.json">内容评分反例回归</a> · <a href="files/driver-v4-regression.json">空导入与参考解统一回归</a></li>
+<li><a href="files/evaluation-audit.zh-CN.txt">本次评测复核与题目迭代报告</a></li>
 <li>Codex + Sol：<a href="files/codex-sol-result.json">完整评分</a> · <a href="files/codex-sol-submission.zip">前端交付</a> · <a href="files/codex-sol-evidence.txt">证据说明</a> · <a href="files/codex-sol-protocol.json">运行条件</a></li>
 <li>Codex + Astra：<a href="files/codex-astra-result.json">完整评分</a> · <a href="files/codex-astra-submission.zip">前端交付</a> · <a href="files/codex-astra-evidence.txt">证据说明</a> · <a href="files/codex-astra-protocol.json">运行条件</a></li>
 <li>Codex + Terra：<a href="files/codex-terra-result.json">完整评分</a> · <a href="files/codex-terra-submission.zip">前端交付</a> · <a href="files/codex-terra-evidence.txt">证据说明</a> · <a href="files/codex-terra-protocol.json">运行条件</a></li>

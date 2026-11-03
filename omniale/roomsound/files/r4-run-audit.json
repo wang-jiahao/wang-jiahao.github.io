@@ -1,0 +1,42 @@
+{
+  "run_id": "r4-sol-codex-xhigh-01",
+  "model": "gpt-6.1-sol",
+  "framework": "Codex CLI",
+  "effort": "xhigh",
+  "effort_observation": "Explicit xhigh request; backend execution effort not independently attested.",
+  "status": {
+    "status": "completed",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "started": "2026-11-03T15:29:45.865561+00:00",
+    "exit_code": 0,
+    "recovered_reconnect_notices": 1,
+    "finished": "2026-11-03T16:07:19.264396+00:00",
+    "files": 55,
+    "stopped_local_processes": []
+  },
+  "material": "R3 scene B unchanged",
+  "scoring": "content-v3 + driver-v4 + repair-v1",
+  "cli_version": "codex-cli 0.166.0-alpha.5.1",
+  "api": "https://api-temporary.nju-link.com/v1",
+  "elapsed_seconds": 2253.398835,
+  "commands": 36,
+  "failed_commands": 7,
+  "usage": {
+    "input_tokens": 3255129,
+    "cached_input_tokens": 3052928,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 54607,
+    "reasoning_output_tokens": 16872
+  },
+  "frozen_files_match": true,
+  "candidate_files_match": true,
+  "media_files_match": true,
+  "task_matches": true,
+  "cache_matches": true,
+  "shell_network": true,
+  "browser_network": true,
+  "known_local_answer_reads_denied": true,
+  "suspicious_access_commands": [],
+  "limitation": "Known local deny probes and command audit, not a network-level answer isolation guarantee."
+}

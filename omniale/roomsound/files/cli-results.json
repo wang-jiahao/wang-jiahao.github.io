@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-03T14:34:58.843656+00:00",
+  "generated_at": "2026-11-03T16:15:15.243883+00:00",
   "case": "RoomSound R3",
   "framework": "Codex CLI",
   "internet": true,
   "api_base": "https://api-temporary.nju-link.com/v1",
   "cli_version": "0.166.0-alpha.5.1",
-  "scoring": "content-v2 + driver-v3 + four half-point review criteria",
+  "scoring": "content-v3 + driver-v4 + four half-point review criteria",
   "reference": {
     "content": 50,
     "implementation": 48,
@@ -29,7 +29,7 @@
       "joint": 0.4970261184380657,
       "episode": 0.5387420437043231,
       "identity": 0.4882337729506077,
-      "bookmarks": 2.0,
+      "bookmarks": 2,
       "event_count": 50,
       "classes": [
         "bell",
@@ -63,8 +63,8 @@
       "recovered_reconnect_notices": 0,
       "material_version": "RoomSound R3 scene B; original public asset hashes in protocol",
       "actual_effort_observation": "Explicit xhigh CLI setting; reasoning usage reported below; backend effort not independently attested.",
-      "result": "D:\\Desktop\\Omni Agents\\starss23_iteration\\case8-starss-scene-b\\iteration\\results\\r3-codex-sol-04-v3\\result.json",
-      "result_version": "roomsound-r3-audited-v3"
+      "result": "D:\\Desktop\\Omni Agents\\starss23_iteration\\case8-starss-scene-b\\iteration\\results\\r3-codex-sol-04-v4\\result.json",
+      "result_version": "roomsound-r3-codex-audited-v4"
     },
     {
       "key": "terra",
@@ -82,7 +82,7 @@
       "joint": 0.1038135593220339,
       "episode": 0.1962092962073628,
       "identity": 0.05861581920903955,
-      "bookmarks": 0.0,
+      "bookmarks": 0,
       "event_count": 14,
       "classes": [
         "bell",
@@ -113,8 +113,8 @@
       "recovered_reconnect_notices": 0,
       "material_version": "RoomSound R3 scene B; original public asset hashes in protocol",
       "actual_effort_observation": "Explicit xhigh CLI setting; reasoning usage reported below; backend effort not independently attested.",
-      "result": "D:\\Desktop\\Omni Agents\\starss23_iteration\\case8-starss-scene-b\\iteration\\results\\r3-codex-terra-02-v3\\result.json",
-      "result_version": "roomsound-r3-audited-v3"
+      "result": "D:\\Desktop\\Omni Agents\\starss23_iteration\\case8-starss-scene-b\\iteration\\results\\r3-codex-terra-02-v4\\result.json",
+      "result_version": "roomsound-r3-codex-audited-v4"
     },
     {
       "key": "astra",
@@ -122,12 +122,12 @@
       "framework": "Codex CLI",
       "effort": "xhigh",
       "run_id": "r3-astra-codex-xhigh-01",
-      "total": 73.05,
+      "total": 72.81,
       "content": 23.5455563864393,
-      "implementation": 48,
+      "implementation": 47.76470588235294,
       "judge": 1.5,
-      "deterministic": 71.55,
-      "upper": 73.55,
+      "deterministic": 71.31,
+      "upper": 73.31,
       "temporal": 0.6893551033849278,
       "joint": 0.4614971827206869,
       "episode": 0.4083234172414731,
@@ -166,14 +166,15 @@
       "recovered_reconnect_notices": 3,
       "material_version": "RoomSound R3 scene B; original public asset hashes in protocol",
       "actual_effort_observation": "Explicit xhigh CLI setting; reasoning usage reported below; backend effort not independently attested.",
-      "result": "D:\\Desktop\\Omni Agents\\starss23_iteration\\case8-starss-scene-b\\iteration\\results\\r3-codex-astra-01-v3\\result.json",
-      "result_version": "roomsound-r3-codex-audited-v3"
+      "result": "D:\\Desktop\\Omni Agents\\starss23_iteration\\case8-starss-scene-b\\iteration\\results\\r3-codex-astra-01-v4\\result.json",
+      "result_version": "roomsound-r3-codex-audited-v4"
     }
   ],
   "caveats": [
     "Single completed run per model; API model names are provider aliases.",
     "Real CLI shell/image/browser tools, full evidence cache as file, internet allowed, no old custom turn/tool/frame/screenshot caps.",
     "Sol elapsed includes browser audio environment repair; all final submissions use the same working fake-output PCM test backend. Astra elapsed includes automatic gateway reconnects.",
-    "Sol/Terra judge verdicts reused on the exact original base screenshots and unchanged evidence; only workbench test stimulus changed. Astra independently judged on its own delivery."
+    "Original R3 helper aborted external browser navigation; shell internet was verified. The helper is corrected for R4 and for regrading; original candidates remain unchanged.",
+    "All original judge verdicts reused on the exact original screenshots and unchanged evidence. New checks cover existing empty-import requirements."
   ]
 }

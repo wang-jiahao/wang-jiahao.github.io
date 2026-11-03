@@ -1,0 +1,74 @@
+# RoomSound: evidence and limitations
+
+This is an inferred, editable annotation of the supplied recording, not official ground truth. No hidden annotations, dataset pages, prior candidate outputs, or other chats were accessed. The agent has no native audio input and did **not** listen directly to the recording. Descriptions of sound below come from the supplied automatic evidence and additional local signal/model analysis. Browser playback was exercised, but that does not constitute a human listening verification.
+
+This delivery belongs to the **genuine Codex CLI condition**, with shell, local image inspection and real browser automation. The historical custom-harness turn/tool/frame limits did not apply. The local verification results below are separate from historical constrained-harness scores and are not an equal-budget comparison or evaluator feedback.
+
+## Inputs and inspection
+
+- Read `CLI_PROTOCOL.md`, `TASK.md`, and `toolkit/audio-evidence.json`. The shared evidence identifies source SHA-256 `47ccb69500d95e876de3b0fff7763dd5206c5c1011d81fbcfc8082e02056c5e6`.
+- Visually inspected all three supplied `initial-frames/` images at 1, 20, and 40 seconds with image tools. Sampled the actual video at 0, 5, 10, 15, 25, 30, 35, 45, 50, 55 and 59 seconds using the supplied PyAV utility. Created contact sheets at one-second intervals and inspected table/room sheets, particularly 10–19 and 30–59 seconds. Relevant analysis images and scripts are under `analysis/`.
+- The video shows two seated table performers and one person near the glazed door. The latter changes position and walks toward the camera near the end. Other visible people/equipment were not automatically assigned sounding events.
+- The shared ASR is base.en with no speaker attribution and relatively high `no_speech_prob` values (roughly 0.41–0.57). Its repeated English phrases in music-dominated windows are unreliable. No transcript is presented as verified speech, and ASR segment boundaries were not copied wholesale into speech events.
+- Shared YAMNet uses 0.96-second windows at a 0.48-second stride. Its scores are classifier outputs, not calibrated probabilities of a task annotation. The shared directional estimates are mixed active-intensity vectors, not separately tracked sound sources.
+
+## Additional generic perception
+
+Downloaded the **public generic Google YAMNet/1 TensorFlow SavedModel**, from `https://tfhub.dev/google/yamnet/1?tf-hub-format=compressed`, and ran it locally on the supplied W signal resampled from 24 to 16 kHz. This model is not a task-specific annotation resource. `analysis/additional-yamnet.json` records the selected scores, top predictions and provenance. The results largely agree with the supplied Qualcomm implementation, but differ numerically because of model/preprocessing implementations.
+
+Also ran that model on three broad first-order beams pointed toward the table (150°, −18°), equipment (−96°, −39°), and door (0°, 0°). The analysis formula is `W + X cos(az) cos(el) + Y sin(az) cos(el) + Z sin(el)`. These remain overlapping, reverberant mixtures; they **do not isolate individual people**. They are analysis signals only, and are never played by the app. See `analysis/directional-yamnet.json` and `analysis/analyze_beams.py`.
+
+Useful cross-checks:
+
+- Music dominates much of 0–44 seconds in the shared predictions, with many scores above 0.5 and some above 0.9. Its disappearance from the top labels during foreground speech/clapping does not establish that the music stopped.
+- Clapping is strongly predicted around 46.6–50.4 seconds (shared scores up to 0.988; additional W model up to 0.975). Both table performers show repeated hand-contact activity in the same region. This supports two clap events, but their separate audible onsets remain approximate.
+- At 45.12–46.08 seconds the additional W model gives laughter 0.094, and the table beam gives laughter 0.299. At 51.36–52.32 seconds W gives chuckle 0.071 / laughter 0.058. The table beam also gives chuckle 0.129 / laughter 0.101 at 14.88–15.84 seconds. These support tentative laughter episodes; they cannot prove simultaneous laughter from two people.
+- Mechanical fan receives 0.314 in the equipment beam at 24.96–25.92 seconds, 0.119 at 38.88–39.84 seconds, and 0.075 at the opening. Competing labels include mechanisms, clock and microwave oven. This is actual acoustic support for a mechanical background hypothesis, beyond the visible rotating fan. It does not prove the exact equipment identity or continuous audibility through every foreground event.
+- An apparent dog-like vocalization near 55 seconds is inconsistent across speech, whimper and animal labels. It is **not** converted into a dog event, and the initially considered laughter hypothesis there was discarded. Door/sliding-door predictions at 40–44 seconds lack a matching visible door action and can be confounded by mechanisms/transients. They were not turned into door events. Siren/alarm predictions near 7–9 seconds were not forced into an unrelated ontology class.
+
+## Event inference
+
+`events.json` contains 24 events across seven ontology classes. Decimal boundaries are working estimates for review, not claims of sub-second perceptual certainty. Typical temporal uncertainty is at least ±0.3–0.6 seconds, and greater for low-confidence events. Separated speech intervals remain separate events. Overlapping clap events remain independent.
+
+| Events | Evidence and interpretation | Main uncertainty |
+| --- | --- | --- |
+| `room-music` (0–60) | Repeated strong music predictions and a persistent harmonic musical bed in the evidence. Coarse direction placed by the low room playback equipment. | Whole-clip continuation through loud speech/clapping is inferred; exact loudspeaker position is uncertain. |
+| `room-mechanical-bed` (0–60) | Mechanical/fan model support in a beam facing the equipment, persistent low-level room signal, and the rotating fan visible across sampled frames. Ontology class `domestic`. | Continuous audibility is a hypothesis; it may include multiple pieces of room equipment. Direction is a coarse visual association, not a separated acoustic estimate. |
+| `bell-01` … `bell-07` | Bell/chime predictions near 1.4–2.2, 11.7–12.4, 16.3–17.3, 20.7–21.4, 25.3–28.1, 39.5–40.2 and 42.2–43.0 s. The 20.64–21.60 shared window has bell 0.899. | Some resonances may belong to music. Assigning all of these to the door performer, who is seen holding a small object, is a tentative cross-modal association. The 25–28 region may contain several strikes rather than one episode. |
+| `far-speech-01` … `far-speech-08` | Speech predictions around 3.7–4.6, 11.9–13.0, 14.5–15.7, 17.2–18.1, 35.6–39.0, 44.4–45.3, 50.6–54.7 and 57.2–60.0 s. Strongest evidence is late speech, with scores near 0.99. Upper-band direction often clusters around 125–145°, consistent with the far table performer. | Early episodes are weak and music-masked. Several intervals could include turns from the near performer. Brief pauses are not confidently resolved. Performer attribution is less certain than the speech class. |
+| `near-speech-01` (43.65–44.4) | Speech model support around 43.7–45.1 and a more leftward upper-band direction near 179° at 44.0 s. | Short, low-confidence assignment to the near table performer; reverberation can move the vector. |
+| `far-laugh-early`, `far-laugh-01`, `far-laugh-02` | Tentative laughter/chuckle at about 15, 45–46 and 51–52 s, supported by the additional model results above and table-oriented energy. | Far-performer attribution is provisional. Video posture does not establish the sound by itself. No independent second laughing performer was recovered. |
+| `near-clap-01`, `far-clap-01` | Strong clapping predictions plus repeated hand contacts by both table performers. Directional energy around 149–154° is compatible with a mixture of the two positions. | Each performer’s onset/end is estimated visually within the classifier-supported region; the mixed energy does not separately establish every clap. |
+| `moving-steps-01` (56.55–59.55) | Late clip-clop-like predictions in the shared evidence coincide with the door performer's actual change in position. | Very low confidence: the classifier scores are small and speech dominates. The trajectory tracks visible movement; visible walking alone is not proof that every step is audible. No early footsteps were added solely from visible movement. |
+
+## Performer identity and directions
+
+Own source IDs, with no demographic labels or official actor numbering:
+
+- `table-near`: the seated performer near the left panorama edge. Speech and clapping use the same identity.
+- `table-far`: the seated performer opposite them, by the produce rack. Speech, laughter and clapping use the same identity across silence.
+- `door-performer`: the standing/moving performer by the glazed door. Tentative bell and late footsteps share this identity.
+- `room-background`: **one** non-tracked background agent groups music and the mechanical bed, even though their coarse directions differ.
+
+Image coordinates use `azimuth = 180 − x / 1920 × 360`, `elevation = 90 − y / 960 × 180`. The table tracks are roughly +165° and +135°; the door performer is near −15° initially and near 0° later. Mouth/hand/foot elevations differ by activity. The moving step event includes a coarse final trajectory. Music is placed at +28° / −32° and equipment at −96° / −39° as hypotheses tied to visible objects. Stationary single-keyframe events mean that finer motion was not recovered, not that the source was perfectly immobile. Human directions are typically uncertain by 10–20°; background directions can be less reliable. The model never claims the mixed active-intensity vectors are individual source locations.
+
+## Review bookmarks
+
+All ten entries are rendered and included in `reviews.json`. `q2`, `q4`, `q9`, and `q10` are **candidate answers derived from this inference**, with notes that state their uncertainty:
+
+- `q2`: use the overlap of the two inferred clap intervals, 47.15–50.10 s.
+- `q4`: the longest inferred continuous speech interval, 50.55–54.65 s, `far-speech-07`. This is conditional on unresolved turn-taking/internal pauses.
+- `q9`: the 0–60 s overlap of the two background hypotheses, both assigned to `room-background`. The mechanical bed's continuous audibility is lower-confidence; this is not an independently verified answer to the whole-clip premise.
+- `q10`: 50.55–54.65 s, starting after the latest inferred clap end at 50.35 s. These are model-stride-scale estimates.
+
+`q1`, `q3`, `q5`, `q6`, `q7`, and `q8` explicitly carry `unresolved:true` with reasons and empty references. Their `[0,0]` placeholder windows are never used for navigation. The question wordings were not used as evidence that the requested overlaps must exist. In particular, a broad beam or a mixed intensity vector cannot establish two separate voices, and visible people were not counted as audible sources.
+
+## App and verification
+
+The app uses the actual silent video as its master playback clock. Canvas draws the defined 120° × 90° equirectangular crop with horizontal wrapping into an exact 4:3 viewport. Marker coordinates use the specified linear projection and shortest-arc track interpolation. The audio engine decodes the original W,Y,Z,X WAV with `L=.5(W−X sin(a)+Y cos(a))`, `R=.5(W+X sin(a)−Y cos(a))`; Z is unconnected and master volume follows decoding. No mono or fixed-stereo audio is played. An explicit Play gesture creates/resumes the audio context. This is a simple stereo preview, not an HRTF simulation and not source separation.
+
+Every accepted annotation operation validates a complete next document and commits one snapshot. History, local storage, filter options, markers, Follow and review freshness update together. Rejected operations do not mutate annotation/history/persistence. Reset stores the original annotation and remains undoable. Empty annotations are valid and persist. The application has no network/CDN dependency.
+
+Real Chrome/Playwright checks are retained in `qa/browser-test.mjs` and `qa/test-results.json`, with desktop/mobile screenshots. Tests use clearly synthetic fixtures for deterministic geometry and repair behavior, and the actual supplied four-channel WAV and video for playback. They cover projection, seams, class/source filtering, Follow, unresolved review navigation, validation, split geometry, marker dragging, undo/redo, create/delete, empty import persistence, reset, export round-trip, yaw decoder gains, volume, seeking, pause/resume and looping. Screenshots were inspected with image tools. These checks verify implementation behavior, not annotation truth or perceived audio quality.
+
+The additional `qa/repair-edge-test.mjs` and `qa/follow-playback-test.mjs` passed their six and two named checks, for **29 total** across three suites. The edge suite exercises last-event deletion, empty persistence, multiple rejected create/split/import inputs, arbitrary source text, 600-event state and redo invalidation. The playback suite verifies Follow during a real moving seam transition, same-start ID tie-breaking, silence, later activity and matching stereo coefficients. It checks audio/video clock difference under 120 ms **after seek completion**; it does not assert that decoding a sought frame itself takes less than 120 ms. Combined results are in `qa/verification.json`.

@@ -1,0 +1,1110 @@
+{
+  "version": "roomsound-r4-repair-v1",
+  "maximum": 100,
+  "material_version": "R3 scene B unchanged",
+  "score_without_judge": 75.08,
+  "score_interval": [
+    75.08,
+    77.08
+  ],
+  "perception": {
+    "score": 27.08047985732145,
+    "maximum": 50,
+    "weights": {
+      "temporal": 12,
+      "joint_location": 12,
+      "episode_coverage": 8,
+      "performer_idf1": 8,
+      "review_semantics": 10
+    },
+    "scene": {
+      "clip": "fold4_room24_mix014",
+      "start": 50
+    },
+    "base": {
+      "score": 30.508,
+      "maximum": 50,
+      "temporal": {
+        "macro_f1": 0.5468524473533598,
+        "per_class": {
+          "bell": {
+            "tp": 41,
+            "fp": 32,
+            "fn": 153,
+            "f1": 0.30711610486891383
+          },
+          "clapping": {
+            "tp": 37,
+            "fp": 0,
+            "fn": 24,
+            "f1": 0.7551020408163265
+          },
+          "domestic": {
+            "tp": 600,
+            "fp": 0,
+            "fn": 0,
+            "f1": 1
+          },
+          "footsteps": {
+            "tp": 0,
+            "fp": 30,
+            "fn": 0,
+            "f1": 0
+          },
+          "laughter": {
+            "tp": 16,
+            "fp": 9,
+            "fn": 113,
+            "f1": 0.2077922077922078
+          },
+          "music": {
+            "tp": 600,
+            "fp": 0,
+            "fn": 0,
+            "f1": 1
+          },
+          "speech": {
+            "tp": 142,
+            "fp": 21,
+            "fn": 204,
+            "f1": 0.5579567779960707
+          }
+        }
+      },
+      "joint_location": {
+        "f1": 0.7693172239393088,
+        "tp": 1369,
+        "fp": 189,
+        "fn": 632
+      },
+      "episode_coverage": {
+        "f1": 0.4184621203512132,
+        "precision": 0.8786906290115533,
+        "recall": 0.27462356269570454,
+        "predicted": 24,
+        "gold": 36
+      },
+      "limitations": [
+        "Official audible boundaries have not been independently human re-annotated.",
+        "25-degree gate and 100ms sampling are not a full perceptual judgment."
+      ],
+      "unsampled_false_classes": []
+    },
+    "identity": {
+      "idf1": 0.7423433548749648,
+      "idtp": 1321,
+      "predicted_frames": 1558,
+      "gold_frames": 2001,
+      "mapping": {
+        "room-background": "0",
+        "table-far": "2",
+        "table-near": "1"
+      }
+    },
+    "review_semantics": {
+      "fraction": 0.2,
+      "rows": [
+        {
+          "id": "q1",
+          "pass": false,
+          "error": "Missing or invalid review fields/references",
+          "historical_pass": false,
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
+        },
+        {
+          "id": "q2",
+          "pass": true,
+          "time_iou": 0.8676470588235307,
+          "temporal": true,
+          "source_ok": true,
+          "class_ok": true,
+          "evidence_ok": true,
+          "historical_pass": true,
+          "reference_relation_supported": true,
+          "prior_v2_pass": true,
+          "reference_interval_supported": true,
+          "support_intervals": [
+            [
+              47.15,
+              50.1
+            ]
+          ]
+        },
+        {
+          "id": "q3",
+          "pass": false,
+          "error": "Missing or invalid review fields/references",
+          "historical_pass": false,
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
+        },
+        {
+          "id": "q4",
+          "pass": false,
+          "time_iou": 0,
+          "temporal": false,
+          "source_ok": false,
+          "class_ok": true,
+          "evidence_ok": true,
+          "historical_pass": false,
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
+        },
+        {
+          "id": "q5",
+          "pass": false,
+          "error": "Missing or invalid review fields/references",
+          "historical_pass": false,
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
+        },
+        {
+          "id": "q6",
+          "pass": false,
+          "error": "Missing or invalid review fields/references",
+          "historical_pass": false,
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
+        },
+        {
+          "id": "q7",
+          "pass": false,
+          "error": "Missing or invalid review fields/references",
+          "historical_pass": false,
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
+        },
+        {
+          "id": "q8",
+          "pass": false,
+          "error": "Missing or invalid review fields/references",
+          "historical_pass": false,
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
+        },
+        {
+          "id": "q9",
+          "pass": true,
+          "time_iou": 1,
+          "temporal": true,
+          "source_ok": true,
+          "class_ok": true,
+          "evidence_ok": true,
+          "historical_pass": true,
+          "reference_relation_supported": true,
+          "prior_v2_pass": true,
+          "reference_interval_supported": true,
+          "support_intervals": [
+            [
+              0,
+              60
+            ]
+          ]
+        },
+        {
+          "id": "q10",
+          "pass": false,
+          "time_iou": 0.1428571428571424,
+          "temporal": false,
+          "source_ok": true,
+          "class_ok": true,
+          "evidence_ok": true,
+          "historical_pass": false,
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
+        }
+      ],
+      "points": 2,
+      "version": "r3-review-references-v3"
+    },
+    "version": "roomsound-r3-content-audited-v3"
+  },
+  "implementation": {
+    "score": 48,
+    "maximum": 48,
+    "base_app": 22,
+    "source_filter": 2,
+    "follow": 3,
+    "review_navigation": 3,
+    "workbench": {
+      "edit_fields": 5,
+      "keyframe_drag": 4,
+      "undo_redo": 5,
+      "invalidation": 2,
+      "portability": 2,
+      "score": 18,
+      "maximum": 18
+    }
+  },
+  "component_fractions": {
+    "base_app": 1,
+    "source_filter": 1,
+    "follow": 1,
+    "review_navigation": 1,
+    "edit_fields": 1,
+    "keyframe_drag": 1,
+    "undo_redo": 1,
+    "invalidation": 1,
+    "portability": 1
+  },
+  "repair": {
+    "version": "roomsound-r4-structural-repair-v1",
+    "groups": [
+      {
+        "name": "field_repair",
+        "fraction": 1,
+        "samples": [
+          {
+            "step": "create_exact_event",
+            "pass": true
+          },
+          {
+            "step": "create_updates_views",
+            "pass": true
+          },
+          {
+            "step": "reject_create_{\"id\":\"new-missed\"}",
+            "pass": true
+          },
+          {
+            "step": "reject_create_{\"id\":\"\"}",
+            "pass": true
+          },
+          {
+            "step": "reject_create_{\"source\":\"\"}",
+            "pass": true
+          },
+          {
+            "step": "reject_create_{\"start\":31,\"end\":30}",
+            "pass": true
+          },
+          {
+            "step": "reject_create_{\"azimuth\":181}",
+            "pass": true
+          },
+          {
+            "step": "reject_create_{\"elevation\":-91}",
+            "pass": true
+          },
+          {
+            "step": "reject_create_{\"start\":\"\"}",
+            "pass": true
+          },
+          {
+            "step": "delete_exact_event",
+            "pass": true
+          },
+          {
+            "step": "remove_last_source_filter",
+            "pass": true
+          }
+        ]
+      },
+      {
+        "name": "split_geometry",
+        "fraction": 1,
+        "samples": [
+          {
+            "step": "reject_boundary_10",
+            "pass": true
+          },
+          {
+            "step": "reject_boundary_20",
+            "pass": true
+          },
+          {
+            "step": "reject_boundary_9",
+            "pass": true
+          },
+          {
+            "step": "reject_boundary_",
+            "pass": true
+          },
+          {
+            "step": "collision_free_id_and_intervals",
+            "pass": true
+          },
+          {
+            "step": "split_seam_keyframes",
+            "pass": true,
+            "actual": [
+              [
+                {
+                  "time": 10,
+                  "azimuth": 170,
+                  "elevation": 0
+                },
+                {
+                  "time": 12.5,
+                  "azimuth": -180,
+                  "elevation": 5
+                }
+              ],
+              [
+                {
+                  "time": 12.5,
+                  "azimuth": -180,
+                  "elevation": 5
+                },
+                {
+                  "time": 15,
+                  "azimuth": -170,
+                  "elevation": 10
+                },
+                {
+                  "time": 20,
+                  "azimuth": -150,
+                  "elevation": 20
+                }
+              ]
+            ]
+          },
+          {
+            "step": "directions_preserved",
+            "pass": true
+          }
+        ]
+      },
+      {
+        "name": "repair_history",
+        "fraction": 1,
+        "samples": [
+          {
+            "step": "three_distinct_operations",
+            "pass": true
+          },
+          {
+            "step": "atomic_undo_0",
+            "pass": true
+          },
+          {
+            "step": "atomic_undo_1",
+            "pass": true
+          },
+          {
+            "step": "atomic_undo_2",
+            "pass": true
+          },
+          {
+            "step": "atomic_redo_0",
+            "pass": true
+          },
+          {
+            "step": "atomic_redo_1",
+            "pass": true
+          },
+          {
+            "step": "atomic_redo_2",
+            "pass": true
+          },
+          {
+            "step": "new_operation_clears_redo",
+            "pass": true
+          },
+          {
+            "step": "rejected_create_not_history_entry",
+            "pass": true,
+            "guard_was_changed": true
+          }
+        ]
+      },
+      {
+        "name": "repair_derived_state",
+        "fraction": 1,
+        "samples": [
+          {
+            "step": "split_makes_old_reference_stale",
+            "pass": true
+          },
+          {
+            "step": "undo_restores_review",
+            "pass": true
+          },
+          {
+            "step": "delete_source_disables_follow",
+            "pass": true
+          },
+          {
+            "step": "delete_updates_reviews_and_markers",
+            "pass": true
+          }
+        ]
+      },
+      {
+        "name": "repair_portability",
+        "fraction": 1,
+        "samples": [
+          {
+            "step": "mixed_repair_persists",
+            "pass": true
+          },
+          {
+            "step": "valid_empty_import",
+            "pass": true
+          },
+          {
+            "step": "delete_last_event",
+            "pass": true
+          },
+          {
+            "step": "empty_repair_persists",
+            "pass": true
+          },
+          {
+            "step": "reset_recovers_original",
+            "pass": true
+          },
+          {
+            "step": "reset_is_undoable",
+            "pass": true
+          }
+        ]
+      }
+    ],
+    "all_pass": true
+  },
+  "diagnostics": [
+    {
+      "name": "performer_and_class_filter",
+      "fraction": 1,
+      "samples": [
+        {
+          "s": "all",
+          "c": "all",
+          "expected": [
+            "a-instrument",
+            "a-speech",
+            "a-water",
+            "b-speech"
+          ],
+          "actual": [
+            "a-instrument",
+            "a-speech",
+            "a-water",
+            "b-speech"
+          ],
+          "markers": true,
+          "pass": true
+        },
+        {
+          "s": "all",
+          "c": "speech",
+          "expected": [
+            "a-speech",
+            "b-speech"
+          ],
+          "actual": [
+            "a-speech",
+            "b-speech"
+          ],
+          "markers": true,
+          "pass": true
+        },
+        {
+          "s": "all",
+          "c": "water",
+          "expected": [
+            "a-water"
+          ],
+          "actual": [
+            "a-water"
+          ],
+          "markers": true,
+          "pass": true
+        },
+        {
+          "s": "room-background",
+          "c": "all",
+          "expected": [
+            "a-instrument",
+            "a-speech",
+            "a-water"
+          ],
+          "actual": [
+            "a-instrument",
+            "a-speech",
+            "a-water"
+          ],
+          "markers": true,
+          "pass": true
+        },
+        {
+          "s": "room-background",
+          "c": "speech",
+          "expected": [
+            "a-speech"
+          ],
+          "actual": [
+            "a-speech"
+          ],
+          "markers": true,
+          "pass": true
+        },
+        {
+          "s": "room-background",
+          "c": "water",
+          "expected": [
+            "a-water"
+          ],
+          "actual": [
+            "a-water"
+          ],
+          "markers": true,
+          "pass": true
+        },
+        {
+          "s": "door-performer",
+          "c": "all",
+          "expected": [
+            "b-speech"
+          ],
+          "actual": [
+            "b-speech"
+          ],
+          "markers": true,
+          "pass": true
+        },
+        {
+          "s": "door-performer",
+          "c": "speech",
+          "expected": [
+            "b-speech"
+          ],
+          "actual": [
+            "b-speech"
+          ],
+          "markers": true,
+          "pass": true
+        },
+        {
+          "s": "door-performer",
+          "c": "water",
+          "expected": [],
+          "actual": [],
+          "markers": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "follow_pause_play_gap_seam_and_manual_override",
+      "fraction": 1,
+      "samples": [
+        {
+          "mode": "paused",
+          "t": 4.5,
+          "yaw": 177.5,
+          "pass": true
+        },
+        {
+          "mode": "paused",
+          "t": 5.5,
+          "yaw": -177.5,
+          "pass": true
+        },
+        {
+          "mode": "paused",
+          "t": 6.5,
+          "yaw": -172.5,
+          "pass": true
+        },
+        {
+          "mode": "paused",
+          "t": 10,
+          "yaw": -10,
+          "pass": true
+        },
+        {
+          "mode": "silent_gap",
+          "pass": true
+        },
+        {
+          "mode": "class_filter_does_not_change_follow",
+          "pass": true
+        },
+        {
+          "mode": "playing_seam",
+          "t": 4.775,
+          "yaw": 178.8,
+          "pass": true
+        },
+        {
+          "mode": "playing_seam",
+          "t": 5.042,
+          "yaw": -179.8,
+          "pass": true
+        },
+        {
+          "mode": "playing_seam",
+          "t": 5.3183,
+          "yaw": -178.4,
+          "pass": true
+        },
+        {
+          "mode": "playing_seam",
+          "t": 5.5975,
+          "yaw": -177,
+          "pass": true
+        },
+        {
+          "mode": "playing_seam",
+          "t": 5.8714,
+          "yaw": -175.6,
+          "pass": true
+        },
+        {
+          "mode": "manual_yaw_override",
+          "pass": true
+        },
+        {
+          "mode": "manual_drag_override",
+          "pass": true
+        },
+        {
+          "mode": "all_disables_follow",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "review_navigation_and_unresolved",
+      "fraction": 1,
+      "samples": [
+        {
+          "id": "q1",
+          "t": 4.5,
+          "yaw": 177.5,
+          "pass": true
+        },
+        {
+          "id": "q2",
+          "t": 8.199999,
+          "yaw": -170,
+          "pass": true
+        },
+        {
+          "id": "q3",
+          "t": 10,
+          "yaw": -10,
+          "pass": true
+        },
+        {
+          "id": "q4",
+          "t": 3.5,
+          "yaw": -20,
+          "pass": true
+        },
+        {
+          "id": "q5",
+          "t": 4.5,
+          "yaw": 177.5,
+          "pass": true
+        },
+        {
+          "id": "q6",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "edit_fields_and_validation",
+      "fraction": 1,
+      "samples": [
+        {
+          "step": "class_edit_export",
+          "pass": true
+        },
+        {
+          "step": "class_filter_options",
+          "options": [
+            "all",
+            "speech",
+            "door",
+            "instrument"
+          ],
+          "pass": true
+        },
+        {
+          "step": "class_edit_filtering",
+          "pass": true
+        },
+        {
+          "step": "interval_edit_export",
+          "pass": true
+        },
+        {
+          "step": "interval_edit_active_after",
+          "pass": true
+        },
+        {
+          "step": "interval_edit_inactive_before",
+          "pass": true
+        },
+        {
+          "step": "reject_end_not_after_start",
+          "message": "Event w2: start and end must satisfy 0 ≤ start < end ≤ 60.",
+          "pass": true
+        },
+        {
+          "step": "reject_start_below_zero",
+          "message": "Event w2: start and end must satisfy 0 ≤ start < end ≤ 60.",
+          "pass": true
+        },
+        {
+          "step": "reject_end_above_duration",
+          "message": "Event w2: start and end must satisfy 0 ≤ start < end ≤ 60.",
+          "pass": true
+        },
+        {
+          "step": "reject_empty_start",
+          "message": "Fill every numeric field with a finite number.",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "marker_keyframe_dragging",
+      "fraction": 1,
+      "samples": [
+        {
+          "step": "single_keyframe_values",
+          "azimuth": -17.999997950730062,
+          "elevation": 13.500001024634958,
+          "expectAz": -18,
+          "expectEl": 13.500000000000002,
+          "pass": true
+        },
+        {
+          "step": "marker_redrawn_at_drop",
+          "box": {
+            "cx": 502.625,
+            "cy": -566.984375,
+            "fx": 0.6499956282241847,
+            "fy": 0.3499752266037131
+          },
+          "pass": true
+        },
+        {
+          "step": "drag_does_not_rotate_view",
+          "pass": true
+        },
+        {
+          "step": "drag_is_undoable",
+          "pass": true
+        },
+        {
+          "step": "drag_undo_restores_keyframe",
+          "reverted": true,
+          "pass": true
+        },
+        {
+          "step": "nearest_keyframe_moved",
+          "traj": [
+            {
+              "time": 3,
+              "azimuth": 170,
+              "elevation": 0
+            },
+            {
+              "time": 7,
+              "azimuth": -152.50000204926994,
+              "elevation": -4.500002049269918
+            }
+          ],
+          "pass": true
+        },
+        {
+          "step": "other_keyframe_untouched",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "atomic_undo_and_redo",
+      "fraction": 1,
+      "samples": [
+        {
+          "step": "fresh_undo_disabled",
+          "pass": true
+        },
+        {
+          "step": "fresh_redo_disabled",
+          "pass": true
+        },
+        {
+          "step": "three_changes_differ",
+          "pass": true
+        },
+        {
+          "step": "undo_1_is_one_step",
+          "stepped": true,
+          "pass": true
+        },
+        {
+          "step": "undo_2_is_one_step",
+          "stepped": true,
+          "pass": true
+        },
+        {
+          "step": "undo_3_reaches_start",
+          "stepped": true,
+          "pass": true
+        },
+        {
+          "step": "undo_disabled_at_start",
+          "pass": true
+        },
+        {
+          "step": "redo_available_at_start",
+          "pass": true
+        },
+        {
+          "step": "redo_1",
+          "stepped": true,
+          "pass": true
+        },
+        {
+          "step": "redo_to_latest",
+          "stepped": true,
+          "pass": true
+        },
+        {
+          "step": "redo_disabled_at_latest",
+          "pass": true
+        },
+        {
+          "step": "new_change_clears_redo",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "derived_state_and_review_freshness",
+      "fraction": 1,
+      "samples": [
+        {
+          "step": "initial_freshness",
+          "flags": [
+            "false",
+            "false",
+            "false"
+          ],
+          "pass": true
+        },
+        {
+          "step": "edit_makes_review_stale",
+          "pass": true
+        },
+        {
+          "step": "undo_restores_freshness",
+          "pass": true
+        },
+        {
+          "step": "follow_before_edit",
+          "yaw": 177.5,
+          "pass": true
+        },
+        {
+          "step": "follow_after_edit",
+          "yaw": 20,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "export_import_and_persistence",
+      "fraction": 1,
+      "samples": [
+        {
+          "step": "export_matches_submission",
+          "pass": true
+        },
+        {
+          "step": "valid_import_applied",
+          "pass": true
+        },
+        {
+          "step": "import_updates_views",
+          "options": [
+            "all",
+            "speech",
+            "laughter",
+            "instrument",
+            "water",
+            "bell"
+          ],
+          "pass": true
+        },
+        {
+          "step": "reject_import_not_json",
+          "message": "Import is not valid JSON.",
+          "pass": true
+        },
+        {
+          "step": "reject_import_bad_class",
+          "message": "Event w1 has an unsupported sound class.",
+          "pass": true
+        },
+        {
+          "step": "reject_import_duplicate_ids",
+          "message": "Every event needs a nonempty, unique string ID.",
+          "pass": true
+        },
+        {
+          "step": "reject_import_bad_interval",
+          "message": "Event w1: start and end must satisfy 0 ≤ start < end ≤ 60.",
+          "pass": true
+        },
+        {
+          "step": "reject_import_no_trajectory",
+          "message": "Event w1 needs 1–1000 trajectory keyframes.",
+          "pass": true
+        },
+        {
+          "step": "valid_empty_import",
+          "pass": true
+        },
+        {
+          "step": "empty_import_persists",
+          "pass": true
+        },
+        {
+          "step": "reset_recovers_after_empty",
+          "pass": true
+        },
+        {
+          "step": "edits_persist_across_reload",
+          "pass": true
+        },
+        {
+          "step": "reset_restores_submission",
+          "pass": true
+        },
+        {
+          "step": "reset_persists",
+          "pass": true
+        },
+        {
+          "step": "valid_empty_import_actual_scene",
+          "pass": true,
+          "errors": [],
+          "message": ""
+        },
+        {
+          "step": "actual_empty_import_persists",
+          "pass": true
+        },
+        {
+          "step": "actual_empty_reset_recovers",
+          "pass": true
+        }
+      ]
+    }
+  ],
+  "evidence_judge": {
+    "status": "complete",
+    "maximum": 2,
+    "score": 2,
+    "version": "hybrid-evidence-usability-cli-v2",
+    "requested_model": "gpt-6-luna",
+    "returned_model": "gpt-6-luna",
+    "verdict": {
+      "criterion_0": {
+        "citations": [
+          "Evidence, “Inputs and inspection”: lists sampled video times and actual tools/frames; “Event inference” ties event intervals to classifier windows and describes uncertainty.",
+          "Tool trace: `toolkit/media.py` returned actual sampled frame times; generic YAMNet analysis commands report explicit window timestamps and scores.",
+          "`project/qa/verification.json` summary command validates the 24 events and review references."
+        ],
+        "pass": true,
+        "reason": "Important claims are linked to concrete time ranges and evidence methods, with specific classifier windows and frame sampling recorded. The notes distinguish model outputs and visual association from stronger claims."
+      },
+      "criterion_1": {
+        "citations": [
+          "Evidence, opening: “inferred, editable annotation,” “did not listen directly,” and browser playback “does not constitute a human listening verification.”",
+          "Evidence, “Additional generic perception”: scores are described as classifier outputs, beams as overlapping mixtures, and several unsupported alternatives are explicitly rejected.",
+          "Evidence, “Event inference” and “Review bookmarks”: temporal boundaries and source attribution are qualified; q9 explicitly marks continuous mechanical audibility lower-confidence."
+        ],
+        "pass": true,
+        "reason": "The notes consistently separate observation from inference, avoid claims of official labels or verified listening, and state meaningful uncertainty rather than treating motion or classifier scores as sound truth."
+      },
+      "criterion_2": {
+        "citations": [
+          "Desktop `desktop.png`: the viewport and timeline are side-by-side; the seek slider and labeled Play button are visible beneath the video in the initial viewport.",
+          "Tool trace, `qa/browser-test.mjs` result: explicitly checks that primary desktop controls fit the first 900 pixels."
+        ],
+        "pass": true,
+        "reason": "The large video is prominent, but it does not hide essential controls behind a hero or require scrolling past the media pane: seek and Play are visible in the initial desktop view, with the timeline and filters alongside."
+      },
+      "criterion_3": {
+        "citations": [
+          "Mobile `mobile.png`: at 390×844, the seek slider, time labels, labeled Play button, volume control, yaw slider, and loop controls are visible and legible; the timeline begins below them.",
+          "Tool trace, `qa/browser-test.mjs` result: reports the actual 390×844 rendering with accessible playback and no horizontal overflow."
+        ],
+        "pass": true,
+        "reason": "Mobile transport and event-view controls are practically accessible without clipping or overlap; the screenshot shows readable labels and reasonable continuation by vertical scrolling."
+      }
+    },
+    "limitations": "No native listening; command excerpts truncated where marked; provider alias identity unverified."
+  },
+  "scoring_note": "Existing and structural-repair fractions each contribute half within the five existing workbench groups. Group weights and total remain unchanged; this is a new task version.",
+  "evaluated_at": "2026-11-03T16:13:12.882Z",
+  "framework": "Codex CLI",
+  "run_id": "r4-sol-codex-xhigh-01",
+  "protocol": {
+    "created_at": "2026-11-03T15:29:38.908900+00:00",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "framework": "Codex CLI",
+    "cli_version": "codex-cli 0.166.0-alpha.5.1",
+    "base_url": "https://api-temporary.nju-link.com/v1",
+    "native_audio": false,
+    "evaluator_feedback": false,
+    "task": "RoomSound R4 structural annotation repair",
+    "differences_from_historical": [
+      "Genuine Codex shell/file/image tools",
+      "Shared evidence cache available as a file",
+      "No custom turn/tool/frame/screenshot caps",
+      "Internet access allowed; source answers/dataset/other submissions remain forbidden"
+    ],
+    "assets": [
+      {
+        "path": "public/media/scene.mp4",
+        "sha256": "ef818782117e1d08a734290ed3d13f07c8a51e63eeb0e89d7773cbae384c91a9"
+      },
+      {
+        "path": "public/media/scene-foa.wav",
+        "sha256": "47ccb69500d95e876de3b0fff7763dd5206c5c1011d81fbcfc8082e02056c5e6"
+      },
+      {
+        "path": "public/media/scene-mono.wav",
+        "sha256": "27afa118426bda64f52a3dce62508627d4a3b13058d9ffae7e8a5b437932bf16"
+      },
+      {
+        "path": "public/media/scene-stereo.wav",
+        "sha256": "ff42dab806ab8ed3eaec1734ba3f9af05a1d2725a01d62b63213aa45fd703e69"
+      }
+    ],
+    "task_sha256": "db7a2bb13e2fede4d0fc2bf1c8e73623f21716a5aa7ef536f44fb472821dcc37",
+    "frozen_manifest_sha256": "12741730613aeb9bfbf2af7df8b4c16e8291b43eb6e6f1b4a71deebd526d0467",
+    "scoring_version": "content-v3 + driver-v4 + structural-repair-v1",
+    "comparison": "New task version; report separately from existing R3 model cohort"
+  },
+  "score": 77.08
+}

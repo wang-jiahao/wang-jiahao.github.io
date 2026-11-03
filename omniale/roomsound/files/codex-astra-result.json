@@ -1,10 +1,10 @@
 {
-  "version": "roomsound-r3-codex-audited-v3",
+  "version": "roomsound-r3-codex-audited-v4",
   "maximum": 100,
-  "score_without_judge": 71.55,
+  "score_without_judge": 71.31,
   "score_interval": [
-    71.55,
-    73.55
+    71.31,
+    73.31
   ],
   "perception": {
     "score": 23.5455563864393,
@@ -80,7 +80,8 @@
       "limitations": [
         "Official audible boundaries have not been independently human re-annotated.",
         "25-degree gate and 100ms sampling are not a full perceptual judgment."
-      ]
+      ],
+      "unsampled_false_classes": []
     },
     "identity": {
       "idf1": 0.4335927019050174,
@@ -105,7 +106,10 @@
           "class_ok": true,
           "evidence_ok": true,
           "historical_pass": false,
-          "reference_relation_supported": false
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
         },
         {
           "id": "q2",
@@ -116,7 +120,15 @@
           "class_ok": true,
           "evidence_ok": true,
           "historical_pass": true,
-          "reference_relation_supported": true
+          "reference_relation_supported": true,
+          "prior_v2_pass": true,
+          "reference_interval_supported": true,
+          "support_intervals": [
+            [
+              46.65,
+              50
+            ]
+          ]
         },
         {
           "id": "q3",
@@ -127,7 +139,15 @@
           "class_ok": true,
           "evidence_ok": true,
           "historical_pass": true,
-          "reference_relation_supported": true
+          "reference_relation_supported": true,
+          "prior_v2_pass": true,
+          "reference_interval_supported": true,
+          "support_intervals": [
+            [
+              46.4,
+              50
+            ]
+          ]
         },
         {
           "id": "q4",
@@ -138,7 +158,10 @@
           "class_ok": true,
           "evidence_ok": true,
           "historical_pass": false,
-          "reference_relation_supported": false
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
         },
         {
           "id": "q5",
@@ -149,7 +172,10 @@
           "class_ok": false,
           "evidence_ok": true,
           "historical_pass": false,
-          "reference_relation_supported": false
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
         },
         {
           "id": "q6",
@@ -160,21 +186,30 @@
           "class_ok": true,
           "evidence_ok": true,
           "historical_pass": false,
-          "reference_relation_supported": false
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
         },
         {
           "id": "q7",
           "pass": false,
           "error": "Missing or invalid review fields/references",
           "historical_pass": false,
-          "reference_relation_supported": false
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
         },
         {
           "id": "q8",
           "pass": false,
           "error": "Missing or invalid review fields/references",
           "historical_pass": false,
-          "reference_relation_supported": false
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
         },
         {
           "id": "q9",
@@ -185,7 +220,15 @@
           "class_ok": true,
           "evidence_ok": true,
           "historical_pass": true,
-          "reference_relation_supported": true
+          "reference_relation_supported": true,
+          "prior_v2_pass": true,
+          "reference_interval_supported": true,
+          "support_intervals": [
+            [
+              0,
+              60
+            ]
+          ]
         },
         {
           "id": "q10",
@@ -196,30 +239,32 @@
           "class_ok": true,
           "evidence_ok": true,
           "historical_pass": false,
-          "reference_relation_supported": false
+          "reference_relation_supported": false,
+          "prior_v2_pass": false,
+          "reference_interval_supported": false,
+          "support_intervals": []
         }
       ],
       "points": 3,
-      "version": "r3-review-references-v2"
+      "version": "r3-review-references-v3"
     },
-    "historical_score": 23.5455563864393,
-    "version": "roomsound-r3-content-audited-v2"
+    "version": "roomsound-r3-content-audited-v3"
   },
   "implementation": {
-    "score": 48,
+    "score": 47.76470588235294,
     "maximum": 48,
     "base_app": 22,
     "source_filter": 2,
     "follow": 3,
     "review_navigation": 3,
     "workbench": {
-      "score": 18,
+      "score": 17.764705882352942,
       "maximum": 18,
       "edit_fields": 5,
       "keyframe_drag": 4,
       "undo_redo": 5,
       "invalidation": 2,
-      "portability": 2
+      "portability": 1.7647058823529411
     }
   },
   "component_fractions": {
@@ -231,7 +276,7 @@
     "keyframe_drag": 1,
     "undo_redo": 1,
     "invalidation": 1,
-    "portability": 1
+    "portability": 0.8823529411764706
   },
   "evidence_judge": {
     "status": "complete",
@@ -440,32 +485,32 @@
         },
         {
           "mode": "playing_seam",
-          "t": 4.775,
+          "t": 4.7984,
           "yaw": 178.9,
           "pass": true
         },
         {
           "mode": "playing_seam",
-          "t": 5.0527,
-          "yaw": -179.8,
+          "t": 5.0709,
+          "yaw": -179.6,
           "pass": true
         },
         {
           "mode": "playing_seam",
-          "t": 5.3345,
-          "yaw": -178.4,
+          "t": 5.3411,
+          "yaw": -178.3,
           "pass": true
         },
         {
           "mode": "playing_seam",
-          "t": 5.6109,
+          "t": 5.6177,
           "yaw": -176.9,
           "pass": true
         },
         {
           "mode": "playing_seam",
-          "t": 5.893,
-          "yaw": -175.5,
+          "t": 5.894,
+          "yaw": -175.6,
           "pass": true
         },
         {
@@ -729,7 +774,7 @@
     },
     {
       "name": "export_import_and_persistence",
-      "fraction": 1,
+      "fraction": 0.8823529411764706,
       "samples": [
         {
           "step": "export_matches_submission",
@@ -777,6 +822,18 @@
           "pass": true
         },
         {
+          "step": "valid_empty_import",
+          "pass": true
+        },
+        {
+          "step": "empty_import_persists",
+          "pass": true
+        },
+        {
+          "step": "reset_recovers_after_empty",
+          "pass": true
+        },
+        {
           "step": "edits_persist_across_reload",
           "pass": true
         },
@@ -787,11 +844,27 @@
         {
           "step": "reset_persists",
           "pass": true
+        },
+        {
+          "step": "valid_empty_import_actual_scene",
+          "pass": false,
+          "errors": [
+            "Cannot read properties of undefined (reading 'trajectory')"
+          ],
+          "message": "Import rejected: Cannot read properties of undefined (reading 'trajectory')"
+        },
+        {
+          "step": "actual_empty_import_persists",
+          "pass": false
+        },
+        {
+          "step": "actual_empty_reset_recovers",
+          "pass": true
         }
       ]
     }
   ],
-  "evaluated_at": "2026-11-03T13:32:13.000Z",
+  "evaluated_at": "2026-11-03T15:29:53.874Z",
   "framework": "Codex CLI",
   "run_id": "r3-astra-codex-xhigh-01",
   "protocol": {
@@ -829,5 +902,11 @@
       }
     ]
   },
-  "score": 73.05
+  "audit": {
+    "prior_result": "D:\\Desktop\\Omni Agents\\starss23_iteration\\case8-starss-scene-b\\iteration\\results\\r3-codex-astra-01-v3\\result.json",
+    "unchanged_base_reused": true,
+    "unchanged_screenshots_judgement_reused": true,
+    "reason": "Correct existing empty-import contract and reference support; weights unchanged."
+  },
+  "score": 72.81
 }
