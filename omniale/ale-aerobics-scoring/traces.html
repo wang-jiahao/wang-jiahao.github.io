@@ -1,0 +1,16 @@
+---
+layout: null
+sitemap: false
+permalink: /omniale/ale-aerobics-scoring/traces.html
+---
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>健美操 · 可见运行轨迹</title><link rel="stylesheet" href="assets/site.css"></head>
+<body><main><a class="back" href="./">← 返回健美操案例页</a><div class="eyebrow">OMNIALE · EXECUTION RECORD</div>
+<h1>健美操 · 可见运行轨迹</h1><p class="lead">展开命令、输出、搜索和桌面操作，查看 Agent 实际做了什么。看图记录由 OTLP 补核并单列，保留证据边界。</p>
+<div class="toolbar controls"><label for="run">运行</label><select id="run"><option value="aerobics">健美操 · 正式运行</option></select>
+<label for="kind">类型</label><select id="kind"><option value="all">全部可见事件</option><option value="command">命令与输出</option>
+<option value="message">可见回复</option><option value="search">检索 / 打开</option><option value="cua">桌面操作</option>
+<option value="file">文件变更</option><option value="image">看图记录（OTLP）</option><option value="notice">CLI 提示</option>
+<option value="failed">非零退出命令</option></select><input id="search" type="search" placeholder="搜索命令、输出或文件名" aria-label="搜索轨迹"><span class="count" id="count"></span></div>
+<p id="meta" class="note"></p><div id="status" class="trace-status" role="status"></div><p class="note" id="trace-note"></p>
+<div id="events" aria-live="polite"></div></main><script src="assets/trace.js"></script></body></html>

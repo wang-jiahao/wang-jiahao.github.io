@@ -1,0 +1,63 @@
+{
+  "run_id": "codex_nju_gpt61sol_xhigh__gpt-6-1-sol__visual_media__music_transcription__v0__20261103_113418",
+  "timestamp_utc": "2026-11-03T13:01:12Z",
+  "model": "gpt-6.1-sol",
+  "cli": {
+    "cli_version": "0.163.0",
+    "source": "official"
+  },
+  "requested_effort": "xhigh",
+  "actual_effort_evidence": "OTLP model_reasoning_effort",
+  "status": "completed",
+  "score": 0.11158734051371016,
+  "termination": {
+    "reason": "completed",
+    "phase": null,
+    "category": null,
+    "error": null
+  },
+  "task": {
+    "slug": "visual_media__music_transcription",
+    "path": "tasks/visual_media/music_transcription",
+    "variant_index": 0,
+    "revision": "sha256:a83faeda747ad36085ebb8ba3d5d296f1788f6e9521aef6035ebcd0c41995e08"
+  },
+  "environment": {
+    "provider": "docker",
+    "image": "ale-ubuntu22-docker",
+    "image_revision": "sha256:bd300b13d936c93f0785b7973a9377b2d4ea857d1d09bd8b2c516a1379cabfbf",
+    "image_ref": "ale-two-tasks:20261103",
+    "image_id": "sha256:bd300b13d936c93f0785b7973a9377b2d4ea857d1d09bd8b2c516a1379cabfbf",
+    "snapshot": "cpu-free-ubuntu"
+  },
+  "timings": {
+    "duration_s": 5118.19
+  },
+  "usage": {
+    "total_steps": 303,
+    "total_input_tokens": 16822212,
+    "total_output_tokens": 89134,
+    "total_cache_read_tokens": 16594176,
+    "total_cache_creation_tokens": 0,
+    "total_cost_usd": 0.0,
+    "total_duration_ms": 5203138,
+    "reward": 0.11158734051371016,
+    "status": "completed"
+  },
+  "eval_result": {
+    "eval_status": "success",
+    "score": 0.11158734051371016,
+    "eval_duration_s": 91.6446,
+    "error": null
+  },
+  "adjudication": {
+    "independent_task_validity": "accepted_after_trace_review",
+    "protocol": "independent-v2",
+    "review_file": "independent-v2-provenance-review.json",
+    "note": "Generic transcription tools permitted; no task-specific answer retrieval observed."
+  },
+  "internet": "allowed",
+  "api": "NJU Link Responses",
+  "official_commit": "2e91edd3cd26baa35a38127c90c8e5241dfbe62f",
+  "note": "Usage cost=0 is an unavailable gateway cost estimate, not a free-run claim."
+}
