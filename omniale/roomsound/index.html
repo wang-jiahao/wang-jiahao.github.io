@@ -42,7 +42,7 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 <div class="eyebrow">OMNIALE · 音频后期与声音工程 · 空间声音与交互播放器</div>
 <h1>把一间吵闹房间的录音做成可转头的播放器</h1>
 <p class="lead">给 Agent 一分钟真实房间的 360° 录像，外加一份<b>带方向信息的四通道录音</b>。它要先弄明白"<b>什么时候、什么声音、在哪个方向</b>"，再把这份理解做成一个能转头看、转头听、按声音查找片段的网页。在现有自定义框架测试中，Sol 的播放器实现拿到满分，主要失分来自事件推断；这间房里<b>每一刻都有两到五个声音同时响着</b>，其中两个从头响到尾。</p>
-<span class="tag">STARSS23 真实录音 · 非合成</span><span class="tag">60 秒 · 360° 全景 + 四通道 FOA</span><span class="tag">平均同时发声 3.33 个 · 峰值 5 个</span><span class="tag">3 个历史模型 · 自定义框架</span><span class="tag">2 组 Codex CLI 补测 · 联网</span><span class="tag gray">单次交付 · 空项目起步</span><span class="tag gray">模型无原生音频输入</span>
+<span class="tag">STARSS23 真实录音 · 非合成</span><span class="tag">60 秒 · 360° 全景 + 四通道 FOA</span><span class="tag">平均同时发声 3.33 个 · 峰值 5 个</span><span class="tag">3 个历史模型 · 自定义框架</span><span class="tag">3 组 Codex CLI 补测 · 联网</span><span class="tag gray">单次交付 · 空项目起步</span><span class="tag gray">模型无原生音频输入</span>
 
 <p class="note">同时发声数量按活跃声音事件统计；同一人物可以同时说话、笑或鼓掌，背景设备按标注约定共用一个代理 ID，因此这里不是同时发声的人数。</p>
 
@@ -110,16 +110,19 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 <h2>二、运行结果</h2>
 <!-- CODEX-RESULTS-START -->
 <h3 id="codex-results">补测：真实 Codex CLI · 允许联网</h3>
-<p>使用真正的 <b>Codex CLI 0.166.0-alpha.5.1</b>，分别接入 <code>gpt-6.1-sol</code> 和 <code>gpt-6.1-terra</code>，均设置 <b>xhigh</b>，通过 nju link 调用。两次均从空项目生成、正常完成，外网访问已在 agent 沙箱内实测通过。</p>
+<p>使用真正的 <b>Codex CLI 0.166.0-alpha.5.1</b>，分别接入 <code>gpt-6.1-sol</code>、<code>gpt-6.1-terra</code> 和 <code>gpt-6-astra</code>，均设置 <b>xhigh</b>，通过 NJU Link 调用。三次均从空项目生成、正常完成，外网访问已在 agent 沙箱内实测通过。Astra 使用服务提供的上述别名。</p>
 <div class="table-scroll"><table class="codex-table"><tr><th>模型</th><th>推理强度</th><th>总分</th><th>内容 /50</th><th>实现 /48</th><th>审查 /2</th></tr><tr><td>gpt-6.1-sol</td><td>xhigh</td><td class="num"><b>74.12</b></td><td class="num">24.62</td><td class="num">48.00</td><td class="num">1.5</td></tr>
-<tr><td>gpt-6.1-terra</td><td>xhigh</td><td class="num"><b>57.52</b></td><td class="num">8.02</td><td class="num">48.00</td><td class="num">1.5</td></tr></table></div>
-<p>两次都通过预定的实现测试，得到 <b>48/48</b>；总分相差 <b>16.60</b>，来自声音事件推断。参考解在修复后的测试环境及 driver-v3 中均为确定性 <b>98/98</b>。</p>
+<tr><td>gpt-6.1-terra</td><td>xhigh</td><td class="num"><b>57.52</b></td><td class="num">8.02</td><td class="num">48.00</td><td class="num">1.5</td></tr>
+<tr><td>gpt-6-astra</td><td>xhigh</td><td class="num"><b>73.05</b></td><td class="num">23.55</td><td class="num">48.00</td><td class="num">1.5</td></tr></table></div>
+<p>三次沿用同一 R3 素材、内容 v2 和 driver-v3；Sol、Terra 的实现均为 <b>48/48</b>，Astra 为 <b>48.00/48</b>。参考解在修复后的测试环境及 driver-v3 中均为确定性 <b>98/98</b>。</p>
 <div class="table-scroll"><table class="codex-table"><tr><th>模型</th><th>类别时序 F1</th><th>类别＋方向 F1</th><th>分段覆盖</th><th>人物 IDF1</th><th>书签</th></tr><tr><td>gpt-6.1-sol</td><td class="num">0.703</td><td class="num">0.497</td><td class="num">0.539</td><td class="num">0.488</td><td class="num">2/10</td></tr>
-<tr><td>gpt-6.1-terra</td><td class="num">0.395</td><td class="num">0.104</td><td class="num">0.196</td><td class="num">0.059</td><td class="num">0/10</td></tr></table></div>
-<p class="note">这两次 CLI 可以自行写分析脚本、安装依赖、联网取资料和操作浏览器；不套用旧框架的 10 回合、50 工具、36 帧、12 截图上限。输入素材与评分权重保留，不能把新旧分差单独归因于框架或模型。均没有原生音频输入。</p>
+<tr><td>gpt-6.1-terra</td><td class="num">0.395</td><td class="num">0.104</td><td class="num">0.196</td><td class="num">0.059</td><td class="num">0/10</td></tr>
+<tr><td>gpt-6-astra</td><td class="num">0.689</td><td class="num">0.461</td><td class="num">0.408</td><td class="num">0.434</td><td class="num">3/10</td></tr></table></div>
+<p class="note">三次 CLI 可以自行写分析脚本、安装依赖、联网取资料和操作浏览器；不套用旧框架的 10 回合、50 工具、36 帧、12 截图上限。输入素材与评分权重保留，不能把新旧分差单独归因于框架或模型。均没有原生音频输入；effort 为显式设置值，网关内部执行强度未独立认证。</p>
 <div class="grid2">
 <figure style="margin:0"><a href="assets/codex-sol-desktop.png"><img src="assets/codex-sol-desktop.png" alt="真实 Codex CLI 加 Sol 的最终交付"></a><figcaption>Codex + Sol · 74.12</figcaption></figure>
 <figure style="margin:0"><a href="assets/codex-terra-desktop.png"><img src="assets/codex-terra-desktop.png" alt="真实 Codex CLI 加 Terra 的最终交付"></a><figcaption>Codex + Terra · 57.52</figcaption></figure>
+<figure style="margin:0"><a href="assets/codex-astra-desktop.png"><img src="assets/codex-astra-desktop.png" alt="真实 Codex CLI 加 Astra 的最终交付"></a><figcaption>Codex + Astra · 73.05</figcaption></figure>
 </div>
 <h3>历史结果：自定义框架（非 Codex / Claude Code）</h3>
 <!-- CODEX-RESULTS-END -->
@@ -131,7 +134,7 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 </table></div>
 <p class="note"><b>oracle 参考解</b>使用官方标注，已通过同一判分器的确定性部分：98/98。其 2 分 LLM 审查未执行，完整总分 100 尚未验证。这证明确定性满分可达，不保证所有判据都没有缺陷。</p>
 <p>Sol 与 Luna 的总分相差 <b>22.30</b>：内容贡献 14.11，实现贡献 8.19。Sol 的实现为 48/48，Opus 为 46.17/48，Luna 为 39.81/48；实现测试对 Sol 接近饱和，对 Luna 仍有区分度。</p>
-<p class="note">三份结果均来自<b>自定义 Responses API 框架，不是 Codex 或 Claude Code</b>。三者均用满 10 回合，状态为 <code>budget_exhausted</code>，对当时已有交付评分。Sol 的原定停止条件仍未达到：68.59 + 2 = <b>70.59</b>。真正 Codex CLI 的补测见上表：Sol 74.12、Terra 57.52。</p>
+<p class="note">三份结果均来自<b>自定义 Responses API 框架，不是 Codex 或 Claude Code</b>。三者均用满 10 回合，状态为 <code>budget_exhausted</code>，对当时已有交付评分。Sol 的原定停止条件仍未达到：68.59 + 2 = <b>70.59</b>。真正 Codex CLI 的补测见上表：Sol 74.12、Terra 57.52、Astra 73.05。</p>
 
 <h3>内容分拆开看</h3>
 <div class="table-scroll"><table><tr><th>　</th><th>类别时序 F1</th><th>类别＋方向 F1</th><th>分段覆盖</th><th>人物 IDF1</th><th>推断题</th></tr>
@@ -153,9 +156,9 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 <!-- CODEX-TRACE-START -->
 <h3>真实 Codex CLI 的轨迹</h3>
 <div class="table-scroll"><table class="codex-table"><tr><th>模型</th><th>已执行命令</th><th>事件</th><th>书签弃答</th><th>输出 token</th><th>运行时长</th></tr>
-<tr><td>gpt-6.1-sol</td><td class="num">35</td><td class="num">50</td><td class="num">5/10</td><td class="num">54,651</td><td class="num">38m14s</td></tr><tr><td>gpt-6.1-terra</td><td class="num">25</td><td class="num">14</td><td class="num">8/10</td><td class="num">19,441</td><td class="num">12m06s</td></tr>
+<tr><td>gpt-6.1-sol</td><td class="num">35</td><td class="num">50</td><td class="num">5/10</td><td class="num">54,651</td><td class="num">38m14s</td></tr><tr><td>gpt-6.1-terra</td><td class="num">25</td><td class="num">14</td><td class="num">8/10</td><td class="num">19,441</td><td class="num">12m06s</td></tr><tr><td>gpt-6-astra</td><td class="num">18</td><td class="num">32</td><td class="num">2/10</td><td class="num">40,939</td><td class="num">40m08s</td></tr>
 </table></div>
-<p>Sol 下载通用 YAMNet 模型，对 FOA 音频按方向重新分析，并结合抽帧生成标注，再自行编写浏览器测试。Terra 主要依靠共享分类证据和画面，生成较少事件后检查桌面、手机、编辑、撤销和导入导出。两次均正常完成；命令失败数记录在轨迹审计中，未当作模型能力零分。</p>
+<p>Sol 下载通用 YAMNet 模型，对 FOA 音频按方向重新分析，并结合抽帧生成标注，再自行编写浏览器测试。Terra 主要依靠共享分类证据和画面，生成较少事件后检查桌面、手机、编辑、撤销和导入导出。Astra 交付 32 个事件和十条书签，实际命令、失败次数、用量与耗时均单独保留。三次均正常完成，命令失败未当作模型能力零分。</p>
 <p class="note">Sol 时长包含一次浏览器音频后端排查，不能据此比较模型速度。为确保实际音频图正常计算，自动化浏览器使用 Chromium 测试输出后端；不改候选生产代码。运行目录拒读探测及媒体、交付摘要核对均通过，轨迹未检出对已知金标、参考解或历史页面的访问命令；联网条件下仍不宣称网络级答案隔离。</p>
 <h3>历史自定义框架的轨迹</h3>
 <!-- CODEX-TRACE-END -->
@@ -208,6 +211,7 @@ Panorama x -&gt; azimuth with `azimuth = 180 - x/1920*360` (positive azimuth = L
 <p><b>Sol</b> 覆盖全部六类金标声音，两个连续背景声的时序 F1 都是 1.00；但方向联合 F1 只有 0.497，人物 IDF1 为 0.488。它答对 q2（两人鼓掌）和 q9（连续背景声），五道主动弃答。铃声仅标 7.55 秒、笑声 5.95 秒，金标分别为 19.4 和 13.1 秒；语音反而报了 45.05 秒，金标合计 38.1 秒。事件更多并不等于覆盖与归属正确。</p>
 <p><b>Terra</b> 只交付 14 个事件，漏掉 domestic 与 laughter 两类，只建立一个人物轨。类别＋方向 F1 为 0.104，人物 IDF1 为 0.059；书签 0/10，八道弃答。它完成了播放器和修订工作台，但工具证据尚不足以支撑完整的声音目录。</p>
 <p>两次审查都是 1.5/2，失去的半分均为桌面首屏的播放／进度控制不够显眼。48/48 只表示通过预定工程测试，仍有可用性改进空间。</p>
+<p><b>Astra</b> 的内容分为 23.55/50，实现 48.00/48，审查 1.5/2。共 32 个事件，时序 F1 为 0.689，类别＋方向 F1 为 0.461，人物 IDF1 为 0.434，书签 3/10，主动弃答 2 道。它保留两个连续背景声，但把音乐方向标为 −135°，金标为 +45°；语音事件合计 19.4 秒，金标 38.1 秒。两类背景的时序正确，仍会因方向错误和短事件漏检丢分。桌面首屏播放控件同样在大画面下方，审查失去半分。各一次有效运行，尚未估计重复采样方差。</p>
 <p class="note">Sol 初评曾因“未选事件时 Apply 禁用”被整组误扣 5 分。driver-v3 移除题面未规定的这一要求，保留四类非法字段校验，参考解与五份候选统一回归；原始初评记录保留。书签引用支持关系也已补测，权重不变。</p>
 <h3>历史自定义框架的失败分析</h3>
 <!-- CODEX-FAILURE-END -->
@@ -276,12 +280,21 @@ Panorama x -&gt; azimuth with `azimuth = 180 - x/1920*360` (positive azimuth = L
 </table></div>
 <p>漏掉两个背景声就要付出 <b>14.79 分</b>，因为它们是宏平均 6 个类别里的 2 个，而且在每一帧都参与方向匹配。这正是本轮换素材要制造的梯度。</p>
 
+<!-- DIFFICULTY-HISTORY-START -->
+<h3 id="difficulty-history">怎样加难：人物关联 → 可修订工作台 → 更密集的录音</h3>
+<p>早期 Codex 在 R1 增加人物身份关联、Follow 与六道定位书签；Claude 在 R2 加入标注工作台和十道书签，要求编辑、拖动、撤销重做后所有视图一致。Sol 仍通过了这些工程测试，Claude 在 R3 换成更密集的真实录音：平均同时活跃声音事件从 1.32 增至 3.33、峰值从 2 增至 5，77.8% 的时间至少三个声音事件重叠，并有两类贯穿全片的背景声。</p>
+<p><b>分项权重并非全程不变。</b>R1、R2 为新增要求重新分配过分值，书签答案也从实现移到内容桶。R2→R3 才保持相同权重，历史 Sol 内容由 31.30 降到 20.59，总分由 80.80 降到 70.09；仍需披露问题重出、ASR VAD 和持续事件测试适配。</p>
+<p>当前 Codex 接手后保留 R3 产品与素材，主要修正书签引用、浏览器音频后端和题面未要求的 Apply 误扣，并补跑真正 CLI；没有再增加功能难度。<a href="files/difficulty-history.zh-CN.txt">完整介绍、职责与原始依据</a>。</p>
+<!-- DIFFICULTY-HISTORY-END -->
+
 <h2>案例文件</h2>
 <ul class="note">
 <!-- CODEX-FILES-START -->
 <li><a href="files/cli-results.json">真实 CLI 成绩与条件</a> · <a href="files/cli-report.zh-CN.txt">补测报告</a> · <a href="files/cli-trace-audit.json">轨迹审计</a></li>
 <li>Codex + Sol：<a href="files/codex-sol-result.json">完整评分</a> · <a href="files/codex-sol-submission.zip">前端交付</a> · <a href="files/codex-sol-evidence.txt">证据说明</a> · <a href="files/codex-sol-protocol.json">运行条件</a></li>
 <li>Codex + Terra：<a href="files/codex-terra-result.json">完整评分</a> · <a href="files/codex-terra-submission.zip">前端交付</a> · <a href="files/codex-terra-evidence.txt">证据说明</a> · <a href="files/codex-terra-protocol.json">运行条件</a></li>
+<li>Codex + Astra：<a href="files/codex-astra-result.json">完整评分</a> · <a href="files/codex-astra-submission.zip">前端交付</a> · <a href="files/codex-astra-evidence.txt">证据说明</a> · <a href="files/codex-astra-protocol.json">运行条件</a></li>
+<li><a href="files/difficulty-history.zh-CN.txt">题目介绍、加难历史与 Claude / Codex 职责说明</a> —— 含历轮分项权重变化及当前审计修复</li>
 <li><a href="files/driver-v3-amendment.json">编辑校验修正</a> · <a href="files/driver-v3-regression.json">参考解及五候选回归</a> · <a href="files/audio-backend-amendment.json">音频测试后端修复</a></li>
 <!-- CODEX-FILES-END -->
 <li><a href="files/audit-20261103.json">2026-11-03 审计证据</a> · <a href="files/audit-report.zh-CN.txt">审计报告</a> · <a href="files/review-v2-results.json">书签修订版回归结果</a> —— 内容复算、候选摘要、书签区间与判据反例</li>

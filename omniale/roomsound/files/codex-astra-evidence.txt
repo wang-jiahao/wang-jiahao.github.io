@@ -1,0 +1,71 @@
+# RoomSound: evidence and inference
+
+This is a starting annotation for review, **not ground truth**. I had no native audio listening input. I inspected the supplied video through decoded images, read the shared uncertain audio predictions, and measured the four-channel signal locally. Browser PCM checks verify the implementation; they do not verify the semantic event labels.
+
+## Inputs and method
+
+- Immutable `scene.mp4`, `scene-foa.wav`, `scene-mono.wav`, and `scene-stereo.wav` supplied by the task. The app plays only the original FOA WAV and the muted video. The mono and fixed stereo previews are never played.
+- All three images in `initial-frames/` were opened with the image tool: 1, 20, and 40 seconds.
+- `toolkit/audio-evidence.json`: faster-whisper base.en ASR, YAMNet predictions in 0.96-second windows with 0.48-second stride, and mixed FOA active-intensity directions in 0.5-second windows. Its supplied source hash is `47ccb69500d95e876de3b0fff7763dd5206c5c1011d81fbcfc8082e02056c5e6`. These are automatic estimates, not official annotations.
+- I decoded and visually inspected contact sheets at one-second intervals across the clip, additional table crops at 0.5-second intervals around 10.5–16 and 32.5–39 seconds, and 0.25-second intervals at 44–51 seconds. Further full panoramas at 26, 30, and 42 seconds and table details at 26.5, 45.6, and 51.7 seconds were opened for inspection. Other generated frames are retained but are not claimed as individually inspected.
+- `signal-analysis.py` computes a mixed W spectrogram and frequency-resolved active-intensity histograms using the actual W,Y,Z,X samples. The plotted energy clusters near the two seated performers during the vocal and clapping episodes. This is **not source separation**. The figure is `analysis/signal.png`.
+- No hidden annotation, benchmark answer, other candidate, source webpage, or previous output was consulted. No semantic answer was obtained online.
+
+## Performer continuity
+
+| Source ID | Visual anchor | Attribution limits |
+| --- | --- | --- |
+| `table-near` | Near side of the wooden table, gray top; sits down at the opening and remains at the table | Same track for speech, laughter, and clapping. Mouth position is near +166 to +170 degrees. Hand positions differ slightly. The blurred face and mixed audio make speaker attribution tentative. |
+| `table-far` | Opposite side of the same table, light top | Same track across all its activities. Face near +137 degrees; hands lower. Often the stronger vocal direction, but that does not exclude the other performer. |
+| `room` | Non-tracked room background agent | Groups music, equipment noise and unattributed bell-like sounds, even though their physical emitters may differ. Bell attribution is particularly uncertain. |
+
+The person near the doors moves toward equipment at approximately 24–35 seconds, and again late in the clip. This continuity is visible. I did **not** label that motion as footsteps, or their proximity to equipment as a sounding instrument, without sufficient acoustic confirmation. The seated person at the far-right workstation is visible but likewise receives no activity solely from visibility.
+
+## Event evidence ledger
+
+Timing is rounded manual inference. The extra decimal places on clap boundaries reflect quarter-second frame sampling and approximate onset placement; they do not imply a 10-ms acoustic measurement. Most vocal boundaries could be off by 0.3–1 second, and the quieter activities may be incomplete. Separate intervals are retained rather than bridging long silences.
+
+| Event IDs / interval | Supporting evidence | Confidence and alternatives |
+| --- | --- | --- |
+| `room-music`, 0–60 | YAMNet repeatedly gives Music 0.3–0.94 throughout much of 0–35 and 39–43 seconds. The raw spectrogram has persistent harmonic material under other activity. | Music is well supported; whole-clip continuation is an inference because speech and clapping mask it late in the recording. No live instrument event is duplicated from the music's guitar/strings sublabels. |
+| `room-fan`, 0–60 | A fan is visibly operating/oscillating at 1, 20, 40 and later frames. Low persistent energy remains across the raw recording. | Low-to-moderate confidence in a continuous equipment sound, and low confidence that the visible fan accounts for all of it. Visual operation alone does not prove audibility. `domestic` is the nearest provided ontology class. |
+| `bell-01`, 1.2–2.5 | Bell/Church bell approximately 0.23 at 1.44–2.40, plus weaker tubular-bell predictions nearby. | Could be a bell-like note in the music. Emitter and exact boundaries are uncertain. |
+| `bell-02`, 11.6–12.8 | Ping/Ding at 11.52–12.48; Bell at 12.0–12.96. Narrow high-frequency tone visible in the spectrogram. | May be a musical or electronic tone. Overlapping vocal material biases direction. |
+| `bell-03`, 16.2–17.6 | Bell 0.288 and tubular bells 0.20 at 16.32–17.28. | Sound class has some support; source direction is weak. |
+| `bell-04`, 20.7–21.8 | Bell 0.899 at 20.64–21.60. | Strong class-model response; not proof of a separate physical bell. |
+| `bell-05`, 25.2–28.2 | Bell/chime/tuning-fork predictions at 24.96–27.84, and a narrow tone in the raw signal. | Candidate ringing interval, approximate decay. Frequency-isolated direction shifts substantially. |
+| `bell-06`, 39.4–40.3; `bell-07`, 42.2–43.1 | Bell 0.076 at 39.36–40.32; chime/tubular bell/glass/bell at 42.24–43.20. | Lower confidence, especially `bell-06`. Could be music or object contact. |
+| `far-speech-01`, 3.6–4.5 | Speech 0.331 at 3.84–4.80; high-frequency direction around +140. | Likely table speech, attribution tentative. |
+| `far-speech-02/03/04`, 12–12.9, 14.4–15.7, 17.1–18.5 | Speech peaks around 12, 14.4–15.84, and 16.8–18.24. Direction often +125 to +145. | Approximate phrase boundaries; reactions and ringing overlap. |
+| `far-speech-05/06`, 35.5–36.1 and 36.5–38.9 | Speech rises to 0.584/0.823/0.816/0.729 in windows starting 35.52, 36.0, 36.48, 37.44. ASR has short phrases at 35.8 and 36.44. | Speech is supported, but the break at 36.1–36.5 and performer split are estimates. |
+| `far-speech-07`, 43.8–44.6 | Speech 0.413 at 43.68–44.64. | Short vocal lead-in to the larger table reaction. |
+| `far-speech-08`, 50.6–55.1 | Speech 0.84–0.995 from windows starting 50.4–53.76; ASR gives phrases at 51.28, 52.92, 54.2. Direction remains around +130 to +150. | Best-supported extended speech episode. It could contain turn changes that the shared evidence does not resolve. |
+| `near-speech-01/02/03`, 17.6–18.4, 38–39, 51–52 | Mixed speech evidence with some energy nearer +155 to +175 and visible exchanges. | Low-confidence second-speaker intervals. Direction alone cannot establish independent simultaneous speakers. |
+| `near-speech-04/05`, 57.2–57.9 and 58.9–60; `far-speech-09`, 58–60 | Speech 0.992 at 57.12–58.08 and strong speech through 60; ASR also returns closing phrases. | End-of-clip speech is clear in the model. Assignment and overlap between the two table performers are tentative. |
+| `far-laugh-01`, 11–13.2; `near-laugh-01`, 11.3–13.5 | Table gestures/reactions coincide with a strong vocal-energy burst; YAMNet calls part of it choir/chant and part speech. | Low-confidence laughter inference. Two laughing performers and onset order are not directly resolved by the classifier. |
+| `far-laugh-02`, 32.9–34.3; `near-laugh-02`, 33–34.1 | Another table reaction with vocal energy around +130 and choir/opera predictions. | Low confidence; the underlying music could explain these predictions. |
+| `far-laugh-03`, 44.6–50.6; `near-laugh-03`, 45.1–47.5 | At 45.25–46 the near performer bends toward the table while the far performer raises both arms. Vocal-energy burst and weak laughter response near 45.6–46.56, followed by applause. | Reaction strongly visible, but sustained laughter under clapping and exact source boundaries are uncertain. |
+| `far-laugh-04`, 51.1–51.9 | Chuckle/laughter responses at 50.88–52.32, overlapping strong speech. | Possible chuckle; kept as a tentative distinct event. |
+| `far-clap`, 46.4–50; `near-clap`, 46.65–50.35 | Both performers' hands move in clapping patterns in the quarter-second contact sheet. Clapping rises from 0.684 at 46.56–47.52 to 0.988 at 47.52–48.48 and remains strong until approximately 50. | Strongest multi-performer activity inference. Far-performer hand motion is partly occluded; the last individual claps may be slightly misassigned. |
+
+The “door”, “tap”, “dog”, “siren” and “train” predictions are not accepted literally. There is no observed door opening in the relevant high-scoring windows around 40–44 seconds; tap/door predictions near 46–50 coincide with hand claps. No visible animal corroborates the late dog predictions. The prescribed ontology has no siren class, and I do not map it to telephone without evidence. Water, knock, footsteps, telephone and live instrument playing are not added solely because the scene contains related objects or movement.
+
+## Spatial uncertainty
+
+For the seated performers, image coordinates anchor positions using `azimuth = 180 − 360*x/1920`, `elevation = 90 − 180*y/960`. The active-intensity evidence during vocal/clapping bursts broadly agrees with the table direction. Single keyframes express approximately stationary sources; posture changes are not fabricated into precise trajectories.
+
+Background direction estimates are much weaker: music is placed near −135°, −20°; the fan/equipment marker near −95°, −39°; bell-like events near +65°, −12°. These are reviewable hypotheses, not measured isolated source tracks. **In particular, a common +65° bell direction is only a rough placeholder supported by some 25–28/42-second high-frequency energy; it is not established for every bell event.** Local 3300–3800 Hz intensity averages varied from about +134° at 11–14 seconds to +84° at 25–28.5 and +54° at 39.5–43.5. Reflections, music, and vocal overlap can account for these differences. No direction estimate alone was taken as proof of an independent source.
+
+## Review bookmarks
+
+`reviews.json` has ten entries. q1–q6, q9 and q10 are candidate answers derived from the event ledger above, with caveats in their visible notes. They are not presented as verified answers. q7 and q8 are explicitly unresolved: the shared evidence cannot establish the first relevant two-speaker overlap reliably. Clicking these entries displays the reason without seeking to a fabricated answer.
+
+The source counts in q5 refer to distinct candidate sound emitters/events, including two background sounds assigned to the same non-tracked background agent. Its 11.6–12.0-second candidate includes five inferred simultaneous activities. This bookmark is especially uncertain because the laughter and quiet equipment sound are not independently established.
+
+Freshness in the app follows the specified overlap rule exactly: a resolved review becomes stale only when **none** of its referenced events overlaps its fixed review window. It does not mean that an unchanged review is semantically correct.
+
+## Implementation and testing boundary
+
+The app uses a linear equirectangular 120° × 90° crop, a 4:3 viewport, shortest-arc trajectory interpolation, and the requested horizontal FOA stereo formula. It is not an HRTF binaural renderer. Every filter and annotation correction leaves the recorded sound intact. Each revision is one atomic undoable state change, saved locally and exportable.
+
+See `verification.md` and `qa/test-results.json` for checks actually executed. This run used the genuine CLI protocol with no historical frame/tool/turn caps. It is not an equal-budget result for the older constrained harness. No content accuracy score is claimed.

@@ -1,6 +1,6 @@
 # Audit correction (2026-11-03)
 
-Completed genuine Codex CLI follow-ups (xhigh, internet enabled): Sol **74.12**, Terra **57.52**, implementation48/48 each. See `../cli/REPORT.zh-CN.md`. Historical custom scores stay unchanged after the affected driver-v3 workbench regression; unchanged base results and exact screenshot judgments are reused.
+Completed genuine Codex CLI follow-ups (xhigh, internet enabled): Sol **74.12**, Astra **73.05**, Terra **57.52**, implementation48/48 each. See `../cli/REPORT.zh-CN.md`. Historical custom scores stay unchanged after the affected driver-v3 workbench regression; unchanged Sol/Terra base results and exact screenshot judgments are reused. Astra independently evaluated with content-v2, driver-v3 and the same four half-point criteria.
 
 
 This is a chronological design record. The authoritative audit is `../../audit-20261103/REPORT.zh-CN.md`.
@@ -15,8 +15,11 @@ The 22.30 Sol/Luna gap includes 14.11 content and 8.19 implementation points.
 Sol's conservative upper score is 70.59, so its target is unmet. Luna and Opus both fall below 70.
 The evidence does not establish that further legitimate task difficulty is impossible without reweighting.
 Offline content scores, submission hashes and the ten bookmark intervals were verified. A new counterexample
-shows the historical review checker can accept q2 with only one clapper referenced. Historical scores remain
-under that disclosed criterion; strengthen and version it before future comparative scoring.
+showed the historical review checker could accept q2 with only one clapper referenced. The versioned content-v2
+checker now rejects missing-partner counterexamples; oracle10/10 and all three historical content scores unchanged.
+The design narrative below is historical: its broad "byte-identical tests/tools" claim must be read with the
+explicit VAD, ASR-library, question and continuous-event adaptations described later. R1/R2 redistributed component
+weights; only R2 to R3 preserved those weights. See `../../audit-20261103/难度演进与职责说明.zh-CN.md`.
 
 ---
 

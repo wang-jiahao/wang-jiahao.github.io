@@ -1,0 +1,833 @@
+{
+  "version": "roomsound-r3-codex-audited-v3",
+  "maximum": 100,
+  "score_without_judge": 71.55,
+  "score_interval": [
+    71.55,
+    73.55
+  ],
+  "perception": {
+    "score": 23.5455563864393,
+    "maximum": 50,
+    "weights": {
+      "temporal": 12,
+      "joint_location": 12,
+      "episode_coverage": 8,
+      "performer_idf1": 8,
+      "review_semantics": 10
+    },
+    "scene": {
+      "clip": "fold4_room24_mix014",
+      "start": 50
+    },
+    "base": {
+      "score": 27.1003,
+      "maximum": 50,
+      "temporal": {
+        "macro_f1": 0.6893551033849278,
+        "per_class": {
+          "bell": {
+            "tp": 52,
+            "fp": 46,
+            "fn": 142,
+            "f1": 0.3561643835616438
+          },
+          "clapping": {
+            "tp": 39,
+            "fp": 0,
+            "fn": 22,
+            "f1": 0.78
+          },
+          "domestic": {
+            "tp": 600,
+            "fp": 0,
+            "fn": 0,
+            "f1": 1
+          },
+          "laughter": {
+            "tp": 55,
+            "fp": 52,
+            "fn": 74,
+            "f1": 0.4661016949152542
+          },
+          "music": {
+            "tp": 600,
+            "fp": 0,
+            "fn": 0,
+            "f1": 1
+          },
+          "speech": {
+            "tp": 134,
+            "fp": 22,
+            "fn": 212,
+            "f1": 0.5338645418326693
+          }
+        }
+      },
+      "joint_location": {
+        "f1": 0.4614971827206869,
+        "tp": 860,
+        "fp": 866,
+        "fn": 1141
+      },
+      "episode_coverage": {
+        "f1": 0.4083234172414731,
+        "precision": 0.5156431054461182,
+        "recall": 0.33798030482507335,
+        "predicted": 32,
+        "gold": 36
+      },
+      "limitations": [
+        "Official audible boundaries have not been independently human re-annotated.",
+        "25-degree gate and 100ms sampling are not a full perceptual judgment."
+      ]
+    },
+    "identity": {
+      "idf1": 0.4335927019050174,
+      "idtp": 808,
+      "predicted_frames": 1726,
+      "gold_frames": 2001,
+      "mapping": {
+        "room": "0",
+        "table-far": "2",
+        "table-near": "1"
+      }
+    },
+    "review_semantics": {
+      "fraction": 0.3,
+      "rows": [
+        {
+          "id": "q1",
+          "pass": false,
+          "time_iou": 0,
+          "temporal": false,
+          "source_ok": true,
+          "class_ok": true,
+          "evidence_ok": true,
+          "historical_pass": false,
+          "reference_relation_supported": false
+        },
+        {
+          "id": "q2",
+          "pass": true,
+          "time_iou": 0.8493150684931514,
+          "temporal": true,
+          "source_ok": true,
+          "class_ok": true,
+          "evidence_ok": true,
+          "historical_pass": true,
+          "reference_relation_supported": true
+        },
+        {
+          "id": "q3",
+          "pass": true,
+          "time_iou": 0.5581395348837209,
+          "temporal": true,
+          "source_ok": true,
+          "class_ok": true,
+          "evidence_ok": true,
+          "historical_pass": true,
+          "reference_relation_supported": true
+        },
+        {
+          "id": "q4",
+          "pass": false,
+          "time_iou": 0,
+          "temporal": false,
+          "source_ok": false,
+          "class_ok": true,
+          "evidence_ok": true,
+          "historical_pass": false,
+          "reference_relation_supported": false
+        },
+        {
+          "id": "q5",
+          "pass": false,
+          "time_iou": 0.10526315789473692,
+          "temporal": false,
+          "source_ok": true,
+          "class_ok": false,
+          "evidence_ok": true,
+          "historical_pass": false,
+          "reference_relation_supported": false
+        },
+        {
+          "id": "q6",
+          "pass": false,
+          "time_iou": 0.08888888888888893,
+          "temporal": false,
+          "source_ok": false,
+          "class_ok": true,
+          "evidence_ok": true,
+          "historical_pass": false,
+          "reference_relation_supported": false
+        },
+        {
+          "id": "q7",
+          "pass": false,
+          "error": "Missing or invalid review fields/references",
+          "historical_pass": false,
+          "reference_relation_supported": false
+        },
+        {
+          "id": "q8",
+          "pass": false,
+          "error": "Missing or invalid review fields/references",
+          "historical_pass": false,
+          "reference_relation_supported": false
+        },
+        {
+          "id": "q9",
+          "pass": true,
+          "time_iou": 1,
+          "temporal": true,
+          "source_ok": true,
+          "class_ok": true,
+          "evidence_ok": true,
+          "historical_pass": true,
+          "reference_relation_supported": true
+        },
+        {
+          "id": "q10",
+          "pass": false,
+          "time_iou": 0.24444444444444477,
+          "temporal": false,
+          "source_ok": true,
+          "class_ok": true,
+          "evidence_ok": true,
+          "historical_pass": false,
+          "reference_relation_supported": false
+        }
+      ],
+      "points": 3,
+      "version": "r3-review-references-v2"
+    },
+    "historical_score": 23.5455563864393,
+    "version": "roomsound-r3-content-audited-v2"
+  },
+  "implementation": {
+    "score": 48,
+    "maximum": 48,
+    "base_app": 22,
+    "source_filter": 2,
+    "follow": 3,
+    "review_navigation": 3,
+    "workbench": {
+      "score": 18,
+      "maximum": 18,
+      "edit_fields": 5,
+      "keyframe_drag": 4,
+      "undo_redo": 5,
+      "invalidation": 2,
+      "portability": 2
+    }
+  },
+  "component_fractions": {
+    "base_app": 1,
+    "source_filter": 1,
+    "follow": 1,
+    "review_navigation": 1,
+    "edit_fields": 1,
+    "keyframe_drag": 1,
+    "undo_redo": 1,
+    "invalidation": 1,
+    "portability": 1
+  },
+  "evidence_judge": {
+    "status": "complete",
+    "maximum": 2,
+    "score": 1.5,
+    "version": "hybrid-evidence-usability-cli-v2",
+    "requested_model": "gpt-6-luna",
+    "returned_model": "gpt-6-luna",
+    "verdict": {
+      "criterion_0": {
+        "citations": [
+          "Candidate note: “Event evidence ledger” gives event intervals and ties them to specific YAMNet windows, ASR, and sampled frames; it also explicitly qualifies timing and attribution.",
+          "Command record: `project/signal-analysis.py` reports directional-energy clusters at specific intervals, and the later band-analysis command prints measured directions and limits.",
+          "Command record: `project/qa/test-results.json` records actual playback, seek, PCM and responsive-layout checks."
+        ],
+        "pass": true,
+        "reason": "Important claims are generally traceable to time-specific evidence and named tools, with measurement and uncertainty limits stated. The notes distinguish inspected frames from generated frames and the command record supports the principal implementation checks."
+      },
+      "criterion_1": {
+        "citations": [
+          "Candidate note opening: “I had no native audio listening input” and “not ground truth”; it says browser PCM checks verify implementation, not semantic labels.",
+          "Candidate note: YAMNet, ASR and active-intensity estimates are called automatic estimates, not official annotations; the event ledger gives alternatives and confidence limits.",
+          "Command record: `toolkit/audio-evidence.json` warnings state that class names and directions may be wrong and ASR has no speaker attribution.",
+          "Candidate note: visible motion is not labeled as footsteps or instrument sound without acoustic confirmation; bell direction is expressly described as a rough placeholder."
+        ],
+        "pass": true,
+        "reason": "The candidate consistently distinguishes visual observations, model output and uncertain semantic inference; it does not claim native listening or official-label access, and it describes the limits of its actual tests."
+      },
+      "criterion_2": {
+        "citations": [
+          "desktop.png: the first viewport shows the headline and a very large panorama; at the bottom edge only the direction slider begins to appear, while Play, seek and volume controls are not visible.",
+          "desktop.png: the media pane occupies most of the left column and extends below the screenshot, placing essential transport controls beneath it."
+        ],
+        "pass": false,
+        "reason": "On desktop, playback and seek controls are not discoverable in the initial viewport; the user must scroll past the oversized media pane to reach them. This fails the explicit no-dominating-media-pane criterion despite the readable labels and orderly visual hierarchy."
+      },
+      "criterion_3": {
+        "citations": [
+          "mobile.png: at 390×844, the panorama is followed directly by a visible Play button, timestamp, volume control and seek bar with readable labels.",
+          "mobile.png: loop controls are visible at the lower edge and can be reached with ordinary vertical scrolling; no transport controls appear occluded or horizontally clipped."
+        ],
+        "pass": true,
+        "reason": "The mobile first viewport keeps the primary transport, timeline seek and volume controls legible and practically reachable. The page uses vertical stacking, and the shown controls and labels are not clipped."
+      }
+    },
+    "limitations": "No native listening; command excerpts truncated where marked; provider alias identity unverified."
+  },
+  "diagnostics": [
+    {
+      "name": "performer_and_class_filter",
+      "fraction": 1,
+      "samples": [
+        {
+          "s": "all",
+          "c": "all",
+          "expected": [
+            "a-instrument",
+            "a-speech",
+            "a-water",
+            "b-speech"
+          ],
+          "actual": [
+            "a-instrument",
+            "a-speech",
+            "a-water",
+            "b-speech"
+          ],
+          "markers": true,
+          "pass": true
+        },
+        {
+          "s": "all",
+          "c": "speech",
+          "expected": [
+            "a-speech",
+            "b-speech"
+          ],
+          "actual": [
+            "a-speech",
+            "b-speech"
+          ],
+          "markers": true,
+          "pass": true
+        },
+        {
+          "s": "all",
+          "c": "water",
+          "expected": [
+            "a-water"
+          ],
+          "actual": [
+            "a-water"
+          ],
+          "markers": true,
+          "pass": true
+        },
+        {
+          "s": "room",
+          "c": "all",
+          "expected": [
+            "a-instrument",
+            "a-speech",
+            "a-water"
+          ],
+          "actual": [
+            "a-instrument",
+            "a-speech",
+            "a-water"
+          ],
+          "markers": true,
+          "pass": true
+        },
+        {
+          "s": "room",
+          "c": "speech",
+          "expected": [
+            "a-speech"
+          ],
+          "actual": [
+            "a-speech"
+          ],
+          "markers": true,
+          "pass": true
+        },
+        {
+          "s": "room",
+          "c": "water",
+          "expected": [
+            "a-water"
+          ],
+          "actual": [
+            "a-water"
+          ],
+          "markers": true,
+          "pass": true
+        },
+        {
+          "s": "table-far",
+          "c": "all",
+          "expected": [
+            "b-speech"
+          ],
+          "actual": [
+            "b-speech"
+          ],
+          "markers": true,
+          "pass": true
+        },
+        {
+          "s": "table-far",
+          "c": "speech",
+          "expected": [
+            "b-speech"
+          ],
+          "actual": [
+            "b-speech"
+          ],
+          "markers": true,
+          "pass": true
+        },
+        {
+          "s": "table-far",
+          "c": "water",
+          "expected": [],
+          "actual": [],
+          "markers": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "follow_pause_play_gap_seam_and_manual_override",
+      "fraction": 1,
+      "samples": [
+        {
+          "mode": "paused",
+          "t": 4.5,
+          "yaw": 177.5,
+          "pass": true
+        },
+        {
+          "mode": "paused",
+          "t": 5.5,
+          "yaw": -177.5,
+          "pass": true
+        },
+        {
+          "mode": "paused",
+          "t": 6.5,
+          "yaw": -172.5,
+          "pass": true
+        },
+        {
+          "mode": "paused",
+          "t": 10,
+          "yaw": -10,
+          "pass": true
+        },
+        {
+          "mode": "silent_gap",
+          "pass": true
+        },
+        {
+          "mode": "class_filter_does_not_change_follow",
+          "pass": true
+        },
+        {
+          "mode": "playing_seam",
+          "t": 4.775,
+          "yaw": 178.9,
+          "pass": true
+        },
+        {
+          "mode": "playing_seam",
+          "t": 5.0527,
+          "yaw": -179.8,
+          "pass": true
+        },
+        {
+          "mode": "playing_seam",
+          "t": 5.3345,
+          "yaw": -178.4,
+          "pass": true
+        },
+        {
+          "mode": "playing_seam",
+          "t": 5.6109,
+          "yaw": -176.9,
+          "pass": true
+        },
+        {
+          "mode": "playing_seam",
+          "t": 5.893,
+          "yaw": -175.5,
+          "pass": true
+        },
+        {
+          "mode": "manual_yaw_override",
+          "pass": true
+        },
+        {
+          "mode": "manual_drag_override",
+          "pass": true
+        },
+        {
+          "mode": "all_disables_follow",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "review_navigation_and_unresolved",
+      "fraction": 1,
+      "samples": [
+        {
+          "id": "q1",
+          "t": 4.5,
+          "yaw": 177.5,
+          "pass": true
+        },
+        {
+          "id": "q2",
+          "t": 8.199999,
+          "yaw": -170,
+          "pass": true
+        },
+        {
+          "id": "q3",
+          "t": 10,
+          "yaw": -10,
+          "pass": true
+        },
+        {
+          "id": "q4",
+          "t": 3.5,
+          "yaw": -20,
+          "pass": true
+        },
+        {
+          "id": "q5",
+          "t": 4.5,
+          "yaw": 177.5,
+          "pass": true
+        },
+        {
+          "id": "q6",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "edit_fields_and_validation",
+      "fraction": 1,
+      "samples": [
+        {
+          "step": "class_edit_export",
+          "pass": true
+        },
+        {
+          "step": "class_filter_options",
+          "options": [
+            "all",
+            "speech",
+            "door",
+            "instrument"
+          ],
+          "pass": true
+        },
+        {
+          "step": "class_edit_filtering",
+          "pass": true
+        },
+        {
+          "step": "interval_edit_export",
+          "pass": true
+        },
+        {
+          "step": "interval_edit_active_after",
+          "pass": true
+        },
+        {
+          "step": "interval_edit_inactive_before",
+          "pass": true
+        },
+        {
+          "step": "reject_end_not_after_start",
+          "message": "Event 2: use finite times with 0 ≤ start < end ≤ 60.",
+          "pass": true
+        },
+        {
+          "step": "reject_start_below_zero",
+          "message": "Event 2: use finite times with 0 ≤ start < end ≤ 60.",
+          "pass": true
+        },
+        {
+          "step": "reject_end_above_duration",
+          "message": "Event 2: use finite times with 0 ≤ start < end ≤ 60.",
+          "pass": true
+        },
+        {
+          "step": "reject_empty_start",
+          "message": "Start and end are required numbers.",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "marker_keyframe_dragging",
+      "fraction": 1,
+      "samples": [
+        {
+          "step": "single_keyframe_values",
+          "azimuth": -17.999998066133116,
+          "elevation": 13.500000483473379,
+          "expectAz": -18,
+          "expectEl": 13.500000000000002,
+          "pass": true
+        },
+        {
+          "step": "marker_redrawn_at_drop",
+          "box": {
+            "cx": 537.34375,
+            "cy": -680.734375,
+            "fx": 0.649985560460415,
+            "fy": 0.34999174872105177
+          },
+          "pass": true
+        },
+        {
+          "step": "drag_does_not_rotate_view",
+          "pass": true
+        },
+        {
+          "step": "drag_is_undoable",
+          "pass": true
+        },
+        {
+          "step": "drag_undo_restores_keyframe",
+          "reverted": true,
+          "pass": true
+        },
+        {
+          "step": "nearest_keyframe_moved",
+          "traj": [
+            {
+              "time": 3,
+              "azimuth": 170,
+              "elevation": 0
+            },
+            {
+              "time": 7,
+              "azimuth": -152.50000193386688,
+              "elevation": -4.500000966946756
+            }
+          ],
+          "pass": true
+        },
+        {
+          "step": "other_keyframe_untouched",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "atomic_undo_and_redo",
+      "fraction": 1,
+      "samples": [
+        {
+          "step": "fresh_undo_disabled",
+          "pass": true
+        },
+        {
+          "step": "fresh_redo_disabled",
+          "pass": true
+        },
+        {
+          "step": "three_changes_differ",
+          "pass": true
+        },
+        {
+          "step": "undo_1_is_one_step",
+          "stepped": true,
+          "pass": true
+        },
+        {
+          "step": "undo_2_is_one_step",
+          "stepped": true,
+          "pass": true
+        },
+        {
+          "step": "undo_3_reaches_start",
+          "stepped": true,
+          "pass": true
+        },
+        {
+          "step": "undo_disabled_at_start",
+          "pass": true
+        },
+        {
+          "step": "redo_available_at_start",
+          "pass": true
+        },
+        {
+          "step": "redo_1",
+          "stepped": true,
+          "pass": true
+        },
+        {
+          "step": "redo_to_latest",
+          "stepped": true,
+          "pass": true
+        },
+        {
+          "step": "redo_disabled_at_latest",
+          "pass": true
+        },
+        {
+          "step": "new_change_clears_redo",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "derived_state_and_review_freshness",
+      "fraction": 1,
+      "samples": [
+        {
+          "step": "initial_freshness",
+          "flags": [
+            "false",
+            "false",
+            "false"
+          ],
+          "pass": true
+        },
+        {
+          "step": "edit_makes_review_stale",
+          "pass": true
+        },
+        {
+          "step": "undo_restores_freshness",
+          "pass": true
+        },
+        {
+          "step": "follow_before_edit",
+          "yaw": 177.5,
+          "pass": true
+        },
+        {
+          "step": "follow_after_edit",
+          "yaw": 20,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "export_import_and_persistence",
+      "fraction": 1,
+      "samples": [
+        {
+          "step": "export_matches_submission",
+          "pass": true
+        },
+        {
+          "step": "valid_import_applied",
+          "pass": true
+        },
+        {
+          "step": "import_updates_views",
+          "options": [
+            "all",
+            "speech",
+            "laughter",
+            "instrument",
+            "water",
+            "bell"
+          ],
+          "pass": true
+        },
+        {
+          "step": "reject_import_not_json",
+          "message": "Import rejected: Expected property name or '}' in JSON at position 1 (line 1 column 2)",
+          "pass": true
+        },
+        {
+          "step": "reject_import_bad_class",
+          "message": "Import rejected: Event 1 has an unsupported class.",
+          "pass": true
+        },
+        {
+          "step": "reject_import_duplicate_ids",
+          "message": "Import rejected: Event 2 needs a unique string id.",
+          "pass": true
+        },
+        {
+          "step": "reject_import_bad_interval",
+          "message": "Import rejected: Event 1: use finite times with 0 ≤ start < end ≤ 60.",
+          "pass": true
+        },
+        {
+          "step": "reject_import_no_trajectory",
+          "message": "Import rejected: Event 1 needs at least one trajectory keyframe.",
+          "pass": true
+        },
+        {
+          "step": "edits_persist_across_reload",
+          "pass": true
+        },
+        {
+          "step": "reset_restores_submission",
+          "pass": true
+        },
+        {
+          "step": "reset_persists",
+          "pass": true
+        }
+      ]
+    }
+  ],
+  "evaluated_at": "2026-11-03T13:32:13.000Z",
+  "framework": "Codex CLI",
+  "run_id": "r3-astra-codex-xhigh-01",
+  "protocol": {
+    "created_at": "2026-11-03T12:44:10.507146+00:00",
+    "model": "gpt-6-astra",
+    "effort": "xhigh",
+    "framework": "Codex CLI",
+    "cli_version": "codex-cli 0.166.0-alpha.5.1",
+    "base_url": "https://api-temporary.nju-link.com/v1",
+    "native_audio": false,
+    "evaluator_feedback": false,
+    "task": "RoomSound R3 product specification",
+    "differences_from_historical": [
+      "Genuine Codex shell/file/image tools",
+      "Shared evidence cache available as a file",
+      "No custom turn/tool/frame/screenshot caps",
+      "Internet access allowed; source answers/dataset/other submissions remain forbidden"
+    ],
+    "assets": [
+      {
+        "path": "public/media/scene.mp4",
+        "sha256": "ef818782117e1d08a734290ed3d13f07c8a51e63eeb0e89d7773cbae384c91a9"
+      },
+      {
+        "path": "public/media/scene-foa.wav",
+        "sha256": "47ccb69500d95e876de3b0fff7763dd5206c5c1011d81fbcfc8082e02056c5e6"
+      },
+      {
+        "path": "public/media/scene-mono.wav",
+        "sha256": "27afa118426bda64f52a3dce62508627d4a3b13058d9ffae7e8a5b437932bf16"
+      },
+      {
+        "path": "public/media/scene-stereo.wav",
+        "sha256": "ff42dab806ab8ed3eaec1734ba3f9af05a1d2725a01d62b63213aa45fd703e69"
+      }
+    ]
+  },
+  "score": 73.05
+}
