@@ -1,0 +1,123 @@
+# RoomSound / A real spatial-audio scene explorer
+
+Build a polished, useful web app for exploring this real 60-second room recording. The input is a synchronized 360-degree video and four-channel first-order Ambisonics audio from STARSS23 (SONY / Tampere University). This is a media-understanding AND web-implementation task. Recover audible events and their locations from the supplied evidence tools. Official annotations are not available to you.
+
+The website itself must make sound, space, video, and time interactive. Do not replace it with a requirements summary or a conventional list of audio players. Do not claim isolated source playback: this is a mixed soundscape, without individual stems.
+
+## Assets and perception
+
+Immutable assets are `/media/scene.mp4` (silent 1920x960 equirectangular video), `/media/scene-foa.wav` (24kHz, PCM16, channels W,Y,Z,X), `/media/scene-mono.wav` (W channel), and `/media/scene-stereo.wav` (fixed yaw0 stereo preview). Video and all audio start together at task time0 and last60s. No autoplay. Use an explicit user gesture to start audio.
+
+You can inspect exact video frames, real ASR, a general pretrained sound classifier's uncertain predictions, and raw signal-derived directional energy. These tools do NOT expose official labels. The gateway cannot accept native audio; this is explicitly a shared-perception-tools-assisted agent task. Cross-check evidence. Tools can misclassify, miss overlap, and confuse reverberation with sound direction.
+
+## Product behavior
+
+1. A panoramic viewport that can rotate horizontally through360 degrees using a yaw slider and dragging. Use an equirectangular crop with horizontal field of view120 degrees and vertical field of view90 degrees, centered at elevation0. This defined projection makes marker placement reproducible. The source panorama center is azimuth0; positive azimuth is LEFT, so source x=(180-azimuth)/360*1920. Panorama seams must wrap cleanly. Use a canvas or equivalent, not a static screenshot. Keep viewport aspect ratio4:3.
+2. Actual audio must rotate with yaw. Implement the following simple horizontal FOA stereo decoder using the original four channels, not a panner on mono or the fixed stereo preview. For yaw a in radians, L=0.5*(W-X*sin(a)+Y*cos(a)); R=0.5*(W+X*sin(a)-Y*cos(a)). Z is unused in this horizontal decoder. Apply master volume after decoding. This is a simple stereo spatial preview, not an HRTF binaural simulation.
+3. Play/pause, scrubbing, master volume, and a marked segment loop. Audio and video must stay aligned after seeking, pausing/resuming, changing yaw, and looping. Never play the mono/preview audio in parallel with the FOA decode. The slider uses the video clock. Start no audio before the user presses Play.
+4. Discover audible events from the recording and create an event timeline. Use the ontology: speech, clapping, telephone, laughter, domestic, footsteps, door, music, instrument, water, bell, knock. Merge the dataset's two speech categories to `speech`; no demographic inference is required. Do not mark a visible actor or object as sounding just because it is visible. Represent simultaneous sound sources independently. At least include every event class you find evidence for; uncertain details should be acknowledged.
+5. Show markers for currently audible events, at their current world direction. Markers follow the supplied trajectories, disappear outside their active interval, and hide outside the viewport. Clicking an event in the timeline pauses, seeks to the midpoint of its first interval, and recenters the viewport on that event. Filtering affects both timeline and markers, but must not pretend to separate the mixed audio.
+6. A clear professional layout, a usable timeline, readable labels, responsive layout, source attribution, and an evidence note distinguishing observation from inference.
+
+## Deliverables and stable interface
+
+Work only inside your project. Use local HTML/CSS/JavaScript; no network/CDN dependencies. The server supplies immutable `/media/*` assets and serves your own project files. You may use native WebAudio and canvas. Submit `index.html`, implementation files, `events.json`, and `evidence.md`. Inspect and exercise your own running page before finishing.
+
+`events.json` must be `{ "version":1, "events":[...] }`. Each event has:
+`{ "id":"unique-id", "class":"speech", "source":"your-consistent-source-id", "start":1.2, "end":3.4, "trajectory":[{"time":1.2,"azimuth":-45,"elevation":8},{"time":3.4,"azimuth":-30,"elevation":8}] }`.
+All times are clip-relative seconds. Use separate events for separated audible intervals. Coordinates are degrees, azimuth[-180,180], elevation[-90,90]. Interpolate direction linearly along the shortest azimuth arc; clamp to the closest trajectory endpoint outside its keyframe range. For stationary sources one keyframe is sufficient. Event activity is start<=t<end. Source IDs are your own stable IDs, not official actor numbers. Do not invent precision you cannot support in evidence.md.
+
+Use these public DOM hooks; styling and surrounding structure are your choice:
+- `[data-testid="scene-video"]`: the actual HTMLVideoElement, muted. It may be hidden if a canvas displays it.
+- `[data-testid="viewport"]`: the visible4:3 panorama surface and marker container. Its bounding box is the exact viewing rectangle.
+- `[data-testid="play"]`: toggles play/pause.
+- `[data-testid="seek"]`: range input, seconds0..60, responds to input/change.
+- `[data-testid="yaw"]`: range input, degrees-180..180; increasing turns LEFT, responds to input/change.
+- `[data-testid="volume"]`: range input0..1, default0.8, responds to input/change.
+- `[data-testid="loop-start"]`, `[data-testid="loop-end"]`: number inputs in seconds; `[data-testid="loop"]`: checkbox.
+- `[data-testid="filter"]`: select, values `all` and ontology class names present.
+- `[data-event-id="ID"][data-role="event"]`: clickable visible timeline entry for each event in events.json.
+- `[data-event-id="ID"][data-role="marker"]`: visible marker centered at the projected source position when active and in-view. Its bounding-box center must match the source; put long text in an offset child if needed.
+
+Projection: d=wrap(azimuth-yaw) into[-180,180); visible if abs(d)<60 and abs(elevation)<45. Marker x/width=0.5-d/120, y/height=0.5-elevation/90. Keep clipping and seam behavior consistent. Update immediately when paused and seeking/yaw-changing, not only while playing.
+
+## How this is evaluated
+
+50 points assess your inferred audible event activity, spatial directions and event boundaries against held-out official annotations. 50 points assess the actual rendered app: live panorama motion, marker geometry, event navigation/filtering, transport/loop synchronization, real PCM audio decoding and volume behavior, responsive layout and evidence. A beautiful page with incorrect events cannot receive full marks. Missing data/files are failures, not implicit success.
+
+Browser audio is measured from actual output; controlled audio fixtures may be used to verify the prescribed decoder. A variable claiming "playing" or "yaw" is not evidence of sound. The official annotations, reference solution, decoder fixtures, and other candidates are unavailable. Do not attempt to access them. Use evidence and implement the requested product.
+
+
+## Agentic protocol and clarified grading
+Start with an empty project. Up to 10 model turns, 50 tool calls, 36 reference frames and 12 own-page screenshots. Native audio input is unavailable. Use write_files to implement and the browser tools to check your actual page; finish with a normal final response. No hidden evaluator or gold access. The 50 content points use class temporal F1 (20), class-plus-location F1 at 25 degrees (20), and segmentation-invariant spatial episode coverage (10). Arbitrary splitting does not lose episode credit; false bridging and duplicate sources do. 48 implementation points use rendered and PCM tests, including independent W,Y,Z,X signals and changing yaw during playback, all-class marker filtering, trajectory interpolation and seam wrapping. Tests may substitute valid synthetic events.json to check generic implementation. A 2-point grounded LLM review assesses evidence traceability, inference calibration and honest testing claims; it cannot override media ground truth.
+
+
+## Round 1: Performer Tracking And Evidence Review
+The task is still generation from an empty project, using exactly the same real assets and budgets. The following requirements are additional, not an editing task.
+
+A source ID now means a visually tracked PERFORMER, consistently across their audible activities. For example a person's speech, laughter, walking and interaction with a door or faucet belong to that same performer track. This is attribution to a performer, not a claim that a faucet and a mouth are the same physical sound emitter. Assign your own IDs. Track continuity across position changes, silence, and class changes; do not create a new performer merely because the sound class changed. No demographic labels. Sounds that no person produces, such as a loudspeaker, an appliance or room equipment, are attributed by the held-out annotation to ONE single non-tracked background agent, even when they come from different directions; group them that way rather than giving each background sound its own agent. Admit uncertain associations in evidence.md. Performance is evaluated with an optimal anonymous one-to-one mapping, never literal ID equality.
+
+Add a performer select [data-testid="source-filter"] with all and every events.json source ID. It filters timeline entries and markers together, in conjunction with the class filter. It never separates or silences the mixed audio. Add a checkbox [data-testid="follow-source"], default off. With one performer selected and Follow enabled, yaw follows the active event trajectory, including seeking while paused, playing, and wrapping +/-180 degrees. If several activities for this performer overlap, use the earliest-starting active event; break ties by event id. During silence hold the last yaw. Class filtering does NOT change this follow target. Selecting all turns Follow off. Manual yaw-slider input or viewport dragging disables Follow immediately. Picking a performer does not change playback time. Keep actual stereo decoding aligned with the changing view.
+
+Build evidence-review bookmarks, derived from the MEDIA and your event inference, not by guessing answers from the question wordings. The ten questions for this round are listed in the Round 3 section below.
+If you genuinely cannot recover an answer, put unresolved:true and a reason rather than inventing it. This is honest, but not a correct answer for scoring.
+
+Deliver reviews.json: {"version":1,"reviews":[{"id":"q1","start":1.2,"end":2.3,"source_ids":["p1","p2"],"event_ids":["event-a","event-b"],"note":"time-stamped evidence and uncertainty"}, ...]}. The example numbers are not answers. Include all ten ids. A review uses existing event and source IDs; IDs in source_ids are unique. Render one clickable entry per review using [data-role="review"][data-review-id="q1"]. On click pause, seek to that review's midpoint, and face the first source_ids performer using its earliest-starting active referenced event at the midpoint (otherwise its nearest referenced event). Set the performer selector to that ID and disable Follow. Unresolved entries must show their reason and must not pretend to navigate to a fabricated answer.
+
+Round 1 requirements above remain in force. Round 3 extends them; read the Round 3 section for the ten bookmarks and the revision workbench.
+
+## Round 3: Annotation Workbench And Verified Revision
+
+Still generation from an empty project, with the same real assets, the same shared perception tools and the same budgets. Everything Round 1 requires still applies. This round adds revision: a human reviewer must be able to correct your annotations inside the page and immediately see every derived view agree with the correction.
+
+This recording is busier than a conversation: something is audible at every instant, usually several things at once, and some of it never stops. Do not report only the loudest or most obvious source.
+
+### Ten evidence-review bookmarks
+
+`reviews.json` carries ten entries, `q1` through `q10`. Each is derived from the MEDIA and your own event inference:
+
+- `q1`: The first interval where two different performers laugh at the same time. Use the overlap itself, not the union.
+- `q2`: The first interval where two different performers clap at the same time. Use the overlap itself.
+- `q3`: The first interval where one performer laughs while that same performer is clapping. Use the overlap itself, referencing both events.
+- `q4`: The longest single continuous speech interval in the clip. Bookmark that interval and reference that event.
+- `q5`: The first interval during which at least five audible sources overlap. Use that interval, referencing every event audible throughout it.
+- `q6`: The first interval where a bell overlaps laughter. Use the overlap itself.
+- `q7`: The first interval where a bell overlaps speech from both of the other agents at the same time. Use the overlap itself.
+- `q8`: The first interval where two different performers speak at the same time. Use the overlap itself.
+- `q9`: The interval during which both of the clip's continuous, whole-clip background sounds are audible, referencing both of them.
+- `q10`: The first speech interval that starts after the last clapping in the clip has ended.
+
+All ten follow the same schema, the same honesty rule for `unresolved`, and the same click behaviour. Each review additionally carries a freshness flag described below.
+
+### Revision workbench
+
+Your submitted `events.json` is the starting annotation, not a frozen fact. The page must let a reviewer correct it. Every correction is a single atomic change: it is applied as one step, is undone by one undo, and updates markers, the timeline, both filter option lists, the Follow target and review freshness together. Partially updated views are a failure.
+
+Additional public DOM hooks:
+
+- `[data-testid="edit-target"]`: select. First option value `none`, then one option per event, option value exactly the event id. Selecting an event loads that event's current class, start and end into the three fields below.
+- `[data-testid="edit-class"]`: select over the twelve ontology classes.
+- `[data-testid="edit-start"]`, `[data-testid="edit-end"]`: number inputs in seconds.
+- `[data-testid="edit-apply"]`: button. Applies the three fields to the event selected in `edit-target` as one atomic change.
+- `[data-testid="edit-error"]`: its text is non-empty exactly when the most recent attempted change was rejected, and empty after a change that succeeded. A rejected change must leave the annotation state byte-identical.
+- `[data-testid="undo"]`, `[data-testid="redo"]`: buttons carrying the `disabled` attribute exactly when the corresponding stack is empty. `undo` reverts the most recent change and makes it redoable. `redo` reapplies it. Any new change clears the redo stack.
+- `[data-testid="export"]`: button. It writes the current annotation state as `{"version":1,"events":[...]}` into `[data-testid="export-output"]`, in that element's `value` if it is a form field and otherwise its text. The exported document must be valid, complete and immediately re-importable.
+- `[data-testid="import-input"]`: textarea. `[data-testid="import-apply"]`: button. Together they replace the whole annotation state with a pasted document, after validation, as one atomic change.
+- `[data-testid="reset"]`: button. Restores the annotation state you originally submitted, as one atomic change, and clears any stored edits.
+- Marker dragging: a marker intercepts pointer input only while its own event is the one selected in `edit-target`. Every other marker stays inert, so dragging anywhere else in the viewport still rotates the view and still disables Follow. Dragging the selected event's marker moves that event's trajectory keyframe whose `time` is nearest to the current playback time, ties going to the earlier keyframe. The new azimuth and elevation are the inverse of the documented projection at the marker's released center: `azimuth=wrap(yaw+120*(0.5-x/width))` and `elevation=90*(0.5-y/height)`, where `x` and `y` are measured inside the viewport box and elevation is clamped to `[-90,90]`. This is one atomic change and it must not rotate the view.
+- `[data-role="review"][data-review-id="qN"]` additionally carries `data-stale`. It is `"true"` exactly when, under the current annotation state, none of that review's referenced events overlaps the review's own `[start,end)` window; otherwise `"false"`. An `unresolved` review is always `"false"`. Freshness is recomputed after every change, undo and redo.
+- Edits persist: after a page reload in the same browser, the reviewer's current annotation state is restored. `reset` restores and stores the originally submitted state.
+
+A change must be rejected, with `edit-error` set and no state change, when: `end<=start`; `start<0` or `end>60`; a field is empty, non-numeric or not finite; the class is outside the ontology; or, for an import, the document is not an object with `version:1` and an `events` array of at most 600 entries whose every entry has a unique string `id`, an ontology `class`, a string `source`, finite `start<end` inside `[0,60]`, and a non-empty `trajectory` of `{time,azimuth,elevation}` with finite numbers, `azimuth` in `[-180,180]` and `elevation` in `[-90,90]`.
+
+Nothing here lets a reviewer separate the mixed recording, and editing an annotation never changes what the audio plays.
+
+### Round 3 grading
+
+100 points, with exactly the weights, thresholds, tests and budgets of the previous round. Only the recorded scene changed.
+
+- Content 50: temporal class F1 12, joint class-and-location F1 at 25 degrees 12, segmentation-invariant episode coverage 8, cross-activity performer IDF1 8, and the ten bookmark answers 10, one point each, against held-out truth.
+- Implementation 48: the Round 0 deterministic explorer behavior 22, performer filter 2 and Follow transitions 3, review navigation 3, and the revision workbench 18, namely field editing with validation 5, marker keyframe dragging 4, atomic undo and redo 5, derived-state and freshness invalidation 2, and export, import and persistence 2.
+- A grounded LLM review of evidence and real usability 2.
+
+Bookmark truth is held out. An answer counts when the interval overlaps the true one with IoU at least 0.5 or both boundaries land within 0.2s, the anonymous performer associations and classes are right, and the referenced events support it. Browser tests may substitute arbitrary valid `events.json` and `reviews.json` using source ids taken from your own submission, and may exercise simultaneous activity, moving tracks, silence, seam transitions, invalid edits and import round-trips. Budgets are unchanged. Your tools and visual evidence are noisy; do not conflate visible motion with audible footsteps, and do not invent precision your evidence cannot support.

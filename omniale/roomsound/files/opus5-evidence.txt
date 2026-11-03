@@ -1,0 +1,120 @@
+# RoomSound - evidence note
+
+All assets are the supplied STARSS23 (SONY / Tampere University) 60 s clip: silent equirectangular
+1920x960 video plus 4-channel FOA audio (W,Y,Z,X, 24 kHz). **No official annotation was accessed.**
+Everything below is derived from (a) exact video frames, (b) automatic ASR on W, (c) YAMNet top-label
+scores (0.96 s windows, 0.48 s stride) and (d) FOA active-intensity directions in three bands per 0.5 s.
+All of those are noisy; the separation of *observation* from *inference* is made explicit per item.
+
+## Scene geometry (observed in frames at 1 s / 20 s / 40 s and crops)
+
+Panorama x -> azimuth with `azimuth = 180 - x/1920*360` (positive azimuth = LEFT).
+
+| What is visible | panorama x | azimuth | note |
+|---|---|---|---|
+| Person seated at the left end of the wooden table, facing right | ~95 px | **+162 deg**, elev ~ -12 deg | `p1` |
+| Person seated across the table (grey top, head blurred) | ~235 px | **+136 deg**, elev ~ -10 deg | `p2` |
+| Person standing in front of the frosted sliding door | ~1040 px | -15 deg | moves very little; see below |
+| Person working at the right-hand desk (laptop) | ~1800 px | -157 deg | static operator |
+| Electric fan on a chair by the sofa (head orientation changes between 1 s / 20 s / 40 s, i.e. running) | ~1470 px | ~ -95 deg, elev ~ -38 deg | appliance |
+| Dark cylindrical box on the right-hand desk (loudspeaker-like) | ~1660 px | ~ -131 deg | candidate music source |
+
+## Sources / performer tracks
+
+* `p1`, `p2` - the two tracked performers at the table. Every speech, laughter, clapping, door/handling,
+  knock and footstep event we attribute to a person belongs to one of these two tracks, carried across
+  silence and class changes (e.g. `p2`'s door/tap at 40.4 s, its footsteps at 44-47 s and its speech at
+  43.6 s are all the same track).
+* `bg` - one single non-tracked background agent that carries every sound no person produces: the
+  continuous music, the continuous appliance hum, the recurring chime/bell and the telephone-like ring,
+  even though they come from different directions. This grouping follows the task's attribution rule.
+* The standing person by the door and the desk operator are **visible but not annotated as sounding**:
+  we found no audio evidence that can be assigned to them (no direction cluster near -15 deg or -157 deg
+  coinciding with a speech/footstep detection). Visibility alone is not evidence.
+
+## Class-by-class evidence
+
+**speech** (merged from the dataset's two speech categories). Observed: ASR produces continuous short
+sentences over 0-32 s, 35.8-37.4 s and 51.3-60 s; YAMNet `Speech` peaks at 3.84-4.8 s (0.33),
+14.4-15.8 s (0.30-0.34), 35.5-38.4 s (0.58-0.82) and 50.4-54.7 s (0.84-0.99), 57.1-60 s (0.69-0.99).
+Mid/high-band intensity during those windows sits at azimuth +112..+160, i.e. the table pair, never at
+the door. Inferred: the alternation between `p1` and `p2`. ASR has no speaker attribution and the two
+seats are only ~26 deg apart, so **turn ownership is our weakest assignment**; turn *boundaries* follow
+the ASR segment boundaries and the Speech-score envelope.
+
+**laughter**. Observed: at 11.0-12.6 s the W level jumps to rms 0.050-0.064 (loudest point before the
+clapping) and YAMNet returns multi-voice labels (`Choir` 0.16, `Chant` 0.10, `Singing` 0.09) instead of
+a single `Speech` peak; the same pattern repeats at 32.6-34.6 s (`Choir` 0.25, `Opera` 0.11, `A capella`
+0.085) and weakly at 51.4-52.3 s (`Chuckle, chortle`/`Laughter` 0.03) and 54.2-55.7 s (`Whimper`,
+`Crying, sobbing` - typical confusions for laughter). Inferred: these are laughter bursts, shared by
+both performers in 11-13 s and 32.7-34.6 s. YAMNet never prints `Laughter` with a high score here, so
+the class is inference from the vocal-polyphony signature plus the table-directed energy.
+
+**clapping**. Observed: `Clapping`/`Hands` 0.59-0.99 continuously over 46.56-50.4 s, with `Applause`
+as a secondary label; rms rises to 0.09 (clip maximum); all three bands point to azimuth +129..+155.
+Frames at 47.5 s, 48.5 s and 50.0 s show `p1` with palms together, and at 48.5-49.0 s `p2` leaning in
+with raised hands. Inferred: two clappers between 47.5 s and 49.0 s, `p1` alone before and after.
+The exact end of `p2`'s clapping is uncertain (+/- 0.5 s).
+
+**bell**. Observed: a metallic chime recurs: 1.44-2.4 s (`Bell` 0.23, `Church bell` 0.23, `Singing bowl`
+0.15, `Gong` 0.12), 12.0-12.96 s (`Bell` 0.062 + `Jingle bell`/`Chime`/`Wind chime`), 16.3-17.3 s
+(`Bell` 0.29, `Tubular bells` 0.20), 20.64-21.6 s (`Bell` 0.90, `Church bell` 0.58), 25.9-26.9 s
+(`Tuning fork` 0.33, `Bell` 0.26, `Singing bowl` 0.15), 39.4-40.3 s and 42.2-43.2 s. Inferred: one
+recurring bell-like emitter, attributed to `bg`; its direction (we use -25 deg) is the least stable
+quantity in this file because the chime is usually masked and the low band is dominated by music.
+
+**telephone**. Observed: 7.2-9.12 s YAMNet is dominated by `Siren` 0.998 / `Alarm` 0.997 /
+`Civil defense siren` 0.80 - a loud periodic electronic ring. Inferred: in a room-scene ontology this is
+the telephone/ringing event, not an outdoor siren; attributed to `bg`. Class is inference, the interval
+is solidly observed.
+
+**music** (whole clip, `bg`). Observed: `Music` is the top label in most windows from 0 s to ~43 s
+(up to 0.94) with instrument sub-labels (guitar, pizzicato, ukulele, marimba, orchestra); low-band
+intensity repeatedly locks at azimuth -150..-166 with coherence 0.6-0.94 (5-14 s, 24.5-27 s).
+Inferred: a loudspeaker playing continuously, so we annotate it 0-60 s. Caveat: another strong,
+very coherent low-band cluster sits at +65..+83 (19.5-24 s, 30-35 s, coherence up to 1.0); it may be a
+second speaker or a room mode. We did not split the music into two agents.
+
+**domestic** (whole clip, `bg`). Observed: the electric fan on the chair is running (its head
+orientation changes between the 1 s, 20 s and 40 s frames); the 1.5-4 kHz intensity vector points to
+azimuth -80..-125 with elevation -40..-70 whenever nothing louder masks it (0-10 s, 17-19 s), matching
+the fan's panorama position. YAMNet also repeatedly offers `Mechanisms`, `Microwave oven`, `Printer`,
+`Inside, small room` in quiet windows (37-41 s). Inferred: a continuous appliance/ventilation hum for
+the whole clip. The *class name* (domestic) is our mapping of "appliance noise".
+
+**door**. Observed: 40.32-41.28 s `Sliding door` 0.23 / `Door` 0.10 / `Microwave oven` 0.22;
+43.2-44.16 s `Door` 0.175 / `Sliding door` 0.14; frames at 45.5 s show `p2` standing and reaching at
+the shelf/kitchen area. Inferred: `p2` handling a door/sliding element. Attribution to `p2` rather than
+to room equipment is inference from the coincident motion in the frames.
+
+**knock** and **footsteps**. Observed: 46.08-47.04 s `Tap` 0.93 + `Door` 0.89 and 49.92-50.88 s `Tap`
+0.78 + `Door` 0.77 - short, dry, impulsive contacts distinct from the clapping texture; frames at
+45.5 s / 47.0 s / 49.0 s show `p2` getting up, moving to the shelf and sitting down again.
+Inferred: knock-type contacts by `p2` at ~46.2 s and ~49.9 s, and two short walking intervals
+(44.2-45.3 s, 46.0-46.9 s). **This is the most speculative part of the file**: footsteps are not
+detected by the classifier at all, they are inferred from the visible displacement plus low-level
+broadband transients, exactly the conflation the task warns about, so we kept them short and few.
+
+**water** and **instrument** - no evidence found; no events claimed. (`Guitar`/`Ukulele`/`Violin`
+labels occur only as sub-labels of the loudspeaker music, which we annotate as `music`, not as a
+played instrument in the room.)
+
+## Known limitations
+
+* Azimuths are from static visual positions plus intensity clusters: expect +/- 15-25 deg, and more for
+  `bg` items. Elevations are coarse (seated heads ~ -10 deg, floor-level appliance ~ -38 deg).
+* Overlap is under-reported by a top-label classifier: when clapping is at 0.99 everything else is
+  invisible to it. Our overlap bookmarks therefore use polyphony *signatures* (multi-voice labels,
+  level jumps) rather than claimed separation.
+* Nothing in the app separates the mix. Class/performer filters and the editor change drawing and
+  metadata only; the decoded stereo always contains the whole soundscape.
+
+## Honest testing claims
+
+The page was exercised in the harness used to build it: play/pause, scrubbing, yaw dragging and the yaw
+slider, loop region, volume, class and performer filters, Follow, timeline and bookmark navigation,
+field edits (valid and rejected), marker dragging, undo/redo, export/import and reload persistence.
+Audio output was verified through the live WebAudio graph state (running context, 4-channel decoded
+buffer, yaw-dependent gain values, master gain following the volume slider); we cannot listen to the
+result, so no claim is made about perceived quality beyond the prescribed decoder being implemented
+literally on the original W,Y,Z,X channels.

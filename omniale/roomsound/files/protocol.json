@@ -1,0 +1,50 @@
+{
+  "case_id": "starss23-agentic-r3",
+  "version": 4,
+  "models": [
+    "gpt-6.1-sol",
+    "gpt-6-luna",
+    "claude-opus-5"
+  ],
+  "reasoning_effort": "high",
+  "initial_frames": [
+    1,
+    20,
+    40
+  ],
+  "budgets": {
+    "turns": 10,
+    "tools": 50,
+    "reference_frames": 36,
+    "screenshots": 12,
+    "max_output_tokens": 64000,
+    "request_timeout_ms": null
+  },
+  "native_audio": false,
+  "candidate_execution": true,
+  "evaluator_feedback": false,
+  "scene": {
+    "clip": "fold4_room24_mix014",
+    "source_start_seconds": 50.0,
+    "duration_seconds": 60.0,
+    "note": "Denser scene than rounds 0-2; 2 to 5 sources audible at every instant."
+  },
+  "scoring": {
+    "perception_base": 40,
+    "review_semantics": 10,
+    "base_app": 22,
+    "performer_follow": 5,
+    "review_navigation": 3,
+    "workbench": 18,
+    "evidence_llm": 2
+  },
+  "gateway_identity": "requested alias only, not independently verified",
+  "round": 3,
+  "models_amendment": "gpt-6-luna added after gpt-6.1-sol was scored, to obtain a second independent data point on the same frozen task. Task text, assets, tools, budgets, thresholds and weights are unchanged; only the list of candidates allowed to run is extended. The sol result was produced under the original single-model protocol and is not affected.",
+  "per_candidate_reasoning_effort": {
+    "gpt-6.1-sol": "high",
+    "gpt-6-luna": "high",
+    "claude-opus-5": "xhigh"
+  },
+  "budgets_note": "No binding cap on output tokens and no request deadline. The provider has no \"unlimited\" setting: omitting max_output_tokens falls back to 8192, and 200000 is accepted but never served (the gateway stalled 19.2 minutes then returned HTTP 504). 64000 is sent explicitly: 5.6x the largest single response any candidate has produced (11,428) and 3.2x the old 20000 cap, so it cannot bind, and the gateway serves it. The task budgets are turns, tool calls, reference frames and own screenshots only."
+}
