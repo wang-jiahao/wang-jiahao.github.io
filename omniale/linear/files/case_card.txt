@@ -1,0 +1,69 @@
+# OmniALE：看中文讲解录屏复刻 Linear
+
+当前任务为 **v2 全页版**，交付静态站点 `output/site/index.html` 与 `output/notes.md`。
+从空目录完成，可自主抽帧、转写和浏览器自检。只给 TASK.md 与带讲解的录屏，不给原站源码、图片和字体；允许系统字体、CSS 图片占位。
+
+## 目标与范围
+
+根据讲解还原真实网站的排版、页面内容、导航与响应式行为。目标是在公平、可满足的验收条件下检验 Sol 的能力，迭代目标为有效成绩低于80；服务故障不算能力失分。
+
+v1 只覆盖顶部约2400px。v2 覆盖约9960px全页，9个主要段落：首屏与产品界面、Fig卡片、issue列表与输入工具栏、路线图与图表、agent对话、代码编辑器、Changelog、客户引语、页脚。
+参考采样记录289条去重文本、72个可交互元素；这些是源站测量值，不是要求逐项恢复的隐藏功能列表。
+
+## 材料和基准
+
+- `task/materials/recording.mp4`：422.294秒，1440×900，30fps，中文TTS讲解。
+- `build/_rec_full/timeline.json`：30句讲解与操作时间线，仅供组织者。
+- `tests/ref_artifacts_full.json`、`tests/_probes_full.py`：全页参考测量与探针。
+- `build/_ref_shots_full/`：原站截图，供视觉裁判比较。
+- `build/_v1/`：旧版存档。v1与v2范围、评分权重均不同，不作直接模型能力对照。
+
+参考基准为线上实测固化的截图、文字与几何表。冻结HTML仅留档：它存在样式与水合缺陷，不作为可交互标准答案。
+
+## 评分口径
+
+**v2 使用 `tests/verify_full.py`**，不是旧的 `tests/verify.py`。
+
+| 分项 | 权重 | 当前测试 |
+|---|---:|---|
+| IFS 页面覆盖与导航交互 | .30 | 49条，分组级联；多数段落检查结构、内容和控件，导航部分实际触发悬停、焦点和窄屏行为 |
+| AFS 讲解参数 | .20 | 17条，字号、字距、面板锚点、reduced-motion等 |
+| CVG 文本内容覆盖 | .25 | 严格匹配.5、归一化匹配.3、词召回.2 |
+| VFS 视觉 | .15 | 开裁判：几何.6 + rubric裁判.4；`--no-judge`：仅几何 |
+| RSP 响应式 | .10 | 5条，多宽度溢出及页面有效性 |
+
+`--no-judge` 与开启视觉裁判是两种口径，必须分别标注。当前IFS没有验证源站72个控件的所有内部业务功能；CVG测文本覆盖，也不等于完整视觉质量。
+视觉裁判现走NJU Link Responses接口，使用Sol，judge-then-refute。调用失败或格式错误中止评分，不记为全不通过。
+
+## 已有结果
+
+| 版本/提交 | effort | 耗时 | 确定性总分 | 状态 |
+|---|---|---:|---:|---|
+| v1 / Sol | xhigh | 2876秒 | 84.36 | 限流截断的已有交付，非正常完成成绩 |
+| v2 / 旧Sol运行 | xhigh | 见旧stderr | — | 限流/额度耗尽，未闭环 |
+| v2 / Claude | xhigh | 见旧stderr | — | API失败；按用户要求暂停 |
+| v2 / Sol（NJU Link） | xhigh | 待结束 | 待评分 | 2026-11-03重新启动，见接续记录 |
+
+旧卡中的92.18等数字来自更早评分版本，不与84.36混用。所有旧原文已归档到 `build/_history/`。
+
+## 满分解与验收边界
+
+`build/oracle_full_max/` 在确定性自测中为100.00。它由参考实现补齐参考文案构造，验证这些确定性判据组合存在满分解。
+它不是独立人工解，也不证明录屏中每条文案都清晰可读，更不能据此宣称视觉裁判必定100。
+`build/oracle_full/` 是Claude编写的参考实现，不能把它不满100的分数称为理论天花板。
+
+静音材料已有，尚无完成的同模型有声/静音配对结果。应报告AFS的实际分差，不能假定静音一定零分。
+
+## 运行与复现
+
+```powershell
+# 从 Omni Agents 根目录运行。读取当前 Codex 配置，强制检查 NJU Link 域名。
+python omniale_cases/run_webrecreate.py webrecreate_linear --tag <新标签> --effort xhigh
+# 确定性评分
+omniale_cases/.venv/Scripts/python.exe -I omniale_cases/webrecreate_linear/tests/verify_full.py <独立运行目录> --no-judge --json <新结果文件>
+# 两题满分自测
+omniale_cases/.venv/Scripts/python.exe -I omniale_cases/webrecreate_linear/build/selftest_ceiling.py
+```
+
+运行器保留输入摘要、模型、effort、接口、CLI版本、起止时间、真实耗时、退出状态与完整轨迹。新标签必须新建目录，不能覆盖旧交付。
+工具依赖离线预装、搜索关闭、代理只放行NJU Link和本地自检地址。这是软网络限制，文件系统也未做强隔离；评分后应审计轨迹是否读取参考答案或访问原站。

@@ -1,0 +1,591 @@
+"""A 类 v2（全页范围）判分器。
+
+和 v1 的差别只有一处是本质的：**范围**。
+v1 限定顶部 2400px，实测 gpt-6.1-sol 84.4——IFS 22/22、AFS 18/19、几何 11/13，
+三桶全饱和，唯一没饱和的内容广度权重又太小。v2 扩到整页：
+
+              v1(2400px)   v2(全页)
+  去重文案        70 条      289 条
+  可交互元素      29 个       72 个
+  段落             2 个        9 个
+
+多出来的段落不是「更多同样的东西」：有消息输入栏（9 个工具按钮）、
+一张 Cycle time by agent 图表、一个带语法高亮的代码编辑器（226 个文本叶子）。
+
+权重：IFS .30 / AFS .20 / CVG .25 / VFS .15 / RSP .10
+  IFS 升到 .30 因为现在它是跨段落轨迹，真的在测东西；
+  AFS 降到 .20 因为音频事实的条数没变，不该随范围扩大而变重。
+
+IFS 结构：段内级联、段间独立。一段崩了不会把后面全带崩——
+那样会变成「第一段做错就 0 分」，区分度反而消失。
+
+用法：
+  python tests/verify_full.py <提交目录>
+  python tests/verify_full.py build/oracle_full --no-judge
+"""
+import sys, json, argparse
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _base import Site, new_page, entry, ask_judge, parse_verdicts, eval_shot, judge_audit, CASE
+from _coverage import score_cvg
+from _probes import (HERO_JS, PANEL_JS, ANIM_JS, BP_JS, THEME_JS, GEOM_JS,
+                     MOCK_JS, hover_entries, hover_switch, focus_open,
+                     narrow_no_panel, near)
+from _probes_full import (FULL, SECTIONS_JS, CODEBLOCK_JS, CHART_JS,
+                          section_at, has_any)
+
+W_IFS, W_AFS, W_CVG, W_VFS, W_RSP = 0.30, 0.20, 0.25, 0.15, 0.10
+SHOTS = CASE / "build" / "_ref_shots_full"
+REF_SHOT = SHOTS / "live_1440_full.png"
+
+RUBRIC = [
+  "整体是深色背景（接近纯黑或极深灰），不是浅色",
+  "顶部有一条贯穿的水平导航栏，左侧品牌名、右侧若干导航项加两个入口",
+  "首屏有一个很大的多行标题，靠左对齐，行间排得很紧",
+  "标题区下方有一大块产品界面，内部左边一条窄侧栏、右边主内容",
+  "页面往下有多个**布局各不相同**的内容段，不是同一个版式重复",
+  "其中有一段是列表式的工作项（每行编号加标题）",
+  "其中有一段带图表或数据可视化",
+  "其中有一段是代码，用等宽字体且有多种颜色的语法高亮",
+  "其中有一段是更新日志式的条目列表，每条带日期",
+  "其中有一段是人物引语或客户数据",
+  "页面底部有多列链接的页脚",
+  "字体是无衬线，字形接近 Inter 这类几何无衬线",
+  "正文文字偏小、信息密度偏高，不是常见的 16px 宽松布局",
+  "没有元素重叠、错位或溢出容器",
+  "配色克制：以黑/深灰/浅灰白为主，没有大面积高饱和色块",
+  "整体观感像一个真实上线的产品官网，不是草稿、线框或占位页",
+]
+
+H0 = FULL["hero"]
+G0 = FULL["geom"]
+SEC = {s["y"]: s for s in FULL["sections"]}
+
+
+def collect(b, site):
+    d = {}
+    ctx, pg = new_page(b)
+    errs = []
+    pg.on("pageerror", lambda e: errs.append(str(e)[:80]))
+    try:
+        pg.goto(site.url(), wait_until="load", timeout=60000)
+        pg.wait_for_timeout(2600)
+    except Exception as e:
+        ctx.close()
+        return dict(loaded=False, load_err=str(e)[:90])
+    d["loaded"] = True
+    d["errs"] = errs
+
+    # 逐屏滚到底，把懒加载和入场动画都触发掉（和采基准时一样）
+    Hh = pg.evaluate("document.body.scrollHeight")
+    y = 0
+    while y < Hh and y < 30000:
+        pg.evaluate("(y)=>window.scrollTo(0,y)", y)
+        pg.wait_for_timeout(260)
+        y += 760
+        Hh = max(Hh, pg.evaluate("document.body.scrollHeight"))
+    pg.evaluate("window.scrollTo(0,0)")
+    pg.wait_for_timeout(1000)
+
+    d["hero"] = pg.evaluate(HERO_JS)
+    d["bp1440"] = pg.evaluate(BP_JS)
+    d["anim"] = pg.evaluate(ANIM_JS)
+    d["theme"] = pg.evaluate(THEME_JS)
+    d["geom"] = pg.evaluate(GEOM_JS, 10 ** 5)
+    d["mock"] = pg.evaluate(MOCK_JS, 10 ** 5)
+    sec = pg.evaluate(SECTIONS_JS)
+    d["sections"] = sec["sections"]
+    d["scrollH"] = sec["scrollH"]
+    d["code"] = pg.evaluate(CODEBLOCK_JS)
+    d["chart"] = pg.evaluate(CHART_JS)
+    d["texts"] = pg.evaluate("""()=>[...document.querySelectorAll('*')].filter(e=>{
+        const r=e.getBoundingClientRect(); const c=getComputedStyle(e);
+        return !e.childElementCount&&r.width>1&&r.height>1&&
+               c.visibility!=='hidden'&&c.display!=='none';})
+        .map(e=>e.textContent.trim()).filter(Boolean)""")
+    d["nodesInBound"] = pg.evaluate("""()=>[...document.querySelectorAll('*')]
+        .filter(e=>{const r=e.getBoundingClientRect();const c=getComputedStyle(e);
+          return r.width>1&&r.height>1&&c.visibility!=='hidden'
+                 &&c.display!=='none';}).length""")
+    d["interactN"] = pg.evaluate("""()=>[...document.querySelectorAll(
+        'button,[role=button],[aria-expanded],input,select,summary,[role=tab],'+
+        '[role=radio],[role=switch],video')].filter(e=>{
+          const r=e.getBoundingClientRect();const c=getComputedStyle(e);
+          return r.width>3&&r.height>3&&c.visibility!=='hidden'
+                 &&c.display!=='none';}).length""")
+
+    d["hover"] = hover_entries(pg, 2)
+    d["switch"] = hover_switch(pg)
+    d["focus"] = focus_open(pg)
+
+    shot = eval_shot("candidate_full")
+    pg.screenshot(path=str(shot), full_page=True)
+    d["shot"] = str(shot)
+    ctx.close()
+
+    ctx, pg = new_page(b, reduced=True)
+    try:
+        pg.goto(site.url(), wait_until="load", timeout=60000)
+        pg.wait_for_timeout(2000)
+        d["anim_reduced"] = pg.evaluate(ANIM_JS)
+    except Exception:
+        d["anim_reduced"] = d["anim"]
+    ctx.close()
+
+    d["bp"] = {}
+    for w, h in ((1024, 900), (768, 900), (390, 844)):
+        ctx, pg = new_page(b, w, h)
+        try:
+            pg.goto(site.url(), wait_until="load", timeout=60000)
+            pg.wait_for_timeout(1800)
+            m = pg.evaluate(BP_JS)
+            hero = pg.evaluate(HERO_JS)
+            m["hero"] = hero
+            m["heroLines"] = round(hero["h"] / hero["lh"]) if hero and hero["lh"] else 0
+            if w == 768:
+                d["narrow"] = narrow_no_panel(pg)
+            d["bp"][str(w)] = m
+        except Exception as e:
+            d["bp"][str(w)] = dict(err=str(e)[:60], navLinks=0, overflowX=True,
+                                   scrollH=0, heroLines=0, hero=None)
+        ctx.close()
+    return d
+
+
+# ------------------------------------------------------------------ IFS
+def score_ifs(d):
+    """跨段落轨迹。每段一条链（段内级联），段间独立。"""
+    groups = []
+    if not d.get("loaded"):
+        return [dict(group="加载", k="页面可加载", ok=False,
+                     got=d.get("load_err", ""))]
+    S = d["sections"]
+
+    def chain(name, checks):
+        out, alive = [], True
+        for k, ok, got in checks:
+            if not alive:
+                out.append(dict(group=name, k=k, ok=False, got="前一步未过，段内级联"))
+                continue
+            out.append(dict(group=name, k=k, ok=bool(ok), got=str(got)[:96]))
+            if not ok:
+                alive = False
+        groups.extend(out)
+
+    # —— 第 0 段：全局骨架 ——
+    bp = d["bp1440"]
+    chain("骨架", [
+      ("无 JS 报错", not d["errs"], f"{len(d['errs'])} 个"),
+      ("页高 ≥7000（整页都做了）", d["scrollH"] >= 7000, f"{d['scrollH']}"),
+      ("切出 ≥6 个版式不同的段", len(S) >= 6, f"{len(S)} 段"),
+      # 线上 2890 个节点里大半是 React 包裹层，手写同等内容只有 ~440 个。
+      # 这条只是「有没有搭出一整页」的廉价门槛，内容量由 CVG 桶负责。
+      ("整页可见节点 ≥400", d["nodesInBound"] >= 400,
+       f"{d['nodesInBound']}（线上 {FULL['nodesInBound']}，多为包裹层）"),
+      ("整页可交互元素 ≥30", d["interactN"] >= 30, f"{d['interactN']}"),
+    ])
+
+    # —— 第 1 段 y=271：hero + issue 详情模拟 ——
+    s1, mk = section_at(S, 271), d["mock"]
+    chain("①首屏+界面模拟", [
+      ("有这一段", bool(s1), f"y={s1['y'] if s1 else '—'}"),
+      ("导航条高 56–96 且链接 ≥7",
+       56 <= bp["headerH"] <= 96 and bp["navLinks"] >= 7,
+       f"{bp['headerH']}px / {bp['navLinks']} 链接"),
+      ("有产品界面块（高 ≥420、宽 ≥1000）",
+       bool(mk) and mk["h"] >= 420, f"{mk['w']}x{mk['h']}" if mk else "没找到"),
+      ("块内左侧有窄侧栏，纵向条目 ≥6",
+       bool(mk) and mk["rows"] >= 6 and mk["railOffset"] <= mk["w"] * 0.08,
+       f"{mk['rows'] if mk else 0} 条，距左缘 {mk['railOffset'] if mk else '—'}"),
+      ("块内可交互元素 ≥10", bool(mk) and mk["btns"] >= 10,
+       f"{mk['btns'] if mk else 0} 个"),
+    ])
+
+    # —— 第 2 段 y=1876：三张 Fig 卡 ——
+    s2 = section_at(S, 1876)
+    chain("②三张 Fig 卡", [
+      ("有这一段", bool(s2), f"y={s2['y'] if s2 else '—'}"),
+      ("命中 ≥2 个 Fig 编号", has_any(s2, ["fig 0.1", "fig 0.2", "fig 0.3"]) >= 2,
+       f"命中 {has_any(s2, ['fig 0.1','fig 0.2','fig 0.3'])}"),
+      ("命中 ≥2 个卡片标题",
+       has_any(s2, ["purpose-built", "powered by agents", "designed for speed"]) >= 2,
+       f"命中 {has_any(s2, ['purpose-built','powered by agents','designed for speed'])}"),
+    ])
+
+    # —— 第 3 段 y=2546：issue 列表 + 消息输入栏 ——
+    s3 = section_at(S, 2546)
+    tool = ["attach", "附件", "format", "emoji", "表情", "mention", "提及",
+            "video", "录", "audio", "shortcut", "快捷", "send", "发送",
+            "schedule", "定时"]
+    chain("③issue 列表+输入栏", [
+      ("有这一段", bool(s3), f"y={s3['y'] if s3 else '—'}"),
+      ("有 issue 编号样式的文案（ENG-xxxx 之类）",
+       bool(s3) and sum(1 for t in s3["texts"]
+                        if any(c.isdigit() for c in t) and "-" in t) >= 3,
+       f"{sum(1 for t in s3['texts'] if any(c.isdigit() for c in t) and '-' in t) if s3 else 0} 条"),
+      ("这一段按钮 ≥9（输入栏工具条）", bool(s3) and s3["btns"] >= 9,
+       f"{s3['btns'] if s3 else 0} 个"),
+      ("工具按钮标签命中 ≥4 个", has_any(s3, tool) >= 4,
+       f"命中 {has_any(s3, tool)}"),
+    ])
+
+    # —— 第 4 段 y=3782：路线图 + 图表 ——
+    s4, ch = section_at(S, 3782), d["chart"] or {}
+    chain("④路线图+图表", [
+      ("有这一段", bool(s4), f"y={s4['y'] if s4 else '—'}"),
+      ("命中 ≥2 个路线图条目",
+       has_any(s4, ["core screens", "polish", "split fares",
+                    "public beta", "alpha", "internal"]) >= 2,
+       f"命中 {has_any(s4, ['core screens','polish','split fares','public beta','alpha','internal'])}"),
+      ("页面里有图表（svg/canvas 或 ≥5 根条形）",
+       (ch.get("svg", 0) + ch.get("canvas", 0)) >= 1 or ch.get("bars", 0) >= 5,
+       f"svg{ch.get('svg')} canvas{ch.get('canvas')} 条形{ch.get('bars')}"),
+      ("图表标题命中 Cycle time",
+       has_any(s4, ["cycle time"]) >= 1 or
+       has_any(section_at(S, 4130) or {}, ["cycle time"]) >= 1, ""),
+    ])
+
+    # —— 第 5 段 y=5021：agent 对话 ——
+    s5 = section_at(S, 5021)
+    chain("⑤agent 对话", [
+      ("有这一段", bool(s5), f"y={s5['y'] if s5 else '—'}"),
+      ("命中模型名或耗时行",
+       has_any(s5, ["opus", "worked for", "sec"]) >= 1,
+       f"命中 {has_any(s5, ['opus','worked for','sec'])}"),
+      ("这一段有 ≥6 条文案", bool(s5) and s5["leaves"] >= 6,
+       f"{s5['leaves'] if s5 else 0} 条"),
+    ])
+
+    # —— 第 6 段 y=6263：In Review 列表 + 代码编辑器 ——
+    s6, cb = section_at(S, 6263), d["code"]
+    chain("⑥代码编辑器", [
+      ("有这一段", bool(s6), f"y={s6['y'] if s6 else '—'}"),
+      ("有等宽代码块（叶子 ≥12、等宽占比 ≥50%）", bool(cb),
+       f"{cb['leaves']} 叶子 等宽 {cb['monoRatio']}" if cb else "没找到"),
+      ("代码块有语法高亮（≥3 种文字颜色）",
+       bool(cb) and cb["colors"] >= 3, f"{cb['colors'] if cb else 0} 种颜色"),
+      ("代码内容命中 import / React 之类",
+       has_any(s6, ["import", "react", "from"]) >= 2,
+       f"命中 {has_any(s6, ['import','react','from'])}"),
+    ])
+
+    # —— 第 7 段 y=7644：Changelog ——
+    s7 = section_at(S, 7644)
+    chain("⑦Changelog", [
+      ("有这一段", bool(s7), f"y={s7['y'] if s7 else '—'}"),
+      ("有一个 ≥40px 的大标题",
+       bool(s7) and (s7["head"] or {}).get("fs", 0) >= 40,
+       f"{(s7['head'] or {}).get('fs') if s7 else '—'}px"),
+      ("命中 ≥2 个带年份的日期",
+       bool(s7) and sum(1 for t in s7["texts"] if "2026" in t or "2025" in t) >= 2,
+       f"{sum(1 for t in s7['texts'] if '2026' in t or '2025' in t) if s7 else 0} 条"),
+    ])
+
+    # —— 第 8 段 y=8226：引语 + 大数字 ——
+    s8 = section_at(S, 8226)
+    chain("⑧引语+数据", [
+      ("有这一段", bool(s8), f"y={s8['y'] if s8 else '—'}"),
+      ("有 ≥24px 的引语级文字",
+       bool(s8) and (s8["head"] or {}).get("fs", 0) >= 24,
+       f"{(s8['head'] or {}).get('fs') if s8 else '—'}px"),
+      ("有一个带千分位或 K 的大数字",
+       bool(s8) and any((("," in t and any(c.isdigit() for c in t))
+                         or t.strip().lower().endswith("k"))
+                        for t in s8["texts"]), ""),
+    ])
+
+    # —— 第 9 段 y=9466：页脚 ——
+    s9 = section_at(S, 9466, tol=900)
+    chain("⑨页脚", [
+      ("有这一段", bool(s9), f"y={s9['y'] if s9 else '—'}"),
+      ("页脚链接 ≥20", bool(s9) and s9["links"] >= 20,
+       f"{s9['links'] if s9 else 0} 个"),
+      ("页脚分 ≥3 列", bool(s9) and s9["leaves"] >= 18,
+       f"{s9['leaves'] if s9 else 0} 条文案"),
+    ])
+
+    # —— 交互：导航下拉 ——
+    h0, h1 = d["hover"][0], d["hover"][1]
+    p0, p1 = h0["panel"] or {}, h1["panel"] or {}
+    dx = abs(p0.get("x", 0) - p1.get("x", 10 ** 4))
+    tb = h1["trig"] or {}
+    dtx = abs(p1.get("x", 0) - round(tb.get("x", 0))) if tb else 0
+    sw, fo, nr = (d.get("switch") or {}), (d.get("focus") or {}), (d.get("narrow") or {})
+    chain("⑩导航下拉", [
+      ("悬停入口①→ 展开", h0["opened"], f"{p0.get('w')}x{p0.get('h')}"),
+      ("面板① 宽 840–880", 840 <= p0.get("w", 0) <= 880, f"{p0.get('w')}"),
+      ("面板① 链接 8–10 个、分 ≥4 列",
+       8 <= p0.get("links", 0) <= 10 and p0.get("cols", 0) >= 4,
+       f"{p0.get('links')} 链接 {p0.get('cols')} 列"),
+      ("面板① 无淡入（≤60ms）", p0.get("dur", 999) <= 60, f"{p0.get('dur')}ms"),
+      ("移开收起", h0["closed"], ""),
+      ("悬停入口②→ 展开，链接 7–9 个",
+       h1["opened"] and 7 <= p1.get("links", 0) <= 9, f"{p1.get('links')} 链接"),
+      ("两面板左缘对齐（Δx ≤ 40）", dx <= 40, f"Δx={dx}"),
+      ("面板不挂在按钮正下方（Δx ≥ 120）", dtx >= 120, f"Δ={dtx}"),
+      ("直接横移换菜单：同时只有一个开着", sw.get("ok"), sw.get("detail", "")),
+      ("横移后换成了②的面板", sw.get("changed"), ""),
+      ("键盘 focus 也展开", fo.get("ok"), fo.get("detail", "")),
+      ("768px 悬停原位置不弹面板", nr.get("ok"), nr.get("detail", "")),
+    ])
+    return groups
+
+
+# ------------------------------------------------------------------ AFS
+def score_afs(d):
+    out = []
+
+    def add(k, ok, got=""):
+        out.append(dict(k=k, ok=bool(ok), got=str(got)[:100]))
+
+    LAB = ["① 大标题行高 = 字号（0.95–1.10）",
+           "② 大标题字重 480–560（不是粗体）",
+           "③ 大标题字距收 1.4px（-1.7 ~ -1.1）",
+           "④ 正文主力字号 12–14px，不是 16px",
+           "⑤ 面板① 九个链接、分四列",
+           "⑥ 面板② 八个链接",
+           "⑦ 两面板宽度都是 860（±20）",
+           "⑧ 两面板左缘锚同一点、不挂按钮下",
+           "⑨ 面板无淡入过渡",
+           "⑩ 直接横移换菜单只有一个面板开着",
+           "⑪ 键盘 focus 也能展开",
+           "⑫ 768px 导航只剩 ≤3 链接且悬停不弹面板",
+           "⑬ 390px 大标题折 4 行、字号 32–46px",
+           "⑭ 减弱动态效果后带动画元素砍掉 ≥60%",
+           "⑮ 没有自作主张加浅色主题切换",
+           "⑯ 代码段用等宽字体且有 ≥3 种颜色的语法高亮",
+           "⑰ 输入栏工具按钮 ≥9 个"]
+    if not d.get("loaded"):
+        for k in LAB:
+            add(k, False, "页面没加载")
+        return out
+    hero = d["hero"] or {}
+    h0, h1 = d["hover"][0], d["hover"][1]
+    p0, p1 = h0["panel"] or {}, h1["panel"] or {}
+    r = (hero.get("lh") or 0) / (hero.get("fs") or 1)
+    add(LAB[0], 0.95 <= r <= 1.10, f"{hero.get('lh')}/{hero.get('fs')} = {r:.2f}")
+    add(LAB[1], 480 <= (hero.get("fw") or 400) <= 560, f"fw {hero.get('fw')}")
+    add(LAB[2], -1.7 <= (hero.get("ls") or 0) <= -1.1,
+        f"{hero.get('ls')}px（线上 {H0['ls']}）")
+    spec = d["geom"]["fontTop"] or [[0, 0]]
+    mode = spec[0][0] if spec else 0
+    tot = sum(n for _, n in spec) or 1
+    small = sum(n for k, n in spec if k <= 14) / tot
+    add(LAB[3], 12 <= mode <= 14 and small >= 0.55,
+        f"众数 {mode}px，≤14px 占 {small*100:.0f}%（线上 {G0['fontTop'][:3]}）")
+    add(LAB[4], 8 <= p0.get("links", 0) <= 10 and p0.get("cols", 0) >= 4,
+        f"{p0.get('links')} 链接 {p0.get('cols')} 列")
+    add(LAB[5], 7 <= p1.get("links", 0) <= 9, f"{p1.get('links')}")
+    add(LAB[6], all(840 <= p.get("w", 0) <= 880 for p in (p0, p1)),
+        f"{p0.get('w')} / {p1.get('w')}")
+    dx = abs(p0.get("x", 0) - p1.get("x", 10 ** 4))
+    tb = h1["trig"] or {}
+    dtx = abs(p1.get("x", 0) - round(tb.get("x", 0))) if tb else 0
+    add(LAB[7], dx <= 40 and dtx >= 120, f"面板间 Δx={dx}，离触发器 Δx={dtx}")
+    add(LAB[8], p0.get("dur", 999) <= 60, f"{p0.get('dur')}ms")
+    sw, fo, nr = (d.get("switch") or {}), (d.get("focus") or {}), (d.get("narrow") or {})
+    add(LAB[9], sw.get("ok"), sw.get("detail", ""))
+    add(LAB[10], fo.get("ok"), fo.get("detail", ""))
+    b768, b390 = d["bp"].get("768", {}), d["bp"].get("390", {})
+    add(LAB[11], b768.get("navLinks", 99) <= 3 and nr.get("ok"),
+        f"{b768.get('navLinks')} 链接，悬停：{nr.get('detail','')}")
+    h390 = b390.get("hero") or {}
+    add(LAB[12], 3 <= b390.get("heroLines", 0) <= 5 and
+        32 <= (h390.get("fs") or 0) <= 46,
+        f"≈{b390.get('heroLines')} 行 {h390.get('fs')}px")
+    add(LAB[13], d["anim"] > 0 and d["anim_reduced"] <= d["anim"] * 0.40,
+        f"{d['anim_reduced']} vs {d['anim']}（线上 "
+        f"{FULL['anim_reduced']}/{FULL['anim']}）")
+    add(LAB[14], d["theme"] == 0, f"疑似主题控件 {d['theme']} 个")
+    cb = d["code"]
+    add(LAB[15], bool(cb) and cb["colors"] >= 3 and cb["monoRatio"] >= 0.5,
+        f"{cb['colors']} 色 等宽 {cb['monoRatio']}" if cb else "没找到代码块")
+    s3 = section_at(d["sections"], 2546)
+    add(LAB[16], bool(s3) and s3["btns"] >= 9, f"{s3['btns'] if s3 else 0} 个")
+    return out
+
+
+# ------------------------------------------------------------------ RSP / VFS
+def score_rsp(d):
+    if not d.get("loaded"):
+        return [dict(k="响应式", ok=False, got="页面没加载")]
+    out = [dict(k="1440px 无横向溢出", ok=not d["bp1440"]["overflowX"],
+                got=f"页高 {d['scrollH']}")]
+    for w in ("1024", "768", "390"):
+        m = d["bp"].get(w, {})
+        out.append(dict(k=f"{w}px 无横向溢出", ok=not m.get("overflowX", True),
+                        got=f"页高 {m.get('scrollH')}"))
+    b390 = d["bp"].get("390", {})
+    out.append(dict(k="390px 下页高 ≥4000（整页都在）",
+                    ok=b390.get("scrollH", 0) >= 4000,
+                    got=f"{b390.get('scrollH')}（线上 {FULL['bp']['390']['scrollH']}）"))
+    return out
+
+
+def score_geom(d):
+    out = []
+
+    def add(k, ok, got=""):
+        out.append(dict(k=k, ok=bool(ok), got=str(got)[:100]))
+
+    if not d.get("loaded"):
+        for i in range(12):
+            add(f"几何 {i+1}", False, "页面没加载")
+        return out
+    g, hero, bp = d["geom"], d["hero"] or {}, d["bp1440"]
+    add("背景接近纯黑（rgb 8,9,10 ±24）", near(g["bodyBg"], G0["bodyBg"], 24),
+        g["bodyBg"])
+    add("字体族是几何无衬线",
+        any(s in (g["bodyFamily"] + " " + hero.get("family", "")).lower()
+            for s in ("inter", "geist", "satoshi", "system-ui", "-apple-system",
+                      "helvetica", "arial", "segoe")),
+        f"{g['bodyFamily']}")
+    add("导航条高 56–96px", 56 <= bp["headerH"] <= 96, f"{bp['headerH']}px")
+    add("大标题字号 56–72px", 56 <= (hero.get("fs") or 0) <= 72, f"{hero.get('fs')}px")
+    r = (hero.get("lh") or 0) / (hero.get("fs") or 1)
+    add("大标题行高/字号 0.95–1.10", 0.95 <= r <= 1.10, f"{r:.2f}")
+    add("大标题字距 -1.7 ~ -1.1px", -1.7 <= (hero.get("ls") or 0) <= -1.1,
+        f"{hero.get('ls')}px")
+    add("大标题字重 480–560", 480 <= (hero.get("fw") or 400) <= 560, f"{hero.get('fw')}")
+    add("大标题左缘 40–130px 且靠左",
+        40 <= (hero.get("x") or 0) <= 130 and hero.get("align") in ("start", "left"),
+        f"x={hero.get('x')}")
+    add("大标题顶边 230–330px", 230 <= (hero.get("y") or 0) <= 330, f"y={hero.get('y')}")
+    add("内容容器宽 1280–1440", 1280 <= g["container"] <= 1440, f"{g['container']}")
+    spec = g["fontTop"] or [[0, 0]]
+    mode = spec[0][0] if spec else 0
+    tot = sum(n for _, n in spec) or 1
+    small = sum(n for k, n in spec if k <= 14) / tot
+    add("正文众数 12–14px 且 ≤14px 占多数", 12 <= mode <= 14 and small >= 0.55,
+        f"众数 {mode}px，≤14px 占 {small*100:.0f}%")
+    add("整页高度 7000–13000（量级对得上）", 7000 <= d["scrollH"] <= 13000,
+        f"{d['scrollH']}（线上 {FULL['scrollH']}）")
+    return out
+
+
+def score_vfs(d, use_judge=True):
+    geom = score_geom(d)
+    gfrac = sum(1 for x in geom if x["ok"]) / max(1, len(geom))
+    if not d.get("loaded"):
+        return 0.0, geom, gfrac, 0.0, []
+    jsc, jitems = 0.0, []
+    if use_judge:
+        prompt = (
+          "你在评估一个「看录屏复刻整个网页」的任务。\n"
+          "第一张图是参考页面的整页长截图（标准答案），第二张是被测模型做出来的页面。\n"
+          "请逐条判断下面每条描述在**被测页面**上是否成立。只评被测页面。\n"
+          "判断要严格：含糊、勉强、明显差很多的，一律 false。\n\n"
+          + "\n".join(f"{i+1}. {r}" for i, r in enumerate(RUBRIC)) +
+          '\n\n只输出 JSON：{"verdicts":[{"i":1,"ok":true,"why":"一句话"}, ...]}')
+        v = parse_verdicts(ask_judge(prompt, images=[REF_SHOT, d["shot"]]),
+                           len(RUBRIC))
+        pos = [i for i, x in enumerate(v) if x]
+        if pos:
+            rp = ("有人判定下面这个被测页面（第二张图）满足了这些条件。"
+                  "请你扮演反方，逐条核查是否**确实**满足，有明显不符就推翻。\n\n" +
+                  "\n".join(f"{k+1}. {RUBRIC[k]}" for k in pos) +
+                  '\n\n只输出 JSON：{"verdicts":[{"i":1,"ok":true,"why":"..."}]}')
+            rv = parse_verdicts(ask_judge(rp, images=[REF_SHOT, d["shot"]]), len(pos),
+                                expected_ids=[k + 1 for k in pos])
+            for k, keep in zip(pos, rv):
+                if not keep:
+                    v[k] = 0
+        jsc = sum(v) / len(RUBRIC)
+        jitems = [dict(k=RUBRIC[i], ok=bool(v[i])) for i in range(len(RUBRIC))]
+    total = (0.60 * gfrac + 0.40 * jsc) if use_judge else gfrac
+    return total, geom, gfrac, jsc, jitems
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("submission")
+    ap.add_argument("--no-judge", action="store_true")
+    ap.add_argument("--json")
+    ns = ap.parse_args()
+
+    root = entry(ns.submission)
+    if root is None:
+        print(json.dumps({"error": "找不到 index.html"}, ensure_ascii=False)); return 2
+
+    from playwright.sync_api import sync_playwright
+    site = Site(root)
+    try:
+        with sync_playwright() as b_:
+            b = b_.chromium.launch(channel="msedge")
+            cand = collect(b, site)
+            try:
+                b.close()
+            except Exception:
+                pass
+    finally:
+        site.close()
+
+    ifs, afs, rsp = score_ifs(cand), score_afs(cand), score_rsp(cand)
+    vfs, geom, gfrac, jsc, jitems = score_vfs(cand, not ns.no_judge)
+    cvg, cvg_items, cov = score_cvg(cand, FULL)
+
+    def frac(xs): return sum(1 for x in xs if x["ok"]) / max(1, len(xs))
+    parts = {"IFS 交互功能": frac(ifs), "AFS 音频独有": frac(afs),
+             "CVG 内容广度": cvg, "VFS 视觉保真": vfs, "RSP 响应式": frac(rsp)}
+    W = {"IFS 交互功能": W_IFS, "AFS 音频独有": W_AFS, "CVG 内容广度": W_CVG,
+         "VFS 视觉保真": W_VFS, "RSP 响应式": W_RSP}
+    total = sum(W[k] * v for k, v in parts.items())
+
+    print(f"\n{'='*78}\n提交: {root}   （v2 全页范围）\n{'='*78}")
+    cur = None
+    print(f"\n—— IFS 交互功能（跨段落轨迹，段内级联）"
+          f"  {sum(1 for x in ifs if x['ok'])}/{len(ifs)} ——")
+    for it in ifs:
+        if it.get("group") != cur:
+            cur = it.get("group")
+            n = sum(1 for x in ifs if x.get("group") == cur)
+            ok = sum(1 for x in ifs if x.get("group") == cur and x["ok"])
+            print(f"  [{cur}]  {ok}/{n}")
+        print(f"   {'✓' if it['ok'] else '✗'} {it['k']}"
+              + (f"\n        {it['got']}" if it.get("got") else ""))
+    for nm, arr in (("AFS 音频独有", afs), ("VFS·几何", geom), ("RSP 响应式", rsp)):
+        print(f"\n—— {nm}  {sum(1 for x in arr if x['ok'])}/{len(arr)} ——")
+        for it in arr:
+            print(f" {'✓' if it['ok'] else '✗'} {it['k']}"
+                  + (f"\n      {it['got']}" if it.get("got") else ""))
+    print(f"\n—— CVG 内容广度 {cvg*100:.1f} ——")
+    for it in cvg_items:
+        print(f" {'✓' if it['ok'] else '✗'} {it['k']}"
+              + (f"\n      {it['got']}" if it.get("got") else ""))
+    if jitems:
+        print(f"\n—— VFS·rubric judge  "
+              f"{sum(1 for x in jitems if x['ok'])}/{len(jitems)} ——")
+        for it in jitems:
+            print(f" {'✓' if it['ok'] else '✗'} {it['k']}")
+    if ns.no_judge:
+        print(f"\n  VFS = 几何 {gfrac*100:.2f}（确定性口径，未调用视觉裁判）")
+    else:
+        print(f"\n  VFS = 0.60×几何{gfrac*100:.1f} + 0.40×judge{jsc*100:.1f}"
+              f" = {vfs*100:.2f}")
+    print(f"\n{'='*78}")
+    for k, v in parts.items():
+        print(f"  {k:<14}{v*100:>7.2f}  × {W[k]:.2f}  = {W[k]*v*100:>6.2f}")
+    print(f"  {'总分':<14}{total*100:>7.2f}\n{'='*78}\n")
+
+    if ns.json:
+        Path(ns.json).write_text(json.dumps(dict(
+            evaluation=dict(mode="deterministic" if ns.no_judge else "visual_judge",
+                            judge_model=None if ns.no_judge else "gpt-6.1-sol",
+                            judge_protocol=None if ns.no_judge else "responses/judge-then-refute"),
+            weights=W,
+            artifacts=dict(candidate_screenshot=cand.get("shot")),
+            judge_audit=judge_audit(),
+            total=round(total * 100, 2),
+            parts={k: round(v * 100, 2) for k, v in parts.items()},
+            vfs=dict(geom=round(gfrac * 100, 2), judge=round(jsc * 100, 2)),
+            cvg=cov,
+            items=dict(IFS=ifs, AFS=afs, CVG=cvg_items, GEOM=geom, RSP=rsp,
+                       JUDGE=jitems)), ensure_ascii=False, indent=1),
+            encoding="utf-8")
+        print(f"明细 -> {ns.json}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
