@@ -1,0 +1,505 @@
+{
+  "version": "118-audit-v2",
+  "sample_id": "118",
+  "condition": "direct",
+  "solver_model": "gpt-6.1-sol",
+  "solver_effort": "xhigh",
+  "judge_model": "gpt-6-sol",
+  "judge_effort": "high",
+  "api_base": "https://api-temporary.nju-link.com/v1",
+  "scored_at": "2026-11-03T19:43:25.533547+08:00",
+  "evaluation_status": "scored",
+  "original_efs": 0.5644,
+  "original_categories": {
+    "target_grounding": 0.8125,
+    "edit_fulfillment": 0.5385,
+    "no_damage": 0.4028,
+    "revision": 0.6667
+  },
+  "coverage": {
+    "original_steps": 20,
+    "cancelled_steps": [
+      2,
+      3,
+      7,
+      8
+    ],
+    "disputed_steps": [
+      4,
+      5,
+      9,
+      10,
+      15
+    ],
+    "effective_operations_scored": 11,
+    "original_effective_operations": 16
+  },
+  "weights": {
+    "target_grounding": 0.1,
+    "edit_fulfillment": 0.5,
+    "no_damage": 0.2,
+    "revision": 0.2
+  },
+  "efs_weighted_v3": 0.6721,
+  "category_scores_v3": {
+    "target_grounding": 0.8182,
+    "edit_fulfillment": 0.625,
+    "no_damage": 0.7222,
+    "revision": 0.6667
+  },
+  "category_counts": {
+    "target_grounding": {
+      "met": 9,
+      "total": 11
+    },
+    "edit_fulfillment": {
+      "met": 5,
+      "total": 8
+    },
+    "no_damage": {
+      "met": 0,
+      "total": 0
+    },
+    "revision": {
+      "met": 2,
+      "total": 3
+    }
+  },
+  "items_total": 22,
+  "items_met": 16,
+  "items": [
+    {
+      "item_id": "r1",
+      "met": false,
+      "reason": "顶部导航仍为横排；.nav 和 Start a Project 按钮的布局与原版相同，最终状态没有目标按钮被用于布局编辑的证据。",
+      "category": "target_grounding"
+    },
+    {
+      "item_id": "r2",
+      "met": false,
+      "reason": "浏览器测得 .nav 的 flex-direction 仍为 row，菜单项横向排列，CTA 仍在同一横排，未形成右侧竖向堆叠。",
+      "category": "edit_fulfillment"
+    },
+    {
+      "item_id": "r11",
+      "met": true,
+      "reason": "新增样式直接作用于 .hero、.hero h1 和 .hero .lead，定位到了第一屏 HERO 的背景、标题和正文。",
+      "category": "target_grounding"
+    },
+    {
+      "item_id": "r12",
+      "met": false,
+      "reason": "HERO 背景计算值为 rgb(29, 29, 29)，标题为浅色 rgb(244, 239, 231)，正文为 rgb(209, 209, 209)，未恢复原来的浅背景和深色文字。",
+      "category": "revision"
+    },
+    {
+      "item_id": "r21",
+      "met": true,
+      "reason": "PORTFOLIO 的 .p-stack 中，Ridgehouse 与 Riverline 两个项目条目均被准确识别；各自文字、图片和附属内容随条目移动。",
+      "category": "target_grounding"
+    },
+    {
+      "item_id": "r22",
+      "met": true,
+      "reason": "项目顺序由 Ridgehouse、Atlas、Riverline 变为 Riverline、Atlas、Ridgehouse，两个完整 .p-item 对调，Atlas 保持居中。",
+      "category": "edit_fulfillment"
+    },
+    {
+      "item_id": "r23",
+      "met": true,
+      "reason": "最终 HTML 中 PHILOSOPHY、STUDIO 均为独立 section，SERVICES 表头为 .s-head，目标区域明确且未混淆。",
+      "category": "target_grounding"
+    },
+    {
+      "item_id": "r24",
+      "met": true,
+      "reason": "PHILOSOPHY 仍位于 STUDIO 之前，与原版顺序一致；SERVICES 表头计算为 grid，三列宽度分别为 439.188px、329.406px、329.406px。",
+      "category": "revision"
+    },
+    {
+      "item_id": "r25",
+      "met": true,
+      "reason": "新增 #journal .filt 规则准确覆盖 JOURNAL 内 All、Materials、Daylight、Process、Sustainability 五个筛选按钮。",
+      "category": "target_grounding"
+    },
+    {
+      "item_id": "r26",
+      "met": false,
+      "reason": "五个 JOURNAL 筛选按钮的计算文字颜色均为 rgb(255, 255, 255)；深棕色 rgb(75, 48, 36) 被设为背景色，而非文字色。",
+      "category": "edit_fulfillment"
+    },
+    {
+      "item_id": "r27",
+      "met": true,
+      "reason": "新增规则使用 #journalGrid，准确指向 JOURNAL 文章网格，而非其他复用 .grid 的区域。",
+      "category": "target_grounding"
+    },
+    {
+      "item_id": "r28",
+      "met": true,
+      "reason": "1912px 视口下 #journalGrid 计算为两列 561px、561px；文章几何位置呈每行两张，原版为三列。",
+      "category": "edit_fulfillment"
+    },
+    {
+      "item_id": "r31",
+      "met": true,
+      "reason": "新增 footer 及 footer .foot-col 规则作用于页面底部 FOOTER 和保留的栏目标题、链接。",
+      "category": "target_grounding"
+    },
+    {
+      "item_id": "r32",
+      "met": true,
+      "reason": "FOOTER 背景计算为深棕色 rgb(75, 48, 36)，Explore 和 Studio 标题为亮金色 rgb(241, 203, 101)，链接下边框为 rgba(241, 203, 101, 0.3)；Scan 已移出 FOOTER。",
+      "category": "edit_fulfillment"
+    },
+    {
+      "item_id": "r33",
+      "met": true,
+      "reason": "原版 CASE STUDIES 第五张 .case 标题为 Garden Stair • Multi-family Upgrade；修改版仅该案例条目缺失，其余案例仍在。",
+      "category": "target_grounding"
+    },
+    {
+      "item_id": "r34",
+      "met": true,
+      "reason": "#caseGrid 从六张案例卡片变为五张，Garden Stair 的标题、图片、描述和客户信息均已从该网格移除。",
+      "category": "edit_fulfillment"
+    },
+    {
+      "item_id": "r35",
+      "met": true,
+      "reason": "新增 .award、.award h3、.award .body 规则分别对应 AWARDS 区四张卡片的背景、标题和正文。",
+      "category": "target_grounding"
+    },
+    {
+      "item_id": "r36",
+      "met": true,
+      "reason": "四张奖项卡片背景计算值均为 rgb(16, 45, 39)，标题为 rgb(241, 203, 101)，正文为 rgb(186, 204, 193)。",
+      "category": "edit_fulfillment"
+    },
+    {
+      "item_id": "r37",
+      "met": true,
+      "reason": "目标是 #urban-oasis .hvisual .layer，即 Urban Oasis Tower 右侧的背景图层；其最终背景图与原版对应图层相同。",
+      "category": "target_grounding"
+    },
+    {
+      "item_id": "r38",
+      "met": true,
+      "reason": "#urban-oasis .hvisual .layer 的计算 background-image 与原版均为 photo-1769556353081-0a1fb713d6f3，最终状态已是原图。",
+      "category": "revision"
+    },
+    {
+      "item_id": "r39",
+      "met": false,
+      "reason": "修改版仍保留原顺序的三个 .role，却移动了外层 #careers section；最终状态没有将首尾岗位条目识别为交换对象的证据。",
+      "category": "target_grounding"
+    },
+    {
+      "item_id": "r40",
+      "met": false,
+      "reason": "OPEN ROLES 的实际顺序仍为 Architectural Designer、BIM Coordinator、Materials & Sustainability Specialist，首尾岗位没有交换。",
+      "category": "edit_fulfillment"
+    }
+  ],
+  "no_damage_changes": [
+    {
+      "type": "text_removed",
+      "location": "div.p-text > div > div.p-tags > span.tagpill",
+      "original": "Residential",
+      "modified": null,
+      "count": 1
+    },
+    {
+      "type": "text_removed",
+      "location": "div#caseGrid > article.case > div.info > div.title",
+      "original": "Garden Stair • Multi-family Upgrade",
+      "modified": null,
+      "count": 1
+    },
+    {
+      "type": "text_removed",
+      "location": "div#caseGrid > article.case > div.info > div.desc",
+      "original": "A shared stair and courtyard refresh that improves daylight, safety, and circulation while preservin",
+      "modified": null,
+      "count": 1
+    },
+    {
+      "type": "text_removed",
+      "location": "div.info > div.client > div > div.logo-mini",
+      "original": "GS",
+      "modified": null,
+      "count": 1
+    },
+    {
+      "type": "text_removed",
+      "location": "div.info > div.client > div > span",
+      "original": "Northfield Housing",
+      "modified": null,
+      "count": 1
+    },
+    {
+      "type": "style_changed",
+      "location": "div.p-stack > div.p-item.reveal > div.p-visual > div.shot",
+      "original": "background-image: url('https://images.unsplash.com/photo-1769556353017-7ad71b9c4cc4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4ODI0ODF8MHwxfHNlYXJjaHwyfHxoaWdoJTIwcmlzZSUyMHRvd2VyJTJDJTIwdXJiYW4lMjBza3lsaW5lJTJDJTIwYnVpbGRpbmclMjBmYWNhZGUlMkMlMjBjb25zdHJ1Y3Rpb24lMjBzaXRlfGVufDB8fHx8MTc3MjAzOTU3OHww&ixlib=rb-4.1.0&q=80&w=1080')",
+      "modified": "background-image: url('https://images.unsplash.com/photo-1767793357572-7f282da502d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4ODI0ODF8MHwxfHNlYXJjaHwzfHxoaWdoJTIwcmlzZSUyMHRvd2VyJTJDJTIwdXJiYW4lMjBza3lsaW5lJTJDJTIwYnVpbGRpbmclMjBmYWNhZGUlMkMlMjBjb25zdHJ1Y3Rpb24lMjBzaXRlfGVufDB8fHx8MTc3MjAzOTU3OHww&ixlib=rb-4.1.0&q=80&w=1080')",
+      "context": "element=''"
+    },
+    {
+      "type": "css_rule_changed",
+      "location": "<style> .hero-visual",
+      "original": "box-shadow: var(--shadow)",
+      "modified": "box-shadow: none"
+    },
+    {
+      "type": "css_rule_changed",
+      "location": "<style> .award",
+      "original": "background: #101010",
+      "modified": "background: #102D27"
+    },
+    {
+      "type": "css_rule_changed",
+      "location": "<style> .award .body",
+      "original": "color: rgba(255,255,255,.72)",
+      "modified": "color: #BACCC1"
+    },
+    {
+      "type": "css_rule_added",
+      "location": "<style> .hero h1",
+      "original": null,
+      "modified": "color: #F4EFE7"
+    },
+    {
+      "type": "css_rule_added",
+      "location": "<style> .hero .lead",
+      "original": null,
+      "modified": "color: #D1D1D1"
+    },
+    {
+      "type": "css_rule_added",
+      "location": "<style> #journal .filt",
+      "original": null,
+      "modified": "background: #4B3024; color: #FFFFFF"
+    },
+    {
+      "type": "css_rule_added",
+      "location": "<style> footer",
+      "original": null,
+      "modified": "background: #4B3024; color: #F1CB65"
+    },
+    {
+      "type": "css_rule_added",
+      "location": "<style> footer .wordmark,\n    footer .wordmark span",
+      "original": null,
+      "modified": "color: #F1CB65 !important"
+    },
+    {
+      "type": "css_rule_added",
+      "location": "<style> footer .foot-brand .tagline,\n    footer .foot-col h4,\n    footer .foot-col a,\n    footer .foot-bottom,\n    footer .sbtn,\n    footer .btn-secondary",
+      "original": null,
+      "modified": "color: #F1CB65"
+    },
+    {
+      "type": "css_rule_added",
+      "location": "<style> footer .stroke",
+      "original": null,
+      "modified": "stroke: #F1CB65 !important"
+    },
+    {
+      "type": "css_rule_added",
+      "location": "<style> footer .foot-col a",
+      "original": null,
+      "modified": "border-bottom-color: rgba(241,203,101,.30)"
+    },
+    {
+      "type": "css_rule_added",
+      "location": "<style> footer .foot-bottom",
+      "original": null,
+      "modified": "border-top-color: rgba(241,203,101,.30)"
+    }
+  ],
+  "excluded_diff_artifacts": [
+    {
+      "change": {
+        "type": "css_rule_changed",
+        "location": "<style> .hero-visual .tag",
+        "original": "display: flex",
+        "modified": "display: none"
+      },
+      "reason": "Hide scope is disputed (step9); cannot call it collateral damage after excluding that request."
+    },
+    {
+      "change": {
+        "type": "css_rule_added",
+        "location": "<style> .hero .hero-actions .btn-primary",
+        "original": null,
+        "modified": "border: 0; background: #4B3024; color: #FFFFFF"
+      },
+      "reason": "Change belongs to an explicitly excluded ambiguous operation (4/5/9/10/15)."
+    },
+    {
+      "change": {
+        "type": "css_rule_added",
+        "location": "<style> #trust .fcard",
+        "original": null,
+        "modified": "background: #F4EBDD; border: 1px solid #4B3024; color: #4B3024"
+      },
+      "reason": "Change belongs to an explicitly excluded ambiguous operation (4/5/9/10/15)."
+    },
+    {
+      "change": {
+        "type": "css_rule_added",
+        "location": "<style> #trust .fcard h3",
+        "original": null,
+        "modified": "color: #4B3024"
+      },
+      "reason": "Change belongs to an explicitly excluded ambiguous operation (4/5/9/10/15)."
+    },
+    {
+      "change": {
+        "type": "css_rule_added",
+        "location": "<style> #trust .fcard .metric,\n    #trust .fcard p",
+        "original": null,
+        "modified": "color: #4B3024; font-weight: 700"
+      },
+      "reason": "Change belongs to an explicitly excluded ambiguous operation (4/5/9/10/15)."
+    },
+    {
+      "change": {
+        "type": "css_rule_added",
+        "location": "<style> #journalGrid",
+        "original": null,
+        "modified": "grid-template-columns: 1fr"
+      },
+      "reason": "Upstream CSS diff flattens media queries; one-column narrow layout is not a desktop regression. Browser evidence checks desktop two columns separately."
+    }
+  ],
+  "no_damage_audit": {
+    "changes": [
+      {
+        "id": 1,
+        "is_damage": true,
+        "severity": "high",
+        "reason": "The Residential tag disappeared; swapping project cards does not call for removing their content."
+      },
+      {
+        "id": 2,
+        "is_damage": false,
+        "severity": null,
+        "reason": "The Garden Stair case card was explicitly requested for deletion."
+      },
+      {
+        "id": 3,
+        "is_damage": false,
+        "severity": null,
+        "reason": "The description belonged to the deleted Garden Stair card."
+      },
+      {
+        "id": 4,
+        "is_damage": false,
+        "severity": null,
+        "reason": "The client mark belonged to the deleted Garden Stair card."
+      },
+      {
+        "id": 5,
+        "is_damage": false,
+        "severity": null,
+        "reason": "The client name belonged to the deleted Garden Stair card."
+      },
+      {
+        "id": 6,
+        "is_damage": false,
+        "severity": null,
+        "reason": "Changing the Project Highlight image is consistent with restoring its original image."
+      },
+      {
+        "id": 7,
+        "is_damage": false,
+        "severity": null,
+        "reason": "Removing the HERO visual shadow is within the disputed HERO visual-edit scope."
+      },
+      {
+        "id": 8,
+        "is_damage": false,
+        "severity": null,
+        "reason": "The awards cards were requested to have a dark ink-green background."
+      },
+      {
+        "id": 9,
+        "is_damage": false,
+        "severity": null,
+        "reason": "The awards descriptions were requested to have light gray-green text."
+      },
+      {
+        "id": 10,
+        "is_damage": true,
+        "severity": "medium",
+        "reason": "The HERO title was supposed to return to dark text on a light background."
+      },
+      {
+        "id": 11,
+        "is_damage": true,
+        "severity": "medium",
+        "reason": "The HERO body text was supposed to return to dark text on a light background."
+      },
+      {
+        "id": 12,
+        "is_damage": true,
+        "severity": "medium",
+        "reason": "The JOURNAL filter labels were requested to be dark brown, but this rule makes them white."
+      },
+      {
+        "id": 13,
+        "is_damage": false,
+        "severity": null,
+        "reason": "The footer was requested to have a dark brown background."
+      },
+      {
+        "id": 14,
+        "is_damage": false,
+        "severity": null,
+        "reason": "The footer wordmark color is a reasonable adjustment to the requested footer palette."
+      },
+      {
+        "id": 15,
+        "is_damage": false,
+        "severity": null,
+        "reason": "Gold text within the restyled footer is consistent with its requested palette."
+      },
+      {
+        "id": 16,
+        "is_damage": false,
+        "severity": null,
+        "reason": "Gold footer icon strokes are consistent with the footer color changes."
+      },
+      {
+        "id": 17,
+        "is_damage": false,
+        "severity": null,
+        "reason": "The requested footer link separators are now semi-transparent gold."
+      },
+      {
+        "id": 18,
+        "is_damage": false,
+        "severity": null,
+        "reason": "A semi-transparent gold footer divider is consistent with the requested footer styling."
+      }
+    ],
+    "damage_count": 4,
+    "overall_assessment": "Most changes fit the requested edits, but one tag was lost and the HERO and JOURNAL text colors conflict with explicit requirements.",
+    "_api_failed": false,
+    "raw_response": "{\n  \"changes\": [\n    {\"id\": 1, \"is_damage\": true, \"severity\": \"high\", \"reason\": \"The Residential tag disappeared; swapping project cards does not call for removing their content.\"},\n    {\"id\": 2, \"is_damage\": false, \"severity\": null, \"reason\": \"The Garden Stair case card was explicitly requested for deletion.\"},\n    {\"id\": 3, \"is_damage\": false, \"severity\": null, \"reason\": \"The description belonged to the deleted Garden Stair card.\"},\n    {\"id\": 4, \"is_damage\": false, \"severity\": null, \"reason\":",
+    "score": 0.7222,
+    "total_changes": 18,
+    "api_failures": 0,
+    "batches": 1
+  },
+  "grading_elapsed_sec": 67.47,
+  "submission_sha256": "bfcdd7812e968d69485deae5d095c13bdf7a3164123bc82c77b936eef261d23d",
+  "normalization": {
+    "original_path": "D:\\Desktop\\Omni Agents\\omni2web_sol_20261103\\direct\\118\\edited.html",
+    "original_sha256": "bfcdd7812e968d69485deae5d095c13bdf7a3164123bc82c77b936eef261d23d",
+    "normalized_sha256": "bfcdd7812e968d69485deae5d095c13bdf7a3164123bc82c77b936eef261d23d",
+    "assets": []
+  },
+  "note": "Audit diagnostic score only. Denominator changed: 11 of 16 effective operations; do not compare to paper leaderboard."
+}

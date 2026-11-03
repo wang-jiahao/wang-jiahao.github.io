@@ -1,0 +1,20 @@
+You are a web page editing agent. You are given the original HTML of a web page and one web page editing request from the user. Understand what the user actually wants to change, and edit the page accordingly.
+
+Requirements:
+1. Write the complete edited HTML to `output/edited.html`.
+2. Make only the change the user requested; do not make extra changes, and do not explain.
+3. Keep the rest of the page's content and structure as unchanged as possible.
+4. If the request contains multiple steps, an undo, or a change of mind, follow the final intent.
+5. `output/edited.html` must be the complete page, not a fragment or a diff.
+
+The user's editing request is split across two inputs. (1) `input/request.mp4` is a screen recording of this page in which the user points at parts of the page with a cursor. Treat it as SILENT: do not rely on its audio track. (2) `input/transcript.txt` is a transcription of what the user said while that recording was made, one line per step, in the order requested. The text tells you WHAT to change; the video tells you WHICH part of the page each step points at. Use both.
+
+The original HTML is `input/source.html` (133622 bytes). Its images live in `input/images/` and the page references them with relative paths; keep those paths working.
+
+You are an agent with shell access in this directory. `ffmpeg`, `ffprobe` and Python 3 are installed. Nothing is pre-extracted: it is up to you to get the visual evidence out of the recording — for example `ffmpeg -i input/request.mp4 -vf fps=1 frames/%04d.png` for a frame per second, denser sampling or crops around the cursor where a reference is ambiguous, and rendering the page or your edit if that helps you locate an element. Read frames with the view_image tool. The recording is 243 seconds long and the request has 20 steps, so align each spoken line with the cursor position at the matching moment in the recording before you edit.
+
+Work until `output/edited.html` contains your final answer.
+
+Playwright and Chromium are installed for Python rendering. The same Python libraries are available in both conditions.
+
+Experiment boundary: work only inside this working directory. Do not read parent or sibling directories, other runs, conversation logs, benchmark files, rubrics, or reference annotations. Do not look up this task, its dataset, original source webpage, or annotations online. You may search for replacement images if the request needs them. Keep the supplied local images working relative to output/edited.html.
