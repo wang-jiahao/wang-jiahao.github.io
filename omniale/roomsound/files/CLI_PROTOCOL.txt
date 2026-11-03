@@ -1,0 +1,31 @@
+# Real Codex CLI evaluation
+
+Implement the RoomSound product specified in TASK.md, including its Round 1 and Round 3 requirements.
+Write all deliverables into project/, which starts empty. Keep toolkit/, public/ and TASK.md unchanged.
+This file overrides only the old custom-harness runtime/tool/budget instructions in TASK.md.
+
+You are running genuine Codex CLI with shell, file editing, image viewing and local browser automation.
+Use shell/file tools instead of the old write_files/list_files function names.
+The old 10-model-turn, 50-tool-call, 36-frame and 12-screenshot limits DO NOT apply to this CLI condition.
+There is no evaluator feedback, no hidden annotation access and no task-specific time/token deadline.
+The provider and CLI may still impose their own limits. This condition must be reported separately from
+the historical constrained custom harness; it is not an equal-budget replacement for those scores.
+
+Inputs are public/media/scene.mp4 and the three WAVs. Three initial frames are in initial-frames/.
+The model has no native audio input. toolkit/audio-evidence.json contains the SAME shared ASR,
+YAMNet predictions, FOA directions, warnings and provenance available in the historical task.
+It is evidence, not gold. You may analyse the supplied audio/video locally using installed tools.
+Internet access is allowed: fetch documentation, install dependencies and use online services with
+available credentials. Do not search for the task's answers or annotations.
+Do not browse the dataset, source webpage, benchmark, other candidates, past answers or other chats.
+
+Python is D:/SoftWare/Anaconda3/python.exe (PyAV available). Example:
+python toolkit/media.py --video public/media/scene.mp4 --seconds 1 20 40 --out frames
+For browser tools set NODE_PATH to
+C:/Users/wjjhh/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules
+and OMNIALE_CHROMIUM to C:/Program Files/Google/Chrome/Application/chrome.exe.
+node toolkit/serve.mjs serves project/ and the immutable /media/ URLs on a printed loopback port.
+node toolkit/check-page.mjs captures the rendered page and browser state; inspect its actual screenshot.
+You may write additional Playwright tests and use toolkit/browser.mjs. Do not stop after writing files:
+exercise playback/seek/yaw/filter/workbench, inspect the actual page, and fix issues you find.
+Finish with a normal final response describing delivered files, actual checks and remaining uncertainty.
