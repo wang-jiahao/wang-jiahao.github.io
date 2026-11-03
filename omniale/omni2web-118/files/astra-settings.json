@@ -1,0 +1,30 @@
+{
+  "model": "gpt-6-astra",
+  "framework": "Agent-omni",
+  "effort": "xhigh",
+  "api_base": "https://api-temporary.nju-link.com/v1",
+  "cli_version": "codex-cli 0.166.0-alpha.5.1",
+  "network": "enabled",
+  "input_sha256": {
+    "PROMPT.md": "8822045d2d408d735e4b7d0d975377064e14d138d98957e6dfe92988fbf7489b",
+    "input/source.html": "77ea7c0e1e996e086e888b93365fdc1c1175625cdadb7f2f1d1a248f52e3b199",
+    "input/request.mp4": "71e6e681f94ad8d714ca3bc7d52e0754804d252e111ff176f3e3a302a5bceb3d",
+    "tools/asr.py": "86e314160a3bef82db109e3c2118561106f28becf92716b3a89c7f2504dbab46"
+  },
+  "inputs": [
+    "原始HTML",
+    "图片资源副本",
+    "带中文音轨的录屏"
+  ],
+  "transcription": "agent自行调用faster-whisper large-v3，段级与词级时间标注可用",
+  "scoring_version": "v3.1",
+  "judge_model": "gpt-6-sol",
+  "judge_effort": "high",
+  "run": {
+    "started_at": "2026-11-03T21:28:44.268699+08:00",
+    "finished_at": "2026-11-03T21:48:53.355080+08:00",
+    "elapsed_sec": 1209.08,
+    "exit_code": 0,
+    "html_bytes": 128323
+  }
+}

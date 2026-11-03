@@ -1,0 +1,307 @@
+{
+  "version": "v3.1",
+  "weights": {
+    "target_grounding": 0.1,
+    "edit_fulfillment": 0.5,
+    "no_damage": 0.2,
+    "revision": 0.2
+  },
+  "coverage": {
+    "original_steps": 20,
+    "cancelled_steps": [
+      2,
+      3,
+      7,
+      8
+    ],
+    "disputed_steps": [
+      4,
+      5,
+      9,
+      10,
+      15
+    ],
+    "effective_operations_scored": 11,
+    "original_effective_operations": 16
+  },
+  "checks": [
+    {
+      "item_id": "r1",
+      "category": "target_grounding",
+      "question": "步骤1的目标元素（第一屏顶部导航栏由当前一行横排的菜单项布局中的目标按钮）是否被正确定位？",
+      "weight": 1.0,
+      "expected_visible_evidence": {
+        "before_anchor": "第一屏顶部导航栏由当前一行横排的菜单项布局中的目标按钮",
+        "after_expected_change": "该元素应被识别并作为编辑目标",
+        "forbidden_change": "不应定位到错误的元素",
+        "distractor_note": "把这个改成左侧 logo、中间留空、右侧将所有菜单项和'Start a Project'按钮纵向堆叠的竖排布局"
+      }
+    },
+    {
+      "item_id": "r2",
+      "category": "edit_fulfillment",
+      "step_type": "change_layout",
+      "question": "步骤1的编辑（第一屏顶部导航栏由当前一行横排的菜单项布局，改为左侧 logo、中间留空、右侧将所有菜单项和'Start a Project'按钮纵向堆叠的竖排布局）是否被正确执行？",
+      "weight": 1.0,
+      "expected_visible_evidence": {
+        "before_anchor": "第一屏顶部导航栏由当前一行横排的菜单项布局中的目标按钮",
+        "after_expected_change": "第一屏顶部导航栏由当前一行横排的菜单项布局，改为左侧 logo、中间留空、右侧将所有菜单项和'Start a Project'按钮纵向堆叠的竖排布局",
+        "forbidden_change": "不应对其他无关元素产生影响",
+        "distractor_note": ""
+      }
+    },
+    {
+      "item_id": "r11",
+      "category": "target_grounding",
+      "question": "步骤6的目标元素（第一屏 HERO 区域的背景、主标题和正文段落）是否被正确定位？",
+      "weight": 1.0,
+      "expected_visible_evidence": {
+        "before_anchor": "第一屏 HERO 区域的背景、主标题和正文段落",
+        "after_expected_change": "该元素应被识别并作为编辑目标",
+        "forbidden_change": "不应定位到错误的元素",
+        "distractor_note": "把这个恢复成原来的样子"
+      }
+    },
+    {
+      "item_id": "r12",
+      "category": "revision",
+      "step_type": "revert",
+      "question": "步骤6的编辑（撤回第3步的修改，将第一屏 HERO 区域配色恢复为原来的浅色背景、深色标题和正文）是否被正确执行？",
+      "weight": 1.0,
+      "expected_visible_evidence": {
+        "before_anchor": "第一屏 HERO 区域的背景、主标题和正文段落",
+        "after_expected_change": "撤回第3步的修改，将第一屏 HERO 区域配色恢复为原来的浅色背景、深色标题和正文",
+        "forbidden_change": "不应对其他无关元素产生影响",
+        "distractor_note": ""
+      }
+    },
+    {
+      "item_id": "r21",
+      "category": "target_grounding",
+      "question": "步骤11的目标元素（先指向PORTFOLIO 区域第1个项目卡片 Ridgehouse Courtyard Residence 再指向第3个项目卡片 Riverline Civic Hall）是否被正确定位？",
+      "weight": 1.0,
+      "expected_visible_evidence": {
+        "before_anchor": "先指向PORTFOLIO 区域第1个项目卡片 Ridgehouse Courtyard Residence 再指向第3个项目卡片 Riverline Civic Hall",
+        "after_expected_change": "该元素应被识别并作为编辑目标",
+        "forbidden_change": "不应定位到错误的元素",
+        "distractor_note": "把这个和这个互换一下位置"
+      }
+    },
+    {
+      "item_id": "r22",
+      "category": "edit_fulfillment",
+      "step_type": "swap",
+      "question": "步骤11的编辑（将页面约25%处 PORTFOLIO 区域中第1个项目卡片'Ridgehouse Courtyard Residence'与第3个项目卡片'Riverline Civic Hall'的整个区块位置互换）是否被正确执行？",
+      "weight": 1.0,
+      "expected_visible_evidence": {
+        "before_anchor": "先指向PORTFOLIO 区域第1个项目卡片 Ridgehouse Courtyard Residence 再指向第3个项目卡片 Riverline Civic Hall",
+        "after_expected_change": "将页面约25%处 PORTFOLIO 区域中第1个项目卡片'Ridgehouse Courtyard Residence'与第3个项目卡片'Riverline Civic Hall'的整个区块位置互换",
+        "forbidden_change": "不应对其他无关元素产生影响",
+        "distractor_note": ""
+      }
+    },
+    {
+      "item_id": "r23",
+      "category": "target_grounding",
+      "question": "步骤12的目标元素（先指向 Design Philosophy 区域和 Studio 区域，再指向 SERVICES 区域底部的表头）是否被正确定位？",
+      "weight": 1.0,
+      "expected_visible_evidence": {
+        "before_anchor": "先指向 Design Philosophy 区域和 Studio 区域，再指向 SERVICES 区域底部的表头",
+        "after_expected_change": "该元素应被识别并作为编辑目标",
+        "forbidden_change": "不应定位到错误的元素",
+        "distractor_note": "把这个和这个恢复成原来的位置，这个恢复成原来的样子"
+      }
+    },
+    {
+      "item_id": "r24",
+      "category": "revision",
+      "step_type": "revert",
+      "question": "步骤12的编辑（撤回第2步和第7步的修改，将 PHILOSOPHY 区域与 STUDIO 区域恢复原来的上下位置，并将 SERVICES 区域表头恢复为三列网格布局）是否被正确执行？",
+      "weight": 1.0,
+      "expected_visible_evidence": {
+        "before_anchor": "先指向 Design Philosophy 区域和 Studio 区域，再指向 SERVICES 区域底部的表头",
+        "after_expected_change": "撤回第2步和第7步的修改，将 PHILOSOPHY 区域与 STUDIO 区域恢复原来的上下位置，并将 SERVICES 区域表头恢复为三列网格布局",
+        "forbidden_change": "不应对其他无关元素产生影响",
+        "distractor_note": ""
+      }
+    },
+    {
+      "item_id": "r25",
+      "category": "target_grounding",
+      "question": "步骤13的目标元素（JOURNAL 内容区域顶部的 All、Materials、Daylight、Process、Sustainability 筛选按钮）是否被正确定位？",
+      "weight": 1.0,
+      "expected_visible_evidence": {
+        "before_anchor": "JOURNAL 内容区域顶部的 All、Materials、Daylight、Process、Sustainability 筛选按钮",
+        "after_expected_change": "该元素应被识别并作为编辑目标",
+        "forbidden_change": "不应定位到错误的元素",
+        "distractor_note": "把这些改成深棕色"
+      }
+    },
+    {
+      "item_id": "r26",
+      "category": "edit_fulfillment",
+      "step_type": "change_color",
+      "question": "步骤13的编辑（将页面约65%处 JOURNAL 内容区域顶部所有筛选按钮（All、Materials、Daylight、Process、Sustainability）的文字颜色改为深棕色）是否被正确执行？",
+      "weight": 1.0,
+      "expected_visible_evidence": {
+        "before_anchor": "JOURNAL 内容区域顶部的 All、Materials、Daylight、Process、Sustainability 筛选按钮",
+        "after_expected_change": "将页面约65%处 JOURNAL 内容区域顶部所有筛选按钮（All、Materials、Daylight、Process、Sustainability）的文字颜色改为深棕色",
+        "forbidden_change": "不应对其他无关元素产生影响",
+        "distractor_note": ""
+      }
+    },
+    {
+      "item_id": "r27",
+      "category": "target_grounding",
+      "question": "步骤14的目标元素（JOURNAL 区域的文章网格）是否被正确定位？",
+      "weight": 1.0,
+      "expected_visible_evidence": {
+        "before_anchor": "JOURNAL 区域的文章网格",
+        "after_expected_change": "该元素应被识别并作为编辑目标",
+        "forbidden_change": "不应定位到错误的元素",
+        "distractor_note": "把这个改成两列网格布局"
+      }
+    },
+    {
+      "item_id": "r28",
+      "category": "edit_fulfillment",
+      "step_type": "change_layout",
+      "question": "步骤14的编辑（将页面约65%处 JOURNAL 文章网格由当前的三列网格布局改为两列网格布局）是否被正确执行？",
+      "weight": 1.0,
+      "expected_visible_evidence": {
+        "before_anchor": "JOURNAL 区域的文章网格",
+        "after_expected_change": "将页面约65%处 JOURNAL 文章网格由当前的三列网格布局改为两列网格布局",
+        "forbidden_change": "不应对其他无关元素产生影响",
+        "distractor_note": ""
+      }
+    },
+    {
+      "item_id": "r31",
+      "category": "target_grounding",
+      "question": "步骤16的目标元素（对页面最底部 FOOTER 区域进行批量修改：背景色由深黑标题文字）是否被正确定位？",
+      "weight": 1.0,
+      "expected_visible_evidence": {
+        "before_anchor": "对页面最底部 FOOTER 区域进行批量修改：背景色由深黑标题文字",
+        "after_expected_change": "该元素应被识别并作为编辑目标",
+        "forbidden_change": "不应定位到错误的元素",
+        "distractor_note": "把这个背景改成深棕色，这个文字改成亮金色，这些分隔线改为半透明金色"
+      }
+    },
+    {
+      "item_id": "r32",
+      "category": "edit_fulfillment",
+      "step_type": "region_edit",
+      "question": "步骤16的编辑（对页面最底部 FOOTER 区域进行批量修改：背景色由深黑改为深棕色，所有栏目标题'Explore / Studio / Scan'文字改为亮金色，所有链接文字下方的分隔线改为半透明金色）是否被正确执行？",
+      "weight": 1.0,
+      "expected_visible_evidence": {
+        "before_anchor": "对页面最底部 FOOTER 区域进行批量修改：背景色由深黑标题文字",
+        "after_expected_change": "对页面最底部 FOOTER 区域进行批量修改：背景色由深黑改为深棕色，所有栏目标题'Explore / Studio / Scan'文字改为亮金色，所有链接文字下方的分隔线改为半透明金色 若Scan已因争议移动操作移出footer，不因其位置或footer缺少Scan标题单独判失败；检查保留的栏目及相应标题自身配色。",
+        "forbidden_change": "不应对其他无关元素产生影响",
+        "distractor_note": ""
+      }
+    },
+    {
+      "item_id": "r33",
+      "category": "target_grounding",
+      "question": "步骤17的目标元素（CASE STUDIES 区域中第5张卡片 Garden Stair • Multi-family Upgrade）是否被正确定位？",
+      "weight": 1.0,
+      "expected_visible_evidence": {
+        "before_anchor": "CASE STUDIES 区域中第5张卡片 Garden Stair • Multi-family Upgrade",
+        "after_expected_change": "该元素应被识别并作为编辑目标",
+        "forbidden_change": "不应定位到错误的元素",
+        "distractor_note": "把这个直接删除掉"
+      }
+    },
+    {
+      "item_id": "r34",
+      "category": "edit_fulfillment",
+      "step_type": "hide_or_delete",
+      "question": "步骤17的编辑（删除页面约70%处 CASE STUDIES 区域中第5张卡片'Garden Stair • Multi-family Upgrade'整个案例卡片）是否被正确执行？",
+      "weight": 1.0,
+      "expected_visible_evidence": {
+        "before_anchor": "CASE STUDIES 区域中第5张卡片 Garden Stair • Multi-family Upgrade",
+        "after_expected_change": "删除页面约70%处 CASE STUDIES 区域中第5张卡片'Garden Stair • Multi-family Upgrade'整个案例卡片",
+        "forbidden_change": "不应对其他无关元素产生影响",
+        "distractor_note": ""
+      }
+    },
+    {
+      "item_id": "r35",
+      "category": "target_grounding",
+      "question": "步骤18的目标元素（AWARDS 奖项轮播区域的四张卡片背景、标题文字和正文描述文字）是否被正确定位？",
+      "weight": 1.0,
+      "expected_visible_evidence": {
+        "before_anchor": "AWARDS 奖项轮播区域的四张卡片背景、标题文字和正文描述文字",
+        "after_expected_change": "该元素应被识别并作为编辑目标",
+        "forbidden_change": "不应定位到错误的元素",
+        "distractor_note": "把这个背景改成深墨绿色，这个标题改成亮金色，这个文字改成浅灰绿色"
+      }
+    },
+    {
+      "item_id": "r36",
+      "category": "edit_fulfillment",
+      "step_type": "change_theme",
+      "question": "步骤18的编辑（页面约40%处 AWARDS 奖项轮播区域配色修改：四张奖项卡片背景由深黑改为深墨绿色，卡片内标题文字改为亮金色，正文描述文字改为浅灰绿色）是否被正确执行？",
+      "weight": 1.0,
+      "expected_visible_evidence": {
+        "before_anchor": "AWARDS 奖项轮播区域的四张卡片背景、标题文字和正文描述文字",
+        "after_expected_change": "页面约40%处 AWARDS 奖项轮播区域配色修改：四张奖项卡片背景由深黑改为深墨绿色，卡片内标题文字改为亮金色，正文描述文字改为浅灰绿色",
+        "forbidden_change": "不应对其他无关元素产生影响",
+        "distractor_note": ""
+      }
+    },
+    {
+      "item_id": "r37",
+      "category": "target_grounding",
+      "question": "步骤19的目标元素（PROJECT HIGHLIGHT 区域 Urban Oasis Tower 右侧的背景图）是否被正确定位？",
+      "weight": 1.0,
+      "expected_visible_evidence": {
+        "before_anchor": "PROJECT HIGHLIGHT 区域 Urban Oasis Tower 右侧的背景图",
+        "after_expected_change": "该元素应被识别并作为编辑目标",
+        "forbidden_change": "不应定位到错误的元素",
+        "distractor_note": "把这个恢复成原来的样子"
+      }
+    },
+    {
+      "item_id": "r38",
+      "category": "revision",
+      "step_type": "revert",
+      "question": "步骤19的编辑（撤回第8步的修改，将 PROJECT HIGHLIGHT 区域'Urban Oasis Tower'右侧背景图恢复为原来的图片）是否被正确执行？",
+      "weight": 1.0,
+      "expected_visible_evidence": {
+        "before_anchor": "PROJECT HIGHLIGHT 区域 Urban Oasis Tower 右侧的背景图",
+        "after_expected_change": "撤回第8步的修改，将 PROJECT HIGHLIGHT 区域'Urban Oasis Tower'右侧背景图恢复为原来的图片",
+        "forbidden_change": "不应对其他无关元素产生影响",
+        "distractor_note": ""
+      }
+    },
+    {
+      "item_id": "r39",
+      "category": "target_grounding",
+      "question": "步骤20：识别这两个岗位条目为交换目标。",
+      "weight": 1.0,
+      "expected_visible_evidence": {
+        "before_anchor": "OPEN ROLES列表中的第一个岗位Architectural Designer与第三个岗位Materials & Sustainability Specialist，非外层section。",
+        "after_expected_change": "识别这两个岗位条目为交换目标。",
+        "forbidden_change": "不应定位到错误的元素",
+        "distractor_note": "把这个和这个互换一下位置"
+      }
+    },
+    {
+      "item_id": "r40",
+      "category": "edit_fulfillment",
+      "step_type": "swap",
+      "question": "步骤20：将OPEN ROLES列表中第一个Architectural Designer与第三个Materials & Sustainability Specialist岗位交换，BIM Coordinator仍居中；不要求外层careers/partners区块交换。",
+      "weight": 1.0,
+      "expected_visible_evidence": {
+        "before_anchor": "OPEN ROLES列表中的第一个岗位Architectural Designer与第三个岗位Materials & Sustainability Specialist，非外层section。",
+        "after_expected_change": "将OPEN ROLES列表中第一个Architectural Designer与第三个Materials & Sustainability Specialist岗位交换，BIM Coordinator仍居中；不要求外层careers/partners区块交换。",
+        "forbidden_change": "不应对其他无关元素产生影响",
+        "distractor_note": ""
+      }
+    }
+  ],
+  "judge_model": "gpt-6-sol",
+  "judge_effort": "high",
+  "evidence": "完整HTML、1912×948浏览器计算样式与几何关系、内容等价图片核验；按最后有效意图评分。"
+}
