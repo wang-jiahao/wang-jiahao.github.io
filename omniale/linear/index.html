@@ -50,7 +50,8 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 <div class="card"><b>路线图与图表</b><div class="note">项目状态、时间信息和Cycle time图表。</div></div>
 <div class="card"><b>Agent对话</b><div class="note">带身份、进度与耗时信息的对话内容。</div></div>
 <div class="card"><b>代码编辑器</b><div class="note">等宽字体、多色语法高亮与评审界面。</div></div>
-<div class="card"><b>更新与客户内容</b><div class="note">带日期的Changelog、客户引语及数据。</div></div>
+<div class="card"><b>Changelog</b><div class="note">带日期的产品更新条目与说明。</div></div>
+<div class="card"><b>客户引语与数据</b><div class="note">不同排版的客户引语、大数字与品牌信息。</div></div>
 <div class="card"><b>页脚与手机适配</b><div class="note">多列链接、窄屏导航及无横向溢出。</div></div>
 </div><h3>讲解还交代了什么</h3><p>例如标题字号64、字重约510、字距约−1.4px；两个下拉面板同为860px宽、锚在同一位置；支持悬停与键盘聚焦；窄屏收起导航，并尊重系统的减少动态效果设置。验收同时看画面还原和这些具体行为。</p>
 <h3>验收怎么计分</h3><table><tr><th>分项</th><th>权重</th><th>检查内容</th></tr>
@@ -61,7 +62,7 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 <tr><td>RSP 响应式</td><td class="num">.10</td><td>桌面、平板、手机宽度下的页面与溢出检查。</td></tr>
 </table><p class="note">满分构造解验证确定性判据可同时满足，不代表所有视觉细节已被覆盖。静音配对实验尚未完成，音频贡献仍待实测。</p>
 <h2>二、运行结果</h2><div class="tablewrap"><table><tr><th>提交</th><th>状态</th><th>评分口径</th><th>总分</th><th>耗时</th></tr>
-<tr><td>gpt-6.1-sol · xhigh · NJU Link</td><td>运行中</td><td>确定性</td><td class="num"><b>—</b></td><td>24.5分钟</td></tr>
+<tr><td>gpt-6.1-sol · xhigh · NJU Link</td><td>运行中</td><td>确定性</td><td class="num"><b>—</b></td><td>29.3分钟</td></tr>
 <tr><td>oracle_max 满分构造解</td><td>自测通过</td><td>确定性</td><td><b>100.00</b></td><td>—</td></tr>
 </table></div>
 <p class="note">本页仅展示当前v2。新运行结束并验收后才填最终成绩；中途文件与服务错误都不作为模型能力分数。</p>
@@ -70,9 +71,9 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 </div><h2>三、运行轨迹</h2><p>本轮从新目录独立运行，使用NJU Link，输入文件做SHA256校验。模型可以自行用ffmpeg抽帧、用本地语音模型转写，也可以启动浏览器检查自己写的页面。</p>
 <table><tr><th>记录</th><th>当前值</th></tr>
 <tr><td>运行状态</td><td>运行中</td></tr>
-<tr><td>运行时间</td><td>24.5分钟</td></tr>
-<tr><td>命令执行</td><td>22</td></tr>
-<tr><td>轨迹事件</td><td>55</td></tr>
+<tr><td>运行时间</td><td>29.3分钟</td></tr>
+<tr><td>命令执行</td><td>25</td></tr>
+<tr><td>轨迹事件</td><td>61</td></tr>
 <tr><td>联网关键词需复核项</td><td>0</td></tr>
 <tr><td>参考材料关键词需复核项</td><td>0</td></tr>
 </table><p class="note">代理限制与轨迹关键词检查属于软限制；零命中不等于操作系统隔离证明。运行中数字仅是生成本页时的快照。</p>

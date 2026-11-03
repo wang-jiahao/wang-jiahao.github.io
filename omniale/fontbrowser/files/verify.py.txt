@@ -19,7 +19,7 @@ import sys, json, argparse
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _base import (Site, new_page, entry, ask_judge, parse_verdicts, artifacts,
+from _base import (Site, new_page, entry, ask_judge, parse_verdicts, eval_shot, judge_audit, artifacts,
                    REF_SHOT, CASE, W_IFS, W_AFS, W_CVG, W_VFS, W_RSP)
 from _coverage import score_cvg
 from _probes import (BOUND, TILES_JS, CTRL_JS, RAIL_JS, GEOM_JS,
@@ -57,7 +57,7 @@ RUBRIC = [
   "左栏里有一个横向滑块控件",
   "页面顶部有一条横向工具条，里面有一个较宽的搜索输入框",
   "工具条右侧有一个排序下拉和一组布局切换按钮",
-  "主内容区是一列（或两列）重复的字体卡片，不止三四张",
+  "主内容区由重复的字体卡片组成，呈单列或双列排列",
   "每张卡片上方有一行小字（字体名），下方有一行明显更大的样张文字",
   "各张卡片的样张文字内容一致（都是同一句话）",
   "各张卡片的样张用的字体彼此不同，不是全都一个样",
@@ -85,6 +85,15 @@ def collect(b, site):
     d["ctrl"] = pg.evaluate(CTRL_JS)
     d["t0"] = pg.evaluate(TILES_JS)
     d["geom"] = pg.evaluate(GEOM_JS, BOUND)
+    # CVG 专用：候选页的文案要**全页**采集。
+    # 参考集按 BOUND 界定（它定义了要复刻的范围），但候选页只要排得比原站高一点，
+    # 就会有文案被挤到 BOUND 以下而丢分——那是测量假象，不是能力差异。
+    # 实测：oracle 把全部参考文案都做出来了，却因为版面偏高只被算到 40/65。
+    d["texts_full"] = pg.evaluate("""()=>[...document.querySelectorAll('*')]
+        .filter(e=>{const r=e.getBoundingClientRect(); const c=getComputedStyle(e);
+          return !e.childElementCount&&r.width>1&&r.height>1&&
+                 c.visibility!=='hidden'&&c.display!=='none';})
+        .map(e=>e.textContent.trim()).filter(Boolean)""")
     d["rail"] = pg.evaluate(RAIL_JS)
 
     # 1) 输入预览文案 → 所有卡片跟着变
@@ -178,7 +187,7 @@ def collect(b, site):
     except Exception:
         d["sort_options"] = []
 
-    shot = CASE / "build" / "_cand.png"
+    shot = eval_shot("candidate")
     pg.screenshot(path=str(shot), clip={"x": 0, "y": 0, "width": 1440,
                   "height": min(BOUND, max(800, d["rail"]["scrollH"]))})
     d["shot"] = str(shot)
@@ -471,7 +480,8 @@ def score_vfs(d, ref, use_judge=True):
                   "\n".join(f"{k+1}. {RUBRIC[k]}" for k in pos) +
                   '\n\n只输出 JSON：{"verdicts":[{"i":1,"ok":true,"why":"..."}]}'
                   "（ok=true 维持原判，false 推翻）")
-            rv = parse_verdicts(ask_judge(rp, images=[REF_SHOT, d["shot"]]), len(pos))
+            rv = parse_verdicts(ask_judge(rp, images=[REF_SHOT, d["shot"]]), len(pos),
+                                expected_ids=[k + 1 for k in pos])
             for k, keep in zip(pos, rv):
                 if not keep:
                     v[k] = 0
@@ -568,8 +578,11 @@ def main():
               f"{sum(1 for x in jitems if x['ok'])}/{len(jitems)} ——")
         for it in jitems:
             print(f" {'✓' if it['ok'] else '✗'} {it['k']}")
-    print(f"\n  VFS = 0.60×几何{gfrac*100:.1f}"
-          f" + 0.40×judge{jsc*100:.1f} = {vfs*100:.2f}")
+    if ns.no_judge:
+        print(f"\n  VFS = 几何 {gfrac*100:.2f}（确定性口径，未调用视觉裁判）")
+    else:
+        print(f"\n  VFS = 0.60×几何{gfrac*100:.1f}"
+              f" + 0.40×judge{jsc*100:.1f} = {vfs*100:.2f}")
     print(f"\n—— CVG 内容广度 {cvg*100:.1f} ——")
     for it in cvg_items:
         print(f" {'✓' if it['ok'] else '✗'} {it['k']}"
@@ -581,6 +594,12 @@ def main():
 
     if ns.json:
         Path(ns.json).write_text(json.dumps(dict(
+            evaluation=dict(mode="deterministic" if ns.no_judge else "visual_judge",
+                            judge_model=None if ns.no_judge else "gpt-6.1-sol",
+                            judge_protocol=None if ns.no_judge else "responses/judge-then-refute"),
+            weights=W,
+            artifacts=dict(candidate_screenshot=cand.get("shot")),
+            judge_audit=judge_audit(),
             total=round(total * 100, 2),
             parts={k: round(v * 100, 2) for k, v in parts.items()},
             vfs=dict(geom=round(gfrac * 100, 2), struct=round(struct * 100, 2),
