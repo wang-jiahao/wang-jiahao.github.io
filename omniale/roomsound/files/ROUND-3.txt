@@ -1,3 +1,22 @@
+# Audit correction (2026-11-03)
+
+This is a chronological design record. The authoritative audit is `../../audit-20261103/REPORT.zh-CN.md`.
+All three existing scores use a custom Responses API harness, not Codex or Claude Code. All three
+valid runs ended at their 10-turn budget. Sol/Luna used high and a 20,000 response cap; the valid Opus
+run is opus5-agentic-r3-05, at xhigh with a finite 64,000 cap (observed maximum 47,463).
+No truncation was observed in these valid runs; this is not an equal-budget or unlimited comparison.
+Oracle calibration is deterministic 98/98; its two-point LLM review was not performed.
+Scene B required new bookmark questions, a disclosed background-agent convention, disabling ASR VAD,
+and a continuous-event test adaptation. Sol's gold speech-event duration is 38.1 seconds, not 75.5.
+The 22.30 Sol/Luna gap includes 14.11 content and 8.19 implementation points.
+Sol's conservative upper score is 70.59, so its target is unmet. Luna and Opus both fall below 70.
+The evidence does not establish that further legitimate task difficulty is impossible without reweighting.
+Offline content scores, submission hashes and the ten bookmark intervals were verified. A new counterexample
+shows the historical review checker can accept q2 with only one clapper referenced. Historical scores remain
+under that disclosed criterion; strengthen and version it before future comparative scoring.
+
+---
+
 # Round 3: the same rubric on a far denser scene
 
 Package `starss23_iteration/case8-starss-scene-b`. The rounds 0-2 package
@@ -133,7 +152,7 @@ five answered honestly as unresolved.
 
 The candidate passed the background test: it created a dedicated `background` agent and annotated both whole-clip
 sounds, scoring 1.00 on each. What collapsed is simultaneity. It reported 26.6 seconds of speech where the
-annotation has 75.5, 13.3 seconds of bell against 19.4, 9.1 of laughter against 13.1 — in a scene where something
+annotation has 38.1, 13.3 seconds of bell against 19.4, 9.1 of laughter against 13.1 — in a scene where something
 is always audible and usually several things at once, it keeps reporting only the most prominent one or two.
 
 Implementation was 48 of 48 for the third consecutive round, with all five workbench groups at 1.0. The judge gave
@@ -200,7 +219,7 @@ reference-frame (36) and screenshot (12) budgets are untouched — those are the
 This does not disturb the existing results. No GPT response ever reached the old cap or returned status
 `incomplete`, so the cap was never applied to them as a constraint and the recorded 70.09 and 47.79 stand without
 a re-run. The truncated attempt is kept as `runs/opus5-agentic-r3-01` as evidence and must not be read as a
-capability result; the scored run is `runs/opus5-agentic-r3-02`.
+capability result; the scored run is `runs/opus5-agentic-r3-05`.
 
 ## Result for claude-opus-5
 
@@ -213,7 +232,7 @@ capability result; the scored run is `runs/opus5-agentic-r3-02`.
 | **claude-opus-5** | **xhigh** | **18.16** | **46.17** | 1.5 | **65.83** |
 | gpt-6-luna | high | 6.48 | 39.81 | 1.5 | 47.79 |
 
-`score_without_judge + 2 = 66.33 < 70`, so claude-opus-5 is the first candidate to satisfy the conservative
+`score_without_judge + 2 = 66.33 < 70`, so both luna and claude-opus-5 satisfy the conservative
 stopping rule on this task.
 
 Its single largest response was 47,463 tokens, writing `events.json` and `reviews.json` in one call. That is

@@ -17,7 +17,7 @@ h4{font-size:14px;margin:16px 0 6px;font-weight:600;color:#3d5257}
 .lead{color:#52686c;font-size:16.5px;max-width:900px}
 .tag{display:inline-block;font-size:12px;color:var(--accent);background:var(--soft);padding:2px 9px;border-radius:4px;margin:0 6px 6px 0}
 .tag.gray{background:#e9ece6;color:#52666b}
-table{border-collapse:collapse;width:100%;font-size:13.5px;background:var(--paper);margin:6px 0 4px}
+.table-scroll{overflow-x:auto;max-width:100%;margin:6px 0 4px}table{border-collapse:collapse;width:100%;font-size:13.5px;background:var(--paper);margin:6px 0 4px}
 th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
 th{color:var(--muted);font-weight:500;font-size:12px;white-space:nowrap}
 td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -41,42 +41,42 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 </style></head><body><main>
 <div class="eyebrow">OMNIALE · 空间音频理解与网页实现</div>
 <h1>把一间吵闹房间的录音做成可转头的播放器</h1>
-<p class="lead">给 Agent 一分钟真实房间的 360° 录像，外加一份<b>带方向信息的四通道录音</b>。它要先弄明白"<b>什么时候、什么声音、在哪个方向</b>"，再把这份理解做成一个能转头看、转头听、按声音查找片段的网页。难点不在播放器——那部分前沿模型已经满分了——而在这间房里<b>每一刻都有两到五个声音同时响着</b>，其中两个从头响到尾。</p>
-<span class="tag">STARSS23 真实录音 · 非合成</span><span class="tag">60 秒 · 360° 全景 + 四通道 FOA</span><span class="tag">平均同时发声 3.33 个 · 峰值 5 个</span><span class="tag">3 个模型实测</span><span class="tag gray">单次交付 · 空项目起步</span><span class="tag gray">模型无原生音频输入</span>
+<p class="lead">给 Agent 一分钟真实房间的 360° 录像，外加一份<b>带方向信息的四通道录音</b>。它要先弄明白"<b>什么时候、什么声音、在哪个方向</b>"，再把这份理解做成一个能转头看、转头听、按声音查找片段的网页。在现有自定义框架测试中，Sol 的播放器实现拿到满分，主要失分来自事件推断；这间房里<b>每一刻都有两到五个声音同时响着</b>，其中两个从头响到尾。</p>
+<span class="tag">STARSS23 真实录音 · 非合成</span><span class="tag">60 秒 · 360° 全景 + 四通道 FOA</span><span class="tag">平均同时发声 3.33 个 · 峰值 5 个</span><span class="tag">3 个模型 · 自定义框架</span><span class="tag gray">单次交付 · 空项目起步</span><span class="tag gray">模型无原生音频输入</span>
 
 <h2>一、任务定义</h2>
 <p>委托场景：你拿到一段开会/聚会现场的 360° 录像和同步的空间录音，想做一个比普通播放器好用的东西——<b>能转头看四周，转头时左右耳听到的也跟着变，画面上还标出"此刻这边有人在笑、那边铃在响"，点一下就能跳到那一段</b>。</p>
 
 <h3>给 Agent 的材料</h3>
 <div class="card">
-<table><tr><th>文件</th><th>是什么</th></tr>
+<div class="table-scroll"><table><tr><th>文件</th><th>是什么</th></tr>
 <tr><td><code>scene.mp4</code></td><td>1920×960 等距柱状投影的 360° 视频，15fps，<b>无声</b>。一帧就是把房间四周摊平的一张长图，网页要自己从里面裁出"当前朝向"那一块</td></tr>
 <tr><td><code>scene-foa.wav</code></td><td>24kHz 四通道 <b>一阶 Ambisonics</b>（W,Y,Z,X）。<b>这不是"说话一轨、铃声一轨"</b>——四个通道共同编码整个房间的声音及其方向，里面始终是混在一起的</td></tr>
 <tr><td><code>scene-mono.wav</code> / <code>scene-stereo.wav</code></td><td>单声道和固定朝向的立体声预览，<b>不能拿来替代规定的实时解码</b></td></tr>
-</table>
+</table></div>
 <p class="note">素材来自 STARSS23（SONY／坦佩雷大学）<code>fold4_room24_mix014</code> 原始第 50–110 秒，只做了时间裁剪和转码，人脸由数据集作者原已模糊。</p></div>
 
-<h3>它看不见也听不见，只能"调查"</h3>
+<h3>能看视频帧，音频依靠工具取证</h3>
 <p>这是本案例最容易被误解的一点：<b>被测模型没有原生音频输入</b>。它不能直接听这段录音，只能调用几个共享的取证工具，然后交叉判断：</p>
-<table><tr><th>工具</th><th>给什么</th><th>会怎么骗人</th></tr>
+<div class="table-scroll"><table><tr><th>工具</th><th>给什么</th><th>会怎么骗人</th></tr>
 <tr><td>语音转写</td><td>faster-whisper 转出的文字和时间</td><td class="note">没有说话人归属；会把一长段静音吞进一句话里</td></tr>
 <tr><td>声音分类</td><td>YAMNet 对 0.96 秒窗口给出的 521 类概率</td><td class="note">只是"可能性"，弱声音会被盖过；类名和本题的类别体系不是一回事</td></tr>
 <tr><td>方向估计</td><td>FOA 主动声强在三个频段、每 0.5 秒的主方向</td><td class="note">多个声源重叠时会把它们混成一个向量；混响会把方向带偏</td></tr>
 <tr><td>视频抽帧</td><td>指定秒数的真实画面（最多 36 帧）</td><td class="note"><b>看见不等于听见</b>：画面里有人在动，不代表此刻有脚步声</td></tr>
-</table>
+</table></div>
 
 <h3>要交付什么</h3>
-<table><tr><th>交付物</th><th>内容</th></tr>
+<div class="table-scroll"><table><tr><th>交付物</th><th>内容</th></tr>
 <tr><td><code>events.json</code></td><td>它自己推断出来的<b>声音目录</b>：每个事件的类别、起止时间、所属人物、以及方向轨迹（方位角／仰角随时间变化）</td></tr>
 <tr><td><code>reviews.json</code></td><td>十道<b>媒体推断题</b>的答案（下详）</td></tr>
 <tr><td><code>index.html</code> 等</td><td>真正能用的网页：全景拖动、真实 FOA 解码、播放/拖动/循环、标记、时间线、筛选、<b>标注修订工作台</b></td></tr>
 <tr><td><code>evidence.md</code></td><td>证据说明，要把"观察到的"和"推断的"分开写</td></tr>
-</table>
+</table></div>
 <p class="note">网页必须按题目给定的公式做实时解码：<code>L=0.5*(W−X·sin a+Y·cos a)</code>，<code>R=0.5*(W+X·sin a−Y·cos a)</code>。筛选只影响标记和时间线，<b>不能假装把混合录音里的其他声音分离掉</b>——这题没有独立声轨。</p>
 
 <h3>十道推断题：这题真正在考什么</h3>
 <p>光做播放器不够。题目另外问十个只有真正听懂这段录音才答得上来的问题，答案是<b>held-out 的官方标注</b>，模型看不到：</p>
-<table><tr><th>　</th><th>问题</th><th>标准答案</th></tr>
+<div class="table-scroll"><table><tr><th>　</th><th>问题</th><th>标准答案</th></tr>
 <tr><td class="num">q1</td><td>两个不同的人<b>同时笑</b>的第一个瞬间</td><td class="num">16.4–16.6s</td></tr>
 <tr><td class="num">q2</td><td>两个不同的人<b>同时鼓掌</b>的第一段</td><td class="num">46.9–50.3s</td></tr>
 <tr><td class="num">q3</td><td>同一个人<b>一边鼓掌一边笑</b>的第一段</td><td class="num">45.7–48.8s</td></tr>
@@ -87,11 +87,11 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 <tr><td class="num">q8</td><td>两个不同的人<b>同时说话</b>的第一个瞬间</td><td class="num">3.5–3.8s</td></tr>
 <tr><td class="num">q9</td><td>两个<b>贯穿全片的背景声</b>同时在响的区间</td><td class="num">0–60s</td></tr>
 <tr><td class="num">q10</td><td>最后一次鼓掌结束<b>之后</b>的第一段说话</td><td class="num">54.0–55.1s</td></tr>
-</table>
+</table></div>
 <p class="note">判定条件：区间与真值的 IoU ≥ 0.5 <b>或</b>两端都落在 ±0.2 秒内，同时人物归属（匿名一对一映射，不看 ID 字面）和类别都要对，引用的事件也要真的支撑这个答案。答不出来可以写 <code>unresolved</code> 并说明理由——这叫诚实，但不得分。</p>
 
 <h3>验收标准：内容 50 ＋ 实现 48 ＋ 审查 2</h3>
-<table><tr><th>桶</th><th>权重</th><th>怎么算</th></tr>
+<div class="table-scroll"><table><tr><th>桶</th><th>权重</th><th>怎么算</th></tr>
 <tr><td><b>类别时序 F1</b></td><td class="num">12</td><td>每 100ms 判断哪些类别正在发声，<b>宏平均</b>——每类等权，漏掉或虚报稀有类别都明显扣分</td></tr>
 <tr><td><b>类别＋方向 F1</b></td><td class="num">12</td><td>每 100ms 对活跃预测与真值做一对一最大匹配，类别相同且三维球面角误差 ≤25° 才算匹配</td></tr>
 <tr><td><b>分段不变覆盖度</b></td><td class="num">8</td><td>按真值事件算召回＋按时长加权算精确率。<b>合理地拆分一段不扣分</b>，虚假地把两段连成一段、重复报同一个源才扣</td></tr>
@@ -102,26 +102,27 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 <tr><td><b>书签导航</b></td><td class="num">3</td><td>点一条书签要暂停、跳到中点、转向对应人物</td></tr>
 <tr><td><b>标注修订工作台</b></td><td class="num">18</td><td>字段编辑与校验、拖动标记改轨迹关键帧、<b>原子撤销重做</b>、派生视图与书签失效、导入导出与刷新持久化</td></tr>
 <tr><td><b>证据与可用性审查</b></td><td class="num">2</td><td>有据可溯、推断校准、桌面与手机可用性，各 0.5</td></tr>
-</table>
+</table></div>
 <p class="note">音频验收会换入<b>已知的四通道探针信号</b>，实测不同朝向下各频点的真实幅度——不是看代码里有没有 <code>yaw</code> 变量，也不只看左右响度比。这一点后面会看到它抓到了什么。</p>
 
 <h2>二、运行结果</h2>
-<table><tr><th>　</th><th>推理强度</th><th>总分</th><th>内容 /50</th><th>实现 /48</th><th>审查 /2</th><th>耗时</th></tr>
+<div class="table-scroll"><table><tr><th>　</th><th>推理强度</th><th>总分</th><th>内容 /50</th><th>实现 /48</th><th>审查 /2</th><th>耗时</th></tr>
 <tr><td>gpt-6.1-sol</td><td class="note">high</td><td class="num"><b>70.09</b></td><td class="num">20.59</td><td class="num">48.00</td><td class="num">1.5</td><td class="num">20m05s</td></tr>
 <tr><td>claude-opus-5</td><td class="note">xhigh</td><td class="num"><b>65.83</b></td><td class="num">18.16</td><td class="num">46.17</td><td class="num">1.5</td><td class="num">48m52s</td></tr>
 <tr><td>gpt-6-luna</td><td class="note">high</td><td class="num"><b>47.79</b></td><td class="num">6.48</td><td class="num">39.81</td><td class="num">1.5</td><td class="num">17m15s</td></tr>
-<tr><td>oracle 天花板 <span class="pill">用官方标注手写的满分答卷</span></td><td class="note">—</td><td class="num"><b>98 / 100</b></td><td class="num">50.00</td><td class="num">48.00</td><td class="note">未计</td><td class="num">—</td></tr>
-</table>
-<p class="note"><b>oracle 天花板</b>＝拿官方标注直接写出一份"满分答卷"，用同一个判分器跑。它的作用是分清两种"分数低"：判据合理而模型没做到，还是判据本身有毛病。它拿到 98 分（确定性部分满分），说明这套题是能被做对的。</p>
-<p>三个模型跨度 <b>22.3 分</b>。值得注意的是三者的<b>实现分几乎饱和</b>：sol 48/48、opus-5 46.17/48，连 18 分的标注工作台都是满分——<b>差距全部来自内容分</b>（20.59 / 18.16 / 6.48，满分 50）。</p>
+<tr><td>oracle 参考解 <span class="pill">用官方标注验证确定性满分</span></td><td class="note">—</td><td class="num"><b>98 / 98</b></td><td class="num">50.00</td><td class="num">48.00</td><td class="note">未计</td><td class="num">—</td></tr>
+</table></div>
+<p class="note"><b>oracle 参考解</b>使用官方标注，已通过同一判分器的确定性部分：98/98。其 2 分 LLM 审查未执行，完整总分 100 尚未验证。这证明确定性满分可达，不保证所有判据都没有缺陷。</p>
+<p>Sol 与 Luna 的总分相差 <b>22.30</b>：内容贡献 14.11，实现贡献 8.19。Sol 的实现为 48/48，Opus 为 46.17/48，Luna 为 39.81/48；实现测试对 Sol 接近饱和，对 Luna 仍有区分度。</p>
+<p class="note">三份结果均来自<b>自定义 Responses API 框架，不是 Codex 或 Claude Code</b>。三者均用满 10 回合，状态为 <code>budget_exhausted</code>，对当时已有交付评分。Sol 的原定停止条件仍未达到：68.59 + 2 = <b>70.59</b>。真正 Codex CLI 的 Sol/Terra 补测另行记录，完成前不列新成绩。</p>
 
 <h3>内容分拆开看</h3>
-<table><tr><th>　</th><th>类别时序 F1</th><th>类别＋方向 F1</th><th>分段覆盖</th><th>人物 IDF1</th><th>推断题</th></tr>
+<div class="table-scroll"><table><tr><th>　</th><th>类别时序 F1</th><th>类别＋方向 F1</th><th>分段覆盖</th><th>人物 IDF1</th><th>推断题</th></tr>
 <tr><td>gpt-6.1-sol</td><td class="num">0.671</td><td class="num">0.433</td><td class="num">0.359</td><td class="num">0.433</td><td class="num">1 / 10</td></tr>
 <tr><td>claude-opus-5</td><td class="num">0.418</td><td class="num">0.439</td><td class="num">0.444</td><td class="num">0.417</td><td class="num">1 / 10</td></tr>
 <tr><td>gpt-6-luna</td><td class="num">0.419</td><td class="num">0.052</td><td class="num">0.071</td><td class="num">0.033</td><td class="num">0 / 10</td></tr>
 <tr><td class="note">oracle</td><td class="num note">1.000</td><td class="num note">1.000</td><td class="num note">1.000</td><td class="num note">1.000</td><td class="num note">10 / 10</td></tr>
-</table>
+</table></div>
 
 <h3>交付出来的页面</h3>
 <div class="grid2">
@@ -132,23 +133,23 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 </div>
 
 <h2>三、运行轨迹</h2>
-<p>所有候选都跑在同一套最小化 harness 里：工具只有 <code>list_files / read_file / write_files / video_frames / audio_evidence / run_command(check|serve|reload) / inspect_own_page / browser_action</code>，<b>没有任意 shell、没有文件系统访问</b>。这是必须的——官方标注 <code>gold.json</code> 就在同一个工程包里，给了 shell 等于把答案送给候选。</p>
-<table><tr><th>　</th><th>回合</th><th>工具调用</th><th>取证音频窗口</th><th>取用画面帧</th><th>自查截图</th><th>输出 token</th></tr>
+<p>这三份历史成绩都跑在同一套自定义 harness 里，<b>没有使用 Codex CLI 或 Claude Code</b>：工具只有 <code>list_files / read_file / write_files / video_frames / audio_evidence / run_command(check|serve|reload) / inspect_own_page / browser_action</code>，<b>没有任意 shell，文件读写仅限候选项目</b>。它依靠工具接口限制答案访问。真实 CLI 也可以评测，但须先隔离金标、参考解、旧轨迹与展示页答案；不能仅凭切换工作目录声称隔离。</p>
+<div class="table-scroll"><table><tr><th>　</th><th>回合</th><th>工具调用</th><th>取证音频窗口</th><th>取用画面帧</th><th>自查截图</th><th>输出 token</th></tr>
 <tr><td>gpt-6.1-sol</td><td class="num">10 / 10</td><td class="num">15</td><td class="num">4</td><td class="num">36 / 36</td><td class="num">3</td><td class="num">21,251</td></tr>
 <tr><td>claude-opus-5</td><td class="num">10 / 10</td><td class="num">14</td><td class="num">3</td><td class="num">26 / 36</td><td class="num">1</td><td class="num"><b>133,633</b></td></tr>
 <tr><td>gpt-6-luna</td><td class="num">10 / 10</td><td class="num">16</td><td class="num">5</td><td class="num">24 / 36</td><td class="num">2</td><td class="num">26,140</td></tr>
-</table>
+</table></div>
 <p>三者的取证策略差别不大——都先按 0–20 / 20–40 / 40–60 三段扫一遍音频，再按可疑时间点抽帧。<b>真正的差别在之后</b>：sol 和 luna 会回头补查（sol 又查了 43.5–53.5 秒这一段、抽了 33 帧），opus-5 则把绝大部分算力花在一次性写出完整交付上。</p>
 
 <h3>一个被测出来的协议缺陷：输出上限</h3>
 <p>原协议对每次响应设了 <b>20,000 output tokens</b> 的上限，从第一轮沿用至今，对所有候选一视同仁。但它<b>对 GPT 系从来没有生效过</b>，对 Opus 5 是硬墙：</p>
-<table><tr><th>候选</th><th>单次响应最大输出</th><th>被 20,000 截断</th></tr>
+<div class="table-scroll"><table><tr><th>候选</th><th>单次响应最大输出</th><th>被 20,000 截断</th></tr>
 <tr><td>gpt-6.1-sol</td><td class="num">11,428</td><td class="num ok">0 次</td></tr>
 <tr><td>gpt-6-luna</td><td class="num">7,408</td><td class="num ok">0 次</td></tr>
 <tr><td>claude-opus-5 <span class="pill">xhigh</span></td><td class="num">20,000</td><td class="num no">2 次</td></tr>
-</table>
-<p>原因是推理 token 也计入同一个上限。xhigh 下 Opus 5 在第 4、5 回合把额度全花在推理上，<b>只产出推理、一个工具调用都没发出</b>，项目目录全程为空。<b>一个只约束某一个候选的上限，测的是上限不是模型</b>，所以它被移除了（连同请求超时）。移除后 Opus 5 单次写出 <b>47,463 tokens</b> 一次性交付 <code>events.json</code> 和 <code>reviews.json</code>——是旧上限的 2.4 倍，在原协议下它根本交不出东西。</p>
-<p class="note">这不影响已有成绩：两个 GPT 候选没有任何一次响应达到过旧上限、也没出现过 <code>incomplete</code>，上限对它们从未作为约束生效，所以 70.09 和 47.79 不需要重跑。过程中还发现"不传这个参数"会让网关回落到自己的默认 <b>8192</b>（更低），而传 200000 则网关挂 19.2 分钟后返回 HTTP 504——最终取 64000，是任何候选历史最大单次响应的 5.6 倍，不构成约束。</p>
+</table></div>
+<p>原因是推理 token 也计入同一个上限。xhigh 下 Opus 5 在第 4、5 回合把额度全花在推理上，<b>只产出推理、一个工具调用都没发出</b>，项目目录全程为空。<b>一个只约束某一个候选的上限，测的是上限不是模型</b>，因此有效 Opus 运行将上限提高到 <b>64,000</b>，并移除主动请求时限。之后 Opus 5 单次写出 <b>47,463 tokens</b> 一次性交付 <code>events.json</code> 和 <code>reviews.json</code>——是旧上限的 2.4 倍，在原协议下它根本交不出东西。</p>
+<p class="note">这不影响已有成绩：两个 GPT 候选没有任何一次响应达到过旧上限、也没出现过 <code>incomplete</code>，上限对它们从未作为约束生效，所以 70.09 和 47.79 不需要重跑。过程中还发现"不传这个参数"会让网关回落到自己的默认 <b>8192</b>（更低），而传 200000 则网关挂 19.2 分钟后返回 HTTP 504——最终取 64000，约为有效 Opus 单次峰值 47,463 的 1.35 倍。未观察到截断，不代表无限额或保证永不受限；10 回合等任务预算仍在。GPT 未在新上限下重跑，这不是严格等预算对照。</p>
 
 <h3>模型自己写的证据说明（节选）</h3>
 <div class="grid2">
@@ -180,23 +181,23 @@ Panorama x -&gt; azimuth with `azimuth = 180 - x/1920*360` (positive azimuth = L
 <h3>结论一：实现侧已经饱和，差距全在"听懂"</h3>
 <p>这道题的实现分 48 分里包含了专门设计的高难度部分——18 分的标注修订工作台，要求字段校验、按投影反算拖动关键帧、<b>复合手势的原子撤销重做</b>、派生视图与书签失效同步、导入导出与刷新持久化。</p>
 <p>结果：<b>sol 和 opus-5 都拿了 18/18</b>。为了确认不是测试太松，专门写了一个"看着像对的"错误实现（少三条校验、导入不校验、拖拽不进撤销历史、书签失效只在加载时算一次），它丢了 5.48 分，而且<b>丢分正好落在那几处</b>，基础播放器、筛选、Follow、书签导航全满分。所以是真·满分。</p>
-<p class="note">这带来一个必须讲清楚的算术：实现 48 ＋ 审查 2 既然能被拿满，总分要低于 70 就必须内容分低于 20/50。消融显示"只标语音"这种烂答案也有 17.47 分。<b>继续加实现难度对前沿模型无效</b>——这是本轮最重要的方法论发现。</p>
+<p class="note">这带来一个必须讲清楚的算术：实现 48 ＋ 审查 2 既然能被拿满，总分要低于 70 就必须内容分低于 20/50。消融显示"只标语音"这种烂答案也有 17.47 分。现有测试说明 Sol 已通过这些工程要求，<b>不足以证明所有工程加难都无效</b>，也不能推出只能改权重才能低于 70。</p>
 
 <h3>结论二：三种完全不同的失败方式</h3>
-<table><tr><th>　</th><th>事件数</th><th>幻觉类别</th><th>推断题弃答</th><th>特征</th></tr>
+<div class="table-scroll"><table><tr><th>　</th><th>事件数</th><th>幻觉类别</th><th>推断题弃答</th><th>特征</th></tr>
 <tr><td>gpt-6.1-sol</td><td class="num">37</td><td class="num ok">0</td><td class="num">5 / 10</td><td>类别都对，但<b>持续只报最显著的一两个声音</b></td></tr>
 <tr><td>claude-opus-5</td><td class="num">46</td><td class="num no">4</td><td class="num ok">0 / 10</td><td>全部作答，但<b>凭空标出不存在的类别</b></td></tr>
 <tr><td>gpt-6-luna</td><td class="num">19</td><td class="num no">2</td><td class="num">7 / 10</td><td>整类漏报，且<b>空间解码实际是坏的</b></td></tr>
 <tr><td class="note">真值</td><td class="num note">36</td><td class="num note">—</td><td class="num note">—</td><td class="note">bell / clapping / domestic / laughter / music / speech</td></tr>
-</table>
+</table></div>
 
 <h4>sol：背景声这关过了，垮在重叠</h4>
-<p>它正确识别出两个贯穿全片的背景声（domestic 与 music，各 60 秒，F1 均为 <b>1.00</b>）。但在"每一刻都有 2–5 个声音"的场景里，它只标了 <b>26.6 秒</b>语音，而真值有 <b>75.5 秒</b>；bell 标 13.3 秒（真值 19.4）、laughter 标 9.1 秒（真值 13.1）。类别＋方向 F1 因此只有 0.433，事件召回 0.294。</p>
+<p>它正确识别出两个贯穿全片的背景声（domestic 与 music，各 60 秒，F1 均为 <b>1.00</b>）。但在"每一刻都有 2–5 个声音"的场景里，它只标了 <b>26.6 秒</b>语音，而金标事件时长合计为 <b>38.1 秒</b>；bell 标 13.3 秒（真值 19.4）、laughter 标 9.1 秒（真值 13.1）。类别＋方向 F1 因此只有 0.433，事件召回 0.294。这里的秒数按人物事件相加，允许重叠重复计时，不是有语音的墙钟时长。</p>
 <p>它知道自己不知道：十道题主动弃答五道，理由写得具体（"ASR 没有说话人归属"、"分类器无法独立确认五路同时发声"）。</p>
 
 <h4>opus-5：过度自信，被宏平均放大</h4>
-<p>它是唯一<b>十道全部作答</b>的候选，背景声也标对了。但它凭空标出这个场景根本没有的 <b>door、footsteps、knock、telephone</b> 四个类别，共 78 个误报帧。</p>
-<table><tr><th>类别</th><th>真值</th><th>opus-5 的 F1</th><th>　</th></tr>
+<p>它是唯一<b>十道全部作答</b>的候选，背景声也标对了。但它凭空标出金标中未标注的 <b>door、footsteps、knock、telephone</b> 四个类别，共 78 个误报帧。</p>
+<div class="table-scroll"><table><tr><th>类别</th><th>真值</th><th>opus-5 的 F1</th><th>　</th></tr>
 <tr><td>domestic</td><td class="note">60s 背景</td><td class="num ok">1.000</td><td><div class="bar"><i style="width:100%"></i></div></td></tr>
 <tr><td>music</td><td class="note">60s 背景</td><td class="num ok">1.000</td><td><div class="bar"><i style="width:100%"></i></div></td></tr>
 <tr><td>clapping</td><td class="note">9.5s</td><td class="num">0.768</td><td><div class="bar"><i style="width:77%"></i></div></td></tr>
@@ -204,20 +205,20 @@ Panorama x -&gt; azimuth with `azimuth = 180 - x/1920*360` (positive azimuth = L
 <tr><td>laughter</td><td class="note">13.1s</td><td class="num">0.451</td><td><div class="bar"><i style="width:45%"></i></div></td></tr>
 <tr><td>bell</td><td class="note">19.4s</td><td class="num">0.321</td><td><div class="bar"><i style="width:32%"></i></div></td></tr>
 <tr><td>door / footsteps / knock / telephone</td><td class="no">不存在</td><td class="num no">0.000 ×4</td><td><div class="bar w"><i style="width:0%"></i></div></td></tr>
-</table>
+</table></div>
 <p>类别宏 F1 按"预测与真值类别的<b>并集</b>"平均，分母于是从 6 类变成 10 类、其中 4 类恒为 0——宏 F1 被压到 <b>0.418</b>，哪怕真实的 6 类都标得不错。<b>失败模式是过度自信</b>：sol 不确定就写 unresolved，opus-5 不确定就给一个答案。两者最终都只对 1 道题。</p>
 
 <h4>luna：旧评分器会给它满分的那个坑</h4>
-<p>它只交了 19 个事件，整类漏掉笑声，还标出不存在的 door 和一个长达 60 秒的 instrument。但最值得写的是它的<b>空间音频解码</b>：</p>
-<table><tr><th>测法</th><th>实测</th><th>判定</th></tr>
+<p>它只交了 19 个事件，整类漏掉笑声，还标出金标未标注的 door 和一个长达 60 秒的 instrument。但最值得写的是它的<b>空间音频解码</b>：</p>
+<div class="table-scroll"><table><tr><th>测法</th><th>实测</th><th>判定</th></tr>
 <tr><td>旧评分器：左右声道响度比</td><td class="num">3.9994（期望 4）</td><td class="num ok">满分 9 / 9</td></tr>
 <tr><td>新评分器：独立通道信号传输</td><td class="num no">各频点幅度只有目标的 1/5 ~ 1/20<br><span class="note">317Hz 实测 0.0041 / 目标 0.0175；431Hz 实测 0.0012 / 目标 0.025</span></td><td class="num no">0 / 9</td></tr>
-</table>
+</table></div>
 <p>这是一个<b>左右比例对、但实际波形完全不对</b>的解码实现。造题时用人造反例预言过这种"伪装"，这一轮在真实模型提交上实锤了——<b>没有这次评分器修复，luna 的实现分会虚高 9 分</b>。</p>
 
 <h3>结论三：判据本身的毛病（查出来并修掉的）</h3>
-<p>造题最容易骗自己的地方，是把<b>自己判据的 bug</b> 当成模型的失误。这一轮查出七处，没有一处是靠读代码发现的：</p>
-<table><tr><th>缺陷</th><th>后果</th><th>怎么查出的</th></tr>
+<p>评分器的错误也会被误当作模型失误。已有记录修正了以下问题，依据包括参考解校准、运行日志、DOM 与源码检查：</p>
+<div class="table-scroll"><table><tr><th>缺陷</th><th>后果</th><th>怎么查出的</th></tr>
 <tr><td>拖拽测试从视口中心起手</td><td>正好点中声音标记，Follow 没被关掉 → 误扣</td><td class="note">读候选的 DOM 命中目标</td></tr>
 <tr><td>点导出按钮会滚动页面</td><td>后续拖拽坐标落到屏幕外，关键帧测试全灭</td><td class="note">参考解校准时 6/7 不过</td></tr>
 <tr><td>undo 按钮禁用时直接 click</td><td>卡 30 秒超时，把<b>无关</b>的检查一起清零</td><td class="note">错误参考解在它正确实现的项上拿 0</td></tr>
@@ -225,26 +226,31 @@ Panorama x -&gt; azimuth with `azimuth = 180 - x/1920*360` (positive azimuth = L
 <tr><td>候选把导出/重置放进原生 <code>&lt;details&gt;</code> 折叠面板</td><td><b>首次评出 61.30、工作台五项全零</b></td><td class="note">读候选的 index.html</td></tr>
 <tr><td>贯穿全片的事件没有"非活跃时刻"可探测</td><td>会<b>反过来惩罚</b>正确标注连续背景的候选</td><td class="note">参考解在新场景掉到 97.91</td></tr>
 <tr><td>审查脚本按版本字符串硬编码截图目录</td><td>新一轮审查直接报错</td><td class="note">运行即崩</td></tr>
-</table>
-<p class="note">全部只改测试刺激，不改题目、阈值、权重、预算；原始冻结清单保留，每一处都有独立的 amendment 记录（见案例文件区的完整性核查）。</p>
+</table></div>
+<p class="note">这些测试修正与协议修订分别记录，原始冻结清单保留。R3 还关闭了 ASR VAD 门控、适配了连续背景事件测试；Opus 的推理强度和响应上限也有差异，不能把全部运行条件称为逐字相同。</p>
 
+<h3>补充审计：书签引用检查仍有缺口</h3>
+<p>2026-11-03 离线复核重新得到三份内容分，候选文件摘要全部匹配，十道书签的标准区间也均可从金标独立推导。但错误反例显示：q2 写对区间和两个人的 ID，却<b>只引用其中一人的鼓掌事件</b>，历史判据仍会接受。引用完整性不能据此声称已经得到严格验证。</p>
+<p class="note">历史评分器和原结果保留。审计修订版已补充人物引用覆盖和同时性关系验证：参考解 10/10，两个缺失同伴活动的错误反例均被拒绝。三份旧提交统一重评后内容分均未变，新 Codex CLI 交付也按该版本评分。</p>
 <h3>结论四：这个场景的内容分梯度</h3>
 <p>把官方标注逐步削弱，看内容分怎么掉——用来确认这 50 分确实在奖励"听全"：</p>
-<table><tr><th>提交的标注</th><th>内容 /50</th><th>　</th></tr>
+<div class="table-scroll"><table><tr><th>提交的标注</th><th>内容 /50</th><th>　</th></tr>
 <tr><td>完整（oracle）</td><td class="num"><b>50.00</b></td><td><div class="bar"><i style="width:100%"></i></div></td></tr>
 <tr><td>去掉短于 0.5 秒的事件</td><td class="num">47.03</td><td><div class="bar"><i style="width:94%"></i></div></td></tr>
 <tr><td><b>去掉两个连续背景声</b></td><td class="num no">35.21</td><td><div class="bar w"><i style="width:70%"></i></div></td></tr>
 <tr><td>背景声和短事件都去掉</td><td class="num no">32.10</td><td><div class="bar w"><i style="width:64%"></i></div></td></tr>
 <tr><td><b>只标语音</b></td><td class="num no">17.47</td><td><div class="bar w"><i style="width:35%"></i></div></td></tr>
-</table>
+</table></div>
 <p>漏掉两个背景声就要付出 <b>14.79 分</b>，因为它们是宏平均 6 个类别里的 2 个，而且在每一帧都参与方向匹配。这正是本轮换素材要制造的梯度。</p>
 
 <h2>案例文件</h2>
 <ul class="note">
+<li><a href="files/audit-20261103.json">2026-11-03 审计证据</a> · <a href="files/audit-report.zh-CN.txt">审计报告</a> · <a href="files/review-v2-results.json">书签修订版回归结果</a> —— 内容复算、候选摘要、书签区间与判据反例</li>
+
 <li><a href="files/TASK.txt">TASK.md</a> —— 交给 Agent 的完整题面（冻结版）</li>
-<li><a href="files/protocol.json">protocol.json</a> —— 协议与预算：10 回合 / 50 工具调用 / 36 帧 / 12 截图</li>
+<li><a href="files/protocol.json">protocol.json</a> —— 历史协议及后续修订，预算：10 回合 / 50 工具调用 / 36 帧 / 12 截图</li>
 <li><a href="files/frozen-manifest.json">frozen-manifest.json</a> —— 冻结清单，27 个文件含素材哈希</li>
-<li><a href="files/integrity-audit.json">integrity-audit.json</a> —— 完整性核查：逐文件哈希状态、候选产物哈希、三个模型的全部分项</li>
+<li><a href="files/integrity-audit.json">integrity-audit.json</a> —— 历史完整性快照（最新复核见下）</li>
 <li><a href="files/ROUND-3.txt">ROUND-3.md</a> —— 本轮设计全记录：选素材的方法、工具可复现性验证、校准与修正</li>
 <li><a href="files/iteration-report.zh-CN.txt">迭代报告</a> —— 四轮完整数据、评分器审计、结构性发现</li>
 <li><a href="files/sol-evidence.txt">sol / evidence.md</a> · <a href="files/opus5-evidence.txt">opus-5 / evidence.md</a> —— 两份模型自己写的证据说明</li>
