@@ -3,8 +3,7 @@ layout: null
 sitemap: false
 ---
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow">
-<meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>OmniALE 案例汇总</title><style>
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>OmniALE 案例汇总</title><style>
 :root{--bg:#f4f3ee;--paper:#fffefa;--ink:#172c32;--muted:#647374;--line:#d9deda;--accent:#166f68;--soft:#e4efea;--warm:#b97131}
 *{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;font-size:15px;line-height:1.65}
 main{max-width:1180px;margin:auto;padding:36px 40px 90px}
@@ -30,71 +29,50 @@ details>summary{cursor:pointer;color:var(--accent);font-size:14px}
 .pill{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:10px;background:#e9ece6;color:#52666b;margin-left:6px}
 .major{background:#f5e3d7;color:#9a4f17}
 
-.case{display:grid;grid-template-columns:260px minmax(0,1fr);text-decoration:none;color:inherit;
-background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:16px 0}
-.case:hover{border-color:var(--accent);box-shadow:0 1px 10px rgba(22,111,104,.10)}
+.week{margin-top:34px}.week-heading{display:flex;align-items:baseline;gap:12px;border-top:1px solid var(--line);padding-top:24px}
+.week h2{border:0;padding:0;margin:0;font-size:25px;letter-spacing:-.02em}
+.count{font-size:12px;color:var(--muted)}.week-note{color:var(--muted);font-size:13px;margin:4px 0 18px}
+.taxonomy{margin:20px 0 28px}.taxonomy summary{display:inline-block;font-size:13px}
+.table-scroll{overflow-x:auto}.taxonomy td:nth-child(2){min-width:160px}.taxonomy td:last-child{min-width:270px}
+.case{display:grid;grid-template-columns:260px minmax(0,1fr);text-decoration:none;color:inherit;background:var(--paper);
+border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:16px 0}
+.case:hover,.case:focus-visible{border-color:var(--accent);box-shadow:0 1px 10px rgba(22,111,104,.10)}
 .cover{width:100%;height:146px;object-fit:cover;align-self:start;border:0;border-radius:0;display:block;background:#172c32}
-.body{padding:16px 20px}
-.badge{font-size:11.5px;letter-spacing:.06em;color:var(--accent);font-weight:650;margin-bottom:6px}
-.ext{color:#8a6a3b;background:#f3ece1;border-radius:4px;padding:1px 6px;margin-left:8px;font-weight:500}
-.case h3{margin:0 0 8px;font-size:17.5px;color:var(--ink);font-weight:650;line-height:1.4}
-.desc{margin:0 0 10px;color:#52686c;font-size:14px;line-height:1.65}
-.sc{margin:0;font-size:12.5px;color:#647374;font-variant-numeric:tabular-nums}
-.sc b{color:var(--ink)}
-@media(max-width:700px){.case{grid-template-columns:1fr}.cover{height:auto;aspect-ratio:16/9}}
+.body{padding:16px 20px;min-width:0}.badge{font-size:11.5px;color:var(--accent);font-weight:650;margin-bottom:7px}
+.scenario{color:var(--muted);font-weight:400;margin-left:10px}.case h3{margin:0 0 8px;font-size:17.5px;line-height:1.4}
+.desc{margin:0 0 10px;color:#52686c;font-size:14px;line-height:1.65}.sc{margin:0;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}.sc b{color:var(--ink)}
+@media(max-width:700px){main{padding:24px 18px 60px}h1{font-size:29px}.case{grid-template-columns:1fr}.cover{height:auto;aspect-ratio:16/9}.body{padding:16px}.scenario{display:block;margin:2px 0 0}}
 </style></head><body><main>
-<div class="eyebrow">OMNIALE · 专业音视频智能体评测基准</div>
-<h1>案例汇总</h1>
-<p class="lead">给 Agent 原始素材和一份要求，看它能不能交出可以直接用的成果。<br>
-每个案例包含：任务定义、运行结果、运行轨迹与失败分析。</p>
-
-<a class="case" href="piano/">
-<img class="cover" src="covers/piano.jpg?v=2" alt="">
-<div class="body">
-<div class="badge">C 分析与决策支持 · C1</div>
-<h3>对照乐谱批改钢琴回课录音</h3>
-<p class="desc">学生用手机录了一遍钢琴作业，连乐谱也是手机翻拍的。让 Agent 当老师：听出哪里弹错了，归纳错误背后的共同原因，复查上周布置的问题改没改，再切出录音片段作为证据、写出练习计划。</p>
-<p class="sc">gpt-6.1-sol <b>64.56</b> · claude-opus-5 64.17 · gpt-6-sol 50.55 · qwen3.8-max 43.77 · glm-5.3 41.63 · kimi-k3 26.78 · deepseek-v4-pro 24.44（百分制）</p>
-</div></a>
-<a class="case" href="https://nanxiang-git.github.io/OmniALE/sign/" target="_blank" rel="noopener">
-<img class="cover" src="covers/a4.jpg?v=2" alt="">
-<div class="body">
-<div class="badge">A 创作与适配 · A2</div>
-<h3>真实中国手语视频 → 中英文可切换字幕</h3>
-<p class="desc">给一段没有字幕、也没有声音的中国手语视频，让 Agent 看懂每个人在表达什么，写成中文和英文两套字幕，并交付可以切换语言的成片。</p>
-<p class="sc">gpt-6-astra 39.00 · gpt-6-sol 35.57 · gpt-6-luna 26.99 · glm-5.3-flash 21.57（百分制）</p>
-</div></a>
-<a class="case" href="https://nanxiang-git.github.io/OmniALE/piano/" target="_blank" rel="noopener">
-<img class="cover" src="covers/a6.jpg?v=2" alt="">
-<div class="body">
-<div class="badge">A 创作与适配 · A2</div>
-<h3>真实钢琴演奏 → 乐谱（MusicXML / MIDI / PDF）</h3>
-<p class="desc">给一段 77 秒的真人钢琴演奏视频，让 Agent 把这次实际弹出来的音符记成乐谱，要同时听录音和看键盘画面。</p>
-<p class="sc">gpt-6-sol 33.01 · gpt-6-astra 14.02 · kimi-k3 6.25 · glm-5.3-flash 5.59（百分制）</p>
-</div></a>
-<a class="case" href="https://walnutpz.github.io/omniale/filmfix-pro/" target="_blank" rel="noopener">
-<img class="cover" src="covers/b1.jpg?v=2" alt="">
-<div class="body">
-<div class="badge">B 修订与维护 · B1</div>
-<h3>影片交接 Pro：按会议决定修订三部片子</h3>
-<p class="desc">前任剪辑师留下三部片子的粗剪、三轮会议讨论和交接邮件。让 Agent 从讨论里判断哪些决定仍然有效，据此修改画面、声音和字幕，并自己找出没人报告过的故障。</p>
-<p class="sc">gpt-6-astra <b>67.10</b> · gpt-6.1-sol 65.43 · claude-opus-5 48.41 · kimi-k3 47.39 · gpt-6-luna 44.51 · deepseek-v4.1-flash 42.95 · glm-5.3-flash 40.68 · gpt-6-sol 38.01（百分制）</p>
-</div></a>
-<a class="case" href="fontbrowser/">
-<img class="cover" src="covers/fontbrowser.jpg?v=1" alt="">
-<div class="body">
-<div class="badge">视频复刻网页</div>
-<h3>看录屏复刻一个字体浏览器</h3>
-<p class="desc">给一段三分半的屏幕录像——有人一边操作 Google Fonts 的字体浏览页，一边讲解它怎么工作。让 Agent 把这个页面重做出来：长得像，而且操作起来行为一致。难点不在照着画，而在讲解里那些画面上根本量不出来的参数：滑块的区间和步长、清空输入框后回落到哪句话、搜索是子串匹配还是前缀匹配。</p>
-<p class="sc">gpt-6.1-sol <b>83.72</b> · 手写满分答卷（天花板）89.70（百分制）</p>
-</div></a>
-<a class="case" href="roomsound/">
-<img class="cover" src="covers/roomsound.jpg?v=1" alt="">
-<div class="body">
-<div class="badge">空间音频 · 理解即产品</div>
-<h3>把一间吵闹房间的录音做成可转头的播放器</h3>
-<p class="desc">给 Agent 一分钟真实房间的 360° 录像和一份带方向信息的四通道录音。它要先弄明白"什么时候、什么声音、在哪个方向"，再把这份理解做成能转头看、转头听、按声音查找片段的网页。难点不在播放器——那部分前沿模型已经满分——而在这间房里每一刻都有两到五个声音同时响着，其中两个从头响到尾。</p>
-<p class="sc">gpt-6.1-sol <b>70.09</b> · claude-opus-5 65.83 · gpt-6-luna 47.79 · 手写满分答卷（天花板）98（百分制）</p>
-</div></a>
-
+<div class="eyebrow">OMNIALE · 专业音视频智能体评测基准</div><h1>案例汇总</h1>
+<p class="lead">给 Agent 原始素材和一份要求，看它能不能交出可以直接用的成果。<br>每个案例包含任务定义、运行结果、运行轨迹与失败分析。</p>
+<details class="taxonomy"><summary>领域分类 · 一级领域与二级应用场景</summary><div class="table-scroll"><table>
+<tr><th>编号</th><th>一级领域（Domain）</th><th>二级应用场景</th></tr><tr><td class="num">01</td><td>影视、节目与视觉后期</td><td>影视剪辑、广告动效、视频特效、画质修复、节目质检、场记审核</td></tr><tr><td class="num">02</td><td>三维动画与产品可视化</td><td>人体动作复现、角色绑定与动画、表情控制、产品机构动画</td></tr><tr><td class="num">03</td><td>音频后期与声音工程</td><td>拟音、空间声音、多轨对白、音乐混音、音频工程维护</td></tr><tr><td class="num">04</td><td>音乐制作与演出服务</td><td>音乐转谱、编配、排练修订、声部练习、音乐会制作、MV分镜</td></tr><tr><td class="num">05</td><td>译制、无障碍与发布适配</td><td>手语字幕、字幕制作、跨语译制、音频描述、发布匿名化</td></tr><tr><td class="num">06</td><td>教育、训练与学习应用</td><td>教学视频、技能课程、体育训练复盘、听力测验、教学材料审核</td></tr><tr><td class="num">07</td><td>档案检索与证据研究</td><td>素材检索、来源溯源、口述史、长片证据核查、跨资料研究</td></tr><tr><td class="num">08</td><td>企业协作与数字业务</td><td>装配记录交接、会议协作、操作规范、商品选购网页</td></tr></table></div></details>
+<section class="week" aria-labelledby="week-3"><div class="week-heading"><h2 id="week-3">Week 3</h2><span class="count">3 个案例</span></div><p class="week-note">新增案例 · 真实网页复刻与空间声音</p><a class="case" data-case="linear" href="linear/">
+<img class="cover" src="covers/linear.jpg?v=3" alt="看一段讲解，把 Linear 整页重新做出来" loading="lazy" width="520" height="292">
+<div class="body"><div class="badge">企业协作与数字业务<span class="scenario">视频演示复刻网页</span></div>
+<h3>看一段讲解，把 Linear 整页重新做出来</h3><p class="desc">给 Agent 一段七分钟的中文讲解录屏，从页面顶部一路滑到页脚。它要从空项目还原导航、产品界面、图表、代码编辑器和更新日志，把画面里的布局与讲解里的参数一起做对，并适配手机。</p><p class="sc">gpt-6.1-sol <b>86.16</b>（含视觉裁判） · 确定性 86.53 · Codex xhigh · 联网 · NJU Link</p></div></a>
+<a class="case" data-case="fontbrowser" href="fontbrowser/">
+<img class="cover" src="covers/fontbrowser.jpg?v=3" alt="看录屏复刻一个字体浏览器" loading="lazy" width="520" height="292">
+<div class="body"><div class="badge">企业协作与数字业务<span class="scenario">视频演示复刻网页</span></div>
+<h3>看录屏复刻一个字体浏览器</h3><p class="desc">有人一边操作 Google Fonts，一边讲解这个字体浏览器怎么工作。Agent 要把页面重做出来：长得像，操作行为也一致，包括预览输入、字号滑块、布局切换和搜索。讲解还提供了画面难以量准的参数。</p><p class="sc">gpt-6.1-sol <b>83.72</b>（确定性） · 满分构造解 100.00 · 历史受限网络运行</p></div></a>
+<a class="case" data-case="roomsound" href="roomsound/">
+<img class="cover" src="covers/roomsound.jpg?v=3" alt="把一间吵闹房间的录音做成可转头的播放器" loading="lazy" width="520" height="292">
+<div class="body"><div class="badge">音频后期与声音工程<span class="scenario">空间声音与交互播放器</span></div>
+<h3>把一间吵闹房间的录音做成可转头的播放器</h3><p class="desc">给 Agent 一分钟真实房间的 360° 录像和四通道空间录音。它要判断什么时候、什么声音、在哪个方向，再做成能转头看、转头听、按声音查找片段的网页。难点在多个声音重叠时的事件、方向与身份关联。</p><p class="sc">gpt-6.1-sol <b>70.09</b> · claude-opus-5 65.83 · gpt-6-luna 47.79 · 历史自定义框架 · 参考解确定性满分 98/98</p></div></a></section><section class="week" aria-labelledby="week-1-2"><div class="week-heading"><h2 id="week-1-2">Week 1–2</h2><span class="count">4 个案例</span></div><p class="week-note">早期案例 · 按新版领域分类整理</p><a class="case" data-case="piano" href="piano/">
+<img class="cover" src="covers/piano.jpg?v=3" alt="对照乐谱批改钢琴回课录音" loading="lazy" width="520" height="292">
+<div class="body"><div class="badge">教育、训练与学习应用<span class="scenario">钢琴教学与回课反馈</span></div>
+<h3>对照乐谱批改钢琴回课录音</h3><p class="desc">学生用手机录了一遍钢琴作业，连乐谱也是手机翻拍的。让 Agent 当老师：听出哪里弹错了，归纳错误背后的共同原因，复查上周的问题改没改，再切出录音片段作为证据、写出练习计划。</p><p class="sc">gpt-6.1-sol <b>64.56</b> · claude-opus-5 <b>64.17</b> · gpt-6-sol <b>50.55</b> · qwen3.8-max <b>43.77</b> · glm-5.3 <b>41.63</b> · kimi-k3 <b>26.78</b> · deepseek-v4-pro <b>24.44</b>（百分制）</p></div></a>
+<a class="case" data-case="sign" href="https://nanxiang-git.github.io/OmniALE/sign/" target="_blank" rel="noopener">
+<img class="cover" src="covers/a4.jpg?v=3" alt="真实中国手语视频 → 中英文可切换字幕" loading="lazy" width="520" height="292">
+<div class="body"><div class="badge">译制、无障碍与发布适配<span class="scenario">手语字幕</span></div>
+<h3>真实中国手语视频 → 中英文可切换字幕</h3><p class="desc">给一段没有字幕、也没有声音的中国手语视频，让 Agent 看懂每个人在表达什么，写成中文和英文两套字幕，并交付可以切换语言的成片。</p><p class="sc">gpt-6-astra 39.00 · gpt-6-sol 35.57 · gpt-6-luna 26.99 · glm-5.3-flash 21.57（百分制）</p></div></a>
+<a class="case" data-case="transcription" href="https://nanxiang-git.github.io/OmniALE/piano/" target="_blank" rel="noopener">
+<img class="cover" src="covers/a6.jpg?v=3" alt="真实钢琴演奏 → 乐谱（MusicXML / MIDI / PDF）" loading="lazy" width="520" height="292">
+<div class="body"><div class="badge">音乐制作与演出服务<span class="scenario">音乐转谱</span></div>
+<h3>真实钢琴演奏 → 乐谱（MusicXML / MIDI / PDF）</h3><p class="desc">给一段 77 秒的真人钢琴演奏视频，让 Agent 把这次实际弹出来的音符记成乐谱，要同时听录音和看键盘画面。</p><p class="sc">gpt-6-sol 33.01 · gpt-6-astra 14.02 · kimi-k3 6.25 · glm-5.3-flash 5.59（百分制）</p></div></a>
+<a class="case" data-case="filmfix" href="https://walnutpz.github.io/omniale/filmfix-pro/" target="_blank" rel="noopener">
+<img class="cover" src="covers/b1.jpg?v=3" alt="影片交接 Pro：按会议决定修订三部片子" loading="lazy" width="520" height="292">
+<div class="body"><div class="badge">影视、节目与视觉后期<span class="scenario">影视剪辑与交接修订</span></div>
+<h3>影片交接 Pro：按会议决定修订三部片子</h3><p class="desc">前任剪辑师留下三部片子的粗剪、三轮会议讨论和交接邮件。让 Agent 判断哪些决定仍然有效，据此修改画面、声音和字幕，并找出没人报告过的故障。</p><p class="sc">gpt-6-astra <b>67.10</b> · gpt-6.1-sol 65.43 · claude-opus-5 48.41 · kimi-k3 47.39 · gpt-6-luna 44.51 · deepseek-v4.1-flash 42.95 · glm-5.3-flash 40.68 · gpt-6-sol 38.01（百分制）</p></div></a></section>
+<p class="note">各案例独立评分；模型、框架、联网条件和评分口径以对应详情页为准，不将不同案例的分数合并排名。</p>
 </main></body></html>

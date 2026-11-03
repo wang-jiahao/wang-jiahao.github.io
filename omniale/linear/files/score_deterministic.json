@@ -3,7 +3,7 @@
   "mode": "deterministic",
   "judge_model": null,
   "judge_protocol": null,
-  "derived_from": "same browser observations as _score_model_judge.json"
+  "derived_from": "same browser observations as _score_online_judge.json"
  },
  "weights": {
   "IFS 交互功能": 0.3,
@@ -13,14 +13,14 @@
   "RSP 响应式": 0.1
  },
  "artifacts": {
-  "candidate_screenshot": "D:\\Desktop\\Omni Agents\\omniale_cases\\webrecreate_linear\\build\\_eval_artifacts\\candidate_full_c5ef8db6cbc04ee484dd8f3c96275b49.png"
+  "candidate_screenshot": "D:\\Desktop\\Omni Agents\\omniale_cases\\webrecreate_linear\\build\\_eval_artifacts\\candidate_full_3e6955fe5eca44fbaee874908fa127e4.png"
  },
  "judge_audit": [],
- "total": 87.81,
+ "total": 86.53,
  "parts": {
-  "IFS 交互功能": 100.0,
+  "IFS 交互功能": 91.84,
   "AFS 音频独有": 100.0,
-  "CVG 内容广度": 51.25,
+  "CVG 内容广度": 55.92,
   "VFS 视觉保真": 100.0,
   "RSP 响应式": 100.0
  },
@@ -29,13 +29,13 @@
   "judge": 0.0
  },
  "cvg": {
-  "exact": 0.44982698961937717,
-  "loose": 0.5121107266435986,
-  "token": 0.6695501730103807,
-  "score": 0.5124567474048444,
+  "exact": 0.4913494809688581,
+  "loose": 0.5467128027681661,
+  "token": 0.7474048442906575,
+  "score": 0.5591695501730104,
   "n_ref": 289,
-  "n_hit_exact": 130,
-  "n_hit_loose": 148
+  "n_hit_exact": 142,
+  "n_hit_loose": 158
  },
  "items": {
   "IFS": [
@@ -49,31 +49,31 @@
     "group": "骨架",
     "k": "页高 ≥7000（整页都做了）",
     "ok": true,
-    "got": "10292"
+    "got": "9719"
    },
    {
     "group": "骨架",
     "k": "切出 ≥6 个版式不同的段",
     "ok": true,
-    "got": "21 段"
+    "got": "20 段"
    },
    {
     "group": "骨架",
     "k": "整页可见节点 ≥400",
     "ok": true,
-    "got": "842（线上 2890，多为包裹层）"
+    "got": "1075（线上 2890，多为包裹层）"
    },
    {
     "group": "骨架",
     "k": "整页可交互元素 ≥30",
     "ok": true,
-    "got": "97"
+    "got": "380"
    },
    {
     "group": "①首屏+界面模拟",
     "k": "有这一段",
     "ok": true,
-    "got": "y=73"
+    "got": "y=527"
    },
    {
     "group": "①首屏+界面模拟",
@@ -85,25 +85,25 @@
     "group": "①首屏+界面模拟",
     "k": "有产品界面块（高 ≥420、宽 ≥1000）",
     "ok": true,
-    "got": "1320x780"
+    "got": "1320x769"
    },
    {
     "group": "①首屏+界面模拟",
     "k": "块内左侧有窄侧栏，纵向条目 ≥6",
     "ok": true,
-    "got": "14 条，距左缘 20"
+    "got": "12 条，距左缘 20"
    },
    {
     "group": "①首屏+界面模拟",
     "k": "块内可交互元素 ≥10",
     "ok": true,
-    "got": "28 个"
+    "got": "31 个"
    },
    {
     "group": "②三张 Fig 卡",
     "k": "有这一段",
     "ok": true,
-    "got": "y=1939"
+    "got": "y=1886"
    },
    {
     "group": "②三张 Fig 卡",
@@ -121,19 +121,19 @@
     "group": "③issue 列表+输入栏",
     "k": "有这一段",
     "ok": true,
-    "got": "y=2507"
+    "got": "y=2513"
    },
    {
     "group": "③issue 列表+输入栏",
     "k": "有 issue 编号样式的文案（ENG-xxxx 之类）",
     "ok": true,
-    "got": "14 条"
+    "got": "12 条"
    },
    {
     "group": "③issue 列表+输入栏",
     "k": "这一段按钮 ≥9（输入栏工具条）",
     "ok": true,
-    "got": "28 个"
+    "got": "26 个"
    },
    {
     "group": "③issue 列表+输入栏",
@@ -145,7 +145,7 @@
     "group": "④路线图+图表",
     "k": "有这一段",
     "ok": true,
-    "got": "y=3807"
+    "got": "y=3787"
    },
    {
     "group": "④路线图+图表",
@@ -156,20 +156,20 @@
    {
     "group": "④路线图+图表",
     "k": "页面里有图表（svg/canvas 或 ≥5 根条形）",
-    "ok": true,
-    "got": "svg0 canvas1 条形7"
+    "ok": false,
+    "got": "svg0 canvas0 条形0"
    },
    {
     "group": "④路线图+图表",
     "k": "图表标题命中 Cycle time",
-    "ok": true,
-    "got": ""
+    "ok": false,
+    "got": "前一步未过，段内级联"
    },
    {
     "group": "⑤agent 对话",
     "k": "有这一段",
     "ok": true,
-    "got": "y=5129"
+    "got": "y=5025"
    },
    {
     "group": "⑤agent 对话",
@@ -181,25 +181,25 @@
     "group": "⑤agent 对话",
     "k": "这一段有 ≥6 条文案",
     "ok": true,
-    "got": "45 条"
+    "got": "37 条"
    },
    {
     "group": "⑥代码编辑器",
     "k": "有这一段",
     "ok": true,
-    "got": "y=6525"
+    "got": "y=6389"
    },
    {
     "group": "⑥代码编辑器",
     "k": "有等宽代码块（叶子 ≥12、等宽占比 ≥50%）",
     "ok": true,
-    "got": "160 叶子 等宽 0.7"
+    "got": "161 叶子 等宽 0.7"
    },
    {
     "group": "⑥代码编辑器",
     "k": "代码块有语法高亮（≥3 种文字颜色）",
     "ok": true,
-    "got": "19 种颜色"
+    "got": "17 种颜色"
    },
    {
     "group": "⑥代码编辑器",
@@ -211,25 +211,25 @@
     "group": "⑦Changelog",
     "k": "有这一段",
     "ok": true,
-    "got": "y=7853"
+    "got": "y=7997"
    },
    {
     "group": "⑦Changelog",
     "k": "有一个 ≥40px 的大标题",
-    "ok": true,
-    "got": "48px"
+    "ok": false,
+    "got": "30px"
    },
    {
     "group": "⑦Changelog",
     "k": "命中 ≥2 个带年份的日期",
-    "ok": true,
-    "got": "4 条"
+    "ok": false,
+    "got": "前一步未过，段内级联"
    },
    {
     "group": "⑧引语+数据",
     "k": "有这一段",
     "ok": true,
-    "got": "y=8583"
+    "got": "y=7997"
    },
    {
     "group": "⑧引语+数据",
@@ -247,7 +247,7 @@
     "group": "⑨页脚",
     "k": "有这一段",
     "ok": true,
-    "got": "y=9801"
+    "got": "y=9281"
    },
    {
     "group": "⑨页脚",
@@ -265,7 +265,7 @@
     "group": "⑩导航下拉",
     "k": "悬停入口①→ 展开",
     "ok": true,
-    "got": "860x288"
+    "got": "860x280"
    },
    {
     "group": "⑩导航下拉",
@@ -307,13 +307,13 @@
     "group": "⑩导航下拉",
     "k": "面板不挂在按钮正下方（Δx ≥ 120）",
     "ok": true,
-    "got": "Δ=320"
+    "got": "Δ=317"
    },
    {
     "group": "⑩导航下拉",
     "k": "直接横移换菜单：同时只有一个开着",
     "ok": true,
-    "got": "同时开着 1 个浮层，当前面板 860x256 8 链接（之前 860x288 9 链接）"
+    "got": "同时开着 1 个浮层，当前面板 860x278 8 链接（之前 860x280 9 链接）"
    },
    {
     "group": "⑩导航下拉",
@@ -325,7 +325,7 @@
     "group": "⑩导航下拉",
     "k": "键盘 focus 也展开",
     "ok": true,
-    "got": "focus 后面板 860x288"
+    "got": "focus 后面板 860x280"
    },
    {
     "group": "⑩导航下拉",
@@ -353,7 +353,7 @@
    {
     "k": "④ 正文主力字号 12–14px，不是 16px",
     "ok": true,
-    "got": "众数 14px，≤14px 占 94%（线上 [[14, 180], [12, 167], [13, 125]]）"
+    "got": "众数 13px，≤14px 占 93%（线上 [[14, 180], [12, 167], [13, 125]]）"
    },
    {
     "k": "⑤ 面板① 九个链接、分四列",
@@ -373,7 +373,7 @@
    {
     "k": "⑧ 两面板左缘锚同一点、不挂按钮下",
     "ok": true,
-    "got": "面板间 Δx=0，离触发器 Δx=320"
+    "got": "面板间 Δx=0，离触发器 Δx=317"
    },
    {
     "k": "⑨ 面板无淡入过渡",
@@ -383,12 +383,12 @@
    {
     "k": "⑩ 直接横移换菜单只有一个面板开着",
     "ok": true,
-    "got": "同时开着 1 个浮层，当前面板 860x256 8 链接（之前 860x288 9 链接）"
+    "got": "同时开着 1 个浮层，当前面板 860x278 8 链接（之前 860x280 9 链接）"
    },
    {
     "k": "⑪ 键盘 focus 也能展开",
     "ok": true,
-    "got": "focus 后面板 860x288"
+    "got": "focus 后面板 860x280"
    },
    {
     "k": "⑫ 768px 导航只剩 ≤3 链接且悬停不弹面板",
@@ -403,7 +403,7 @@
    {
     "k": "⑭ 减弱动态效果后带动画元素砍掉 ≥60%",
     "ok": true,
-    "got": "1 vs 7（线上 325/1006）"
+    "got": "2 vs 6（线上 325/1006）"
    },
    {
     "k": "⑮ 没有自作主张加浅色主题切换",
@@ -413,29 +413,29 @@
    {
     "k": "⑯ 代码段用等宽字体且有 ≥3 种颜色的语法高亮",
     "ok": true,
-    "got": "19 色 等宽 0.7"
+    "got": "17 色 等宽 0.7"
    },
    {
     "k": "⑰ 输入栏工具按钮 ≥9 个",
     "ok": true,
-    "got": "28 个"
+    "got": "26 个"
    }
   ],
   "CVG": [
    {
     "k": "文案严格覆盖 ≥55%",
     "ok": false,
-    "got": "45%（130/289）"
+    "got": "49%（142/289）"
    },
    {
     "k": "文案归一化后覆盖 ≥70%",
     "ok": false,
-    "got": "51%（148/289）"
+    "got": "55%（158/289）"
    },
    {
     "k": "词级召回 ≥85%",
     "ok": false,
-    "got": "67%"
+    "got": "75%"
    }
   ],
   "GEOM": [
@@ -492,39 +492,39 @@
    {
     "k": "正文众数 12–14px 且 ≤14px 占多数",
     "ok": true,
-    "got": "众数 14px，≤14px 占 94%"
+    "got": "众数 13px，≤14px 占 93%"
    },
    {
     "k": "整页高度 7000–13000（量级对得上）",
     "ok": true,
-    "got": "10292（线上 9960）"
+    "got": "9719（线上 9960）"
    }
   ],
   "RSP": [
    {
     "k": "1440px 无横向溢出",
     "ok": true,
-    "got": "页高 10292"
+    "got": "页高 9719"
    },
    {
     "k": "1024px 无横向溢出",
     "ok": true,
-    "got": "页高 10239"
+    "got": "页高 9723"
    },
    {
     "k": "768px 无横向溢出",
     "ok": true,
-    "got": "页高 9504"
+    "got": "页高 8973"
    },
    {
     "k": "390px 无横向溢出",
     "ok": true,
-    "got": "页高 10262"
+    "got": "页高 9856"
    },
    {
     "k": "390px 下页高 ≥4000（整页都在）",
     "ok": true,
-    "got": "10262（线上 5876）"
+    "got": "9856（线上 5876）"
    }
   ],
   "JUDGE": []
@@ -532,8 +532,8 @@
  "run": {
   "model": "gpt-6.1-sol",
   "effort": "xhigh",
-  "network": "proxy restriction + web_search disabled; not OS isolation",
-  "elapsed_seconds": 1984.438,
+  "network": "enabled; user proxy settings preserved; web_search live",
+  "elapsed_seconds": 1663.688,
   "source_hashes": {
    "TASK.md": "27b24bb1d6a9df1a202ca6bba29b7b3af6b144d1bb8f446cb8a9df3e9408138e",
    "materials\\recording.mp4": "f1da8a8a866b0060a0cf518227e5a7ece8b3a294fa397cb28b1ed69fe3bedbb6"

@@ -38,9 +38,8 @@ details>summary{cursor:pointer;color:var(--accent);font-size:14px}
 figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 @media (max-width:820px){main{padding:24px 18px 60px}.grid2{grid-template-columns:1fr}}
 .shot{display:block;max-height:650px;overflow:hidden;border:1px solid var(--line);border-radius:6px}.shot img{display:block;width:100%;border:0;border-radius:0}.tablewrap{overflow-x:auto}video{background:#111;aspect-ratio:8/5}</style></head><body><main>
-<div class="eyebrow">OMNIALE · 视频复刻网页 · LINEAR V2</div><h1>看一段讲解，把Linear整页重新做出来</h1><p class="lead">给Agent一段七分钟的中文讲解录屏。讲解人从页面顶部一路滑到页脚，展示导航、产品界面、图表、代码编辑器和更新日志。Agent只有这段录像，需要从空项目写出一个能打开、能交互、适配手机的网页。</p>
+<div class="eyebrow">OMNIALE · 企业协作与数字业务 · 视频演示复刻网页</div><h1>看一段讲解，把Linear整页重新做出来</h1><p class="lead">给Agent一段七分钟的中文讲解录屏。讲解人从页面顶部一路滑到页脚，展示导航、产品界面、图表、代码编辑器和更新日志。Agent只有这段录像，需要从空项目写出一个能打开、能交互、适配手机的网页。</p>
 <span class="tag">真实网站</span><span class="tag">9个主要段落</span><span class="tag">422秒 · 中文讲解</span><span class="tag">Sol xhigh · NJU Link</span><span class="tag gray">依赖预装 · 当前测试允许联网</span>
-<p class="note">当前已开放agent联网，正在独立重测。下方已完成成绩来自此前的受限网络运行，不会作为联网成绩混用。</p>
 <h2>一、任务定义</h2><p>你要把一个在用的网页重新实现。没有设计稿，也没有源码；从录像里看布局、文字和操作，从讲解里听那些画面难以量准的参数，然后写成HTML、CSS和JavaScript。</p>
 <div class="card"><video controls preload="metadata" poster="assets/poster.webp" src="assets/recording.mp4"></video><p class="note">原站操作录屏，1440×900，带中文TTS讲解。该预览只压缩画质，正式材料为原始录屏。</p></div>
 <table><tr><th>给Agent</th><th>需要交付</th></tr><tr><td>简短TASK.md与一段带讲解的录屏。不给图片或字体，允许CSS图片占位与系统字体。</td><td><code>output/site/index.html</code> 及简短的 <code>output/notes.md</code>。整页都要做，演示和讲解提到的行为也要实现。</td></tr></table>
@@ -63,15 +62,14 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 <tr><td>RSP 响应式</td><td class="num">.10</td><td>桌面、平板、手机宽度下的页面与溢出检查。</td></tr>
 </table><p class="note">满分构造解验证确定性判据可同时满足，不代表所有视觉细节已被覆盖。静音配对实验尚未完成，音频贡献仍待实测。</p>
 <h2>二、运行结果</h2><div class="tablewrap"><table><tr><th>提交</th><th>状态</th><th>评分口径</th><th>总分</th><th>耗时</th></tr>
-<tr><td>Sol xhigh · NJU Link · 联网重测</td><td>运行中</td><td>待评分</td><td>—</td><td>—</td></tr>
-<tr><td>上一轮Sol xhigh · 受限网络</td><td>已完成</td><td>确定性</td><td class="num"><b>87.81</b></td><td>33.1分钟</td></tr>
-<tr><td>同一份Sol交付</td><td>已评分</td><td>含视觉裁判</td><td><b>87.44</b></td><td>同上</td></tr>
+<tr><td>Sol xhigh · NJU Link · 允许联网</td><td>已完成</td><td>确定性</td><td class="num"><b>86.53</b></td><td>27.7分钟</td></tr>
+<tr><td>同一份Sol交付</td><td>已评分</td><td>含视觉裁判</td><td><b>86.16</b></td><td>同上</td></tr>
 <tr><td>oracle_max 满分构造解</td><td>自测通过</td><td>确定性</td><td><b>100.00</b></td><td>—</td></tr>
 </table></div>
 <table><tr><th>分项</th><th>确定性得分</th></tr>
-<tr><td>IFS 交互功能</td><td class="num">100.00</td></tr>
+<tr><td>IFS 交互功能</td><td class="num">91.84</td></tr>
 <tr><td>AFS 音频独有</td><td class="num">100.00</td></tr>
-<tr><td>CVG 内容广度</td><td class="num">51.25</td></tr>
+<tr><td>CVG 内容广度</td><td class="num">55.92</td></tr>
 <tr><td>VFS 视觉保真</td><td class="num">100.00</td></tr>
 <tr><td>RSP 响应式</td><td class="num">100.00</td></tr>
 </table>
@@ -80,41 +78,46 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 </div><h2>三、运行轨迹</h2><p>本轮从新目录独立运行，使用NJU Link，输入文件做SHA256校验。模型可以自行用ffmpeg抽帧、用本地语音模型转写，也可以启动浏览器检查自己写的页面。</p>
 <table><tr><th>记录</th><th>当前值</th></tr>
 <tr><td>运行状态</td><td>已完成</td></tr>
-<tr><td>运行时间</td><td>33.1分钟</td></tr>
-<tr><td>命令执行</td><td>28</td></tr>
-<tr><td>轨迹事件</td><td>69</td></tr>
+<tr><td>运行时间</td><td>27.7分钟</td></tr>
+<tr><td>命令执行</td><td>22</td></tr>
+<tr><td>轨迹事件</td><td>70</td></tr>
 <tr><td>联网关键词需复核项</td><td>0</td></tr>
 <tr><td>参考材料关键词需复核项</td><td>0</td></tr>
 </table><p class="note">代理限制与轨迹关键词检查属于软限制；零命中不等于操作系统隔离证明。运行中数字仅是生成本页时的快照。</p>
-<details class="card"><summary>模型的交付说明</summary><pre># 复刻说明
+<details class="card"><summary>模型的交付说明</summary><pre># 网页复刻说明
 
-入口：`site/index.html`，直接用浏览器打开即可。纯 HTML / CSS / JavaScript，无构建步骤，无外部依赖或网络请求。
+直接用浏览器打开 `site/index.html` 即可，无需安装依赖、启动服务或联网。整页包含首屏工作区、客户标识、理念卡片、四个功能区、Changelog、客户引语、行动入口和完整页脚。图片和人物头像采用 CSS 几何图形或色块，字体采用系统 Arial / Helvetica，代码使用 Consolas 等宽字体。
 
-## 讲解中补充的规则与实现
+## 讲解中补充、画面无法直接确定的要求
 
-- **首屏尺寸（00:32–01:14）**：桌面标题为 64px / 64px、字重 510、字距 −1.4px；一般界面文字采用 12–14px。使用系统无衬线字体。产品演示由可操作的 DOM 组成，不使用录屏截图。
-- **悬停菜单（04:51–06:07）**：Product 九个入口、四列，Resources 八个入口、三列；两面板共用同一定位容器，宽 860px，左边缘对齐。悬停直接出现，无淡入和延时；横移立即切换，始终只展开一个；移出页头关闭。
-- **键盘（05:54–06:07）**：Tab 聚焦菜单按钮会展开面板；可继续用 Tab 访问入口，也支持向下方向键进入面板、Esc 收起，以及可见的焦点轮廓。
-- **窄屏（06:08–06:33）**：768px 时页头仅保留品牌、Log in、Sign up 三个链接和菜单按钮，桌面菜单从布局及交互中移除，不会在原位置触发。390px 手机标题为 38px、四行；产品演示缩放并裁切，与录屏一致。
-- **减少动态效果（06:38–06:48）**：通过 `prefers-reduced-motion: reduce` 停止三组持续动画中的两组，动画数量由 3 降到 1；保留的一组放慢至三倍周期，并关闭平滑滚动及位移过渡。
-- **固定深色（06:48–06:56）**：始终使用深色配色和 `color-scheme: dark`，系统浅色偏好不会改变页面；没有主题切换按钮。
-- **消息工具栏（02:00–02:25）**：按讲解顺序实现附件、格式、表情、提及、视频、音频、快捷指令、发送及定时发送九个按钮，均有名称提示和键盘入口。支持编辑消息、Enter 发送、Shift+Enter 换行及选择未来时间。定时消息在页面保持打开时到点更新为已发送。
+| 讲解时间 | 要求 | 实现 |
+| --- | --- | --- |
+| 00:31–00:58 | 首屏标题 64px、行高 64px、字重 510、字距 −1.4px；常规正文以 12–14px 为主 | 在 CSS 中明确设置这些数值；手机标题为 38px、四行。功能区介绍保留画面中的较大字号。 |
+| 00:58–01:20 | 首屏是搭建的产品界面，侧栏条目可点 | 全部使用 HTML 控件。切换侧栏会显示对应内容；支持搜索、新建 issue、详情编辑、收藏、Agent 回复和代码评审入口。 |
+| 02:00–02:25 | 消息栏依次有附件、隐藏格式、表情、提及、录视频、录音、运行快捷指令、发送、定时发送九个工具 | 九项均可操作。支持文件附件、富文本格式、表情和人员选择、浏览器录制与预览、快捷创建 issue、发送消息和定时队列。Enter 发送，Shift+Enter 换行。录制需要浏览器设备授权；不可用时可上传已有文件。 |
+| 03:31–03:51 | 代码需等宽字体，关键字、字符串、组件名分别高亮；首行为 `import React from 'react'` | 使用 DOM 文本、行号、语法高亮和红绿差异行，未使用截图。 |
+| 04:52–05:53 | 两个导航菜单悬停展开；无淡入；同位置、同为 860px；直接横移切换；同一时间仅开一个 | 共用导航容器锚点，通过即时切换 `hidden` 与 `aria-expanded` 实现互斥。按讲解设置 Product 的 9 个入口／4 列（包含底部 Learn more）和 Resources 的 8 个入口／3 列。 |
+| 05:53–06:25 | Tab 聚焦同样展开；鼠标移开关闭；768px 时菜单应彻底禁用 | 支持 Tab、向下键进入菜单、Escape 关闭；窄屏隐藏并禁用桌面面板，调整窗口时清理展开状态。窄屏保留登录、注册和移动菜单入口。 |
+| 06:38–06:47 | 系统启用“减弱动态效果”时，动画元素减少三分之二 | 常态 6 个持续动画元素；启用 `prefers-reduced-motion: reduce` 后停止其中 4 个，仅保留放慢的工作指示器与轻微透明度变化，共 2 个。同步停止 Agent 内容自动轮换及平滑滚动。 |
+| 06:47–06:56 | 固定深色，无浅色主题、无主题切换按钮 | 固定背景、文字配色以及 `color-scheme: dark`，不受系统浅色偏好影响。 |
 
-## 其他实现及范围
+## 本地交互范围与验证
 
-整页包含九段：首屏、三张原则卡片、Intake、Planning、AI、Build、Changelog、客户引语及数据、底部 CTA 与页脚。图形、头像及品牌图案用 CSS 或文字占位；图表由 Canvas 绘制；代码使用等宽字体并分别高亮关键字、字符串和组件名。
+讲解只提供首页，因此未提供的站外目标以本地详情面板、表单或页内导航实现。登录／注册为本地工作区演示；联系表单只保存到当前浏览器，不发送邮件、不创建真实线上账号。定时消息、新建 issue 等使用 `localStorage` 保存；定时消息在页面打开时执行，到期后重新打开页面也会处理待发送内容。
 
-可操作侧栏、收藏、issue 切换与搜索、创建 issue、评审状态、diff 预览、agent 面板和回复、功能项展开以及更新详情。未提供内容的站外链接使用本地面板；登录、注册及销售表单在本地验证并保存，不连接真实服务。音视频按钮提供录制计时和片段占位交互，不采集摄像头或麦克风，也不上传附件。
+已通过 Chromium 实际浏览器检查：1440、768、390、360px 布局，菜单悬停与键盘切换、九个工具入口、消息和定时队列、issue 编辑、代码高亮、功能展开及客户入口。无 JavaScript 错误、无外部网络请求、无横向页面溢出；直接 `file://` 打开可用。检查脚本及截图位于 `qa/`，结果见 `qa/results.json`。
 
-## 验证
-
-使用离线 Chromium / Playwright 检查了 1440px、768px、390px 的布局，菜单尺寸与对齐、鼠标及键盘操作、消息工具栏、issue、diff、表单、固定深色和减少动态效果；没有页面脚本错误。截图及检查结果位于 `qa/`。
+复刻仅依据提供的录屏及讲解，未访问原始页面或查找原始代码。
 </pre></details>
 <h2>四、失败分析</h2>
 <p>下面列出当前最终交付未通过的检查。级联失败会标明前置步骤，不将同一前置问题重复解释为多项独立能力失败。</p><table><tr><th>分项</th><th>检查</th><th>实际观察</th></tr>
-<tr><td>JUDGE</td><td>没有参考之外的非设计性错位或溢出；允许参考同样采用的产品面板叠放和边缘裁切</td><td></td></tr>
+<tr><td>IFS</td><td>页面里有图表（svg/canvas 或 ≥5 根条形）</td><td>svg0 canvas0 条形0</td></tr>
+<tr><td>IFS</td><td>图表标题命中 Cycle time</td><td>前一步未过，段内级联</td></tr>
+<tr><td>IFS</td><td>有一个 ≥40px 的大标题</td><td>30px</td></tr>
+<tr><td>IFS</td><td>命中 ≥2 个带年份的日期</td><td>前一步未过，段内级联</td></tr>
+<tr><td>JUDGE</td><td>字体是无衬线，字形接近 Inter 这类几何无衬线</td><td></td></tr>
 </table>
-<p>文本严格覆盖命中 130/289 条，归一化后命中 148 条，文本覆盖得分 51.25。这是本轮主要失分项。该指标对文字节点拆分仍敏感，未命中不全部等于内容缺失，需要结合截图判断。视觉裁判的失分属于图像判词，原始回复可在评分明细中审阅。</p>
+<p>文本严格覆盖命中 142/289 条，归一化后命中 158 条，文本覆盖得分 55.92。这是本轮主要失分项。该指标对文字节点拆分仍敏感，未命中不全部等于内容缺失，需要结合截图判断。视觉裁判的失分属于图像判词，原始回复可在评分明细中审阅。</p>
 <h3>评分器自身也需要检查</h3><p>构造解必须能拿确定性满分；视觉裁判失败时停止评分，不能把错误回复当作全部不通过。每轮评分独立保存截图和裁判原始回复，避免并行自测覆盖截图。当前全页检查仍有粗粒度结构阈值，不能等同于完整产品验收。</p>
 <h2>案例文件</h2><ul><li><a href="files/TASK.txt">给Agent的任务说明</a></li><li><a href="files/case_card.txt">案例设计与评分口径</a></li><li><a href="files/verify_full.py.txt">全页评分器</a></li>
 <li><a href="files/score_deterministic.json">确定性评分明细</a></li>
