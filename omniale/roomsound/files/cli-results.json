@@ -1,0 +1,115 @@
+{
+  "generated_at": "2026-11-03T11:32:31.642166+00:00",
+  "case": "RoomSound R3",
+  "framework": "Codex CLI",
+  "internet": true,
+  "api_base": "https://api-temporary.nju-link.com/v1",
+  "cli_version": "0.166.0-alpha.5.1",
+  "scoring": "content-v2 + driver-v3 + four half-point review criteria",
+  "reference": {
+    "content": 50,
+    "implementation": 48,
+    "deterministic": 98,
+    "full_total_not_verified": true
+  },
+  "rows": [
+    {
+      "key": "sol",
+      "model": "gpt-6.1-sol",
+      "framework": "Codex CLI",
+      "effort": "xhigh",
+      "run_id": "r3-sol-codex-xhigh-04",
+      "total": 74.12,
+      "content": 24.615244292720078,
+      "implementation": 48,
+      "judge": 1.5,
+      "deterministic": 72.62,
+      "upper": 74.62,
+      "temporal": 0.7029270281853205,
+      "joint": 0.4970261184380657,
+      "episode": 0.5387420437043231,
+      "identity": 0.4882337729506077,
+      "bookmarks": 2.0,
+      "event_count": 50,
+      "classes": [
+        "bell",
+        "clapping",
+        "domestic",
+        "laughter",
+        "music",
+        "speech"
+      ],
+      "sources": [
+        "background",
+        "p1",
+        "p2"
+      ],
+      "unresolved": 5,
+      "commands": 35,
+      "failed_commands": 8,
+      "usage": {
+        "input_tokens": 4320678,
+        "cached_input_tokens": 4061568,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 54651,
+        "reasoning_output_tokens": 11620
+      },
+      "elapsed_seconds": 2293.747625,
+      "elapsed_human": "38m14s",
+      "finished": "2026-11-03T10:28:39.067065+00:00",
+      "result": "D:\\Desktop\\Omni Agents\\starss23_iteration\\case8-starss-scene-b\\iteration\\results\\r3-codex-sol-04-v3\\result.json",
+      "result_version": "roomsound-r3-audited-v3"
+    },
+    {
+      "key": "terra",
+      "model": "gpt-6.1-terra",
+      "framework": "Codex CLI",
+      "effort": "xhigh",
+      "run_id": "r3-terra-codex-xhigh-02",
+      "total": 57.52,
+      "content": 8.018918992565991,
+      "implementation": 48,
+      "judge": 1.5,
+      "deterministic": 56.02,
+      "upper": 58.02,
+      "temporal": 0.3945462797808638,
+      "joint": 0.1038135593220339,
+      "episode": 0.1962092962073628,
+      "identity": 0.05861581920903955,
+      "bookmarks": 0.0,
+      "event_count": 14,
+      "classes": [
+        "bell",
+        "clapping",
+        "music",
+        "speech"
+      ],
+      "sources": [
+        "background",
+        "performer-a"
+      ],
+      "unresolved": 8,
+      "commands": 25,
+      "failed_commands": 5,
+      "usage": {
+        "input_tokens": 1902521,
+        "cached_input_tokens": 1859840,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 19441,
+        "reasoning_output_tokens": 1572
+      },
+      "elapsed_seconds": 726.166502,
+      "elapsed_human": "12m06s",
+      "finished": "2026-11-03T10:43:55.969368+00:00",
+      "result": "D:\\Desktop\\Omni Agents\\starss23_iteration\\case8-starss-scene-b\\iteration\\results\\r3-codex-terra-02-v3\\result.json",
+      "result_version": "roomsound-r3-audited-v3"
+    }
+  ],
+  "caveats": [
+    "Single completed run per model; API model names are provider aliases.",
+    "Real CLI shell/image/browser tools, full evidence cache as file, internet allowed, no old custom turn/tool/frame/screenshot caps.",
+    "Historical custom harness scores are not equal-budget, equal-tool or equal-provider causal comparisons.",
+    "Sol elapsed includes browser audio environment repair; both final submissions use the same working fake-output PCM test backend.",
+    "Judge verdicts reused on the exact original base screenshots and unchanged evidence; only workbench test stimulus changed."
+  ]
+}

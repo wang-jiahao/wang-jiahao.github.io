@@ -1,6 +1,12 @@
 {
-  "generated_at": "2026-11-03T09:16:32.353379+00:00",
+  "generated_at": "2026-11-03T11:29:56.791481+00:00",
   "scope": "Offline audit; no new model run; original submissions and scores unchanged.",
+  "source_annotation": {
+    "path": "source/metadata_dev/dev-test-sony/fold4_room24_mix014.csv",
+    "sha256": "f717a272e35181606926c3fa96ba40eda2e54b051d01b67e37529d3eaad13df9",
+    "samples": 2001,
+    "matches_gold": true
+  },
   "frozen_at": "2026-11-02T18:50:44.805Z",
   "files": [
     {
@@ -13,7 +19,10 @@
       "path": "iteration/evaluate-v2.mjs",
       "frozen_sha256": "162c04a0c692ef804c9d788866c2a1a658c9c19141cac13b68ad1d4c78c4e608",
       "current_sha256": "a83f639b5fddce2ab6afa227f3f91caae8a96a6df13e8844f77dbb4c67be4167",
-      "state": "amended"
+      "state": "amended",
+      "amendment_references": [
+        "iteration/round-3/no-token-or-time-cap-amendment.json"
+      ]
     },
     {
       "path": "iteration/metrics_r1.py",
@@ -37,13 +46,19 @@
       "path": "iteration/evaluate-r3.mjs",
       "frozen_sha256": "26cdf7224af6d1c0e03620a9c334f3fa4329c2cc766d340a3965ea821b6ea9b7",
       "current_sha256": "e88b436572cf9d3806164c68a0ca5309045ead0e929c15aaa3734190176834b9",
-      "state": "amended"
+      "state": "amended",
+      "amendment_references": [
+        "iteration/round-3/no-token-or-time-cap-amendment.json"
+      ]
     },
     {
       "path": "iteration/judge-hybrid.mjs",
       "frozen_sha256": "62d7ccd41607b4dddfb06521ba73db4a65396fd5559533f6026548406f62ab5e",
       "current_sha256": "543d061f6bb562aa5389d91ea285a9649a06877b828acadfb84123071f38c032",
-      "state": "amended"
+      "state": "amended",
+      "amendment_references": [
+        "iteration/round-3/judge-routing-amendment.json"
+      ]
     },
     {
       "path": "iteration/analyze_probe.py",
@@ -67,19 +82,30 @@
       "path": "iteration/run-agent.mjs",
       "frozen_sha256": "01b2b6d66265bcff12d6ca457cca268256bec6c167df47274183da4d70ba81ce",
       "current_sha256": "53ad77bcbd8f3edee248544e7183c43dccb84092f40da0c523e5c51b01c35b5d",
-      "state": "amended"
+      "state": "amended",
+      "amendment_references": [
+        "iteration/round-3/no-token-or-time-cap-amendment.json"
+      ]
     },
     {
       "path": "runner/browser.mjs",
       "frozen_sha256": "afee8df4e1a5cadc00792be37223a28c8ca2ec3624aab907fa89033062db93a5",
-      "current_sha256": "afee8df4e1a5cadc00792be37223a28c8ca2ec3624aab907fa89033062db93a5",
-      "state": "unchanged"
+      "current_sha256": "db0c730f562801b2cac544bb2f291ab01b6f9f5f7bca68daef201e70fe6b2600",
+      "state": "amended",
+      "amendment_references": [
+        "../audit-20261103/audio-backend-amendment.json"
+      ]
     },
     {
       "path": "runner/gateway.mjs",
       "frozen_sha256": "8dc45be6ddbd9185612cf87673d582565debff64b89be6dc6af7ead99ef614cc",
       "current_sha256": "9d03eda877cc071f76a186781333e8909e9260d364e53ff430ce0cb67c361ae1",
-      "state": "amended"
+      "state": "amended",
+      "amendment_references": [
+        "iteration/round-3/opus5-amendment.json",
+        "iteration/round-3/no-token-or-time-cap-amendment.json",
+        "../audit-20261103/api-routing-amendment.json"
+      ]
     },
     {
       "path": "runner/tools.mjs",
@@ -163,12 +189,17 @@
       "path": "iteration/round-3/protocol.json",
       "frozen_sha256": "ceaa43ac1a383e38294752b77d03c437b7892275536abc5eeab3adacbca2e810",
       "current_sha256": "aff3c7b4415a3fa79148af55e0d4adae65cdc2e77875682d8e5c63591858b59d",
-      "state": "amended"
+      "state": "amended",
+      "amendment_references": [
+        "iteration/round-3/models-amendment.json",
+        "iteration/round-3/opus5-amendment.json",
+        "iteration/round-3/no-token-or-time-cap-amendment.json"
+      ]
     }
   ],
   "file_summary": {
-    "unchanged": 21,
-    "amended": 6
+    "unchanged": 20,
+    "amended": 7
   },
   "rows": [
     {
@@ -494,6 +525,7 @@
   },
   "validation": {
     "all_content_reproduced": true,
+    "source_csv_matches_gold": true,
     "all_candidate_hashes_match": true,
     "all_bookmark_intervals_match": true
   }

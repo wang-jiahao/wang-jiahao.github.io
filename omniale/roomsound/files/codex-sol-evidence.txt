@@ -1,0 +1,69 @@
+# RoomSound evidence record
+
+This is an independent, provisional annotation of the supplied 60-second scene. No official labels, hidden annotations, benchmark pages, prior candidates, or other sessions were accessed. This run used the genuine CLI condition described in `CLI_PROTOCOL.md`, with unrestricted local inspection relative to the old custom-harness frame/call limits. It should be reported separately from the historical equal-budget condition.
+
+## What was actually inspected
+
+- The three supplied panoramic images in `initial-frames/` at 1, 20 and 40 seconds were opened with an image tool.
+- Additional exact video samples were extracted locally with PyAV: the table at every integer second from 0 to 59, the door-side person every two seconds, and twelve table close-ups at 1.5, 7.7, 11.8, 16.7, 21, 25.8, 26.5, 39.9, 42.5, 45.5, 46.5 and 47.5 seconds. The montages in `analysis/` were visually inspected. They establish track continuity and corroborate clapping; they do not establish sound by themselves.
+- `toolkit/audio-evidence.json`: all shared classifier windows and ASR segments, plus selected directional-energy windows. The shared W-audio SHA-256 provenance is `47ccb69500d95e876de3b0fff7763dd5206c5c1011d81fbcfc8082e02056c5e6`. This is the supplied tool's identifier, not a claim of an independently verified file hash.
+- The original four-channel WAV was analysed locally with NumPy/SciPy STFTs. `analysis/spatial-energy.png` shows the spectrum and azimuthal energy by band. `analysis/table-directions.png` restricts the view to higher-energy, roughly table-directed bins. These are mixture energy estimates, not source trajectories.
+- For a supplementary check, the public general-purpose Qualcomm YAMNet v0.61.0 float ONNX release was downloaded from its public model distribution, with the published `torch_audioset` preprocessing consulted. Fixed spatial MVDR beams were classified at a 0.48-second hop. These are additional fallible model outputs. They do not reveal hidden task answers and are not isolated stems. The output in `analysis/*classification.json` contains **raw logits**, not probabilities; a sigmoid is required to interpret a probability-like score. The local supplementary method differs from the shared evidence preprocessing and its scores are not directly comparable.
+- There is no native audio input available to this model. I did not personally hear or transcribe the scene. Sound-class judgments below are based on the provided perception evidence and local signal/model analysis, cross-checked against images. Browser audio tests establish software behavior, not perceptual truth.
+
+## Performer continuity and directions
+
+`p1` is the nearer seated performer at the left table (gray top, nearer panorama seam); `p2` is the farther seated performer at that table (light outer layer). These descriptions identify positions/clothes and make no demographic inference. The two remain in the same seats across the sampled minute. Their speech, possible laughter and clapping keep the same performer IDs. Approximate mouth positions are +166°, −24° for P1 and +137°, −15° for P2. Clapping is placed nearer the visible hands (+157°, −22° and +134°, −20°). Posture changes and body-to-hand differences are approximate; one stationary keyframe is used per submitted interval rather than inventing subsecond motion.
+
+The door-side person visibly moves at roughly 5–7, 24–34 and 54–59 seconds. No sufficiently independent audio evidence identifies a vocal, footstep or bell activity from that person, so visibility alone does not add a third speaking track. The seated person at the right equipment desk likewise has no attributed event.
+
+`background` is one non-tracked agent for room equipment, music and bell-like equipment tones, even when their directions differ. No new agent is created for each physical background item. Background source directions are substantially less reliable than table-performer positions. In particular the music position (−30°, −20°), mechanism position (−100°, −38°), and bell positions are coarse hypotheses from mixed band energy; they are not acoustically triangulated emitters. Bell-to-background attribution is uncertain.
+
+All directions follow the requested convention: panorama center is 0°, positive azimuth is left. Coordinates come from the supplied panorama mapping and mixed FOA energy, not performer identity metadata.
+
+## Event inference and limits
+
+The starting file has 50 events across six classes. Decimal boundaries are practical estimates for review, **not** evidence of hundredth-second perceptual accuracy. Most vocal boundaries are uncertain by at least 0.3–0.7 seconds, and some by more. Fine precision in a JSON field does not imply that precision was observed.
+
+| Event group | Evidence | Main limitation |
+| --- | --- | --- |
+| `room-music`, 0–60 s | Shared Music predictions recur across almost the whole recording: e.g. 0.96 s .481, 6.24 s .896, 10.08 s .923, 20.16 s .944, 29.76 s .738, 41.28 s .789. Local spatial beams retain musical evidence in other windows. | Strong speech/clapping masks the music late in the clip. Whole-clip continuity is an inference; not every second was independently classified as music. Musical instrument labels are treated as part of this music, without a duplicate instrument event. |
+| `room-mechanism`, 0–60 s | Persistent low-frequency energy; local mechanism/printer/microwave/fan/air-conditioning alternatives; the visible fan changes orientation at 1, 20 and 40 s. | Low confidence. Visible fan rotation is corroboration, not proof of audible fan noise. Whole-clip audibility and the specific equipment origin are unresolved. This is a possible quieter continuous domestic bed. |
+| `room-bell-01…07` | Shared bell/chime predictions around 1.44–2.40, 11.52–12.96, 16.32–17.76, 20.64–21.60, 25.44–27.84, 39.36–40.32, 42.24–43.20 s. Shared Bell peaks at .899 around 20.64 s. | Some are likely musical partials, glass-like sounds, or equipment tones. The 11.55 and 39.45 s candidates are especially uncertain. Directional estimates are contaminated by music. The strong siren/alarm result at 7.2–8.6 s does not justify calling it a telephone. |
+| P1/P2 speech, approximately 2–6, 8–10.7, 12–19.7, 20.8–21.8, 27.8–28.9, 30–33.1, 34.9–39.2, 43.8–44.7, 50.6–54.3, 55.8–56.6 and 57–60 s | Shared speech peaks around 3.84, 14.40, 16.80, 35.52–39.36 and 50.40–60 s. Supplementary table-directed beams emphasize additional quiet speech near 2–6, 8–10, 13–15, 18.7–19.7, 21, 28, 30 and 32 s. | Beam leakage can make one voice appear in both directions. Seat attribution and overlapping two-voice intervals are provisional. ASR has no speaker attribution and its early English sentences have high no-speech probabilities; none is shown as a reliable transcript. Speech fragments are deliberately not extended across long silent gaps. |
+| Laughter candidates at 14.9–15.6, 32.9–33.6, 45.2–47.0, 51.5–52.1 and 55.1–56.0 s | Weak chuckle/laughter alternatives in supplementary beams: P2 around 14.88, both beams around 32.64, P2 around 45.12, and 55.20–55.68 s; shared chuckle/laughter alternatives near 51.36 s. Posture/gestures at 45–46 s provide contextual support. | Low confidence, especially multiple-voice attribution. Scores are small and dog/whimper/choir alternatives occur. No dog event is asserted from these predictions. These are review candidates, not confirmed laugh diarization. |
+| `p1-clapping-01`, 46.85–50.30; `p2-clapping-01`, 46.05–50.45 | Shared clapping .684 at 46.56, .988 at 47.52, .964 at 48.48, .969 at 48.96 s; strong supplementary clapping logits. In the inspected 46–50 s frames both seated people bring their hands together repeatedly. | Better supported than quiet vocal overlaps. Start/end estimates differ from classifier window edges and could be several tenths of a second off. P2 starts earlier in the visible sequence. |
+
+Door, footsteps, knock, water, telephone and a separate instrument event were not asserted merely because objects, walking or related classifier alternatives occur. In particular "Door/Tap" predictions during the late clapping are not independent evidence of a sounding door. All twelve ontology classes remain available to human editors.
+
+## Evidence-review bookmarks
+
+All ten IDs are present. Five remain explicitly unresolved (`q1`, `q3`, `q5`, `q6`, `q7`), with reasons shown in the page. Their candidate windows, where present, are not presented as verified answers and clicking them does not seek. The overlap questions were not treated as proof that a particular sound or source exists.
+
+- `q2`: 46.85–50.30 s, the overlap of the two estimated clapping intervals, referencing both events.
+- `q4`: 34.85–39.15 s, the longest *submitted* speech interval (`p2-speech-11`). This is a candidate for the recording's longest speech, with pause segmentation and speaker association uncertain.
+- `q8`: 3.85–4.85 s, first annotated two-voice speech overlap. Weakness: beam leakage can imitate two speakers, so this is provisional.
+- `q9`: 0–60 s, both background candidates, grouped under the same background agent. The music is much more secure than the continuous mechanical bed.
+- `q10`: 50.60–51.65 s (`p1-speech-12`), first estimated speech start after final clapping ends at 50.45 s. The shared classifier supports a transition near 50.4–51 s but does not establish a 0.15-second gap precisely.
+
+Review windows are fixed evidence bookmarks, not automatically regenerated answers after an edit. Their `data-stale` values are recalculated exactly by whether any currently referenced event overlaps their window. Unresolved reviews always have `data-stale="false"`.
+
+## Playback and implementation
+
+The visible canvas uses the defined equirectangular crop, not a perspective camera: horizontal FOV 120°, vertical FOV 90°, elevation center 0°, aspect 4:3. Split drawing handles the panorama seam. Markers use the documented linear projection and shortest-arc keyframe interpolation.
+
+Only `/media/scene-foa.wav` feeds sound. A RIFF parser deinterleaves the original W,Y,Z,X PCM to avoid browser channel-layout remapping. Native Web Audio splits those four channels and sums the prescribed gains: `L=.5(W−X sin a+Y cos a)`, `R=.5(W+X sin a−Y cos a)`; Z is unused. A stereo master gain applies volume after decoding. The video is silent and muted. No mono or fixed stereo audio element is created. Filters and edits never alter audio content. This is a simple spatial stereo preview, not an HRTF simulation or source isolation.
+
+Audio starts only from Play. Video currentTime drives seeking, follow, markers, playhead and looping. Buffer playback is restarted on seeks and loops; drift is checked during playback. Panorama dragging and manual yaw disable Follow. Edits use a validated snapshot replacement, one undo/redo step, synchronous derived-view refresh, and localStorage keyed to the originally supplied event document.
+
+## Actual verification
+
+The page was launched in installed Chrome using Playwright. Its real desktop and 390px mobile screenshots were opened with an image tool, including `tests/artifacts/page-1.png` and `mobile.png`. The scripted verification uses the real media and separately uses clearly self-authored synthetic event trajectories and W,Y,Z,X basis signals; no evaluator fixtures or gold were accessed. The final machine-readable check results are in `tests/artifacts/verification.json`.
+
+The Windows headless session has no audio output endpoint: a default AudioContext reported running but its clock did not advance. For **tests only**, an initialization script requests Chrome's silent render sink (`sinkId: {type:'none'}`) and passes the native graph output through a PCM recorder. It measures actual browser-rendered samples before that sink. The app uses the ordinary audio destination. This verifies graph output and synchronization, not physical loudspeaker playback or a human listening judgment.
+
+Browser verification covers real-media play/pause, seeking, live yaw, segment looping, nonzero stereo PCM and silence after pause, class/source filtering, marker centers, event/review navigation, unresolved-review behavior, editing and rejected changes without state mutation, undo/redo/reset, freshness, persistence, generic moving trajectories through the seam, Follow transitions, marker dragging, export/import, and mobile sizing. Independent-channel PCM checks verify W, Y, Z and X, yaw signs, live gain changes, Follow-driven decoding, loop restart offset and master volume. Claims of exact content agreement with official labels are intentionally absent.
+
+## Attribution
+
+The supplied scene is from STARSS23, SONY / Tampere University, as identified by the task. Assets are consumed directly from the supplied media mount and are not altered. General YAMNet model provenance: Qualcomm AI Hub Models v0.61.0, based on `w-hc/torch_audioset` and AudioSet. Runtime UI and playback have no network/CDN dependencies.

@@ -1,0 +1,18 @@
+{
+  "recorded_at": "2026-11-03T10:57:35.835945+00:00",
+  "version": "driver-v3",
+  "problem": "A disabled Apply button at no selection caused Playwright to wait30s and clear the entire5-point field-edit group. The no-selection error-message rule was not specified in TASK.md.",
+  "changes": [
+    "Skip clicking disabled Apply, then still check specified validation errors/state preservation.",
+    "Remove the unrequested no-selection error-text scoring sample; specified invalid-field cases remain. Edit group5points and all other weights unchanged."
+  ],
+  "files": [
+    {
+      "path": "iteration/evaluate-r3-audited.mjs",
+      "sha256": "7ff9b950c21f8aefe00fd542f1a29d6b0717c680cf8883c22bebde3446b01726"
+    }
+  ],
+  "validation": "Oracle plus all five candidates re-run for every affected navigation/workbench group; untouched v2 base evidence is reused. Exact same screenshot-based judge inputs/verdicts reused without stochastic rejudging. Results in driver-v3-regression.json.",
+  "candidate_implementations_changed": false,
+  "model_feedback": false
+}

@@ -17,7 +17,7 @@ h4{font-size:14px;margin:16px 0 6px;font-weight:600;color:#3d5257}
 .lead{color:#52686c;font-size:16.5px;max-width:900px}
 .tag{display:inline-block;font-size:12px;color:var(--accent);background:var(--soft);padding:2px 9px;border-radius:4px;margin:0 6px 6px 0}
 .tag.gray{background:#e9ece6;color:#52666b}
-.table-scroll{overflow-x:auto;max-width:100%;margin:6px 0 4px}table{border-collapse:collapse;width:100%;font-size:13.5px;background:var(--paper);margin:6px 0 4px}
+.codex-table{min-width:640px}.codex-table td:first-child{white-space:nowrap}.table-scroll{overflow-x:auto;max-width:100%;margin:6px 0 4px}table{border-collapse:collapse;width:100%;font-size:13.5px;background:var(--paper);margin:6px 0 4px}
 th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
 th{color:var(--muted);font-weight:500;font-size:12px;white-space:nowrap}
 td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -42,7 +42,9 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 <div class="eyebrow">OMNIALE · 音频后期与声音工程 · 空间声音与交互播放器</div>
 <h1>把一间吵闹房间的录音做成可转头的播放器</h1>
 <p class="lead">给 Agent 一分钟真实房间的 360° 录像，外加一份<b>带方向信息的四通道录音</b>。它要先弄明白"<b>什么时候、什么声音、在哪个方向</b>"，再把这份理解做成一个能转头看、转头听、按声音查找片段的网页。在现有自定义框架测试中，Sol 的播放器实现拿到满分，主要失分来自事件推断；这间房里<b>每一刻都有两到五个声音同时响着</b>，其中两个从头响到尾。</p>
-<span class="tag">STARSS23 真实录音 · 非合成</span><span class="tag">60 秒 · 360° 全景 + 四通道 FOA</span><span class="tag">平均同时发声 3.33 个 · 峰值 5 个</span><span class="tag">3 个模型 · 自定义框架</span><span class="tag gray">单次交付 · 空项目起步</span><span class="tag gray">模型无原生音频输入</span>
+<span class="tag">STARSS23 真实录音 · 非合成</span><span class="tag">60 秒 · 360° 全景 + 四通道 FOA</span><span class="tag">平均同时发声 3.33 个 · 峰值 5 个</span><span class="tag">3 个历史模型 · 自定义框架</span><span class="tag">2 组 Codex CLI 补测 · 联网</span><span class="tag gray">单次交付 · 空项目起步</span><span class="tag gray">模型无原生音频输入</span>
+
+<p class="note">同时发声数量按活跃声音事件统计；同一人物可以同时说话、笑或鼓掌，背景设备按标注约定共用一个代理 ID，因此这里不是同时发声的人数。</p>
 
 <h2>一、任务定义</h2>
 <p>委托场景：你拿到一段开会/聚会现场的 360° 录像和同步的空间录音，想做一个比普通播放器好用的东西——<b>能转头看四周，转头时左右耳听到的也跟着变，画面上还标出"此刻这边有人在笑、那边铃在响"，点一下就能跳到那一段</b>。</p>
@@ -58,7 +60,7 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 
 <h3>能看视频帧，音频依靠工具取证</h3>
 <p>这是本案例最容易被误解的一点：<b>被测模型没有原生音频输入</b>。它不能直接听这段录音，只能调用几个共享的取证工具，然后交叉判断：</p>
-<div class="table-scroll"><table><tr><th>工具</th><th>给什么</th><th>会怎么骗人</th></tr>
+<div class="table-scroll"><table><tr><th>工具</th><th>给什么</th><th>可能的误差</th></tr>
 <tr><td>语音转写</td><td>faster-whisper 转出的文字和时间</td><td class="note">没有说话人归属；会把一长段静音吞进一句话里</td></tr>
 <tr><td>声音分类</td><td>YAMNet 对 0.96 秒窗口给出的 521 类概率</td><td class="note">只是"可能性"，弱声音会被盖过；类名和本题的类别体系不是一回事</td></tr>
 <tr><td>方向估计</td><td>FOA 主动声强在三个频段、每 0.5 秒的主方向</td><td class="note">多个声源重叠时会把它们混成一个向量；混响会把方向带偏</td></tr>
@@ -106,6 +108,21 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 <p class="note">音频验收会换入<b>已知的四通道探针信号</b>，实测不同朝向下各频点的真实幅度——不是看代码里有没有 <code>yaw</code> 变量，也不只看左右响度比。这一点后面会看到它抓到了什么。</p>
 
 <h2>二、运行结果</h2>
+<!-- CODEX-RESULTS-START -->
+<h3 id="codex-results">补测：真实 Codex CLI · 允许联网</h3>
+<p>使用真正的 <b>Codex CLI 0.166.0-alpha.5.1</b>，分别接入 <code>gpt-6.1-sol</code> 和 <code>gpt-6.1-terra</code>，均设置 <b>xhigh</b>，通过 nju link 调用。两次均从空项目生成、正常完成，外网访问已在 agent 沙箱内实测通过。</p>
+<div class="table-scroll"><table class="codex-table"><tr><th>模型</th><th>推理强度</th><th>总分</th><th>内容 /50</th><th>实现 /48</th><th>审查 /2</th></tr><tr><td>gpt-6.1-sol</td><td>xhigh</td><td class="num"><b>74.12</b></td><td class="num">24.62</td><td class="num">48.00</td><td class="num">1.5</td></tr>
+<tr><td>gpt-6.1-terra</td><td>xhigh</td><td class="num"><b>57.52</b></td><td class="num">8.02</td><td class="num">48.00</td><td class="num">1.5</td></tr></table></div>
+<p>两次都通过预定的实现测试，得到 <b>48/48</b>；总分相差 <b>16.60</b>，来自声音事件推断。参考解在修复后的测试环境及 driver-v3 中均为确定性 <b>98/98</b>。</p>
+<div class="table-scroll"><table class="codex-table"><tr><th>模型</th><th>类别时序 F1</th><th>类别＋方向 F1</th><th>分段覆盖</th><th>人物 IDF1</th><th>书签</th></tr><tr><td>gpt-6.1-sol</td><td class="num">0.703</td><td class="num">0.497</td><td class="num">0.539</td><td class="num">0.488</td><td class="num">2/10</td></tr>
+<tr><td>gpt-6.1-terra</td><td class="num">0.395</td><td class="num">0.104</td><td class="num">0.196</td><td class="num">0.059</td><td class="num">0/10</td></tr></table></div>
+<p class="note">这两次 CLI 可以自行写分析脚本、安装依赖、联网取资料和操作浏览器；不套用旧框架的 10 回合、50 工具、36 帧、12 截图上限。输入素材与评分权重保留，不能把新旧分差单独归因于框架或模型。均没有原生音频输入。</p>
+<div class="grid2">
+<figure style="margin:0"><a href="assets/codex-sol-desktop.png"><img src="assets/codex-sol-desktop.png" alt="真实 Codex CLI 加 Sol 的最终交付"></a><figcaption>Codex + Sol · 74.12</figcaption></figure>
+<figure style="margin:0"><a href="assets/codex-terra-desktop.png"><img src="assets/codex-terra-desktop.png" alt="真实 Codex CLI 加 Terra 的最终交付"></a><figcaption>Codex + Terra · 57.52</figcaption></figure>
+</div>
+<h3>历史结果：自定义框架（非 Codex / Claude Code）</h3>
+<!-- CODEX-RESULTS-END -->
 <div class="table-scroll"><table><tr><th>　</th><th>推理强度</th><th>总分</th><th>内容 /50</th><th>实现 /48</th><th>审查 /2</th><th>耗时</th></tr>
 <tr><td>gpt-6.1-sol</td><td class="note">high</td><td class="num"><b>70.09</b></td><td class="num">20.59</td><td class="num">48.00</td><td class="num">1.5</td><td class="num">20m05s</td></tr>
 <tr><td>claude-opus-5</td><td class="note">xhigh</td><td class="num"><b>65.83</b></td><td class="num">18.16</td><td class="num">46.17</td><td class="num">1.5</td><td class="num">48m52s</td></tr>
@@ -114,7 +131,7 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 </table></div>
 <p class="note"><b>oracle 参考解</b>使用官方标注，已通过同一判分器的确定性部分：98/98。其 2 分 LLM 审查未执行，完整总分 100 尚未验证。这证明确定性满分可达，不保证所有判据都没有缺陷。</p>
 <p>Sol 与 Luna 的总分相差 <b>22.30</b>：内容贡献 14.11，实现贡献 8.19。Sol 的实现为 48/48，Opus 为 46.17/48，Luna 为 39.81/48；实现测试对 Sol 接近饱和，对 Luna 仍有区分度。</p>
-<p class="note">三份结果均来自<b>自定义 Responses API 框架，不是 Codex 或 Claude Code</b>。三者均用满 10 回合，状态为 <code>budget_exhausted</code>，对当时已有交付评分。Sol 的原定停止条件仍未达到：68.59 + 2 = <b>70.59</b>。真正 Codex CLI 的 Sol/Terra 补测另行记录，完成前不列新成绩。</p>
+<p class="note">三份结果均来自<b>自定义 Responses API 框架，不是 Codex 或 Claude Code</b>。三者均用满 10 回合，状态为 <code>budget_exhausted</code>，对当时已有交付评分。Sol 的原定停止条件仍未达到：68.59 + 2 = <b>70.59</b>。真正 Codex CLI 的补测见上表：Sol 74.12、Terra 57.52。</p>
 
 <h3>内容分拆开看</h3>
 <div class="table-scroll"><table><tr><th>　</th><th>类别时序 F1</th><th>类别＋方向 F1</th><th>分段覆盖</th><th>人物 IDF1</th><th>推断题</th></tr>
@@ -133,6 +150,15 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 </div>
 
 <h2>三、运行轨迹</h2>
+<!-- CODEX-TRACE-START -->
+<h3>真实 Codex CLI 的轨迹</h3>
+<div class="table-scroll"><table class="codex-table"><tr><th>模型</th><th>已执行命令</th><th>事件</th><th>书签弃答</th><th>输出 token</th><th>运行时长</th></tr>
+<tr><td>gpt-6.1-sol</td><td class="num">35</td><td class="num">50</td><td class="num">5/10</td><td class="num">54,651</td><td class="num">38m14s</td></tr><tr><td>gpt-6.1-terra</td><td class="num">25</td><td class="num">14</td><td class="num">8/10</td><td class="num">19,441</td><td class="num">12m06s</td></tr>
+</table></div>
+<p>Sol 下载通用 YAMNet 模型，对 FOA 音频按方向重新分析，并结合抽帧生成标注，再自行编写浏览器测试。Terra 主要依靠共享分类证据和画面，生成较少事件后检查桌面、手机、编辑、撤销和导入导出。两次均正常完成；命令失败数记录在轨迹审计中，未当作模型能力零分。</p>
+<p class="note">Sol 时长包含一次浏览器音频后端排查，不能据此比较模型速度。为确保实际音频图正常计算，自动化浏览器使用 Chromium 测试输出后端；不改候选生产代码。运行目录拒读探测及媒体、交付摘要核对均通过，轨迹未检出对已知金标、参考解或历史页面的访问命令；联网条件下仍不宣称网络级答案隔离。</p>
+<h3>历史自定义框架的轨迹</h3>
+<!-- CODEX-TRACE-END -->
 <p>这三份历史成绩都跑在同一套自定义 harness 里，<b>没有使用 Codex CLI 或 Claude Code</b>：工具只有 <code>list_files / read_file / write_files / video_frames / audio_evidence / run_command(check|serve|reload) / inspect_own_page / browser_action</code>，<b>没有任意 shell，文件读写仅限候选项目</b>。它依靠工具接口限制答案访问。真实 CLI 也可以评测，但须先隔离金标、参考解、旧轨迹与展示页答案；不能仅凭切换工作目录声称隔离。</p>
 <div class="table-scroll"><table><tr><th>　</th><th>回合</th><th>工具调用</th><th>取证音频窗口</th><th>取用画面帧</th><th>自查截图</th><th>输出 token</th></tr>
 <tr><td>gpt-6.1-sol</td><td class="num">10 / 10</td><td class="num">15</td><td class="num">4</td><td class="num">36 / 36</td><td class="num">3</td><td class="num">21,251</td></tr>
@@ -177,11 +203,18 @@ Panorama x -&gt; azimuth with `azimuth = 180 - x/1920*360` (positive azimuth = L
 <p class="note">两份都把"观察到的"和"推断的"分开写，也都如实声明了没有原生听觉。opus-5 额外做了一件没被要求的事：把全景像素坐标到方位角的换算公式写进了证据里，并逐个列出画面中每个人的像素位置与对应方位角。完整文件见下方「案例文件」。</p>
 
 <h2>四、失败分析</h2>
-
-<h3>结论一：实现侧已经饱和，差距全在"听懂"</h3>
+<!-- CODEX-FAILURE-START -->
+<h3>真实 CLI：工程通过，重叠声源推断仍有缺口</h3>
+<p><b>Sol</b> 覆盖全部六类金标声音，两个连续背景声的时序 F1 都是 1.00；但方向联合 F1 只有 0.497，人物 IDF1 为 0.488。它答对 q2（两人鼓掌）和 q9（连续背景声），五道主动弃答。铃声仅标 7.55 秒、笑声 5.95 秒，金标分别为 19.4 和 13.1 秒；语音反而报了 45.05 秒，金标合计 38.1 秒。事件更多并不等于覆盖与归属正确。</p>
+<p><b>Terra</b> 只交付 14 个事件，漏掉 domestic 与 laughter 两类，只建立一个人物轨。类别＋方向 F1 为 0.104，人物 IDF1 为 0.059；书签 0/10，八道弃答。它完成了播放器和修订工作台，但工具证据尚不足以支撑完整的声音目录。</p>
+<p>两次审查都是 1.5/2，失去的半分均为桌面首屏的播放／进度控制不够显眼。48/48 只表示通过预定工程测试，仍有可用性改进空间。</p>
+<p class="note">Sol 初评曾因“未选事件时 Apply 禁用”被整组误扣 5 分。driver-v3 移除题面未规定的这一要求，保留四类非法字段校验，参考解与五份候选统一回归；原始初评记录保留。书签引用支持关系也已补测，权重不变。</p>
+<h3>历史自定义框架的失败分析</h3>
+<!-- CODEX-FAILURE-END -->
+<h3>结论一：Sol 已通过这些工程要求，主要失分在事件推断</h3>
 <p>这道题的实现分 48 分里包含了专门设计的高难度部分——18 分的标注修订工作台，要求字段校验、按投影反算拖动关键帧、<b>复合手势的原子撤销重做</b>、派生视图与书签失效同步、导入导出与刷新持久化。</p>
 <p>结果：<b>sol 和 opus-5 都拿了 18/18</b>。为了确认不是测试太松，专门写了一个"看着像对的"错误实现（少三条校验、导入不校验、拖拽不进撤销历史、书签失效只在加载时算一次），它丢了 5.48 分，而且<b>丢分正好落在那几处</b>，基础播放器、筛选、Follow、书签导航全满分。所以是真·满分。</p>
-<p class="note">这带来一个必须讲清楚的算术：实现 48 ＋ 审查 2 既然能被拿满，总分要低于 70 就必须内容分低于 20/50。消融显示"只标语音"这种烂答案也有 17.47 分。现有测试说明 Sol 已通过这些工程要求，<b>不足以证明所有工程加难都无效</b>，也不能推出只能改权重才能低于 70。</p>
+<p class="note">这带来一个必须讲清楚的算术：实现 48 ＋ 审查 2 既然能被拿满，总分要低于 70 就必须内容分低于 20/50。消融显示"只标语音"这种消融解也有 17.47 分。现有测试说明 Sol 已通过这些工程要求，<b>不足以证明所有工程加难都无效</b>，也不能推出只能改权重才能低于 70。</p>
 
 <h3>结论二：三种完全不同的失败方式</h3>
 <div class="table-scroll"><table><tr><th>　</th><th>事件数</th><th>幻觉类别</th><th>推断题弃答</th><th>特征</th></tr>
@@ -196,7 +229,7 @@ Panorama x -&gt; azimuth with `azimuth = 180 - x/1920*360` (positive azimuth = L
 <p>它知道自己不知道：十道题主动弃答五道，理由写得具体（"ASR 没有说话人归属"、"分类器无法独立确认五路同时发声"）。</p>
 
 <h4>opus-5：过度自信，被宏平均放大</h4>
-<p>它是唯一<b>十道全部作答</b>的候选，背景声也标对了。但它凭空标出金标中未标注的 <b>door、footsteps、knock、telephone</b> 四个类别，共 78 个误报帧。</p>
+<p>它是唯一<b>十道全部作答</b>的候选，背景声也标对了。但它额外标出金标中未标注的 <b>door、footsteps、knock、telephone</b> 四个类别，共 78 个误报帧。</p>
 <div class="table-scroll"><table><tr><th>类别</th><th>真值</th><th>opus-5 的 F1</th><th>　</th></tr>
 <tr><td>domestic</td><td class="note">60s 背景</td><td class="num ok">1.000</td><td><div class="bar"><i style="width:100%"></i></div></td></tr>
 <tr><td>music</td><td class="note">60s 背景</td><td class="num ok">1.000</td><td><div class="bar"><i style="width:100%"></i></div></td></tr>
@@ -208,13 +241,13 @@ Panorama x -&gt; azimuth with `azimuth = 180 - x/1920*360` (positive azimuth = L
 </table></div>
 <p>类别宏 F1 按"预测与真值类别的<b>并集</b>"平均，分母于是从 6 类变成 10 类、其中 4 类恒为 0——宏 F1 被压到 <b>0.418</b>，哪怕真实的 6 类都标得不错。<b>失败模式是过度自信</b>：sol 不确定就写 unresolved，opus-5 不确定就给一个答案。两者最终都只对 1 道题。</p>
 
-<h4>luna：旧评分器会给它满分的那个坑</h4>
+<h4>luna：旧解码判据漏检的错误</h4>
 <p>它只交了 19 个事件，整类漏掉笑声，还标出金标未标注的 door 和一个长达 60 秒的 instrument。但最值得写的是它的<b>空间音频解码</b>：</p>
 <div class="table-scroll"><table><tr><th>测法</th><th>实测</th><th>判定</th></tr>
 <tr><td>旧评分器：左右声道响度比</td><td class="num">3.9994（期望 4）</td><td class="num ok">满分 9 / 9</td></tr>
 <tr><td>新评分器：独立通道信号传输</td><td class="num no">各频点幅度只有目标的 1/5 ~ 1/20<br><span class="note">317Hz 实测 0.0041 / 目标 0.0175；431Hz 实测 0.0012 / 目标 0.025</span></td><td class="num no">0 / 9</td></tr>
 </table></div>
-<p>这是一个<b>左右比例对、但实际波形完全不对</b>的解码实现。造题时用人造反例预言过这种"伪装"，这一轮在真实模型提交上实锤了——<b>没有这次评分器修复，luna 的实现分会虚高 9 分</b>。</p>
+<p>这是一个<b>左右比例对、但实际波形完全不对</b>的解码实现。造题时用人造反例预言过这种"伪装"，这一轮在真实模型提交上复现了——<b>基础测试中的该项为 9 分；R3 将整组 48 分基础测试折算为 22 分，因此这项修复对应 R3 总分的 9 × 22/48 = 4.125 分（约 4.13 分）</b>。</p>
 
 <h3>结论三：判据本身的毛病（查出来并修掉的）</h3>
 <p>评分器的错误也会被误当作模型失误。已有记录修正了以下问题，依据包括参考解校准、运行日志、DOM 与源码检查：</p>
@@ -245,6 +278,12 @@ Panorama x -&gt; azimuth with `azimuth = 180 - x/1920*360` (positive azimuth = L
 
 <h2>案例文件</h2>
 <ul class="note">
+<!-- CODEX-FILES-START -->
+<li><a href="files/cli-results.json">真实 CLI 成绩与条件</a> · <a href="files/cli-report.zh-CN.txt">补测报告</a> · <a href="files/cli-trace-audit.json">轨迹审计</a></li>
+<li>Codex + Sol：<a href="files/codex-sol-result.json">完整评分</a> · <a href="files/codex-sol-submission.zip">前端交付</a> · <a href="files/codex-sol-evidence.txt">证据说明</a> · <a href="files/codex-sol-protocol.json">运行条件</a></li>
+<li>Codex + Terra：<a href="files/codex-terra-result.json">完整评分</a> · <a href="files/codex-terra-submission.zip">前端交付</a> · <a href="files/codex-terra-evidence.txt">证据说明</a> · <a href="files/codex-terra-protocol.json">运行条件</a></li>
+<li><a href="files/driver-v3-amendment.json">编辑校验修正</a> · <a href="files/driver-v3-regression.json">参考解及五候选回归</a> · <a href="files/audio-backend-amendment.json">音频测试后端修复</a></li>
+<!-- CODEX-FILES-END -->
 <li><a href="files/audit-20261103.json">2026-11-03 审计证据</a> · <a href="files/audit-report.zh-CN.txt">审计报告</a> · <a href="files/review-v2-results.json">书签修订版回归结果</a> —— 内容复算、候选摘要、书签区间与判据反例</li>
 
 <li><a href="files/TASK.txt">TASK.md</a> —— 交给 Agent 的完整题面（冻结版）</li>

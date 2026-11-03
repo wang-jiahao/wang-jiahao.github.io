@@ -1,0 +1,10 @@
+{
+  "recorded_at": "2026-11-03T10:24:42.755463+00:00",
+  "reason": "Default Chrome output backend stalls WebAudio clock on this machine; independent oscillator has clock0/RMS0 on both host and sandbox.",
+  "fix": "Chromium --disable-audio-output uses fake output stream; actual candidate WebAudio graph and PCM calculations still execute. Oscillator RMS0.7046 and clock0.741s after800ms.",
+  "source": "https://chromium.googlesource.com/chromium/src/+/8858e5e41e7b17ab4e1dff58298e37854adc1989/media/base/media_switches.cc",
+  "scope": "Browser launch infrastructure only. Same backend for reference, old candidates and new CLI evaluations; no candidate implementation or media labels changed.",
+  "sol_run": "r3-sol-codex-xhigh-04",
+  "sol_note": "Applied to supplied toolkit after independent environment diagnosis while solver was running; no model message or evaluator feedback. Time includes infrastructure diagnosis. Terra starts with the repaired toolkit.",
+  "browser_sha256": "db0c730f562801b2cac544bb2f291ab01b6f9f5f7bca68daef201e70fe6b2600"
+}

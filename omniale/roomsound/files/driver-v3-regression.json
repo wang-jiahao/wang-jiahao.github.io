@@ -1,0 +1,116 @@
+{
+  "generated_at": "2026-11-03T11:20:25.582894+00:00",
+  "version": "driver-v3",
+  "scope": "Re-execute all affected R3 navigation/workbench tests on oracle plus all five candidates. Reuse unchanged v2 base results and identical screenshot-based judgments.",
+  "rows": [
+    {
+      "name": "oracle",
+      "previous_deterministic": 98,
+      "deterministic": 98.0,
+      "content": 50.0,
+      "implementation": 48,
+      "score": null,
+      "workbench": {
+        "score": 18,
+        "maximum": 18,
+        "edit_fields": 5,
+        "keyframe_drag": 4,
+        "undo_redo": 5,
+        "invalidation": 2,
+        "portability": 2
+      },
+      "result": "iteration\\calibration\\reference-r3-driver-v3\\result.json"
+    },
+    {
+      "name": "custom-sol",
+      "previous_deterministic": 68.59,
+      "deterministic": 68.59,
+      "content": 20.59424826122474,
+      "implementation": 48,
+      "score": 70.09,
+      "workbench": {
+        "score": 18,
+        "maximum": 18,
+        "edit_fields": 5,
+        "keyframe_drag": 4,
+        "undo_redo": 5,
+        "invalidation": 2,
+        "portability": 2
+      },
+      "result": "iteration\\results\\r3-sol-01-driver-v3\\result.json"
+    },
+    {
+      "name": "custom-opus",
+      "previous_deterministic": 64.33,
+      "deterministic": 64.33,
+      "content": 18.1632474128266,
+      "implementation": 46.166666666666664,
+      "score": 65.83,
+      "workbench": {
+        "score": 18,
+        "maximum": 18,
+        "edit_fields": 5,
+        "keyframe_drag": 4,
+        "undo_redo": 5,
+        "invalidation": 2,
+        "portability": 2
+      },
+      "result": "iteration\\results\\r3-opus5-01-driver-v3\\result.json"
+    },
+    {
+      "name": "codex-sol",
+      "previous_deterministic": 67.62,
+      "deterministic": 72.62,
+      "content": 24.615244292720078,
+      "implementation": 48,
+      "score": 74.12,
+      "workbench": {
+        "score": 18,
+        "maximum": 18,
+        "edit_fields": 5,
+        "keyframe_drag": 4,
+        "undo_redo": 5,
+        "invalidation": 2,
+        "portability": 2
+      },
+      "result": "iteration\\results\\r3-codex-sol-04-v3\\result.json"
+    },
+    {
+      "name": "codex-terra",
+      "previous_deterministic": 56.02,
+      "deterministic": 56.02,
+      "content": 8.018918992565991,
+      "implementation": 48,
+      "score": 57.52,
+      "workbench": {
+        "score": 18,
+        "maximum": 18,
+        "edit_fields": 5,
+        "keyframe_drag": 4,
+        "undo_redo": 5,
+        "invalidation": 2,
+        "portability": 2
+      },
+      "result": "iteration\\results\\r3-codex-terra-02-v3\\result.json"
+    },
+    {
+      "name": "custom-luna",
+      "previous_deterministic": 46.29,
+      "deterministic": 46.29,
+      "content": 6.482226349814062,
+      "implementation": 39.80833333333334,
+      "score": 47.79,
+      "workbench": {
+        "score": 17.6,
+        "maximum": 18,
+        "edit_fields": 5,
+        "keyframe_drag": 4,
+        "undo_redo": 5,
+        "invalidation": 1.6,
+        "portability": 2
+      },
+      "result": "iteration\\results\\r3-luna-01-driver-v3-retry\\result.json",
+      "retry_reason": "Prior scroll-stability infrastructure timeout prevented assertions; unchanged driver and immutable submission rerun once."
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "generated_at": "2026-11-03T10:47:37.737093+00:00",
+  "runs": [
+    {
+      "run_id": "r3-sol-codex-xhigh-04",
+      "status": {
+        "status": "completed",
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "exit_code": 0,
+        "finished": "2026-11-03T10:28:39.067065+00:00",
+        "files": 54,
+        "stopped_local_processes": []
+      },
+      "cli_version": "codex-cli 0.166.0-alpha.5.1",
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "usage": {
+        "input_tokens": 4320678,
+        "cached_input_tokens": 4061568,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 54651,
+        "reasoning_output_tokens": 11620
+      },
+      "commands": 35,
+      "failed_commands": 8,
+      "web_searches": [],
+      "urls_in_commands": [
+        "https://api.github.com/repos/w-hc/torch_audioset/git/trees/master?recursive=1",
+        "https://huggingface.co/api/models/qualcomm/YamNet",
+        "https://huggingface.co/qualcomm/YamNet/resolve/main/README.md",
+        "https://huggingface.co/qualcomm/YamNet/resolve/main/release_assets.json",
+        "https://qaihub-public-assets.s3.us-west-2.amazonaws.com/qai-hub-models/models/yamnet/releases/v0.61.0/yamnet-onnx-float.zip",
+        "https://raw.githubusercontent.com/qualcomm/ai-hub-models/v0.61.0/qai_hub_models/models/yamnet/model.py",
+        "https://raw.githubusercontent.com/qualcomm/ai-hub-models/v0.61.0/src/qai_hub_models/models/yamnet/model.py",
+        "https://raw.githubusercontent.com/tensorflow/models/master/research/audioset/yamnet/yamnet_class_map.csv",
+        "https://raw.githubusercontent.com/w-hc/torch_audioset/master/torch_audioset/data/torch_input_processing.py",
+        "https://raw.githubusercontent.com/w-hc/torch_audioset/master/torch_audioset/data/transforms.py",
+        "https://raw.githubusercontent.com/w-hc/torch_audioset/master/torch_audioset/params.py"
+      ],
+      "suspicious_access_commands": [],
+      "all_candidate_hashes_match": true,
+      "all_media_hashes_match": true,
+      "shared_cache_matches": true,
+      "internet_preflight": true,
+      "limitation": "Prompt restrictions plus known local deny-read probes and post-run command audit; not a network-isolation guarantee."
+    },
+    {
+      "run_id": "r3-terra-codex-xhigh-02",
+      "status": {
+        "status": "completed",
+        "model": "gpt-6.1-terra",
+        "effort": "xhigh",
+        "exit_code": 0,
+        "finished": "2026-11-03T10:43:55.969368+00:00",
+        "files": 6,
+        "stopped_local_processes": []
+      },
+      "cli_version": "codex-cli 0.166.0-alpha.5.1",
+      "model": "gpt-6.1-terra",
+      "effort": "xhigh",
+      "usage": {
+        "input_tokens": 1902521,
+        "cached_input_tokens": 1859840,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 19441,
+        "reasoning_output_tokens": 1572
+      },
+      "commands": 25,
+      "failed_commands": 5,
+      "web_searches": [],
+      "urls_in_commands": [],
+      "suspicious_access_commands": [],
+      "all_candidate_hashes_match": true,
+      "all_media_hashes_match": true,
+      "shared_cache_matches": true,
+      "internet_preflight": true,
+      "limitation": "Prompt restrictions plus known local deny-read probes and post-run command audit; not a network-isolation guarantee."
+    }
+  ]
+}

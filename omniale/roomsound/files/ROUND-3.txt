@@ -1,5 +1,8 @@
 # Audit correction (2026-11-03)
 
+Completed genuine Codex CLI follow-ups (xhigh, internet enabled): Sol **74.12**, Terra **57.52**, implementation48/48 each. See `../cli/REPORT.zh-CN.md`. Historical custom scores stay unchanged after the affected driver-v3 workbench regression; unchanged base results and exact screenshot judgments are reused.
+
+
 This is a chronological design record. The authoritative audit is `../../audit-20261103/REPORT.zh-CN.md`.
 All three existing scores use a custom Responses API harness, not Codex or Claude Code. All three
 valid runs ended at their 10-turn budget. Sol/Luna used high and a 20,000 response cap; the valid Opus
@@ -186,7 +189,7 @@ decoder is perfect: the measured left/right RMS ratio is 3.9994 against an expec
 channel transfer test added in the corrected evaluator it scores zero, because the actual per-frequency
 amplitudes are a fifth to a twentieth of target (0.0041 against 0.0175 at 317Hz, 0.0012 against 0.025 at 431Hz).
 The ratio is right and the waveform is not — exactly the counterfeit the repair was built from, now observed in
-a genuine candidate rather than a synthetic one. Without that repair Luna would have scored 9 points higher.
+a genuine candidate rather than a synthetic one. The raw decoder check is worth 9 in the 48-point base evaluator. R3 scales that entire base bucket to 22, so changing only this check changes the R3 total by 9 * 22/48 = 4.125 points, not 9.
 
 ## Third candidate, and the output cap that had to go
 

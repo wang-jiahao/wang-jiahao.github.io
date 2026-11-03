@@ -1,0 +1,815 @@
+{
+  "version": "roomsound-r3-audited-v3",
+  "maximum": 100,
+  "score_without_judge": 56.02,
+  "score_interval": [
+    56.02,
+    58.02
+  ],
+  "perception": {
+    "score": 8.018918992565991,
+    "maximum": 50,
+    "weights": {
+      "temporal": 12,
+      "joint_location": 12,
+      "episode_coverage": 8,
+      "performer_idf1": 8,
+      "review_semantics": 10
+    },
+    "scene": {
+      "clip": "fold4_room24_mix014",
+      "start": 50.0
+    },
+    "base": {
+      "score": 11.9293,
+      "maximum": 50,
+      "temporal": {
+        "macro_f1": 0.3945462797808638,
+        "per_class": {
+          "bell": {
+            "tp": 14,
+            "fp": 27,
+            "fn": 180,
+            "f1": 0.11914893617021277
+          },
+          "clapping": {
+            "tp": 35,
+            "fp": 0,
+            "fn": 26,
+            "f1": 0.7291666666666666
+          },
+          "domestic": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 600,
+            "f1": 0.0
+          },
+          "laughter": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 129,
+            "f1": 0.0
+          },
+          "music": {
+            "tp": 600,
+            "fp": 0,
+            "fn": 0,
+            "f1": 1.0
+          },
+          "speech": {
+            "tp": 130,
+            "fp": 25,
+            "fn": 216,
+            "f1": 0.5189620758483033
+          }
+        }
+      },
+      "joint_location": {
+        "f1": 0.1038135593220339,
+        "tp": 147,
+        "fp": 684,
+        "fn": 1854
+      },
+      "episode_coverage": {
+        "f1": 0.1962092962073628,
+        "precision": 0.17689530685920576,
+        "recall": 0.22025773238503782,
+        "predicted": 14,
+        "gold": 36
+      },
+      "limitations": [
+        "Official audible boundaries have not been independently human re-annotated.",
+        "25-degree gate and 100ms sampling are not a full perceptual judgment."
+      ]
+    },
+    "identity": {
+      "idf1": 0.05861581920903955,
+      "idtp": 83,
+      "predicted_frames": 831,
+      "gold_frames": 2001,
+      "mapping": {
+        "performer-a": "1"
+      }
+    },
+    "review_semantics": {
+      "fraction": 0.0,
+      "rows": [
+        {
+          "id": "q1",
+          "pass": false,
+          "error": "Missing or invalid review fields/references",
+          "historical_pass": false,
+          "reference_relation_supported": false
+        },
+        {
+          "id": "q2",
+          "pass": false,
+          "error": "Missing or invalid review fields/references",
+          "historical_pass": false,
+          "reference_relation_supported": false
+        },
+        {
+          "id": "q3",
+          "pass": false,
+          "error": "Missing or invalid review fields/references",
+          "historical_pass": false,
+          "reference_relation_supported": false
+        },
+        {
+          "id": "q4",
+          "pass": false,
+          "time_iou": 0.0,
+          "temporal": false,
+          "source_ok": true,
+          "class_ok": true,
+          "evidence_ok": true,
+          "historical_pass": false,
+          "reference_relation_supported": false
+        },
+        {
+          "id": "q5",
+          "pass": false,
+          "error": "Missing or invalid review fields/references",
+          "historical_pass": false,
+          "reference_relation_supported": false
+        },
+        {
+          "id": "q6",
+          "pass": false,
+          "error": "Missing or invalid review fields/references",
+          "historical_pass": false,
+          "reference_relation_supported": false
+        },
+        {
+          "id": "q7",
+          "pass": false,
+          "error": "Missing or invalid review fields/references",
+          "historical_pass": false,
+          "reference_relation_supported": false
+        },
+        {
+          "id": "q8",
+          "pass": false,
+          "error": "Missing or invalid review fields/references",
+          "historical_pass": false,
+          "reference_relation_supported": false
+        },
+        {
+          "id": "q9",
+          "pass": false,
+          "error": "Missing or invalid review fields/references",
+          "historical_pass": false,
+          "reference_relation_supported": false
+        },
+        {
+          "id": "q10",
+          "pass": false,
+          "time_iou": 0.22916666666666677,
+          "temporal": false,
+          "source_ok": false,
+          "class_ok": true,
+          "evidence_ok": true,
+          "historical_pass": false,
+          "reference_relation_supported": false
+        }
+      ],
+      "points": 0.0,
+      "version": "r3-review-references-v2"
+    },
+    "historical_score": 8.018918992565991,
+    "version": "roomsound-r3-content-audited-v2"
+  },
+  "implementation": {
+    "score": 48,
+    "maximum": 48,
+    "base_app": 22,
+    "source_filter": 2,
+    "follow": 3,
+    "review_navigation": 3,
+    "workbench": {
+      "score": 18,
+      "maximum": 18,
+      "edit_fields": 5,
+      "keyframe_drag": 4,
+      "undo_redo": 5,
+      "invalidation": 2,
+      "portability": 2
+    }
+  },
+  "component_fractions": {
+    "base_app": 1,
+    "source_filter": 1,
+    "follow": 1,
+    "review_navigation": 1,
+    "edit_fields": 1,
+    "keyframe_drag": 1,
+    "undo_redo": 1,
+    "invalidation": 1,
+    "portability": 1
+  },
+  "evidence_judge": {
+    "status": "complete",
+    "maximum": 2,
+    "score": 1.5,
+    "version": "hybrid-evidence-usability-cli-v2",
+    "requested_model": "gpt-6-luna",
+    "returned_model": "gpt-6-luna",
+    "verdict": {
+      "criterion_0": {
+        "citations": [
+          "Evidence note: YAMNet speech windows are listed with specific time ranges; clapping at 46.6–49.9s; bells near 1.4, 16.3, 20.6, and 25.4–26.9s.",
+          "Command output from audio-evidence.json: classifier windows show Speech at 3.8, 12.0, 14.4, 16.8, 35.5–38.9, 43.7, and 50.4s onward; clapping at 46.6–49.4s.",
+          "desktop.png: event list displays timed Music, Bell, and Speech events; evidence note cites panorama frames at 1, 20, and 40 seconds."
+        ],
+        "pass": true,
+        "reason": "Important sound claims are tied to concrete classifier windows and the relevant supplied tools, with approximate intervals characterized as such. The note explicitly avoids claiming visual frames establish sound."
+      },
+      "criterion_1": {
+        "citations": [
+          "Evidence note: panorama people and posture are explicitly not treated as sound evidence; performer-a is tentative; directions are rough estimates; YAMNet intervals are approximate classifier windows; ASR words are not used; q9 unresolved; no native listening or official annotations available.",
+          "Audio-evidence.json command output: warnings say automatic class labels can be wrong, ASR may hallucinate, and FOA direction mixes overlapping sources and reverberation.",
+          "Command output: FOA intensity directions at 46–54s vary by band, supporting the note's caution about a coarse direction hypothesis."
+        ],
+        "pass": true,
+        "reason": "The note consistently distinguishes classifier and direction estimates from verified event truth, rejects unreliable ASR text and visual sound inference, and does not claim official-label or native-audio access."
+      },
+      "criterion_2": {
+        "citations": [
+          "desktop.png: the large panorama occupies the left column from y257 to y792; the page heading and introduction precede the controls; the play button only begins at the very bottom around y870 and the seek control is below the initial 900px viewport."
+        ],
+        "pass": false,
+        "reason": "On the initial desktop view, users must pass the page hero and a dominant panorama before reaching playback, and the transport is clipped at the bottom with the seek slider not visible. Essential playback and seeking are not discoverable without scrolling."
+      },
+      "criterion_3": {
+        "citations": [
+          "mobile.png: at 390×844, panorama, yaw slider, play/pause button, time readout, seek slider, volume, and loop fields are visible; the Sound events section begins below them and can be reached by ordinary vertical scrolling.",
+          "mobile.png: transport and event-section headings/labels are readable at the shown scale, with no visible overlap or clipped transport controls."
+        ],
+        "pass": true,
+        "reason": "The mobile first view exposes legible playback, seeking, yaw, volume, and loop controls. Event navigation follows below the transport and requires reasonable scrolling, which the criterion permits."
+      }
+    },
+    "limitations": "No native listening; command excerpts truncated where marked; provider alias identity unverified."
+  },
+  "diagnostics": [
+    {
+      "name": "performer_and_class_filter",
+      "fraction": 1,
+      "samples": [
+        {
+          "s": "all",
+          "c": "all",
+          "expected": [
+            "a-instrument",
+            "a-speech",
+            "a-water",
+            "b-speech"
+          ],
+          "actual": [
+            "a-instrument",
+            "a-speech",
+            "a-water",
+            "b-speech"
+          ],
+          "markers": true,
+          "pass": true
+        },
+        {
+          "s": "all",
+          "c": "speech",
+          "expected": [
+            "a-speech",
+            "b-speech"
+          ],
+          "actual": [
+            "a-speech",
+            "b-speech"
+          ],
+          "markers": true,
+          "pass": true
+        },
+        {
+          "s": "all",
+          "c": "water",
+          "expected": [
+            "a-water"
+          ],
+          "actual": [
+            "a-water"
+          ],
+          "markers": true,
+          "pass": true
+        },
+        {
+          "s": "background",
+          "c": "all",
+          "expected": [
+            "a-instrument",
+            "a-speech",
+            "a-water"
+          ],
+          "actual": [
+            "a-instrument",
+            "a-speech",
+            "a-water"
+          ],
+          "markers": true,
+          "pass": true
+        },
+        {
+          "s": "background",
+          "c": "speech",
+          "expected": [
+            "a-speech"
+          ],
+          "actual": [
+            "a-speech"
+          ],
+          "markers": true,
+          "pass": true
+        },
+        {
+          "s": "background",
+          "c": "water",
+          "expected": [
+            "a-water"
+          ],
+          "actual": [
+            "a-water"
+          ],
+          "markers": true,
+          "pass": true
+        },
+        {
+          "s": "performer-a",
+          "c": "all",
+          "expected": [
+            "b-speech"
+          ],
+          "actual": [
+            "b-speech"
+          ],
+          "markers": true,
+          "pass": true
+        },
+        {
+          "s": "performer-a",
+          "c": "speech",
+          "expected": [
+            "b-speech"
+          ],
+          "actual": [
+            "b-speech"
+          ],
+          "markers": true,
+          "pass": true
+        },
+        {
+          "s": "performer-a",
+          "c": "water",
+          "expected": [],
+          "actual": [],
+          "markers": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "follow_pause_play_gap_seam_and_manual_override",
+      "fraction": 1,
+      "samples": [
+        {
+          "mode": "paused",
+          "t": 4.5,
+          "yaw": 178,
+          "pass": true
+        },
+        {
+          "mode": "paused",
+          "t": 5.5,
+          "yaw": -177,
+          "pass": true
+        },
+        {
+          "mode": "paused",
+          "t": 6.5,
+          "yaw": -172,
+          "pass": true
+        },
+        {
+          "mode": "paused",
+          "t": 10,
+          "yaw": -10,
+          "pass": true
+        },
+        {
+          "mode": "silent_gap",
+          "pass": true
+        },
+        {
+          "mode": "class_filter_does_not_change_follow",
+          "pass": true
+        },
+        {
+          "mode": "playing_seam",
+          "t": 4.7702,
+          "yaw": 179,
+          "pass": true
+        },
+        {
+          "mode": "playing_seam",
+          "t": 5.0327,
+          "yaw": -180,
+          "pass": true
+        },
+        {
+          "mode": "playing_seam",
+          "t": 5.3024,
+          "yaw": -179,
+          "pass": true
+        },
+        {
+          "mode": "playing_seam",
+          "t": 5.5782,
+          "yaw": -177,
+          "pass": true
+        },
+        {
+          "mode": "playing_seam",
+          "t": 5.8598,
+          "yaw": -176,
+          "pass": true
+        },
+        {
+          "mode": "manual_yaw_override",
+          "pass": true
+        },
+        {
+          "mode": "manual_drag_override",
+          "pass": true
+        },
+        {
+          "mode": "all_disables_follow",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "review_navigation_and_unresolved",
+      "fraction": 1,
+      "samples": [
+        {
+          "id": "q1",
+          "t": 4.5,
+          "yaw": 178,
+          "pass": true
+        },
+        {
+          "id": "q2",
+          "t": 8.199999,
+          "yaw": -170,
+          "pass": true
+        },
+        {
+          "id": "q3",
+          "t": 10,
+          "yaw": -10,
+          "pass": true
+        },
+        {
+          "id": "q4",
+          "t": 3.5,
+          "yaw": -20,
+          "pass": true
+        },
+        {
+          "id": "q5",
+          "t": 4.5,
+          "yaw": 178,
+          "pass": true
+        },
+        {
+          "id": "q6",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "edit_fields_and_validation",
+      "fraction": 1,
+      "samples": [
+        {
+          "step": "class_edit_export",
+          "pass": true
+        },
+        {
+          "step": "class_filter_options",
+          "options": [
+            "all",
+            "door",
+            "instrument",
+            "speech"
+          ],
+          "pass": true
+        },
+        {
+          "step": "class_edit_filtering",
+          "pass": true
+        },
+        {
+          "step": "interval_edit_export",
+          "pass": true
+        },
+        {
+          "step": "interval_edit_active_after",
+          "pass": true
+        },
+        {
+          "step": "interval_edit_inactive_before",
+          "pass": true
+        },
+        {
+          "step": "reject_end_not_after_start",
+          "message": "Invalid annotation. Check the values and try again.",
+          "pass": true
+        },
+        {
+          "step": "reject_start_below_zero",
+          "message": "Invalid annotation. Check the values and try again.",
+          "pass": true
+        },
+        {
+          "step": "reject_end_above_duration",
+          "message": "Invalid annotation. Check the values and try again.",
+          "pass": true
+        },
+        {
+          "step": "reject_empty_start",
+          "message": "Select an event and enter valid values.",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "marker_keyframe_dragging",
+      "fraction": 1,
+      "samples": [
+        {
+          "step": "single_keyframe_values",
+          "azimuth": -18.000004110580107,
+          "elevation": 13.500000000000002,
+          "expectAz": -18,
+          "expectEl": 13.500000000000002,
+          "pass": true
+        },
+        {
+          "step": "marker_redrawn_at_drop",
+          "box": {
+            "cx": 527.265625,
+            "cy": -518.921875,
+            "fx": 0.6499978076906213,
+            "fy": 0.34998538439052906
+          },
+          "pass": true
+        },
+        {
+          "step": "drag_does_not_rotate_view",
+          "pass": true
+        },
+        {
+          "step": "drag_is_undoable",
+          "pass": true
+        },
+        {
+          "step": "drag_undo_restores_keyframe",
+          "reverted": true,
+          "pass": true
+        },
+        {
+          "step": "nearest_keyframe_moved",
+          "traj": [
+            {
+              "time": 3,
+              "azimuth": 170,
+              "elevation": 0
+            },
+            {
+              "time": 7,
+              "azimuth": -152.000001027645,
+              "elevation": -4.5000000000000036
+            }
+          ],
+          "pass": true
+        },
+        {
+          "step": "other_keyframe_untouched",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "atomic_undo_and_redo",
+      "fraction": 1,
+      "samples": [
+        {
+          "step": "fresh_undo_disabled",
+          "pass": true
+        },
+        {
+          "step": "fresh_redo_disabled",
+          "pass": true
+        },
+        {
+          "step": "three_changes_differ",
+          "pass": true
+        },
+        {
+          "step": "undo_1_is_one_step",
+          "stepped": true,
+          "pass": true
+        },
+        {
+          "step": "undo_2_is_one_step",
+          "stepped": true,
+          "pass": true
+        },
+        {
+          "step": "undo_3_reaches_start",
+          "stepped": true,
+          "pass": true
+        },
+        {
+          "step": "undo_disabled_at_start",
+          "pass": true
+        },
+        {
+          "step": "redo_available_at_start",
+          "pass": true
+        },
+        {
+          "step": "redo_1",
+          "stepped": true,
+          "pass": true
+        },
+        {
+          "step": "redo_to_latest",
+          "stepped": true,
+          "pass": true
+        },
+        {
+          "step": "redo_disabled_at_latest",
+          "pass": true
+        },
+        {
+          "step": "new_change_clears_redo",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "derived_state_and_review_freshness",
+      "fraction": 1,
+      "samples": [
+        {
+          "step": "initial_freshness",
+          "flags": [
+            "false",
+            "false",
+            "false"
+          ],
+          "pass": true
+        },
+        {
+          "step": "edit_makes_review_stale",
+          "pass": true
+        },
+        {
+          "step": "undo_restores_freshness",
+          "pass": true
+        },
+        {
+          "step": "follow_before_edit",
+          "yaw": 178,
+          "pass": true
+        },
+        {
+          "step": "follow_after_edit",
+          "yaw": 20,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "export_import_and_persistence",
+      "fraction": 1,
+      "samples": [
+        {
+          "step": "export_matches_submission",
+          "pass": true
+        },
+        {
+          "step": "valid_import_applied",
+          "pass": true
+        },
+        {
+          "step": "import_updates_views",
+          "options": [
+            "all",
+            "bell",
+            "instrument",
+            "laughter",
+            "speech",
+            "water"
+          ],
+          "pass": true
+        },
+        {
+          "step": "reject_import_not_json",
+          "message": "Invalid JSON document.",
+          "pass": true
+        },
+        {
+          "step": "reject_import_bad_class",
+          "message": "Invalid annotation document.",
+          "pass": true
+        },
+        {
+          "step": "reject_import_duplicate_ids",
+          "message": "Invalid annotation document.",
+          "pass": true
+        },
+        {
+          "step": "reject_import_bad_interval",
+          "message": "Invalid annotation document.",
+          "pass": true
+        },
+        {
+          "step": "reject_import_no_trajectory",
+          "message": "Invalid annotation document.",
+          "pass": true
+        },
+        {
+          "step": "edits_persist_across_reload",
+          "pass": true
+        },
+        {
+          "step": "reset_restores_submission",
+          "pass": true
+        },
+        {
+          "step": "reset_persists",
+          "pass": true
+        }
+      ]
+    }
+  ],
+  "evaluated_at": "2026-11-03T11:17:56.974Z",
+  "score": 57.52,
+  "judge_reuse": {
+    "from_result": "iteration\\results\\r3-codex-terra-02\\result.json",
+    "reason": "Same unmodified submission, same evidence/command trace and byte-identical cached base screenshots; change affects only edit test stimulus. No stochastic re-judging."
+  },
+  "framework": "Codex CLI",
+  "run_id": "r3-terra-codex-xhigh-02",
+  "protocol": {
+    "created_at": "2026-11-03T09:51:07.599087+00:00",
+    "model": "gpt-6.1-terra",
+    "effort": "xhigh",
+    "framework": "Codex CLI",
+    "cli_version": "codex-cli 0.166.0-alpha.5.1",
+    "base_url": "https://api-temporary.nju-link.com/v1",
+    "native_audio": false,
+    "evaluator_feedback": false,
+    "task": "RoomSound R3 product specification",
+    "differences_from_historical": [
+      "Genuine Codex shell/file/image tools",
+      "Shared evidence cache available as a file",
+      "No custom turn/tool/frame/screenshot caps",
+      "Internet access allowed; source answers/dataset/other submissions remain forbidden"
+    ],
+    "assets": [
+      {
+        "path": "public/media/scene.mp4",
+        "sha256": "ef818782117e1d08a734290ed3d13f07c8a51e63eeb0e89d7773cbae384c91a9"
+      },
+      {
+        "path": "public/media/scene-foa.wav",
+        "sha256": "47ccb69500d95e876de3b0fff7763dd5206c5c1011d81fbcfc8082e02056c5e6"
+      },
+      {
+        "path": "public/media/scene-mono.wav",
+        "sha256": "27afa118426bda64f52a3dce62508627d4a3b13058d9ffae7e8a5b437932bf16"
+      },
+      {
+        "path": "public/media/scene-stereo.wav",
+        "sha256": "ff42dab806ab8ed3eaec1734ba3f9af05a1d2725a01d62b63213aa45fd703e69"
+      }
+    ]
+  },
+  "test_amendment": {
+    "version": "driver-v3",
+    "change": "Do not wait for disabled Apply; remove unrequested no-selection error-text criterion. Grade all four specified invalid-field rules independently.",
+    "unchanged_base_reused_from": "iteration\\results\\r3-codex-terra-02\\v2",
+    "base_result_sha256": "d78b76578c8036fbe0dee51f7d417124fc540a19b968397c58f7d0fedfe6fcc9"
+  }
+}
