@@ -1,0 +1,597 @@
+"""B 类（字体浏览器复刻）判分器。
+
+权重（B 类是平衡型，功能占比比 A 类更高）：
+  IFS 0.35  演示过的交互 —— 按轨迹回放，**级联失败**
+  AFS 0.30  音频独有参数 —— 滑块区间/步长、清空回落、搜索语义、排序选项……
+  VFS 0.25  视觉保真 = 0.35·几何 + 0.25·结构 + 0.40·逐条二值 rubric judge
+  RSP 0.10  响应式
+
+为什么这些判据难：它们全是**参数**而不是外观。滑块区间是 8–300 还是 0–100、
+清空预览框是回默认句还是变空、搜索是子串还是前缀、界面字号跟不跟着滑块走——
+录屏画面上一个都定不下来，只能从讲解里听。
+
+用法：
+  python tests/verify.py <提交目录>
+  python tests/verify.py <目录> --no-judge
+  python tests/verify.py <目录> --json out.json
+"""
+import sys, json, argparse
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _base import (Site, new_page, entry, ask_judge, parse_verdicts, artifacts,
+                   REF_SHOT, CASE, W_IFS, W_AFS, W_CVG, W_VFS, W_RSP)
+from _coverage import score_cvg
+from _probes import (BOUND, TILES_JS, CTRL_JS, RAIL_JS, GEOM_JS,
+                     set_slider, type_preview, click_layout, near)
+
+PROBE_TEXT = "Agentic benchmark"
+DEFAULT_HEAD = "everyone has the right to freedom of thought"
+# 搜索判据用的查询：必须是「只有子串匹配才命中」的词。
+# 原来用 rob，但命中的全是 Roboto*，本身就以 rob 开头，前缀实现也能过——实测扣分 0.00。
+SUB_Q = "sans"
+
+
+def active_count(lay):
+    """布局组里「选中」的个数。
+
+    先看 ARIA（aria-checked / aria-pressed / aria-selected / checked）；
+    一个都没有的话，退化成看配色——恰好一个与众不同就算单选生效。
+    不强制要 ARIA：讲解里只说「同时只有一个是选中的」，
+    用 class + 配色实现同样满足这句话。
+    """
+    if not lay:
+        return 0
+    aria = [x for x in lay if str(x.get("on")).lower() == "true"]
+    if any(x.get("on") for x in lay):
+        return len(aria)
+    from collections import Counter
+    c = Counter(x.get("skin", "") for x in lay)
+    odd = [k for k, n in c.items() if n == 1]
+    return 1 if len(c) >= 2 and len(odd) == 1 else 0
+
+RUBRIC = [
+  "整体是浅色界面（白底或接近白的底），不是深色",
+  "页面左侧有一条竖向的筛选/设置栏，右侧是主内容区",
+  "左栏顶部有一个多行的文本输入框（预览文案框）",
+  "左栏里有一个横向滑块控件",
+  "页面顶部有一条横向工具条，里面有一个较宽的搜索输入框",
+  "工具条右侧有一个排序下拉和一组布局切换按钮",
+  "主内容区是一列（或两列）重复的字体卡片，不止三四张",
+  "每张卡片上方有一行小字（字体名），下方有一行明显更大的样张文字",
+  "各张卡片的样张文字内容一致（都是同一句话）",
+  "各张卡片的样张用的字体彼此不同，不是全都一个样",
+  "卡片之间有清晰的分隔（分割线或留白），排列整齐不重叠",
+  "界面文字偏小、克制，整体像一个真实可用的工具页而不是草稿",
+  "没有元素溢出容器或互相压盖",
+  "配色克制：以白/浅灰/黑字为主，没有大面积高饱和色块",
+]
+
+
+def collect(b, site):
+    """浏览器阶段：把所有交互跑一遍，记录每一步的后置状态。"""
+    d = {}
+    ctx, pg = new_page(b)
+    errs = []
+    pg.on("pageerror", lambda e: errs.append(str(e)[:80]))
+    try:
+        pg.goto(site.url(), wait_until="load", timeout=45000)
+        pg.wait_for_timeout(2600)
+    except Exception as e:
+        ctx.close()
+        return dict(loaded=False, load_err=str(e)[:90])
+    d["loaded"] = True
+    d["errs"] = errs
+    d["ctrl"] = pg.evaluate(CTRL_JS)
+    d["t0"] = pg.evaluate(TILES_JS)
+    d["geom"] = pg.evaluate(GEOM_JS, BOUND)
+    d["rail"] = pg.evaluate(RAIL_JS)
+
+    # 1) 输入预览文案 → 所有卡片跟着变
+    d["typed_ok"] = type_preview(pg, PROBE_TEXT)
+    pg.wait_for_timeout(700)
+    d["t_typed"] = pg.evaluate(TILES_JS)
+
+    # 2) 清空 → 回落到默认句
+    type_preview(pg, "")
+    pg.wait_for_timeout(900)
+    d["t_cleared"] = pg.evaluate(TILES_JS)
+
+    # 3) 滑块
+    d["slider"] = []
+    for v in (96, 200, 40):
+        ok = set_slider(pg, v)
+        pg.wait_for_timeout(800)
+        tt = pg.evaluate(TILES_JS)
+        cc = pg.evaluate(CTRL_JS)
+        d["slider"].append(dict(v=v, ok=bool(ok),
+                                specFs=(tt or {}).get("specFsMode", 0),
+                                tileH=(tt or {}).get("tiles", [{}])[0].get("h", 0),
+                                nameFs=((tt or {}).get("tiles", [{}])[0]
+                                        .get("name") or {}).get("fs", 0),
+                                bodyFs=cc["bodyFs"]))
+
+    # 4) 布局切换
+    d["layouts"] = {}
+    for w in ("Grid", "Row"):
+        hit = click_layout(pg, w)
+        pg.wait_for_timeout(900)
+        tt = pg.evaluate(TILES_JS)
+        cc = pg.evaluate(CTRL_JS)
+        d["layouts"][w] = dict(
+            clicked=hit, n=(tt or {}).get("n", 0), cols=(tt or {}).get("cols", 0),
+            w=(tt or {}).get("tiles", [{}])[0].get("w", 0),
+            h=(tt or {}).get("tiles", [{}])[0].get("h", 0),
+            activeCount=active_count(cc["layouts"]), groupSize=len(cc["layouts"]))
+
+    # 5) 搜索
+    d["search"] = {}
+    try:
+        sb = pg.locator("input").filter(has_not=None)
+        c = d["ctrl"]["search"]
+        if c:
+            box = pg.locator("input").nth(0)
+            # 按几何定位顶部搜索框，避免误点左栏的输入
+            idx, best = 0, 1e9
+            n = pg.locator("input").count()
+            for i in range(n):
+                bb = pg.locator("input").nth(i).bounding_box()
+                if not bb:
+                    continue
+                dist = abs(bb["x"] - c["x"]) + abs(bb["y"] - c["y"])
+                if dist < best:
+                    best, idx = dist, i
+            box = pg.locator("input").nth(idx)
+            box.click(timeout=4000)
+            box.fill(SUB_Q)
+            pg.wait_for_timeout(1300)
+            tt = pg.evaluate(TILES_JS)
+            names = [(x.get("name") or {}).get("text", "")
+                     for x in (tt or {}).get("tiles", [])]
+            names = [x for x in names if x]
+            d["search"] = dict(
+                n=(tt or {}).get("n", 0), names=names[:10],
+                hit=sum(1 for x in names if SUB_Q in x.lower()),
+                total=len(names))
+            box.fill("")
+            pg.wait_for_timeout(1300)
+            d["search"]["restored"] = (pg.evaluate(TILES_JS) or {}).get("n", 0)
+    except Exception as e:
+        d["search"]["err"] = str(e)[:70]
+
+    # 6) 排序选项
+    try:
+        d["sort_options"] = pg.evaluate("""()=>{
+          const s=[...document.querySelectorAll('select')].filter(e=>{
+            const g=((e.getAttribute('aria-label')||'')+e.className+e.id).toLowerCase();
+            return /sort|排序|order/.test(g);})[0];
+          if(s) return [...s.options].map(o=>o.text.trim());
+          // 非 select 的下拉：找带 sort 的容器里的 option 角色
+          const c=[...document.querySelectorAll('[role=combobox],[role=listbox]')]
+            .filter(e=>/sort|排序|order/.test(
+              ((e.getAttribute('aria-label')||'')+e.className+e.id).toLowerCase()))[0];
+          if(!c) return [];
+          const id=c.getAttribute('aria-controls')||c.getAttribute('aria-owns');
+          const box=id?document.getElementById(id):c;
+          return box?[...box.querySelectorAll('[role=option],li,option')]
+            .map(o=>(o.textContent||'').trim()).filter(Boolean):[];}""")
+    except Exception:
+        d["sort_options"] = []
+
+    shot = CASE / "build" / "_cand.png"
+    pg.screenshot(path=str(shot), clip={"x": 0, "y": 0, "width": 1440,
+                  "height": min(BOUND, max(800, d["rail"]["scrollH"]))})
+    d["shot"] = str(shot)
+    ctx.close()
+
+    # 7) 断点
+    d["bp"] = {}
+    for w, h in ((1280, 900), (1024, 900), (1000, 900), (768, 900), (390, 844)):
+        ctx, pg = new_page(b, w, h)
+        try:
+            pg.goto(site.url(), wait_until="load", timeout=45000)
+            pg.wait_for_timeout(1700)
+            m = pg.evaluate(RAIL_JS)
+            tt = pg.evaluate(TILES_JS)
+            m["tileW"] = (tt or {}).get("tiles", [{}])[0].get("w", 0)
+            m["tileX"] = (tt or {}).get("tiles", [{}])[0].get("x", 0)
+            m["cols"] = (tt or {}).get("cols", 0)
+            d["bp"][str(w)] = m
+        except Exception as e:
+            d["bp"][str(w)] = dict(err=str(e)[:60], overflowX=True, scrollH=0,
+                                   railVisible=None, tileW=0, tileX=0, cols=0)
+        ctx.close()
+    return d
+
+
+# ------------------------------------------------------------------ IFS
+IFS_KEYS = [
+ "页面可加载且无 JS 报错", "界内可见节点 ≥60",
+ "有预览文案输入框（宽 ≥180）", "有尺寸滑块控件",
+ "有顶部搜索框（宽 ≥180）", "有一组 ≥3 个布局切换按钮",
+ "主区有 ≥8 张字体卡片", "每张卡片都有名字行 + 更大的样张行",
+ "默认样张文案是《世界人权宣言》第十八条那句",
+ "在预览框打字 → 全部卡片的样张都换成了该文案",
+ "清空预览框 → 样张回落到默认句（不是空、不是字体名）",
+ "滑块设 96 → 样张字号 96（±6）", "滑块设 200 → 样张字号 200（±10）",
+ "卡片高度随滑块变大（200 时比 40 时高 ≥120px）",
+ "滑块回 40 → 样张字号回 40（±4）",
+ "切到网格布局 → 列数 ≥2 且卡片宽 ≤560",
+ "切回行布局 → 单列且卡片宽 ≥600",
+ f"搜索 {SUB_Q} → 剩下的卡片名字全部含 {SUB_Q}（子串，不是前缀）",
+ "清空搜索 → 卡片恢复到 ≥8 张",
+]
+
+
+def score_ifs(d):
+    out, alive = [], True
+
+    def add(k, ok, got=""):
+        nonlocal alive
+        if not alive:
+            out.append(dict(k=k, ok=False, got="前一步未通过，级联失败")); return
+        out.append(dict(k=k, ok=bool(ok), got=str(got)[:110]))
+        if not ok:
+            alive = False
+
+    if not d.get("loaded"):
+        out.append(dict(k=IFS_KEYS[0], ok=False, got=d.get("load_err", "")))
+        for k in IFS_KEYS[1:]:
+            out.append(dict(k=k, ok=False, got="前一步未通过，级联失败"))
+        return out
+
+    c, t0 = d["ctrl"], d["t0"] or {}
+    add(IFS_KEYS[0], not d["errs"], f"{len(d['errs'])} 个报错")
+    add(IFS_KEYS[1], d["geom"]["nodes"] >= 60, f"{d['geom']['nodes']} 个")
+    pv = c["preview"] or {}
+    add(IFS_KEYS[2], pv.get("w", 0) >= 180, f"{pv.get('w')}x{pv.get('h')}")
+    sl = c["slider"] or {}
+    add(IFS_KEYS[3], bool(c["slider"]), json.dumps(sl, ensure_ascii=False)[:70])
+    sb = c["search"] or {}
+    add(IFS_KEYS[4], sb.get("w", 0) >= 180, f"宽 {sb.get('w')}")
+    add(IFS_KEYS[5], len(c["layouts"]) >= 3, f"{len(c['layouts'])} 个")
+    add(IFS_KEYS[6], t0.get("n", 0) >= 8, f"{t0.get('n')} 张")
+    tiles = t0.get("tiles", [])
+    okpair = tiles and all(
+        x.get("name") and x.get("spec") and x["spec"]["fs"] > x["name"]["fs"]
+        for x in tiles[:8])
+    add(IFS_KEYS[7], okpair,
+        f"首卡 名字 {((tiles or [{}])[0].get('name') or {}).get('fs')}px / "
+        f"样张 {((tiles or [{}])[0].get('spec') or {}).get('fs')}px")
+    txt0 = ((tiles or [{}])[0].get("spec") or {}).get("text", "").lower()
+    add(IFS_KEYS[8], DEFAULT_HEAD[:34] in txt0, repr(txt0[:56]))
+
+    tt = d["t_typed"] or {}
+    tl = tt.get("tiles", [])
+    hits = sum(1 for x in tl if PROBE_TEXT.lower() in
+               ((x.get("spec") or {}).get("text", "").lower()))
+    add(IFS_KEYS[9], tl and hits == len(tl), f"{hits}/{len(tl)} 张跟上")
+    tc = ((d["t_cleared"] or {}).get("tiles") or [{}])[0]
+    ctxt = (tc.get("spec") or {}).get("text", "").lower()
+    add(IFS_KEYS[10], DEFAULT_HEAD[:34] in ctxt, repr(ctxt[:56]))
+
+    s = {x["v"]: x for x in d["slider"]}
+    add(IFS_KEYS[11], abs(s.get(96, {}).get("specFs", 0) - 96) <= 6,
+        f"{s.get(96, {}).get('specFs')}px")
+    add(IFS_KEYS[12], abs(s.get(200, {}).get("specFs", 0) - 200) <= 10,
+        f"{s.get(200, {}).get('specFs')}px")
+    add(IFS_KEYS[13],
+        s.get(200, {}).get("tileH", 0) - s.get(40, {}).get("tileH", 0) >= 120,
+        f"200 时 {s.get(200, {}).get('tileH')} / 40 时 {s.get(40, {}).get('tileH')}")
+    add(IFS_KEYS[14], abs(s.get(40, {}).get("specFs", 0) - 40) <= 4,
+        f"{s.get(40, {}).get('specFs')}px")
+
+    g, r = d["layouts"].get("Grid", {}), d["layouts"].get("Row", {})
+    add(IFS_KEYS[15], g.get("cols", 0) >= 2 and 0 < g.get("w", 0) <= 560,
+        f"{g.get('cols')} 列 卡片宽 {g.get('w')}")
+    add(IFS_KEYS[16], r.get("cols", 9) == 1 and r.get("w", 0) >= 600,
+        f"{r.get('cols')} 列 卡片宽 {r.get('w')}")
+    se = d.get("search") or {}
+    add(IFS_KEYS[17], se.get("total", 0) >= 2 and se.get("hit") == se.get("total"),
+        f"{se.get('hit')}/{se.get('total')} 命中  {se.get('names', [])[:4]}")
+    add(IFS_KEYS[18], se.get("restored", 0) >= 8, f"恢复到 {se.get('restored')} 张")
+    return out
+
+
+# ------------------------------------------------------------------ AFS
+AFS_KEYS = [
+ "① 滑块最小值是 8", "② 滑块最大值是 300", "③ 滑块步长是 1",
+ "④ 滑块默认值是 40", "⑤ 样张字号 = 滑块值（1:1，不是比例缩放）",
+ "⑥ 滑块不影响界面字号（body 恒 ≈16px）",
+ "⑦ 滑块不影响卡片名字行字号（恒 ≈16px）",
+ "⑧ 清空预览框回落到默认句，不是空也不是字体名",
+ "⑨ 预览文案对所有卡片同时生效，不是只改一张",
+ f"⑩ 搜索是不区分大小写的子串匹配（大写 {SUB_Q.upper()} 也能搜到）",
+ "⑪ 布局按钮是一组单选，同时只有一个处于选中态",
+ "⑫ 排序下拉的四个选项是 Trending / Most popular / Newest / Name",
+ "⑬ 各卡片样张字体 ≥4 种，不是全同一个",
+ "⑭ 1280px 下左栏在、1000px 下自动收起且卡片占满宽",
+]
+
+
+def score_afs(d, extra):
+    out = []
+
+    def add(k, ok, got=""):
+        out.append(dict(k=k, ok=bool(ok), got=str(got)[:110]))
+
+    if not d.get("loaded"):
+        for k in AFS_KEYS:
+            add(k, False, "页面没加载")
+        return out
+    sl = d["ctrl"]["slider"] or {}
+
+    def num(x, dv=None):
+        try:
+            return float(x)
+        except Exception:
+            return dv
+    add(AFS_KEYS[0], num(sl.get("min")) == 8, f"min={sl.get('min')}")
+    add(AFS_KEYS[1], num(sl.get("max")) == 300, f"max={sl.get('max')}")
+    add(AFS_KEYS[2], num(sl.get("step"), 1) == 1, f"step={sl.get('step')!r}")
+    add(AFS_KEYS[3], num(sl.get("val")) == 40, f"默认 {sl.get('val')}")
+    s = {x["v"]: x for x in d["slider"]}
+    one2one = all(abs(s.get(v, {}).get("specFs", 0) - v) <= max(4, v * 0.05)
+                  for v in (96, 200, 40))
+    add(AFS_KEYS[4], one2one,
+        " ".join(f"{v}->{s.get(v, {}).get('specFs')}" for v in (96, 200, 40)))
+    add(AFS_KEYS[5], len({x["bodyFs"] for x in d["slider"]}) == 1,
+        f"界面字号 {[x['bodyFs'] for x in d['slider']]}")
+    add(AFS_KEYS[6], len({x["nameFs"] for x in d["slider"]}) == 1 and
+        14 <= d["slider"][0]["nameFs"] <= 18,
+        f"名字字号 {[x['nameFs'] for x in d['slider']]}")
+    tc = ((d["t_cleared"] or {}).get("tiles") or [{}])[0]
+    ctxt = (tc.get("spec") or {}).get("text", "").lower()
+    nm = ((tc.get("name") or {}).get("text", "") or "").lower()
+    add(AFS_KEYS[7], DEFAULT_HEAD[:34] in ctxt and ctxt.strip() != nm.strip(),
+        repr(ctxt[:50]))
+    tl = (d["t_typed"] or {}).get("tiles", [])
+    hits = sum(1 for x in tl if PROBE_TEXT.lower() in
+               ((x.get("spec") or {}).get("text", "").lower()))
+    add(AFS_KEYS[8], tl and hits == len(tl), f"{hits}/{len(tl)}")
+    add(AFS_KEYS[9], extra.get("upper_hit", 0) >= 2,
+        f"搜 '{SUB_Q.upper()}' 命中 {extra.get('upper_hit')} 张 / 共 {extra.get('upper_total')}")
+    lay = d["layouts"].get("Row", {})
+    add(AFS_KEYS[10], lay.get("activeCount") == 1 and lay.get("groupSize", 0) >= 3,
+        f"选中 {lay.get('activeCount')} / 共 {lay.get('groupSize')}")
+    want = {"trending", "most popular", "newest", "name"}
+    got = {x.strip().lower() for x in (d.get("sort_options") or [])}
+    add(AFS_KEYS[11], want <= got, f"{d.get('sort_options')}")
+    fams = (d["t0"] or {}).get("families", [])
+    add(AFS_KEYS[12], len(fams) >= 4, f"{len(fams)} 种: {fams[:5]}")
+    b1280, b1000 = d["bp"].get("1280", {}), d["bp"].get("1000", {})
+    add(AFS_KEYS[13],
+        b1280.get("railVisible") is True and
+        b1000.get("railVisible") is False and b1000.get("tileX", 999) < 200,
+        f"1280 左栏={b1280.get('railVisible')} ／ "
+        f"1000 左栏={b1000.get('railVisible')} 卡片 x={b1000.get('tileX')}")
+    return out
+
+
+# ------------------------------------------------------------------ RSP
+def score_rsp(d):
+    if not d.get("loaded"):
+        return [dict(k="响应式", ok=False, got="页面没加载")]
+    out = [dict(k="1440px 无横向溢出", ok=not d["rail"]["overflowX"],
+                got=f"页高 {d['rail']['scrollH']}")]
+    for w in ("1280", "1024", "1000", "768", "390"):
+        m = d["bp"].get(w, {})
+        out.append(dict(k=f"{w}px 无横向溢出", ok=not m.get("overflowX", True),
+                        got=f"卡片宽 {m.get('tileW')} @x={m.get('tileX')}"))
+    b390 = d["bp"].get("390", {})
+    out.append(dict(k="390px 下卡片宽 300–390（铺满而不溢出）",
+                    ok=300 <= b390.get("tileW", 0) <= 390,
+                    got=f"{b390.get('tileW')}"))
+    return out
+
+
+# ------------------------------------------------------------------ VFS
+def score_geom(d, ref):
+    out = []
+
+    def add(k, ok, got=""):
+        out.append(dict(k=k, ok=bool(ok), got=str(got)[:110]))
+
+    if not d.get("loaded"):
+        for i in range(11):
+            add(f"几何判据 {i+1}", False, "页面没加载")
+        return out
+    c, t0, g = d["ctrl"], d["t0"] or {}, d["geom"]
+    rc, rt = ref["ctrl"], ref["tiles0"]
+    tile = (t0.get("tiles") or [{}])[0]
+    pv = c["preview"] or {}
+    sl = c["slider"] or {}
+    sb = c["search"] or {}
+    import re as _re
+    bg = _re.findall(r"\d+", c["bodyBg"] or "")[:3]
+    add("背景是浅色（接近白，rgb 各通道 ≥225）",
+        len(bg) == 3 and all(int(v) >= 225 for v in bg), c["bodyBg"])
+    add("界面基准字号 14–17px", 14 <= c["bodyFs"] <= 17, f"{c['bodyFs']}px")
+    add("预览框在左栏（x ≤ 240）且宽 220–320",
+        pv.get("x", 999) <= 240 and 220 <= pv.get("w", 0) <= 320,
+        f"x={pv.get('x')} w={pv.get('w')}（线上 x={rc['preview']['x']} "
+        f"w={rc['preview']['w']}）")
+    add("预览框高 110–220（多行）", 110 <= pv.get("h", 0) <= 220,
+        f"{pv.get('h')}（线上 {rc['preview']['h']}）")
+    add("滑块在预览框下方 80–300px 处", 80 <= sl.get("y", 0) - pv.get("y", 0) <= 300,
+        f"滑块 y={sl.get('y')} 预览框 y={pv.get('y')}")
+    add("顶部搜索框 y ≤ 90 且宽 ≥300",
+        sb.get("y", 999) <= 90 and sb.get("w", 0) >= 300,
+        f"y={sb.get('y')} w={sb.get('w')}（线上 y={rc['search']['y']} "
+        f"w={rc['search']['w']}）")
+    add("行布局卡片宽 820–980", 820 <= tile.get("w", 0) <= 980,
+        f"{tile.get('w')}（线上 {rt['tiles'][0]['w']}）")
+    add("行布局卡片高 130–200", 130 <= tile.get("h", 0) <= 200,
+        f"{tile.get('h')}（线上 {rt['tiles'][0]['h']}）")
+    add("卡片左缘 420–540（给左栏留出位置）",
+        420 <= tile.get("x", 0) <= 540,
+        f"x={tile.get('x')}（线上 {rt['tiles'][0]['x']}）")
+    add("卡片名字行字号 14–18px",
+        14 <= ((tile.get("name") or {}).get("fs", 0)) <= 18,
+        f"{(tile.get('name') or {}).get('fs')}px（线上 "
+        f"{rt['tiles'][0]['name']['fs']}）")
+    top = [k for k, _ in (g["fontTop"] or [[0, 0]])[:3]]
+    add("字号谱里最常见的是 12–16px 的小字", any(12 <= k <= 16 for k in top),
+        f"{g['fontTop'][:4]}")
+    return out
+
+
+def score_vfs(d, ref, use_judge=True):
+    geom = score_geom(d, ref)
+    gfrac = sum(1 for x in geom if x["ok"]) / max(1, len(geom))
+    if not d.get("loaded"):
+        return 0.0, geom, gfrac, 0.0, "页面没加载", 0.0, []
+    ref_t = set(t for t in ref["geom"]["texts"] if len(t) >= 4)
+    cand_t = set(t for t in d["geom"]["texts"] if len(t) >= 4)
+    hit = ref_t & cand_t
+    cover = len(hit) / max(1, len(ref_t))
+    density = min(1.0, d["geom"]["nodes"] / 150)
+    ntile = min(1.0, (d["t0"] or {}).get("n", 0) / 12)
+    struct = 0.40 * cover + 0.25 * density + 0.35 * ntile
+    note = (f"文本覆盖 {cover*100:.0f}%（{len(hit)}/{len(ref_t)}）  "
+            f"内容密度 {density*100:.0f}%（界内 {d['geom']['nodes']} 节点，"
+            f"线上 {ref['geom']['nodes']}）  卡片数 {(d['t0'] or {}).get('n')}")
+
+    jsc, jitems = 0.0, []
+    if use_judge:
+        prompt = (
+          "你在评估一个「看录屏复刻网页」的任务。\n"
+          "第一张图是参考页面（标准答案），第二张图是被测模型做出来的页面。\n"
+          "请逐条判断下面每条描述在**被测页面**上是否成立。"
+          "只评被测页面，参考图只是让你知道目标长什么样。\n"
+          "判断要严格：含糊、勉强、明显差很多的，一律 false。\n\n"
+          + "\n".join(f"{i+1}. {r}" for i, r in enumerate(RUBRIC)) +
+          '\n\n只输出 JSON：{"verdicts":[{"i":1,"ok":true,"why":"一句话"}, ...]}')
+        v = parse_verdicts(ask_judge(prompt, images=[REF_SHOT, d["shot"]]),
+                           len(RUBRIC))
+        pos = [i for i, x in enumerate(v) if x]
+        if pos:
+            rp = ("有人判定下面这个被测页面（第二张图）满足了这些条件。"
+                  "请你扮演反方，逐条核查是否**确实**满足，有明显不符就推翻。\n\n" +
+                  "\n".join(f"{k+1}. {RUBRIC[k]}" for k in pos) +
+                  '\n\n只输出 JSON：{"verdicts":[{"i":1,"ok":true,"why":"..."}]}'
+                  "（ok=true 维持原判，false 推翻）")
+            rv = parse_verdicts(ask_judge(rp, images=[REF_SHOT, d["shot"]]), len(pos))
+            for k, keep in zip(pos, rv):
+                if not keep:
+                    v[k] = 0
+        jsc = sum(v) / len(RUBRIC)
+        jitems = [dict(k=RUBRIC[i], ok=bool(v[i])) for i in range(len(RUBRIC))]
+    # struct 不再计入 VFS——内容广度已单独成桶（CVG），避免同一件事算两遍
+    total = (0.60 * gfrac + 0.40 * jsc) if use_judge else gfrac
+    return total, geom, gfrac, struct, note, jsc, jitems
+
+
+def upper_search(b, site, ctrl):
+    """单独开一页测大写搜索（AFS ⑩：子串 + 不区分大小写）。"""
+    ctx, pg = new_page(b)
+    res = dict(upper_hit=0, upper_total=0)
+    try:
+        pg.goto(site.url(), wait_until="load", timeout=45000)
+        pg.wait_for_timeout(2200)
+        c = (ctrl or {}).get("search")
+        if not c:
+            return res
+        n, idx, best = pg.locator("input").count(), 0, 1e9
+        for i in range(n):
+            bb = pg.locator("input").nth(i).bounding_box()
+            if not bb:
+                continue
+            dist = abs(bb["x"] - c["x"]) + abs(bb["y"] - c["y"])
+            if dist < best:
+                best, idx = dist, i
+        box = pg.locator("input").nth(idx)
+        box.click(timeout=4000); box.fill(SUB_Q.upper())
+        pg.wait_for_timeout(1300)
+        tt = pg.evaluate(TILES_JS)
+        names = [(x.get("name") or {}).get("text", "")
+                 for x in (tt or {}).get("tiles", [])]
+        names = [x for x in names if x]
+        res = dict(upper_hit=sum(1 for x in names if SUB_Q in x.lower()),
+                   upper_total=len(names))
+    except Exception:
+        pass
+    ctx.close()
+    return res
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("submission")
+    ap.add_argument("--no-judge", action="store_true")
+    ap.add_argument("--json")
+    ns = ap.parse_args()
+
+    root = entry(ns.submission)
+    if root is None:
+        print(json.dumps({"error": "找不到 index.html"}, ensure_ascii=False)); return 2
+
+    ref = artifacts()
+    from playwright.sync_api import sync_playwright
+    site = Site(root)
+    try:
+        with sync_playwright() as b_:
+            b = b_.chromium.launch(channel="msedge")
+            cand = collect(b, site)
+            extra = upper_search(b, site, cand.get("ctrl")) if cand.get("loaded") \
+                else {}
+            try:
+                b.close()
+            except Exception:
+                pass
+    finally:
+        site.close()
+
+    ifs, afs, rsp = score_ifs(cand), score_afs(cand, extra), score_rsp(cand)
+    vfs, geom, gfrac, struct, note, jsc, jitems = score_vfs(
+        cand, ref, not ns.no_judge)
+
+    cvg, cvg_items, cov = score_cvg(cand, ref)
+
+    def frac(xs): return sum(1 for x in xs if x["ok"]) / max(1, len(xs))
+    parts = {"IFS 交互功能": frac(ifs), "AFS 音频独有": frac(afs),
+             "CVG 内容广度": cvg, "VFS 视觉保真": vfs, "RSP 响应式": frac(rsp)}
+    W = {"IFS 交互功能": W_IFS, "AFS 音频独有": W_AFS,
+         "CVG 内容广度": W_CVG, "VFS 视觉保真": W_VFS, "RSP 响应式": W_RSP}
+    total = sum(W[k] * v for k, v in parts.items())
+
+    print(f"\n{'='*78}\n提交: {root}\n{'='*78}")
+    for nm, arr in (("IFS 交互功能（按轨迹级联）", ifs), ("AFS 音频独有", afs),
+                    ("VFS·几何（确定性）", geom), ("RSP 响应式", rsp)):
+        print(f"\n—— {nm}  {sum(1 for x in arr if x['ok'])}/{len(arr)} ——")
+        for it in arr:
+            print(f" {'✓' if it['ok'] else '✗'} {it['k']}"
+                  + (f"\n      {it['got']}" if it.get("got") else ""))
+    print(f"\n—— VFS·结构 {struct*100:.1f} ——\n  {note}")
+    if jitems:
+        print(f"\n—— VFS·rubric judge  "
+              f"{sum(1 for x in jitems if x['ok'])}/{len(jitems)} ——")
+        for it in jitems:
+            print(f" {'✓' if it['ok'] else '✗'} {it['k']}")
+    print(f"\n  VFS = 0.60×几何{gfrac*100:.1f}"
+          f" + 0.40×judge{jsc*100:.1f} = {vfs*100:.2f}")
+    print(f"\n—— CVG 内容广度 {cvg*100:.1f} ——")
+    for it in cvg_items:
+        print(f" {'✓' if it['ok'] else '✗'} {it['k']}"
+              + (f"\n      {it['got']}" if it.get("got") else ""))
+    print(f"\n{'='*78}")
+    for k, v in parts.items():
+        print(f"  {k:<14}{v*100:>7.2f}  × {W[k]:.2f}  = {W[k]*v*100:>6.2f}")
+    print(f"  {'总分':<14}{total*100:>7.2f}\n{'='*78}\n")
+
+    if ns.json:
+        Path(ns.json).write_text(json.dumps(dict(
+            total=round(total * 100, 2),
+            parts={k: round(v * 100, 2) for k, v in parts.items()},
+            vfs=dict(geom=round(gfrac * 100, 2), struct=round(struct * 100, 2),
+                     judge=round(jsc * 100, 2), note=note),
+            cvg=cov,
+            items=dict(IFS=ifs, AFS=afs, CVG=cvg_items,
+                       GEOM=geom, RSP=rsp, JUDGE=jitems)),
+            ensure_ascii=False, indent=1), encoding="utf-8")
+        print(f"明细 -> {ns.json}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

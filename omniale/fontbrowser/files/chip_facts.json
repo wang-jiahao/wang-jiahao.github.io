@@ -1,0 +1,32 @@
+{
+  "_why": "B 类 v2 要写进讲解的事实，全部来自 build/probe_chips2.py 的实测，不是推测。这一轮已经因为凭印象写讲解错过两次（下拉过渡时长、reduced-motion 比例），所以每条都记下实测证据。",
+  "source": "build/_gfonts_chips2.json",
+  "facts": [
+    {
+      "fact": "分类标签在同一组内是单选：点第二个会把第一个替换掉，不是多选、也不是取或",
+      "evidence": "点 Business -> 选中 ['Business'] 计数 641；再点同组的 Fancy -> 选中变成 ['Fancy']（Business 消失）计数 95",
+      "why_hard": "多选取或是绝大多数人的默认实现，画面上也看不出被替换了"
+    },
+    {
+      "fact": "跨组是与：两个组各选一个，结果取交集",
+      "evidence": "Business 单独 641；Business + Geometric（Sans 分类组）-> 选中 ['Business','Geometric'] 计数 74",
+      "why_hard": "同组单选 + 跨组取与这个组合，不听讲解猜不到"
+    },
+    {
+      "fact": "再点一次已选中的标签就取消它，该组回到不限",
+      "evidence": "选中 ['Fancy'] 计数 95 -> 再点 Fancy -> 选中 [] 计数 1959"
+    },
+    {
+      "fact": "Reset all 一键清空全部组的筛选",
+      "evidence": "选中 ['Rounded'] 计数 103 -> Reset all -> 选中 [] 计数 1959"
+    },
+    {
+      "fact": "结果计数的口径是「N of 1,959 families」，分母恒定不随筛选变",
+      "evidence": "基线 '1,959 of 1,959 families'；筛选后 '641 of 1,959 families'"
+    },
+    {
+      "fact": "标签分成五组：Feeling、外观、手写体风格、衬线分类、无衬线分类，另有季节组",
+      "evidence": "y=689 起 Business/Fancy…；y=1225 Blobby/Marker/Art Deco…；y=1641 Handwritten/Formal/Informal/Upright；y=1857 Transitional/Slab/Old Style/Modern/Humanist/Scotch/Fatface/Didone；y=2193 Geometric/Neo Grotesque/Rounded/Superellipse/Grotesque/Glyphic；y=2585 Lunar New Year/Valentine's"
+    }
+  ]
+}
