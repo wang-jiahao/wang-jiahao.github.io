@@ -1,0 +1,35 @@
+{
+  "assessment": "accepted_after_trace_review",
+  "run_path": "results/ale-aerobics-nju-userproxy-repeat-r2/codex_nju_gpt61sol_xhigh/gpt-6-1-sol/other__aerobics_wc2026_portugal_trio_difficulty_scoring/v0/20261103_173926",
+  "protocol": "independent-routine-r1",
+  "attempt": "userproxy-r2",
+  "scope": "Prompt, visible commands/searches, workbook code, working notes, captured local frames, isolation witness and official verifier. No complete network capture or expert technical rejudging.",
+  "findings": [
+    "No routine-specific answer, prior attempt or precomputed element list retrieval/use observed.",
+    "Only supplied video and FIG PDF used as task material; three searches/opens concerned general FIG rules and supplied no readable external content according to tool/notes.",
+    "New container uses actual Windows user proxy; no host mounts and no reference directory during solving.",
+    "First mismatch row3 A338/.8 vs A319/.9; official completed/score0/evalsuccess. Post-run matching indices1,2,6, no partial official credit."
+  ],
+  "web_queries": [
+    "site.gymnastics.sport aerobic gymnastics 2025 2028 code of points difficulty group A B C",
+    "site:gymnastics.sport \"2025-2028\" \"AER\" \"Code of Points\"",
+    "https://www.gymnastics.sport/site/rules/"
+  ],
+  "completed_commands": 48,
+  "actual_requested_reasoning_efforts": [
+    "xhigh"
+  ],
+  "view_image_calls": 35,
+  "script_sha256": [
+    {
+      "path": "work/build_workbook.py",
+      "sha256": "5a70c038d798dd76c8ba4d41e335226b6fb156d257ed9be589688e5533003f0d"
+    },
+    {
+      "path": "work/make_contact_sheet.py",
+      "sha256": "954f2e733d3929bb3fc9959d902110751dcc843a886c5046f01824455886b0c5"
+    }
+  ],
+  "isolation_file": "audit_20261103/aerobics-repeat-r2-isolation.json",
+  "reviewed_at": "2026-11-03T18:14:25.884943+00:00"
+}

@@ -1,0 +1,72 @@
+Goal: Transcribe a recorded piece into musical notation, export both a PDF score and a MIDI file with correct instrument assignments. You may use any music notation software available on the system.
+
+MuseScore 3 is installed on Linux; launch it with `musescore3`. You may use the
+editor or scripts. Preserve the complete orchestration, rather than a melody
+reduction. The PDF, MusicXML and MIDI must represent the same complete musical work.
+MusicXML is the machine-readable export of your score, not a separate transcription.
+Alternatively, save the complete MuseScore project as transcription.mscz or
+transcription.mscx instead of MusicXML. The evaluator exports that score itself.
+The evaluator uses .mscz, then .mscx, then MusicXML, in that order.
+
+Read the task specification from task_brief.json at /media/user/data/agenthle/visual_media/music_transcription/dorico_prelude/input/task_brief.json. It contains:
+- title: the title of the piece
+- composer: the composer of the piece
+- tempo_bpm: the tempo of the song
+- instruments: list of instruments to transcribe, each with name, clef, and GM program number
+
+Input audio files are available in the input directory:
+- /media/user/data/agenthle/visual_media/music_transcription/dorico_prelude/input/reference_song.mp3 — MP3 recording of the target song
+
+Steps:
+1. Listen to the reference audio to identify all instrumental parts.
+2. Open a music notation software and create a new project.
+3. Fill in the Title and Composer from task_brief.json in the project info.
+4. Add players/instruments matching those listed in task_brief.json.
+5. Configure the time signature, key signature, and tempo marking based on what you hear.
+6. Transcribe all notes, rhythms, dynamics, articulations, and expression markings for each part.
+7. Format the score layout professionally (proper spacing, alignment, readable note density).
+8. Configure playback: assign each instrument to the correct General MIDI (GM) program number as specified in task_brief.json.
+9. Export outputs:
+   - Export a PDF of the full score. Save it as /media/user/data/agenthle/visual_media/music_transcription/dorico_prelude/output/transcription.pdf
+   - Export MIDI: save as /media/user/data/agenthle/visual_media/music_transcription/dorico_prelude/output/transcription.mid
+   - Save the native MuseScore score as /media/user/data/agenthle/visual_media/music_transcription/dorico_prelude/output/transcription.mscz (or .mscx),
+     or export MusicXML (plain or compressed) as /media/user/data/agenthle/visual_media/music_transcription/dorico_prelude/output/transcription.musicxml
+10. Take ONE final screenshot showing the notation software with the score visible (showing some instrument staves):
+    save_milestone_screenshot(path="/media/user/data/agenthle/visual_media/music_transcription/dorico_prelude/output/overview.png", description="Overview of the transcribed score")
+
+Output files (all saved to /media/user/data/agenthle/visual_media/music_transcription/dorico_prelude/output):
+- transcription.pdf: Exported PDF of the complete score with all parts.
+- transcription.mid: Exported MIDI file. Each track must have correct MIDI Program Change messages matching the GM program numbers in task_brief.json.
+- transcription.mscz or transcription.mscx, or transcription.musicxml: The same complete editable score.
+- overview.png: Screenshot of the notation software showing the transcribed score with instrument staves visible.
+
+Track order and names, equivalent MIDI encodings, correctly transposed notation,
+and alternative readable page layouts are unrestricted.
+GM program numbers in the brief are zero-based; follow the explicit numbers.
+Preserve the complete pitches, written rhythms, ornaments, playing techniques,
+articulations, pedal spans and relative dynamics of every part in both notation
+and playback. Equivalent standard words or symbols and complete written-out
+ornaments are accepted, including alternative complete roll rates and grace
+timing that preserve the local musical passage. Overall volume scaling is allowed.
+For passages without written dynamic markings, retain their expressive loudness
+in MIDI playback. Sustain controllers or equivalent extended note releases may
+represent pedal regions. Instruments may span multiple staves or MIDI tracks.
+Use readable professional notation with the correct title and composer and no
+material collisions or clipping. Cover pages, valid condensed staves and
+alternative spacing are accepted.
+For D.C., D.S., coda and fine, submit your native MuseScore score with playback
+navigation intact. Ordinary repeats, numbered endings and transposed instruments
+are supported.
+
+Complete the task fully autonomously; no user will intervene.
+This run measures independent transcription from the supplied recording, not retrieval of an existing transcription.
+Internet access remains enabled. You may install general-purpose software, libraries, and transcription models, and read general technical documentation.
+Derive all task-specific notes, rhythms, dynamics, instrumentation, and score content from the supplied input recording and brief using your own analysis and tools.
+Do not search for, download, inspect, extract, or use any existing score, notation, tablature, MIDI, DAW/notation project, answer, walkthrough, or prior attempt for this composition or this benchmark task. This prohibition includes public sample projects, installer examples, cached copies, matching sheet music, and task-specific material embedded in packages or repositories. Do not use the title, composer, or identifying audio to retrieve such material. Do not delegate the task to an external solver service.
+General-purpose pretrained transcription tools are permitted, but task-specific source/answer files are not. Record the tools/models you use and the origin of any downloaded files in your working notes so compliance can be audited.
+If prohibited task-specific material is encountered accidentally, stop inspecting it, do not use it, and disclose the incident in your final response.
+Do not access evaluator reference files, previous attempts, host files, or credentials to obtain task content. Preserve the official deliverable requirements.
+When finished, terminate all child processes you started.
+The user will evaluate your performance based on the independently produced artifacts and adherence to these rules.
+
+Task sandbox configured per-container ceilings: CPU quota 4 CPU equivalents; memory limit 15 GiB (16106127360 bytes). These are not guaranteed free memory or exclusive CPU capacity. All sandbox processes share these ceilings. In Docker, /proc, nproc, os.cpu_count(), and free may report host resources rather than container limits. Size worker pools and numerical-library threads to these ceilings and leave memory headroom.

@@ -1,0 +1,205 @@
+{
+  "assessment": "accepted_after_trace_review",
+  "run_path": "results/ale-music-nju-independent-proxy-repeat-r2/codex_nju_gpt61sol_xhigh/gpt-6-1-sol/visual_media__music_transcription/v0/20261103_153337",
+  "protocol": "independent-v2",
+  "scope": "Prompt, visible commands/searches, downloaded-source selection, checkpoint hash, generated scripts, intermediate model outputs, working notes, isolation record and frozen outputs. Not a full packet capture or pretrained-data audit.",
+  "findings": [
+    "Only supplied recording/brief supply task-specific music. No task-specific score/MIDI/native project/prior answer retrieval observed.",
+    "GeneralUser soundfont search and generic model/MuseScore technical code downloads observed; fetch_model.py restricts source to Python model/utils/config modules, no repository example audio/MIDI copied.",
+    "YourMT3 full 69-segment prediction completed; original MoE checkpoint byte size and SHA256 match official LFS metadata. Single-decoder YourMT3 and Basic Pitch were also run locally.",
+    "Model duration postprocessing over ten seconds was corrected by the agent and local predictions decoded again. This is tool use, not evaluator modification.",
+    "New container has no host mounts, proxy-enabled network and no references while solver runs. Prompt SHA matches original independent-v2.",
+    "Solver completed with exit0, original judge429 leaves score null; official evaluation-only recovery1 succeeded on identical frozen files."
+  ],
+  "sources": {
+    "run_path": "results/ale-music-nju-independent-proxy-repeat-r2/codex_nju_gpt61sol_xhigh/gpt-6-1-sol/visual_media__music_transcription/v0/20261103_153337",
+    "queries": [
+      "GeneralUser GS soundfont official download sf2",
+      "https://schristiancollins.com/generaluser.php"
+    ],
+    "sanitized_command_urls": [
+      "http://www.musicxml.org/dtds/partwise.dtd",
+      "https://api.github.com/repos/mrbumpy409/GeneralUser-GS",
+      "https://api.github.com/repos/mrbumpy409/GeneralUser-GS/contents/",
+      "https://api.github.com/repos/mrbumpy409/GeneralUser-GS/releases/latest",
+      "https://archive.ubuntu.com/ubuntu/pool/universe/f/fluid-soundfont/fluid-soundfont-gm_3.1-5.3_all.deb",
+      "https://download.pytorch.org/whl/cpu",
+      "https://huggingface.co/api/spaces/mimbres/YourMT3/tree/main",
+      "https://huggingface.co/api/spaces/mimbres/YourMT3/tree/main/amt",
+      "https://huggingface.co/spaces/mimbres/YourMT3/resolve/main/",
+      "https://huggingface.co/spaces/mimbres/YourMT3/resolve/main/amt/logs/2024/mc13_256_g4_all_v7_mt3f_sqr_rms_moe_wf4_n8k2_silu_rope_rp_b36_nops/checkpoints/last.ckpt",
+      "https://huggingface.co/spaces/mimbres/YourMT3/resolve/main/amt/logs/2024/ptf_all_cross_rebal5_mirst_xk2_edr005_attend_c_full_plus_b100/checkpoints/model.ckpt",
+      "https://huggingface.co/spaces/mimbres/YourMT3/resolve/main/app.py",
+      "https://huggingface.co/spaces/mimbres/YourMT3/resolve/main/model_helper.py",
+      "https://huggingface.co/spaces/mimbres/YourMT3/resolve/main/requirements.txt;",
+      "https://raw.githubusercontent.com/mrbumpy409/GeneralUser-GS/main/GeneralUser-GS.sf2",
+      "https://raw.githubusercontent.com/musescore/MuseScore/v3.2.3/libmscore/note.cpp",
+      "https://raw.githubusercontent.com/musescore/MuseScore/v3.2.3/libmscore/note.h",
+      "https://raw.githubusercontent.com/musescore/MuseScore/v3.2.3/libmscore/property.cpp",
+      "https://raw.githubusercontent.com/musescore/MuseScore/v3.2.3/libmscore/types.h",
+      "https://raw.githubusercontent.com/musescore/MuseScore/v3.2.3/libmscore/xml.cpp",
+      "https://schristiancollins.com/generaluser.php",
+      "https://schristiancollins.com/soundfonts/GeneralUser_GS_1.471.zip"
+    ],
+    "review_flags": [],
+    "actual_effort": [
+      "xhigh"
+    ],
+    "tool_counts": {
+      "exec_command": 147,
+      "write_stdin": 42,
+      "view_image": 10,
+      "create_goal": 1,
+      "screenshot": 4,
+      "click": 5,
+      "key": 13,
+      "type": 4,
+      "update_goal": 1
+    },
+    "completed_command_records": 142
+  },
+  "script_io_review": [
+    {
+      "path": "analyze_notes.py",
+      "sha256": "32cc5d70807104c9dce7e1bec1d0d42814e73ed91c0877184c97615b361a9567",
+      "literal_inputs": [
+        "neural_notes.json"
+      ]
+    },
+    {
+      "path": "arrange_score.py",
+      "sha256": "03b2924c4551b58b44e75619e690dfe5ed1b315786c034c074f7acd308f5a76b",
+      "literal_inputs": [
+        "/media/user/data/agenthle/visual_media/music_transcription/dorico_prelude/input/task_brief.json",
+        "combined_pitch.npz",
+        "fit_extended.npz",
+        "neural_notes_long.json",
+        "neural_single_long.json",
+        "pitch_events.json",
+        "reference.wav",
+        "score_events.json"
+      ]
+    },
+    {
+      "path": "build_musicxml.py",
+      "sha256": "704da09e5f077b74a0493c411d21025872aed2da044af6d0c720a12bac041a13",
+      "literal_inputs": [
+        "score_events.json"
+      ]
+    },
+    {
+      "path": "extract_events.py",
+      "sha256": "79c4f85ff0cc4e79848be4c082d70b9f936d9f241ccc61f9ed77ad2d569528d8",
+      "literal_inputs": [
+        "combined_pitch.npz",
+        "fit_extended.npz",
+        "harp_runs.json",
+        "neural_notes.json",
+        "neural_single.json",
+        "pitch_events.json"
+      ]
+    },
+    {
+      "path": "fetch_model.py",
+      "sha256": "0f4b2cd6d3d5dfbb1cda12efb6a3de88942d911f9ba99abd1f5cba641b9950ac",
+      "literal_inputs": [
+        "https://huggingface.co/api/spaces/mimbres/YourMT3/tree/main/amt"
+      ]
+    },
+    {
+      "path": "finalize_native.py",
+      "sha256": "346a06f74e63ef89771df5d39320f614cfa033ff06d00fbbf0475ee00f046630",
+      "literal_inputs": [
+        "score_events.json"
+      ]
+    },
+    {
+      "path": "finish_midi_validate.py",
+      "sha256": "7a1942a1a69c667db2babf55c4285c17df21123d2970f23280e5a2d0fc79a36e",
+      "literal_inputs": [
+        "score_events.json",
+        "validation_report.json"
+      ]
+    },
+    {
+      "path": "fit_templates.py",
+      "sha256": "1d311cd40cff77cfbcc29bb0d2ba44198f2186572a34197047f589070e25c8ff",
+      "literal_inputs": [
+        "audio_features.npz"
+      ]
+    },
+    {
+      "path": "inspect_audio.py",
+      "sha256": "8929145aacdf5cb5a10a7e0e4d145d2bca33899b2b5db7a69496d1d4b7903ccf",
+      "literal_inputs": [
+        "reference.wav"
+      ]
+    },
+    {
+      "path": "make_templates.py",
+      "sha256": "78fe2cd1033804e61a637f4f92585a49bfad22a451f98a9e1fc3a8afa38a2276",
+      "literal_inputs": []
+    },
+    {
+      "path": "plot_fit.py",
+      "sha256": "42f1b3f4417fcb07fdc86f69422213fb2b43266f093b6c7b526463dfbeebab75",
+      "literal_inputs": [
+        "fit_extended.npz"
+      ]
+    },
+    {
+      "path": "plot_pitch.py",
+      "sha256": "584076707f0ce84fff339de89927d81daae8739ae03d8a3b54b5b5e93abdd0df",
+      "literal_inputs": [
+        "basic_notes.json",
+        "basic_outputs.npz",
+        "fit_extended.npz"
+      ]
+    },
+    {
+      "path": "redecode.py",
+      "sha256": "286f475044d6de5dffbe01f3d9056e3ab2dcb3db47fcc2a01bf260659883eee4",
+      "literal_inputs": []
+    },
+    {
+      "path": "rhythm_analysis.py",
+      "sha256": "3220e5c47d18e9b941934c8f5564349d6f4ffc0970b6f3eaf9dad4d2b2962163",
+      "literal_inputs": [
+        "audio_features.npz"
+      ]
+    },
+    {
+      "path": "run_basic_pitch.py",
+      "sha256": "86c81cc8c97f12ea8989462cb8385eca92bc1b61c9573d106f60b6f56296f626",
+      "literal_inputs": [
+        "basic_notes.json"
+      ]
+    },
+    {
+      "path": "run_yourmt3.py",
+      "sha256": "69cf85a027af18e0f616ae520888c2c44e0c4b2080c0bf550810884ab0607871",
+      "literal_inputs": []
+    },
+    {
+      "path": "stereo_features.py",
+      "sha256": "94727017fd7c9e6fdfd190b66e92ce2635567f8e7a7e4544d5ce7153ad4e1366",
+      "literal_inputs": [
+        "reference.wav"
+      ]
+    },
+    {
+      "path": "synth_tools.py",
+      "sha256": "b4ae4b40564a312da16732df2d97660b55495699ed2769163d26df9236a35f40",
+      "literal_inputs": []
+    }
+  ],
+  "checkpoint_review_file": "audit_20261103/yourmt3-r2-download-verification.json",
+  "isolation_file": "audit_20261103/music-repeat-r2-isolation.json",
+  "evaluation_recovery_file": "audit_20261103/music-r2-evaluation-retry-1.json",
+  "limitations": [
+    "CPU computational transcription; no native GPT audio claim. ffplay ALSA output unavailable, waveform/spectrum/local model analysis used.",
+    "16 submitted instrument tracks are silent. Remaining voice allocation and expression approximate.",
+    "Original installed venv full tree is not claimed archived. Generic helper/model sources and inference outputs retained."
+  ],
+  "reviewed_at": "2026-11-03T17:47:31.663294+00:00"
+}

@@ -1,0 +1,31 @@
+You are working on Ubuntu.
+
+## Your Task
+Inspect the routine video and the FIG Aerobic Gymnastics Code of Points, then
+produce a difficulty-element spreadsheet for the routine.
+
+## Visible Inputs
+- Video: `/media/user/data/agenthle/other/aerobics_wc2026_portugal_trio_difficulty_scoring/variant_1/input/trio.mov`
+- Rulebook PDF: `/media/user/data/agenthle/other/aerobics_wc2026_portugal_trio_difficulty_scoring/variant_1/input/FIG Aerobic Gymnastics Code of Points (2025-2028).pdf`
+
+## Output
+Write exactly one spreadsheet to `/media/user/data/agenthle/other/aerobics_wc2026_portugal_trio_difficulty_scoring/variant_1/output/difficulty_element_log.xlsx`.
+
+The spreadsheet must contain exactly these four columns:
+- `element_name`
+- `FIG_code`
+- `credited_value`
+- `meets_minimum_standard`
+
+Use one row per detected difficulty element, in chronological order.
+The total D-score implied by the `credited_value` column should fall between
+`7.0` and `7.2`.
+
+Complete the task fully autonomously; no user will intervene.
+Internet access is allowed. You may install general-purpose tools and consult the supplied or public FIG rules.
+Identify the routine independently from the supplied video. Do not search for, retrieve, inspect, or use precomputed element lists, credited values, answers, walkthroughs, or prior attempts for this routine or benchmark task. Do not access evaluator references, host files, or credentials to obtain task content.
+Record the sources of downloaded material in your working notes. If task-specific answer material is accidentally encountered, stop inspecting it, do not use it, and disclose the incident.
+When finished, terminate all child processes you started.
+The user will evaluate your performance based on your delivered artifacts.
+
+Task sandbox configured per-container ceilings: CPU quota 4 CPU equivalents; memory limit 15 GiB (16106127360 bytes). These are not guaranteed free memory or exclusive CPU capacity. All sandbox processes share these ceilings. In Docker, /proc, nproc, os.cpu_count(), and free may report host resources rather than container limits. Size worker pools and numerical-library threads to these ceilings and leave memory headroom.

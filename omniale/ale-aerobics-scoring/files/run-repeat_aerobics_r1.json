@@ -1,0 +1,69 @@
+{
+  "run_id": "codex_nju_gpt61sol_xhigh__gpt-6-1-sol__other__aerobics_wc2026_portugal_trio_difficulty_scoring__v0__20261103_142216",
+  "timestamp_utc": "2026-11-03T15:08:24Z",
+  "model": "gpt-6.1-sol",
+  "cli": {
+    "cli_version": "0.163.0",
+    "source": "official"
+  },
+  "requested_effort": "xhigh",
+  "actual_effort_evidence": "OTLP model_reasoning_effort",
+  "status": "completed",
+  "score": 0.0,
+  "termination": {
+    "reason": "completed",
+    "phase": null,
+    "category": null,
+    "error": null
+  },
+  "task": {
+    "slug": "other__aerobics_wc2026_portugal_trio_difficulty_scoring",
+    "path": "tasks/other/aerobics_wc2026_portugal_trio_difficulty_scoring",
+    "variant_index": 0,
+    "revision": "sha256:eb02a51171b6798c2d6a3e52a1cae505694fbf25d19e185abde99aea910f1997"
+  },
+  "environment": {
+    "provider": "docker",
+    "image": "ale-ubuntu22-docker",
+    "image_revision": "sha256:bd300b13d936c93f0785b7973a9377b2d4ea857d1d09bd8b2c516a1379cabfbf",
+    "image_ref": "ale-two-tasks:20261103",
+    "image_id": "sha256:bd300b13d936c93f0785b7973a9377b2d4ea857d1d09bd8b2c516a1379cabfbf",
+    "snapshot": "cpu-free-ubuntu"
+  },
+  "timings": {
+    "duration_s": 2765.95
+  },
+  "usage": {
+    "total_steps": 143,
+    "total_input_tokens": 7656725,
+    "total_output_tokens": 23223,
+    "total_cache_read_tokens": 7043712,
+    "total_cache_creation_tokens": 0,
+    "total_cost_usd": 0.0,
+    "total_duration_ms": 2758573,
+    "reward": 0.0,
+    "status": "completed"
+  },
+  "eval_result": {
+    "eval_status": "success",
+    "score": 0.0,
+    "eval_duration_s": 0.1244,
+    "error": null
+  },
+  "effective_evaluation": {
+    "score": 0.0,
+    "eval_status": "success",
+    "recovery_file": null
+  },
+  "adjudication": {
+    "independent_task_validity": "accepted_after_trace_review",
+    "protocol": "independent-routine-r1",
+    "review_file": "audit_20261103/audit-repeat-provenance-review.json",
+    "network_condition_validity": "historical_limited_route"
+  },
+  "network_condition": "direct_bridge_user_proxy_not_inherited",
+  "internet": "allowed",
+  "api": "NJU Link Responses",
+  "official_commit": "2e91edd3cd26baa35a38127c90c8e5241dfbe62f",
+  "note": "Usage cost=0 is an unavailable gateway cost estimate, not a free-run claim."
+}

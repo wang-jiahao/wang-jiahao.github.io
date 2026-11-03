@@ -1,0 +1,77 @@
+{
+  "run_id": "codex_nju_gpt61sol_xhigh__gpt-6-1-sol__visual_media__music_transcription__v0__20261103_153337",
+  "timestamp_utc": "2026-11-03T17:31:12Z",
+  "model": "gpt-6.1-sol",
+  "cli": {
+    "cli_version": "0.163.0",
+    "source": "official"
+  },
+  "requested_effort": "xhigh",
+  "actual_effort_evidence": "OTLP model_reasoning_effort",
+  "status": "failed",
+  "score": null,
+  "termination": {
+    "reason": "failed",
+    "phase": "evaluation",
+    "category": "rate_limited",
+    "error": {
+      "type": "Exception",
+      "message": "Error code: 429 - {'error': {'code': 'gateway_concurrency_limit', 'message': 'Concurrency limit exceeded for account, please retry later', 'type': 'rate_limit_error'}}",
+      "traceback": "Error code: 429 - {'error': {'code': 'gateway_concurrency_limit', 'message': 'Concurrency limit exceeded for account, please retry later', 'type': 'rate_limit_error'}}"
+    }
+  },
+  "task": {
+    "slug": "visual_media__music_transcription",
+    "path": "tasks/visual_media/music_transcription",
+    "variant_index": 0,
+    "revision": "sha256:a83faeda747ad36085ebb8ba3d5d296f1788f6e9521aef6035ebcd0c41995e08"
+  },
+  "environment": {
+    "provider": "docker",
+    "image": "ale-ubuntu22-docker",
+    "image_revision": "sha256:1e5d0390fc8bc7fa7116e09a132b711b660e40c65ec38add58094e24deb90114",
+    "image_ref": "ale-two-tasks:20261103-userproxy",
+    "image_id": "sha256:1e5d0390fc8bc7fa7116e09a132b711b660e40c65ec38add58094e24deb90114",
+    "snapshot": "cpu-free-ubuntu"
+  },
+  "timings": {
+    "duration_s": 6937.16
+  },
+  "usage": {
+    "total_steps": 390,
+    "total_input_tokens": 23400813,
+    "total_output_tokens": 67846,
+    "total_cache_read_tokens": 22366464,
+    "total_cache_creation_tokens": 0,
+    "total_cost_usd": 0.0,
+    "total_duration_ms": 7043200,
+    "reward": null,
+    "status": "failed"
+  },
+  "eval_result": {
+    "eval_status": "failed",
+    "score": null,
+    "eval_duration_s": 113.0417,
+    "error": {
+      "type": "Exception",
+      "message": "Error code: 429 - {'error': {'code': 'gateway_concurrency_limit', 'message': 'Concurrency limit exceeded for account, please retry later', 'type': 'rate_limit_error'}}",
+      "traceback": "Error code: 429 - {'error': {'code': 'gateway_concurrency_limit', 'message': 'Concurrency limit exceeded for account, please retry later', 'type': 'rate_limit_error'}}"
+    }
+  },
+  "effective_evaluation": {
+    "score": 0.11956627798170469,
+    "eval_status": "success",
+    "recovery_file": "audit_20261103/music-r2-evaluation-retry-1.json"
+  },
+  "adjudication": {
+    "independent_task_validity": "accepted_after_trace_review",
+    "protocol": "independent-v2",
+    "review_file": "audit_20261103/audit-repeat-provenance-review.json",
+    "network_condition_validity": "corrected_proxy_online"
+  },
+  "network_condition": "windows_user_proxy_forwarded",
+  "internet": "allowed",
+  "api": "NJU Link Responses",
+  "official_commit": "2e91edd3cd26baa35a38127c90c8e5241dfbe62f",
+  "note": "Usage cost=0 is an unavailable gateway cost estimate, not a free-run claim."
+}

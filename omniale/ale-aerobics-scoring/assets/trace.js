@@ -59,7 +59,9 @@ async function changeRun() {
     el("meta").textContent = data.label + " · " + data.model + " / " + data.effort.join(", ");
     el("trace-note").textContent = data.note;
     el("status").className = data.excluded ? "trace-status excluded-banner" : "trace-status";
-    el("status").textContent = data.excluded ? "历史运行因使用本曲现成总谱和原工程而排除，不计独立转谱成绩。" : "独立运行记录；顺序号不代表逐事件时间戳。";
+    el("status").textContent = data.excluded ? "历史运行因使用本曲现成总谱和原工程而排除，不计独立转谱成绩。" :
+      (data.network_condition === "windows_user_proxy_forwarded" ? "修复用户代理后独立运行；实际容器网络已验证。顺序号不代表逐事件时间戳。" :
+       "历史网络条件：未继承Windows代理，部分模型主机不可达。记录保留，不混为修复后的联网成绩；顺序号不代表逐事件时间戳。");
     const url = new URL(location.href); url.searchParams.set("run", run); history.replaceState(null, "", url);
     draw();
   } catch (error) {

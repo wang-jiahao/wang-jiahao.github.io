@@ -1,0 +1,17 @@
+{
+  "base_image": "sha256:bd300b13d936c93f0785b7973a9377b2d4ea857d1d09bd8b2c516a1379cabfbf",
+  "proxy_image": "sha256:1e5d0390fc8bc7fa7116e09a132b711b660e40c65ec38add58094e24deb90114",
+  "identical_rootfs_layers": true,
+  "software_layers_unchanged": true,
+  "changed_environment": {
+    "HTTP_PROXY": "http://172.17.0.1:17897",
+    "HTTPS_PROXY": "http://172.17.0.1:17897",
+    "http_proxy": "http://172.17.0.1:17897",
+    "https_proxy": "http://172.17.0.1:17897",
+    "NO_PROXY": "localhost,127.0.0.1,::1,172.17.0.1",
+    "no_proxy": "localhost,127.0.0.1,::1,172.17.0.1"
+  },
+  "forward_binding": "172.17.0.1:17897 (Docker bridge only)",
+  "windows_upstream": "127.0.0.1:7897 (existing user proxy)",
+  "credentials_in_forward_url": false
+}
