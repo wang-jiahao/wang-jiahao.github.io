@@ -1,5 +1,5 @@
 {
-  "version": "118-audit-v3",
+  "version": "118-audit-v3.1",
   "created_at": "2026-11-03T19:35:10.789980+08:00",
   "sample_id": "118",
   "source_sha256": "77ea7c0e1e996e086e888b93365fdc1c1175625cdadb7f2f1d1a248f52e3b199",
@@ -1162,5 +1162,7 @@
   "parent_version": "118-audit-v2",
   "review_method": "Keep the 22 verified task items. No-damage compares identity-matched containers, accounts for authorized deletion, deduplicates semantic changes and classifies each shared change once without condition labels.",
   "no_damage_policy": "Changes already scored under fulfillment/revision do not become unrelated damage. Genuine changes outside the requested targets remain eligible. Formula stays severity weighted with a denominator of canonical semantic changes, not raw CSS statements.",
-  "implementation_sha256": "6ecec75ac5c8c3ac9ecba772e0e4ce0f0e62cdba928c7c3bd720203d47dcbf15"
+  "implementation_sha256": "0abaad758acd855aa9ddcbb9232e6aec0894a69fa7b420f743bb4ed44e849e95",
+  "alias_fix_at": "2026-11-03T22:01:29.200569+08:00",
+  "alias_fix": "DOM-verified Services descendant selectors match identical elements through wrapper class or enclosing section ID; canonicalize before grouping; preserve every task and damage judgment."
 }

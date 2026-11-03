@@ -1,5 +1,5 @@
 {
-  "version": "118-audit-v3",
+  "version": "118-audit-v3.1",
   "sample_id": "118",
   "condition": "direct",
   "solver_model": "gpt-6.1-sol",
@@ -7,7 +7,7 @@
   "judge_model": "gpt-6-sol",
   "judge_effort": "high",
   "api_base": "https://api-temporary.nju-link.com/v1",
-  "scored_at": "2026-11-03T20:37:52.070166+08:00",
+  "scored_at": "2026-11-03T22:01:27.995890+08:00",
   "evaluation_status": "scored",
   "original_efs": 0.5644,
   "original_categories": {
@@ -376,7 +376,6 @@
   "no_damage_audit": {
     "score": 0.8333,
     "canonical_changes": 12,
-    "damage_count": 1,
     "changes": [
       {
         "key": "task:disputed-hero-visual",
@@ -674,8 +673,7 @@
         "severity": "high",
         "reason": "最终顶层顺序应恢复原样，但此处将 careers 移到 journal、case-studies 和 studio 之前，造成未请求的页面结构变更。"
       }
-    ],
-    "note": "Shared decisions reused for equivalent changes; fulfilled/revised target errors not double counted as unrelated damage."
+    ]
   },
   "grading_elapsed_sec": 67.47,
   "submission_sha256": "bfcdd7812e968d69485deae5d095c13bdf7a3164123bc82c77b936eef261d23d",
@@ -993,5 +991,15 @@
       "text": "Garden Stair • Multi-family Upgrade A shared stair and courtyard refresh that improves daylight, safety, and circulation while preserving existing structure. GS Northfield Housing Residential"
     }
   ],
-  "review_method": "shared condition-blind semantic change audit"
+  "review_method": "shared condition-blind semantic change audit",
+  "previous_v3_efs": 0.6943,
+  "canonical_proof": [
+    {
+      "kind": "authorized_deletion",
+      "title": "Garden Stair",
+      "text": "Garden Stair • Multi-family Upgrade A shared stair and courtyard refresh that improves daylight, safety, and circulation while preserving existing structure. GS Northfield Housing Residential"
+    }
+  ],
+  "alias_fix": "DOM-verified Services descendant selectors match identical elements through wrapper class or enclosing section ID; existing labels reused; no new judge call.",
+  "grading_code_sha256": "0abaad758acd855aa9ddcbb9232e6aec0894a69fa7b420f743bb4ed44e849e95"
 }

@@ -20,7 +20,7 @@ from scorer.llm_client import OpenAIResponsesClient
 from scorer.step3_no_damage import html_structured_diff
 
 DEST=OUT/'audit118-v3'
-VERSION='118-audit-v3'
+VERSION='118-audit-v3.1'
 
 
 def canonical_pair(before,after):
@@ -45,7 +45,10 @@ def canonical_pair(before,after):
 
 
 def clean_selector(text):
-    return re.sub(r'\s+',' ',re.sub(r'/\*.*?\*/','',text,flags=re.S)).strip().replace('.hero ', '#top ')
+    text=re.sub(r'\s+',' ',re.sub(r'/\*.*?\*/','',text,flags=re.S)).strip().replace('.hero ', '#top ')
+    # These descendant rules select identical nodes through the Services
+    # wrapper class or its enclosing section ID. The roots themselves differ.
+    return re.sub(r'(?<![\w-])\.services(?=\s+\.(?:s-head|r-top|r-body|row|r-caret)\b)','#services',text)
 
 
 def group_for(change):
@@ -141,6 +144,17 @@ def make_ledgers():
     return runs,union
 
 
+def changes_object(content):
+    """Accept a prose preface, but require exactly one complete changes object."""
+    decoder=json.JSONDecoder();matches=[]
+    for match in re.finditer(r'\{',content):
+        try:value,_=decoder.raw_decode(content,match.start())
+        except json.JSONDecodeError:continue
+        if isinstance(value,dict) and isinstance(value.get('changes'),list):matches.append(value)
+    if len(matches)!=1:raise ValueError('Expected exactly one JSON changes object')
+    return matches[0]
+
+
 def decisions(union):
     ready={};pending=[]
     for group in union:
@@ -169,8 +183,7 @@ def decisions(union):
         response=OpenAIResponsesClient(key,'gpt-6-sol',60,base,'high').call_text([{'role':'user','content':prompt}],model='gpt-6-sol',retries=8,timeout=600)
         write(file,response)
     if not response.get('success'):raise RuntimeError(response.get('error','judge failed'))
-    content=response['content'];m=re.search(r'```(?:json)?\s*(\{.*\})\s*```',content,re.S)
-    changes=json.loads(m[1] if m else content)['changes']
+    changes=changes_object(response['content'])['changes']
     expected={g['id'] for g in pending};seen=set();byid={g['id']:g['key'] for g in pending}
     for change in changes:
         iid=change['id']

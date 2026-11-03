@@ -1,0 +1,640 @@
+{
+  "version": "118-audit-v3.1",
+  "sample_id": "118",
+  "condition": "agent-omni",
+  "repeat": "r0",
+  "scored_at": "2026-11-03T22:01:28.957290+08:00",
+  "evaluation_status": "scored",
+  "solver_model": "gpt-6-astra",
+  "solver_effort": "xhigh",
+  "judge_model": "gpt-6-sol",
+  "judge_effort": "high",
+  "api_base": "https://api-temporary.nju-link.com/v1",
+  "run": {
+    "sample_id": "118",
+    "condition": "agent-omni",
+    "model": "gpt-6-astra",
+    "effort": "xhigh",
+    "started_at": "2026-11-03T21:28:44.268699+08:00",
+    "status": "completed",
+    "pid": 27220,
+    "exit_code": 0,
+    "elapsed_sec": 1209.08,
+    "finished_at": "2026-11-03T21:48:53.355080+08:00",
+    "html_bytes": 128323,
+    "usage": [
+      {
+        "input_tokens": 3006789,
+        "cached_input_tokens": 2826752,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 14777,
+        "reasoning_output_tokens": 5888
+      }
+    ],
+    "errors": []
+  },
+  "efs_weighted_v3": 0.61,
+  "category_scores_v3": {
+    "target_grounding": 0.8182,
+    "edit_fulfillment": 0.625,
+    "no_damage": 0.7451,
+    "revision": 0.3333
+  },
+  "category_counts": {
+    "target_grounding": {
+      "met": 9,
+      "total": 11
+    },
+    "edit_fulfillment": {
+      "met": 5,
+      "total": 8
+    },
+    "no_damage": {
+      "met": 0,
+      "total": 0
+    },
+    "revision": {
+      "met": 1,
+      "total": 3
+    }
+  },
+  "items_total": 22,
+  "items_met": 15,
+  "items": [
+    {
+      "item_id": "r1",
+      "met": false,
+      "reason": "顶部导航的菜单和按钮均未显示被编辑的证据：修改前后 .nav 均为横向 flex，Start a Project 仍在独立的 .cta 中。",
+      "category": "target_grounding"
+    },
+    {
+      "item_id": "r2",
+      "met": false,
+      "reason": "修改后 .nav 的计算值仍为 flex-direction:row，菜单项保持同一行；.cta 也未与菜单纵向堆叠。",
+      "category": "edit_fulfillment"
+    },
+    {
+      "item_id": "r11",
+      "met": true,
+      "reason": "新增规则直接作用于 .hero、.hero h1 和 .hero .lead；浏览器计算值显示背景、标题和正文均发生配色变化，目标定位正确。",
+      "category": "target_grounding"
+    },
+    {
+      "item_id": "r12",
+      "met": false,
+      "reason": "HERO 未恢复原色：背景现为 rgb(43,43,43)，标题为 rgb(244,239,231)，正文为 rgb(211,211,211)；原背景透明并透出浅色页面，标题和正文为深色。",
+      "category": "revision"
+    },
+    {
+      "item_id": "r21",
+      "met": false,
+      "reason": "PORTFOLIO 中仅第一个 .p-item 的 .p-visual 被设置 order:-1；第三个 Riverline 项目区块没有被作为交换目标处理。",
+      "category": "target_grounding"
+    },
+    {
+      "item_id": "r22",
+      "met": false,
+      "reason": "修改后项目顺序仍是 Ridgehouse、Atlas、Riverline；变化只是 Ridgehouse 区块内部图片移到文字之前，未交换第一和第三个完整区块。",
+      "category": "edit_fulfillment"
+    },
+    {
+      "item_id": "r23",
+      "met": true,
+      "reason": "HTML 中 PHILOSOPHY 与 STUDIO 仍是对应的独立 section，且新增的 #services .s-head 规则准确作用于 SERVICES 表头；目标元素均可明确定位。",
+      "category": "target_grounding"
+    },
+    {
+      "item_id": "r24",
+      "met": false,
+      "reason": "PHILOSOPHY 与 STUDIO 保持原有上下顺序，但 SERVICES 表头计算出的 grid-template-columns 为单列 1098px，而非原来的三列。",
+      "category": "revision"
+    },
+    {
+      "item_id": "r25",
+      "met": true,
+      "reason": "#journal .filt 规则准确匹配 JOURNAL 工具栏中的 All、Materials、Daylight、Process、Sustainability 五个按钮。",
+      "category": "target_grounding"
+    },
+    {
+      "item_id": "r26",
+      "met": false,
+      "reason": "五个按钮的计算文字颜色均为 rgb(255,255,255)，深棕色 rgb(74,48,36) 被设为背景色，未设为文字颜色。",
+      "category": "edit_fulfillment"
+    },
+    {
+      "item_id": "r27",
+      "met": true,
+      "reason": "新增 #journalGrid 规则直接匹配 JOURNAL 文章容器，六篇文章仍位于该容器内。",
+      "category": "target_grounding"
+    },
+    {
+      "item_id": "r28",
+      "met": true,
+      "reason": "#journalGrid 的计算网格列宽为 561px、561px；前两篇文章同排，第三篇进入下一排，已由三列改为两列。",
+      "category": "edit_fulfillment"
+    },
+    {
+      "item_id": "r31",
+      "met": true,
+      "reason": "新增 footer、footer .foot-col h4 和 footer .foot-col a 规则分别命中页底背景、栏目标题与链接分隔线。",
+      "category": "target_grounding"
+    },
+    {
+      "item_id": "r32",
+      "met": true,
+      "reason": "页底计算背景为深棕色 rgb(74,48,36)；Scan、Explore、Studio 标题均为亮金色 rgb(232,199,102)，栏目链接下边线均为 rgba(232,199,102,0.35)。",
+      "category": "edit_fulfillment"
+    },
+    {
+      "item_id": "r33",
+      "met": true,
+      "reason": "修改后的 #caseGrid 中仍保留其他案例，但原第五张 Garden Stair • Multi-family Upgrade 的整个 article 已移除，定位到指定卡片。",
+      "category": "target_grounding"
+    },
+    {
+      "item_id": "r34",
+      "met": true,
+      "reason": "#caseGrid 从原有六张变为五张；Garden Stair 的标题、描述和客户信息均不再存在，其他案例仍保留。",
+      "category": "edit_fulfillment"
+    },
+    {
+      "item_id": "r35",
+      "met": true,
+      "reason": "新增规则分别命中 #awards 内四张 .award 卡片、其 h3 标题和 .body 描述，目标区域正确。",
+      "category": "target_grounding"
+    },
+    {
+      "item_id": "r36",
+      "met": true,
+      "reason": "四张奖项卡片计算背景均为 rgb(21,59,48)，标题均为 rgb(232,199,102)，正文均为 rgb(187,201,190)。",
+      "category": "edit_fulfillment"
+    },
+    {
+      "item_id": "r37",
+      "met": true,
+      "reason": "修改后图片仍位于 #urban-oasis .hvisual .layer，即 Urban Oasis Tower 右侧的背景图元素。",
+      "category": "target_grounding"
+    },
+    {
+      "item_id": "r38",
+      "met": true,
+      "reason": "修改后 HTML 中该 .layer 的图片 URL 与原始 HTML 相同；浏览器观察到的本地文件 URL 属于等价素材本地化，不构成图片内容变更。",
+      "category": "revision"
+    },
+    {
+      "item_id": "r39",
+      "met": true,
+      "reason": "交换发生在 #careers .roles 内的两个 .role 岗位条目，岗位标题、说明和 aria-label 均随各自条目保留；没有交换外层 section。",
+      "category": "target_grounding"
+    },
+    {
+      "item_id": "r40",
+      "met": true,
+      "reason": "浏览器观察到岗位顺序为 Materials & Sustainability Specialist、BIM Coordinator、Architectural Designer；BIM Coordinator 仍居中。",
+      "category": "edit_fulfillment"
+    }
+  ],
+  "no_damage_audit": {
+    "score": 0.7451,
+    "canonical_changes": 17,
+    "changes": [
+      {
+        "key": "image:alt='Office interior scene'",
+        "scope": "protected_image",
+        "members": [
+          {
+            "type": "img_src_changed",
+            "location": "article.tcard > div.top > div.avatar > img",
+            "original": "https://images.unsplash.com/photo-1565688527174-775059ac429c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg",
+            "modified": "https://images.unsplash.com/photo-1631194019419-89ef6ec875db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg",
+            "context": "alt='Office interior scene'"
+          }
+        ],
+        "is_damage": true,
+        "severity": "medium",
+        "reason": "未请求替换该评价卡片的图片来源，改变了原有内容资源。"
+      },
+      {
+        "key": "image:alt='Office meeting table with skyline'",
+        "scope": "protected_image",
+        "members": [
+          {
+            "type": "img_src_changed",
+            "location": "article.tcard > div.top > div.avatar > img",
+            "original": "https://images.unsplash.com/photo-1631194019419-89ef6ec875db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg",
+            "modified": "https://images.unsplash.com/photo-1565688527174-775059ac429c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg",
+            "context": "alt='Office meeting table with skyline'"
+          }
+        ],
+        "is_damage": true,
+        "severity": "medium",
+        "reason": "未请求替换该评价卡片的图片来源；两个示例中的替换目标不同，但均改变了原有内容资源。"
+      },
+      {
+        "key": "task:disputed-hero-visual",
+        "scope": "ambiguous_request",
+        "members": [
+          {
+            "type": "css_rule_changed",
+            "location": "<style> .hero-visual .tag",
+            "original": "display: flex",
+            "modified": "display: none"
+          }
+        ],
+        "is_damage": false,
+        "severity": null,
+        "reason": "该变化属于已经计分的编辑/修订目标，或被明确排除的歧义要求；无损不重复处罚。"
+      },
+      {
+        "key": "css_rule_added:<style> body",
+        "scope": "other_change",
+        "members": [
+          {
+            "type": "css_rule_added",
+            "location": "<style> body",
+            "original": null,
+            "modified": "background: #2B2B2B"
+          }
+        ],
+        "is_damage": true,
+        "severity": "medium",
+        "reason": "将深色背景设置在全站 body 上，作用范围超出仅要求调整的页脚，可能改变其他区域的背景显示。"
+      },
+      {
+        "key": "task:hero-palette",
+        "scope": "already_scored_requirement",
+        "members": [
+          {
+            "type": "css_rule_added",
+            "location": "<style> .hero",
+            "original": null,
+            "modified": "background: #2B2B2B"
+          },
+          {
+            "type": "css_rule_added",
+            "location": "<style> .hero h1",
+            "original": null,
+            "modified": "color: #F4EFE7"
+          },
+          {
+            "type": "css_rule_added",
+            "location": "<style> .hero .lead",
+            "original": null,
+            "modified": "color: #D3D3D3; text-shadow: none"
+          }
+        ],
+        "is_damage": false,
+        "severity": null,
+        "reason": "该变化属于已经计分的编辑/修订目标，或被明确排除的歧义要求；无损不重复处罚。"
+      },
+      {
+        "key": "task:disputed-button",
+        "scope": "ambiguous_request",
+        "members": [
+          {
+            "type": "css_rule_added",
+            "location": "<style> .hero .hero-actions .btn-ghost",
+            "original": null,
+            "modified": "border: 0; background: #4A3024; color: #FFFFFF"
+          }
+        ],
+        "is_damage": false,
+        "severity": null,
+        "reason": "该变化属于已经计分的编辑/修订目标，或被明确排除的歧义要求；无损不重复处罚。"
+      },
+      {
+        "key": "task:disputed-trust",
+        "scope": "ambiguous_request",
+        "members": [
+          {
+            "type": "css_rule_added",
+            "location": "<style> #trust .fcard",
+            "original": null,
+            "modified": "background: #F5EFE3; border: 1px solid #4A3024"
+          },
+          {
+            "type": "css_rule_added",
+            "location": "<style> #trust .fcard h3",
+            "original": null,
+            "modified": "color: #4A3024; font-weight: 800"
+          },
+          {
+            "type": "css_rule_added",
+            "location": "<style> #trust .metric",
+            "original": null,
+            "modified": "color: #4A3024; font-weight: 800"
+          }
+        ],
+        "is_damage": false,
+        "severity": null,
+        "reason": "该变化属于已经计分的编辑/修订目标，或被明确排除的歧义要求；无损不重复处罚。"
+      },
+      {
+        "key": "css_rule_added:<style> #portfolio .p-item:first-child .p-visual",
+        "scope": "other_change",
+        "members": [
+          {
+            "type": "css_rule_added",
+            "location": "<style> #portfolio .p-item:first-child .p-visual",
+            "original": null,
+            "modified": "order: -1"
+          }
+        ],
+        "is_damage": false,
+        "severity": null,
+        "reason": "首个 PORTFOLIO 卡片的视觉元素排序属于已请求的第一、第三卡片角色互换。"
+      },
+      {
+        "key": "task:services-header",
+        "scope": "already_scored_requirement",
+        "members": [
+          {
+            "type": "css_rule_added",
+            "location": "<style> #services .s-head",
+            "original": null,
+            "modified": "grid-template-columns: 1fr; gap: 12px"
+          }
+        ],
+        "is_damage": false,
+        "severity": null,
+        "reason": "该变化属于已经计分的编辑/修订目标，或被明确排除的歧义要求；无损不重复处罚。"
+      },
+      {
+        "key": "extra:services-other-elements",
+        "scope": "services_non_header",
+        "members": [
+          {
+            "type": "css_rule_added",
+            "location": "<style> #services .r-top",
+            "original": null,
+            "modified": "grid-template-columns: 1fr; gap: 12px"
+          },
+          {
+            "type": "css_rule_added",
+            "location": "<style> #services .r-body .inner",
+            "original": null,
+            "modified": "grid-template-columns: 1fr"
+          },
+          {
+            "type": "css_rule_added",
+            "location": "<style> #services .row[data-open=\"true\"] .r-body",
+            "original": null,
+            "modified": "max-height: 650px"
+          }
+        ],
+        "is_damage": true,
+        "severity": "medium",
+        "reason": "这些规则不仅影响 SERVICES 标题，还将服务行及展开内容改为单列，并改变箭头定位和展开高度，波及无关的行布局与交互呈现。"
+      },
+      {
+        "key": "task:journal-filter-style",
+        "scope": "already_scored_requirement",
+        "members": [
+          {
+            "type": "css_rule_added",
+            "location": "<style> #journal .filt",
+            "original": null,
+            "modified": "background: #4A3024; color: #FFFFFF"
+          },
+          {
+            "type": "css_rule_added",
+            "location": "<style> #journal .filt[aria-pressed=\"true\"]",
+            "original": null,
+            "modified": "background: #4A3024; color: #FFFFFF"
+          }
+        ],
+        "is_damage": false,
+        "severity": null,
+        "reason": "该变化属于已经计分的编辑/修订目标，或被明确排除的歧义要求；无损不重复处罚。"
+      },
+      {
+        "key": "css_rule_added:<style> #journal .read",
+        "scope": "other_change",
+        "members": [
+          {
+            "type": "css_rule_added",
+            "location": "<style> #journal .read",
+            "original": null,
+            "modified": "color: #4A3024"
+          }
+        ],
+        "is_damage": true,
+        "severity": "low",
+        "reason": "修改 JOURNAL 阅读链接的颜色既不是筛选文字修改，也不属于页脚配色调整；这是范围外的小幅样式变化。"
+      },
+      {
+        "key": "task:journal-grid",
+        "scope": "already_scored_requirement",
+        "members": [
+          {
+            "type": "css_rule_added",
+            "location": "<style> #journalGrid",
+            "original": null,
+            "modified": "grid-template-columns: repeat(2,minmax(0,1fr))"
+          },
+          {
+            "type": "css_rule_added",
+            "location": "<style> #journalGrid",
+            "original": null,
+            "modified": "grid-template-columns: 1fr"
+          }
+        ],
+        "is_damage": false,
+        "severity": null,
+        "reason": "该变化属于已经计分的编辑/修订目标，或被明确排除的歧义要求；无损不重复处罚。"
+      },
+      {
+        "key": "task:awards-palette",
+        "scope": "already_scored_requirement",
+        "members": [
+          {
+            "type": "css_rule_added",
+            "location": "<style> #awards .award",
+            "original": null,
+            "modified": "background: #153B30"
+          },
+          {
+            "type": "css_rule_added",
+            "location": "<style> #awards .award h3",
+            "original": null,
+            "modified": "color: #E8C766"
+          },
+          {
+            "type": "css_rule_added",
+            "location": "<style> #awards .award .year",
+            "original": null,
+            "modified": "color: #E8C766"
+          },
+          {
+            "type": "css_rule_added",
+            "location": "<style> #awards .award .body",
+            "original": null,
+            "modified": "color: #BBC9BE"
+          }
+        ],
+        "is_damage": false,
+        "severity": null,
+        "reason": "该变化属于已经计分的编辑/修订目标，或被明确排除的歧义要求；无损不重复处罚。"
+      },
+      {
+        "key": "task:footer-palette",
+        "scope": "already_scored_requirement",
+        "members": [
+          {
+            "type": "css_rule_added",
+            "location": "<style> footer",
+            "original": null,
+            "modified": "background: #4A3024; color: #E8C766"
+          },
+          {
+            "type": "css_rule_added",
+            "location": "<style> footer .foot-col h4",
+            "original": null,
+            "modified": "color: #E8C766 !important"
+          },
+          {
+            "type": "css_rule_added",
+            "location": "<style> footer .foot-col a",
+            "original": null,
+            "modified": "border-color: rgba(232,199,102,.35)"
+          }
+        ],
+        "is_damage": false,
+        "severity": null,
+        "reason": "该变化属于已经计分的编辑/修订目标，或被明确排除的歧义要求；无损不重复处罚。"
+      },
+      {
+        "key": "extra:footer-unrequested-text-palette",
+        "scope": "footer_extension",
+        "members": [
+          {
+            "type": "css_rule_added",
+            "location": "<style> footer .wordmark",
+            "original": null,
+            "modified": "color: #E8C766 !important"
+          },
+          {
+            "type": "css_rule_added",
+            "location": "<style> footer .wordmark span",
+            "original": null,
+            "modified": "color: #E8C766 !important"
+          },
+          {
+            "type": "css_rule_added",
+            "location": "<style> footer .tagline",
+            "original": null,
+            "modified": "color: #E8C766 !important"
+          },
+          {
+            "type": "css_rule_added",
+            "location": "<style> footer .foot-col",
+            "original": null,
+            "modified": "color: #E8C766 !important"
+          },
+          {
+            "type": "css_rule_added",
+            "location": "<style> footer .foot-col a",
+            "original": null,
+            "modified": "color: #E8C766 !important"
+          },
+          {
+            "type": "css_rule_added",
+            "location": "<style> footer .foot-col > div[style]",
+            "original": null,
+            "modified": "color: #E8C766 !important"
+          },
+          {
+            "type": "css_rule_added",
+            "location": "<style> footer .foot-bottom",
+            "original": null,
+            "modified": "color: #E8C766 !important"
+          },
+          {
+            "type": "css_rule_added",
+            "location": "<style> footer .sbtn",
+            "original": null,
+            "modified": "color: #E8C766 !important"
+          },
+          {
+            "type": "css_rule_added",
+            "location": "<style> footer .foot-bottom",
+            "original": null,
+            "modified": "border-color: rgba(232,199,102,.35)"
+          }
+        ],
+        "is_damage": false,
+        "severity": null,
+        "reason": "字标、链接及辅助文字改用金色虽超出指定的栏目标题范围，但仍是同一页脚配色的合理延伸；现有证据未显示可读性或功能受损。"
+      },
+      {
+        "key": "task:disputed-footer-move",
+        "scope": "ambiguous_request",
+        "members": [
+          {
+            "type": "css_rule_added",
+            "location": "<style> footer .foot-grid",
+            "original": null,
+            "modified": "grid-template-columns: 1fr 1fr"
+          },
+          {
+            "type": "css_rule_added",
+            "location": "<style> footer .foot-brand > .btn",
+            "original": null,
+            "modified": "margin-top: 14px"
+          },
+          {
+            "type": "css_rule_added",
+            "location": "<style> footer .foot-brand > .foot-col",
+            "original": null,
+            "modified": "margin-top: 22px"
+          },
+          {
+            "type": "css_rule_added",
+            "location": "<style> footer .foot-grid",
+            "original": null,
+            "modified": "grid-template-columns: 1fr"
+          }
+        ],
+        "is_damage": false,
+        "severity": null,
+        "reason": "该变化属于已经计分的编辑/修订目标，或被明确排除的歧义要求；无损不重复处罚。"
+      }
+    ]
+  },
+  "canonical_proof": [
+    {
+      "kind": "authorized_deletion",
+      "title": "Garden Stair",
+      "text": "Garden Stair • Multi-family Upgrade A shared stair and courtyard refresh that improves daylight, safety, and circulation while preserving existing structure. GS Northfield Housing Residential"
+    }
+  ],
+  "coverage": {
+    "original_steps": 20,
+    "cancelled_steps": [
+      2,
+      3,
+      7,
+      8
+    ],
+    "disputed_steps": [
+      4,
+      5,
+      9,
+      10,
+      15
+    ],
+    "effective_operations_scored": 11,
+    "original_effective_operations": 16
+  },
+  "weights": {
+    "target_grounding": 0.1,
+    "edit_fulfillment": 0.5,
+    "no_damage": 0.2,
+    "revision": 0.2
+  },
+  "submission_sha256": "cfe813f51b42c2cf0f1b75faac9f3dd8b80d41dc6a662b8ca17a27142a8ad78f",
+  "note": "Same task rubric and shared damage decisions as v3; previous labels are reused, only new semantic changes are separately classified.",
+  "previous_v3_efs": 0.61,
+  "alias_fix": "DOM-verified Services descendant selectors match identical elements through wrapper class or enclosing section ID; existing labels reused; no new judge call.",
+  "grading_code_sha256": "0abaad758acd855aa9ddcbb9232e6aec0894a69fa7b420f743bb4ed44e849e95"
+}

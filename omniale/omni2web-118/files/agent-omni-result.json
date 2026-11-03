@@ -1,5 +1,5 @@
 {
-  "version": "118-audit-v3",
+  "version": "118-audit-v3.1",
   "sample_id": "118",
   "condition": "agent-omni",
   "solver_model": "gpt-6.1-sol",
@@ -7,7 +7,7 @@
   "judge_model": "gpt-6-sol",
   "judge_effort": "high",
   "api_base": "https://api-temporary.nju-link.com/v1",
-  "scored_at": "2026-11-03T20:37:52.088483+08:00",
+  "scored_at": "2026-11-03T22:01:28.485819+08:00",
   "evaluation_status": "scored",
   "original_efs": 0.3755,
   "original_categories": {
@@ -458,7 +458,6 @@
   "no_damage_audit": {
     "score": 0.8,
     "canonical_changes": 15,
-    "damage_count": 3,
     "changes": [
       {
         "key": "image:alt='Office interior scene'",
@@ -867,8 +866,7 @@
         "severity": null,
         "reason": "页脚底部分隔线改为半透明金色，与要求的深棕和金色页脚配色一致，属于合理的视觉延伸。"
       }
-    ],
-    "note": "Shared decisions reused for equivalent changes; fulfilled/revised target errors not double counted as unrelated damage."
+    ]
   },
   "grading_elapsed_sec": 80.5,
   "submission_sha256": "7d4d7107b52ed3e24423417904e8cb6f37063751bbccbbfad24524c5ac108b6c",
@@ -1410,5 +1408,15 @@
       "text": "Garden Stair • Multi-family Upgrade A shared stair and courtyard refresh that improves daylight, safety, and circulation while preserving existing structure. GS Northfield Housing Residential"
     }
   ],
-  "review_method": "shared condition-blind semantic change audit"
+  "review_method": "shared condition-blind semantic change audit",
+  "previous_v3_efs": 0.621,
+  "canonical_proof": [
+    {
+      "kind": "authorized_deletion",
+      "title": "Garden Stair",
+      "text": "Garden Stair • Multi-family Upgrade A shared stair and courtyard refresh that improves daylight, safety, and circulation while preserving existing structure. GS Northfield Housing Residential"
+    }
+  ],
+  "alias_fix": "DOM-verified Services descendant selectors match identical elements through wrapper class or enclosing section ID; existing labels reused; no new judge call.",
+  "grading_code_sha256": "0abaad758acd855aa9ddcbb9232e6aec0894a69fa7b420f743bb4ed44e849e95"
 }

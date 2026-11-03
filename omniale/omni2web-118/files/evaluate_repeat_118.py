@@ -15,7 +15,9 @@ from scorer.llm_client import OpenAIResponsesClient
 EVAL=REPEAT/'evaluation'
 
 
-def main():
+def evaluate(run_root=REPEAT,work=WORK,label='r1'):
+    REPEAT,WORK=Path(run_root),Path(work)
+    EVAL=REPEAT/'evaluation'
     status=WORK/'run_info.json'
     while True:
         if status.exists():
@@ -63,6 +65,11 @@ def main():
     for item in items:item['category']=categories[item['item_id']]
     groups,proof=paired.ledger(original,modified)
     previous=json.loads((paired.DEST/'shared_decisions.json').read_text(encoding='utf-8'))
+    # Cohort grading is sequential. Reuse every previously published semantic
+    # decision, including the Sol repeat and any earlier additional model.
+    for path in [OUT/'repeat118-omni-r1/evaluation/new_damage_labels.json',
+                 *sorted(OUT.glob('model118-*/evaluation/new_damage_labels.json'))]:
+        if path.exists():previous.update(json.loads(path.read_text(encoding='utf-8')))
     missing=[g for g in groups if g['key'] not in previous]
     if missing:
         shared=[{**g,'id':'new'+str(i)} for i,g in enumerate(missing,1)]
@@ -76,8 +83,8 @@ def main():
     weight=sum({'high':.3,'medium':.15,'low':.05}[g['severity']] for g in damage if g['is_damage'])
     nd=round(max(0,1-weight/max(len(groups)*.15,1)),4)
     aggregate=fs.aggregate_items(items,nd)
-    result={'version':paired.VERSION,'sample_id':'118','condition':'agent-omni','repeat':'r1',
-            'scored_at':now(),'evaluation_status':'scored','solver_model':'gpt-6.1-sol','solver_effort':'xhigh',
+    result={'version':paired.VERSION,'sample_id':'118','condition':'agent-omni','repeat':label,
+            'scored_at':now(),'evaluation_status':'scored','solver_model':info['model'],'solver_effort':info['effort'],
             'judge_model':'gpt-6-sol','judge_effort':'high','api_base':base,'run':info,**aggregate,'items':items,
             'no_damage_audit':{'score':nd,'canonical_changes':len(groups),'changes':damage},
             'canonical_proof':proof,'coverage':protocol['coverage'],'weights':fs.WEIGHTS,
@@ -85,6 +92,7 @@ def main():
     write(EVAL/'result.json',result)
     write(REPEAT/'evaluation_status.json',{'status':'scored','updated_at':now(),'efs':aggregate['efs_weighted_v3']})
     print(json.dumps({'score':aggregate['efs_weighted_v3'],'parts':aggregate['category_scores_v3'],'elapsed':info['elapsed_sec']},ensure_ascii=False))
+    return result
 
 
-if __name__=='__main__':main()
+if __name__=='__main__':evaluate()
