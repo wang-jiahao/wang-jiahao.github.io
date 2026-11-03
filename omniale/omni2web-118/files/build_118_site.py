@@ -172,11 +172,14 @@ def main():
     (PUBLIC/'files/transcript.txt').write_text(row['transcript'],encoding='utf-8')
     for filename in ['audit_118.py','review_118_v3.py','evaluate_repeat_118.py','build_118_site.py']:
         shutil.copy2(ROOT/'omni2web_run'/filename,PUBLIC/'files'/filename)
-    for filename in ['shared_decisions.json','browser_recheck.json']:
+    for filename in ['shared_decisions.json','browser_recheck.json','asr_timing_example.json']:
         shutil.copy2(DEST/filename,PUBLIC/'files'/filename)
     if repeat:
         put(PUBLIC/'files/agent-omni-r1-result.json',repeat)
         put(PUBLIC/'files/repeat-protocol.json',load(REPEAT/'protocol.json'))
+        put(PUBLIC/'files/repeat-input-verification.json',load(REPEAT/'runtime_audit.json'))
+        put(PUBLIC/'files/repeat-source-image-cache.json',load(REPEAT/'evaluation/source-image-cache.json'))
+        put(PUBLIC/'files/repeat-browser-recheck.json',load(REPEAT/'evaluation/browser_recheck.json'))
         for view in ['hero','roles','journal','footer']:
             shutil.copy2(REPEAT/'evaluation/agent-omni'/(view+'.jpg'),PUBLIC/'assets'/f'agent-omni-r1-{view}.jpg')
     license_text=(ROOT/'omni2web_eval/NOTICE.md').read_text(encoding='utf-8')
@@ -196,15 +199,17 @@ def main():
             [['Agent-omni 复跑 r1',f'<b>{repeat["efs_weighted_v3"]*100:.2f}</b>',
               *[f'{c[k]*100:.2f}' for k in ['target_grounding','edit_fulfillment','no_damage','revision']],clock(repeat['run']['elapsed_sec'])]])
         repeat_section+='<p>沿用完全相同的提示、源HTML、带音轨视频及ASR工具，gpt-6.1-sol / xhigh，保持联网。独立目录、全新会话，不提供人工转写、旧交付或裁判结论。任务评分规则与v3一致，无损标签复用；只对新出现的语义变化补判。保留原运行，复跑不覆盖、不挑选替换原分。</p><p><a href="traces.html?run=agent-omni-r1">复跑轨迹</a> · <a href="files/agent-omni-r1-result.json">逐项判定</a> · <a href="files/repeat-protocol.json">输入哈希与运行配置</a></p>'
+        repeat_section+='<p><b>复跑结论：</b>22条任务判定的通过／失败与原omni完全相同。仍漏菜单纵排、HERO恢复、SERVICES表头恢复和JOURNAL文字配色；项目交换这次换成了第一与第二项，目标应是第一与第三项。岗位交换仍正确。0.92分的总分差全部来自无损项变化，不是任务完成度提高。<a href="files/repeat-browser-recheck.json">独立浏览器复核</a>确认这些最终状态。</p>'
     itemrows=[]
-    items={n:{i['item_id']:i for i in results[n]['items']} for n in LABELS}
+    item_results={**results,**({'agent-omni-r1':repeat} if repeat else {})}
+    items={n:{i['item_id']:i for i in r['items']} for n,r in item_results.items()}
     for item in protocol['active_rubric']:
         if item['category']=='no_damage':continue
         iid=item['item_id'];step=(int(iid[1:])+1)//2
         category={'target_grounding':'定位','edit_fulfillment':'执行','revision':'修订'}[item['category']]
         instruction=item['expected_visible_evidence']['after_expected_change']
         cells=[str(step)+' / '+iid,category,esc(instruction)]
-        for n in LABELS:
+        for n in labels:
             j=items[n][iid];cells.append(f'<span class="{"ok" if j["met"] else "no"}" title="{esc(j["reason"])}">{"✓" if j["met"] else "✗"}</span>')
         itemrows.append(cells)
     definitions=[['源网页','Atelier Lumen 建筑事务所长页面，WebVR test/155/155_1.html；约133.6 KB HTML。'],
@@ -253,7 +258,7 @@ button,select,input{font:inherit;border:1px solid var(--line);border-radius:5px;
 <p class="note">所有模型均为同一Sol，xhigh；三份交付均正常完成。定位、编辑落实、无损、修订显示百分制；原始EFS与审计诊断分使用不同评分范围，不能把差值当作模型能力提升，也不与论文全量均分比较。</p>
 {repeat_section}
 <div class="find"><b>校准：</b>审计范围的满分构造解为 <b>{cal['reference']*100:.2f}</b>；不修改页面为 <b>{cal['noop']*100:.2f}</b>。不作为也能拿到修订和无损分，因此总分不能替代“编辑落实”分。校准说明可达性与对照区分，不能证明评分没有其他局限。</div>
-<details class="card"><summary>逐项通过矩阵（23个计分项中的22个定位／执行／修订项）</summary>{table(['步骤 / ID','类型','有效要求','直出','Agent-VL','Agent-omni'],itemrows)}<p class="note">悬停勾叉可看裁判具体理由；完整理由和无损差分见各条件JSON下载。</p></details>
+<details class="card"><summary>逐项通过矩阵（23个计分项中的22个定位／执行／修订项）</summary>{table(['步骤 / ID','类型','有效要求',*labels.values()],itemrows)}<p class="note">悬停勾叉可看裁判具体理由；完整理由和无损差分见各条件JSON下载。</p></details>
 <h3>查看实际交付</h3><div class="toolbar"><label>选择 <select id="preview-choice"><option value="source">原始页面</option>{''.join(f'<option value="{n}">{label}交付</option>' for n,label in labels.items())}</select></label><a id="preview-open" href="previews/source/index.html" target="_blank" rel="noopener">单独打开 →</a></div>
 <iframe class="preview" id="preview" title="源网页与模型交付预览" loading="lazy" sandbox="allow-scripts" src="previews/source/index.html"></iframe><p class="note">实际HTML与资源的隔离预览；第三方远程图片可用性可能变化。原始提交打包保留在下载区。</p>
 <h2 id="traces">三、运行轨迹</h2><p>两个agent从独立工作区开始，自主抽帧、裁剪、转写、编辑及渲染。完整保留可见回复、执行命令和工具输出；不把CLI未记录的看图调用计为零，也不展示隐藏推理。</p>
@@ -268,6 +273,7 @@ button,select,input{font:inherit;border:1px solid var(--line);border-radius:5px;
 {failure_cards}
 <div class="compare"><figure><img loading="lazy" src="assets/source-hero.jpg" alt="原始浅色首屏"><figcaption>原始首屏：浅色背景、深色标题，顶部菜单横排。</figcaption></figure><figure><img loading="lazy" src="assets/agent-omni-hero.jpg" alt="Agent omni最终深色首屏"><figcaption>Agent-omni最终：深色主题未撤回，菜单仍横排。此图只展示已确认的失败，不裁断隐藏范围争议。</figcaption></figure></div>
 <h3>如何理解agent的分数</h3><p>这次复现同时暴露了目标／属性绑定与撤销状态管理问题，以及基准标注、资产可见性和源码差分的测量问题。VL的人工稿没有时间戳；omni的ASR有时间戳，确实有按时间对齐的工具条件，但还要承担识别、分段和任务提取。当前对照不能把这些因素分开，也不能证明omni本身弱于VL。要单测时间对齐，需要固定同一份转写内容，再控制时间标注。</p>
+<p>一个可核查的时间粒度例子：原omni的撤销句段级范围为63.64–72.71秒，其中“这个”的ASR词级标注为69.79–70.11秒；段起点与关键指代词相差6.15秒。若只取段首画面，可能对错元素；词级标注可帮助细化取帧，但仍需核验。该例说明使用时间信息的难点，不能单凭它断言模型本次取帧采用了哪种策略。<a href="files/asr_timing_example.json">查看原ASR片段与哈希</a>。</p>
 <p class="note">原提示沿用“图片是本地相对路径”的不准确说明，实际源HTML引用远程图片。同配置复跑保留原提示，避免把提示修订与运行波动混在一起；评分仅将验证为同图的本地资源归一。</p>
 <h2 id="files">文件与来源</h2><ul class="dl"><li><a href="files/audit-report.txt">20步评测审计</a></li><li><a href="files/protocol.json">评分协议、范围和输入哈希</a></li><li><a href="files/calibration.json">校准结果</a></li><li><a href="files/transcript.txt">人工转写</a></li>{''.join(f'<li><a href="files/{n}-result.json">{label}逐项结果</a> · <a href="files/{n}-submission.zip">提交包</a></li>' for n,label in labels.items())}<li><a href="files/review_118_v3.py">v3无损复查脚本</a></li><li><a href="files/audit_118.py">任务审计脚本</a></li><li>v2历史结果：{''.join(f'<a href="files/{n}-result-v2.json">{label}</a> ' for n,label in LABELS.items())}</li><li><a href="files/NOTICE.txt">数据来源与许可</a></li></ul>
 <p class="note">任务与录屏：<a href="https://huggingface.co/datasets/minghaofdu/Omni2Web">Omni2Web · sample 118</a>；原评分代码：<a href="https://github.com/Hanminghao/Omni2Web-evaluation">Hanminghao/Omni2Web-evaluation</a>；源网页：<a href="https://huggingface.co/datasets/BroAlanTaps/WebVR">WebVR</a>，revision 7917c3a2b44a0838eb0acffb80a38ec6030b49b6。Omni2Web原始贡献为CC BY-NC 4.0；本页标明了评分修订，第三方网页和图片保留各自许可。</p>
