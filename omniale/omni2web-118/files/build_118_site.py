@@ -9,7 +9,7 @@ import sys
 import zipfile
 
 from continue_codex import ROOT, OUT, now, records
-from audit_118 import DEST, DISPUTED, STEP_TIMES, paths
+from audit_118 import DEST as V2, DISPUTED, STEP_TIMES, paths
 sys.path.insert(0,str(ROOT/'omniale_cases/_build/scripts'))
 from page_lib import CSS
 
@@ -17,6 +17,19 @@ BASE=OUT/'site_118'
 PUBLIC=BASE/'public'
 ROUTE='/omniale/omni2web-118/'
 LABELS={'direct':'直出','agent-vl':'Agent-VL','agent-omni':'Agent-omni'}
+DEST=OUT/'audit118-v3'
+REPEAT=OUT/'repeat118-omni-r1'
+
+
+def completed_repeat():
+    path=REPEAT/'evaluation/result.json'
+    return load(path) if path.exists() else None
+
+
+def submissions():
+    result=paths()
+    if completed_repeat():result['agent-omni-r1']=REPEAT/'agent-omni/118/output/edited.html'
+    return result
 
 
 def esc(value):return html.escape(str(value))
@@ -38,8 +51,10 @@ def redact(text):
 
 def traces():
     overview={}
-    for name in ('agent-vl','agent-omni'):
-        ws=OUT/name/'118';run=load(ws/'run_info.json');events=[]
+    runs={'agent-vl':OUT/'agent-vl/118','agent-omni':OUT/'agent-omni/118'}
+    if completed_repeat():runs['agent-omni-r1']=REPEAT/'agent-omni/118'
+    for name,ws in runs.items():
+        run=load(ws/'run_info.json');events=[]
         for line in (ws/'events.jsonl').read_text(encoding='utf-8').splitlines():
             try:e=json.loads(line)
             except ValueError:continue
@@ -69,7 +84,7 @@ def packages():
     source_dir=PUBLIC/'previews/source';source_dir.mkdir(parents=True,exist_ok=True)
     original=OUT/'agent-omni/118/input'
     shutil.copy2(original/'source.html',source_dir/'index.html')
-    for name,path in paths().items():
+    for name,path in submissions().items():
         target=PUBLIC/'previews'/name
         (target/'output').mkdir(parents=True,exist_ok=True)
         (target/'input').mkdir(exist_ok=True)
@@ -115,6 +130,13 @@ def audit_report(protocol):
             '- Scan可能因争议移动操作离开页脚，不能仅因它不在footer内就拒绝其余已完成的页脚配色。',
             '- API、结构化输出失败均为judge_error，不记模型0分；全量ID与布尔类型校验。',
             '- 原始HTML、视频、模型交付、原分均保留；展示修复版时明确coverage及口径。', '',
+            '## 第二次复查（v3）','',
+            '- 保留v2的22条任务判定，统一复查无损项。相同语义变化匿名合并后只判一次，所有条件复用标签。',
+            '- 项目与岗位容器先按标题匹配，避免合法换位导致图片错配；Garden Stair整卡删除中的Residential不再误记为其他项目丢失。',
+            '- 已在编辑落实或修订项扣分的主题、文字、表头错误不再重复扣无损；直接检测遗漏的整段section换位。',
+            '- 无损公式的分母改为规范化语义变化组数量，不再按CSS语句条数计数。这是新的诊断口径，不能与原始EFS或v2混用。',
+            '- 浏览器重新验证卡片和岗位的视觉顺序，以及SERVICES表头：原始、直出、VL为三列；原omni为一列。',
+            '- VL拿到20行无时间标注的人工稿；omni自行ASR，可得到词级时间标注，但会引入识别与分段差异。因此不能只用本对照推断音画对齐能力。', '',
             '## 验证', '', '满分构造解100.00；不改动基线42.73（修订与无损本身可得分）。这验证满分可达和不作为有区分度，不证明全部语义已完美。',
             '', '参考：原Omni2Web数据与WebVR源页，许可与来源见页面底部。']
     (PUBLIC/'files/audit-report.txt').write_text('\n'.join(lines)+'\n',encoding='utf-8')
@@ -125,6 +147,8 @@ def main():
     protocol=load(DEST/'protocol.json');cal=load(DEST/'calibration.json')
     assert cal['passed']
     results={n:load(DEST/n/'result.json') for n in LABELS}
+    repeat=completed_repeat()
+    labels={**LABELS,**({'agent-omni-r1':'Agent-omni 联网复跑'} if repeat else {})}
     overview=traces();packages();audit_report(protocol)
     shutil.copy2(BASE/'request-preview.mp4',PUBLIC/'assets/request-preview.mp4')
     shutil.copy2(ROOT/'omni2web_data/video_118.mp4',PUBLIC/'files/request-original.mp4')
@@ -132,9 +156,13 @@ def main():
         shutil.copy2(BASE/(name+'.jpg'),PUBLIC/'assets'/(name+'.jpg'))
     for condition in ['source',*LABELS]:
         for view in ['hero','roles','journal','footer']:
-            shutil.copy2(DEST/condition/(view+'.jpg'),PUBLIC/'assets'/f'{condition}-{view}.jpg')
+            image=DEST/condition/(view+'.jpg')
+            if not image.exists():image=V2/condition/(view+'.jpg')
+            shutil.copy2(image,PUBLIC/'assets'/f'{condition}-{view}.jpg')
+        shutil.copy2(DEST/condition/'services-recheck.jpg',PUBLIC/'assets'/f'{condition}-services.jpg')
     for name in LABELS:
         put(PUBLIC/'files'/f'{name}-result.json',results[name])
+        put(PUBLIC/'files'/f'{name}-result-v2.json',load(V2/name/'result.json'))
         put(PUBLIC/'files'/f'{name}-observations.json',load(DEST/name/'observations.json'))
         if name!='direct':
             (PUBLIC/'files'/f'{name}-prompt.txt').write_text((OUT/name/'118/PROMPT.md').read_text(encoding='utf-8'),encoding='utf-8')
@@ -142,8 +170,15 @@ def main():
     put(PUBLIC/'files/calibration.json',cal)
     row=records()['118']
     (PUBLIC/'files/transcript.txt').write_text(row['transcript'],encoding='utf-8')
-    for filename in ['audit_118.py','build_118_site.py']:
+    for filename in ['audit_118.py','review_118_v3.py','evaluate_repeat_118.py','build_118_site.py']:
         shutil.copy2(ROOT/'omni2web_run'/filename,PUBLIC/'files'/filename)
+    for filename in ['shared_decisions.json','browser_recheck.json']:
+        shutil.copy2(DEST/filename,PUBLIC/'files'/filename)
+    if repeat:
+        put(PUBLIC/'files/agent-omni-r1-result.json',repeat)
+        put(PUBLIC/'files/repeat-protocol.json',load(REPEAT/'protocol.json'))
+        for view in ['hero','roles','journal','footer']:
+            shutil.copy2(REPEAT/'evaluation/agent-omni'/(view+'.jpg'),PUBLIC/'assets'/f'agent-omni-r1-{view}.jpg')
     license_text=(ROOT/'omni2web_eval/NOTICE.md').read_text(encoding='utf-8')
     (PUBLIC/'files/NOTICE.txt').write_text(license_text,encoding='utf-8')
     runinfo={n:load(OUT/n/'118/run_info.json') for n in LABELS}
@@ -153,6 +188,14 @@ def main():
         rows.append([LABELS[n],f'{r["original_efs"]*100:.2f}',f'<b>{r["efs_weighted_v3"]*100:.2f}</b>',
                      *[f'{c[k]*100:.2f}' for k in ['target_grounding','edit_fulfillment','no_damage','revision']],clock(runinfo[n]['elapsed_sec'])])
     scoretable=table(['输入与运行条件','原始 EFS','审计诊断分','定位','编辑落实','无损','修订','求解耗时'],rows)
+    repeat_section=''
+    if repeat:
+        c=repeat['category_scores_v3']
+        repeat_section='<h3>Agent-omni 同配置联网复跑</h3>'+table(
+            ['条件','审计诊断分','定位','编辑落实','无损','修订','求解耗时'],
+            [['Agent-omni 复跑 r1',f'<b>{repeat["efs_weighted_v3"]*100:.2f}</b>',
+              *[f'{c[k]*100:.2f}' for k in ['target_grounding','edit_fulfillment','no_damage','revision']],clock(repeat['run']['elapsed_sec'])]])
+        repeat_section+='<p>沿用完全相同的提示、源HTML、带音轨视频及ASR工具，gpt-6.1-sol / xhigh，保持联网。独立目录、全新会话，不提供人工转写、旧交付或裁判结论。任务评分规则与v3一致，无损标签复用；只对新出现的语义变化补判。保留原运行，复跑不覆盖、不挑选替换原分。</p><p><a href="traces.html?run=agent-omni-r1">复跑轨迹</a> · <a href="files/agent-omni-r1-result.json">逐项判定</a> · <a href="files/repeat-protocol.json">输入哈希与运行配置</a></p>'
     itemrows=[]
     items={n:{i['item_id']:i for i in results[n]['items']} for n in LABELS}
     for item in protocol['active_rubric']:
@@ -167,13 +210,13 @@ def main():
     definitions=[['源网页','Atelier Lumen 建筑事务所长页面，WebVR test/155/155_1.html；约133.6 KB HTML。'],
                  ['中文录屏','243.2秒，20条编辑指令；弱指代“这个／这些”与光标、滚动配合。'],
                  ['直出','人工转写 + 最多95张644px时间戳帧；实际约0.391fps，一次请求，不调用工具。'],
-                 ['Agent-VL','源HTML、图片副本、视频与人工转写；视频按静音处理，自主抽帧与渲染。'],
-                 ['Agent-omni','源HTML、图片副本、带音轨视频；不给人工转写，使用本地Whisper large-v3听。'],
+                 ['Agent-VL','源HTML、图片副本、视频与20行人工转写（没有时间标注）；视频按静音处理，自主抽帧与渲染。'],
+                 ['Agent-omni','源HTML、图片副本、带音轨视频；不给人工转写，使用本地Whisper large-v3，可获取段级、词级时间标注并重听。'],
                  ['共同条件','Sol xhigh；Codex CLI 0.166.0-alpha.5.1；NJU Link Responses。agent全程联网，可装依赖、检索素材；禁止取数据集标注和其他运行答案。'],
-                 ['交付','完整edited.html及其使用的本地资源。两条agent运行均正常退出；当前页面没有重新运行solver。']]
+                 ['交付','完整edited.html及其使用的本地资源。原三条运行均正常退出；另列同配置omni复跑，不覆盖原交付。' if repeat else '完整edited.html及其使用的本地资源。原三条运行均正常退出；联网复跑进行中，尚无复跑分数。']]
     trace_rows=[['直出','1次请求','无Agent工具','无','<a href="traces.html?run=direct">查看请求配置</a>']]
-    for n in ['agent-vl','agent-omni']:
-        o=overview[n];trace_rows.append([LABELS[n],str(o['commands'])+'条完成的shell命令',str(o['searches'])+'次搜索',str(o['asr'])+'次ASR相关执行',f'<a href="traces.html?run={n}">查看可见轨迹 →</a>'])
+    for n,o in overview.items():
+        trace_rows.append([labels[n],str(o['commands'])+'条完成的shell命令',str(o['searches'])+'次搜索',str(o['asr'])+'次ASR相关执行',f'<a href="traces.html?run={n}">查看可见轨迹 →</a>'])
     transcript=esc(row['transcript'])
     failure_cards=''
     for step,iid,title in [(1,'r2','菜单纵排没有落实'),(6,'r12','要求撤销，深色主题仍保留'),(13,'r26','改了背景，文字仍是白色'),(20,'r40','岗位互换：原来错扣了两条agent')]:
@@ -204,13 +247,14 @@ button,select,input{font:inherit;border:1px solid var(--line);border-radius:5px;
 <h3>验收与评分修复</h3><p>EFS沿用定位10%、编辑落实50%、无损20%、修订20%。裁判为NJU Link的 <code>gpt-6-sol / high</code>；本页并非论文使用Gemini裁判的官方排行榜。</p>
 <div class="quote"><b>先修复评测，再解释结果。</b>视频审计发现第20步实际指向两个岗位；另有5条指令的批量范围或移动目的地缺少可靠证据。审计版排除这5条争议指令，覆盖16条最终有效操作中的11条；没有把争议直接算错，也没有改动模型交付。</div>
 <details class="card"><summary>哪些评分问题已修复，哪些保留不确定性？</summary><ul>
-<li>核对图片内容：同图URL本地化不算换图；真实错配资源仍扣分。</li><li>读取浏览器计算样式：检查最终CSS和实际布局，避免只看早期规则。</li><li>修正第20步为OPEN ROLES内部首、第三岗位交换。</li><li>第4、5、9、10、15步不进入审计分。对应争议变动也不能因为从评分子集排除，就被算作额外损坏。</li><li>修复移动文本被差分误识为丢失，以及media query被压平造成的假变化；保留每一项排除原因。</li></ul><p><a href="files/audit-report.txt">查看20步审计说明</a> · <a href="files/protocol.json">查看评分范围、输入哈希与图片核验</a></p>
+<li>核对图片内容：同图URL本地化不算换图；真实错配资源仍扣分。</li><li>读取浏览器计算样式：检查最终CSS和实际布局，避免只看早期规则。</li><li>修正第20步为OPEN ROLES内部首、第三岗位交换。</li><li>第4、5、9、10、15步不进入审计分。对应争议变动也不能因为从评分子集排除，就被算作额外损坏。</li><li>修复移动文本被差分误识为丢失，以及media query被压平造成的假变化。</li><li>v3再修复合法卡片换位、Garden Stair整卡删除中的Residential误判；同一错误不再同时扣编辑／修订和无损。</li><li>同一语义变化匿名合并、共享无损标签，避免同样的页脚修改在不同模型条件下被判反；补查直出的整段区块误换位。</li></ul><p>v3无损分母使用语义变化组数量，保留原公式的严重度权重；它是另一个诊断版本。<a href="files/audit-report.txt">查看20步审计说明</a> · <a href="files/shared_decisions.json">共享无损判定</a> · <a href="files/browser_recheck.json">浏览器复核证据</a></p>
 <img loading="lazy" src="assets/evidence_moves.jpg" alt="移动与岗位交换的原始视频帧证据"><p class="note">58–62秒与173秒的移动请求发生在页面底部；241秒光标指向招聘列表内部。范围不明确的条目按争议处理。</p></details>
 <h2 id="results">二、运行结果</h2>{scoretable}
 <p class="note">所有模型均为同一Sol，xhigh；三份交付均正常完成。定位、编辑落实、无损、修订显示百分制；原始EFS与审计诊断分使用不同评分范围，不能把差值当作模型能力提升，也不与论文全量均分比较。</p>
+{repeat_section}
 <div class="find"><b>校准：</b>审计范围的满分构造解为 <b>{cal['reference']*100:.2f}</b>；不修改页面为 <b>{cal['noop']*100:.2f}</b>。不作为也能拿到修订和无损分，因此总分不能替代“编辑落实”分。校准说明可达性与对照区分，不能证明评分没有其他局限。</div>
 <details class="card"><summary>逐项通过矩阵（23个计分项中的22个定位／执行／修订项）</summary>{table(['步骤 / ID','类型','有效要求','直出','Agent-VL','Agent-omni'],itemrows)}<p class="note">悬停勾叉可看裁判具体理由；完整理由和无损差分见各条件JSON下载。</p></details>
-<h3>查看实际交付</h3><div class="toolbar"><label>选择 <select id="preview-choice"><option value="source">原始页面</option>{''.join(f'<option value="{n}">{label}交付</option>' for n,label in LABELS.items())}</select></label><a id="preview-open" href="previews/source/index.html" target="_blank" rel="noopener">单独打开 →</a></div>
+<h3>查看实际交付</h3><div class="toolbar"><label>选择 <select id="preview-choice"><option value="source">原始页面</option>{''.join(f'<option value="{n}">{label}交付</option>' for n,label in labels.items())}</select></label><a id="preview-open" href="previews/source/index.html" target="_blank" rel="noopener">单独打开 →</a></div>
 <iframe class="preview" id="preview" title="源网页与模型交付预览" loading="lazy" sandbox="allow-scripts" src="previews/source/index.html"></iframe><p class="note">实际HTML与资源的隔离预览；第三方远程图片可用性可能变化。原始提交打包保留在下载区。</p>
 <h2 id="traces">三、运行轨迹</h2><p>两个agent从独立工作区开始，自主抽帧、裁剪、转写、编辑及渲染。完整保留可见回复、执行命令和工具输出；不把CLI未记录的看图调用计为零，也不展示隐藏推理。</p>
 {table(['条件','调用','联网搜索','语音工具','轨迹入口'],trace_rows)}<a class="big" href="traces.html">打开运行轨迹浏览器 →</a>
@@ -219,13 +263,15 @@ button,select,input{font:inherit;border:1px solid var(--line);border-radius:5px;
 <div class="find"><b>先纠正一项结论：</b>两条agent都正确交换了招聘列表内部的岗位。旧标注把它误写成整个招聘区与合作伙伴区换位，不能据此说模型“把区块换位做成了岗位调序”。</div>
 <div class="compare"><figure><img loading="lazy" src="assets/source-roles.jpg" alt="原始招聘列表"><figcaption>原始：Architectural Designer → BIM Coordinator → Materials。</figcaption></figure><figure><img loading="lazy" src="assets/agent-omni-roles.jpg" alt="Agent omni交换后的岗位列表"><figcaption>Agent-omni：Materials → BIM Coordinator → Architectural Designer，目标交换已完成。</figcaption></figure></div>
 <h3>仍有证据支持的失败</h3><p>三份交付的菜单最终仍为横排；要求恢复的HERO仍是深色；JOURNAL文字仍为白色，深棕色被用于背景。这些由浏览器计算值直接支持。Agent-omni还没有完成项目卡片换位与SERVICES表头恢复；具体以逐项理由为准。</p>
+<p>原omni与直出的定位、编辑落实分相同，原因是二者各漏了一次不同的交换：直出漏岗位、omni漏项目。总分相差7.33分，其中6.67分来自omni的SERVICES表头撤销失败，其余0.67分来自无损。浏览器确认原omni表头为一列，源页、直出和VL均为三列；轨迹里的自检只断言了折叠交互，没有断言该表头布局已恢复。</p>
+<div class="compare"><figure><img loading="lazy" src="assets/direct-services.jpg" alt="直出的SERVICES三列表头"><figcaption>直出：SERVICES表头恢复为三列，与源页一致。</figcaption></figure><figure><img loading="lazy" src="assets/agent-omni-services.jpg" alt="原Agent omni未恢复的一列表头"><figcaption>原omni：SERVICES表头仍是一列，撤销没有落实。</figcaption></figure></div>
 {failure_cards}
 <div class="compare"><figure><img loading="lazy" src="assets/source-hero.jpg" alt="原始浅色首屏"><figcaption>原始首屏：浅色背景、深色标题，顶部菜单横排。</figcaption></figure><figure><img loading="lazy" src="assets/agent-omni-hero.jpg" alt="Agent omni最终深色首屏"><figcaption>Agent-omni最终：深色主题未撤回，菜单仍横排。此图只展示已确认的失败，不裁断隐藏范围争议。</figcaption></figure></div>
-<h3>如何理解agent的分数</h3><p>这次复现同时暴露了模型的目标／属性绑定与撤销状态管理问题，以及基准标注、资产可见性和源码差分的测量问题。审计版用于定位有证据的差距，不能推导“原生听觉能力”或全量benchmark排名；omni使用Whisper，它与VL也不是完全相同的信息条件。</p>
-<p class="note">原提示沿用“图片是本地相对路径”的不准确说明，实际源HTML引用远程图片。审计修复处理了由此产生的同图误罚，但没有重跑solver消除这项运行配置差异。</p>
-<h2 id="files">文件与来源</h2><ul class="dl"><li><a href="files/audit-report.txt">20步评测审计</a></li><li><a href="files/protocol.json">评分协议、范围和输入哈希</a></li><li><a href="files/calibration.json">校准结果</a></li><li><a href="files/transcript.txt">人工转写</a></li>{''.join(f'<li><a href="files/{n}-result.json">{label}逐项结果</a> · <a href="files/{n}-submission.zip">提交包</a></li>' for n,label in LABELS.items())}<li><a href="files/audit_118.py">审计评分脚本</a></li><li><a href="files/NOTICE.txt">数据来源与许可</a></li></ul>
+<h3>如何理解agent的分数</h3><p>这次复现同时暴露了目标／属性绑定与撤销状态管理问题，以及基准标注、资产可见性和源码差分的测量问题。VL的人工稿没有时间戳；omni的ASR有时间戳，确实有按时间对齐的工具条件，但还要承担识别、分段和任务提取。当前对照不能把这些因素分开，也不能证明omni本身弱于VL。要单测时间对齐，需要固定同一份转写内容，再控制时间标注。</p>
+<p class="note">原提示沿用“图片是本地相对路径”的不准确说明，实际源HTML引用远程图片。同配置复跑保留原提示，避免把提示修订与运行波动混在一起；评分仅将验证为同图的本地资源归一。</p>
+<h2 id="files">文件与来源</h2><ul class="dl"><li><a href="files/audit-report.txt">20步评测审计</a></li><li><a href="files/protocol.json">评分协议、范围和输入哈希</a></li><li><a href="files/calibration.json">校准结果</a></li><li><a href="files/transcript.txt">人工转写</a></li>{''.join(f'<li><a href="files/{n}-result.json">{label}逐项结果</a> · <a href="files/{n}-submission.zip">提交包</a></li>' for n,label in labels.items())}<li><a href="files/review_118_v3.py">v3无损复查脚本</a></li><li><a href="files/audit_118.py">任务审计脚本</a></li><li>v2历史结果：{''.join(f'<a href="files/{n}-result-v2.json">{label}</a> ' for n,label in LABELS.items())}</li><li><a href="files/NOTICE.txt">数据来源与许可</a></li></ul>
 <p class="note">任务与录屏：<a href="https://huggingface.co/datasets/minghaofdu/Omni2Web">Omni2Web · sample 118</a>；原评分代码：<a href="https://github.com/Hanminghao/Omni2Web-evaluation">Hanminghao/Omni2Web-evaluation</a>；源网页：<a href="https://huggingface.co/datasets/BroAlanTaps/WebVR">WebVR</a>，revision 7917c3a2b44a0838eb0acffb80a38ec6030b49b6。Omni2Web原始贡献为CC BY-NC 4.0；本页标明了评分修订，第三方网页和图片保留各自许可。</p>
-<p class="note">更新：{now()[:19].replace('T',' ')}（北京时间） · 评分版本 118-audit-v2 · 单次运行，未估计运行间方差。</p>
+<p class="note">更新：{now()[:19].replace('T',' ')}（北京时间） · 评分版本 {protocol['version']} · {'原三条运行 + omni一次独立复跑，样本量不足以估计稳定的运行间方差。' if repeat else '原三条运行，omni独立联网复跑进行中。'}</p>
 </main><script>document.getElementById('preview-choice').addEventListener('change',e=>{{const n=e.target.value;const u=n==='source'?'previews/source/index.html':`previews/${{n}}/output/edited.html`;document.getElementById('preview').src=u;document.getElementById('preview-open').href=u;}});</script></body></html>'''
     (PUBLIC/'index.html').write_text(page,encoding='utf-8')
     trace_page='''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><title>118 · 运行轨迹</title><style>'''+CSS+extra+''' .event{border-top:1px solid var(--line);padding:12px 0}.event summary{font-family:monospace;white-space:pre-wrap;word-break:break-word}.event pre{max-height:650px}.controls{position:sticky;top:0;background:var(--bg);padding:12px 0;z-index:2}#count{font-size:13px;color:var(--muted)}</style></head><body><main><a class="back" href="./">← 返回118案例页</a><h1>118 · 可见运行轨迹</h1><p class="lead">按执行顺序浏览命令、工具输出和可见回复。没有逐条时间戳；不包含隐藏推理，长输出已标注截断。</p><div class="controls toolbar"><select id="run"><option value="agent-omni">Agent-omni</option><option value="agent-vl">Agent-VL</option><option value="direct">直出</option></select><select id="kind"><option value="all">全部记录</option><option value="command">命令</option><option value="search">搜索</option><option value="message">可见回复</option><option value="error">失败命令</option></select><input id="search" type="search" placeholder="搜索命令或输出" aria-label="搜索轨迹"><span id="count"></span></div><p id="meta" class="note"></p><div id="events" aria-live="polite"></div></main><script>
@@ -235,9 +281,13 @@ for(const e of es){const d=document.createElement('details');d.className='event'
 async function load(){const response=await fetch('traces/'+$('run').value+'.json');if(!response.ok)throw new Error('HTTP '+response.status);data=await response.json();$('meta').textContent=`${data.model} · ${data.effort} · 耗时 ${(data.elapsed_sec/60).toFixed(1)} 分钟 · ${data.note||'直出请求，无Agent轨迹'}`;draw();}
 $('run').addEventListener('change',()=>load().catch(error=>$('meta').textContent=error.message));$('kind').addEventListener('change',draw);$('search').addEventListener('input',draw);load().catch(error=>$('meta').textContent=error.message);
 </script></body></html>'''
+    if repeat:
+        trace_page=trace_page.replace('<option value="agent-omni">Agent-omni</option>',
+            '<option value="agent-omni">Agent-omni 原运行</option><option value="agent-omni-r1">Agent-omni 联网复跑</option>')
+        trace_page=trace_page.replace("['direct','agent-vl','agent-omni']","['direct','agent-vl','agent-omni','agent-omni-r1']")
     (PUBLIC/'traces.html').write_text(trace_page,encoding='utf-8')
     put(BASE/'build_manifest.json',{'built_at':now(),'route':ROUTE,'files':sum(p.is_file() for p in PUBLIC.rglob('*')),
-                                  'scores':{n:r['efs_weighted_v3'] for n,r in results.items()},'coverage':protocol['coverage']})
+                                  'scores':{**{n:r['efs_weighted_v3'] for n,r in results.items()},**({'agent-omni-r1':repeat['efs_weighted_v3']} if repeat else {})},'coverage':protocol['coverage']})
     print('BUILT',PUBLIC,flush=True)
 
 

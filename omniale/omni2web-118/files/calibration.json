@@ -1,7 +1,19 @@
 {
-  "version": "118-audit-v2",
+  "version": "118-audit-v3",
   "reference": 1.0,
   "noop": 0.4273,
   "passed": true,
-  "note": "Calibration checks feasibility and catches inaction; no claim of full semantic validity."
+  "note": "Task-item calibration unchanged; new No-damage audit independently checks oracle and no-op.",
+  "paired_review": {
+    "noop": {
+      "no_damage": 1.0,
+      "canonical_changes": 0,
+      "passed": true
+    },
+    "oracle": {
+      "no_damage": 1.0,
+      "canonical_changes": 5,
+      "passed": true
+    }
+  }
 }
