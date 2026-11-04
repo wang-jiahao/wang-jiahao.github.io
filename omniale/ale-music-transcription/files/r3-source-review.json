@@ -1,0 +1,324 @@
+{
+  "assessment": "accepted_after_trace_review",
+  "run_path": "results/ale-music-nju-independent-proxy-repeat-r3/codex_nju_gpt61sol_xhigh/gpt-6-1-sol/visual_media__music_transcription/v0/20261104_052544",
+  "protocol": "independent-v2",
+  "scope": "Visible queries/commands, authored analysis scripts and working notes, checkpoint hashes and inference logs, frozen submissions and isolation evidence. Not full network capture or training-data audit.",
+  "findings": [
+    "Only generic transcription code, model checkpoints and dependencies were retrieved. No task-specific score, MIDI, native project or prior output retrieval was observed.",
+    "Fresh proxy-enabled container had no host mounts and no hidden evaluator references during solver. Actual requested effort xhigh.",
+    "YourMT3 561544628-byte checkpoint SHA256 matches published generic weight; full 69-segment inference finished. MR-MT3 also reports MODEL TRANSCRIPTION DONE. Download/compatibility errors were repaired by the solver.",
+    "Agent used numerical waveform/spectral analysis and local generic models; ALSA playback was unavailable. This is not a native GPT audio evaluation.",
+    "All five original deliverables preserved. Official scoring and MIDI/notation consistency gates succeeded; low musical similarity remains."
+  ],
+  "queries": [
+    "YourMT3 pretrained inference CPU github multi instrument transcription",
+    "https://github.com/openmirlab/mt3-infer"
+  ],
+  "sanitized_command_urls": [
+    "https://download.pytorch.org/whl/cpu",
+    "https://github.com/openmirlab/mt3-infer,",
+    "https://github.com/openmirlab/mt3-infer.git",
+    "https://huggingface.co/gudgud1014/MR-MT3/resolve/main/mt3.pth",
+    "https://huggingface.co/spaces/mimbres/YourMT3/resolve/main/amt/logs/2024/mc13_256_g4_all_v7_mt3f_sqr_rms_moe_wf4_n8k2_silu_rope_rp_b36_nops/checkpoints/last.ckpt",
+    "https://raw.githubusercontent.com/openmirlab/mt3-infer/main/pyproject.toml",
+    "https://raw.githubusercontent.com/openmirlab/mt3-infer/master/pyproject.toml"
+  ],
+  "review_flags": [],
+  "actual_requested_reasoning_efforts": [
+    "xhigh"
+  ],
+  "view_image_calls": 9,
+  "completed_command_records": 107,
+  "script_sha256": [
+    {
+      "path": "analysis/audit_exports.py",
+      "sha256": "6d911987a815908c328988bfe1ccc50b2bb3dba4bc0e9ec4dca77551c6830745"
+    },
+    {
+      "path": "analysis/build_score.py",
+      "sha256": "2acbed5ba1605ac240db93ed1b3a739d144df29497318a7725d19ca99994fe4e"
+    },
+    {
+      "path": "analysis/decode_raw.py",
+      "sha256": "feff3bc0ca1c5500bdd2efd5c67bb5c87d58375c6084b1e3d36f050518de4693"
+    },
+    {
+      "path": "analysis/events.py",
+      "sha256": "8c8bb839a880489de0bd9637cdc60d3739d569d8506a03bff77824b2d3df8f1a"
+    },
+    {
+      "path": "analysis/finalize.py",
+      "sha256": "211044e69c10c26bb485e1cbf7dc300c5973d586bf74f6be963344b5d3a75d68"
+    },
+    {
+      "path": "analysis/fit_compare.py",
+      "sha256": "f2a5221cd8c2426d18945dd060a1debf7a6802547bdf5ba9d330682390589bc6"
+    },
+    {
+      "path": "analysis/grid.py",
+      "sha256": "86d9ceaa3d70a7a10ff1fd6d4fcb2a721a940facd3a241b12f9f96c0e86c2ce2"
+    },
+    {
+      "path": "analysis/inspect_audio.py",
+      "sha256": "c687973c5add93858571312d1c41ce78b62a76e520a30ff9d25f952f065122c6"
+    },
+    {
+      "path": "analysis/prepare_events.py",
+      "sha256": "61b30fe04ffdf6ad88d48a8f23eb23a450a0cae10e360feb59fe5c93626ed927"
+    },
+    {
+      "path": "analysis/probe_timbres.py",
+      "sha256": "ca83604b0511cbe55d4a32fb39561bdceafe7bb0c9a307cdef44180d90a73308"
+    },
+    {
+      "path": "analysis/refine_envelopes.py",
+      "sha256": "0b9e250ddd87070817405c9f649f43d71f387e0da69b3d02fd604d62415aefa8"
+    },
+    {
+      "path": "analysis/review.py",
+      "sha256": "f34eb3aa256abea8369a09a6d2f99f8df2188aa33bc0a96594b9272dce50ebe6"
+    },
+    {
+      "path": "analysis/run_model.py",
+      "sha256": "c10d6c0a7cdadb42f0017040cab31258b0064529d479d902b4a3711a63caaf33"
+    },
+    {
+      "path": "analysis/separate.py",
+      "sha256": "3feaab73a5f7453a7dd566329e0fa5313ab7490e61dac18f5519d542f0d875ba"
+    },
+    {
+      "path": "analysis/style_score.py",
+      "sha256": "d9900883f3b6e13bd5a7dfe4d99861c90ccacfc32267a903068c2f7684d75148"
+    },
+    {
+      "path": "analysis/templates.py",
+      "sha256": "8c7dca31a8f7635580ad73bc1f50e8d4fb9d4850a02aca5d37778e49feb7e88a"
+    },
+    {
+      "path": "analysis/test_notation.py",
+      "sha256": "b08ccac0133310f236f1339881b1a1405a201c5c50545b1f6fdcede92a698316"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/api.py",
+      "sha256": "c53f2299dd0579f53ce8e7a8bd69baebc1b7321eb4d5d673911fce23f72b9450"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/base.py",
+      "sha256": "0802a915bf1d1cca9a3307ca952cf7347e20b68280665a43eb9efc3613d07464"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/checkpoint_catalog.py",
+      "sha256": "df1dbba8791e792280bf4e4c047be6861e78bcc6a87fa3b2ee36c5ca57038e15"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/cli.py",
+      "sha256": "92e0e9e893ffc1aca1af6809afbd49a7e4e1e5222ff5476f447925fa9a53b5db"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/exceptions.py",
+      "sha256": "d71ab89e66e13212b5730d2fb0be0560d3ddda8c9624451750b1c12235d366b7"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/session.py",
+      "sha256": "c8285ff5e89f5fdcff206b027c8d55f4973fc36c4f8283eb6d5debcfec2a342b"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/__about__.py",
+      "sha256": "eb29343bbd83f798532b12597877aa203cf6a9cc7cb2f21bcca3e8c418127f1a"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/__init__.py",
+      "sha256": "517539a676d126126ac3b90964699d8361dcbc8c111d639056a8069db8d5bdab"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/adapters/mr_mt3.py",
+      "sha256": "5b376389c1f1794862b2704237cd01e20b1c2c32f474a429cf52afd20b2122ef"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/adapters/mt3_pytorch.py",
+      "sha256": "12dd2a7df9bd2932dd4c31b82033cd32e816047aa62ac0e90829dffcbce46644"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/adapters/vocab_utils.py",
+      "sha256": "2e7bb077c4ca40b61e6de71c42d46cabc779a70fe09ca83c01700e04fb3c1a5d"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/adapters/yourmt3.py",
+      "sha256": "9c6e8de43a5dafe0d2b4fd7e7ef53d08df80138f76c2059ffdde5ba30b41f170"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/adapters/__init__.py",
+      "sha256": "06d8cdac6827bc41e64e93992fc1dae68d50e5107c629a45590bcaa06b784d24"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/utils/audio.py",
+      "sha256": "3d9c526581ce5d001014f5df16127edab8ed6e275d90d3b5f4df0794be2a4ed0"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/utils/download.py",
+      "sha256": "9cb51786e7a8545aca479f61282eb32005281b1f05bf2f8692e668beb673b517"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/utils/framework.py",
+      "sha256": "f99a30ebb2529c018c1c350bc643bfcf9aa8cd34f814bcb12949b190b5564fe3"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/utils/midi.py",
+      "sha256": "a39f2e3776067a115d9ad673127e65fefca24c29655aebabb9f9361a7e53b053"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/utils/__init__.py",
+      "sha256": "cf2d22ae0b0834c9ae494eea8f40306eea0a78189f003bf872a3bede69bf8374"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/mr_mt3/t5.py",
+      "sha256": "6b1d9346a5f214d692a74a21b7e3321380deb4492e3346a964f286429c4658e2"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/mr_mt3/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/mt3_pytorch/t5.py",
+      "sha256": "b13ee9600e8b7950980948d9064ce73ca4ce0980eaad9eae4c1314e42938acca"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/mt3_pytorch/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/inference_loader.py",
+      "sha256": "9fb95034dd36d0d3913bd5847e2e07652321c26155dbc4aabc4f34f6e5808ed5"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/config/config.py",
+      "sha256": "f8207aa759dacce8d2fa1f77cb29a724e5463ba06e30c5da6acf60f457936cc0"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/config/task.py",
+      "sha256": "a5971d51ddd424d1bfb790af83a7dafb08598bac58066b96eb3738276456aa17"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/config/vocabulary.py",
+      "sha256": "9d693c320d6d912f4e756b90c132a0999aa1aaf8a75fcb627a69935cf63aea36"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/config/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/model/conv_block.py",
+      "sha256": "f99cb054e1772c5c8ad882284c60ebdbdd196314f45129d496e277c9606ad0c4"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/model/ff_layer.py",
+      "sha256": "bd9958d8607415754852ec751bfd0709aaf4e6b89572416cd1a0777888815f35"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/model/lm_head.py",
+      "sha256": "458891fcc0620c4b2b6aea1ed91d9dbb020f5dcb53aa09cbefa7a10cabb651f0"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/model/ops.py",
+      "sha256": "c169ce23fcd0251354786313ba8409aaba918fcecf15cec8a94f7889916e6cc3"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/model/spectrogram.py",
+      "sha256": "6e8c31ca1a6c293cbf051d2475a1f1c944f79ae7677c4407da2f1ddb4a65ad8c"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/model/t5mod.py",
+      "sha256": "d7a604a17d250d6e046fa3299406cc8408061ea9e6a9191d9604590d46ae511a"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/model/t5mod_helper.py",
+      "sha256": "bb46c66e8df8a72611b5c0df250d5a11adfeed918966dbe9b82fa9aceae42e05"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/model/ymt3.py",
+      "sha256": "0b610af2709fba22c100892a6356838ad94e1f5ca1bfc5c19fcd45857359ac3c"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/model/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/utils/audio.py",
+      "sha256": "d252726861c5b6a7f49ec4efe4dace8e56db3b669724a7356e0c90983d0d14f2"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/utils/event2note.py",
+      "sha256": "ef52d3c69d6aca461d285577f5ee492916d0ac3caba208a726666eabed954809"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/utils/event_codec.py",
+      "sha256": "be6712a18dee859f641f254aba5e6724281a976609faf49c8e793145bc695fa7"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/utils/midi.py",
+      "sha256": "946f86713042753216ff712d34a0acda77cdf51165337edae6a1f5418b69fc77"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/utils/note2event.py",
+      "sha256": "8308787737e65b4f6b9cfbec55aaeeaed1eccef13208f9cfc1793235b11b9f35"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/utils/task_manager.py",
+      "sha256": "4350a955a83b6cd00ec79ebee2a149fe073d8c9ab6b456f346abd4eca4d0fe61"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/utils/tokenizer.py",
+      "sha256": "e2eddff4597c2ccfcb9693b9cd84c8167a24398bf02140cc785ce0c7c0d9996b"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/utils/utils.py",
+      "sha256": "b86c2d77741d2ec8f560f27ae2b059557de89ae14883ff8bbc593c7907bf5d2f"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/utils/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "analysis/mt3-infer/mt3_infer/models/yourmt3/model/RoPE/RoPE.py",
+      "sha256": "b8046efd8f898b1c3cc157819b0371e7823d447cf506bc68d7692bc9a7ce008a"
+    }
+  ],
+  "archive_limits": {
+    "virtual_environment_archived": false,
+    "unavailable_tool_script_entries": [
+      "analysis/mt3-infer/mt3_infer/adapters/yourmt3_transformers_compat.py",
+      "analysis/mt3-infer/mt3_infer/models/mt3_pytorch/contrib/event_codec.py",
+      "analysis/mt3-infer/mt3_infer/models/mt3_pytorch/contrib/metrics_utils.py",
+      "analysis/mt3-infer/mt3_infer/models/mt3_pytorch/contrib/midi_constants.py",
+      "analysis/mt3-infer/mt3_infer/models/mt3_pytorch/contrib/note_sequences.py",
+      "analysis/mt3-infer/mt3_infer/models/mt3_pytorch/contrib/note_sequence_lite.py",
+      "analysis/mt3-infer/mt3_infer/models/mt3_pytorch/contrib/run_length_encoding.py",
+      "analysis/mt3-infer/mt3_infer/models/mt3_pytorch/contrib/spectrograms.py",
+      "analysis/mt3-infer/mt3_infer/models/mt3_pytorch/contrib/spectrograms_torch.py",
+      "analysis/mt3-infer/mt3_infer/models/mt3_pytorch/contrib/vocabularies.py",
+      "analysis/mt3-infer/mt3_infer/models/mt3_pytorch/contrib/__init__.py",
+      "analysis/mt3-infer/mt3_infer/models/yourmt3/config/data_presets.py",
+      "analysis/mt3-infer/mt3_infer/models/yourmt3/model/conformer_helper.py",
+      "analysis/mt3-infer/mt3_infer/models/yourmt3/model/conformer_mod.py",
+      "analysis/mt3-infer/mt3_infer/models/yourmt3/model/lightning_shim.py",
+      "analysis/mt3-infer/mt3_infer/models/yourmt3/model/perceiver_helper.py",
+      "analysis/mt3-infer/mt3_infer/models/yourmt3/model/perceiver_mod.py",
+      "analysis/mt3-infer/mt3_infer/models/yourmt3/model/pitchshift_layer.py",
+      "analysis/mt3-infer/mt3_infer/models/yourmt3/model/positional_encoding.py",
+      "analysis/mt3-infer/mt3_infer/models/yourmt3/model/projection_layer.py",
+      "analysis/mt3-infer/mt3_infer/models/yourmt3/utils/note_event_dataclasses.py",
+      "analysis/mt3-infer/mt3_infer/models/yourmt3/model/RoPE/__init__.py"
+    ]
+  },
+  "model_verification_file": "repeat_r3/music-model-verification.json",
+  "isolation_file": "audit_20261103/music-repeat-r3-isolation.json",
+  "reviewed_at": "2026-11-04T07:07:47.268444+00:00"
+}

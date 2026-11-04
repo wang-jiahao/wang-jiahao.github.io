@@ -1,0 +1,33 @@
+{
+  "assessment": "accepted_after_trace_review",
+  "run_path": "results/ale-aerobics-nju-userproxy-repeat-r3/codex_nju_gpt61sol_xhigh/gpt-6-1-sol/other__aerobics_wc2026_portugal_trio_difficulty_scoring/v0/20261104_040643",
+  "protocol": "independent-routine-r1",
+  "scope": "Visible queries/commands, generated workbook code, working notes, input-only script sources and isolation evidence. Not full network capture or expert technical rejudging.",
+  "findings": [
+    "Only supplied video and FIG rules used; single general FIG search, no external downloads or routine-specific answer retrieval observed.",
+    "Fresh proxy-enabled container had no host mounts and no evaluator reference during solver.",
+    "Actual effort xhigh. Agent generated chronological workbook and validated its schema/total.",
+    "Official score0, first mismatch is internal code whitespace B 469 vs B469. Removing code whitespace in an index-only posthoc diagnostic yields matches1,2,6,7,8, still mismatches3,4,5. Original artifacts and officialscore retained."
+  ],
+  "queries": [
+    "site.gymnastics.sport aerobics 2025 2028 code of points difficulty technical requirements"
+  ],
+  "sanitized_command_urls": [],
+  "actual_requested_reasoning_efforts": [
+    "xhigh"
+  ],
+  "view_image_calls": 51,
+  "completed_command_records": 53,
+  "script_sha256": [
+    {
+      "path": "create_workbook.py",
+      "sha256": "695b60b94bd4f629ce5a8b9913d52ec627ace5802cc63edcdbad4fe14729d478"
+    },
+    {
+      "path": "inspect_routine.py",
+      "sha256": "ea5f488e2bade57b6fa6ab2a5d92bb01c43aa401b82f87585807b051916bf71a"
+    }
+  ],
+  "isolation_file": "audit_20261103/aerobics-repeat-r3-isolation.json",
+  "reviewed_at": "2026-11-04T05:25:24.684260+00:00"
+}

@@ -1,0 +1,69 @@
+{
+  "run_id": "codex_nju_gpt61sol_xhigh__gpt-6-1-sol__visual_media__music_transcription__v0__20261104_052544",
+  "timestamp_utc": "2026-11-04T06:57:19Z",
+  "model": "gpt-6.1-sol",
+  "cli": {
+    "cli_version": "0.163.0",
+    "source": "official"
+  },
+  "requested_effort": "xhigh",
+  "actual_effort_evidence": "OTLP model_reasoning_effort",
+  "status": "completed",
+  "score": 0.130948812712858,
+  "termination": {
+    "reason": "completed",
+    "phase": null,
+    "category": null,
+    "error": null
+  },
+  "task": {
+    "slug": "visual_media__music_transcription",
+    "path": "tasks/visual_media/music_transcription",
+    "variant_index": 0,
+    "revision": "sha256:a83faeda747ad36085ebb8ba3d5d296f1788f6e9521aef6035ebcd0c41995e08"
+  },
+  "environment": {
+    "provider": "docker",
+    "image": "ale-ubuntu22-docker",
+    "image_revision": "sha256:1e5d0390fc8bc7fa7116e09a132b711b660e40c65ec38add58094e24deb90114",
+    "image_ref": "ale-two-tasks:20261103-userproxy",
+    "image_id": "sha256:1e5d0390fc8bc7fa7116e09a132b711b660e40c65ec38add58094e24deb90114",
+    "snapshot": "cpu-free-ubuntu"
+  },
+  "timings": {
+    "duration_s": 5238.39
+  },
+  "usage": {
+    "total_steps": 343,
+    "total_input_tokens": 17968237,
+    "total_output_tokens": 56369,
+    "total_cache_read_tokens": 17554432,
+    "total_cache_creation_tokens": 0,
+    "total_cost_usd": 0.0,
+    "total_duration_ms": 5483632,
+    "reward": 0.130948812712858,
+    "status": "completed"
+  },
+  "eval_result": {
+    "eval_status": "success",
+    "score": 0.130948812712858,
+    "eval_duration_s": 252.2716,
+    "error": null
+  },
+  "effective_evaluation": {
+    "score": 0.130948812712858,
+    "eval_status": "success",
+    "recovery_file": null
+  },
+  "adjudication": {
+    "independent_task_validity": "accepted_after_trace_review",
+    "protocol": "independent-v2",
+    "review_file": "repeat_r3/source-review.json",
+    "network_condition_validity": "corrected_proxy_online"
+  },
+  "network_condition": "windows_user_proxy_forwarded",
+  "internet": "allowed",
+  "api": "NJU Link Responses",
+  "official_commit": "2e91edd3cd26baa35a38127c90c8e5241dfbe62f",
+  "note": "Usage cost=0 is an unavailable gateway cost estimate, not a free-run claim."
+}
