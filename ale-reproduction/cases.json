@@ -1,0 +1,58 @@
+{
+  "title": "ALE Omni Case 复现",
+  "url": "https://wang-jiahao.github.io/ale-reproduction/",
+  "updated_at": "2026-11-04T12:44:45.597172+08:00",
+  "cases": [
+    {
+      "id": "music",
+      "title": "从管弦乐录音，转写完整总谱",
+      "domain": "音乐制作与演出服务",
+      "scenario": "多声部音乐转谱",
+      "description": "从一段139秒的管弦乐录音恢复27个乐器声部的音高、节奏、力度与配器，交付可以继续编辑和播放的总谱、MIDI及原生工程。允许通用转谱工具，禁止取用现成答案。",
+      "url": "https://wang-jiahao.github.io/omniale/ale-music-transcription/",
+      "model": "gpt-6.1-sol",
+      "score": 11.95662779817047,
+      "score_text": "11.96 / 100",
+      "cover": "assets/music.jpg",
+      "cover_alt": "本轮独立转谱交付在MuseScore中的实际画面",
+      "cover_label": "实际交付 · MuseScore",
+      "owner": "wang-jiahao",
+      "external": false,
+      "run_path": "results/ale-music-nju-independent-proxy-repeat-r2/codex_nju_gpt61sol_xhigh/gpt-6-1-sol/visual_media__music_transcription/v0/20261103_153337"
+    },
+    {
+      "id": "aerobics",
+      "title": "看清难度动作，写对每一个 FIG 编码",
+      "domain": "教育、训练与学习应用",
+      "scenario": "体育动作识别与规则判定",
+      "description": "观看94秒的三人健美操视频，对照FIG规则识别8个难度动作的顺序、技术变体和计分值，交付难度动作表。考验细节观察与动作、规则条目的对应。",
+      "url": "https://wang-jiahao.github.io/omniale/ale-aerobics-scoring/",
+      "model": "gpt-6.1-sol",
+      "score": 0.0,
+      "score_text": "0 / 1",
+      "cover": "assets/aerobics.jpg",
+      "cover_alt": "任务输入视频中的三人健美操比赛画面",
+      "cover_label": "任务输入 · 三人健美操",
+      "owner": "wang-jiahao",
+      "external": false,
+      "run_path": "results/ale-aerobics-nju-userproxy-repeat-r2/codex_nju_gpt61sol_xhigh/gpt-6-1-sol/other__aerobics_wc2026_portugal_trio_difficulty_scoring/v0/20261103_173926"
+    },
+    {
+      "id": "migration",
+      "title": "把交响乐工程迁到 Linux，恢复原有声音",
+      "domain": "音频后期与声音工程",
+      "scenario": "音频工程恢复与迁移",
+      "description": "原工程的商业音源和效果器不可用，Agent需在Ardour中选择开源替代，保留音符、奏法、强弱和路由，交付可编辑工程、完整混音与独立分轨。",
+      "url": "https://walnutpz.github.io/omniale/ale-project-migration/",
+      "model": "gpt-6.1-sol",
+      "score": 48.51,
+      "score_text": "48.51 / 100",
+      "cover": "assets/migration.svg",
+      "cover_alt": "多轨音乐工程迁移的示意图",
+      "cover_label": "工程迁移示意",
+      "owner": "walnutpz",
+      "external": true,
+      "source_sha256": "6fd52ca89bbac0552b7890a55291d63c8f14ceb72c3192529bd825fbac1aacd0"
+    }
+  ]
+}
