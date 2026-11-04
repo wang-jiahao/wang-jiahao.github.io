@@ -1,0 +1,46 @@
+---
+layout: null
+sitemap: false
+permalink: /omniale/linear/traces.html
+---
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><title>看一段讲解，把Linear整页重新做出来 · 运行轨迹</title><style>
+:root{--bg:#f4f3ee;--paper:#fffefa;--ink:#172c32;--muted:#647374;--line:#d9deda;--accent:#166f68;--soft:#e4efea;--warm:#b97131}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;font-size:15px;line-height:1.65}
+main{max-width:1180px;margin:auto;padding:36px 40px 90px}
+h1{font-size:33px;line-height:1.3;letter-spacing:-.02em;margin:0 0 10px;font-weight:650}
+h2{font-size:21px;margin:38px 0 12px;font-weight:600;border-top:1px solid var(--line);padding-top:26px}
+h3{font-size:16px;margin:22px 0 8px;font-weight:600}
+.eyebrow{color:var(--accent);font-size:12px;letter-spacing:.12em;font-weight:650;margin-bottom:10px}
+.lead{color:#52686c;font-size:16.5px;max-width:900px}
+.tag{display:inline-block;font-size:12px;color:var(--accent);background:var(--soft);padding:2px 9px;border-radius:4px;margin:0 6px 6px 0}
+.tag.gray{background:#e9ece6;color:#52666b}
+table{border-collapse:collapse;width:100%;font-size:13.5px;background:var(--paper);margin:6px 0 4px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:12px;white-space:nowrap}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+pre{white-space:pre-wrap;font-size:12.5px;background:var(--paper);border:1px solid var(--line);padding:14px;border-radius:6px;max-height:420px;overflow:auto}
+img{max-width:100%;border:1px solid var(--line);background:#fff;border-radius:4px}
+audio,video{width:100%}
+details>summary{cursor:pointer;color:var(--accent);font-size:14px}
+.ok{color:#166f68;font-weight:650}.no{color:var(--warm);font-weight:650}
+.note{color:var(--muted);font-size:13px}
+.pill{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:10px;background:#e9ece6;color:#52666b;margin-left:6px}
+.major{background:#f5e3d7;color:#9a4f17}
+
+html{scroll-behavior:smooth}a{color:var(--accent)}.navline,.toolbar{display:flex;gap:16px;flex-wrap:wrap;margin:20px 0}.navline{font-size:13px}.navline a{text-decoration:none}
+.table-wrap{overflow-x:auto}td{min-width:70px}td:nth-child(3){max-width:520px}.score{font-size:19px;font-weight:700;color:var(--accent)}
+.find{background:var(--soft);border-left:3px solid var(--accent);padding:14px 18px;margin:18px 0;border-radius:0 6px 6px 0}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px}figure{margin:16px 0}.compare img{width:100%}figcaption{font-size:12px;color:var(--muted);margin-top:7px}
+.preview{width:100%;height:600px;border:1px solid var(--line);border-radius:6px;background:white}button,select,input{font:inherit;border:1px solid var(--line);border-radius:5px;padding:8px 10px;background:var(--paper);color:var(--ink)}
+.big{display:inline-block;background:var(--accent);color:white;padding:10px 18px;text-decoration:none;border-radius:6px}.dl{columns:2}.back{font-size:12px;color:var(--muted)}summary{line-height:1.7}
+.trace-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.trace-card h3{margin-top:0}.trace-card .toolbar{font-size:12px;gap:12px}.finding{margin:30px 0;padding-top:12px;border-top:1px solid var(--line)}.finding h3{font-size:20px}.finding code{overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere}
+[hidden]{display:none!important}
+@media(max-width:680px){main{padding:24px 18px 60px}h1{font-size:28px}.compare{grid-template-columns:1fr}.dl{columns:1}.preview{height:460px}table{font-size:12px}}
+@media(max-width:900px){.trace-cards{grid-template-columns:1fr}}
+
+.event{border-top:1px solid var(--line);padding:12px 0}.event summary{font-family:monospace;white-space:pre-wrap;word-break:break-word}.event pre{max-height:650px}.event:target{background:var(--soft)}.controls{position:sticky;top:0;background:var(--bg);padding:12px 0;z-index:2}#count{font-size:13px;color:var(--muted)}.key-note{color:var(--accent);margin:8px 0}.stages{padding-left:24px}.stages li{margin:22px 0}.stage-links{font-size:12px;display:flex;gap:12px;flex-wrap:wrap}.find h2{border:0;margin:0 0 12px;padding:0;font-size:22px}
+</style></head><body><main><a class="back" href="./">← 返回看一段讲解，把Linear整页重新做出来</a><div class="eyebrow">运行过程与证据</div><h1>运行轨迹</h1><p class="lead">先读过程总结，再看影响结果的关键步骤；所有可见命令和输出仍可展开核查。</p>
+<div class="controls"><div class="toolbar"><label>模型 <select id="run"><option value="sol">gpt-6.1-sol</option></select></label><label>阅读方式 <select id="view"><option value="summary">过程总结</option><option value="key">关键步骤</option><option value="all">全部记录</option></select></label></div><div id="filters" class="toolbar" hidden><select id="kind"><option value="all">全部类型</option><option value="command">命令</option><option value="search">搜索</option><option value="message">可见回复</option><option value="error">失败命令</option></select><input id="search" type="search" placeholder="搜索命令或输出" aria-label="搜索轨迹"><span id="count"></span></div></div>
+<p id="meta" class="note"></p><section id="overview" aria-live="polite"></section><div id="events" aria-live="polite"></div><p class="note">总结是依据可见证据整理的编辑说明。事件编号保持原顺序；不把未记录的看图调用计为零，不推测隐藏推理。</p></main><script src="trace-view.js"></script></body></html>

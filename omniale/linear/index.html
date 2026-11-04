@@ -3,7 +3,8 @@ layout: null
 sitemap: false
 permalink: /omniale/linear/
 ---
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OmniALE · 看录屏复刻Linear整页</title>
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="noindex,nofollow" name="robots"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>OmniALE · 看录屏复刻Linear整页</title>
 <style>
 :root{--bg:#f4f3ee;--paper:#fffefa;--ink:#172c32;--muted:#647374;--line:#d9deda;--accent:#166f68;--soft:#e4efea;--warm:#b97131}
 *{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;font-size:15px;line-height:1.65}
@@ -37,11 +38,11 @@ details>summary{cursor:pointer;color:var(--accent);font-size:14px}
 .bar.w>i{background:var(--warm)}
 figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 @media (max-width:820px){main{padding:24px 18px 60px}.grid2{grid-template-columns:1fr}}
-.shot{display:block;max-height:650px;overflow:hidden;border:1px solid var(--line);border-radius:6px}.shot img{display:block;width:100%;border:0;border-radius:0}.tablewrap{overflow-x:auto}video{background:#111;aspect-ratio:8/5}</style></head><body><main>
+.shot{display:block;max-height:650px;overflow:hidden;border:1px solid var(--line);border-radius:6px}.shot img{display:block;width:100%;border:0;border-radius:0}.tablewrap{overflow-x:auto}video{background:#111;aspect-ratio:8/5}</style><style id="editorial-style">.editorial-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}.editorial-card{background:var(--paper,#fffefa);border:1px solid var(--line,#d9deda);border-radius:8px;padding:16px;margin:10px 0}.editorial-card h3{margin:0 0 8px}.editorial-links{display:flex;flex-wrap:wrap;gap:12px;font-size:12px}.editorial-finding{border-top:1px solid var(--line,#d9deda);padding-top:12px;margin:26px 0}.editorial-finding p{line-height:1.85}.editorial-note{font-size:13px;color:var(--muted,#647374)}</style></head><body><main>
 <div class="eyebrow">OMNIALE · 企业协作与数字业务 · 视频演示复刻网页</div><h1>看一段讲解，把Linear整页重新做出来</h1><p class="lead">给Agent一段七分钟的中文讲解录屏。讲解人从页面顶部一路滑到页脚，展示导航、产品界面、图表、代码编辑器和更新日志。Agent只有这段录像，需要从空项目写出一个能打开、能交互、适配手机的网页。</p>
 <span class="tag">真实网站</span><span class="tag">9个主要段落</span><span class="tag">422秒 · 中文讲解</span><span class="tag">Sol xhigh · NJU Link</span><span class="tag gray">依赖预装 · 当前测试允许联网</span>
 <h2>一、任务定义</h2><p>你要把一个在用的网页重新实现。没有设计稿，也没有源码；从录像里看布局、文字和操作，从讲解里听那些画面难以量准的参数，然后写成HTML、CSS和JavaScript。</p>
-<div class="card"><video controls preload="metadata" poster="assets/poster.webp" src="assets/recording.mp4"></video><p class="note">原站操作录屏，1440×900，带中文TTS讲解。该预览只压缩画质，正式材料为原始录屏。</p></div>
+<div class="card"><video controls="" poster="assets/poster.webp" preload="metadata" src="assets/recording.mp4"></video><p class="note">原站操作录屏，1440×900，带中文TTS讲解。该预览只压缩画质，正式材料为原始录屏。</p></div>
 <table><tr><th>给Agent</th><th>需要交付</th></tr><tr><td>简短TASK.md与一段带讲解的录屏。不给图片或字体，允许CSS图片占位与系统字体。</td><td><code>output/site/index.html</code> 及简短的 <code>output/notes.md</code>。整页都要做，演示和讲解提到的行为也要实现。</td></tr></table>
 <h3>这次要做整页</h3><div class="grid2">
 <div class="card"><b>首屏与产品界面</b><div class="note">紧凑的标题排版、左侧栏、issue详情与导航下拉。</div></div>
@@ -73,43 +74,9 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 <tr><td>VFS 视觉保真</td><td class="num">100.00</td></tr>
 <tr><td>RSP 响应式</td><td class="num">100.00</td></tr>
 </table>
-<h3>参考页面与模型交付</h3><div class="grid2"><figure style="margin:0"><a class="shot" href="assets/reference.webp" target="_blank"><img src="assets/reference.webp" alt="Linear原站整页参考截图"></a><figcaption>源站整页参考，点击查看长图。</figcaption></figure>
-<figure style="margin:0"><a class="shot" href="assets/model.webp" target="_blank"><img src="assets/model.webp" alt="Sol完成的Linear复刻页面"></a><figcaption>Sol最终交付截图。<a href="model/" target="_blank">打开可交互页面</a></figcaption></figure>
-</div><h2>三、运行轨迹</h2><p>本轮从新目录独立运行，使用NJU Link，输入文件做SHA256校验。模型可以自行用ffmpeg抽帧、用本地语音模型转写，也可以启动浏览器检查自己写的页面。</p>
-<table><tr><th>记录</th><th>当前值</th></tr>
-<tr><td>运行状态</td><td>已完成</td></tr>
-<tr><td>运行时间</td><td>27.7分钟</td></tr>
-<tr><td>命令执行</td><td>22</td></tr>
-<tr><td>轨迹事件</td><td>70</td></tr>
-<tr><td>联网关键词需复核项</td><td>0</td></tr>
-<tr><td>参考材料关键词需复核项</td><td>0</td></tr>
-</table><p class="note">代理限制与轨迹关键词检查属于软限制；零命中不等于操作系统隔离证明。运行中数字仅是生成本页时的快照。</p>
-<details class="card"><summary>模型的交付说明</summary><pre># 网页复刻说明
-
-直接用浏览器打开 `site/index.html` 即可，无需安装依赖、启动服务或联网。整页包含首屏工作区、客户标识、理念卡片、四个功能区、Changelog、客户引语、行动入口和完整页脚。图片和人物头像采用 CSS 几何图形或色块，字体采用系统 Arial / Helvetica，代码使用 Consolas 等宽字体。
-
-## 讲解中补充、画面无法直接确定的要求
-
-| 讲解时间 | 要求 | 实现 |
-| --- | --- | --- |
-| 00:31–00:58 | 首屏标题 64px、行高 64px、字重 510、字距 −1.4px；常规正文以 12–14px 为主 | 在 CSS 中明确设置这些数值；手机标题为 38px、四行。功能区介绍保留画面中的较大字号。 |
-| 00:58–01:20 | 首屏是搭建的产品界面，侧栏条目可点 | 全部使用 HTML 控件。切换侧栏会显示对应内容；支持搜索、新建 issue、详情编辑、收藏、Agent 回复和代码评审入口。 |
-| 02:00–02:25 | 消息栏依次有附件、隐藏格式、表情、提及、录视频、录音、运行快捷指令、发送、定时发送九个工具 | 九项均可操作。支持文件附件、富文本格式、表情和人员选择、浏览器录制与预览、快捷创建 issue、发送消息和定时队列。Enter 发送，Shift+Enter 换行。录制需要浏览器设备授权；不可用时可上传已有文件。 |
-| 03:31–03:51 | 代码需等宽字体，关键字、字符串、组件名分别高亮；首行为 `import React from 'react'` | 使用 DOM 文本、行号、语法高亮和红绿差异行，未使用截图。 |
-| 04:52–05:53 | 两个导航菜单悬停展开；无淡入；同位置、同为 860px；直接横移切换；同一时间仅开一个 | 共用导航容器锚点，通过即时切换 `hidden` 与 `aria-expanded` 实现互斥。按讲解设置 Product 的 9 个入口／4 列（包含底部 Learn more）和 Resources 的 8 个入口／3 列。 |
-| 05:53–06:25 | Tab 聚焦同样展开；鼠标移开关闭；768px 时菜单应彻底禁用 | 支持 Tab、向下键进入菜单、Escape 关闭；窄屏隐藏并禁用桌面面板，调整窗口时清理展开状态。窄屏保留登录、注册和移动菜单入口。 |
-| 06:38–06:47 | 系统启用“减弱动态效果”时，动画元素减少三分之二 | 常态 6 个持续动画元素；启用 `prefers-reduced-motion: reduce` 后停止其中 4 个，仅保留放慢的工作指示器与轻微透明度变化，共 2 个。同步停止 Agent 内容自动轮换及平滑滚动。 |
-| 06:47–06:56 | 固定深色，无浅色主题、无主题切换按钮 | 固定背景、文字配色以及 `color-scheme: dark`，不受系统浅色偏好影响。 |
-
-## 本地交互范围与验证
-
-讲解只提供首页，因此未提供的站外目标以本地详情面板、表单或页内导航实现。登录／注册为本地工作区演示；联系表单只保存到当前浏览器，不发送邮件、不创建真实线上账号。定时消息、新建 issue 等使用 `localStorage` 保存；定时消息在页面打开时执行，到期后重新打开页面也会处理待发送内容。
-
-已通过 Chromium 实际浏览器检查：1440、768、390、360px 布局，菜单悬停与键盘切换、九个工具入口、消息和定时队列、issue 编辑、代码高亮、功能展开及客户入口。无 JavaScript 错误、无外部网络请求、无横向页面溢出；直接 `file://` 打开可用。检查脚本及截图位于 `qa/`，结果见 `qa/results.json`。
-
-复刻仅依据提供的录屏及讲解，未访问原始页面或查找原始代码。
-</pre></details>
-<h2>四、失败分析</h2>
+<h3>参考页面与模型交付</h3><div class="grid2"><figure style="margin:0"><a class="shot" href="assets/reference.webp" target="_blank"><img alt="Linear原站整页参考截图" src="assets/reference.webp"/></a><figcaption>源站整页参考，点击查看长图。</figcaption></figure>
+<figure style="margin:0"><a class="shot" href="assets/model.webp" target="_blank"><img alt="Sol完成的Linear复刻页面" src="assets/model.webp"/></a><figcaption>Sol最终交付截图。<a href="model/" target="_blank">打开可交互页面</a></figcaption></figure>
+</div><h2>三、运行轨迹</h2><div data-case="linear" data-editorial="traces"><p>先阅读每次运行的过程总结，再按需查看关键节点或完整记录。点击编号可直接定位原命令与输出。</p><div class="editorial-cards"><article class="editorial-card"><h3>gpt-6.1-sol</h3><p>交互和响应式反复自检，但图表与长页内容覆盖仍然不足。</p><p class="editorial-note">22条命令记录 · 6个关键节点</p><div class="editorial-links"><a href="traces.html?run=sol">过程总结</a><a href="traces.html?run=sol&amp;view=key">关键步骤</a><a href="traces.html?run=sol&amp;view=all">全部记录</a></div></article></div><p class="editorial-note">这些是对执行过程的整理；模型自测与组织者正式验收分别标注，不把工具调用次数当作推理质量。</p></div><h2>四、失败分析</h2><div data-case="linear" data-editorial="analysis"><article class="editorial-finding"><h3>1. 自测说功能区通过，但转写中的图表没有落到交付</h3><p>语音恢复后，转写明确出现“cycle time by agent”图表（<a href="traces.html?run=sol&amp;view=all&amp;event=12#event-12">#12</a>）。最终自检却笼统报告功能区通过（<a href="traces.html?run=sol&amp;view=all&amp;event=23#event-23">#23</a>），组织者验收在相应区段未检测到SVG、canvas或足够的条形图结构。问题可以定位到已获取要求与最终实现之间，而不应直接归结为没有听到讲解。</p><p class="editorial-note">图表标题的后续检查依赖图表存在；前置检查失败会让同段检查级联失败。这里是一处前置实现缺失，不宜把每一个级联失败都当作独立能力错误。<a href="files/score_deterministic.json">查看独立检查</a>。</p></article><article class="editorial-finding"><h3>2. 精确参数能抄对，长页信息仍可能被压缩成“看起来齐全”</h3><p>自测明确核对了首屏64px/64px、字重510、字距−1.4px、860px菜单和9个输入工具（<a href="traces.html?run=sol&amp;view=all&amp;event=23#event-23">#23</a>）；但最终严格文案覆盖只有142/289，归一化后命中158条。页面有九段不等于保留九段中的全部信息。</p><p class="editorial-note">结构与交互检查可以集中在少量参数上，长页文本覆盖则要求持续保留大量对象。未命中也可能来自文字节点拆分，因此不能把289−142直接称为缺失句数；应先区分内容删减与匹配方式。</p></article><article class="editorial-finding"><h3>3. 录制功能的成功有实测依据，不能用其证明整页验收已完成</h3><p>该运行使用模拟设备实际走通MediaRecorder音频和视频路径（<a href="traces.html?run=sol&amp;view=all&amp;event=26#event-26">#26</a>），这是有效的功能证据。它与图表、日期、局部标题字号的遗漏并不矛盾：自测覆盖的是不同要求。</p><p class="editorial-note">更有针对性的验收应把每个区段的内容、数据结构和交互分开列为检查，而非以“整页可操作”作统一通过标记。这里不重新评分，只解释为何局部功能成功与整体失分同时存在。</p></article></div><details class="card editorial-legacy"><summary>原逐项结果、截图与评分边界</summary>
 <p>下面列出当前最终交付未通过的检查。级联失败会标明前置步骤，不将同一前置问题重复解释为多项独立能力失败。</p><table><tr><th>分项</th><th>检查</th><th>实际观察</th></tr>
 <tr><td>IFS</td><td>页面里有图表（svg/canvas 或 ≥5 根条形）</td><td>svg0 canvas0 条形0</td></tr>
 <tr><td>IFS</td><td>图表标题命中 Cycle time</td><td>前一步未过，段内级联</td></tr>
@@ -119,7 +86,7 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 </table>
 <p>文本严格覆盖命中 142/289 条，归一化后命中 158 条，文本覆盖得分 55.92。这是本轮主要失分项。该指标对文字节点拆分仍敏感，未命中不全部等于内容缺失，需要结合截图判断。视觉裁判的失分属于图像判词，原始回复可在评分明细中审阅。</p>
 <h3>评分器自身也需要检查</h3><p>构造解必须能拿确定性满分；视觉裁判失败时停止评分，不能把错误回复当作全部不通过。每轮评分独立保存截图和裁判原始回复，避免并行自测覆盖截图。当前全页检查仍有粗粒度结构阈值，不能等同于完整产品验收。</p>
-<h2>案例文件</h2><ul><li><a href="files/TASK.txt">给Agent的任务说明</a></li><li><a href="files/case_card.txt">案例设计与评分口径</a></li><li><a href="files/verify_full.py.txt">全页评分器</a></li>
+</details><h2>案例文件</h2><ul><li><a href="files/TASK.txt">给Agent的任务说明</a></li><li><a href="files/case_card.txt">案例设计与评分口径</a></li><li><a href="files/verify_full.py.txt">全页评分器</a></li>
 <li><a href="files/score_deterministic.json">确定性评分明细</a></li>
 <li><a href="files/score_judge.json">视觉裁判评分明细与判词</a></li>
 </ul></main></body></html>
