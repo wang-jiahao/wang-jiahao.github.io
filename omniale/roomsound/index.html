@@ -124,34 +124,34 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 <h2>二、运行结果</h2>
 <h3 id="codex-results">R3 · Codex CLI 三个模型</h3>
 <p>三次均使用 <b>Codex CLI 0.166.0-alpha.5.1</b>、NJU Link，显式设置 <b>xhigh</b>，从独立空项目正常完成交付。使用相同素材、共享感知缓存，统一复核为内容 v3 和 driver-v4。</p>
-<div class="table-scroll"><table class="codex-table"><tr><th>模型</th><th>推理强度</th><th>总分</th><th>内容 /50</th><th>实现 /48</th><th>审查 /2</th></tr><tr><td>gpt-6.1-sol</td><td>xhigh</td><td class="num"><b>74.12</b></td><td class="num">24.62</td><td class="num">48.00</td><td class="num">1.5</td></tr>
-<tr><td>gpt-6-astra</td><td>xhigh</td><td class="num"><b>72.81</b></td><td class="num">23.55</td><td class="num">47.76</td><td class="num">1.5</td></tr>
+<div class="table-scroll"><table class="codex-table"><tr><th>模型</th><th>推理强度</th><th>总分</th><th>内容 /50</th><th>实现 /48</th><th>审查 /2</th></tr><tr><td>gpt-6-astra</td><td>xhigh</td><td class="num"><b>72.81</b></td><td class="num">23.55</td><td class="num">47.76</td><td class="num">1.5</td></tr>
+<tr><td>gpt-6.1-sol</td><td>xhigh</td><td class="num"><b>74.12</b></td><td class="num">24.62</td><td class="num">48.00</td><td class="num">1.5</td></tr>
 <tr><td>gpt-6.1-terra</td><td>xhigh</td><td class="num"><b>57.52</b></td><td class="num">8.02</td><td class="num">48.00</td><td class="num">1.5</td></tr></table></div>
-<p>Sol、Terra 的实现为 <b>48/48</b>；Astra 在合法空导入的复核中暴露状态异常，实现为 <b>47.76/48</b>。主要分差仍来自声音事件推断。参考解的确定性部分为 <b>98/98</b>。</p>
-<div class="table-scroll"><table class="codex-table"><tr><th>模型</th><th>类别时序 F1</th><th>类别＋方向 F1</th><th>分段覆盖</th><th>人物 IDF1</th><th>书签</th></tr><tr><td>gpt-6.1-sol</td><td class="num">0.703</td><td class="num">0.497</td><td class="num">0.539</td><td class="num">0.488</td><td class="num">2/10</td></tr>
-<tr><td>gpt-6-astra</td><td class="num">0.689</td><td class="num">0.461</td><td class="num">0.408</td><td class="num">0.434</td><td class="num">3/10</td></tr>
+<p>Astra 在合法空导入的复核中暴露状态异常，实现为 <b>47.76/48</b>；Sol、Terra 的实现为 <b>48/48</b>。主要分差仍来自声音事件推断。参考解的确定性部分为 <b>98/98</b>。</p>
+<div class="table-scroll"><table class="codex-table"><tr><th>模型</th><th>类别时序 F1</th><th>类别＋方向 F1</th><th>分段覆盖</th><th>人物 IDF1</th><th>书签</th></tr><tr><td>gpt-6-astra</td><td class="num">0.689</td><td class="num">0.461</td><td class="num">0.408</td><td class="num">0.434</td><td class="num">3/10</td></tr>
+<tr><td>gpt-6.1-sol</td><td class="num">0.703</td><td class="num">0.497</td><td class="num">0.539</td><td class="num">0.488</td><td class="num">2/10</td></tr>
 <tr><td>gpt-6.1-terra</td><td class="num">0.395</td><td class="num">0.104</td><td class="num">0.196</td><td class="num">0.059</td><td class="num">0/10</td></tr></table></div>
-<h3>最终交付截图</h3><div class="model-grid"><figure><a href="assets/codex-sol-desktop.png"><img loading="lazy" src="assets/codex-sol-desktop.png" alt="Codex + Sol 的最终交付"></a><figcaption>Codex + Sol · 74.12 · <a href="assets/codex-sol-mobile.png">手机截图</a></figcaption></figure>
-<figure><a href="assets/codex-astra-desktop.png"><img loading="lazy" src="assets/codex-astra-desktop.png" alt="Codex + Astra 的最终交付"></a><figcaption>Codex + Astra · 72.81 · <a href="assets/codex-astra-mobile.png">手机截图</a></figcaption></figure>
+<h3>最终交付截图</h3><div class="model-grid"><figure><a href="assets/codex-astra-desktop.png"><img loading="lazy" src="assets/codex-astra-desktop.png" alt="Codex + Astra 的最终交付"></a><figcaption>Codex + Astra · 72.81 · <a href="assets/codex-astra-mobile.png">手机截图</a></figcaption></figure>
+<figure><a href="assets/codex-sol-desktop.png"><img loading="lazy" src="assets/codex-sol-desktop.png" alt="Codex + Sol 的最终交付"></a><figcaption>Codex + Sol · 74.12 · <a href="assets/codex-sol-mobile.png">手机截图</a></figcaption></figure>
 <figure><a href="assets/codex-terra-desktop.png"><img loading="lazy" src="assets/codex-terra-desktop.png" alt="Codex + Terra 的最终交付"></a><figcaption>Codex + Terra · 57.52 · <a href="assets/codex-terra-mobile.png">手机截图</a></figcaption></figure></div>
 <p class="note">三次Shell联网已验证，可使用文件编辑、图片、依赖安装和浏览器工具；没有原生音频输入或额外回合／工具／截图次数上限。复核发现原浏览器助手曾拦截外站请求，现已移除并验证浏览器HTTPS200；R4使用修复后的助手。</p>
 
 <h2>三、运行轨迹</h2>
-<div class="table-scroll"><table class="codex-table"><tr><th>模型</th><th>执行命令</th><th>声音事件</th><th>书签弃答</th><th>输出 token</th><th>运行时长</th></tr><tr><td>gpt-6.1-sol</td><td class="num">35</td><td class="num">50</td><td class="num">5/10</td><td class="num">54,651</td><td class="num">38m14s</td></tr>
-<tr><td>gpt-6-astra</td><td class="num">18</td><td class="num">32</td><td class="num">2/10</td><td class="num">40,939</td><td class="num">40m08s</td></tr>
+<div class="table-scroll"><table class="codex-table"><tr><th>模型</th><th>执行命令</th><th>声音事件</th><th>书签弃答</th><th>输出 token</th><th>运行时长</th></tr><tr><td>gpt-6-astra</td><td class="num">18</td><td class="num">32</td><td class="num">2/10</td><td class="num">40,939</td><td class="num">40m08s</td></tr>
+<tr><td>gpt-6.1-sol</td><td class="num">35</td><td class="num">50</td><td class="num">5/10</td><td class="num">54,651</td><td class="num">38m14s</td></tr>
 <tr><td>gpt-6.1-terra</td><td class="num">25</td><td class="num">14</td><td class="num">8/10</td><td class="num">19,441</td><td class="num">12m06s</td></tr></table></div>
-<p>Sol 下载通用 YAMNet 模型，按方向重新分析 FOA 音频，并结合抽帧生成标注，记录 30 项浏览器自测。Astra 结合共享证据、抽帧和频谱分析形成标注，记录 29 项浏览器自测。Terra 主要依靠共享分类证据和画面，检查播放器、手机布局及编辑流程。正式评分由组织者独立执行。</p>
+<p>Astra 结合共享证据、抽帧和频谱分析形成标注，记录 29 项浏览器自测。Sol 下载通用 YAMNet 模型，按方向重新分析 FOA 音频，并结合抽帧生成标注，记录 30 项浏览器自测。Terra 主要依靠共享分类证据和画面，检查播放器、手机布局及编辑流程。正式评分由组织者独立执行。</p>
 <p class="note">全部正常结束，退出码为 0。Sol 时长包含一次浏览器音频后端排查，Astra 时长包含三次网关限流自动重连，不能据此比较纯模型速度。运行目录拒读探测及媒体、交付摘要核对通过；命令审计未发现已知答案访问，这不构成网络级答案隔离保证。</p>
 
 <h2>四、失败分析</h2>
-<h3>Sol：声音类别覆盖完整，边界和方向仍有误差</h3>
-<p>Sol 交付 50 个事件，覆盖全部六类金标声音；两个连续背景声的类别时序 F1 都是 1.00。它答对两人鼓掌和连续背景声两道书签，五道主动弃答。但类别＋方向 F1 为 0.497，人物 IDF1 为 0.488。铃声只标出 7.55 秒、笑声 5.95 秒，金标分别为 19.4 和 13.1 秒；语音报了 45.05 秒，金标合计 38.1 秒。</p>
 <h3>Astra：多答对一道书签，音乐方向标反</h3>
 <p>Astra 交付 32 个事件，覆盖六类声音；答对 q2、q3、q9，共 3/10 道书签，两道主动弃答。它正确保留两类贯穿全片的背景声，但把音乐方向标为 −135°，金标为 +45°。语音事件合计 19.4 秒，金标为 38.1 秒。其类别＋方向 F1 为 0.461，人物 IDF1 为 0.434，说明书签答案和完整声音目录需要分别评估。</p>
+<h3>Sol：声音类别覆盖完整，边界和方向仍有误差</h3>
+<p>Sol 交付 50 个事件，覆盖全部六类金标声音；两个连续背景声的类别时序 F1 都是 1.00。它答对两人鼓掌和连续背景声两道书签，五道主动弃答。但类别＋方向 F1 为 0.497，人物 IDF1 为 0.488。铃声只标出 7.55 秒、笑声 5.95 秒，金标分别为 19.4 和 13.1 秒；语音报了 45.05 秒，金标合计 38.1 秒。</p>
 <h3>Terra：完成交互产品，声音目录不完整</h3>
 <p>Terra 交付 14 个事件，仅标出 music、speech、bell、clapping 四类，漏掉 domestic 和 laughter，只建立一个人物轨加背景代理。类别＋方向 F1 为 0.104，人物 IDF1 为 0.059；书签 0/10，八道主动弃答。</p>
 <h3>共同的可用性问题</h3>
-<p>Sol、Terra 的实现为48/48。Astra为47.76/48：在有活跃事件的原始交付场景中导入合法空列表，旧的活跃事件视图未清理，出现轨迹访问异常，且空状态未正确持久化。三次审查均为1.5/2：证据溯源、推断校准和手机可用性通过；桌面首屏的播放／进度控件位于大画面下方，各失去半分。</p>
+<p>Astra实现为47.76/48：在有活跃事件的原始交付场景中导入合法空列表，旧的活跃事件视图未清理，出现轨迹访问异常，且空状态未正确持久化。Sol、Terra实现均为48/48。三次审查均为1.5/2：证据溯源、推断校准和手机可用性通过；桌面首屏的播放／进度控件位于大画面下方，各失去半分。</p>
 <p class="note">上述时长按人物事件相加，允许重叠重复计时。每个模型各一次有效运行，尚未估计重复采样方差。</p>
 
 <h2 id="iteration-r4">五、题目迭代验证：补录、删除与拆分</h2>
@@ -168,8 +168,8 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 <li><a href="files/cli-results.json">三模型成绩与条件</a> · <a href="files/cli-report.zh-CN.txt">Codex 测试报告</a> · <a href="files/cli-trace-audit.json">轨迹审计</a></li>
 <li><a href="files/content-v3-regression.json">内容评分反例回归</a> · <a href="files/driver-v4-regression.json">空导入与参考解统一回归</a></li>
 <li><a href="files/evaluation-audit.zh-CN.txt">本次评测复核与题目迭代报告</a></li>
-<li>Codex + Sol：<a href="files/codex-sol-result.json">完整评分</a> · <a href="files/codex-sol-submission.zip">前端交付</a> · <a href="files/codex-sol-evidence.txt">证据说明</a> · <a href="files/codex-sol-protocol.json">运行条件</a></li>
 <li>Codex + Astra：<a href="files/codex-astra-result.json">完整评分</a> · <a href="files/codex-astra-submission.zip">前端交付</a> · <a href="files/codex-astra-evidence.txt">证据说明</a> · <a href="files/codex-astra-protocol.json">运行条件</a></li>
+<li>Codex + Sol：<a href="files/codex-sol-result.json">完整评分</a> · <a href="files/codex-sol-submission.zip">前端交付</a> · <a href="files/codex-sol-evidence.txt">证据说明</a> · <a href="files/codex-sol-protocol.json">运行条件</a></li>
 <li>Codex + Terra：<a href="files/codex-terra-result.json">完整评分</a> · <a href="files/codex-terra-submission.zip">前端交付</a> · <a href="files/codex-terra-evidence.txt">证据说明</a> · <a href="files/codex-terra-protocol.json">运行条件</a></li>
 </ul>
 <p class="note">模型名为服务提供的请求别名，身份和网关内部实际推理强度未独立认证。内容根据官方标注评估；边界未做独立人工重标。素材源于 <a href="https://zenodo.org/records/7880637">STARSS23</a>，裁取原片第 50–110 秒。每个模型各一次有效运行。</p>

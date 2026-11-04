@@ -1,0 +1,153 @@
+"""Rendered outcome grading for the complex-page generation variant.
+
+Uses visible text to locate entities, not the reference implementation's IDs.
+No source diffs, external model judge or hidden-class contract.
+"""
+from pathlib import Path
+import argparse,json,re,math,time,hashlib,sys
+from playwright.sync_api import sync_playwright
+ROOT=Path(__file__).resolve().parent
+sys.stdout.reconfigure(encoding='utf-8')
+
+PROBE=r'''() => {
+const norm=s=>(s||'').replace(/[’‘]/g,"'").replace(/\s+/g,' ').trim();
+const visible=e=>{if(!e)return false;for(let x=e;x;x=x.parentElement){let s=getComputedStyle(x);if(s.display==='none'||s.visibility==='hidden'||+s.opacity===0)return false}let r=e.getBoundingClientRect();return r.width>1&&r.height>1};
+const txt=e=>norm(e?.innerText);
+const nodes=[...document.querySelectorAll('body *')].filter(e=>!['SCRIPT','STYLE','NOSCRIPT','SVG','PATH'].includes(e.tagName));
+const find=t=>nodes.filter(e=>visible(e)&&txt(e).toLowerCase()===norm(t).toLowerCase()).sort((a,b)=>a.children.length-b.children.length)[0]||null;
+const part=t=>nodes.filter(e=>visible(e)&&txt(e).toLowerCase().includes(norm(t).toLowerCase())).sort((a,b)=>txt(a).length-txt(b).length)[0]||null;
+const up=(e,p)=>{for(let x=e;x&&x!==document.body;x=x.parentElement)if(p(x))return x;return null};
+const box=e=>{if(!e)return null;const r=e.getBoundingClientRect(),s=getComputedStyle(e);return{x:r.x,y:r.y+scrollY,w:r.width,h:r.height,bg:s.backgroundColor,color:s.color,border:s.borderBottomColor,bgImage:s.backgroundImage,columns:s.gridTemplateColumns,text:txt(e)}};
+const section=e=>e?.closest('section')||up(e,x=>x.tagName==='ARTICLE')||e?.parentElement;
+const hero=document.querySelector('h1')||part('Design, Build');const heroBox=section(hero);
+const nav=document.querySelector('header,[role=navigation],nav')||up(find('Philosophy'),e=>txt(e).includes('Careers'));
+const navLabels=['Philosophy','Portfolio','Insights','Studio','Careers','Start a Project'];
+const navControls={};for(let name of navLabels){const es=nav?[...nav.querySelectorAll('a,button,[role=button]')].filter(e=>visible(e)&&txt(e).replace(/\s*[▾⌄▼→›]$/,'')===name):[];navControls[name]=box(es[0]);}
+const projects=['Ridgehouse Courtyard Residence','Atlas Exchange Workplace','Riverline Civic Hall'];
+const projectRows=projects.map(name=>{let title=find(name)||part(name),row=up(title,e=>projects.filter(n=>txt(e).includes(n)).length===1&&projects.filter(n=>txt(e.parentElement).includes(n)).length>1)||title?.parentElement;return{name,title:box(title),row:box(row)}});
+const roles=['Architectural Designer','BIM Coordinator','Materials & Sustainability Specialist'];
+const roleRows=roles.map(name=>{let title=find(name)||part(name),row=up(title,e=>e.matches('button,[role=button],article,li')&&txt(e).length<400)||title?.parentElement;return{name,row:box(row)}});
+const articles=['Brushed bronze without the fuss: patina, sealing, and touchpoints','Daylight autonomy, explained in plain language','From moodboard to buildable detail: our decision ladder','Low-toxicity interiors: adhesives, sealants, and what to ask suppliers','Light studies you can hold: why we still build physical models','Reducing change orders: coordination habits that actually work'];
+const articleRows=articles.map(name=>{let title=find(name)||part(name),row=up(title,e=>e.tagName==='ARTICLE')||title?.parentElement;return{name,title:box(title),row:box(row)}});
+const awards=['Detail Journal — Façade Craft Award','Urban Forum — Public Realm Prize','Material Index — Circular Spec Challenge','Architecture Review — Emerging Studio'];
+const awardRows=awards.map(name=>{let title=find(name)||part(name),row=up(title,e=>txt(e).length>name.length+30&&e.querySelector('h3,h4'));let body=row?[...row.children].find(e=>!e.contains(title)&&txt(e).length>45):null;return{name,title:box(title),row:box(row),body:box(body)}});
+const journal=section(find('Journal & Publications')||part('Notes from the studio:'));
+const filters=journal?[...journal.querySelectorAll('button,[role=button]')].filter(e=>visible(e)&&['All','Materials','Daylight','Process','Sustainability'].includes(txt(e))).map(e=>({name:txt(e),...box(e)})):[];
+const serviceHead=find('Phase');const serviceContainer=up(serviceHead,e=>txt(e).includes('Consultation')&&txt(e).includes('Full Service'));
+const serviceCells=['Phase','Consultation','Full Service'].map(n=>box(find(n)));
+const sectionAnchors=['Material-led sustainability, engineered for delight.','A small team, built for precision.'];
+const sections=Object.fromEntries(sectionAnchors.map(n=>[n,box(section(find(n)||part(n)))]));
+const foot=document.querySelector('footer');
+const footTitles=['SCAN','EXPLORE','STUDIO'].map(n=>{let e=foot?[...foot.querySelectorAll('*')].find(e=>txt(e)===n):null;return box(e)});
+const footLinks=foot?[...foot.querySelectorAll('a')].filter(visible).map(box):[];
+const highlight=section(find('Urban Oasis Tower')||part('Where skyline presence'));
+const images=highlight?[...highlight.querySelectorAll('*')].filter(e=>visible(e)&&(getComputedStyle(e).backgroundImage.includes('url(')||e.tagName==='IMG')).map(e=>({tag:e.tagName,src:e.getAttribute('src'),...box(e)})):[];
+const caseTexts=['Meridian Annex','Ridgehouse • Courtyard Residence','Riverline Civic Hall • Community Center','Urban Oasis • Tower Amenity Layers','Transit Learning Pavilion'];
+return{body:txt(document.body),hero:box(hero),heroBox:box(heroBox),nav:box(nav),navControls,projectRows,roleRows,articleRows,awardRows,filters,serviceCells,serviceContainer:box(serviceContainer),sections,foot:box(foot),footTitles,footLinks,images,casePresence:Object.fromEntries(caseTexts.map(n=>[n,!!part(n)])),garden:!!part('Garden Stair'),width:innerWidth,overflow:document.documentElement.scrollWidth-innerWidth,bodyHeight:document.body.scrollHeight,errors:[],dialogs:[...document.querySelectorAll('[role=dialog],dialog')].filter(visible).map(txt)};
+}'''
+
+def nearcol(s,target,tol=50,opaque=True):
+ nums=[float(v) for v in re.findall(r'[\d.]+',s or '')]
+ return len(nums)>=3 and (not opaque or len(nums)<4 or nums[3]>.9) and math.dist(nums[:3],target)<=tol
+def ordered(rows):return all(r.get('row') for r in rows) and [r['name'] for r in sorted(rows,key=lambda x:x['row']['y'])]
+def evaluate(submission,out):
+ entry=Path(submission)/'site/index.html';out=Path(out);out.mkdir(parents=True,exist_ok=False)
+ rows=[];errors=[];start=time.monotonic()
+ def check(group,id,ok,proof):rows.append(dict(group=group,id=id,passed=bool(ok),evidence=proof))
+ def test(group,id,fn):
+  try:ok,evidence=fn();check(group,id,ok,evidence)
+  except Exception as e:check(group,id,False,{'error':str(e)[:250]})
+ with sync_playwright() as p:
+  browser=p.chromium.launch(channel='msedge');pg=browser.new_page(viewport={'width':1440,'height':900});pg.set_default_timeout(3000)
+  pg.on('pageerror',lambda e:errors.append(str(e)));pg.goto(entry.resolve().as_uri(),wait_until='load');pg.wait_for_timeout(1200)
+  # Reveal ordinary scroll-triggered content using actual scrolling, not DOM
+  # class injection. No expected IDs are needed on the submitted page.
+  height=pg.evaluate('document.documentElement.scrollHeight')
+  for y in range(0,min(height,24000),650):pg.evaluate('(y)=>scrollTo(0,y)',y);pg.wait_for_timeout(50)
+  pg.evaluate('scrollTo(0,0)');pg.wait_for_timeout(300);d=pg.evaluate(PROBE);pg.screenshot(path=str(out/'desktop.png'),full_page=True,timeout=30000)
+  nav=[d['navControls'][n] for n in ['Philosophy','Portfolio','Insights','Studio','Careers','Start a Project']]
+  check('final','nav_vertical_including_cta',all(nav) and len({round(x['y']/15) for x in nav})>=5 and max(x['x'] for x in nav)-min(x['x'] for x in nav)<170,nav)
+  check('final','hero_theme_restored',d['hero'] and nearcol(d['hero']['color'],[20,20,20],65) and (not d['heroBox'] or not nearcol(d['heroBox']['bg'],[35,35,35],30)),{'hero':d['hero'],'region':d['heroBox']})
+  check('final','swap_whole_projects',ordered(d['projectRows'])==['Riverline Civic Hall','Atlas Exchange Workplace','Ridgehouse Courtyard Residence'],d['projectRows'])
+  sec=d['sections'];a=sec['Material-led sustainability, engineered for delight.'];b=sec['A small team, built for precision.'];cells=d['serviceCells']
+  check('final','restore_sections_and_service_header',a and b and a['y']<b['y'] and all(cells) and max(c['y'] for c in cells)-min(c['y'] for c in cells)<8 and len({round(c['x']/50) for c in cells})==3,{'sections':sec,'service_cells':cells})
+  check('final','journal_text_not_background',len(d['filters'])==5 and all(nearcol(x['color'],[75,48,36],40) for x in d['filters']),d['filters'])
+  ar=[r['title'] for r in d['articleRows']]
+  check('final','journal_two_columns',all(ar) and abs(ar[0]['y']-ar[1]['y'])<45 and ar[2]['y']>ar[0]['y']+80 and abs(ar[2]['y']-ar[3]['y'])<45,ar)
+  check('final','footer_style_scope',d['foot'] and nearcol(d['foot']['bg'],[75,48,36],45) and all(t and nearcol(t['color'],[255,209,102],55) for t in d['footTitles']) and sum(nearcol(x['border'],[255,209,102],60,opaque=False) for x in d['footLinks'])>=5,{'footer':d['foot'],'titles':d['footTitles'],'links':d['footLinks']})
+  check('final','only_garden_removed',not d['garden'] and all(d['casePresence'].values()),{'garden':d['garden'],'others':d['casePresence']})
+  aw=d['awardRows'];check('final','award_colors_all_four',all(x['row'] and nearcol(x['row']['bg'],[16,47,38],40) and x['title'] and nearcol(x['title']['color'],[244,205,105],55) and x['body'] and nearcol(x['body']['color'],[187,211,191],55) for x in aw),aw)
+  # A photo restored to identical content may have any filename. Compute its
+  # decoded image signature rather than demanding the author's URL.
+  def original_photo():
+   from PIL import Image,ImageChops
+   expected=Image.open(ROOT/'v5/task/materials/assets/15.jpg').convert('RGB').resize((64,64))
+   candidates=[]
+   for img in d['images']:
+    urls=re.findall(r'url\(["\']?(.*?)["\']?\)',img.get('bgImage',''))
+    if img.get('src'):urls.append(img['src'])
+    for url in urls:
+     from urllib.parse import urlparse,unquote
+     path=Path(unquote(urlparse(url).path.lstrip('/'))) if url.startswith('file:') else entry.parent/url
+     if not path.exists():continue
+     try:
+      image=Image.open(path).convert('RGB').resize((64,64));rms=sum(ImageChops.difference(image,expected).resize((1,1)).getpixel((0,0)))/3
+      candidates.append({'file':str(path),'mean_abs':rms})
+     except:continue
+   return any(x['mean_abs']<12 for x in candidates),candidates
+  test('final','highlight_original_photo',original_photo)
+  check('final','swap_role_rows',ordered(d['roleRows'])==['Materials & Sustainability Specialist','BIM Coordinator','Architectural Designer'],d['roleRows'])
+  anchors=json.loads((ROOT/'v5/content_spec.json').read_text(encoding='utf-8'))
+  normalize=lambda s:re.sub(r'[^a-z0-9]+',' ',s.lower()).split()
+  tokens=set(normalize(d['body']))
+  for label,texts in anchors.items():
+   ratios=[len(set(normalize(t))&tokens)/max(1,len(set(normalize(t)))) for t in texts]
+   check('base','preserve_'+label,all(x>=.85 for x in ratios),{'anchors':texts,'token_recall':ratios})
+  def nav_dropdown():
+   b=pg.get_by_role('button',name=re.compile(r'^Portfolio')).first;b.hover();pg.wait_for_timeout(200)
+   target=pg.locator('[role=menuitem],a,button').filter(has_text=re.compile(r'Selected Works')).first
+   if not target.is_visible():b.click();pg.wait_for_timeout(200)
+   return target.is_visible(),'Selected Works shown after Portfolio hover or click'
+  test('behavior','dropdown',nav_dropdown)
+  def journal_filter():
+   controls=pg.locator('button,[role=button]').filter(has_text=re.compile('^Daylight$')).first;controls.click();pg.wait_for_timeout(500)
+   visible=[]
+   for name in [r['name'] for r in d['articleRows']]:
+    e=pg.get_by_text(name,exact=True).first
+    if e.count() and e.is_visible():visible.append(name)
+   pg.locator('button,[role=button]').filter(has_text=re.compile('^All$')).first.click();pg.wait_for_timeout(300)
+   return len(visible)==2 and all('Daylight autonomy' in n or 'Light studies' in n for n in visible),visible
+  test('behavior','journal_filter',journal_filter)
+  def service_toggle():
+   button=pg.locator('button,[role=button],summary').filter(has_text=re.compile('Design & Modeling')).first;button.click();pg.wait_for_timeout(250)
+   state=button.get_attribute('aria-expanded');panel=pg.get_by_text(re.compile('Iterative concept sets')).first
+   native=button.evaluate('(e)=>e.tagName==="SUMMARY"?e.closest("details").open:null')
+   shown=native if native is not None else (panel.count()>0 and panel.is_visible())
+   return shown,{'expanded':state,'content_visible':shown}
+  test('behavior','service_accordion',service_toggle)
+  def inquiry():
+   fields=pg.locator('form').last
+   for label,value in [('Your name','Test Visitor'),('Company / Organization','Studio Test'),('Email','test@example.com'),('What matters most?','Daylight and durable materials')]:
+    field=fields.get_by_label(re.compile('^'+re.escape(label)+r'\s*\*?$'))
+    if field.count():field.fill(value)
+   for select in fields.locator('select').all():
+    values=select.locator('option').evaluate_all('(es)=>es.map(e=>e.value).filter(Boolean)')
+    if values:select.select_option(values[0])
+   button=pg.get_by_role('button',name=re.compile('Send Inquiry',re.I)).first;button.click();pg.wait_for_timeout(700)
+   text=pg.locator('body').inner_text();return bool(re.search(r'received|thanks|thank you|inquiry sent|inquiry queued|inquiry is ready',text,re.I)),text[-1400:]
+  test('behavior','inquiry_feedback',inquiry)
+  pg.reload(wait_until='load');pg.set_viewport_size({'width':390,'height':844});pg.wait_for_timeout(500);m=pg.evaluate(PROBE);pg.screenshot(path=str(out/'mobile.png'),full_page=True,timeout=30000)
+  check('mobile','no_horizontal_overflow',m['overflow']<=3,m['overflow'])
+  check('mobile','complete_mobile_content',all(t in m['body'] for t in ['Atelier Lumen','Architectural Designer','Journal','BIM Coordinator','Send Inquiry']),None)
+  check('mobile','usable_text',m['hero'] and 24<=float(pg.locator('h1').first.evaluate('(e)=>parseFloat(getComputedStyle(e).fontSize)'))<=66,m['hero'])
+  mobilefields=pg.locator('input:visible,select:visible,textarea:visible').evaluate_all('(es)=>es.map(e=>{const r=e.getBoundingClientRect();return{x:r.x,right:r.right,w:r.width}})')
+  check('mobile','form_fits',len(mobilefields)>=4 and all(x['x']>=-3 and x['right']<=393 and x['w']>=100 for x in mobilefields),mobilefields)
+  browser.close()
+ weights={'final':60,'base':20,'behavior':10,'mobile':10}
+ groups={g:dict(passed=sum(r['passed'] for r in rows if r['group']==g),total=sum(r['group']==g for r in rows),weight=w) for g,w in weights.items()}
+ score=sum(g['weight']*g['passed']/g['total'] for g in groups.values())
+ dct=dict(version='lumen-v5-outcome-5-natural-review-measurement-audit-4',score=round(score,4),groups=groups,items=rows,errors=errors,elapsed_seconds=round(time.monotonic()-start,3),submission_sha256=hashlib.sha256(entry.read_bytes()).hexdigest(),observations=d)
+ (out/'result.json').write_text(json.dumps(dct,ensure_ascii=False,indent=2),encoding='utf-8');print(json.dumps({k:dct[k] for k in ['version','score','groups']},ensure_ascii=False));return dct
+
+if __name__=='__main__':
+ a=argparse.ArgumentParser();a.add_argument('submission');a.add_argument('out');a.add_argument('--version',default='v5');n=a.parse_args();evaluate(n.submission,n.out)

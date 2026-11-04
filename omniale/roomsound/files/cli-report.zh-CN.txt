@@ -4,8 +4,8 @@
 
 | 模型 | effort 设置 | 内容 /50 | 实现 /48 | 审查 /2 | 总分 |
 |---|---|---:|---:|---:|---:|
-| gpt-6.1-sol | xhigh | 24.62 | 48.00 | 1.50 | **74.12** |
 | gpt-6-astra | xhigh | 23.55 | 47.76 | 1.50 | **72.81** |
+| gpt-6.1-sol | xhigh | 24.62 | 48.00 | 1.50 | **74.12** |
 | gpt-6.1-terra | xhigh | 8.02 | 48.00 | 1.50 | **57.52** |
 
 ## 输入和运行条件
@@ -18,9 +18,9 @@
 
 ## 内容与工程验收
 
-gpt-6.1-sol：50 个事件，书签 2/10，主动弃答 5 道。时序宏 F1 0.703，类别＋方向 F1 0.497，分段覆盖 0.539，人物 IDF1 0.488。
-
 gpt-6-astra：32 个事件，书签 3/10，主动弃答 2 道。时序宏 F1 0.689，类别＋方向 F1 0.461，分段覆盖 0.408，人物 IDF1 0.434。
+
+gpt-6.1-sol：50 个事件，书签 2/10，主动弃答 5 道。时序宏 F1 0.703，类别＋方向 F1 0.497，分段覆盖 0.539，人物 IDF1 0.488。
 
 gpt-6.1-terra：14 个事件，书签 0/10，主动弃答 8 道。时序宏 F1 0.395，类别＋方向 F1 0.104，分段覆盖 0.196，人物 IDF1 0.059。
 
@@ -38,8 +38,8 @@ Sol、Terra通过预定工程测试48/48。Astra47.7647058824/48：新增对原�
 
 | 模型 | 执行命令 | 失败命令 | 输出token | 推理token | 耗时 | 退出码 |
 |---|---:|---:|---:|---:|---|---:|
-| gpt-6.1-sol | 35 | 8 | 54,651 | 11,620 | 38m14s | 0 |
 | gpt-6-astra | 18 | 3 | 40,939 | 7,367 | 40m08s | 0 |
+| gpt-6.1-sol | 35 | 8 | 54,651 | 11,620 | 38m14s | 0 |
 | gpt-6.1-terra | 25 | 5 | 19,441 | 1,572 | 12m06s | 0 |
 
 Sol下载通用YAMNet并重新分析方向性信号，记录30项浏览器自测。Astra记录29项浏览器自测。Terra主要使用共享证据并检查播放器与编辑流程。正式评分由组织者独立执行。
@@ -50,8 +50,8 @@ Sol耗时包含浏览器音频后端修复；Astra包含三次网关并发限流
 
 ## 文件
 
-- gpt-6.1-sol：`r3-sol-codex-xhigh-04`；评分 `D:\Desktop\Omni Agents\starss23_iteration\case8-starss-scene-b\iteration\results\r3-codex-sol-04-v4\result.json`。
 - gpt-6-astra：`r3-astra-codex-xhigh-01`；评分 `D:\Desktop\Omni Agents\starss23_iteration\case8-starss-scene-b\iteration\results\r3-codex-astra-01-v4\result.json`。
+- gpt-6.1-sol：`r3-sol-codex-xhigh-04`；评分 `D:\Desktop\Omni Agents\starss23_iteration\case8-starss-scene-b\iteration\results\r3-codex-sol-04-v4\result.json`。
 - gpt-6.1-terra：`r3-terra-codex-xhigh-02`；评分 `D:\Desktop\Omni Agents\starss23_iteration\case8-starss-scene-b\iteration\results\r3-codex-terra-02-v4\result.json`。
 
 原始交付与完整运行在 D:/Desktop/RoomSound_Codex/。前端ZIP保留原始源文件字节，媒体在展示页单独提供。网站：https://wang-jiahao.github.io/omniale/roomsound/#codex-results 。

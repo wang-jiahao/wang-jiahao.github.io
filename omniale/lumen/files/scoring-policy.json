@@ -1,0 +1,13 @@
+{
+  "policy_version": "lumen-v5-material-audit-2",
+  "declared_at": "2026-11-04T02:35:47.779106+08:00",
+  "declared_before_first_solver_completion": false,
+  "declared_before_repeat_completion": true,
+  "excluded_items": [
+    "journal_text_not_background",
+    "highlight_original_photo"
+  ],
+  "reason": "Conservative scope for generation adaptation: 153s speech does not explicitly distinguish label text/background. Provided 12.jpg and 15.jpg show nearly identical views of the same tower; avoid treating their crop/tone identity as the source of difficulty. Keep both raw failures for inspection, omit both from ranked scope for every v5 run. Four unambiguous first-run failures remain: horizontal nav, unreverted dark HERO, wrong project pair, unreverted single-column services.",
+  "aggregation": "Keep group weights 60/20/10/10; omit these two final groups from numerator and denominator. Also report an upper bound that credits both as correct under the original eleven-group denominator.",
+  "updated_at": "2026-11-04T02:39:03.558231+08:00"
+}
