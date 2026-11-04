@@ -1,7 +1,7 @@
 {
   "title": "ALE Omni Case 复现",
   "url": "https://wang-jiahao.github.io/ale-reproduction/",
-  "updated_at": "2026-11-04T15:14:00.255244+08:00",
+  "updated_at": "2026-11-04T17:15:08.222197+08:00",
   "cases": [
     {
       "id": "music",
@@ -11,14 +11,20 @@
       "description": "从一段139秒的管弦乐录音恢复27个乐器声部的音高、节奏、力度与配器，交付可以继续编辑和播放的总谱、MIDI及原生工程。允许通用转谱工具，禁止取用现成答案。",
       "url": "https://wang-jiahao.github.io/omniale/ale-music-transcription/",
       "model": "gpt-6.1-sol",
-      "score": 13.0948812712858,
-      "score_text": "13.09 / 100",
+      "score": 12.525754534728135,
+      "score_text": "12.53 / 100",
+      "run_count": 2,
+      "aggregation": "arithmetic_mean",
+      "run_paths": [
+        "results/ale-music-nju-independent-proxy-repeat-r2/codex_nju_gpt61sol_xhigh/gpt-6-1-sol/visual_media__music_transcription/v0/20261103_153337",
+        "results/ale-music-nju-independent-proxy-repeat-r3/codex_nju_gpt61sol_xhigh/gpt-6-1-sol/visual_media__music_transcription/v0/20261104_052544"
+      ],
       "cover": "assets/music.jpg",
       "cover_alt": "本轮独立转谱交付在MuseScore中的实际画面",
       "cover_label": "实际交付 · MuseScore",
       "owner": "wang-jiahao",
       "external": false,
-      "run_path": "results/ale-music-nju-independent-proxy-repeat-r3/codex_nju_gpt61sol_xhigh/gpt-6-1-sol/visual_media__music_transcription/v0/20261104_052544"
+      "preview_run_path": "results/ale-music-nju-independent-proxy-repeat-r3/codex_nju_gpt61sol_xhigh/gpt-6-1-sol/visual_media__music_transcription/v0/20261104_052544"
     },
     {
       "id": "aerobics",
@@ -30,12 +36,18 @@
       "model": "gpt-6.1-sol",
       "score": 0.0,
       "score_text": "0 / 1",
+      "run_count": 2,
+      "aggregation": "arithmetic_mean",
+      "run_paths": [
+        "results/ale-aerobics-nju-userproxy-repeat-r2/codex_nju_gpt61sol_xhigh/gpt-6-1-sol/other__aerobics_wc2026_portugal_trio_difficulty_scoring/v0/20261103_173926",
+        "results/ale-aerobics-nju-userproxy-repeat-r3/codex_nju_gpt61sol_xhigh/gpt-6-1-sol/other__aerobics_wc2026_portugal_trio_difficulty_scoring/v0/20261104_040643"
+      ],
       "cover": "assets/aerobics.jpg",
       "cover_alt": "任务输入视频中的三人健美操比赛画面",
       "cover_label": "任务输入 · 三人健美操",
       "owner": "wang-jiahao",
       "external": false,
-      "run_path": "results/ale-aerobics-nju-userproxy-repeat-r3/codex_nju_gpt61sol_xhigh/gpt-6-1-sol/other__aerobics_wc2026_portugal_trio_difficulty_scoring/v0/20261104_040643"
+      "preview_run_path": "results/ale-aerobics-nju-userproxy-repeat-r3/codex_nju_gpt61sol_xhigh/gpt-6-1-sol/other__aerobics_wc2026_portugal_trio_difficulty_scoring/v0/20261104_040643"
     },
     {
       "id": "migration",
