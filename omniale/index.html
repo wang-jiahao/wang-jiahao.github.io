@@ -42,14 +42,26 @@ border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:16px 0}
 .scenario{color:var(--muted);font-weight:400;margin-left:10px}.case h3{margin:0 0 8px;font-size:17.5px;line-height:1.4}
 .desc{margin:0 0 10px;color:#52686c;font-size:14px;line-height:1.65}.sc{margin:0;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}.sc b{color:var(--ink)}
 @media(max-width:700px){main{padding:24px 18px 60px}h1{font-size:29px}.case{grid-template-columns:1fr}.cover{height:auto;aspect-ratio:16/9}.body{padding:16px}.scenario{display:block;margin:2px 0 0}}
+
+.software-tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 9px}
+.software-tag{display:inline-flex;align-items:center;flex-wrap:wrap;gap:7px;padding:3px 9px;border:1px solid #b5cbc8;border-radius:5px;background:#eef7f3;color:#254d49;font-size:11.5px;line-height:1.5}
+.software-tag strong{font-size:12px;font-weight:650}
+.software-note{margin:12px 0 0;color:var(--muted);font-size:12px;line-height:1.7}
 </style></head><body><main>
 <div class="eyebrow">OMNIALE · 专业音视频智能体评测基准</div><h1>案例汇总</h1>
 <p class="lead">给 Agent 原始素材和一份要求，看它能不能交出可以直接用的成果。<br>每个案例包含任务定义、运行结果、运行轨迹与失败分析。</p>
+<p class="software-note">“指定软件”标记表示任务要求在该软件中完成制作，并交付可编辑工程；具体操作方式见案例详情。</p>
 <details class="taxonomy"><summary>领域分类 · 一级领域与二级应用场景</summary><div class="table-scroll"><table>
 <tr><th>编号</th><th>一级领域（Domain）</th><th>二级应用场景</th></tr><tr><td class="num">01</td><td>影视、节目与视觉后期</td><td>影视剪辑、广告动效、视频特效、画质修复、节目质检、场记审核</td></tr><tr><td class="num">02</td><td>三维动画与产品可视化</td><td>人体动作复现、角色绑定与动画、表情控制、产品机构动画</td></tr><tr><td class="num">03</td><td>音频后期与声音工程</td><td>拟音、空间声音、多轨对白、音乐混音、音频工程维护</td></tr><tr><td class="num">04</td><td>音乐制作与演出服务</td><td>音乐转谱、编配、排练修订、声部练习、音乐会制作、MV分镜</td></tr><tr><td class="num">05</td><td>译制、无障碍与发布适配</td><td>手语字幕、字幕制作、跨语译制、音频描述、发布匿名化</td></tr><tr><td class="num">06</td><td>教育、训练与学习应用</td><td>教学视频、技能课程、体育训练复盘、听力测验、教学材料审核</td></tr><tr><td class="num">07</td><td>档案检索与证据研究</td><td>素材检索、来源溯源、口述史、长片证据核查、跨资料研究</td></tr><tr><td class="num">08</td><td>企业协作与数字业务</td><td>装配记录交接、会议协作、操作规范、商品选购网页</td></tr></table></div></details>
-<section class="week" aria-labelledby="week-3"><div class="week-heading"><h2 id="week-3">Week 3</h2><span class="count">6 个案例</span></div><a class="case" data-case="berry-contact" href="https://starivers152.github.io/OmniALE/berry-contact/" target="_blank" rel="noopener">
+<section class="week" aria-labelledby="week-3"><div class="week-heading"><h2 id="week-3">Week 3</h2><span class="count">7 个案例</span></div><a class="case" data-case="resolve-keying" href="https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-03/results" target="_blank" rel="noopener">
+<img class="cover" src="covers/resolve-keying.jpg?v=3" alt="可见目标 · Resolve 绿底抠像" loading="lazy" width="520" height="292">
+<div class="body"><div class="badge">影视、节目与视觉后期<span class="scenario">指定人物抠像与绿底合成</span></div>
+<div class="software-tags" aria-label="任务指定软件"><span class="software-tag"><span>指定软件</span><strong>DaVinci Resolve</strong></span></div>
+<h3>可见目标 · Resolve 绿底抠像</h3><p class="desc">给 Agent 两段各 4 秒的人物视频与目标身份图，在 DaVinci Resolve 中把指定人物抠到纯绿背景。必须排除路人与移动遮挡物，只保留当帧真实可见的身体部分，保住头发、眼镜与手部边缘，并交付可重开、可渲染的编辑工程。</p><p class="sc">gpt-6.1-sol <b>50.9294</b></p></div></a>
+<a class="case" data-case="berry-contact" href="https://starivers152.github.io/OmniALE/berry-contact/" target="_blank" rel="noopener">
 <img class="cover" src="covers/berry-contact.jpg?v=3" alt="从静态角色重建原片动画，并在长录音中定位原声" loading="lazy" width="520" height="292">
 <div class="body"><div class="badge">三维动画与产品可视化<span class="scenario">角色动画重建与声画同步</span></div>
+<div class="software-tags" aria-label="任务指定软件"><span class="software-tag"><span>指定软件</span><strong>Blender</strong></span></div>
 <h3>从静态角色重建原片动画，并在长录音中定位原声</h3><p class="desc">给定未绑定的简化羊驼与企鹅、7.5 秒无声参考和约 150 秒原声。Agent 要在 Blender 中重建角色动作、眼睑视线、镜头与遮挡，再自行定位正确声音片段，交付可编辑动画工程、有声成片和制作说明。</p><p class="sc">gpt-6-astra <b>55.590</b> · gpt-6.1-sol 41.749 · gpt-6-luna 40.982 · gpt-6-sol 33.337</p></div></a>
 <a class="case" data-case="omni2web-118" href="omni2web-118/">
 <img class="cover" src="covers/omni2web-118.jpg?v=3" alt="音视频编辑网页" loading="lazy" width="520" height="292">
@@ -70,6 +82,7 @@ border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:16px 0}
 <a class="case" data-case="resolve" href="https://huayuankou333.github.io/omniale/resolve/" target="_blank" rel="noopener">
 <img class="cover" src="covers/resolve.jpg?v=3" alt="在 Resolve 中把长会议精编成中文简报" loading="lazy" width="520" height="292">
 <div class="body"><div class="badge">影视、节目与视觉后期<span class="scenario">多机位会议精编</span></div>
+<div class="software-tags" aria-label="任务指定软件"><span class="software-tag"><span>指定软件</span><strong>DaVinci Resolve</strong></span></div>
 <h3>在 Resolve 中把长会议精编成中文简报</h3><p class="desc">给 Agent 约 44 分钟的真实多机位会议与独立耳麦录音。先学习 Fairlight 教程，再在 DaVinci Resolve 中剪成 5–6 分钟的中文信息简报，保留决策演变、争议、人物身份和同期关系，并交付可编辑工程与来源映射。</p><p class="sc">gpt-6.1-sol <b>79.50</b> · gpt-6-astra 74.00 · gpt-6-luna 43.50</p></div></a></section><section class="week" aria-labelledby="week-1-2"><div class="week-heading"><h2 id="week-1-2">Week 1–2</h2><span class="count">4 个案例</span></div><a class="case" data-case="piano" href="piano/">
 <img class="cover" src="covers/piano.jpg?v=3" alt="对照乐谱批改钢琴回课录音" loading="lazy" width="520" height="292">
 <div class="body"><div class="badge">教育、训练与学习应用<span class="scenario">钢琴教学与回课反馈</span></div>
