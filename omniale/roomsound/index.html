@@ -4,7 +4,6 @@ sitemap: false
 permalink: /omniale/roomsound/
 ---
 <!DOCTYPE html>
-
 <html lang="zh-CN"><head><meta charset="utf-8"/><meta content="noindex,nofollow" name="robots"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>OmniALE 案例：把一间吵闹房间的录音做成可转头的播放器</title>
 <style>
@@ -49,44 +48,27 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 </style><style id="editorial-style">.editorial-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}.editorial-card{background:var(--paper,#fffefa);border:1px solid var(--line,#d9deda);border-radius:8px;padding:16px;margin:10px 0}.editorial-card h3{margin:0 0 8px}.editorial-links{display:flex;flex-wrap:wrap;gap:12px;font-size:12px}.editorial-finding{border-top:1px solid var(--line,#d9deda);padding-top:12px;margin:26px 0}.editorial-finding p{line-height:1.85}.editorial-note{font-size:13px;color:var(--muted,#647374)}</style></head><body><main>
 <div class="eyebrow">OMNIALE · 音频后期与声音工程 · 空间声音与交互播放器</div>
 <h1>把一间吵闹房间的录音做成可转头的播放器</h1>
-<p class="lead">给 Agent 一分钟真实房间的 360° 录像，外加一份<b>带方向信息的四通道录音</b>。它要先弄明白“<b>什么时候、什么声音、在哪个方向</b>”，再做成能转头看、转头听、按声音查找片段并修订标注的网页。多个声音持续重叠，难点在事件、方向和人物归属的判断。</p>
-<span class="tag">STARSS23 真实录音 · 非合成</span><span class="tag">60 秒 · 360° 全景 + 四通道 FOA</span><span class="tag">平均同时发声 3.33 个 · 峰值 5 个</span><span class="tag">3 个 Codex CLI 模型 · 联网</span><span class="tag gray">单次交付 · 空项目起步</span><span class="tag gray">模型无原生音频输入</span>
-<p class="note">同时发声数量按活跃声音事件统计；同一人物可以同时说话、笑或鼓掌，背景设备按标注约定共用一个代理 ID，因此这里不是同时发声的人数。</p>
+<p class="lead">用一分钟全景录像和空间录音，制作能转头看、转头听的播放器，并标出声音发生的时间、方向和人物。</p>
+<span class="tag">STARSS23</span><span class="tag">60 秒 · 360° 全景 + 四通道 FOA</span><span class="tag">声音事件推断 · 标注修订</span>
 <h2>一、任务定义</h2>
-<p>委托场景：你拿到一段开会/聚会现场的 360° 录像和同步的空间录音，想做一个比普通播放器好用的东西——<b>能转头看四周，转头时左右耳听到的也跟着变，画面上还标出"此刻这边有人在笑、那边铃在响"，点一下就能跳到那一段</b>。</p>
-<h3 id="materials">直接查看题目素材</h3>
+<p>从音视频中推断声音事件，支持按事件跳转、人物跟随和标注修订。转动视角时，声音方向同步变化。</p>
+<h3 id="materials">任务素材</h3>
 <div class="media-grid">
-<figure class="card"><video controls="" id="scene-video" playsinline="" poster="assets/scene-poster.jpg" preload="metadata"><source src="media/scene.mp4" type="video/mp4"/>浏览器无法播放时，可下载 MP4 查看。</video><figcaption>一分钟无声全景录像：展开呈现房间四周，人物面部由数据集作者模糊处理。</figcaption><div class="media-downloads"><a download="" href="media/scene.mp4">下载 MP4 · 10.0 MB</a></div></figure>
-<div class="card"><h4>录音试听 · 固定朝向立体声</h4><audio controls="" id="scene-audio" preload="metadata"><source src="media/scene-stereo.wav" type="audio/wav"/>浏览器无法播放时，可下载 WAV 试听。</audio><p class="note">与录像采用相同的 0–60 秒时间轴。立体声预览便于用普通耳机试听；转头听的效果由 Agent 交付的播放器实时解码实现。</p>
+<figure class="card"><video controls="" id="scene-video" playsinline="" poster="assets/scene-poster.jpg" preload="metadata"><source src="media/scene.mp4" type="video/mp4"/>浏览器无法播放时，可下载 MP4 查看。</video><figcaption>60 秒无声全景录像，1920×960，15fps。</figcaption><div class="media-downloads"><a download="" href="media/scene.mp4">下载 MP4 · 10.0 MB</a></div></figure>
+<div class="card"><h4>录音试听 · 固定朝向立体声</h4><audio controls="" id="scene-audio" preload="metadata"><source src="media/scene-stereo.wav" type="audio/wav"/>浏览器无法播放时，可下载 WAV 试听。</audio><p class="note">与录像同步。四通道 FOA 录音编码空间方向；立体声预览用于耳机试听。</p>
 <div class="media-downloads"><a download="" href="media/scene-foa.wav">下载四通道 FOA WAV · 11.5 MB</a><a download="" href="media/scene-stereo.wav">下载立体声 WAV · 5.8 MB</a><a download="" href="media/scene-mono.wav">下载单声道 WAV · 2.9 MB</a></div>
 <details><summary>播放四通道 FOA 原始 WAV</summary><audio controls="" id="scene-foa" preload="none"><source src="media/scene-foa.wav" type="audio/wav"/>可下载四通道 WAV。</audio><p class="note">四个通道保留声音方向编码；直接播放不等同题目规定的转头解码。</p></details></div>
 </div>
-<h3>给 Agent 的材料</h3>
-<div class="card">
-<div class="table-scroll"><table><tr><th>文件</th><th>是什么</th></tr>
-<tr><td><code>scene.mp4</code></td><td>1920×960 等距柱状投影的 360° 视频，15fps，<b>无声</b>。一帧就是把房间四周摊平的一张长图，网页要自己从里面裁出"当前朝向"那一块</td></tr>
-<tr><td><code>scene-foa.wav</code></td><td>24kHz 四通道 <b>一阶 Ambisonics</b>（W,Y,Z,X）。<b>这不是"说话一轨、铃声一轨"</b>——四个通道共同编码整个房间的声音及其方向，里面始终是混在一起的</td></tr>
-<tr><td><code>scene-mono.wav</code> / <code>scene-stereo.wav</code></td><td>单声道和固定朝向的立体声预览，<b>不能拿来替代规定的实时解码</b></td></tr>
-</table></div>
-<p class="note">素材来自 <a href="https://zenodo.org/records/7880637">STARSS23（SONY／坦佩雷大学）</a><code>fold4_room24_mix014</code> 原始第 50–110 秒，只做了时间裁剪和转码，人脸由数据集作者原已模糊。</p></div>
-<h3>能看视频帧，音频依靠工具取证</h3>
-<p>这是本案例最容易被误解的一点：<b>被测模型没有原生音频输入</b>。它读取共享的取证结果，结合视频帧交叉判断，也可自行编写脚本分析音频信号：</p>
-<div class="table-scroll"><table><tr><th>工具</th><th>给什么</th><th>可能的误差</th></tr>
-<tr><td>语音转写</td><td>faster-whisper 转出的文字和时间</td><td class="note">没有说话人归属；会把一长段静音吞进一句话里</td></tr>
-<tr><td>声音分类</td><td>YAMNet 对 0.96 秒窗口给出的 521 类概率</td><td class="note">只是"可能性"，弱声音会被盖过；类名和本题的类别体系不是一回事</td></tr>
-<tr><td>方向估计</td><td>FOA 主动声强在三个频段、每 0.5 秒的主方向</td><td class="note">多个声源重叠时会把它们混成一个向量；混响会把方向带偏</td></tr>
-<tr><td>视频抽帧</td><td>指定秒数的真实画面，可自行抽帧检查</td><td class="note"><b>看见不等于听见</b>：画面里有人在动，不代表此刻有脚步声</td></tr>
-</table></div>
-<h3>要交付什么</h3>
+<p class="note">素材：<a href="https://zenodo.org/records/7880637">STARSS23</a>，<code>fold4_room24_mix014</code> 第 50–110 秒；人脸已由数据集作者模糊处理。FOA 为 24kHz，通道顺序 W,Y,Z,X。</p>
+<h3>交付要求</h3>
 <div class="table-scroll"><table><tr><th>交付物</th><th>内容</th></tr>
-<tr><td><code>events.json</code></td><td>它自己推断出来的<b>声音目录</b>：每个事件的类别、起止时间、所属人物、以及方向轨迹（方位角／仰角随时间变化）</td></tr>
-<tr><td><code>reviews.json</code></td><td>十道<b>媒体推断题</b>的答案（下详）</td></tr>
-<tr><td><code>index.html</code> 等</td><td>真正能用的网页：全景拖动、真实 FOA 解码、播放/拖动/循环、标记、时间线、筛选、<b>标注修订工作台</b></td></tr>
-<tr><td><code>evidence.md</code></td><td>证据说明，要把"观察到的"和"推断的"分开写</td></tr>
+<tr><td><code>events.json</code></td><td>声音类别、起止时间、人物归属和方向轨迹</td></tr>
+<tr><td><code>reviews.json</code></td><td>十道媒体推断题的答案与事件引用</td></tr>
+<tr><td><code>index.html</code> 等</td><td>全景播放器：FOA 实时解码、标记与时间线、筛选与人物跟随、标注编辑、撤销重做和导入导出</td></tr>
+<tr><td><code>evidence.md</code></td><td>证据来源，区分观察与推断</td></tr>
 </table></div>
-<p class="note">网页必须按题目给定的公式做实时解码：<code>L=0.5*(W−X·sin a+Y·cos a)</code>，<code>R=0.5*(W+X·sin a−Y·cos a)</code>。筛选只影响标记和时间线，<b>不能假装把混合录音里的其他声音分离掉</b>——这题没有独立声轨。</p>
-<h3>十道推断题：这题真正在考什么</h3>
-<p>光做播放器不够。题目另外问十个需要根据音视频证据回答的问题，答案是<b>held-out 的官方标注</b>，模型看不到：</p>
+<details class="card" id="inference-questions"><summary>十道推断题与标准答案</summary>
+<p class="note">标准答案依据官方标注，仅用于评测。</p>
 <div class="table-scroll"><table><tr><th>　</th><th>问题</th><th>标准答案</th></tr>
 <tr><td class="num">q1</td><td>两个不同的人<b>同时笑</b>的第一个瞬间</td><td class="num">16.4–16.6s</td></tr>
 <tr><td class="num">q2</td><td>两个不同的人<b>同时鼓掌</b>的第一段</td><td class="num">46.9–50.3s</td></tr>
@@ -99,8 +81,9 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 <tr><td class="num">q9</td><td>两个<b>贯穿全片的背景声</b>同时在响的区间</td><td class="num">0–60s</td></tr>
 <tr><td class="num">q10</td><td>最后一次鼓掌结束<b>之后</b>的第一段说话</td><td class="num">54.0–55.1s</td></tr>
 </table></div>
-<p class="note">判定条件：区间与真值的 IoU ≥ 0.5 <b>或</b>两端都落在 ±0.2 秒内，同时人物归属（匿名一对一映射，不看 ID 字面）和类别都要对，引用的事件也要真的支撑这个答案。答不出来可以写 <code>unresolved</code> 并说明理由——这叫诚实，但不得分。</p>
-<h3>验收标准：内容 50 ＋ 实现 48 ＋ 审查 2</h3>
+<p class="note">区间 IoU ≥ 0.5 或两端误差均 ≤0.2 秒；类别、人物归属及事件引用需匹配。人物 ID 按匿名一对一映射判定。可用 <code>unresolved</code> 弃答，该题不得分。</p>
+</details>
+<details class="card" id="acceptance-criteria"><summary>验收标准：内容 50 ＋ 实现 48 ＋ 审查 2</summary>
 <div class="table-scroll"><table><tr><th>桶</th><th>权重</th><th>怎么算</th></tr>
 <tr><td><b>类别时序 F1</b></td><td class="num">12</td><td>每 100ms 判断哪些类别正在发声，<b>宏平均</b>——每类等权，漏掉或虚报稀有类别都明显扣分</td></tr>
 <tr><td><b>类别＋方向 F1</b></td><td class="num">12</td><td>每 100ms 对活跃预测与真值做一对一最大匹配，类别相同且三维球面角误差 ≤25° 才算匹配</td></tr>
@@ -113,22 +96,19 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 <tr><td><b>标注修订工作台</b></td><td class="num">18</td><td>字段编辑与校验、拖动标记改轨迹关键帧、<b>原子撤销重做</b>、派生视图与书签失效、导入导出与刷新持久化</td></tr>
 <tr><td><b>证据与可用性审查</b></td><td class="num">2</td><td>有据可溯、推断校准、桌面与手机可用性，各 0.5</td></tr>
 </table></div>
-<p class="note">音频验收会换入<b>已知的四通道探针信号</b>，实测不同朝向下各频点的真实幅度——不是看代码里有没有 <code>yaw</code> 变量，也不只看左右响度比。</p>
-<h2>二、运行结果</h2>
-<h3 id="codex-results">R3 · Codex CLI 三个模型</h3>
-<p>三次均使用 <b>Codex CLI 0.166.0-alpha.5.1</b>、NJU Link，显式设置 <b>xhigh</b>，从独立空项目正常完成交付。使用相同素材、共享感知缓存，统一复核为内容 v3 和 driver-v4。</p>
+<p class="note">使用已知四通道探针信号，测量不同朝向的解码幅度。解码公式：<code>L=0.5*(W−X·sin a+Y·cos a)</code>，<code>R=0.5*(W+X·sin a−Y·cos a)</code>。筛选只影响标记与时间线。</p>
+</details>
+<h2 id="codex-results">二、运行结果</h2>
 <div class="table-scroll"><table class="codex-table"><tr><th>模型</th><th>推理强度</th><th>总分</th><th>内容 /50</th><th>实现 /48</th><th>审查 /2</th></tr><tr><td>gpt-6.1-sol</td><td>xhigh</td><td class="num"><b>74.12</b></td><td class="num">24.62</td><td class="num">48.00</td><td class="num">1.5</td></tr>
 <tr><td>gpt-6-astra</td><td>xhigh</td><td class="num"><b>72.81</b></td><td class="num">23.55</td><td class="num">47.76</td><td class="num">1.5</td></tr>
 <tr><td>gpt-6.1-terra</td><td>xhigh</td><td class="num"><b>57.52</b></td><td class="num">8.02</td><td class="num">48.00</td><td class="num">1.5</td></tr></table></div>
-<p>Astra 在合法空导入的复核中暴露状态异常，实现为 <b>47.76/48</b>；Sol、Terra 的实现为 <b>48/48</b>。主要分差仍来自声音事件推断。参考解的确定性部分为 <b>98/98</b>。</p>
 <div class="table-scroll"><table class="codex-table"><tr><th>模型</th><th>类别时序 F1</th><th>类别＋方向 F1</th><th>分段覆盖</th><th>人物 IDF1</th><th>书签</th></tr><tr><td>gpt-6.1-sol</td><td class="num">0.703</td><td class="num">0.497</td><td class="num">0.539</td><td class="num">0.488</td><td class="num">2/10</td></tr>
 <tr><td>gpt-6-astra</td><td class="num">0.689</td><td class="num">0.461</td><td class="num">0.408</td><td class="num">0.434</td><td class="num">3/10</td></tr>
 <tr><td>gpt-6.1-terra</td><td class="num">0.395</td><td class="num">0.104</td><td class="num">0.196</td><td class="num">0.059</td><td class="num">0/10</td></tr></table></div>
 <h3>最终交付截图</h3><div class="model-grid"><figure><a href="assets/codex-sol-desktop.png"><img alt="Codex + Sol 的最终交付" loading="lazy" src="assets/codex-sol-desktop.png"/></a><figcaption>Codex + Sol · 74.12 · <a href="assets/codex-sol-mobile.png">手机截图</a></figcaption></figure>
 <figure><a href="assets/codex-astra-desktop.png"><img alt="Codex + Astra 的最终交付" loading="lazy" src="assets/codex-astra-desktop.png"/></a><figcaption>Codex + Astra · 72.81 · <a href="assets/codex-astra-mobile.png">手机截图</a></figcaption></figure>
 <figure><a href="assets/codex-terra-desktop.png"><img alt="Codex + Terra 的最终交付" loading="lazy" src="assets/codex-terra-desktop.png"/></a><figcaption>Codex + Terra · 57.52 · <a href="assets/codex-terra-mobile.png">手机截图</a></figcaption></figure></div>
-<p class="note">三次Shell联网已验证，可使用文件编辑、图片、依赖安装和浏览器工具；没有原生音频输入或额外回合／工具／截图次数上限。复核发现原浏览器助手曾拦截外站请求，现已移除并验证浏览器HTTPS200；R4使用修复后的助手。</p>
-<h2>三、运行轨迹</h2><div data-case="roomsound" data-editorial="traces"><p>先阅读每次运行的过程总结，再按需查看关键节点或完整记录。点击编号可直接定位原命令与输出。</p><div class="editorial-cards"><article class="editorial-card"><h3>gpt-6.1-sol · R3</h3><p>追加YAMNet与方向分析，产品实现接近完整，声音边界与人物归属仍失分。</p><p class="editorial-note">35条命令记录 · 8个关键节点</p><div class="editorial-links"><a href="traces.html?run=sol">过程总结</a><a href="traces.html?run=sol&amp;view=key">关键步骤</a><a href="traces.html?run=sol&amp;view=all">全部记录</a></div></article><article class="editorial-card"><h3>gpt-6-astra · R3</h3><p>浏览器29项自测通过，声音方向、完整时段和空列表切换仍有盲区。</p><p class="editorial-note">18条命令记录 · 6个关键节点</p><div class="editorial-links"><a href="traces.html?run=astra">过程总结</a><a href="traces.html?run=astra&amp;view=key">关键步骤</a><a href="traces.html?run=astra&amp;view=all">全部记录</a></div></article><article class="editorial-card"><h3>gpt-6.1-terra · R3</h3><p>修好了标记拖动与播放器，最终声音目录仍只有四类。</p><p class="editorial-note">25条命令记录 · 6个关键节点</p><div class="editorial-links"><a href="traces.html?run=terra">过程总结</a><a href="traces.html?run=terra&amp;view=key">关键步骤</a><a href="traces.html?run=terra&amp;view=all">全部记录</a></div></article></div><p class="editorial-note">这些是对执行过程的整理；模型自测与组织者正式验收分别标注，不把工具调用次数当作推理质量。</p></div><h2>四、失败分析</h2><div data-case="roomsound" data-editorial="analysis"><article class="editorial-finding"><h3>1. 播放器正确，不等于它标出的世界正确</h3><p>R3主比较中，Astra、Sol、Terra的实现分分别为47.76/48、48/48、48/48，内容分却只有23.55/50、24.62/50、8.02/50。Terra确实在浏览器验证了四通道解码及非零输出；低内容分不能解释成播放器没有声音。</p><p class="editorial-note">Terra修复了被折叠区遮住的导入入口（<a href="traces.html?run=terra&amp;view=all&amp;event=24#event-24">#24</a>）和每帧重建标记导致的拖动不稳定（<a href="traces.html?run=terra&amp;view=all&amp;event=29#event-29">#29</a>），仍只标出四类声音。工程修复与感知推断是两条需要分别验收的链。<a href="files/cli-results.json">R3完整分项</a>。</p></article><article class="editorial-finding"><h3>2. 连续背景声容易覆盖，稀疏事件与人物归属仍然困难</h3><p>Sol交付50个声音事件，两类贯穿全片的背景声时序F1均为1.00；但铃声只累计7.55秒、笑声5.95秒，参考分别19.4秒和13.1秒。更多切段没有自动补足事件边界，人物IDF1仍只有0.488。</p><p class="editorial-note">可见轨迹中它追加通用分类器、方向信号分析及细化脚本（<a href="traces.html?run=sol&amp;view=all&amp;event=20#event-20">#20</a>、<a href="traces.html?run=sol&amp;view=all&amp;event=25#event-25">#25</a>），所以不能称为只读取共享缓存。也没有工具消融，不能把Sol相对其他模型的差距单独归因YAMNet。上述时长按人物事件求和，重叠可重复计时。</p></article><article class="editorial-finding"><h3>3. 更少弃答，并没有同时带来更好的完整声音目录</h3><p>Astra书签答对3/10、弃答2/10；Sol答对2/10、弃答5/10。Astra在书签任务上多答对一道，但音乐方位为−135°，参考为+45°，相差180°；类别＋方向F1为0.461，低于Sol的0.497。</p><p class="editorial-note">书签是少数特定问题，完整目录还要求时段、方向与人物连续对应。不能只挑书签数或事件总数判断整体感知质量，也不能由一次运行推断更积极作答必然有利。</p></article><article class="editorial-finding"><h3>4. 29项自测没有覆盖“从有事件变成空列表”的状态迁移</h3><p>Astra记录29项浏览器自测通过（<a href="traces.html?run=astra&amp;view=all&amp;event=23#event-23">#23</a>、<a href="traces.html?run=astra&amp;view=all&amp;event=24#event-24">#24</a>），组织者随后在原始有活跃事件场景导入合法空列表，发现旧活跃视图残留、轨迹访问异常和空状态未正确持久化。</p><p class="editorial-note">这个反例检验的是旧状态能否被清除，而非一般的导入按钮能否调用。它说明状态变化前后的组合比单个控件更能暴露边界缺陷。R4是独立的需求迭代验证，仍与这里的R3三模型主比较分开展示，不把分差全归因新增需求。</p></article></div><details class="card editorial-legacy"><summary>原逐项结果、截图与评分边界</summary>
+<h2>三、运行轨迹</h2><div data-case="roomsound" data-editorial="traces"><p>先阅读每次运行的过程总结，再按需查看关键节点或完整记录。点击编号可直接定位原命令与输出。</p><div class="editorial-cards"><article class="editorial-card"><h3>gpt-6.1-sol · R3</h3><p>追加YAMNet与方向分析，产品实现接近完整，声音边界与人物归属仍失分。</p><p class="editorial-note">35条命令记录 · 8个关键节点</p><div class="editorial-links"><a href="traces.html?run=sol">过程总结</a><a href="traces.html?run=sol&amp;view=key">关键步骤</a><a href="traces.html?run=sol&amp;view=all">全部记录</a></div></article><article class="editorial-card"><h3>gpt-6-astra · R3</h3><p>浏览器29项自测通过，声音方向、完整时段和空列表切换仍有盲区。</p><p class="editorial-note">18条命令记录 · 6个关键节点</p><div class="editorial-links"><a href="traces.html?run=astra">过程总结</a><a href="traces.html?run=astra&amp;view=key">关键步骤</a><a href="traces.html?run=astra&amp;view=all">全部记录</a></div></article><article class="editorial-card"><h3>gpt-6.1-terra · R3</h3><p>修好了标记拖动与播放器，最终声音目录仍只有四类。</p><p class="editorial-note">25条命令记录 · 6个关键节点</p><div class="editorial-links"><a href="traces.html?run=terra">过程总结</a><a href="traces.html?run=terra&amp;view=key">关键步骤</a><a href="traces.html?run=terra&amp;view=all">全部记录</a></div></article></div><p class="editorial-note">这些是对执行过程的整理；模型自测与组织者正式验收分别标注，不把工具调用次数当作推理质量。</p></div><h2>四、失败分析</h2><div data-case="roomsound" data-editorial="analysis"><article class="editorial-finding"><h3>1. 播放器功能通过，声音标注仍有误差</h3><p>Sol、Astra、Terra的实现分分别为48/48、47.76/48、48/48，内容分为24.62/50、23.55/50、8.02/50。</p><p class="editorial-note">Terra验证了四通道解码，修复导入入口被遮挡（<a href="traces.html?run=terra&amp;view=all&amp;event=24#event-24">#24</a>）和标记拖动不稳定（<a href="traces.html?run=terra&amp;view=all&amp;event=29#event-29">#29</a>），最终声音目录仍只有四类。</p></article><article class="editorial-finding"><h3>2. 短时事件和人物归属失分</h3><p>Sol交付50个声音事件，两类贯穿全片的背景声时序F1均为1.00；但铃声只累计7.55秒、笑声5.95秒，参考分别19.4秒和13.1秒。更多切段没有自动补足事件边界，人物IDF1仍只有0.488。</p><p class="editorial-note">Sol追加了声音分类和方向分析（<a href="traces.html?run=sol&amp;view=all&amp;event=20#event-20">#20</a>、<a href="traces.html?run=sol&amp;view=all&amp;event=25#event-25">#25</a>），但仍漏标部分声音区间。时长按人物事件求和，重叠可重复计时。</p></article><article class="editorial-finding"><h3>3. 书签答案与完整目录表现不同</h3><p>Astra书签答对3/10、弃答2/10；Sol答对2/10、弃答5/10。Astra在书签任务上多答对一道，但音乐方位为−135°，参考为+45°，相差180°；类别＋方向F1为0.461，低于Sol的0.497。</p><p class="editorial-note">书签按特定问题评分；完整目录另行检查声音时段、方向和人物归属。</p></article><article class="editorial-finding"><h3>4. 浏览器自测遗漏空列表导入</h3><p>Astra记录29项浏览器自测通过（<a href="traces.html?run=astra&amp;view=all&amp;event=23#event-23">#23</a>、<a href="traces.html?run=astra&amp;view=all&amp;event=24#event-24">#24</a>），组织者随后在原始有活跃事件场景导入合法空列表，发现旧活跃视图残留、轨迹访问异常和空状态未正确持久化。</p><p class="editorial-note">空列表导入未清除旧状态，Astra实现分为47.76/48。</p></article></div><details class="card editorial-legacy"><summary>原逐项结果、截图与评分边界</summary>
 <h3>Sol：声音类别覆盖完整，边界和方向仍有误差</h3>
 <p>Sol 交付 50 个事件，覆盖全部六类金标声音；两个连续背景声的类别时序 F1 都是 1.00。它答对两人鼓掌和连续背景声两道书签，五道主动弃答。但类别＋方向 F1 为 0.497，人物 IDF1 为 0.488。铃声只标出 7.55 秒、笑声 5.95 秒，金标分别为 19.4 和 13.1 秒；语音报了 45.05 秒，金标合计 38.1 秒。</p>
 <h3>Astra：多答对一道书签，音乐方向标反</h3>
@@ -138,22 +118,13 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:5px}
 <h3>共同的可用性问题</h3>
 <p>Astra实现为47.76/48：在有活跃事件的原始交付场景中导入合法空列表，旧的活跃事件视图未清理，出现轨迹访问异常，且空状态未正确持久化。Sol、Terra实现均为48/48。三次审查均为1.5/2：证据溯源、推断校准和手机可用性通过；桌面首屏的播放／进度控件位于大画面下方，各失去半分。</p>
 <p class="note">上述时长按人物事件相加，允许重叠重复计时。每个模型各一次有效运行，尚未估计重复采样方差。</p>
-</details><h2 id="iteration-r4">五、题目迭代验证：补录、删除与拆分</h2>
-<p>声音目录会漏标、误报或把两段声音连成一段。R4 在修订工作台中增加直接补录事件、删除误报、拆分错误长段的操作，并要求保留方向轨迹、原子撤销重做、书签失效、筛选和持久化一致。</p>
-<p>素材、感知工具及 <b>50/48/2</b> 总权重保持不变；五个工作台分组内，原功能与新增修订检查各占一半。这是独立题目版本，下面的单次验证与上面的 R3 三模型比较分别记录。</p>
-<div class="table-scroll"><table class="codex-table"><tr><th>任务</th><th>模型</th><th>总分</th><th>内容 /50</th><th>实现 /48</th><th>审查 /2</th></tr><tr><td>R4 修订工作台</td><td>gpt-6.1-sol · Codex xhigh</td><td class="num"><b>77.08</b></td><td class="num">27.08</td><td class="num">48.00</td><td class="num">2.0</td></tr></table></div>
-<p>参考解确定性 <b>98/98</b>；新增操作的 <b>37/37</b> 项检查通过，两个故障反例分别在撤销历史与拆分轨迹上失分。Sol 同样通过全部修订检查，正常完成于约 <b>37 分 33 秒</b>，Shell 与浏览器联网均在实际沙箱内验证 HTTPS200。</p>
-<p>这组新需求有实际用途，但这次没有难住 Sol。它的方向与人物归属推断更准，首屏播放控件也更易找到，内容和审查得分均提高；不能把总分差单独归因于任务变化。当前不为降低成绩继续叠加要求。</p>
-<div class="grid2"><figure><a href="assets/codex-r4-sol-desktop.png"><img alt="R4 Codex Sol 首屏与声音时间线" loading="lazy" src="assets/codex-r4-sol-desktop.png"/></a><figcaption>R4 Sol：播放器与时间线</figcaption></figure><figure><a href="assets/codex-r4-sol-mobile.png"><img alt="R4 Codex Sol 手机页面" loading="lazy" src="assets/codex-r4-sol-mobile.png"/></a><figcaption>R4 Sol：手机页面</figcaption></figure></div>
-<p class="note"><a href="files/R4-TASK.txt">R4 题面</a> · <a href="files/codex-r4-sol-result.json">完整评分</a> · <a href="files/codex-r4-sol-submission.zip">原始前端交付</a> · <a href="files/codex-r4-sol-evidence.txt">证据说明</a> · <a href="files/codex-r4-sol-protocol.json">运行设置</a> · <a href="files/r4-run-audit.json">轨迹审计</a> · <a href="files/r4-calibration.json">反例校准</a> · <a href="files/r4-calibration-count-amendment.json">检查数量更正</a>。每个任务版本仅一次有效采样；没有重复采样方差估计。</p>
-<h2>案例文件</h2><ul class="note">
+</details><h2>案例文件</h2><ul class="note">
 <li><a href="files/TASK.txt">完整题面</a> · <a href="files/CLI_PROTOCOL.txt">Codex 运行约定</a> · <a href="media/manifest.json">素材规格与摘要</a></li>
 <li><a href="files/cli-results.json">三模型成绩与条件</a> · <a href="files/cli-report.zh-CN.txt">Codex 测试报告</a> · <a href="files/cli-trace-audit.json">轨迹审计</a></li>
 <li><a href="files/content-v3-regression.json">内容评分反例回归</a> · <a href="files/driver-v4-regression.json">空导入与参考解统一回归</a></li>
-<li><a href="files/evaluation-audit.zh-CN.txt">本次评测复核与题目迭代报告</a></li>
 <li>Codex + Sol：<a href="files/codex-sol-result.json">完整评分</a> · <a href="files/codex-sol-submission.zip">前端交付</a> · <a href="files/codex-sol-evidence.txt">证据说明</a> · <a href="files/codex-sol-protocol.json">运行条件</a></li>
 <li>Codex + Astra：<a href="files/codex-astra-result.json">完整评分</a> · <a href="files/codex-astra-submission.zip">前端交付</a> · <a href="files/codex-astra-evidence.txt">证据说明</a> · <a href="files/codex-astra-protocol.json">运行条件</a></li>
 <li>Codex + Terra：<a href="files/codex-terra-result.json">完整评分</a> · <a href="files/codex-terra-submission.zip">前端交付</a> · <a href="files/codex-terra-evidence.txt">证据说明</a> · <a href="files/codex-terra-protocol.json">运行条件</a></li>
 </ul>
-<p class="note">模型名为服务提供的请求别名，身份和网关内部实际推理强度未独立认证。内容根据官方标注评估；边界未做独立人工重标。素材源于 <a href="https://zenodo.org/records/7880637">STARSS23</a>，裁取原片第 50–110 秒。每个模型各一次有效运行。</p>
+<p class="note">每个模型各运行一次。运行设置、网络条件和评分口径见测试报告。</p>
 </main></body></html>
