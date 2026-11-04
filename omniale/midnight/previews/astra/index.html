@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09080f">
+  <meta name="description" content="The Midnight Note — jazz, supper, and a room designed to listen.">
+  <title>The Midnight Note — Jazz Lounge & Supper Club</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="floating-nav" aria-label="Main navigation">
+  <a class="brand-orb" href="#top" aria-label="The Midnight Note — back to top"></a>
+  <div class="program-wrap">
+    <button id="program-toggle" class="program-toggle" aria-expanded="false" aria-controls="program-menu">PROGRAMMING <span class="tiny-circle" aria-hidden="true">⌄</span></button>
+    <nav id="program-menu" class="program-menu" aria-label="Program" hidden>
+      <a href="#lineup"><span class="menu-icon gold">♪</span><span><strong>Artist Lineup</strong><small>Tonight’s sets, resident bands, and curated genres.</small></span></a>
+      <a href="#archive"><span class="menu-icon blue">▣</span><span><strong>Performance Archive</strong><small>Legendary nights, captured in smoke, brass, and velvet.</small></span></a>
+      <a href="#experiences"><span class="menu-icon red">≡</span><span><strong>Experiences</strong><small>Fine dining, private lounge, and bottle service rituals.</small></span></a>
+    </nav>
+  </div>
+  <a class="button primary nav-reserve" href="#reserve"><span aria-hidden="true">♧</span> Reserve <span aria-hidden="true">→</span></a>
+</header>
+<main id="main">
+  <section class="hero dark" id="top" aria-labelledby="hero-title">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow"><i class="dot gold"></i> JAZZ LOUNGE &amp; SUPPER CLUB • DOWNTOWN</div>
+        <h1 id="hero-title">Sonic <span>Gastronomy</span><br>for nights that<br>linger.</h1>
+        <p>The Midnight Note is a charcoal-dark listening room where brass glows, plates arrive on cue, and every set is paced like a tasting menu. Reserve a table for tonight’s program—or apply for membership to unlock late-night access and cellar selections.</p>
+        <div class="hero-actions"><a class="button primary" href="#reserve">Reserve Seats <span aria-hidden="true">→</span></a><a class="button secondary" href="#lineup">Explore Tonight’s Lineup <span aria-hidden="true">→</span></a></div>
+        <div class="hero-tags"><span class="pill"><i class="dot gold"></i>Doors 6:30 • First set 7:30</span><span class="pill"><i class="dot red"></i>Chef’s Tasting (5 courses) • Limited</span><span class="pill"><i class="dot blue"></i>Dress: evening casual</span></div>
+        <div class="quiet-spectrum" aria-hidden="true"></div>
+      </div>
+      <figure class="hero-art">
+        <img src="assets/2.jpg" alt="A glowing record-shop sign behind a sculptural brass ring" fetchpriority="high">
+        <div class="brass-ring" aria-hidden="true"><div></div></div>
+        <figcaption><span class="pill"><strong>Tonight</strong> • “Blue Hour” Trio • 9:45 set</span><p>A slow-rotating brass ring echoes cymbal shimmer—our signature motif for sound in motion.</p></figcaption>
+      </figure>
+    </div>
+    <div class="orbit orbit-right" aria-hidden="true"></div>
+  </section>
+
+  <section id="sensory" class="section dark sensory" aria-labelledby="sensory-title">
+    <div class="container">
+      <h2 id="sensory-title">Sensory Pillars</h2>
+      <p class="section-intro">Three entrances to the same night: the music, the menu, and the room itself. Tap a pillar to expand the experience.</p>
+      <div class="sensory-controls">
+        <button id="sense-listen" class="sense-button listen" data-sense="listen" aria-expanded="true" aria-controls="sense-panel"><span><strong>Listen</strong><small>Curated sets with vinyl warmth and stage intimacy.</small></span><span class="sense-icon" aria-hidden="true">♬</span></button>
+        <button id="sense-taste" class="sense-button taste" data-sense="taste" aria-expanded="false" aria-controls="sense-panel"><span><strong>Taste</strong><small>Seasonal courses timed to the set list.</small></span><span class="sense-icon" aria-hidden="true">♧</span></button>
+        <!-- Review 08: the large Feel tile is hidden. Its full experience remains in the panel cycle. -->
+        <button id="sense-feel" class="sense-button feel" data-sense="feel" aria-expanded="false" aria-controls="sense-panel" hidden><span><strong>Feel</strong><small>Velvet seating, candle glow, and a room built for resonance.</small></span><span class="sense-icon" aria-hidden="true">♡</span></button>
+      </div>
+      <div id="sense-panel" class="sense-panel" aria-live="polite"></div>
+      <div class="sense-cycle"><button id="sense-next" class="text-button">Explore Taste <span aria-hidden="true">→</span></button></div>
+    </div>
+  </section>
+
+  <section id="lineup" class="section dark lineup" aria-labelledby="lineup-title">
+    <div class="container">
+      <h2 id="lineup-title">Artist Lineup</h2>
+      <p class="section-intro wide-intro">Four pillars of sound, each with its own cadence. Filter by vibe to shape your night.</p>
+      <div class="filters" role="group" aria-label="Filter artists by vibe">
+        <button data-filter="all" aria-pressed="true">All Vibes</button><button data-filter="late" aria-pressed="false">Late Night Jam</button><button data-filter="date" aria-pressed="false">Date Night</button><button data-filter="brunch" aria-pressed="false">Sunday Brunch</button><button data-filter="instrumental" aria-pressed="false">Instrumental Focus</button>
+      </div>
+      <div id="artist-grid" class="artist-grid"></div>
+      <p class="sr-only" id="filter-status" role="status">16 performances shown.</p>
+    </div>
+  </section>
+
+  <section id="experiences" class="section light experiences" aria-labelledby="experiences-title">
+    <div class="container">
+      <h2 id="experiences-title">Experiences</h2>
+      <p class="section-intro">Choose your tempo: a full supper club sequence or a private lounge ritual with curated bottle service.</p>
+      <div class="experience-accordions">
+        <details class="experience" name="experience" id="fine-dining">
+          <summary><span class="menu-icon red" aria-hidden="true">♧</span><span><strong>Fine Dining</strong><small>Chef’s set menu, timed to the music</small></span><span class="chevron" aria-hidden="true">⌄</span></summary>
+          <div class="experience-content">
+            <div class="menu-copy"><h3>Tonight’s Tasting Sequence</h3><p>A five-course progression designed for a listening room: clean flavors early, smoky depth at the midpoint, and a final sweet note that doesn’t compete with the stage.</p>
+              <ul class="menu-list">
+                <li id="first-chorus"><div><strong>First Chorus</strong><small>Citrus + sea salt, chilled and bright</small></div><b>$24</b></li>
+                <li id="second-chorus"><div><strong>Second Chorus</strong><small>Charred seasonal vegetables, herb oil</small></div><b>$28</b></li>
+                <li><div><strong>Headliner</strong><small>Slow-roasted entrée, warm spice finish</small></div><b>$52</b></li>
+                <li><div><strong>Encore</strong><small>Velvet dessert, espresso crema</small></div><b>$18</b></li>
+              </ul>
+            </div>
+            <figure class="experience-image"><img src="assets/4.jpg" alt="A bottle of red wine on a quietly set dining table" loading="lazy"><figcaption class="pill">Service is paced around the set list</figcaption></figure>
+          </div>
+        </details>
+        <details class="experience" name="experience" id="private-lounge">
+          <summary><span class="menu-icon blue" aria-hidden="true">▤</span><span><strong>Private Lounge</strong><small>Booth seating, bottle service, and late sets</small></span><span class="chevron" aria-hidden="true">⌄</span></summary>
+          <div class="experience-content">
+            <div class="menu-copy"><h3>Booth Rituals &amp; Bottle Program</h3><p>The lounge runs on sapphire light and quiet confidence. Bottle service is curated for texture: mineral whites, velvet reds, and a short list of late-night pours.</p>
+              <ul class="menu-list">
+                <li><div><strong>Cellar Select (Red)</strong><small>Decanted on request • dark fruit &amp; spice</small></div><b>$145</b></li>
+                <li><div><strong>Mineral White</strong><small>Chilled • crisp finish for first set</small></div><b>$118</b></li>
+                <li><div><strong>Midnight Spark</strong><small>Fine bubbles • for celebrations and encores</small></div><b>$165</b></li>
+                <li><div><strong>Spirits Flight</strong><small>Three pours • paired to the band’s tempo</small></div><b>$62</b></li>
+              </ul>
+            </div>
+            <figure class="experience-image"><img src="assets/7.jpg" alt="A chilled bottle and wine glass beside supper in the lounge" loading="lazy"><figcaption class="pill">Sapphire booths • late-night pours</figcaption></figure>
+          </div>
+        </details>
+      </div>
+      <div class="faq" id="faq">
+        <h3>Questions, answered quietly</h3><p>A few details—so your night moves without friction.</p>
+        <details name="faq"><summary>Is it a listening room?<span class="chevron" aria-hidden="true">⌄</span></summary><p>Yes. Conversation is welcomed between sets; during performances we keep service quiet and ask guests to keep voices low. Think: supper club energy with concert-level attention.</p></details>
+        <details name="faq"><summary>How long is a typical visit?<span class="chevron" aria-hidden="true">⌄</span></summary><p>Plan for two sets plus intermission—about 2 hours. Chef’s tasting runs with the first set and finishes during the encore. Lounge bookings are typically 2.5 hours.</p></details>
+        <details name="faq"><summary>Do you offer non-alcoholic pairings?<span class="chevron" aria-hidden="true">⌄</span></summary><p>We do. The “Brass &amp; Citrus” pairing focuses on botanicals, tea infusions, and carbonation—built to complement the menu without overwhelming the room.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" class="section dark guest-reviews" aria-labelledby="reviews-title">
+    <div class="container">
+      <h2 id="reviews-title">Guest Reviews</h2><p class="section-intro wide-intro">Praise that reads like a set list: tight, warm, and specific. Scroll for more.</p>
+      <div class="review-track" tabindex="0" aria-label="Guest reviews — scroll horizontally">
+        <article class="review-card" id="clara-review">
+          <header><i class="avatar" aria-hidden="true"></i><div><strong>Clara M.</strong><small>Reserved for the 7:30 set • Chef’s tasting</small></div><span class="rating">☆ 5/5 ♪</span></header>
+          <blockquote>“The room is tuned like an instrument. You can hear the brushwork, and the service never interrupts it. Courses arrived exactly between tunes—felt composed.”</blockquote>
+          <div class="press-links"><button data-info="Midnight Notes"><b>MN</b> Midnight Notes</button><button data-info="Jazz Ledger"><b>JL</b> Jazz Ledger</button></div>
+        </article>
+        <article class="review-card" id="harrison-review" hidden>
+          <header><i class="avatar" aria-hidden="true"></i><div><strong>Harrison D.</strong><small>Booth • Bottle program</small></div><span class="rating">☆ 5/5 ♪</span></header>
+          <blockquote>“The lounge has that sapphire glow—quiet luxury without the stiffness. Our server built a flight around the band’s tempo. Every pour felt intentional.”</blockquote>
+          <div class="press-links"><button data-info="City Table"><b>CT</b> City Table</button><button data-info="Velvet Press"><b>VP</b> Velvet Press</button></div>
+        </article>
+        <article class="review-card" id="amira-review">
+          <header><i class="avatar" aria-hidden="true"></i><div><strong>Amira S.</strong><small>Late set • Date night</small></div><span class="rating">☆ 5/5 ♪</span></header>
+          <blockquote>“It’s the softest kind of drama: neon accents, velvet corners, and a band that plays like the night is theirs. The room breathes.”</blockquote>
+          <div class="press-links"><button data-info="Supper Review"><b>SR</b> Supper Review</button><button data-info="Night Watch"><b>NW</b> Night Watch</button></div>
+        </article>
+      </div>
+    </div><div class="orbit orbit-left" aria-hidden="true"></div>
+  </section>
+
+  <section id="records" class="section dark club-records" aria-labelledby="records-title">
+    <div class="container"><h2 id="records-title">Club Records</h2><p class="section-intro">Numbers that tell a story—sets played, cocktails built, and the artists who have crossed our stage.</p>
+      <div class="record-grid"><div class="record"><i class="record-disc" aria-hidden="true"></i><div><strong>+500</strong><span>Shows performed since opening night</span></div></div><div class="record"><i class="record-disc blue" aria-hidden="true"></i><div><strong>+80</strong><span>Signature cocktails in the Midnight Book</span></div></div><div class="record"><i class="record-disc violet" aria-hidden="true"></i><div><strong>+12</strong><span>Grammy winners hosted for special sets</span></div></div></div>
+    </div>
+  </section>
+
+  <section id="archive" class="section light archive" aria-labelledby="archive-title">
+    <div class="container"><h2 id="archive-title">Performance Archive</h2><p class="section-intro">Browse nights that shaped the room. Hover or tap an entry to reveal a photographic memory with subtle parallax.</p>
+      <div class="archive-grid"><div id="archive-options" class="archive-options" role="group" aria-label="Choose a performance memory"></div><figure id="archive-preview" class="archive-preview" aria-live="polite"></figure></div>
+    </div>
+  </section>
+
+  <section id="journal" class="section dark journal" aria-labelledby="journal-title">
+    <div class="container"><h2 id="journal-title">Journal / Backstage</h2><p class="section-intro">Notes from the room: how we build the menu, tune the system, and program the night.</p>
+      <div class="journal-grid">
+        <article class="journal-card spotlight"><div class="journal-meta"><span>Spotlight</span><span>7 min read</span></div><h3>Interview with the Musical Director</h3><p>On pacing a night like a record: side A for clarity, side B for heat, and an encore that feels like a secret track.</p><footer><i class="author-avatar" aria-hidden="true"></i><span><strong>Noah K.</strong> • Programming</span><button aria-label="Read Interview with the Musical Director" data-article="0">→</button></footer></article>
+        <article class="journal-card"><div class="journal-meta"><span>Kitchen</span><span>5 min read</span></div><h3>Why our tasting menu lands between tunes</h3><p>Timing is a flavor. We design each course so the last bite resolves before the next downbeat. It’s hospitality with a metronome.</p><footer><i class="author-avatar red" aria-hidden="true"></i><span><strong>Elise R.</strong> • Culinary</span><button aria-label="Read Why our tasting menu lands between tunes" data-article="1">→</button></footer></article>
+        <article class="journal-card"><div class="journal-meta"><span>Room</span><span>6 min read</span></div><h3>Acoustic design: the art of soft reflections</h3><p>A listening room should feel intimate without becoming dry. Here’s how we shaped the ceiling and walls to keep cymbals airy and vocals present.</p><footer><i class="author-avatar blue" aria-hidden="true"></i><span><strong>Mina P.</strong> • Design</span><button aria-label="Read Acoustic design: the art of soft reflections" data-article="2">→</button></footer></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="membership" class="section light membership" aria-labelledby="membership-title">
+    <div class="container"><h2 id="membership-title">Membership</h2><p class="section-intro">For guests who return often: priority reservations, members-only late sets, and cellar access for special nights.</p>
+      <div class="member-grid"><article class="member-card chef"><div class="member-copy"><h3>Executive Chef</h3><strong class="member-name">ELISE ROWE</strong><p>Builds menus like arrangements—contrast, repetition, surprise. Member nights include off-menu courses and paired flights designed for specific lineups.</p></div><div class="member-orb" aria-hidden="true"></div></article><article class="member-card director"><div class="member-orb" aria-hidden="true"></div><div class="member-copy"><h3>Creative Director</h3><strong class="member-name">JONAH VALE</strong><p>Curates the room’s atmosphere: the glow of the bar, the pacing of the night, and the sound-wave motifs that thread through every season’s program.</p></div></article></div>
+      <div class="membership-bottom"><small>Applications reviewed weekly • Member access includes a dedicated concierge line.</small><button class="button dark-button" id="membership-apply">Apply for Membership <span aria-hidden="true">→</span></button></div>
+    </div>
+  </section>
+
+  <section id="reserve" class="section dark reserve" aria-labelledby="reserve-title">
+    <div class="container"><h2 id="reserve-title">Reserve</h2><p class="section-intro">Choose your seating, your set, and whether you’d like the chef’s sequence.<br>Requests are confirmed by email.</p>
+      <div class="reservation-grid">
+        <form id="reservation-form" class="reservation-form">
+          <h3>Reservation details</h3><p>This form is a live UI preview. For immediate seating, call the host stand.</p>
+          <div class="form-grid">
+            <label>Date<input type="date" name="date" required></label>
+            <label>Set time<select name="time"><option value="7:30">7:30 — First set</option><option value="9:45">9:45 — Second set</option><option value="11:45">11:45 — Late set</option></select></label>
+            <label>Party size<select name="party"><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+            <label>Seating<select name="seating"><option>Dining table</option><option>Bar rail</option><option>Lounge booth</option></select></label>
+            <label>Name<input name="name" autocomplete="name" placeholder="First and last name" required maxlength="100"></label>
+            <label>Email<input name="email" type="email" autocomplete="email" placeholder="you@domain.com" required maxlength="254"></label>
+            <label class="form-wide">Notes (dietary, celebration, accessibility)<input name="notes" placeholder="e.g., dairy-free, anniversary, near-stage seating request" maxlength="500"></label>
+          </div>
+          <div class="form-actions"><label class="tasting-check"><input type="checkbox" name="tasting"> Include Chef’s Tasting</label><button type="submit" class="button primary">Request Reservation <span aria-hidden="true">→</span></button></div>
+          <p class="local-note">Local preview only. Your details stay on this page; no booking or email is sent.</p>
+          <div id="reservation-confirmation" role="status" tabindex="-1" hidden></div>
+        </form>
+        <figure class="reservation-image"><img src="assets/1.jpg" alt="Wine glasses and candlelight at the host’s dining room" loading="lazy"><figcaption class="pill">Host stand • reservations curated by set</figcaption></figure>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer dark">
+  <div class="container footer-card">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="#top"><i class="brand-orb" aria-hidden="true"></i><strong>The Midnight Note</strong></a><p>Soulful nights for timeless spirits. Jazz, supper, and a room designed to listen.</p></div>
+      <nav class="footer-visit" aria-label="Visit"><h3>VISIT</h3><a href="#reserve" class="footer-reserve">Reserve</a><a href="#experiences" class="footer-experiences">Experiences</a><a href="#membership">Membership</a></nav>
+      <nav aria-label="Program links"><h3>PROGRAM</h3><a href="#lineup">Artist Lineup</a><a href="#archive">Performance Archive</a><a href="#records">Club Records</a></nav>
+      <nav aria-label="Backstage"><h3>BACKSTAGE</h3><a href="#journal">Journal</a><a href="#reviews">Guest Reviews</a><a href="#top">Back to Top</a></nav>
+    </div>
+    <div class="footer-bottom"><span>© 2026 The Midnight Note. All rights reserved.</span><span>Sound, service, and pacing—crafted with intention.</span></div>
+  </div>
+</footer>
+<dialog id="local-dialog" aria-labelledby="dialog-title"><button class="dialog-close" aria-label="Close dialog">×</button><p class="dialog-eyebrow">THE MIDNIGHT NOTE</p><h2 id="dialog-title"></h2><div id="dialog-body"></div><button class="button primary dialog-done">Back to the night <span aria-hidden="true">→</span></button></dialog>
+</body>
+</html>

@@ -1,0 +1,51 @@
+{
+  "manual_review_complete": true,
+  "model": "gpt-6.1-terra",
+  "actual_effort_evidence": [
+    {
+      "model": "gpt-6.1-terra",
+      "effort": "xhigh",
+      "summary": "none",
+      "cwd": "[run]"
+    }
+  ],
+  "material_version": "v1",
+  "network": "enabled; user proxy settings preserved; web_search live",
+  "elapsed_seconds": 1361.203,
+  "exit_code": 0,
+  "raw_score": 41.25,
+  "measurement_corrected_score": 47.0,
+  "conservative_score": 65.0,
+  "measurement_corrections": {
+    "swap_whole_genre_columns": "两列视觉行序Modern Jazz/Bebop/Soul/Instrumental正确，按x单排序的误判向上修正。",
+    "clara_visible_review_italic": "实际Clara评价p为italic，不要求容器及姓名都斜体。",
+    "hero_text_and_dark_theme": "主标题、深色主题与完整语义段落均保留；charcoal/brass被refined/bass改写不能因词集合阈值扣掉整个首屏项目。",
+    "programming_menu": "三入口展开与导航可用，描述作等价改写，不因精确句子匹配扣交互分。",
+    "fine_dining_panel": "Fine Dining点击后展示完整四道菜、价格和说明，标题改写为The Night as Tasting Sequence，等价交互通过。",
+    "archive_preview_switch": "Vocal/Vinyl/Neon按钮点击后标题、正文和图片8/6/3.jpg分别更新；文字改写不应把交互判失败。"
+  },
+  "conservative_exclusions": {
+    "bebop_dark_blue_only": "原始指针在类别标题及其背景之间移动，标题先深蓝后金色的解读存在合理分歧；不以此项压低主分。",
+    "both_column_borders_gold": "原视频指针集中经过两栏标题附近，标题与外框的目标层级有争议；两种解读差异不计主分。",
+    "hide_feel_button_body_only": "Hide all of these可以被理解成隐藏完整Feel入口或仅描述；此项不作为主分失败依据。",
+    "second_chorus_larger_bold_smaller_body": "两次字号指代跨越折叠展开与指针移动，First/Second以及标题/正文的精确目标有争议；保守排除此项。",
+    "artist_description_time_bindings": "原型截图中时段位于卡片裁切区域之外，无法要求保留材料未显示的时间。演出名称完整性仍由独立项目检查。"
+  },
+  "source_access_flags": [],
+  "transport_reconnects": 0,
+  "transport_messages": [],
+  "failed_commands": 6,
+  "remaining_clear_failures": [
+    "harbor_title_body_side_by_side",
+    "footer_experiences_texture",
+    "footer_experiences_center_text",
+    "matinee_title_gold",
+    "velvet_to_end_of_own_group",
+    "footer_reserve_double_padding",
+    "only_harrison_hidden"
+  ],
+  "evaluation_contract_sha256": "8e50e9992949d63545cf21885056d6e0b048af507c827c71f1ac522c31c04ff2",
+  "notes": "全部自动失败人工复核，等价改写与局部正文样式向上修正。明确问题为对象/作用范围及Harrison整卡未隐藏。无接口重连。",
+  "limits": "One independent run per model in this comparison; adaptation outcome score, not official EFS. Runtime includes API retries. Task-only file access is enforced by instructions, not OS isolation.",
+  "reviewed_at": "2026-11-04T11:04:55.949063+00:00"
+}

@@ -1,0 +1,46 @@
+{
+  "manual_review_complete": true,
+  "model": "gpt-6-astra",
+  "actual_effort_evidence": [
+    {
+      "model": "gpt-6-astra",
+      "effort": "xhigh",
+      "summary": "none",
+      "cwd": "[run]"
+    }
+  ],
+  "material_version": "v1",
+  "network": "enabled; user proxy settings preserved; web_search live",
+  "elapsed_seconds": 2440.141,
+  "exit_code": 0,
+  "raw_score": 46.0,
+  "measurement_corrected_score": 53.75,
+  "conservative_score": 95.0,
+  "measurement_corrections": {
+    "swap_whole_genre_columns": "视觉行优先顺序Modern Jazz/Bebop/Soul/Instrumental正确；两列布局导致仅按x排序误判，不能因此重复扣交换项。",
+    "footer_membership_move_reverted": "首个footer是日志卡片，实际整站页脚Reserve/Experiences/Membership正确。",
+    "footer_experiences_texture": "实际整站Experiences链接自身使用assets/10.jpg，computed背景及截图核实。",
+    "footer_experiences_center_text": "实际整站Experiences链接computed text-align:center。",
+    "footer_reserve_double_padding": "Reserve padding14px 20px，为同列普通7px 10px的两倍，且在既定近似范围内。",
+    "footer_links_and_copy": "实际整站footer含三组完整链接、品牌和版权；评分器误选article内footer。",
+    "clara_visible_review_italic": "要求评价正文斜体，实际Clara blockquote为italic；姓名与整个容器不必一并斜体。"
+  },
+  "conservative_exclusions": {
+    "bebop_dark_blue_only": "原始指针在类别标题及其背景之间移动，标题先深蓝后金色的解读存在合理分歧；不以此项压低主分。",
+    "both_column_borders_gold": "原视频指针集中经过两栏标题附近，标题与外框的目标层级有争议；两种解读差异不计主分。",
+    "hide_feel_button_body_only": "Hide all of these可以被理解成隐藏完整Feel入口或仅描述；此项不作为主分失败依据。",
+    "second_chorus_larger_bold_smaller_body": "两次字号指代跨越折叠展开与指针移动，First/Second以及标题/正文的精确目标有争议；保守排除此项。",
+    "artist_description_time_bindings": "原型截图中时段位于卡片裁切区域之外，无法要求保留材料未显示的时间。演出名称完整性仍由独立项目检查。"
+  },
+  "source_access_flags": [],
+  "transport_reconnects": 0,
+  "transport_messages": [],
+  "failed_commands": 4,
+  "remaining_clear_failures": [
+    "harbor_title_body_side_by_side"
+  ],
+  "evaluation_contract_sha256": "8e50e9992949d63545cf21885056d6e0b048af507c827c71f1ac522c31c04ff2",
+  "notes": "全部自动失败人工核对；Velvet留在Soul且移到末尾、First/Second恢复正确。",
+  "limits": "One independent run per model in this comparison; adaptation outcome score, not official EFS. Runtime includes API retries. Task-only file access is enforced by instructions, not OS isolation.",
+  "reviewed_at": "2026-11-04T10:38:35.122296+00:00"
+}
