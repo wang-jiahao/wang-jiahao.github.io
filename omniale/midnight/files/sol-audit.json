@@ -1,0 +1,65 @@
+{
+  "manual_review_complete": true,
+  "model": "gpt-6.1-sol",
+  "actual_effort_evidence": [
+    {
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "summary": "none",
+      "cwd": "[run]"
+    }
+  ],
+  "material_version": "v1",
+  "network": "enabled; user proxy settings preserved; web_search live",
+  "elapsed_seconds": 1875.016,
+  "exit_code": 0,
+  "raw_score": 52.25,
+  "measurement_corrected_score": 63.75,
+  "conservative_score": 75.0,
+  "measurement_corrections": {
+    "swap_whole_genre_columns": "栏目定位不应要求恰好四个条目；模型误把Matinee移组是另一项问题。按类别标题识别列，交换实际正确。",
+    "first_second_swap_reverted": "原生details需要先打开；打开后的四条菜单恢复原序，不能因button定位器不识别summary而扣分。",
+    "fine_dining_panel": "接受原生details/summary和装饰图标前缀。",
+    "lounge_panel": "接受原生details/summary和装饰图标前缀。",
+    "faq_expand": "接受原生details/summary，不要求角色为自定义button。",
+    "archive_preview_switch": "按钮有装饰图标前缀，使用非前缀锚定名称定位；真实图片和文字切换已核对。"
+  },
+  "conservative_exclusions": {
+    "bebop_dark_blue_only": "原始指针在类别标题及其背景之间移动，标题先深蓝后金色的解读存在合理分歧；不以此项压低主分。",
+    "both_column_borders_gold": "原视频指针集中经过两栏标题附近，标题与外框的目标层级有争议；两种解读差异不计主分。",
+    "hide_feel_button_body_only": "Hide all of these可以被理解成隐藏完整Feel入口或仅描述；此项不作为主分失败依据。",
+    "second_chorus_larger_bold_smaller_body": "两次字号指代跨越折叠展开与指针移动，First/Second以及标题/正文的精确目标有争议；保守排除此项。",
+    "artist_description_time_bindings": "原型截图中时段位于卡片裁切区域之外，无法要求保留材料未显示的时间。演出名称完整性仍由独立项目检查。"
+  },
+  "source_access_flags": [],
+  "transport_reconnects": 0,
+  "failed_commands": 1,
+  "asr_note": "Large-v3 transcription calls returned resource errors; model independently retried with small and completed both transcripts. No interrupted run or API failure was scored zero.",
+  "behavior_manual_checks": {
+    "native_details_dining": true,
+    "native_details_lounge": true,
+    "faq_duration": true,
+    "archive_vocal_vinyl_neon": true,
+    "restored_menu_order": [
+      "First Chorus",
+      "Second Chorus",
+      "Headliner",
+      "Encore"
+    ],
+    "genre_order": [
+      "Modern Jazz",
+      "Bebop",
+      "Soul",
+      "Instrumental"
+    ]
+  },
+  "remaining_clear_failures": [
+    "harbor_title_body_side_by_side",
+    "footer_membership_move_reverted",
+    "footer_experiences_texture",
+    "velvet_to_end_of_own_group",
+    "footer_reserve_double_padding"
+  ],
+  "limits": "One run; outcome score is not official EFS or a calibrated cross-case difficulty ranking. Visual fidelity is partly checked by preserved content/layout and paired screenshots, not a separate pixel/VLM judge. Task-only file access is instruction enforced, not OS isolation; command scan is not a mathematical proof of no leakage.",
+  "reviewed_at": "2026-11-04T07:58:24.432239+00:00"
+}

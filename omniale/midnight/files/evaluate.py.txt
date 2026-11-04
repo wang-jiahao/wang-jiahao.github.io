@@ -1,0 +1,122 @@
+"""Visible-outcome rubric, independent of author classes and filenames."""
+from pathlib import Path
+import json,argparse,re,math,time,hashlib
+from playwright.sync_api import sync_playwright
+ROOT=Path(__file__).resolve().parent;V=ROOT/'v1'
+ARTISTS=['The Blue Hour Trio','Riverside Quartet','Matinée Horns','Afterhours Heads','Chromatic Lines','Neon Interval','Harbor Sextet','Sunday Sketches','Velvet Vows','Golden Hour Organ','Midnight Pocket','Blue Satin Duo','Brush & Brass','Four on the Floor','Sunday Standards','Vinyl Study']
+PROBE=r'''() => {
+const norm=s=>(s||'').replace(/\s+/g,' ').trim().toLowerCase();
+const txt=e=>(e?.innerText||'').replace(/\s+/g,' ').trim();
+const visible=e=>{if(!e)return false;for(let x=e;x;x=x.parentElement){let s=getComputedStyle(x);if(s.display==='none'||s.visibility==='hidden'||+s.opacity<.05)return false}let r=e.getBoundingClientRect();return r.width>1&&r.height>1};
+const nodes=[...document.querySelectorAll('body *')].filter(e=>!e.matches('script,style,svg,path,noscript'));
+const find=(t,root=document)=>nodes.filter(e=>root.contains(e)&&visible(e)&&norm(txt(e))===norm(t)).sort((a,b)=>a.children.length-b.children.length)[0];
+const part=t=>nodes.filter(e=>visible(e)&&norm(txt(e)).includes(norm(t))).sort((a,b)=>txt(a).length-txt(b).length)[0];
+const up=(e,p)=>{for(let x=e;x&&x!==document.body;x=x.parentElement)if(p(x))return x;return null};
+const box=e=>{if(!e)return null;let r=e.getBoundingClientRect(),s=getComputedStyle(e);return{x:r.x,y:r.y+scrollY,w:r.width,h:r.height,color:s.color,bg:s.backgroundColor,bgImage:s.backgroundImage,border:s.borderTopColor,borderW:parseFloat(s.borderTopWidth),padding:[s.paddingTop,s.paddingRight,s.paddingBottom,s.paddingLeft].map(parseFloat),size:parseFloat(s.fontSize),weight:s.fontWeight,fontStyle:s.fontStyle,align:s.textAlign,display:s.display,columns:s.gridTemplateColumns,text:txt(e)}};
+const names=['The Blue Hour Trio','Riverside Quartet','Matinée Horns','Afterhours Heads','Chromatic Lines','Neon Interval','Harbor Sextet','Sunday Sketches','Velvet Vows','Golden Hour Organ','Midnight Pocket','Blue Satin Duo','Brush & Brass','Four on the Floor','Sunday Standards','Vinyl Study'];
+const rowFor=t=>{let title=find(t),row=up(title,e=>names.filter(n=>norm(txt(e)).includes(norm(n))).length===1&&names.filter(n=>norm(txt(e.parentElement)).includes(norm(n))).length>1);return{title,row}};
+const artists=names.map(name=>{let {title,row}=rowFor(name);let parent=title?.parentElement;let desc=parent?[...parent.children].find(x=>!x.contains(title)&&txt(x).length>5):null;return{name,title:box(title),desc:box(desc),row:box(row),meta:box(parent)}});
+const genres=['Bebop','Modern Jazz','Soul','Instrumental'].map(name=>{let title=find(name),region=up(title,e=>names.filter(n=>norm(txt(e)).includes(norm(n))).length===4);return{name,title:box(title),region:box(region)}});
+const sense=name=>{let t=find(name),control=up(t,e=>e.matches('button,[role=button]'));let sub=control?[...control.querySelectorAll('*')].find(x=>visible(x)&&x.children.length===0&&txt(x).length>15):null;return{name,title:box(t),control:box(control),sub:box(sub)}};
+const senses=['Listen','Taste','Feel'].map(sense);
+const foot=document.querySelector('footer')||up(find('Back to Top'),e=>norm(txt(e)).includes('soulful nights')&&norm(txt(e)).includes('copyright'));
+const footlinks=['Reserve','Experiences','Membership'].map(name=>{let e=foot?[...foot.querySelectorAll('a,button')].find(x=>visible(x)&&norm(txt(x))===norm(name)):null;return{name,link:box(e)}});
+const menuNames=['First Chorus','Second Chorus','Headliner','Encore'];const menu=menuNames.map(name=>{let title=find(name),row=up(title,e=>menuNames.filter(n=>norm(txt(e)).includes(norm(n))).length===1&&menuNames.filter(n=>norm(txt(e.parentElement)).includes(norm(n))).length>1);let sub=title?.parentElement?[...title.parentElement.children].find(x=>!x.contains(title)&&txt(x).length>6):null;return{name,title:box(title),row:box(row),sub:box(sub)}});
+const reviews=['Clara M.','Harrison D.','Amira S.'].map(name=>{let title=find(name),row=up(title,e=>['Clara M.','Harrison D.','Amira S.'].filter(n=>norm(txt(e)).includes(norm(n))).length===1&&['Clara M.','Harrison D.','Amira S.'].filter(n=>norm(txt(e.parentElement)).includes(norm(n))).length>1);return{name,title:box(title),row:box(row)}});
+let controls=[...document.querySelectorAll('input,select,textarea')].filter(visible).map(e=>({...box(e),type:e.type,name:e.name}));
+let heads=['Sensory Pillars','Artist Lineup','Experiences','Guest Reviews','Club Records','Performance Archive','Journal / Backstage','Membership','Reserve'].map(t=>{let h=nodes.find(e=>visible(e)&&e.matches('h1,h2,h3')&&norm(txt(e))===norm(t));return{name:t,...box(h)}});
+return{artists,genres,senses,footlinks,menu,reviews,controls,heads,body:txt(document.body),width:innerWidth,overflow:document.documentElement.scrollWidth-innerWidth,hero:box(document.querySelector('h1')),footer:box(foot),bodyBg:getComputedStyle(document.body).backgroundColor};
+}'''
+def nums(s):
+ n=[float(x) for x in re.findall(r'[\d.]+',s or '')];return n[:3] if len(n)>=3 and (len(n)<4 or n[3]>.4) else None
+def gold(s):
+ n=nums(s);return bool(n and n[0]>140 and n[1]>85 and n[0]>n[2]*1.3 and n[1]>n[2]*1.1)
+def blue(s):
+ return any((nums(c) and nums(c)[2]>nums(c)[0]*1.3 and nums(c)[2]>nums(c)[1]*1.2 and max(nums(c))<180) for c in re.findall(r'rgba?\([^)]*\)',s))
+def recall(s,body):
+ words=lambda x:set(re.findall('[a-z0-9]+',x.lower()));return len(words(s)&words(body))/max(1,len(words(s)))
+def evaluate(submission,out):
+ entry=Path(submission)/'site/index.html';out=Path(out);out.mkdir(parents=True,exist_ok=False);rows=[];errors=[];start=time.monotonic()
+ def check(g,id,ok,e=None):rows.append(dict(group=g,id=id,passed=bool(ok),evidence=e))
+ def test(g,id,fn):
+  try:ok,e=fn();check(g,id,ok,e)
+  except Exception as e:check(g,id,False,dict(error=str(e)[:300]))
+ with sync_playwright() as p:
+  browser=p.chromium.launch(channel='msedge');pg=browser.new_page(viewport=dict(width=1920,height=1080));pg.set_default_timeout(3500);pg.on('pageerror',lambda e:errors.append(str(e)));pg.goto(entry.resolve().as_uri(),wait_until='load');pg.wait_for_timeout(1000)
+  for y in range(0,min(pg.evaluate('document.documentElement.scrollHeight'),26000),700):pg.evaluate('(y)=>scrollTo(0,y)',y);pg.wait_for_timeout(70)
+  pg.evaluate('scrollTo(0,0)');pg.wait_for_timeout(1500);d=pg.evaluate(PROBE)
+  genres=d['genres'];gb={x['name']:x['region'] for x in genres};ar={x['name']:x for x in d['artists']};senses={x['name']:x for x in d['senses']};fl={x['name']:x['link'] for x in d['footlinks']};reviews={x['name']:x for x in d['reviews']}
+  check('final','swap_whole_genre_columns',all(gb.values()) and [x['name'] for x in sorted(genres,key=lambda x:x['region']['x'])]==['Modern Jazz','Bebop','Soul','Instrumental'],genres)
+  check('final','bebop_dark_blue_only',gb['Bebop'] and blue(gb['Bebop']['bg']+' '+gb['Bebop']['bgImage']) and gb['Modern Jazz'] and not blue(gb['Modern Jazz']['bg']+' '+gb['Modern Jazz']['bgImage']),genres[:2])
+  check('final','both_column_borders_gold',all(gb[n] and gold(gb[n]['border']) and .5<=gb[n]['borderW']<=3 for n in ['Bebop','Modern Jazz']),genres[:2])
+  h=ar['Harbor Sextet'];check('final','harbor_title_body_side_by_side',h['title'] and h['desc'] and abs(h['title']['y']-h['desc']['y'])<25 and h['desc']['x']>h['title']['x']+20,h)
+  check('final','footer_membership_move_reverted',all(fl.values()) and fl['Reserve']['y']<fl['Experiences']['y']<fl['Membership']['y'],fl)
+  exp=fl['Experiences'];check('final','footer_experiences_texture',exp and 'url(' in exp['bgImage'],exp)
+  check('final','footer_experiences_center_text',exp and exp['align']=='center',exp)
+  feel=senses['Feel'];check('final','hide_feel_button_body_only',feel['title'] and feel['control'] and not feel['sub'] and senses['Listen']['sub'] and senses['Taste']['sub'],senses)
+  check('final','matinee_title_gold',ar['Matinée Horns']['title'] and gold(ar['Matinée Horns']['title']['color']),ar['Matinée Horns'])
+  soul=[ar[n] for n in ['Velvet Vows','Golden Hour Organ','Midnight Pocket','Blue Satin Duo']];check('final','velvet_to_end_of_own_group',all(x['row'] for x in soul) and sorted(soul,key=lambda x:x['row']['y'])[-1]['name']=='Velvet Vows',soul)
+  taste=senses['Taste'];check('final','taste_button_center_title_italic_body',taste['title'] and taste['sub'] and taste['control'] and abs((taste['title']['x']+taste['title']['w']/2)-(taste['sub']['x']+taste['sub']['w']/2))<12 and taste['sub']['fontStyle']=='italic',taste)
+  res=fl['Reserve'];check('final','footer_reserve_double_padding',res and 13<=res['padding'][0]<=20 and 16<=res['padding'][1]<=25,res)
+  check('final','only_harrison_hidden',not reviews['Harrison D.']['row'] and reviews['Clara M.']['row'] and reviews['Amira S.']['row'],reviews)
+  check('final','clara_visible_review_italic',reviews['Clara M.']['row'] and reviews['Clara M.']['row']['fontStyle']=='italic',reviews['Clara M.'])
+  # Open the demonstrated panel through the submitted public controls.
+  def click_role_or_text(role,name):
+   loc=pg.get_by_role(role,name=re.compile(name,re.I));loc.first.click()
+  def open_dining():
+   button=pg.get_by_role('button',name=re.compile('^Fine Dining',re.I)).first
+   if button.get_attribute('aria-expanded')=='true':return
+   click_role_or_text('button',r'^Fine Dining');pg.wait_for_timeout(550)
+  try:open_dining()
+  except:pass
+  dm=pg.evaluate(PROBE);menu={x['name']:x for x in dm['menu']};sc=menu['Second Chorus'];first=menu['First Chorus'];others=[menu[n]['title'] for n in ['First Chorus','Headliner','Encore'] if menu[n]['title']]
+  check('final','second_chorus_larger_bold_smaller_body',sc['title'] and sc['sub'] and others and sc['title']['size']>sum(x['size'] for x in others)/len(others)+1 and int(float(sc['title']['weight']))>=700 and sc['sub']['size']<12.4,sc)
+  check('final','first_second_swap_reverted',all(menu[n]['row'] for n in ['First Chorus','Second Chorus','Headliner','Encore']) and [x['name'] for x in sorted(dm['menu'],key=lambda x:x['row']['y'] if x['row'] else 1e9)]==['First Chorus','Second Chorus','Headliner','Encore'],dm['menu'])
+  # Content checks are based on full visible material, not exact markup.
+  check('base','hero_text_and_dark_theme',d['hero'] and d['hero']['size']>=45 and recall('Sonic Gastronomy nights linger charcoal dark listening room brass plates tasting menu late night cellar selections',d['body'])>.9,dict(hero=d['hero']))
+  check('base','all_sixteen_artist_names',all(x['title'] for x in d['artists']),d['artists'])
+  spec=json.loads((V/'content-spec.json').read_text(encoding='utf-8'))
+  check('base','artist_description_time_bindings',all(x['row'] and recall(spec['artist_rows'][x['name']],x['row']['text'])>.85 for x in d['artists']),d['artists'])
+  check('base','complete_sections',all(x.get('w',0)>0 for x in d['heads']),d['heads'])
+  check('base','journal_member_content',recall('Interview Musical Director Noah Kitchen tasting menu between tunes Elise Acoustic soft reflections Mina Executive Chef Elise Rowe Creative Director Jonah Vale',d['body'])>.95,None)
+  check('base','reviews_and_records_preserved',recall('Clara Amira brushwork service courses between tunes softest drama neon velvet corners room breathes 500 80 12',d['body'])>.9,None)
+  check('base','full_form_options',len(d['controls'])>=8 and recall('Date Set time Party size Seating Name Email Notes Include Chef Tasting',d['body'])>.9,d['controls'])
+  check('base','footer_links_and_copy',recall('VISIT PROGRAM BACKSTAGE Reserve Experiences Membership Artist Lineup Performance Archive Club Records Journal Guest Reviews Back to Top Soulful nights timeless spirits',d['footer']['text'] if d['footer'] else '')>.95,d['footer'])
+  def programming():
+   pg.evaluate('scrollTo(0,0)');click_role_or_text('button',r'Programming');pg.wait_for_timeout(250);body=pg.locator('body').inner_text();return all(t in body for t in ['Tonight’s sets','Legendary nights','Fine dining, private lounge']),body[:700]
+  test('behavior','programming_menu',programming)
+  pg.keyboard.press('Escape')
+  def sense_panel(label,title):
+   existing=pg.get_by_text(title,exact=True).first
+   if existing.count() and existing.is_visible():return True,title
+   click_role_or_text('button','^'+label+r'\b');pg.wait_for_timeout(450);loc=pg.get_by_text(title,exact=True).first;return loc.is_visible(),title
+  test('behavior','listen_panel',lambda:sense_panel('Listen','Listening Room Protocol'))
+  test('behavior','taste_panel',lambda:sense_panel('Taste','Chef’s Set Menu: “Midnight Service”'))
+  test('behavior','feel_panel',lambda:sense_panel('Feel','Room Atmosphere'))
+  def filter_date():
+   loc=pg.get_by_role('tab',name=re.compile('^Date Night$',re.I));loc=loc if loc.count() else pg.get_by_role('button',name=re.compile('^Date Night$',re.I));loc.first.click();pg.wait_for_timeout(450);m=pg.evaluate(PROBE);visible=[x['name'] for x in m['artists'] if x['title']];allbtn=pg.get_by_text('All Vibes',exact=True).first;allbtn.click();pg.wait_for_timeout(250);return set(visible)=={'Riverside Quartet','Chromatic Lines','Harbor Sextet','Velvet Vows','Blue Satin Duo','Four on the Floor'},visible
+  test('behavior','date_night_filter',filter_date)
+  test('behavior','fine_dining_panel',lambda:(open_dining() is None and pg.get_by_text('Tonight’s Tasting Sequence',exact=True).is_visible(),'Dining content shown'))
+  def lounge():
+   click_role_or_text('button','^Private Lounge');pg.wait_for_timeout(500);return pg.get_by_text('Booth Rituals & Bottle Program',exact=True).is_visible(),'Lounge content shown'
+  test('behavior','lounge_panel',lounge)
+  def faq():
+   click_role_or_text('button','^How long is a typical visit');pg.wait_for_timeout(450);text=pg.locator('body').inner_text();return '2 hours' in text and '2.5 hours' in text,'Typical duration answer visible'
+  test('behavior','faq_expand',faq)
+  def archive():
+   changes=[]
+   for name,anchor in [('Vocal Series','Vintage mic'),('Vinyl Listening Salons','Curator-led'),('Neon Sign Sessions','neon')]:
+    b=pg.get_by_role('button',name=re.compile('^'+name,re.I)).first;b.click();pg.wait_for_timeout(300);d=pg.locator('body').inner_text();changes.append(dict(name=name,shown=d.lower().count(name.lower())>=2,extra=anchor.lower() in d.lower()))
+   return all(x['shown'] and x['extra'] for x in changes),changes
+  test('behavior','archive_preview_switch',archive)
+  def reserve():
+   for label,value in [('Date','2026-11-10'),('Name','Test Visitor'),('Email','test@example.com')]:pg.get_by_label(label,exact=True).fill(value)
+   click_role_or_text('button','^Request Reservation');pg.wait_for_timeout(500);t=pg.locator('body').inner_text();return bool(re.search(r'request received|confirm availability|reservation.*received|thank you',t,re.I)),t[-1800:]
+  test('behavior','local_reservation_feedback',reserve)
+  pg.evaluate('scrollTo(0,0)');pg.screenshot(path=str(out/'desktop.png'),timeout=30000);pg.screenshot(path=str(out/'desktop-full.png'),full_page=True,timeout=30000);pg.set_viewport_size(dict(width=390,height=844));pg.reload(wait_until='load');pg.wait_for_timeout(800)
+  for y in range(0,min(pg.evaluate('document.documentElement.scrollHeight'),30000),700):pg.evaluate('(y)=>scrollTo(0,y)',y);pg.wait_for_timeout(40)
+  pg.evaluate('scrollTo(0,0)');m=pg.evaluate(PROBE);pg.screenshot(path=str(out/'mobile.png'));check('mobile','no_horizontal_overflow',m['overflow']<=3,m['overflow']);check('mobile','mobile_complete_artist_form',all(x['title'] for x in m['artists']) and len(m['controls'])>=8,dict(artists=m['artists'],controls=m['controls']));check('mobile','form_and_rows_fit',all(x['x']>=-3 and x['x']+x['w']<=393 for x in m['controls']) and all(x['row'] and x['row']['x']>=-3 and x['row']['x']+x['row']['w']<=393 for x in m['artists']),None);browser.close()
+ weights=dict(final=60,base=20,behavior=10,mobile=10);groups={g:dict(passed=sum(x['passed'] for x in rows if x['group']==g),total=sum(x['group']==g for x in rows),weight=w) for g,w in weights.items()};score=round(sum(x['weight']*x['passed']/x['total'] for x in groups.values()),4);result=dict(version='midnight-v1-outcomes-1',score=score,groups=groups,items=rows,errors=errors,elapsed_seconds=round(time.monotonic()-start,3),submission_sha256=hashlib.sha256(entry.read_bytes()).hexdigest(),observations=d,mobile_observations=m)
+ (out/'result.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8');print(json.dumps(dict(score=score,groups=groups)));return result
+if __name__=='__main__':
+ a=argparse.ArgumentParser();a.add_argument('submission');a.add_argument('out');a.add_argument('--version',default='v1');n=a.parse_args();evaluate(n.submission,n.out)

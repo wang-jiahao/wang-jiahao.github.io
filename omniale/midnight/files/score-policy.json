@@ -1,0 +1,25 @@
+{
+  "version": "midnight-v1-audit1-conservative",
+  "weights": {
+    "final": 60,
+    "base": 20,
+    "behavior": 10,
+    "mobile": 10
+  },
+  "excluded_items": {
+    "bebop_dark_blue_only": "原始指针在类别标题及其背景之间移动，标题先深蓝后金色的解读存在合理分歧；不以此项压低主分。",
+    "both_column_borders_gold": "原视频指针集中经过两栏标题附近，标题与外框的目标层级有争议；两种解读差异不计主分。",
+    "hide_feel_button_body_only": "Hide all of these可以被理解成隐藏完整Feel入口或仅描述；此项不作为主分失败依据。",
+    "second_chorus_larger_bold_smaller_body": "两次字号指代跨越折叠展开与指针移动，First/Second以及标题/正文的精确目标有争议；保守排除此项。",
+    "artist_description_time_bindings": "原型截图中时段位于卡片裁切区域之外，无法要求保留材料未显示的时间。演出名称完整性仍由独立项目检查。"
+  },
+  "measurement_corrections": {
+    "swap_whole_genre_columns": "栏目定位不应要求恰好四个条目；模型误把Matinee移组是另一项问题。按类别标题识别列，交换实际正确。",
+    "first_second_swap_reverted": "原生details需要先打开；打开后的四条菜单恢复原序，不能因button定位器不识别summary而扣分。",
+    "fine_dining_panel": "接受原生details/summary和装饰图标前缀。",
+    "lounge_panel": "接受原生details/summary和装饰图标前缀。",
+    "faq_expand": "接受原生details/summary，不要求角色为自定义button。",
+    "archive_preview_switch": "按钮有装饰图标前缀，使用非前缀锚定名称定位；真实图片和文字切换已核对。"
+  },
+  "notes": "原始冻结评分不变；独立测量修正版修复等价实现识别。上述排除对所有本材料运行统一应用，不选择更低诊断口径。不是官方EFS。"
+}
