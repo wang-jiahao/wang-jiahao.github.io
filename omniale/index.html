@@ -49,9 +49,9 @@ border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:16px 0}
 .software-tag{display:inline-flex;align-items:center;flex-wrap:wrap;gap:7px;padding:3px 9px;border:1px solid #b5cbc8;border-radius:5px;background:#eef7f3;color:#254d49;font-size:11.5px;line-height:1.5}
 .software-tag strong{font-size:12px;font-weight:650}
 
-.summary-top{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.summary-top{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
 .summary-top h1{margin:0;font-size:30px}
-.summary-top .eyebrow{margin:0;font-size:11px;letter-spacing:.08em;text-align:right}
+.summary-top .eyebrow{margin:0;font-size:11px;letter-spacing:.08em;text-align:left}
 .summary-overview{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-top:6px}
 .summary-overview .lead{margin:0;font-size:14px;line-height:1.7;max-width:none}
 .summary-overview .taxonomy{position:relative;flex:none;margin:0}
@@ -59,10 +59,10 @@ border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:16px 0}
 .summary-overview .taxonomy summary::after{content:' ▾'}
 .summary-overview .table-scroll{position:absolute;top:100%;right:0;z-index:5;width:min(880px,calc(100vw - 36px));max-height:65vh;overflow:auto;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--paper);box-shadow:0 8px 24px #183c3520}
 .week{margin-top:20px}.week-heading{padding-top:18px}
-@media(max-width:700px){.summary-top h1{font-size:27px}.summary-top .brand-description{display:none}.summary-overview{gap:12px}.summary-overview .lead{font-size:13px}}
+@media(max-width:700px){.summary-top h1{font-size:27px}.summary-overview{gap:12px}.summary-overview .lead{font-size:13px}}
 </style></head><body><main>
-<header class="summary-header"><div class="summary-top"><h1>案例汇总</h1>
-<div class="eyebrow">OMNIALE<span class="brand-description"> · 专业音视频智能体评测基准</span></div></div>
+<header class="summary-header"><div class="summary-top"><div class="eyebrow">OMNIALE<span class="brand-description"> · 专业音视频智能体评测基准</span></div>
+<h1>案例汇总</h1></div>
 <div class="summary-overview"><p class="lead">从原始音视频到可用交付，查看任务、成绩、轨迹与失败分析。</p><details class="taxonomy"><summary>领域分类</summary><div class="table-scroll"><table>
 <tr><th>编号</th><th>一级领域（Domain）</th><th>二级应用场景</th></tr><tr><td class="num">01</td><td>影视、节目与视觉后期</td><td>影视剪辑、广告动效、视频特效、画质修复、节目质检、场记审核</td></tr><tr><td class="num">02</td><td>三维动画与产品可视化</td><td>人体动作复现、角色绑定与动画、表情控制、产品机构动画</td></tr><tr><td class="num">03</td><td>音频后期与声音工程</td><td>拟音、空间声音、多轨对白、音乐混音、音频工程维护</td></tr><tr><td class="num">04</td><td>音乐制作与演出服务</td><td>音乐转谱、编配、排练修订、声部练习、音乐会制作、MV分镜</td></tr><tr><td class="num">05</td><td>译制、无障碍与发布适配</td><td>手语字幕、字幕制作、跨语译制、音频描述、发布匿名化</td></tr><tr><td class="num">06</td><td>教育、训练与学习应用</td><td>教学视频、技能课程、体育训练复盘、听力测验、教学材料审核</td></tr><tr><td class="num">07</td><td>档案检索与证据研究</td><td>素材检索、来源溯源、口述史、长片证据核查、跨资料研究</td></tr><tr><td class="num">08</td><td>企业协作与数字业务</td><td>装配记录交接、会议协作、操作规范、商品选购网页</td></tr></table></div></details></div></header>
 <section class="week" aria-labelledby="week-3"><div class="week-heading"><h2 id="week-3">Week 3</h2><span class="count">7 个案例</span></div><a class="case" data-case="resolve-keying" href="https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-03/results" target="_blank" rel="noopener">
