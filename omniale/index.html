@@ -47,38 +47,26 @@ border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:16px 0}
 <p class="lead">给 Agent 原始素材和一份要求，看它能不能交出可以直接用的成果。<br>每个案例包含任务定义、运行结果、运行轨迹与失败分析。</p>
 <details class="taxonomy"><summary>领域分类 · 一级领域与二级应用场景</summary><div class="table-scroll"><table>
 <tr><th>编号</th><th>一级领域（Domain）</th><th>二级应用场景</th></tr><tr><td class="num">01</td><td>影视、节目与视觉后期</td><td>影视剪辑、广告动效、视频特效、画质修复、节目质检、场记审核</td></tr><tr><td class="num">02</td><td>三维动画与产品可视化</td><td>人体动作复现、角色绑定与动画、表情控制、产品机构动画</td></tr><tr><td class="num">03</td><td>音频后期与声音工程</td><td>拟音、空间声音、多轨对白、音乐混音、音频工程维护</td></tr><tr><td class="num">04</td><td>音乐制作与演出服务</td><td>音乐转谱、编配、排练修订、声部练习、音乐会制作、MV分镜</td></tr><tr><td class="num">05</td><td>译制、无障碍与发布适配</td><td>手语字幕、字幕制作、跨语译制、音频描述、发布匿名化</td></tr><tr><td class="num">06</td><td>教育、训练与学习应用</td><td>教学视频、技能课程、体育训练复盘、听力测验、教学材料审核</td></tr><tr><td class="num">07</td><td>档案检索与证据研究</td><td>素材检索、来源溯源、口述史、长片证据核查、跨资料研究</td></tr><tr><td class="num">08</td><td>企业协作与数字业务</td><td>装配记录交接、会议协作、操作规范、商品选购网页</td></tr></table></div></details>
-<section class="week" aria-labelledby="week-3"><div class="week-heading"><h2 id="week-3">Week 3</h2><span class="count">9 个案例</span></div><a class="case" data-case="berry-contact" href="https://starivers152.github.io/OmniALE/berry-contact/" target="_blank" rel="noopener">
+<section class="week" aria-labelledby="week-3"><div class="week-heading"><h2 id="week-3">Week 3</h2><span class="count">6 个案例</span></div><a class="case" data-case="berry-contact" href="https://starivers152.github.io/OmniALE/berry-contact/" target="_blank" rel="noopener">
 <img class="cover" src="covers/berry-contact.jpg?v=3" alt="从静态角色重建原片动画，并在长录音中定位原声" loading="lazy" width="520" height="292">
 <div class="body"><div class="badge">三维动画与产品可视化<span class="scenario">角色动画重建与声画同步</span></div>
 <h3>从静态角色重建原片动画，并在长录音中定位原声</h3><p class="desc">给定未绑定的简化羊驼与企鹅、7.5 秒无声参考和约 150 秒原声。Agent 要在 Blender 中重建角色动作、眼睑视线、镜头与遮挡，再自行定位正确声音片段，交付可编辑动画工程、有声成片和制作说明。</p><p class="sc">gpt-6-astra <b>55.590</b> · gpt-6.1-sol 41.749 · gpt-6-luna 40.982 · gpt-6-sol 33.337</p></div></a>
 <a class="case" data-case="omni2web-118" href="omni2web-118/">
 <img class="cover" src="covers/omni2web-118.jpg?v=3" alt="音视频编辑网页" loading="lazy" width="520" height="292">
 <div class="body"><div class="badge">企业协作与数字业务<span class="scenario">录屏驱动网页编辑</span></div>
-<h3>音视频编辑网页</h3><p class="desc">给Agent一份建筑事务所网站和约四分钟的中文讲解录屏。它要把“这个”“这些”的语音指代与光标对齐，完成换位、配色、隐藏等二十步编辑，并在多次撤销后保留最终有效意图。三个模型使用相同音视频材料与工具环境，交付完整网页及资源。</p><p class="sc">gpt-6.1-sol <b>63.02</b> · gpt-6-astra <b>61.00</b> · gpt-6.1-terra <b>49.61</b></p></div></a>
+<h3>音视频编辑网页</h3><p class="desc">给 Agent 一份建筑事务所网站和约四分钟的中文讲解录屏。它要把“这个”“这些”的语音指代与光标对齐，完成换位、配色、隐藏等二十步编辑，并在多次撤销后保留最终有效意图。三个模型使用相同音视频材料与工具环境，交付完整网页及资源。</p><p class="sc">gpt-6.1-sol <b>63.02</b> · gpt-6-astra <b>61.00</b> · gpt-6.1-terra <b>49.61</b></p></div></a>
 <a class="case" data-case="meeting-subtitles" href="https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-12/task" target="_blank" rel="noopener">
 <img class="cover" src="covers/meeting-subtitles.jpg?v=3" alt="四人会议 · 多人字幕对轴" loading="lazy" width="520" height="292">
 <div class="body"><div class="badge">译制、无障碍与发布适配<span class="scenario">多人字幕对轴</span></div>
 <h3>四人会议 · 多人字幕对轴</h3><p class="desc">给一段 4 分 19 秒的四人会议、多机位画面、打乱的逐词稿和人物声音参考。Agent 要按声音身份重新对轴，保留重叠发言、短回应、重复、自我修正和否定，交付一致的 ASS/SRT、烧录成片及可重建脚本。</p><p class="sc">gpt-6.1-sol <b>65.289</b> · gpt-6-luna 34.363</p></div></a>
-<a class="case" data-case="lumen" href="lumen/">
-<img class="cover" src="covers/lumen.jpg?v=3" alt="看原型与评审录屏，从零生成完整官网" loading="lazy" width="520" height="292">
-<div class="body"><div class="badge">企业协作与数字业务<span class="scenario">音视频评审驱动网页生成</span></div>
-<h3>看原型与评审录屏，从零生成完整官网</h3><p class="desc">给 Agent 一段完整原型导览、一段真人评审和15张图片，没有网页源码。它要从空项目重建建筑事务所官网，把“这个”“恢复原样”与光标对齐，在项目换位和多次撤销后落实最终意图。两次独立运行重复出现四类明确错误。</p><p class="sc">gpt-6.1-sol <b>73.33</b> · gpt-6.1-sol 70.67</p></div></a>
 <a class="case" data-case="roomsound" href="roomsound/">
 <img class="cover" src="covers/roomsound.jpg?v=3" alt="把一间吵闹房间的录音做成可转头的播放器" loading="lazy" width="520" height="292">
 <div class="body"><div class="badge">音频后期与声音工程<span class="scenario">空间声音与交互播放器</span></div>
 <h3>把一间吵闹房间的录音做成可转头的播放器</h3><p class="desc">给 Agent 一分钟真实房间的 360° 录像和四通道空间录音。它要判断什么时候、什么声音、在哪个方向，再做成能转头看、转头听、按声音查找片段的网页。难点在多个声音重叠时的事件、方向与身份关联。</p><p class="sc">gpt-6-astra <b>72.81</b> · gpt-6.1-sol <b>74.12</b> · gpt-6.1-terra <b>57.52</b></p></div></a>
-<a class="case" data-case="fontbrowser" href="fontbrowser/">
-<img class="cover" src="covers/fontbrowser.jpg?v=3" alt="看录屏复刻一个字体浏览器" loading="lazy" width="520" height="292">
-<div class="body"><div class="badge">企业协作与数字业务<span class="scenario">视频演示复刻网页</span></div>
-<h3>看录屏复刻一个字体浏览器</h3><p class="desc">有人一边操作 Google Fonts，一边讲解这个字体浏览器怎么工作。Agent 要把页面重做出来：长得像，操作行为也一致，包括预览输入、字号滑块、布局切换和搜索。讲解还提供了画面难以量准的参数。</p><p class="sc">gpt-6.1-sol <b>83.72</b></p></div></a>
 <a class="case" data-case="resolve" href="https://huayuankou333.github.io/omniale/resolve/" target="_blank" rel="noopener">
 <img class="cover" src="covers/resolve.jpg?v=3" alt="在 Resolve 中把长会议精编成中文简报" loading="lazy" width="520" height="292">
 <div class="body"><div class="badge">影视、节目与视觉后期<span class="scenario">多机位会议精编</span></div>
 <h3>在 Resolve 中把长会议精编成中文简报</h3><p class="desc">给 Agent 约 44 分钟的真实多机位会议与独立耳麦录音。先学习 Fairlight 教程，再在 DaVinci Resolve 中剪成 5–6 分钟的中文信息简报，保留决策演变、争议、人物身份和同期关系，并交付可编辑工程与来源映射。</p><p class="sc">gpt-6-astra <b>85.75</b> · gpt-6.1-sol 83.33 · gpt-6-luna 38.67</p></div></a>
-<a class="case" data-case="linear" href="linear/">
-<img class="cover" src="covers/linear.jpg?v=3" alt="看一段讲解，把 Linear 整页重新做出来" loading="lazy" width="520" height="292">
-<div class="body"><div class="badge">企业协作与数字业务<span class="scenario">视频演示复刻网页</span></div>
-<h3>看一段讲解，把 Linear 整页重新做出来</h3><p class="desc">给 Agent 一段七分钟的中文讲解录屏，从页面顶部一路滑到页脚。它要从空项目还原导航、产品界面、图表、代码编辑器和更新日志，把画面里的布局与讲解里的参数一起做对，并适配手机。</p><p class="sc">gpt-6.1-sol <b>86.16</b></p></div></a>
 <a class="case" data-case="weaving" href="https://huayuankou333.github.io/omniale/weaving/" target="_blank" rel="noopener">
 <img class="cover" src="covers/weaving.jpg?v=3" alt="编织教程视频 → 可跟做的中文图文 PDF" loading="lazy" width="520" height="292">
 <div class="body"><div class="badge">教育、训练与学习应用<span class="scenario">技能教程与图文教材</span></div>
