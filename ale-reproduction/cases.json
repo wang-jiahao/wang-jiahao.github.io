@@ -1,7 +1,7 @@
 {
   "title": "ALE Omni Case 复现",
   "url": "https://wang-jiahao.github.io/ale-reproduction/",
-  "updated_at": "2026-11-04T17:15:08.222197+08:00",
+  "updated_at": "2026-11-04T20:44:01.728648+08:00",
   "cases": [
     {
       "id": "music",
@@ -35,7 +35,24 @@
       "url": "https://wang-jiahao.github.io/omniale/ale-aerobics-scoring/",
       "model": "gpt-6.1-sol",
       "score": 0.0,
-      "score_text": "0 / 1",
+      "score_text": "0 / 1 · 50 / 100（部分分）",
+      "partial_score": {
+        "score": 50.0,
+        "maximum": 100,
+        "run_count": 2,
+        "scores": [
+          37.5,
+          62.5
+        ],
+        "matched_rows": [
+          3,
+          5
+        ],
+        "rows_per_run": 8,
+        "aggregation": "arithmetic_mean",
+        "official": false,
+        "rule": "Each ordered row earns 1/8 when FIG_code and credited_value both match; ignore whitespace inside FIG_code."
+      },
       "run_count": 2,
       "aggregation": "arithmetic_mean",
       "run_paths": [
