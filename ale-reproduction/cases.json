@@ -1,7 +1,7 @@
 {
   "title": "ALE Omni Case 复现",
   "url": "https://wang-jiahao.github.io/ale-reproduction/",
-  "updated_at": "2026-11-04T20:44:01.728648+08:00",
+  "updated_at": "2026-11-05T19:55:00.910628+08:00",
   "cases": [
     {
       "id": "music",
@@ -82,6 +82,62 @@
       "owner": "walnutpz",
       "external": true,
       "source_sha256": "6fd52ca89bbac0552b7890a55291d63c8f14ceb72c3192529bd825fbac1aacd0"
+    },
+    {
+      "id": "crane",
+      "title": "从天空中的白鹤，分离出完整绿幕主体",
+      "domain": "视觉媒体与视频后期",
+      "scenario": "参考引导抠像",
+      "description": "从约10秒的天空视频中分离运动白鹤，保留羽翼、颈腿和完整运动，在Resolve/Fusion中交付可编辑工程及绿幕成片。Sol、Luna各三次独立运行，提供同步成片对照、逐帧评分与工具轨迹。",
+      "url": "https://huayuankou333.github.io/omniale/ale-crane-keying/",
+      "models": [
+        {
+          "model": "gpt-6.1-sol",
+          "scores": [
+            0.5254622793351755,
+            0.522342592710204,
+            0.4820579706574491
+          ],
+          "mean": 0.5099542809009429,
+          "sample_standard_deviation": 0.024209217357453926,
+          "score_text": "51.0 / 100"
+        },
+        {
+          "model": "gpt-6-luna",
+          "scores": [
+            0.09182800314477889,
+            0.25695113253972196,
+            0.20831014870451176
+          ],
+          "mean": 0.18569642812967085,
+          "sample_standard_deviation": 0.08485250281501727,
+          "score_text": "18.6 / 100"
+        }
+      ],
+      "score": 50.995428090094286,
+      "score_text": "gpt-6.1-sol 51.0 / 100 · gpt-6-luna 18.6 / 100",
+      "score_scale": [
+        0,
+        100
+      ],
+      "native_score_scale": [
+        0,
+        1
+      ],
+      "run_count": 6,
+      "runs_per_model": 3,
+      "aggregation": "per_model_arithmetic_mean",
+      "software": "DaVinci Resolve / Fusion",
+      "protocol_note": "ALE native scoring rules; configured gpt-6-astra soft judge; Resolve Free Lua API bridge differs from default judge and GUI settings.",
+      "cover": "assets/crane.jpg",
+      "cover_alt": "真实白鹤输入帧及Sol、Luna第1轮的实际绿幕抠像成片",
+      "cover_label": "真实输入与交付 · Resolve / Fusion",
+      "owner": "huayuankou333",
+      "external": true,
+      "cover_source": "https://huayuankou333.github.io/omniale/ale-crane-keying/assets/cover.jpg",
+      "source_sha256": "f6e3fcdfc8773aa56bcaa32d36de47341b93375e28ee8f20606e25d00f894295",
+      "results_source": "https://huayuankou333.github.io/omniale/ale-crane-keying/files/results.json",
+      "results_source_sha256": "be8ec56b104c5dc3826a4a9ac3cb611fa67cf66c28ae49ba96aa87665f986f91"
     }
   ]
 }

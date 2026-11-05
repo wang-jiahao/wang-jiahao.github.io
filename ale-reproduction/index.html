@@ -5,14 +5,14 @@ permalink: /ale-reproduction/
 ---
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>ALE Omni Case 复现</title>
-<meta name="description" content="三个ALE复现案例：管弦乐录音转谱、健美操难度动作识别、音乐工程迁移。查看任务定义、运行结果、轨迹与失败分析。">
+<meta name="description" content="四个ALE复现案例：管弦乐录音转谱、健美操难度动作识别、音乐工程迁移、白鹤参考引导抠像。查看任务定义、运行结果、轨迹与失败分析。">
 <link rel="canonical" href="https://wang-jiahao.github.io/ale-reproduction/">
 <link rel="stylesheet" href="assets/site.css"></head><body>
 <a class="skip" href="#cases">跳到案例</a><main>
 <nav class="topline" aria-label="站点导航"><a href="/omniale/">← OmniALE 案例集</a><a href="https://github.com/rdi-berkeley/agents-last-exam">Agents Last Exam ↗</a></nav>
 <header><div class="eyebrow">OMNIALE · ALE REPRODUCTION</div><h1>ALE Omni Case 复现</h1>
 <p class="lead">每个案例收录任务定义、运行结果、轨迹与失败分析。</p></header>
-<section id="cases" aria-labelledby="case-heading"><div class="collection-heading"><h2 id="case-heading">复现案例</h2><span class="count">3 个案例</span></div>
+<section id="cases" aria-labelledby="case-heading"><div class="collection-heading"><h2 id="case-heading">复现案例</h2><span class="count">4 个案例</span></div>
 <a class="case" id="music" href="https://wang-jiahao.github.io/omniale/ale-music-transcription/" aria-labelledby="title-music">
 <div class="cover"><img src="assets/music.jpg" width="840" height="540" alt="本轮独立转谱交付在MuseScore中的实际画面"><span class="cover-label" aria-hidden="true">实际交付 · MuseScore</span></div>
 <div class="body"><div class="badge">音乐制作与演出服务<span class="scenario">多声部音乐转谱</span></div>
@@ -27,4 +27,9 @@ permalink: /ale-reproduction/
 <div class="cover"><img src="assets/migration.svg" width="840" height="540" alt="多轨音乐工程迁移的示意图"><span class="cover-label" aria-hidden="true">工程迁移示意</span></div>
 <div class="body"><div class="badge">音频后期与声音工程<span class="scenario">音频工程恢复与迁移</span></div>
 <h3 id="title-migration">把交响乐工程迁到 Linux，恢复原有声音</h3><p class="desc">原工程的商业音源和效果器不可用，Agent需在Ardour中选择开源替代，保留音符、奏法、强弱和路由，交付可编辑工程、完整混音与独立分轨。</p>
-<div class="card-footer"><p class="score">gpt-6.1-sol<strong>48.51 / 100</strong></p><span class="destination">walnutpz 复现 · 查看案例 ↗</span></div></div></a></section></main></body></html>
+<div class="card-footer"><p class="score">gpt-6.1-sol<strong>48.51 / 100</strong></p><span class="destination">walnutpz 复现 · 查看案例 ↗</span></div></div></a>
+<a class="case" id="crane" href="https://huayuankou333.github.io/omniale/ale-crane-keying/" aria-labelledby="title-crane">
+<div class="cover"><img src="assets/crane.jpg" width="840" height="540" alt="真实白鹤输入帧及Sol、Luna第1轮的实际绿幕抠像成片"><span class="cover-label" aria-hidden="true">真实输入与交付 · Resolve / Fusion</span></div>
+<div class="body"><div class="badge">视觉媒体与视频后期<span class="scenario">参考引导抠像</span></div>
+<h3 id="title-crane">从天空中的白鹤，分离出完整绿幕主体</h3><p class="desc">从约10秒的天空视频中分离运动白鹤，保留羽翼、颈腿和完整运动，在Resolve/Fusion中交付可编辑工程及绿幕成片。Sol、Luna各三次独立运行，提供同步成片对照、逐帧评分与工具轨迹。</p>
+<div class="card-footer"><p class="score">gpt-6.1-sol<strong>51.0 / 100</strong> · gpt-6-luna <span>18.6 / 100</span></p><span class="destination">huayuankou333 复现 · 查看案例 ↗</span></div></div></a></section></main></body></html>
