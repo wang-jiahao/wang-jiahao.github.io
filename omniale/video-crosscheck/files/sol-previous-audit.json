@@ -1,0 +1,66 @@
+{
+  "time": "2026-11-06T05:30:04.809549+00:00",
+  "primary_raw_score": 44.19,
+  "primary_audited_score": 44.19,
+  "primary_adjustment": 0,
+  "raw_repeat_scores": [
+    44.19,
+    43.16,
+    44.19
+  ],
+  "raw_repeat_range": 1.03,
+  "original_rubric_sha256": "29e637d0907aab50b586585001e5e104a87be37d5e3e7cd429d6424265881758",
+  "source_video_sha256": "b7332a0010b5ba7fada60f812b87c12cc400c5d4fb8ce8dbbfd8ff6c7ad3328b",
+  "source_copy_matches": true,
+  "candidate_unchanged_after_completion": true,
+  "reviewed_disputes": [
+    {
+      "id": "A3-01",
+      "raw_scores": [
+        1,
+        0,
+        0
+      ],
+      "reviewed_score": 1,
+      "evidence": "author/frame-475.png and output/js/data.js caption at 07:35",
+      "reason": "The screenshot has three brightness bands. The report correctly describes brightness/color adjustment and does not claim identical adjustment under every brightness state. A general summary is not a contradiction; support the first-round pass."
+    },
+    {
+      "id": "A6-01",
+      "raw_scores": [
+        0,
+        0,
+        1
+      ],
+      "reviewed_score": 0,
+      "evidence": "Three source summaries dated 2021-11-02, 2022-05-11 and 2022-07-03; evaluation date 2026-11-06",
+      "reason": "These sources are outside the preceding three years. Support first-round fail; upstream semantic prompt does not explicitly supply the evaluation date, unlike machine checks."
+    }
+  ],
+  "quality_observations_not_added_to_rubric": [
+    {
+      "claim": "260-second frame shows a settings page alongside a colored-pixel diagram",
+      "observed": "Right inset is the presenter, not a pixel diagram",
+      "evidence": "output/img/seg2-04m20s.png",
+      "scoring": "Record independently; do not add a new criterion after seeing this artifact"
+    }
+  ],
+  "browser": {
+    "cites_clicked": 8,
+    "cites_jumped": 8,
+    "images_opened": 8,
+    "images_decoded": 8,
+    "toc_seeks": 5,
+    "mobile_hscroll_px": 0,
+    "console_errors": [],
+    "probe": "grade-1/render_probe.json"
+  },
+  "substantive_limits": [
+    "Original fact list includes broad historical and supplier facts; review relevance before formal OmniALE adoption",
+    "Only one solver run; repeated judging is not repeated model sampling",
+    "Generic CLI plus report template, no full reference skill; Terra judge differs from paper",
+    "Google/Bing HTML search had no effective results; direct sources and Sogou available",
+    "Author audit, not independent domain-expert certification"
+  ],
+  "next_state": "Original-task pilot below 70, retained as a candidate pending scope audit; not automatically published or selected"
+}

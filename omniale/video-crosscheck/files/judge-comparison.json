@@ -1,0 +1,192 @@
+{
+  "status": "complete_reviewed_raw_scores",
+  "judge": "gpt-6-sol",
+  "effort": "high",
+  "date": "2026-11-06T10:26:28.805022+00:00",
+  "material": "omnidr-original-0008-v1",
+  "rubric_sha256": "29e637d0907aab50b586585001e5e104a87be37d5e3e7cd429d6424265881758",
+  "selection_policy": "First complete evaluation; no selection by score",
+  "changes_to_solver_materials_or_rubric": false,
+  "rows": [
+    {
+      "slug": "sol",
+      "solver": "gpt-6.1-sol",
+      "primary_score": 44.19,
+      "scores": [
+        44.19,
+        43.16,
+        43.16
+      ],
+      "score_range": 1.03,
+      "dimensions": [
+        {
+          "content": 0.1837,
+          "citation": 0.5,
+          "presentation": 1.0
+        },
+        {
+          "content": 0.1633,
+          "citation": 0.5,
+          "presentation": 1.0
+        },
+        {
+          "content": 0.1633,
+          "citation": 0.5,
+          "presentation": 1.0
+        }
+      ],
+      "previous_judge": "gpt-6.1-terra",
+      "previous_primary_score": 44.19,
+      "delta": 0.0,
+      "changes": [
+        {
+          "id": "A3-01",
+          "text": "报告在提到「「前摄屏幕显示效果微调」页面说明文字为「可针对以下三档大屏亮度分别调整小屏显示效果」」这一处时，是否出现与视频原意不符的转述（改动数值、张冠李戴、增删限定条件）？",
+          "old_score": 1,
+          "new_score": 0,
+          "old_reason": "[3 票取多数 3:0] 报告提到了该微调页面，但未转述或引用题目所指的页面说明文字，也未对三档亮度作出与原意相悖的表述。",
+          "new_reason": "[3 票取多数 1:2] 报告提到该页面时，将按三档大屏亮度分别调整小屏显示效果，概括为可单独调节屏下区域的亮度与色彩，省略了“三档大屏亮度”这一限定条件。",
+          "old_evidence": "07:35 — “前摄屏幕显示效果微调”页面，可单独调节屏下区域的亮度与色彩；这是用户层面的观感补偿手段。",
+          "new_evidence": "07:35 — “前摄屏幕显示效果微调”页面，可单独调节屏下区域的亮度与色彩；这是用户层面的观感补偿手段。"
+        },
+        {
+          "id": "A6-01",
+          "text": "报告是否补充了视频发布之后、近三年的最新进展或现况变化，并标注了信息的时间？",
+          "old_score": 0,
+          "new_score": 1,
+          "old_reason": "报告虽标注了视频发布后的来源日期，但这些来源主要补充本机发布规格及同期评测，未呈现近三年的技术进展或现况变化。",
+          "new_reason": "报告补充了视频发布后近三年内的独立评测，并标注了评测日期及屏下显示、自拍成像的后续评价。",
+          "old_evidence": "ZTE Axon 40 Ultra officially launched in China — ZTE 官方发布稿（2022-05-11）称 UDC 区域采用 400PPI、全屏蓝钻排列、独立像素驱动、透明分布式走线与 UDC Pro 显示芯片算法；ZTE Axon 40 Ultra review: Can this flagship compete with Android’s best phones? — Tom’s Guide（2022-07-03）将显示与后置相机评价为优点，认为屏下自拍相机仍需改进：日常几乎看不到传感器，但自拍偏软、强光下更差。",
+          "new_evidence": "[research.S2.web] ZTE Axon 40 Ultra review: Can this flagship compete with Android’s best phones? — Tom’s Guide（2022-07-03）将显示与后置相机评价为优点，认为屏下自拍相机仍需改进：日常几乎看不到传感器，但自拍偏软、强光下更差。"
+        }
+      ],
+      "repeat_disputes": [
+        {
+          "id": "A6-01",
+          "text": "报告是否补充了视频发布之后、近三年的最新进展或现况变化，并标注了信息的时间？",
+          "scores": [
+            1,
+            0,
+            0
+          ],
+          "reasons": [
+            "报告补充了视频发布后近三年内的独立评测，并标注了评测日期及屏下显示、自拍成像的后续评价。",
+            "报告引用的视频发布后资料均为2022年的发布稿或评测，未补充此后近三年的技术进展或现况变化及其时间标注。",
+            "报告虽标注了视频发布后两条2022年资料的日期，但内容仍是本机发布信息和当年评测，未补充此后近三年的技术进展或现况变化。"
+          ],
+          "evidence": [
+            "[research.S2.web] ZTE Axon 40 Ultra review: Can this flagship compete with Android’s best phones? — Tom’s Guide（2022-07-03）将显示与后置相机评价为优点，认为屏下自拍相机仍需改进：日常几乎看不到传感器，但自拍偏软、强光下更差。",
+            "[research.S1.web] ZTE Axon 40 Ultra officially launched in China — ZTE 官方发布稿（2022-05-11）；[research.S2.web] ZTE Axon 40 Ultra review: Can this flagship compete with Android’s best phones? — Tom’s Guide（2022-07-03）",
+            "[research.S1.web] ZTE Axon 40 Ultra officially launched in China — ZTE 官方发布稿（2022-05-11）称 UDC 区域采用 400PPI、全屏蓝钻排列、独立像素驱动、透明分布式走线与 UDC Pro 显示芯片算法；[research.S2.web] ZTE Axon 40 Ultra review: Can this flagship compete with Android’s best phones? — Tom’s Guide（2022-07-03）将显示与后置相机评价为优点，认为屏下自拍相机仍需改进"
+          ]
+        }
+      ],
+      "candidate_hashes_unchanged": true,
+      "n_errored": [
+        0,
+        0,
+        0
+      ],
+      "na_propagated": [
+        8,
+        8,
+        8
+      ],
+      "successful_api_calls": 333,
+      "http_retry_attempts": 5,
+      "reported_judge_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "manual_review": [
+        {
+          "id": "A3-01",
+          "finding": "New first-round judge fails omission of the three brightness-band qualifier. Prior source-frame and report audit accepted the general brightness/color summary as non-contradictory. Keep raw vote and flag interpretation disagreement; no new criterion or edited prompt."
+        },
+        {
+          "id": "A6-01",
+          "finding": "New first-round judge credits dated 2022 sources as recent. With unchanged 2026-11-06 evaluation date those sources are outside the preceding three years; this is a judge false positive. The upstream semantic prompt omits the explicit evaluation date, as already documented in prior auditing."
+        }
+      ]
+    },
+    {
+      "slug": "terra",
+      "solver": "gpt-6.1-terra",
+      "primary_score": 63.69,
+      "scores": [
+        63.69,
+        63.69,
+        63.69
+      ],
+      "score_range": 0.0,
+      "dimensions": [
+        {
+          "content": 0.5238,
+          "citation": 0.5833,
+          "presentation": 1.0
+        },
+        {
+          "content": 0.5238,
+          "citation": 0.5833,
+          "presentation": 1.0
+        },
+        {
+          "content": 0.5238,
+          "citation": 0.5833,
+          "presentation": 1.0
+        }
+      ],
+      "previous_judge": "gpt-6.1-terra",
+      "previous_primary_score": 52.35,
+      "delta": 11.34,
+      "changes": [
+        {
+          "id": "A7-05",
+          "text": "报告是否显示，T-OLED 的透光率比手机用 P-OLED 高约 17.1 个百分点？",
+          "old_score": 0,
+          "new_score": 1,
+          "old_reason": "报告给出了两块实验屏约20%和2.9%的透射率，也提到透明OLED和手机Pentile OLED，但未将这两个数值分别对应到两类屏幕，因此不能仅据报告确认题述比较。",
+          "new_reason": "报告给出两类 OLED 面板的透射率约为 20% 和 2.9%；相差约 17.1 个百分点。这些数值并非 Axon 40 Ultra 的实测值。",
+          "old_evidence": "Zhou 等两块实验屏的开口率分别为 21% 和 23%，测得透射率却约 20% 和 2.9%；材料和散射也重要。；比较实验透明 OLED 与手机 Pentile OLED 的透射和成像，讨论反卷积和学习式恢复；样本并非 Axon 40 Ultra。",
+          "new_evidence": "Zhou 等两块实验屏的开口率分别为 21% 和 23%，测得透射率却约 20% 和 2.9%；材料和散射也重要。这些数值只适用于论文所测面板，不能套用到本机 [S4]。"
+        },
+        {
+          "id": "A7-13",
+          "text": "报告中提及的透光率提升技术所达到的屏下摄像区透光率（约20%），是否高于普通手机OLED显示屏通常的透光率（低于5%）？",
+          "old_score": 0,
+          "new_score": 1,
+          "old_reason": "报告提到两块实验屏的实测透射率分别约为20%和2.9%，但没有说明约20%是某项透光率提升技术在本机屏下摄像区达到的结果，也没有称普通手机OLED显示屏的透光率通常低于5%。因此，不能仅依据报告确认题述比较。",
+          "new_reason": "报告给出的实验屏透射率约20%，高于其列出的另一块面板的约2.9%。但报告没有证明普通手机OLED的透光率通常低于5%，也未将这些数值归于Axon 40 Ultra。",
+          "old_evidence": "Zhou 等两块实验屏的开口率分别为 21% 和 23%，测得透射率却约 20% 和 2.9%；材料和散射也重要。这些数值只适用于论文所测面板，不能套用到本机 [S4]。",
+          "new_evidence": "“Zhou 等两块实验屏的开口率分别为 21% 和 23%，测得透射率却约 20% 和 2.9%；材料和散射也重要。这些数值只适用于论文所测面板，不能套用到本机 [S4]。”"
+        }
+      ],
+      "repeat_disputes": [],
+      "candidate_hashes_unchanged": true,
+      "n_errored": [
+        0,
+        0,
+        0
+      ],
+      "na_propagated": [
+        8,
+        8,
+        8
+      ],
+      "successful_api_calls": 333,
+      "http_retry_attempts": 13,
+      "reported_judge_model": "gpt-6-sol",
+      "requested_effort": "high",
+      "manual_review": [
+        {
+          "id": "A7-05",
+          "finding": "Report states experimental panel transmission 20% versus 2.9%; the difference is 17.1 percentage points. New judge accepts the quantitative comparison though it is not explicitly stated as a subtraction. Same S4 paper Table 1 supports both values; report correctly does not transfer them to Axon 40 Ultra."
+        },
+        {
+          "id": "A7-13",
+          "finding": "New judge accepts 20% versus 2.9%, while its own reason says the report does not establish that ordinary phone OLED transmission is typically below 5%. This is a permissive scope interpretation; preserve verbatim reason as uncertainty, not a confirmed general-population claim."
+        }
+      ]
+    }
+  ],
+  "reviewed_at": "2026-11-06T10:26:40.792115+00:00",
+  "raw_scores_unmodified": true
+}
