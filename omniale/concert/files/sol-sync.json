@@ -1,0 +1,336 @@
+{
+  "version": 1,
+  "reference": "inputs/sync_reference.mp4",
+  "reference_zero_is_program_zero": true,
+  "program_audio": "inputs/master.wav",
+  "equation": "source_seconds = program_seconds * rate + offset_seconds; program_seconds = source_seconds - offset_seconds (rate=1).",
+  "offset_direction": "正偏移表示素材有前余量：节目0秒取源文件正偏移处，而不是将节目延后。",
+  "method": "只使用本题输入。先对人物ROI逐帧光流做整段运动相关搜索（-55到+55秒），再以右侧HD见证中的三人动作及3–28、32–57、61–87秒分窗复核。检查0.4秒动作序列对照，使用多个不相邻的头部动作、手部停驻/离开和换把，未以静态坐姿或文件时长猜测。",
+  "reference_panel_note": "左侧SD小视角的运动相关偏移普遍比右侧HD见证多约0.06秒。以右侧HD见证为主要时间基准；SD视角作为同方向动作可见性的辅助。该差异并未用来改变主音轨或给任何机位变速。",
+  "rate_note": "全部rate=1。早中晚匹配峰基本一致，不需要速率补偿。",
+  "estimated_visual_alignment_uncertainty_seconds": 0.08,
+  "frame_selection": "以24fps整数帧入点重建；B的HD相关峰约1.21秒，采用29/24秒。其余采用3、4、2.5秒。",
+  "cameras": {
+    "A": {
+      "input": "inputs/CAM_A.mp4",
+      "rate": 1.0,
+      "offset_seconds": 3.0,
+      "offset_source_frames": 72,
+      "source_at_program_zero": 3.0,
+      "source_at_program_90": 93.0,
+      "hd_motion_window_checks": [
+        {
+          "witness_signal": "A_DA",
+          "windows": [
+            {
+              "program_window": [
+                3,
+                28
+              ],
+              "source_minus_program_seconds": 2.99,
+              "motion_correlation": 0.6918
+            },
+            {
+              "program_window": [
+                32,
+                57
+              ],
+              "source_minus_program_seconds": 2.99,
+              "motion_correlation": 0.7412
+            },
+            {
+              "program_window": [
+                61,
+                87
+              ],
+              "source_minus_program_seconds": 2.995,
+              "motion_correlation": 0.6781
+            }
+          ]
+        }
+      ],
+      "sd_motion_peak_seconds": 3.06,
+      "evidence_sheet": "qa/sync_evidence_A.jpg",
+      "visual_evidence": [
+        {
+          "program_time": 20.58,
+          "source_time_nearest_frame": 23.583333333333332,
+          "sequence_program_times": [
+            20.38,
+            20.58,
+            20.78
+          ],
+          "observed": "低头/抬头动作序列，同时核对换把手形和琴颈方向。"
+        },
+        {
+          "program_time": 44.38,
+          "source_time_nearest_frame": 47.375,
+          "sequence_program_times": [
+            44.18,
+            44.38,
+            44.58
+          ],
+          "observed": "头部下沉、回抬与拨弦手的连续变化。"
+        },
+        {
+          "program_time": 83.38,
+          "source_time_nearest_frame": 86.375,
+          "sequence_program_times": [
+            83.18,
+            83.38,
+            83.58
+          ],
+          "observed": "头部转动/点头序列，连同左手把位交叉核对。"
+        }
+      ]
+    },
+    "B": {
+      "input": "inputs/CAM_B.mp4",
+      "rate": 1.0,
+      "offset_seconds": 1.2083333333333333,
+      "offset_source_frames": 29,
+      "source_at_program_zero": 1.2083333333333333,
+      "source_at_program_90": 91.20833333333333,
+      "hd_motion_window_checks": [
+        {
+          "witness_signal": "B_DB",
+          "windows": [
+            {
+              "program_window": [
+                3,
+                28
+              ],
+              "source_minus_program_seconds": 1.21,
+              "motion_correlation": 0.7169
+            },
+            {
+              "program_window": [
+                32,
+                57
+              ],
+              "source_minus_program_seconds": 1.21,
+              "motion_correlation": 0.6768
+            },
+            {
+              "program_window": [
+                61,
+                87
+              ],
+              "source_minus_program_seconds": 1.21,
+              "motion_correlation": 0.6891
+            }
+          ]
+        }
+      ],
+      "sd_motion_peak_seconds": 1.26,
+      "evidence_sheet": "qa/sync_evidence_B.jpg",
+      "visual_evidence": [
+        {
+          "program_time": 22.98,
+          "source_time_nearest_frame": 24.208333333333332,
+          "sequence_program_times": [
+            22.78,
+            22.98,
+            23.18
+          ],
+          "observed": "低头拨弦时的头肩变化与持琴姿态序列。"
+        },
+        {
+          "program_time": 39.78,
+          "source_time_nearest_frame": 41.0,
+          "sequence_program_times": [
+            39.58,
+            39.78,
+            39.98
+          ],
+          "observed": "从低头到抬头的连续动作，结合右手拨弦相位。"
+        },
+        {
+          "program_time": 69.78,
+          "source_time_nearest_frame": 71.0,
+          "sequence_program_times": [
+            69.58,
+            69.78,
+            69.98
+          ],
+          "observed": "低头与小幅头肩变化，结合按弦/拨弦序列。"
+        }
+      ]
+    },
+    "C": {
+      "input": "inputs/CAM_C.mp4",
+      "rate": 1.0,
+      "offset_seconds": 4.0,
+      "offset_source_frames": 96,
+      "source_at_program_zero": 4.0,
+      "source_at_program_90": 94.0,
+      "hd_motion_window_checks": [
+        {
+          "witness_signal": "C_DC",
+          "windows": [
+            {
+              "program_window": [
+                3,
+                28
+              ],
+              "source_minus_program_seconds": 4.005,
+              "motion_correlation": 0.6242
+            },
+            {
+              "program_window": [
+                32,
+                57
+              ],
+              "source_minus_program_seconds": 3.995,
+              "motion_correlation": 0.5369
+            },
+            {
+              "program_window": [
+                61,
+                87
+              ],
+              "source_minus_program_seconds": 4.005,
+              "motion_correlation": 0.3918
+            }
+          ]
+        }
+      ],
+      "sd_motion_peak_seconds": 4.06,
+      "evidence_sheet": "qa/sync_evidence_C.jpg",
+      "visual_evidence": [
+        {
+          "program_time": 6.58,
+          "source_time_nearest_frame": 10.583333333333334,
+          "sequence_program_times": [
+            6.38,
+            6.58,
+            6.78
+          ],
+          "observed": "双手在鼓面停驻后，一只手离鼓抬起的动作序列。"
+        },
+        {
+          "program_time": 49.98,
+          "source_time_nearest_frame": 54.0,
+          "sequence_program_times": [
+            49.78,
+            49.98,
+            50.18
+          ],
+          "observed": "头部变化及双手轻拍/落鼓停驻的次序。"
+        },
+        {
+          "program_time": 71.78,
+          "source_time_nearest_frame": 75.79166666666667,
+          "sequence_program_times": [
+            71.58,
+            71.78,
+            71.98
+          ],
+          "observed": "双手在鼓面附近轻拍、离开、落回的连续变化。"
+        }
+      ]
+    },
+    "D": {
+      "input": "inputs/CAM_D.mp4",
+      "rate": 1.0,
+      "offset_seconds": 2.5,
+      "offset_source_frames": 60,
+      "source_at_program_zero": 2.5,
+      "source_at_program_90": 92.5,
+      "hd_motion_window_checks": [
+        {
+          "witness_signal": "D_DB",
+          "windows": [
+            {
+              "program_window": [
+                3,
+                28
+              ],
+              "source_minus_program_seconds": 2.495,
+              "motion_correlation": 0.7636
+            },
+            {
+              "program_window": [
+                32,
+                57
+              ],
+              "source_minus_program_seconds": 2.48,
+              "motion_correlation": 0.6786
+            },
+            {
+              "program_window": [
+                61,
+                87
+              ],
+              "source_minus_program_seconds": 2.49,
+              "motion_correlation": 0.6769
+            }
+          ]
+        },
+        {
+          "witness_signal": "D_DA",
+          "windows": [
+            {
+              "program_window": [
+                3,
+                28
+              ],
+              "source_minus_program_seconds": 2.505,
+              "motion_correlation": 0.6174
+            },
+            {
+              "program_window": [
+                32,
+                57
+              ],
+              "source_minus_program_seconds": 2.5,
+              "motion_correlation": 0.7903
+            },
+            {
+              "program_window": [
+                61,
+                87
+              ],
+              "source_minus_program_seconds": 2.5,
+              "motion_correlation": 0.8189
+            }
+          ]
+        }
+      ],
+      "sd_motion_peak_seconds": 2.56,
+      "evidence_sheet": "qa/sync_evidence_D.jpg",
+      "visual_evidence": [
+        {
+          "program_time": 20.58,
+          "source_time_nearest_frame": 23.083333333333332,
+          "sequence_program_times": [
+            20.38,
+            20.58,
+            20.78
+          ],
+          "observed": "同时核对白衣点头/拨弦与另外两人的姿态变化。"
+        },
+        {
+          "program_time": 39.78,
+          "source_time_nearest_frame": 42.291666666666664,
+          "sequence_program_times": [
+            39.58,
+            39.78,
+            39.98
+          ],
+          "observed": "酒红衣由低头到抬头的变化，并交叉核对白衣动作。"
+        },
+        {
+          "program_time": 83.38,
+          "source_time_nearest_frame": 85.875,
+          "sequence_program_times": [
+            83.18,
+            83.38,
+            83.58
+          ],
+          "observed": "白衣头部动作与两位伴奏的同期姿态序列。"
+        }
+      ]
+    }
+  }
+}

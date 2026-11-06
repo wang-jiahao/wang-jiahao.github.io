@@ -1,0 +1,113 @@
+{
+  "rubric_version": "concert-sync-v7.0",
+  "duration": 90.0,
+  "phase": "early real co-present performance diagnostic; silent HD angles, audiovisual witness for visual synchronization",
+  "source_description": "CMU Panoptic 160906_band3, different real HD cameras8/18/20/16, author audiovisual witness; academic use only",
+  "expert_gold_standard": false,
+  "camera_labels": {
+    "A": [
+      {
+        "start": 0.0,
+        "end": 90.0,
+        "quality": 1.0,
+        "white_guitar": 1.0,
+        "burgundy_strings": 0.1,
+        "hand_drum": 0.1
+      }
+    ],
+    "B": [
+      {
+        "start": 0.0,
+        "end": 90.0,
+        "quality": 1.0,
+        "white_guitar": 0.1,
+        "burgundy_strings": 1.0,
+        "hand_drum": 0.1
+      }
+    ],
+    "C": [
+      {
+        "start": 0.0,
+        "end": 90.0,
+        "quality": 1.0,
+        "white_guitar": 0.1,
+        "burgundy_strings": 0.1,
+        "hand_drum": 1.0
+      }
+    ],
+    "D": [
+      {
+        "start": 0.0,
+        "end": 90.0,
+        "quality": 1.0,
+        "white_guitar": 0.25,
+        "burgundy_strings": 0.25,
+        "hand_drum": 0.25
+      }
+    ]
+  },
+  "role_groups": [
+    {
+      "id": "white",
+      "target": "white_guitar",
+      "windows": [
+        [
+          0.0,
+          30.0
+        ],
+        [
+          60.0,
+          90.0
+        ]
+      ],
+      "hold": 4.0,
+      "points": 15.0
+    },
+    {
+      "id": "burgundy",
+      "target": "burgundy_strings",
+      "windows": [
+        [
+          20.0,
+          50.0
+        ]
+      ],
+      "hold": 4.0,
+      "points": 15.0
+    },
+    {
+      "id": "drum",
+      "target": "hand_drum",
+      "windows": [
+        [
+          55.0,
+          75.0
+        ]
+      ],
+      "hold": 4.0,
+      "points": 15.0
+    }
+  ],
+  "focus_windows": [],
+  "handoffs": [],
+  "relationship_windows": [
+    {
+      "id": "opening",
+      "start": 0.0,
+      "end": 35.0
+    },
+    {
+      "id": "closing",
+      "start": 65.0,
+      "end": 90.0
+    }
+  ],
+  "evidence_files": [
+    "../research/panoptic/sync_probe/time_alignment.json",
+    "../research/panoptic/sync_probe/camera_match.json",
+    "../research/panoptic/160906_band3.html",
+    "private/original_silent_streams.json",
+    "private/contacts/all.jpg",
+    "../DESIGN_sync_v7.md"
+  ]
+}

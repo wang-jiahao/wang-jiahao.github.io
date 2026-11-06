@@ -1,0 +1,38 @@
+{
+  "material_version": "sync_v7",
+  "rubric_version": "concert-sync-v7.0",
+  "score": 100.0,
+  "show_in_summary": false,
+  "previews_are_transcoded": true,
+  "source_input_hashes": {
+    "ATTRIBUTION.md": "e67dc80b6a234d6660cdebd581322beee4cf9827d5952e35bb547315aad44e9e",
+    "inputs/CAM_A.mp4": "e1c430e0fc9d50a171fb87e701860f563a3db041ddeac576b9dc17497009d581",
+    "inputs/CAM_B.mp4": "b42e42e836a806944033d648ac2a1c55564e1e7392fe7a7ba226d0bad7368acc",
+    "inputs/CAM_C.mp4": "a7febb4dc4e98c7f5f99209deac0ec1d125075587cec6e30d59985874aa61bbd",
+    "inputs/CAM_D.mp4": "c30b3616ebfc3d288a37ae837550f190031ef5ece0c4cc68cc88c226f743ef2a",
+    "inputs/master.wav": "efd941a213fd3ae91118cad6b910022b380191680e1b7a3a8d254a71c9e92aa4",
+    "inputs/sync_reference.mp4": "a8cbb5fd3c658e0c4e03742471798b89b89839a926d315ed1d057a6ff80c768e",
+    "TASK.md": "18bd6395e940d0f88b707247791dbe4de57ce82dda6f908604fe0f9676e8c33d"
+  },
+  "source_output_sha256": {
+    "checked_at": "2026-11-05T22:07:00.934478+00:00",
+    "command": "python -X utf8 output/rebuild.py --inputs INPUTS --edit output/edit.json --out INDEPENDENT_EMPTY_DIRECTORY --workers 2",
+    "exit_code": 0,
+    "checks": [
+      {
+        "file": "program.mp4",
+        "original_sha256": "83aac19060f4bd2481406cbac7b6ebd41368a4caebecd3b9709b0cd1a08dcc23",
+        "rebuilt_sha256": "83aac19060f4bd2481406cbac7b6ebd41368a4caebecd3b9709b0cd1a08dcc23",
+        "byte_identical": true
+      },
+      {
+        "file": "final_audio.wav",
+        "original_sha256": "efd941a213fd3ae91118cad6b910022b380191680e1b7a3a8d254a71c9e92aa4",
+        "rebuilt_sha256": "efd941a213fd3ae91118cad6b910022b380191680e1b7a3a8d254a71c9e92aa4",
+        "byte_identical": true
+      }
+    ],
+    "accepted": true
+  },
+  "trace_events": 55
+}
