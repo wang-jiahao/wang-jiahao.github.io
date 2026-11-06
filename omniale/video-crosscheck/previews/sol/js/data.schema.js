@@ -7,7 +7,7 @@
 window.OMNIDR_SCHEMA_EXAMPLE = {
   meta: { theme: "t05", category: "Subject category", lang: "en" },
   summary: "The source and the externally supported finding [S1].",
-  video: { src: "media/source.mp4", title: "Video title", duration: 120, poster: "img/poster.jpg" },
+  video: { src: "../../media/source.mp4", title: "Video title", duration: 120, poster: "img/poster.jpg" },
   segments: [
     {
       id: "seg1", start: 0, end: 120, title: "Semantic segment title",

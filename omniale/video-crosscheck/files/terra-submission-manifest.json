@@ -109,15 +109,15 @@
       "sha256": "4df1c6d84cd4423b3f8fb2be2c92540af4e0c033b95a55c3c22508c7eade24be",
       "bytes": 19432,
       "preview_path": "js/app.js",
-      "preview_sha256": "4df1c6d84cd4423b3f8fb2be2c92540af4e0c033b95a55c3c22508c7eade24be",
-      "byte_equal": true
+      "preview_sha256": "01df97d3a3cbb7a1b6126b59d49957f7d4be84ed3a18da3446a82316a8d3c3b8",
+      "byte_equal": false
     },
     {
       "path": "js/data.js",
       "sha256": "156f0b986b0d85181cbc1a9b6f8fb1990c581f07c822ac103c9bb76a4247e352",
       "bytes": 16258,
       "preview_path": "js/data.js",
-      "preview_sha256": "f08ccb1e9865267d73006852d2cc4f23b46baf49d7d40495881c367ce477b1c8",
+      "preview_sha256": "370321efd4df1fa7d005f85d0f13e49bb7811d0956cbe8028290bc3848a30160",
       "byte_equal": false
     },
     {
@@ -125,7 +125,7 @@
       "sha256": "97b0589335b28716c39b6708996b7c84b3e625c404e653242787484006a46d33",
       "bytes": 4204,
       "preview_path": "js/data.schema.js",
-      "preview_sha256": "075c8d9f5608d3850bf5713335a17ce5bc7918ef0d16b8a2a2ada9c03ccbcc5a",
+      "preview_sha256": "6acc938b9b9d6bb1cff8d0aaf516479eda592124fac68670d9e46ee9250bfa8b",
       "byte_equal": false
     },
     {
@@ -140,7 +140,7 @@
       "path": "media/source.mp4",
       "sha256": "b7332a0010b5ba7fada60f812b87c12cc400c5d4fb8ce8dbbfd8ff6c7ad3328b",
       "bytes": 34630401,
-      "preview_path": "media/source.mp4",
+      "preview_path": "../../media/source.mp4",
       "preview_sha256": "b7332a0010b5ba7fada60f812b87c12cc400c5d4fb8ce8dbbfd8ff6c7ad3328b",
       "byte_equal": true
     },
@@ -404,12 +404,14 @@
   "preview_files_byte_equal": false,
   "original_report_package": true,
   "preview_reference_changes": [
+    "js/app.js",
     "js/data.js",
     "js/data.schema.js"
   ],
   "path_mapping": {
     "_assets": "evidence-assets",
-    "_work": "evidence-work"
+    "_work": "evidence-work",
+    "media/source.mp4": "../../media/source.mp4"
   },
-  "reason": "Jekyll excludes underscore directories. Preview maps local evidence paths; original download files retain their original bytes and paths."
+  "reason": "Preview maps local evidence paths and shares one identical video. Original downloads retain their original file bytes and paths."
 }

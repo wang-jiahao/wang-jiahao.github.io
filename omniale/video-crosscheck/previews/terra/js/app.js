@@ -430,7 +430,7 @@
     v.playsInline = true;
     if (video.poster) v.poster = video.poster;
     var source = document.createElement("source");
-    source.src = video.src || "media/source.mp4";
+    source.src = video.src || "../../media/source.mp4";
     v.appendChild(source);
     pw.appendChild(v);
     left.appendChild(pw);

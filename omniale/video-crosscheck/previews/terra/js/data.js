@@ -6,7 +6,7 @@ window.DATA = {
   },
   "video": {
     "title": "Axon 40 Ultra：一块完整屏幕背后的成像代价",
-    "src": "media/source.mp4",
+    "src": "../../media/source.mp4",
     "duration": 986.069,
     "poster": "img/frame-00344.000.png"
   },
@@ -257,7 +257,7 @@ window.DATA = {
       "publisher": "大家测 / 哔哩哔哩",
       "summary": "2022 年开箱原片；分段观察显示条件、局部微调、显微图与自拍；主观评价不等同于仪器实测。",
       "anchorId": "A1",
-      "media": "media/source.mp4",
+      "media": "../../media/source.mp4",
       "perception": "evidence-work/S1-reading.json"
     },
     {

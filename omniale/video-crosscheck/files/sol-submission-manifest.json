@@ -13,8 +13,8 @@
       "sha256": "c460be83d88f844b1228b9844544cd524974be80f088a1ba3bc6d9098403bc3e",
       "bytes": 151,
       "preview_path": "omnidr-project.json",
-      "preview_sha256": "c460be83d88f844b1228b9844544cd524974be80f088a1ba3bc6d9098403bc3e",
-      "byte_equal": true
+      "preview_sha256": "4403cf9e7e0247b8491585e7815e695552a335e0267143693b7a9099303705bb",
+      "byte_equal": false
     },
     {
       "path": "styles.css",
@@ -109,15 +109,15 @@
       "sha256": "4df1c6d84cd4423b3f8fb2be2c92540af4e0c033b95a55c3c22508c7eade24be",
       "bytes": 19432,
       "preview_path": "js/app.js",
-      "preview_sha256": "4df1c6d84cd4423b3f8fb2be2c92540af4e0c033b95a55c3c22508c7eade24be",
-      "byte_equal": true
+      "preview_sha256": "01df97d3a3cbb7a1b6126b59d49957f7d4be84ed3a18da3446a82316a8d3c3b8",
+      "byte_equal": false
     },
     {
       "path": "js/data.js",
       "sha256": "ac83a5680c98f8747cb8964d04fbcee4687557dc1fb222be441e6ee3dc6d8958",
       "bytes": 16569,
       "preview_path": "js/data.js",
-      "preview_sha256": "9c9e32356cf6191e73068bc14d3d8b084dbd1e5400f00f2c4e34ea35b7cb2cea",
+      "preview_sha256": "d4a47145cd8d36e96188bb2375380d34dc6a0235341329765f29f60b952729bc",
       "byte_equal": false
     },
     {
@@ -125,7 +125,7 @@
       "sha256": "97b0589335b28716c39b6708996b7c84b3e625c404e653242787484006a46d33",
       "bytes": 4204,
       "preview_path": "js/data.schema.js",
-      "preview_sha256": "075c8d9f5608d3850bf5713335a17ce5bc7918ef0d16b8a2a2ada9c03ccbcc5a",
+      "preview_sha256": "6acc938b9b9d6bb1cff8d0aaf516479eda592124fac68670d9e46ee9250bfa8b",
       "byte_equal": false
     },
     {
@@ -140,7 +140,7 @@
       "path": "media/source.mp4",
       "sha256": "b7332a0010b5ba7fada60f812b87c12cc400c5d4fb8ce8dbbfd8ff6c7ad3328b",
       "bytes": 34630401,
-      "preview_path": "media/source.mp4",
+      "preview_path": "../../media/source.mp4",
       "preview_sha256": "b7332a0010b5ba7fada60f812b87c12cc400c5d4fb8ce8dbbfd8ff6c7ad3328b",
       "byte_equal": true
     },
@@ -173,8 +173,8 @@
       "sha256": "22d957bb2952722d5d03ea1ad5f2119b47cfee22a33c3fb0ca98f9a6d47b986c",
       "bytes": 4302,
       "preview_path": "evidence-work/research-review.json",
-      "preview_sha256": "22d957bb2952722d5d03ea1ad5f2119b47cfee22a33c3fb0ca98f9a6d47b986c",
-      "byte_equal": true
+      "preview_sha256": "493241ad27b09f5a86cd7a48643cb2d182cd53f275ce0b119a6d8205cc032f84",
+      "byte_equal": false
     },
     {
       "path": "_assets/docs/S1-zte-axon40.html",
@@ -357,20 +357,24 @@
       "sha256": "c8ae848bad866997ea486aac75f4ca3900d877b32d75559cc625a9a72bb56213",
       "bytes": 1855,
       "preview_path": "evidence-work/observations/source-reading.json",
-      "preview_sha256": "7588fd4631cfe9deb674b7f258771320a6383914dabdc7bc9b3e3825df659f30",
+      "preview_sha256": "6a365398c8eb6a79d326f90e08857f4398746b567ea0144e68ccae446febd0dd",
       "byte_equal": false
     }
   ],
   "preview_files_byte_equal": false,
   "original_report_package": true,
   "preview_reference_changes": [
+    "omnidr-project.json",
+    "js/app.js",
     "js/data.js",
     "js/data.schema.js",
+    "_work/research-review.json",
     "_work/observations/source-reading.json"
   ],
   "path_mapping": {
     "_assets": "evidence-assets",
-    "_work": "evidence-work"
+    "_work": "evidence-work",
+    "media/source.mp4": "../../media/source.mp4"
   },
-  "reason": "Jekyll excludes underscore directories. Preview maps local evidence paths; original download files retain their original bytes and paths."
+  "reason": "Preview maps local evidence paths and shares one identical video. Original downloads retain their original file bytes and paths."
 }
