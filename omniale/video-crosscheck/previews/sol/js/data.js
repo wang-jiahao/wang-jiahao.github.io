@@ -261,7 +261,7 @@ window.DATA = {
       "anchorId": "A3",
       "publisher": "ZTE Corporation",
       "primary": true,
-      "media": "_assets/docs/S1-zte-axon40.html"
+      "media": "evidence-assets/docs/S1-zte-axon40.html"
     },
     {
       "id": "S2",
@@ -271,7 +271,7 @@ window.DATA = {
       "summary": "Tom’s Guide（2022-07-03）将显示与后置相机评价为优点，认为屏下自拍相机仍需改进：日常几乎看不到传感器，但自拍偏软、强光下更差。",
       "anchorId": "A2",
       "publisher": "Tom's Guide / Future US",
-      "media": "_assets/docs/S2-toms-guide.html"
+      "media": "evidence-assets/docs/S2-toms-guide.html"
     },
     {
       "id": "S3",
@@ -281,7 +281,7 @@ window.DATA = {
       "summary": "Qi、Li、Heidrich 的 arXiv 论文（2021-11-02）总结屏幕置于相机上方会造成对比度损失、模糊、噪声、色偏、散射和感光度下降，并把遮挡吸收、像素衍射和层间反射列为主要光学原因。",
       "anchorId": "A2",
       "publisher": "Miao Qi, Yuqi Li, Wolfgang Heidrich / arXiv",
-      "media": "_assets/docs/S3-arxiv-2111.01511.html"
+      "media": "evidence-assets/docs/S3-arxiv-2111.01511.html"
     }
   ],
   "insights": [
@@ -322,17 +322,17 @@ window.DATA = {
         {
           "srcId": "S1",
           "quote": "For the Axon 40 Ultra, a 400PPI density has been applied to the UDC area of the screen while the whole screen is equipped with a blue diamond arrangement, presenting an even better visual integration effect.",
-          "local": "_assets/docs/S1-zte-axon40.html"
+          "local": "evidence-assets/docs/S1-zte-axon40.html"
         },
         {
           "srcId": "S2",
           "quote": "ZTE's done a great job upping the pixel density of the disappearing display over the camera, meaning it's basically impossible to see any difference in the screen during regular usage.",
-          "local": "_assets/docs/S2-toms-guide.html"
+          "local": "evidence-assets/docs/S2-toms-guide.html"
         },
         {
           "srcId": "S3",
           "quote": "Unfortunately, placing the camera behind the screen results in significant image distortions, including loss of contrast, blur, noise, color shift, scattering artifacts, and reduced light sensitivity.",
-          "local": "_assets/docs/S3-arxiv-2111.01511.html"
+          "local": "evidence-assets/docs/S3-arxiv-2111.01511.html"
         }
       ]
     },

@@ -37,13 +37,13 @@ window.OMNIDR_SCHEMA_EXAMPLE = {
       id: "S1", type: "web", title: "Opened source title", url: "https://example.org/article",
       summary: "The finding actually read from this source.", anchorId: "A1",
       publisher: "Independent author or publisher", primary: true,
-      media: "_assets/docs/S1.html" // Required saved evidence; thumb is an optional local image.
+      media: "evidence-assets/docs/S1.html" // Required saved evidence; thumb is an optional local image.
     },
     {
       id: "S2", type: "video", title: "Watched related video", url: "https://example.org/watch",
       summary: "Finding grounded in inspected visual and audio ranges.", anchorId: "A1",
       publisher: "Independent video creator",
-      media: "_assets/videos/S2.mp4", perception: "_work/S2/reading.json"
+      media: "evidence-assets/videos/S2.mp4", perception: "evidence-work/S2/reading.json"
     }
   ],
   // Source types: web, image, video, report. A PDF uses type report and a local PDF media path.
@@ -53,8 +53,8 @@ window.OMNIDR_SCHEMA_EXAMPLE = {
       table: { cols: ["Dimension", "Source video", "External evidence"], rows: [["Dimension A", "Value", "Value"]] },
       body: "The comparison and its practical implication [S1][S2].", sources: ["S1", "S2"],
       evidence: [
-        { srcId: "S1", quote: "A verbatim passage of at least twenty characters from the saved source.", local: "_assets/docs/S1.html" },
-        { srcId: "S2", quote: "A faithful transcript passage supporting the compared statement.", local: "_assets/docs/S2-transcript.txt" }
+        { srcId: "S1", quote: "A verbatim passage of at least twenty characters from the saved source.", local: "evidence-assets/docs/S1.html" },
+        { srcId: "S2", quote: "A faithful transcript passage supporting the compared statement.", local: "evidence-assets/docs/S2-transcript.txt" }
       ]
     },
     { kind: "cause", title: "Explanation", body: "A source-backed explanation [S1].", sources: ["S1"] },

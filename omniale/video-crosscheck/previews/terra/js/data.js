@@ -180,7 +180,7 @@ window.DATA = {
         },
         {
           "type": "image",
-          "src": "_assets/images/S5.jpg",
+          "src": "evidence-assets/images/S5.jpg",
           "cap": "独立评测的 Axon 40 Ultra 前摄户外样张；摄影：Namerah Saud Fatmi / Android Central [S5]。"
         },
         {
@@ -258,7 +258,7 @@ window.DATA = {
       "summary": "2022 年开箱原片；分段观察显示条件、局部微调、显微图与自拍；主观评价不等同于仪器实测。",
       "anchorId": "A1",
       "media": "media/source.mp4",
-      "perception": "_work/S1-reading.json"
+      "perception": "evidence-work/S1-reading.json"
     },
     {
       "id": "S2",
@@ -268,7 +268,7 @@ window.DATA = {
       "publisher": "Android Central · Namerah Saud Fatmi",
       "summary": "独立体验记录屏幕几乎不可见的前摄，列出整屏 400 PPI 和 16 MP 前摄，并评价自拍可用但色彩过饱和。",
       "anchorId": "A1",
-      "media": "_assets/docs/S2.html",
+      "media": "evidence-assets/docs/S2.html",
       "primary": true
     },
     {
@@ -279,7 +279,7 @@ window.DATA = {
       "publisher": "Feng 等，CVPR 2021",
       "summary": "以 Axon 20 UDC 测得 PSF，建立衍射、饱和和噪声模型；研究网络并非本机所用算法的证据。",
       "anchorId": "A2",
-      "media": "_assets/docs/S3.pdf",
+      "media": "evidence-assets/docs/S3.pdf",
       "primary": true
     },
     {
@@ -290,7 +290,7 @@ window.DATA = {
       "publisher": "Zhou 等，CVPR 2021",
       "summary": "比较实验透明 OLED 与手机 Pentile OLED 的透射和成像，讨论反卷积和学习式恢复；样本并非 Axon 40 Ultra。",
       "anchorId": "A2",
-      "media": "_assets/docs/S4.pdf",
+      "media": "evidence-assets/docs/S4.pdf",
       "primary": true
     },
     {
@@ -301,7 +301,7 @@ window.DATA = {
       "publisher": "Namerah Saud Fatmi / Android Central",
       "summary": "独立评测随文发布的户外前摄样张；拍摄参数和同场对照未见于该图。",
       "anchorId": "A3",
-      "media": "_assets/images/S5.jpg"
+      "media": "evidence-assets/images/S5.jpg"
     }
   ],
   "insights": [
@@ -336,12 +336,12 @@ window.DATA = {
         {
           "srcId": "S3",
           "quote": "The UDC OLED panel has reduced pixel density in the area above the camera, allowing for more transparency.",
-          "local": "_work/S3.txt"
+          "local": "evidence-work/S3.txt"
         },
         {
           "srcId": "S2",
           "quote": "The 6.8-inch AMOLED panel cleverly hides an under-display camera on the top instead of a cutout, and it's as good as invisible to the naked eye.",
-          "local": "_work/S2.txt"
+          "local": "evidence-work/S2.txt"
         }
       ]
     },
