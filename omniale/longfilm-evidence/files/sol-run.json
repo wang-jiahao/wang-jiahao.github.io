@@ -1,0 +1,60 @@
+{
+  "case": "longfilm_evidence",
+  "material_version": "pilot-v10",
+  "tag": "sol_r10_20261106",
+  "model": "gpt-6.1-sol",
+  "requested_effort": "xhigh",
+  "base_url": "https://api-temporary.nju-link.com/v1",
+  "network": "enabled; normal user proxies preserved; web search live",
+  "os": "Windows native; no WSL",
+  "execution_budget": null,
+  "state": "completed",
+  "elapsed_seconds": 1050.219,
+  "exit_code": 0,
+  "started_at": "2026-11-06T06:35:42.323563+00:00",
+  "runtime_preflight": {
+    "status": "pass",
+    "decoder_samples": 6400,
+    "python": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:17:27) [MSC v.1929 64 bit (AMD64)]",
+    "packages": {
+      "faster-whisper": "1.2.1",
+      "av": "18.1.0",
+      "ctranslate2": "4.8.5",
+      "numpy": "2.5.4",
+      "opencv-python-headless": "5.0.0.93",
+      "opencv-python": null,
+      "pillow": "13.0.0",
+      "requests": "2.34.2"
+    }
+  },
+  "network_preflight": {
+    "https://huggingface.co/api/models/Systran/faster-whisper-small.en": {
+      "http_status": 200,
+      "ok": true
+    },
+    "https://pypi.org/pypi/faster-whisper/json": {
+      "http_status": 200,
+      "ok": true
+    }
+  },
+  "codex_version": "codex-cli 0.166.0-alpha.5.1",
+  "source_hashes": {
+    "claims.json": "2086677dc340ecb9f0aab256974a425f37de24bd74be4c691134b71653241f17",
+    "film.mp4": "122f0b8a2e53dfbc6c2c27a43a9bb05f3c3403ea9753334ebd563e9260b3d01d",
+    "source.json": "b1630056379f3e12627e4e24553d102f2539f58f078e82061df6497a4ba8214f",
+    "TASK.md": "f90d062271d740df1f74c7e3ca8fe741849ec02095b7a048f583ad35040d9a0a"
+  },
+  "rubric_version": "evidence-v1",
+  "evaluation_hashes": {
+    "pilot-v10\\gold.json": "ddda7e396dccbfe3298073fa6be41428094053cfda39e9c8400a93c4f8abad1f",
+    "pilot-v10\\rubric.md": "5b8f602d6894b483852f315759891b4dbd9076b54641e059046feb9ab5c20abd",
+    "score.py": "9cab8ca610fc6a4d6a6710963843f7df4346875014e504905d85a623627b8767",
+    "judge_api.py": "1ad16f2b297e24d5d8ec397d19b9d17e41e8e76daeb39edc6dcc8f92405de193",
+    "pilot-v10\\equivalent-expression-policy.json": "b465cc99128919314913f40ff2b507967fb0f742da10fd50ceba8f27fe08cbb1",
+    "pilot-v10\\source-scope-review.json": "4f94454920802a01c87e74a17f22cc03d5e72cfa7544594847ea8601584faff9"
+  },
+  "driver_sha256": "d376f43b4264dbc2c95559be3a63d02cbdfd6cc9a9151199eeac6973bf88c201",
+  "actual_effort": "xhigh",
+  "actual_model": "gpt-6.1-sol",
+  "run_count_same_material": 1
+}

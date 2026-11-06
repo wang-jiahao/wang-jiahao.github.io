@@ -1,0 +1,65 @@
+{
+  "fresh_judge_calls": 3,
+  "scores": [
+    {
+      "B00": 100.0,
+      "B01": 20.0,
+      "B02": 87.5,
+      "B03": 87.5,
+      "B04": 100.0,
+      "B05": 87.5
+    },
+    {
+      "B00": 100.0,
+      "B01": 20.0,
+      "B02": 87.5,
+      "B03": 87.5,
+      "B04": 100.0,
+      "B05": 87.5
+    },
+    {
+      "B00": 100.0,
+      "B01": 20.0,
+      "B02": 87.5,
+      "B03": 87.5,
+      "B04": 100.0,
+      "B05": 87.5
+    }
+  ],
+  "ranges": {
+    "B00": 0.0,
+    "B01": 0.0,
+    "B02": 0.0,
+    "B03": 0.0,
+    "B04": 0.0,
+    "B05": 0.0
+  },
+  "expected": {
+    "B00": 100,
+    "B01": 20,
+    "B02": 87.5,
+    "B03": 87.5,
+    "B04": 100,
+    "B05": 87.5
+  },
+  "checks": {
+    "fresh_semantic_fixtures": true,
+    "wrong_labels": true,
+    "equivalent_boundaries": true,
+    "wrong_intervals": true,
+    "whole_film_soft_credit": true
+  },
+  "mutation_scores": {
+    "wrong_labels": 80.0,
+    "equivalent_boundaries": 100.0,
+    "wrong_intervals": 20.0,
+    "whole_film": 29.711128
+  },
+  "atomic_checks": 66,
+  "unanimous_atomic_checks": 66,
+  "status": "pass",
+  "gold_sha256": "ddda7e396dccbfe3298073fa6be41428094053cfda39e9c8400a93c4f8abad1f",
+  "scorer_sha256": "9cab8ca610fc6a4d6a6710963843f7df4346875014e504905d85a623627b8767",
+  "fixtures_sha256": "2321fe48743ecb3481e6d05e73a3ad6916c8b417b2fbf6a69f4de8e944b9e0d1",
+  "note": "Independent scalar/atomic repeatability on fixed fixtures; not source-truth or model-difficulty validation."
+}

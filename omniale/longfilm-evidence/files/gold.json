@@ -1,0 +1,186 @@
+{
+  "material_version": "pilot-v10",
+  "rubric_version": "evidence-v1",
+  "video_duration_s": 6107.776,
+  "annotation_status": "Adaptive development from earlier public Sol trace plus user-specified AV emphasis. Original-source audio-only, continuous AV and native-frame review; model-assisted, not two humans. No held-out claim.",
+  "claims": [
+    {
+      "claim_id": "AV01",
+      "verdict": "refuted",
+      "facts": [
+        {
+          "fact_id": "water_sound",
+          "text": "物件下沉的水下画面至少有一段没有清楚的无词女声哼唱，听到的是低频底音/环境声或此前有词女声的尾部。下沉画面非全程以清晰哼唱为主要人声。只要一个清楚的这类反例就足够；不要求辨认物件身份或给全部音乐起止。",
+          "intervals": [
+            [
+              3556,
+              3563
+            ]
+          ],
+          "modality": "both",
+          "context_s": 90
+        }
+      ],
+      "routes": [
+        [
+          "water_sound"
+        ]
+      ],
+      "relation_checks": [
+        {
+          "id": "not_hum_throughout",
+          "text": "区分有词旁白/低频底音与清晰无词哼唱，实际对到物件下沉画面，反驳全程主要人声是哼唱的说法。",
+          "requires": [
+            "water_sound"
+          ]
+        }
+      ],
+      "claim": "在小圆物件沉入水中的那组镜头里，清晰的无词女声哼唱从头到尾都是主要人声。"
+    },
+    {
+      "claim_id": "AV02",
+      "verdict": "supported",
+      "facts": [
+        {
+          "fact_id": "clear_hum",
+          "text": "在厨房远景可清楚听到无词女声哼唱；后段在男方开始对白前已停止或降至不可清楚辨识。只验可辨哼唱，不要求排除不可听的极弱残留或判实际声源。",
+          "intervals": [
+            [
+              3564,
+              3583
+            ]
+          ],
+          "modality": "audio",
+          "context_s": 90
+        },
+        {
+          "fact_id": "later_face",
+          "text": "女子正面特写从约3594秒开始，此时为男女问答，晚于可辨哼唱结束。",
+          "intervals": [
+            [
+              3594,
+              3605
+            ]
+          ],
+          "modality": "both",
+          "context_s": 90
+        }
+      ],
+      "routes": [
+        [
+          "clear_hum",
+          "later_face"
+        ]
+      ],
+      "relation_checks": [
+        {
+          "id": "hum_before_face",
+          "text": "将实际可辨哼唱末段与女子正面特写的起段相对齐：哼唱先结束，特写后开始；不要求精确毫秒或声源身份。",
+          "requires": [
+            "clear_hum",
+            "later_face"
+          ]
+        }
+      ],
+      "claim": "链饰询问附近那段清楚可辨的无词女声哼唱，在画面切成女子正面特写之前就已经结束。"
+    },
+    {
+      "claim_id": "AV03",
+      "verdict": "supported",
+      "facts": [
+        {
+          "fact_id": "phone_voice",
+          "text": "室内男子持电话讲述梦，男声在后续蒙太奇中延续同一叙述，不是必须逐字口型认证。",
+          "intervals": [
+            [
+              4590,
+              4600
+            ],
+            [
+              4647,
+              4651
+            ]
+          ],
+          "modality": "both",
+          "context_s": 90
+        },
+        {
+          "fact_id": "outdoor_voice",
+          "text": "草叶→树林男女→海边人物的连续蒙太奇中仍是同一段男声讲梦，非各户外人物分别当场说相同对白。不必确认户外人物与室内男子的真实身份、回忆/梦境性质。",
+          "intervals": [
+            [
+              4600,
+              4647
+            ]
+          ],
+          "modality": "both",
+          "context_s": 90
+        }
+      ],
+      "routes": [
+        [
+          "phone_voice",
+          "outdoor_voice"
+        ]
+      ],
+      "relation_checks": [
+        {
+          "id": "voice_bridge",
+          "text": "把电话语境与跨三类户外画面延续的同一男声相连；镜头换了并未换成现场对白，声音连续允许自然句间停顿。",
+          "requires": [
+            "phone_voice",
+            "outdoor_voice"
+          ]
+        }
+      ],
+      "claim": "室内男子通过电话讲述梦境的男声，在画面依次转为草叶、树林中相对的男女、海边人物时仍作为同一段叙述延续；这些户外镜头并没有变成画面人物的现场对白。"
+    },
+    {
+      "claim_id": "AV04",
+      "verdict": "refuted",
+      "facts": [
+        {
+          "fact_id": "woman_reaction",
+          "text": "询问是否介意那句话发生时，画面已切到女子正面近景/特写，男子不在该帧内；不要求精确机位术语。",
+          "intervals": [
+            [
+              3594,
+              3600
+            ]
+          ],
+          "modality": "visual",
+          "context_s": 90
+        },
+        {
+          "fact_id": "male_question",
+          "text": "同时间实际是男声继续问她是否介意使用标志；当前可见的女子不是在说这句男声提问。允许同义转写，不要求逐字英文。",
+          "intervals": [
+            [
+              3595,
+              3599
+            ]
+          ],
+          "modality": "audio",
+          "context_s": 90
+        }
+      ],
+      "routes": [
+        [
+          "woman_reaction",
+          "male_question"
+        ]
+      ],
+      "relation_checks": [
+        {
+          "id": "speaker_not_frame_person",
+          "text": "将男声提问与女子反应特写对齐，反驳画面仍显示男方嘴部的说法；自然对话反打不等于音轨失步。",
+          "requires": [
+            "woman_reaction",
+            "male_question"
+          ]
+        }
+      ],
+      "claim": "厨房对话中，男声问对方是否介意使用那个标志时，画面仍对着这名男子、能看到他的嘴，而不是女子的正面特写。"
+    }
+  ]
+}
