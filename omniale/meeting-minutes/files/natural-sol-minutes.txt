@@ -1,0 +1,603 @@
+# 会议浏览器项目：本轮纪要与待办
+
+会议日期：2005-03-08。参会者：A、B、C、D；Steve为会议中提及的外部联系人。
+
+范围仅限所给17分52.89秒片段（原会18:57起的末段）。以下证据时间全部相对本题媒体00:00；负责人依据所给声音参考核对。相对期限保留原说法，未明确的期限在JSON中为null、下文记“未明确”。证据中的省略号表示删节，跨说话人或重叠证据的speaker为null。
+
+## 最终决定与范围
+
+<a id="d01"></a>
+### D01
+
+争取在“这次即将到来的周一”完成可用系统，基本供周二开始评估，随后尽快开展评估。也争取在演示／汇报前完成评估，为报告留出时间；两者均为工作目标，评估是否必须在演示前完成仍待Steve确认。
+
+期限／目标：即将到来的周一完成可用系统；周二起尽快评估；争取演示前完成评估；状态：目标。
+
+关联：[Q01](#q01)、[Q02](#q02)、[A01](#a01)。
+
+证据：[E01](#e01)、[E02](#e02)、[E03](#e03)、[E05](#e05)。
+
+<a id="d02"></a>
+### D02
+
+报告提交日按会上核对的24日（星期四）安排，更正团队原时间表中的25日（星期五）。演示／汇报约在两周后；评估是否必须包含在演示中另行确认。
+
+状态：已确认。
+
+关联：[Q01](#q01)。
+
+证据：[E04](#e04)、[E05](#e05)、[E10](#e10)、[E43](#e43)。
+
+<a id="d03"></a>
+### D03
+
+评估倾向小规模，约3—4人，认为10人的测试及结果分析负担过大；具体可招到的人数仍待确认。先看Steve能否找到参与者；若没有，则找有空的朋友补充。希望背景较多样，讨论中的学生类别和性别举例不构成配额。
+
+状态：方案方向。
+
+条件／范围：朋友招募作为Steve未能提供参与者时的备选；需对方有空。
+
+关联：[Q02](#q02)、[A01](#a01)。
+
+证据：[E06](#e06)、[E07](#e07)、[E08](#e08)、[E09](#e09)、[E44](#e44)。
+
+<a id="d04"></a>
+### D04
+
+报告的写作方向是在现有约7页中期报告基础上扩充、细化，并加入评估内容。会上所说总长10—15页及评估可能占5—6页只是估计，未确定正式篇幅要求或分工。
+
+状态：写作方向。
+
+关联：[Q03](#q03)。
+
+证据：[E12](#e12)、[E13](#e13)。
+
+<a id="d05"></a>
+### D05 · PREV-02
+
+沿用全局检索先返回命中会议列表、再对选定会议做局部检索的两阶段方式；会议列表支持选择，倾向多选，以缩小局部检索／数据加载范围。举例选排名靠前的3个会议，并非固定只选3个，也不是先加载全部约75—76个会议。
+
+状态：细化。
+
+关联：[U02](#u02)。
+
+证据：[E23](#e23)、[E38](#e38)。
+
+<a id="d06"></a>
+### D06
+
+搜索结果左键双击应加载对应会议，可参照现有会议列表的加载行为；单击先选中结果，仅当结果属于当前已打开的会议时才联动高亮转写等视图，其他会议的结果不能直接跨视图高亮。后一个条件修正了前面笼统的“单击联动高亮”说法。
+
+状态：已达成。
+
+关联：[A04](#a04)、[Q04](#q04)。
+
+证据：[E22](#e22)、[E42](#e42)、[E24](#e24)。
+
+<a id="d07"></a>
+### D07 · PREV-01
+
+启动入口使用单独的仅全局搜索界面，复用现有搜索GUI，去掉局部搜索选择控件，其余尽量相同；启动时尚无已加载会议，不能做局部搜索。
+
+状态：已接受。
+
+关联：[A05](#a05)、[U01](#u01)。
+
+证据：[E26](#e26)、[E27](#e27)、[E28](#e28)。
+
+<a id="d08"></a>
+### D08
+
+已有标签话题可通过建立索引支持全局话题搜索，但不是第一优先级；话题和摘要的文本可复用现有text extractor，调整提取对象。这里的已有标签话题与团队自有的无标签话题分段分开处理。
+
+状态：低优先级计划。
+
+关联：[A07](#a07)、[D09](#d09)。
+
+证据：[E25](#e25)、[E29](#e29)、[E30](#e30)、[E32](#e32)。
+
+<a id="d09"></a>
+### D09 · PREV-03
+
+自有话题分段继续推进，至少达到可以做数值分析的程度。当前不为自有无标签话题做全局话题搜索；关键词标签仍是可能的尝试，即使得到关键词也未承诺相应搜索。C明确本轮不做把分段结果重建为所需XML的工作。
+
+状态：范围已收敛。
+
+关联：[A06](#a06)、[Q05](#q05)、[U03](#u03)。
+
+证据：[E31](#e31)、[E32](#e32)、[E33](#e33)、[E34](#e34)。
+
+<a id="d10"></a>
+### D10
+
+本周暂不另排一次组会，先推进工作，等Steve对评估的回复；需要时通过邮件沟通。结尾提到周四、周一见面，没有约定一场新的正式会议或时刻。
+
+状态：当前安排。
+
+关联：[A01](#a01)。
+
+证据：[E35](#e35)、[E36](#e36)。
+
+## 已接受的待办
+
+<a id="a01"></a>
+### A01
+
+给Steve发邮件，确认评估是否必须在演示前完成、演示是否需包含评估信息；询问他是否已找到参与者，以及拟如何、何时安排评估。D在B询问是否愿意写邮件时答应。
+
+负责人：D；期限／目标：未明确；状态：已接受，待执行。
+
+关联：[Q01](#q01)、[Q02](#q02)、[D10](#d10)。
+
+证据：[E10](#e10)、[E11](#e11)、[E14](#e14)、[E15](#e15)。
+
+<a id="a02"></a>
+### A02
+
+将讨论中的共享文件开放读写权限，方便代码交接。会上没有说出可可靠记录的文件名或路径。
+
+负责人：B；期限／目标：今天到家后（B表示会在18:30前到家）；状态：已接受，待执行。
+
+条件／范围：到家后操作；18:30是预计到家时间。
+
+证据：[E16](#e16)。
+
+<a id="a03"></a>
+### A03
+
+把所需代码片段交给B，用于后续接合。B提出希望明晚前拿到，D答应；这是交接目标，未指定片段清单。
+
+负责人：D；期限／目标：明晚前（B提出的交接目标，D已应允）；状态：已接受，待执行。
+
+关联：[A02](#a02)、[A04](#a04)。
+
+证据：[E17](#e17)、[E18](#e18)。
+
+<a id="a04"></a>
+### A04
+
+接通搜索结果窗口与会议浏览窗口：参照现有会议列表实现左键双击加载，单击选中并在结果属于当前会议时联动高亮。D提出沿已有窗口追踪对象实现，并同意最终高亮条件；当前双击尚未接通。
+
+负责人：D；期限／目标：未明确；状态：已接受，待实现。
+
+关联：[D06](#d06)、[Q04](#q04)。
+
+证据：[E19](#e19)、[E20](#e20)、[E22](#e22)、[E42](#e42)、[E24](#e24)。
+
+<a id="a05"></a>
+### A05
+
+制作供启动入口使用的仅全局搜索GUI，复用现有界面，移除局部搜索选择控件；D接受了B的请求。
+
+负责人：D；期限／目标：未明确；状态：已接受，待执行。
+
+关联：[D07](#d07)、[U01](#u01)。
+
+证据：[E26](#e26)、[E27](#e27)、[E28](#e28)。
+
+<a id="a06"></a>
+### A06
+
+继续自有话题分段，做到足以进行数值分析。该承诺不包含完成关键词标签、XML重建或自有话题的全局搜索。
+
+负责人：C；期限／目标：未明确；状态：已接受，继续推进。
+
+关联：[D09](#d09)、[U03](#u03)。
+
+证据：[E31](#e31)、[E33](#e33)、[E34](#e34)。
+
+<a id="a07"></a>
+### A07
+
+准备已有标签话题的索引，以支持全局话题搜索。A回应可通过建立索引处理，同时明确这不是第一优先级。
+
+负责人：A；期限／目标：未明确；状态：低优先级计划。
+
+条件／范围：低优先级计划；未承诺纳入周一可用版本，不含自有无标签话题。
+
+关联：[D08](#d08)。
+
+证据：[E29](#e29)、[E30](#e30)、[E32](#e32)。
+
+## 未决问题
+
+<a id="q01"></a>
+### Q01
+
+评估是否必须在演示／汇报前完成？演示应否包含评估结果或相关信息？当前以提前完成为目标，但正式要求仍等Steve答复。
+
+关联：[A01](#a01)、[D01](#d01)。
+
+证据：[E05](#e05)、[E10](#e10)。
+
+<a id="q02"></a>
+### Q02
+
+Steve能否找到参与者、可提供多少人，以及具体评估安排和时间仍未知。测试用例／场景可由团队一起脑暴是讨论建议，尚未形成具体方案、单独负责人或会议安排。
+
+关联：[A01](#a01)、[D03](#d03)。
+
+证据：[E06](#e06)、[E07](#e07)、[E11](#e11)、[E35](#e35)、[E41](#e41)。
+
+<a id="q03"></a>
+### Q03
+
+最终报告的正式篇幅及详细要求尚未明确。已知上次只给过整合方式等一般意见；10—15页等数字属于组员估计。
+
+关联：[D04](#d04)。
+
+证据：[E12](#e12)。
+
+<a id="q04"></a>
+### Q04
+
+搜索窗口与其他视图的具体对象连接和跨窗口通信仍需实现；转写窗口的跨视图高亮还涉及先定位话题。交互规则虽已定，本轮未确认技术接合已完成。
+
+关联：[A04](#a04)、[D06](#d06)。
+
+证据：[E19](#e19)、[E20](#e20)、[E21](#e21)、[E24](#e24)。
+
+<a id="q05"></a>
+### Q05
+
+自有话题能否进一步生成可用关键词仍不确定；即使能生成，也没有接受实现相应搜索的承诺。当前确定范围为可做数值分析的分段，XML重建不在C本轮工作内。
+
+关联：[D09](#d09)、[A06](#a06)、[U03](#u03)。
+
+证据：[E31](#e31)、[E33](#e33)、[E34](#e34)。
+
+## 上次事项逐项更新
+
+<a id="u01"></a>
+### U01 · PREV-01
+
+在以搜索为入口的方向上细化为启动专用、仅全局搜索的GUI，去掉局部搜索选择控件，由D制作。上次“选择会议后直接进入”的控件在本片段未再核对，不能据此认定被取消或已完成。
+
+状态：细化。
+
+关联：[D07](#d07)、[A05](#a05)。
+
+证据：[E37](#e37)、[E26](#e26)、[E27](#e27)、[E28](#e28)。
+
+<a id="u02"></a>
+### U02 · PREV-02
+
+保留全局索引先找会议、局部搜索再查所选会议及延后完整加载的方向；本轮进一步说明用候选会议列表／多选缩小局部检索范围，并明确当前会议内结果才可联动高亮。本轮未重新指定底层搜索引擎或宣布索引全部完成。
+
+状态：细化。
+
+关联：[D05](#d05)、[D06](#d06)、[A04](#a04)。
+
+证据：[E38](#e38)、[E23](#e23)、[E24](#e24)。
+
+<a id="u03"></a>
+### U03 · PREV-03
+
+将上次仍在探索的关键词／话题搜索收敛为本轮范围：C继续自有分段以供数值分析；无标签自有话题不做全局话题搜索；关键词仍可尝试，未形成标签或搜索的必做承诺，且C不做XML重建。已有标签话题的低优先级索引计划是另一条路线。
+
+状态：细化。
+
+关联：[D08](#d08)、[D09](#d09)、[A06](#a06)、[A07](#a07)、[Q05](#q05)。
+
+证据：[E39](#e39)、[E29](#e29)、[E30](#e30)、[E31](#e31)、[E32](#e32)、[E33](#e33)、[E34](#e34)。
+
+<a id="u04"></a>
+### U04 · PREV-04
+
+本片段未重访speaker/meeting对象承载的说话人统计或其界面与数据层接合；无法判定完成、变更或取消。搜索窗口联动的讨论不等同于更新说话人统计。
+
+状态：未重访。
+
+证据：[E40](#e40)。
+
+## 可回查证据
+
+音频证据对应 `input/meeting.wav`，与 `input/meeting.mp4` 同步；时间同时列出分秒及原始秒数。静态摘录使用原文件定位，不附媒体时间。
+
+<a id="e01"></a>
+### E01
+
+input/meeting.wav · 00:56.00–01:10.20（56.00–70.20秒）；说话人：B。
+
+> We won't be able to do any evaluation during the weekend anyway. ... I think we could set Monday.
+
+<a id="e02"></a>
+### E02
+
+input/meeting.wav · 01:21.50–01:26.60（81.50–86.60秒）；说话人：A。
+
+> Well, but yeah, Monday. ... We'll try and do Monday.
+
+<a id="e03"></a>
+### E03
+
+input/meeting.wav · 05:14.10–05:34.60（314.10–334.60秒）；说话人：C。
+
+> We should try and have it done by then anyway. ... We should aim to be finished by Monday, this Monday coming. ... Basically for Tuesday. Start the evaluation pretty much straight away.
+
+<a id="e04"></a>
+### E04
+
+input/meeting.wav · 06:24.80–06:44.00（384.80–404.00秒）；说话人：未单列／跨说话人（null）。
+
+> 我们自己的时间表写的是25日、星期五。……星期四，24日。……提交截止日。（中文节译）
+
+<a id="e05"></a>
+### E05
+
+input/meeting.wav · 05:00.00–05:11.00（300.00–311.00秒）；说话人：未单列／跨说话人（null）。
+
+> Do we need the evaluation for the presentation? ... We should ask him. ... We should definitely ask him.
+
+<a id="e06"></a>
+### E06
+
+input/meeting.wav · 02:05.00–02:15.00（125.00–135.00秒）；说话人：未单列／跨说话人（null）。
+
+> He said he would try. ... Find some people. ... That's how I understood it.
+
+<a id="e07"></a>
+### E07
+
+input/meeting.wav · 02:25.70–02:35.50（145.70–155.50秒）；说话人：未单列／跨说话人（null）。
+
+> If we don't get anything from him, then we should just do our friends, basically. ... If they have time.
+
+<a id="e08"></a>
+### E08
+
+input/meeting.wav · 02:51.40–03:10.40（171.40–190.40秒）；说话人：D。
+
+> Some other friends of mine in different programmes ... get a range of types of people as well. ... A wider range of people.
+
+<a id="e09"></a>
+### E09
+
+input/meeting.wav · 03:10.40–03:35.60（190.40–215.60秒）；说话人：未单列／跨说话人（null）。
+
+> Three or four maybe. ... I was thinking like ten. ... It would take forever, and then you've got to analyse the results. ... You can do a massive amount of analysis on three people.
+
+<a id="e10"></a>
+### E10
+
+input/meeting.wav · 07:01.50–07:23.00（421.50–443.00秒）；说话人：未单列／跨说话人（null）。
+
+> Just to ask whether we need to have the evaluation done for the demonstration. ... Is that a part of the demonstration? Do they want that information? ... We need to know that anyway to prepare the presentation.
+
+<a id="e11"></a>
+### E11
+
+input/meeting.wav · 07:30.50–07:43.50（450.50–463.50秒）；说话人：B。
+
+> Basically, how's it going with your evaluation? Have you got people yet for us? What are you thinking and when?
+
+<a id="e12"></a>
+### E12
+
+input/meeting.wav · 07:44.00–08:05.00（464.00–485.00秒）；说话人：未单列／跨说话人（null）。
+
+> Did he say anything about what he expects of the final report? ... Just general, like how it all integrates. ... Did he ever say how long it was supposed to be? No. ... I'd expect somewhere ten to fifteen pages.
+
+<a id="e13"></a>
+### E13
+
+input/meeting.wav · 08:18.50–08:43.30（498.50–523.30秒）；说话人：未单列／跨说话人（null）。
+
+> We have an interim report of seven pages. ... We could probably just expand that. ... Just to fine-tune it, more detail. ... And then write about the evaluation. ... That could easily be like five or six pages.
+
+<a id="e14"></a>
+### E14
+
+input/meeting.wav · 08:52.90–08:55.30（532.90–535.30秒）；说话人：B。
+
+> So, do you want to write him an email then?
+
+<a id="e15"></a>
+### E15
+
+input/meeting.wav · 08:55.32–08:56.00（535.32–536.00秒）；说话人：D。
+
+> Sure.
+
+<a id="e16"></a>
+### E16
+
+input/meeting.wav · 09:01.70–09:13.80（541.70–553.80秒）；说话人：B。
+
+> When I get home today, which will be before half past six, I will make that file readable, writable, everything.
+
+<a id="e17"></a>
+### E17
+
+input/meeting.wav · 09:22.00–09:28.95（562.00–568.95秒）；说话人：B。
+
+> I will need your snippets of code, or it would be good if I had them, by tomorrow evening.
+
+<a id="e18"></a>
+### E18
+
+input/meeting.wav · 09:29.10–09:30.00（569.10–570.00秒）；说话人：D。
+
+> Yeah.
+
+<a id="e19"></a>
+### E19
+
+input/meeting.wav · 10:05.10–10:26.80（605.10–626.80秒）；说话人：D。
+
+> It doesn't do anything yet. ... How to get that communication between the two different kinds of windows. ... Transcripts versus summaries versus topics ... three panes ... instead of just the one.
+
+<a id="e20"></a>
+### E20
+
+input/meeting.wav · 11:01.10–11:25.00（661.10–685.00秒）；说话人：D。
+
+> If you have a particular window that you want me to mimic its behaviour ... find it in the programme. ... I can just sort of trace back and figure out what objects there are and bring them into here.
+
+<a id="e21"></a>
+### E21
+
+input/meeting.wav · 11:26.30–11:37.60（686.30–697.60秒）；说话人：B。
+
+> The transcription window does cross-highlighting in a very awkward way, because it has to find the topic first. ... That was a pain.
+
+<a id="e22"></a>
+### E22
+
+input/meeting.wav · 11:41.70–12:08.30（701.70–728.30秒）；说话人：B。
+
+> When you right-click on a topic, it pops open the list of meetings that contain that topic. ... Left double-click ... on a meeting, sorry, then it loads it. ... If you double left-click, then it loads.
+
+<a id="e23"></a>
+### E23
+
+input/meeting.wav · 12:58.40–13:38.40（778.40–818.40秒）；说话人：D。
+
+> Global search ... a list of the various meetings that found those terms. ... I think multi-select would make the most sense. ... Like three of the top meetings ... so we're not loading ... all seventy-six. ... We'll just do the local search on those ones that are chosen.
+
+<a id="e24"></a>
+### E24
+
+input/meeting.wav · 13:46.50–13:57.40（826.50–837.40秒）；说话人：未单列／跨说话人（null）。
+
+> If you left-click on a result that is contained in the meeting that is currently open, then it should cross-highlight. ... Yes. ... If not, it can't. ... Exactly.
+
+<a id="e25"></a>
+### E25
+
+input/meeting.wav · 14:08.40–14:23.90（848.40–863.90秒）；说话人：未单列／跨说话人（null）。
+
+> Get the topics and the summaries ... using that text extractor thing you wrote, right? ... Get the topics out instead of the segments.
+
+<a id="e26"></a>
+### E26
+
+input/meeting.wav · 14:28.00–14:46.90（868.00–886.90秒）；说话人：未单列／跨说话人（null）。
+
+> Is it very difficult to make another GUI, but only for a global search? ... Just take that away, the local checkbox.
+
+<a id="e27"></a>
+### E27
+
+input/meeting.wav · 14:50.40–15:04.70（890.40–904.70秒）；说话人：未单列／跨说话人（null）。
+
+> In the startup screen you can't have ... local anyway. ... That's easy. ... Would you make that? ... Everything else can just stay the same. ... Remove the checkbox.
+
+<a id="e28"></a>
+### E28
+
+input/meeting.wav · 14:54.40–14:55.40（894.40–895.40秒）；说话人：D。
+
+> No, that's easy.
+
+<a id="e29"></a>
+### E29
+
+input/meeting.wav · 15:11.80–15:25.40（911.80–925.40秒）；说话人：未单列／跨说话人（null）。
+
+> You're going to be able to do a global search for topics? ... Yeah ... if I make a ... just index. ... Okay.
+
+<a id="e30"></a>
+### E30
+
+input/meeting.wav · 15:29.90–15:32.10（929.90–932.10秒）；说话人：A。
+
+> It's not first priority, maybe, but...
+
+<a id="e31"></a>
+### E31
+
+input/meeting.wav · 15:42.10–15:46.20（942.10–946.20秒）；说话人：C。
+
+> We'll certainly do it enough to make it so we can do some numerical analysis on it.
+
+<a id="e32"></a>
+### E32
+
+input/meeting.wav · 15:47.50–15:55.50（947.50–955.50秒）；说话人：D。
+
+> We won't be doing a global search on the topics for our topics, since they don't have labels.
+
+<a id="e33"></a>
+### E33
+
+input/meeting.wav · 16:01.70–16:09.00（961.70–969.00秒）；说话人：C。
+
+> Even if I happen to manage to make it do some keywords, I don't think we can expect you to also come up with a search like that as well.
+
+<a id="e34"></a>
+### E34
+
+input/meeting.wav · 16:13.50–16:42.50（973.50–1002.50秒）；说话人：C。
+
+> If I created XML files ... I'm not going to do that. ... I did have a look at trying to create XML files. ... Organising the segment data ... from a plain text file ... which speaker speaks what...
+
+<a id="e35"></a>
+### E35
+
+input/meeting.wav · 17:05.60–17:16.60（1025.60–1036.60秒）；说话人：A。
+
+> We just see what Steve says about the evaluation ... we'll keep in touch by email if we need anything.
+
+<a id="e36"></a>
+### E36
+
+input/meeting.wav · 17:23.60–17:35.40（1043.60–1055.40秒）；说话人：未单列／跨说话人（null）。
+
+> Do we need another meeting this week? ... Probably not. ... Just get work done. ... We can just email if we need.
+
+<a id="e37"></a>
+### E37
+
+input/previous_minutes.md · ## PREV-01；说话人：未单列／跨说话人（null）。
+
+> 启动界面：以搜索界面为入口，同时提供选择会议后直接进入的控件；不是要求先装入会议才能搜索。
+
+<a id="e38"></a>
+### E38
+
+input/previous_minutes.md · ## PREV-02；说话人：未单列／跨说话人（null）。
+
+> 搜索架构：全局倒排索引先找会议，再在选定会议中进行NXT局部搜索；尽量延后加载完整数据。
+
+<a id="e39"></a>
+### E39
+
+input/previous_minutes.md · ## PREV-03；说话人：未单列／跨说话人（null）。
+
+> 自有话题：讨论了用关键词做话题标签以及关键词/话题搜索的可能性；当时是探索方向，未确定必须实现。
+
+<a id="e40"></a>
+### E40
+
+input/previous_minutes.md · ## PREV-04；说话人：未单列／跨说话人（null）。
+
+> 说话人统计：已讨论以speaker/meeting对象承载统计数据，界面与数据层的接合仍需推进。
+
+<a id="e41"></a>
+### E41
+
+input/meeting.wav · 00:36.80–00:53.50（36.80–53.50秒）；说话人：未单列／跨说话人（null）。
+
+> We can still come up with test cases ... come up with scenarios. ... We could do that in a meeting ... make it up together. ... Just brainstorm.
+
+<a id="e42"></a>
+### E42
+
+input/meeting.wav · 12:10.00–12:32.60（730.00–752.60秒）；说话人：未单列／跨说话人（null）。
+
+> One left-click just highlights. ... Obviously highlights whatever you've clicked on here. ... But also highlights the transcript or whatever it is.
+
+<a id="e43"></a>
+### E43
+
+input/meeting.wav · 04:07.90–04:28.80（247.90–268.80秒）；说话人：未单列／跨说话人（null）。
+
+> We have the presentation ... in one and a half weeks or something. ... Nearly two weeks. ... Two weeks. ... Do we have to have done the evaluation by then? ... I thought evaluation maybe for the report.
+
+<a id="e44"></a>
+### E44
+
+input/meeting.wav · 03:40.00–03:57.00（220.00–237.00秒）；说话人：未单列／跨说话人（null）。
+
+> One computer scientist, one art student, one dude off the street. ... One supposed to be a woman ... one supposed to be a man. ... Maybe we should just have two. ... One man, one woman.

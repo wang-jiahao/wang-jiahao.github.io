@@ -1,0 +1,410 @@
+{
+  "rubric_version": "meeting-natural-atomic-f1-v0.4",
+  "score": 98.125,
+  "components": {
+    "decisions": {
+      "weight": 35,
+      "gold": 7,
+      "predicted_groups": 7,
+      "unsupported": 0,
+      "fractional_tp": 7.0,
+      "f1": 1.0,
+      "points": 35.0
+    },
+    "actions": {
+      "weight": 30,
+      "gold": 4,
+      "predicted_groups": 4,
+      "unsupported": 0,
+      "fractional_tp": 3.9999999999999996,
+      "f1": 0.9999999999999999,
+      "points": 29.999999999999996
+    },
+    "open_questions": {
+      "weight": 15,
+      "gold": 4,
+      "predicted_groups": 4,
+      "unsupported": 0,
+      "fractional_tp": 3.5,
+      "f1": 0.875,
+      "points": 13.125
+    },
+    "previous_item_updates": {
+      "weight": 10,
+      "gold": 4,
+      "predicted_groups": 4,
+      "unsupported": 0,
+      "fractional_tp": 4.0,
+      "f1": 1.0,
+      "points": 10.0
+    },
+    "evidence": {
+      "weight": 5,
+      "points": 5.0
+    },
+    "delivery": {
+      "weight": 5,
+      "points": 5
+    }
+  },
+  "items": [
+    {
+      "key": "D1",
+      "category": "decisions",
+      "credit": 1.0,
+      "checks": [
+        true,
+        true
+      ],
+      "owner_correct": null,
+      "matches": [
+        "decisions:0"
+      ],
+      "evidence": true,
+      "reason": "争取在即将到来的周一完成可用系统，并随后尽快评估；明确是目标，未写成保证。"
+    },
+    {
+      "key": "D2",
+      "category": "decisions",
+      "credit": 1.0,
+      "checks": [
+        true,
+        true
+      ],
+      "owner_correct": null,
+      "matches": [
+        "decisions:1"
+      ],
+      "evidence": true,
+      "reason": "写明核对后的报告提交日为24日星期四，并更正旧时间表中的25日。"
+    },
+    {
+      "key": "D3",
+      "category": "decisions",
+      "credit": 1.0,
+      "checks": [
+        true,
+        true
+      ],
+      "owner_correct": null,
+      "matches": [
+        "decisions:4"
+      ],
+      "evidence": true,
+      "reason": "明确先返回候选会议，再在选定会议内局部搜索；多选为倾向，75至76是会议数量而非阈值。"
+    },
+    {
+      "key": "D4",
+      "category": "decisions",
+      "credit": 1.0,
+      "checks": [
+        true,
+        true
+      ],
+      "owner_correct": null,
+      "matches": [
+        "decisions:5"
+      ],
+      "evidence": true,
+      "reason": "单击仅在结果属于当前已打开会议时跨视图高亮，加载会议由双击完成。"
+    },
+    {
+      "key": "D5",
+      "category": "decisions",
+      "credit": 1.0,
+      "checks": [
+        true
+      ],
+      "owner_correct": null,
+      "matches": [
+        "decisions:5"
+      ],
+      "evidence": true,
+      "reason": "明确左键双击加载对应会议，并参照现有会议列表行为。"
+    },
+    {
+      "key": "D6",
+      "category": "decisions",
+      "credit": 1.0,
+      "checks": [
+        true,
+        true
+      ],
+      "owner_correct": null,
+      "matches": [
+        "decisions:6"
+      ],
+      "evidence": true,
+      "reason": "启动入口使用单独的仅全局搜索GUI，移除局部搜索选择控件、其余尽量相同；未宣称全系统取消局部搜索。"
+    },
+    {
+      "key": "D7",
+      "category": "decisions",
+      "credit": 1.0,
+      "checks": [
+        true,
+        true
+      ],
+      "owner_correct": null,
+      "matches": [
+        "decisions:8"
+      ],
+      "evidence": true,
+      "reason": "自有分段继续至少达到数值分析程度，本轮不做其全局话题搜索；关键词仍可能尝试但未承诺搜索。"
+    },
+    {
+      "key": "A1",
+      "category": "actions",
+      "credit": 0.9999999999999999,
+      "checks": [
+        true,
+        true
+      ],
+      "owner_correct": true,
+      "matches": [
+        "actions:0"
+      ],
+      "evidence": true,
+      "reason": "邮件包含演示评估要求及Steve招募和安排进展；due为null，没有虚构发送期限。",
+      "owner_binding": {
+        "key": "A1",
+        "owner": [
+          "D"
+        ],
+        "support": [
+          {
+            "coord": "actions:0",
+            "quote": "\"owner\": [\"D\"]"
+          },
+          {
+            "coord": "actions:0",
+            "quote": "D在B询问是否愿意写邮件时答应"
+          }
+        ],
+        "reason": "该邮件待办明确由D接受。"
+      }
+    },
+    {
+      "key": "A2",
+      "category": "actions",
+      "credit": 0.9999999999999999,
+      "checks": [
+        true,
+        true
+      ],
+      "owner_correct": true,
+      "matches": [
+        "actions:1"
+      ],
+      "evidence": true,
+      "reason": "工作是开放所讨论文件的读写权限；今天到家后操作，18:30前被明确表述为预计到家时间。",
+      "owner_binding": {
+        "key": "A2",
+        "owner": [
+          "B"
+        ],
+        "support": [
+          {
+            "coord": "actions:1",
+            "quote": "\"owner\": [\"B\"]"
+          }
+        ],
+        "reason": "文件读写权限待办的负责人字段为B。"
+      }
+    },
+    {
+      "key": "A3",
+      "category": "actions",
+      "credit": 0.9999999999999999,
+      "checks": [
+        true,
+        true
+      ],
+      "owner_correct": true,
+      "matches": [
+        "actions:2"
+      ],
+      "evidence": true,
+      "reason": "向B交付代码片段，明晚前是B提出且D应允的交接目标。",
+      "owner_binding": {
+        "key": "A3",
+        "owner": [
+          "D"
+        ],
+        "support": [
+          {
+            "coord": "actions:2",
+            "quote": "\"owner\": [\"D\"]"
+          }
+        ],
+        "reason": "向B交付代码片段的负责人字段为D。"
+      }
+    },
+    {
+      "key": "A4",
+      "category": "actions",
+      "credit": 0.9999999999999999,
+      "checks": [
+        true,
+        true
+      ],
+      "owner_correct": true,
+      "matches": [
+        "actions:4"
+      ],
+      "evidence": true,
+      "reason": "制作启动用仅全局搜索GUI并移除局部控件；其余保持一致在decisions:6明确，待办未虚构交付期限。",
+      "owner_binding": {
+        "key": "A4",
+        "owner": [
+          "D"
+        ],
+        "support": [
+          {
+            "coord": "actions:4",
+            "quote": "\"owner\": [\"D\"]"
+          },
+          {
+            "coord": "actions:4",
+            "quote": "D接受了B的请求"
+          }
+        ],
+        "reason": "启动搜索GUI制作待办明确由D接受。"
+      }
+    },
+    {
+      "key": "O1",
+      "category": "open_questions",
+      "credit": 1.0,
+      "checks": [
+        true,
+        true
+      ],
+      "owner_correct": null,
+      "matches": [
+        "open_questions:0"
+      ],
+      "evidence": true,
+      "reason": "明确演示是否需要已完成评估仍待Steve答复，提前完成只是目标。"
+    },
+    {
+      "key": "O2",
+      "category": "open_questions",
+      "credit": 1.0,
+      "checks": [
+        true,
+        true
+      ],
+      "owner_correct": null,
+      "matches": [
+        "open_questions:1"
+      ],
+      "evidence": true,
+      "reason": "Steve能否提供参与者及安排仍未知；decisions:2将朋友列为有条件后备，并把3至4人保留为倾向而非承诺。"
+    },
+    {
+      "key": "O3",
+      "category": "open_questions",
+      "credit": 1.0,
+      "checks": [
+        true
+      ],
+      "owner_correct": null,
+      "matches": [
+        "open_questions:2"
+      ],
+      "evidence": true,
+      "reason": "报告正式篇幅及细则未明确，10至15页仅为组员估计。"
+    },
+    {
+      "key": "O4",
+      "category": "open_questions",
+      "credit": 0.5,
+      "checks": [
+        false,
+        true
+      ],
+      "owner_correct": null,
+      "matches": [
+        "open_questions:4"
+      ],
+      "evidence": true,
+      "reason": "该条表达C本轮不做XML重建，但未明确提出分段数据如何组织仍无方案；讨论关键词生成未决不能替代数据组织问题。"
+    },
+    {
+      "key": "P1",
+      "category": "previous_item_updates",
+      "credit": 1.0,
+      "checks": [
+        true,
+        true
+      ],
+      "owner_correct": null,
+      "matches": [
+        "previous_item_updates:0"
+      ],
+      "evidence": true,
+      "reason": "PREV-01细化为启动用仅全局GUI；直接进入会议的控件未重访，未认定取消。"
+    },
+    {
+      "key": "P2",
+      "category": "previous_item_updates",
+      "credit": 1.0,
+      "checks": [
+        true
+      ],
+      "owner_correct": null,
+      "matches": [
+        "previous_item_updates:1"
+      ],
+      "evidence": true,
+      "reason": "保留两阶段搜索和延后加载，并补充仅当前会议内结果可联动高亮。"
+    },
+    {
+      "key": "P3",
+      "category": "previous_item_updates",
+      "credit": 1.0,
+      "checks": [
+        true
+      ],
+      "owner_correct": null,
+      "matches": [
+        "previous_item_updates:2"
+      ],
+      "evidence": true,
+      "reason": "明确自有分段继续支持数值分析、不做其全局话题搜索，同时保留关键词尝试的可能性。"
+    },
+    {
+      "key": "P4",
+      "category": "previous_item_updates",
+      "credit": 1.0,
+      "checks": [
+        true
+      ],
+      "owner_correct": null,
+      "matches": [
+        "previous_item_updates:3"
+      ],
+      "evidence": true,
+      "reason": "明确PREV-04未重访，未推测已完成或取消，也没有把搜索联动等同于说话人统计接合。"
+    }
+  ],
+  "risks": [
+    "提交未将自有分段数据如何组织仍无方案明确列为未决问题；仅说明C本轮不做XML重建。",
+    "actions:1将文件描述为共享文件并称其方便代码交接，原转写未明确文件用途；不影响读写权限工作及时间条件的匹配。",
+    "actions:3和actions:6将讨论方向列为待办，其独立工作承诺程度在转写中不够明确。",
+    "证据E01标为B并引用“I think we could set Monday”，但其时间窗结束于70.20秒，提交的英文摘录还包含省略后的句子；局部时间和引文边界宜复核，不影响对应内容槽。",
+    "开发真值尚待独立人工最终签字。"
+  ],
+  "gold_status": "Official manual source annotation + author task interpretation; independent human final task-gold signoff pending",
+  "scope": "development score; no single-error zeroing or post-hoc cutoff",
+  "source_kind": "natural human English course-project meeting, AMI EN2002d, continuous original recording",
+  "gold_sha": "4b12ff86e779b97bb5f9b56cc5cc382851f1aaac5b65d080e831b35108c2242b",
+  "submission_sha": "f371e5b5b3870500eed5e7ed42878925a30c09e0427ac99bd3d7853eebb8f812",
+  "judge": "gpt-6.1-terra/high",
+  "repeat": 1,
+  "audit_status": "作者端逐项复核：原扣分保留，分数未调整",
+  "audit_time": "2026-11-06T06:33:44.629775+00:00",
+  "audit_decision": "O4 first criterion remains missing across conclusions; E34 quotes data organisation but does not express the unresolved plan. No correction to raw score.",
+  "human_final_gold_signoff": false
+}

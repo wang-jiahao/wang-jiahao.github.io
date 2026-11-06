@@ -1,0 +1,759 @@
+{
+  "decisions": [
+    {
+      "id": "D01",
+      "content": "争取在“这次即将到来的周一”完成可用系统，基本供周二开始评估，随后尽快开展评估。也争取在演示／汇报前完成评估，为报告留出时间；两者均为工作目标，评估是否必须在演示前完成仍待Steve确认。",
+      "status": "目标",
+      "due": "即将到来的周一完成可用系统；周二起尽快评估；争取演示前完成评估",
+      "related_ids": [
+        "Q01",
+        "Q02",
+        "A01"
+      ],
+      "evidence": [
+        "E01",
+        "E02",
+        "E03",
+        "E05"
+      ]
+    },
+    {
+      "id": "D02",
+      "content": "报告提交日按会上核对的24日（星期四）安排，更正团队原时间表中的25日（星期五）。演示／汇报约在两周后；评估是否必须包含在演示中另行确认。",
+      "status": "已确认",
+      "related_ids": [
+        "Q01"
+      ],
+      "evidence": [
+        "E04",
+        "E05",
+        "E10",
+        "E43"
+      ]
+    },
+    {
+      "id": "D03",
+      "content": "评估倾向小规模，约3—4人，认为10人的测试及结果分析负担过大；具体可招到的人数仍待确认。先看Steve能否找到参与者；若没有，则找有空的朋友补充。希望背景较多样，讨论中的学生类别和性别举例不构成配额。",
+      "status": "方案方向",
+      "condition": "朋友招募作为Steve未能提供参与者时的备选；需对方有空",
+      "related_ids": [
+        "Q02",
+        "A01"
+      ],
+      "evidence": [
+        "E06",
+        "E07",
+        "E08",
+        "E09",
+        "E44"
+      ]
+    },
+    {
+      "id": "D04",
+      "content": "报告的写作方向是在现有约7页中期报告基础上扩充、细化，并加入评估内容。会上所说总长10—15页及评估可能占5—6页只是估计，未确定正式篇幅要求或分工。",
+      "status": "写作方向",
+      "related_ids": [
+        "Q03"
+      ],
+      "evidence": [
+        "E12",
+        "E13"
+      ]
+    },
+    {
+      "id": "D05",
+      "content": "沿用全局检索先返回命中会议列表、再对选定会议做局部检索的两阶段方式；会议列表支持选择，倾向多选，以缩小局部检索／数据加载范围。举例选排名靠前的3个会议，并非固定只选3个，也不是先加载全部约75—76个会议。",
+      "status": "细化",
+      "previous_id": "PREV-02",
+      "related_ids": [
+        "U02"
+      ],
+      "evidence": [
+        "E23",
+        "E38"
+      ]
+    },
+    {
+      "id": "D06",
+      "content": "搜索结果左键双击应加载对应会议，可参照现有会议列表的加载行为；单击先选中结果，仅当结果属于当前已打开的会议时才联动高亮转写等视图，其他会议的结果不能直接跨视图高亮。后一个条件修正了前面笼统的“单击联动高亮”说法。",
+      "status": "已达成",
+      "related_ids": [
+        "A04",
+        "Q04"
+      ],
+      "evidence": [
+        "E22",
+        "E42",
+        "E24"
+      ]
+    },
+    {
+      "id": "D07",
+      "content": "启动入口使用单独的仅全局搜索界面，复用现有搜索GUI，去掉局部搜索选择控件，其余尽量相同；启动时尚无已加载会议，不能做局部搜索。",
+      "status": "已接受",
+      "previous_id": "PREV-01",
+      "related_ids": [
+        "A05",
+        "U01"
+      ],
+      "evidence": [
+        "E26",
+        "E27",
+        "E28"
+      ]
+    },
+    {
+      "id": "D08",
+      "content": "已有标签话题可通过建立索引支持全局话题搜索，但不是第一优先级；话题和摘要的文本可复用现有text extractor，调整提取对象。这里的已有标签话题与团队自有的无标签话题分段分开处理。",
+      "status": "低优先级计划",
+      "related_ids": [
+        "A07",
+        "D09"
+      ],
+      "evidence": [
+        "E25",
+        "E29",
+        "E30",
+        "E32"
+      ]
+    },
+    {
+      "id": "D09",
+      "content": "自有话题分段继续推进，至少达到可以做数值分析的程度。当前不为自有无标签话题做全局话题搜索；关键词标签仍是可能的尝试，即使得到关键词也未承诺相应搜索。C明确本轮不做把分段结果重建为所需XML的工作。",
+      "status": "范围已收敛",
+      "previous_id": "PREV-03",
+      "related_ids": [
+        "A06",
+        "Q05",
+        "U03"
+      ],
+      "evidence": [
+        "E31",
+        "E32",
+        "E33",
+        "E34"
+      ]
+    },
+    {
+      "id": "D10",
+      "content": "本周暂不另排一次组会，先推进工作，等Steve对评估的回复；需要时通过邮件沟通。结尾提到周四、周一见面，没有约定一场新的正式会议或时刻。",
+      "status": "当前安排",
+      "related_ids": [
+        "A01"
+      ],
+      "evidence": [
+        "E35",
+        "E36"
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "id": "A01",
+      "content": "给Steve发邮件，确认评估是否必须在演示前完成、演示是否需包含评估信息；询问他是否已找到参与者，以及拟如何、何时安排评估。D在B询问是否愿意写邮件时答应。",
+      "owner": [
+        "D"
+      ],
+      "due": null,
+      "status": "已接受，待执行",
+      "related_ids": [
+        "Q01",
+        "Q02",
+        "D10"
+      ],
+      "evidence": [
+        "E10",
+        "E11",
+        "E14",
+        "E15"
+      ]
+    },
+    {
+      "id": "A02",
+      "content": "将讨论中的共享文件开放读写权限，方便代码交接。会上没有说出可可靠记录的文件名或路径。",
+      "owner": [
+        "B"
+      ],
+      "due": "今天到家后（B表示会在18:30前到家）",
+      "condition": "到家后操作；18:30是预计到家时间",
+      "status": "已接受，待执行",
+      "evidence": [
+        "E16"
+      ]
+    },
+    {
+      "id": "A03",
+      "content": "把所需代码片段交给B，用于后续接合。B提出希望明晚前拿到，D答应；这是交接目标，未指定片段清单。",
+      "owner": [
+        "D"
+      ],
+      "due": "明晚前（B提出的交接目标，D已应允）",
+      "status": "已接受，待执行",
+      "related_ids": [
+        "A02",
+        "A04"
+      ],
+      "evidence": [
+        "E17",
+        "E18"
+      ]
+    },
+    {
+      "id": "A04",
+      "content": "接通搜索结果窗口与会议浏览窗口：参照现有会议列表实现左键双击加载，单击选中并在结果属于当前会议时联动高亮。D提出沿已有窗口追踪对象实现，并同意最终高亮条件；当前双击尚未接通。",
+      "owner": [
+        "D"
+      ],
+      "due": null,
+      "status": "已接受，待实现",
+      "related_ids": [
+        "D06",
+        "Q04"
+      ],
+      "evidence": [
+        "E19",
+        "E20",
+        "E22",
+        "E42",
+        "E24"
+      ]
+    },
+    {
+      "id": "A05",
+      "content": "制作供启动入口使用的仅全局搜索GUI，复用现有界面，移除局部搜索选择控件；D接受了B的请求。",
+      "owner": [
+        "D"
+      ],
+      "due": null,
+      "status": "已接受，待执行",
+      "related_ids": [
+        "D07",
+        "U01"
+      ],
+      "evidence": [
+        "E26",
+        "E27",
+        "E28"
+      ]
+    },
+    {
+      "id": "A06",
+      "content": "继续自有话题分段，做到足以进行数值分析。该承诺不包含完成关键词标签、XML重建或自有话题的全局搜索。",
+      "owner": [
+        "C"
+      ],
+      "due": null,
+      "status": "已接受，继续推进",
+      "related_ids": [
+        "D09",
+        "U03"
+      ],
+      "evidence": [
+        "E31",
+        "E33",
+        "E34"
+      ]
+    },
+    {
+      "id": "A07",
+      "content": "准备已有标签话题的索引，以支持全局话题搜索。A回应可通过建立索引处理，同时明确这不是第一优先级。",
+      "owner": [
+        "A"
+      ],
+      "due": null,
+      "condition": "低优先级计划；未承诺纳入周一可用版本，不含自有无标签话题",
+      "status": "低优先级计划",
+      "related_ids": [
+        "D08"
+      ],
+      "evidence": [
+        "E29",
+        "E30",
+        "E32"
+      ]
+    }
+  ],
+  "open_questions": [
+    {
+      "id": "Q01",
+      "content": "评估是否必须在演示／汇报前完成？演示应否包含评估结果或相关信息？当前以提前完成为目标，但正式要求仍等Steve答复。",
+      "related_ids": [
+        "A01",
+        "D01"
+      ],
+      "evidence": [
+        "E05",
+        "E10"
+      ]
+    },
+    {
+      "id": "Q02",
+      "content": "Steve能否找到参与者、可提供多少人，以及具体评估安排和时间仍未知。测试用例／场景可由团队一起脑暴是讨论建议，尚未形成具体方案、单独负责人或会议安排。",
+      "related_ids": [
+        "A01",
+        "D03"
+      ],
+      "evidence": [
+        "E06",
+        "E07",
+        "E11",
+        "E35",
+        "E41"
+      ]
+    },
+    {
+      "id": "Q03",
+      "content": "最终报告的正式篇幅及详细要求尚未明确。已知上次只给过整合方式等一般意见；10—15页等数字属于组员估计。",
+      "related_ids": [
+        "D04"
+      ],
+      "evidence": [
+        "E12"
+      ]
+    },
+    {
+      "id": "Q04",
+      "content": "搜索窗口与其他视图的具体对象连接和跨窗口通信仍需实现；转写窗口的跨视图高亮还涉及先定位话题。交互规则虽已定，本轮未确认技术接合已完成。",
+      "related_ids": [
+        "A04",
+        "D06"
+      ],
+      "evidence": [
+        "E19",
+        "E20",
+        "E21",
+        "E24"
+      ]
+    },
+    {
+      "id": "Q05",
+      "content": "自有话题能否进一步生成可用关键词仍不确定；即使能生成，也没有接受实现相应搜索的承诺。当前确定范围为可做数值分析的分段，XML重建不在C本轮工作内。",
+      "related_ids": [
+        "D09",
+        "A06",
+        "U03"
+      ],
+      "evidence": [
+        "E31",
+        "E33",
+        "E34"
+      ]
+    }
+  ],
+  "previous_item_updates": [
+    {
+      "id": "U01",
+      "content": "在以搜索为入口的方向上细化为启动专用、仅全局搜索的GUI，去掉局部搜索选择控件，由D制作。上次“选择会议后直接进入”的控件在本片段未再核对，不能据此认定被取消或已完成。",
+      "previous_id": "PREV-01",
+      "status": "细化",
+      "related_ids": [
+        "D07",
+        "A05"
+      ],
+      "evidence": [
+        "E37",
+        "E26",
+        "E27",
+        "E28"
+      ]
+    },
+    {
+      "id": "U02",
+      "content": "保留全局索引先找会议、局部搜索再查所选会议及延后完整加载的方向；本轮进一步说明用候选会议列表／多选缩小局部检索范围，并明确当前会议内结果才可联动高亮。本轮未重新指定底层搜索引擎或宣布索引全部完成。",
+      "previous_id": "PREV-02",
+      "status": "细化",
+      "related_ids": [
+        "D05",
+        "D06",
+        "A04"
+      ],
+      "evidence": [
+        "E38",
+        "E23",
+        "E24"
+      ]
+    },
+    {
+      "id": "U03",
+      "content": "将上次仍在探索的关键词／话题搜索收敛为本轮范围：C继续自有分段以供数值分析；无标签自有话题不做全局话题搜索；关键词仍可尝试，未形成标签或搜索的必做承诺，且C不做XML重建。已有标签话题的低优先级索引计划是另一条路线。",
+      "previous_id": "PREV-03",
+      "status": "细化",
+      "related_ids": [
+        "D08",
+        "D09",
+        "A06",
+        "A07",
+        "Q05"
+      ],
+      "evidence": [
+        "E39",
+        "E29",
+        "E30",
+        "E31",
+        "E32",
+        "E33",
+        "E34"
+      ]
+    },
+    {
+      "id": "U04",
+      "content": "本片段未重访speaker/meeting对象承载的说话人统计或其界面与数据层接合；无法判定完成、变更或取消。搜索窗口联动的讨论不等同于更新说话人统计。",
+      "previous_id": "PREV-04",
+      "status": "未重访",
+      "related_ids": [],
+      "evidence": [
+        "E40"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "media": "input/meeting.wav",
+      "start": 56.0,
+      "end": 70.2,
+      "speaker": "B",
+      "quote": "We won't be able to do any evaluation during the weekend anyway. ... I think we could set Monday."
+    },
+    {
+      "id": "E02",
+      "media": "input/meeting.wav",
+      "start": 81.5,
+      "end": 86.6,
+      "speaker": "A",
+      "quote": "Well, but yeah, Monday. ... We'll try and do Monday."
+    },
+    {
+      "id": "E03",
+      "media": "input/meeting.wav",
+      "start": 314.1,
+      "end": 334.6,
+      "speaker": "C",
+      "quote": "We should try and have it done by then anyway. ... We should aim to be finished by Monday, this Monday coming. ... Basically for Tuesday. Start the evaluation pretty much straight away."
+    },
+    {
+      "id": "E04",
+      "media": "input/meeting.wav",
+      "start": 384.8,
+      "end": 404.0,
+      "speaker": null,
+      "quote": "我们自己的时间表写的是25日、星期五。……星期四，24日。……提交截止日。（中文节译）"
+    },
+    {
+      "id": "E05",
+      "media": "input/meeting.wav",
+      "start": 300.0,
+      "end": 311.0,
+      "speaker": null,
+      "quote": "Do we need the evaluation for the presentation? ... We should ask him. ... We should definitely ask him."
+    },
+    {
+      "id": "E06",
+      "media": "input/meeting.wav",
+      "start": 125.0,
+      "end": 135.0,
+      "speaker": null,
+      "quote": "He said he would try. ... Find some people. ... That's how I understood it."
+    },
+    {
+      "id": "E07",
+      "media": "input/meeting.wav",
+      "start": 145.7,
+      "end": 155.5,
+      "speaker": null,
+      "quote": "If we don't get anything from him, then we should just do our friends, basically. ... If they have time."
+    },
+    {
+      "id": "E08",
+      "media": "input/meeting.wav",
+      "start": 171.4,
+      "end": 190.4,
+      "speaker": "D",
+      "quote": "Some other friends of mine in different programmes ... get a range of types of people as well. ... A wider range of people."
+    },
+    {
+      "id": "E09",
+      "media": "input/meeting.wav",
+      "start": 190.4,
+      "end": 215.6,
+      "speaker": null,
+      "quote": "Three or four maybe. ... I was thinking like ten. ... It would take forever, and then you've got to analyse the results. ... You can do a massive amount of analysis on three people."
+    },
+    {
+      "id": "E10",
+      "media": "input/meeting.wav",
+      "start": 421.5,
+      "end": 443.0,
+      "speaker": null,
+      "quote": "Just to ask whether we need to have the evaluation done for the demonstration. ... Is that a part of the demonstration? Do they want that information? ... We need to know that anyway to prepare the presentation."
+    },
+    {
+      "id": "E11",
+      "media": "input/meeting.wav",
+      "start": 450.5,
+      "end": 463.5,
+      "speaker": "B",
+      "quote": "Basically, how's it going with your evaluation? Have you got people yet for us? What are you thinking and when?"
+    },
+    {
+      "id": "E12",
+      "media": "input/meeting.wav",
+      "start": 464.0,
+      "end": 485.0,
+      "speaker": null,
+      "quote": "Did he say anything about what he expects of the final report? ... Just general, like how it all integrates. ... Did he ever say how long it was supposed to be? No. ... I'd expect somewhere ten to fifteen pages."
+    },
+    {
+      "id": "E13",
+      "media": "input/meeting.wav",
+      "start": 498.5,
+      "end": 523.3,
+      "speaker": null,
+      "quote": "We have an interim report of seven pages. ... We could probably just expand that. ... Just to fine-tune it, more detail. ... And then write about the evaluation. ... That could easily be like five or six pages."
+    },
+    {
+      "id": "E14",
+      "media": "input/meeting.wav",
+      "start": 532.9,
+      "end": 535.3,
+      "speaker": "B",
+      "quote": "So, do you want to write him an email then?"
+    },
+    {
+      "id": "E15",
+      "media": "input/meeting.wav",
+      "start": 535.32,
+      "end": 536.0,
+      "speaker": "D",
+      "quote": "Sure."
+    },
+    {
+      "id": "E16",
+      "media": "input/meeting.wav",
+      "start": 541.7,
+      "end": 553.8,
+      "speaker": "B",
+      "quote": "When I get home today, which will be before half past six, I will make that file readable, writable, everything."
+    },
+    {
+      "id": "E17",
+      "media": "input/meeting.wav",
+      "start": 562.0,
+      "end": 568.95,
+      "speaker": "B",
+      "quote": "I will need your snippets of code, or it would be good if I had them, by tomorrow evening."
+    },
+    {
+      "id": "E18",
+      "media": "input/meeting.wav",
+      "start": 569.1,
+      "end": 570.0,
+      "speaker": "D",
+      "quote": "Yeah."
+    },
+    {
+      "id": "E19",
+      "media": "input/meeting.wav",
+      "start": 605.1,
+      "end": 626.8,
+      "speaker": "D",
+      "quote": "It doesn't do anything yet. ... How to get that communication between the two different kinds of windows. ... Transcripts versus summaries versus topics ... three panes ... instead of just the one."
+    },
+    {
+      "id": "E20",
+      "media": "input/meeting.wav",
+      "start": 661.1,
+      "end": 685.0,
+      "speaker": "D",
+      "quote": "If you have a particular window that you want me to mimic its behaviour ... find it in the programme. ... I can just sort of trace back and figure out what objects there are and bring them into here."
+    },
+    {
+      "id": "E21",
+      "media": "input/meeting.wav",
+      "start": 686.3,
+      "end": 697.6,
+      "speaker": "B",
+      "quote": "The transcription window does cross-highlighting in a very awkward way, because it has to find the topic first. ... That was a pain."
+    },
+    {
+      "id": "E22",
+      "media": "input/meeting.wav",
+      "start": 701.7,
+      "end": 728.3,
+      "speaker": "B",
+      "quote": "When you right-click on a topic, it pops open the list of meetings that contain that topic. ... Left double-click ... on a meeting, sorry, then it loads it. ... If you double left-click, then it loads."
+    },
+    {
+      "id": "E23",
+      "media": "input/meeting.wav",
+      "start": 778.4,
+      "end": 818.4,
+      "speaker": "D",
+      "quote": "Global search ... a list of the various meetings that found those terms. ... I think multi-select would make the most sense. ... Like three of the top meetings ... so we're not loading ... all seventy-six. ... We'll just do the local search on those ones that are chosen."
+    },
+    {
+      "id": "E24",
+      "media": "input/meeting.wav",
+      "start": 826.5,
+      "end": 837.4,
+      "speaker": null,
+      "quote": "If you left-click on a result that is contained in the meeting that is currently open, then it should cross-highlight. ... Yes. ... If not, it can't. ... Exactly."
+    },
+    {
+      "id": "E25",
+      "media": "input/meeting.wav",
+      "start": 848.4,
+      "end": 863.9,
+      "speaker": null,
+      "quote": "Get the topics and the summaries ... using that text extractor thing you wrote, right? ... Get the topics out instead of the segments."
+    },
+    {
+      "id": "E26",
+      "media": "input/meeting.wav",
+      "start": 868.0,
+      "end": 886.9,
+      "speaker": null,
+      "quote": "Is it very difficult to make another GUI, but only for a global search? ... Just take that away, the local checkbox."
+    },
+    {
+      "id": "E27",
+      "media": "input/meeting.wav",
+      "start": 890.4,
+      "end": 904.7,
+      "speaker": null,
+      "quote": "In the startup screen you can't have ... local anyway. ... That's easy. ... Would you make that? ... Everything else can just stay the same. ... Remove the checkbox."
+    },
+    {
+      "id": "E28",
+      "media": "input/meeting.wav",
+      "start": 894.4,
+      "end": 895.4,
+      "speaker": "D",
+      "quote": "No, that's easy."
+    },
+    {
+      "id": "E29",
+      "media": "input/meeting.wav",
+      "start": 911.8,
+      "end": 925.4,
+      "speaker": null,
+      "quote": "You're going to be able to do a global search for topics? ... Yeah ... if I make a ... just index. ... Okay."
+    },
+    {
+      "id": "E30",
+      "media": "input/meeting.wav",
+      "start": 929.9,
+      "end": 932.1,
+      "speaker": "A",
+      "quote": "It's not first priority, maybe, but..."
+    },
+    {
+      "id": "E31",
+      "media": "input/meeting.wav",
+      "start": 942.1,
+      "end": 946.2,
+      "speaker": "C",
+      "quote": "We'll certainly do it enough to make it so we can do some numerical analysis on it."
+    },
+    {
+      "id": "E32",
+      "media": "input/meeting.wav",
+      "start": 947.5,
+      "end": 955.5,
+      "speaker": "D",
+      "quote": "We won't be doing a global search on the topics for our topics, since they don't have labels."
+    },
+    {
+      "id": "E33",
+      "media": "input/meeting.wav",
+      "start": 961.7,
+      "end": 969.0,
+      "speaker": "C",
+      "quote": "Even if I happen to manage to make it do some keywords, I don't think we can expect you to also come up with a search like that as well."
+    },
+    {
+      "id": "E34",
+      "media": "input/meeting.wav",
+      "start": 973.5,
+      "end": 1002.5,
+      "speaker": "C",
+      "quote": "If I created XML files ... I'm not going to do that. ... I did have a look at trying to create XML files. ... Organising the segment data ... from a plain text file ... which speaker speaks what..."
+    },
+    {
+      "id": "E35",
+      "media": "input/meeting.wav",
+      "start": 1025.6,
+      "end": 1036.6,
+      "speaker": "A",
+      "quote": "We just see what Steve says about the evaluation ... we'll keep in touch by email if we need anything."
+    },
+    {
+      "id": "E36",
+      "media": "input/meeting.wav",
+      "start": 1043.6,
+      "end": 1055.4,
+      "speaker": null,
+      "quote": "Do we need another meeting this week? ... Probably not. ... Just get work done. ... We can just email if we need."
+    },
+    {
+      "id": "E37",
+      "media": "input/previous_minutes.md",
+      "locator": "## PREV-01",
+      "speaker": null,
+      "quote": "启动界面：以搜索界面为入口，同时提供选择会议后直接进入的控件；不是要求先装入会议才能搜索。"
+    },
+    {
+      "id": "E38",
+      "media": "input/previous_minutes.md",
+      "locator": "## PREV-02",
+      "speaker": null,
+      "quote": "搜索架构：全局倒排索引先找会议，再在选定会议中进行NXT局部搜索；尽量延后加载完整数据。"
+    },
+    {
+      "id": "E39",
+      "media": "input/previous_minutes.md",
+      "locator": "## PREV-03",
+      "speaker": null,
+      "quote": "自有话题：讨论了用关键词做话题标签以及关键词/话题搜索的可能性；当时是探索方向，未确定必须实现。"
+    },
+    {
+      "id": "E40",
+      "media": "input/previous_minutes.md",
+      "locator": "## PREV-04",
+      "speaker": null,
+      "quote": "说话人统计：已讨论以speaker/meeting对象承载统计数据，界面与数据层的接合仍需推进。"
+    },
+    {
+      "id": "E41",
+      "media": "input/meeting.wav",
+      "start": 36.8,
+      "end": 53.5,
+      "speaker": null,
+      "quote": "We can still come up with test cases ... come up with scenarios. ... We could do that in a meeting ... make it up together. ... Just brainstorm."
+    },
+    {
+      "id": "E42",
+      "media": "input/meeting.wav",
+      "start": 730.0,
+      "end": 752.6,
+      "speaker": null,
+      "quote": "One left-click just highlights. ... Obviously highlights whatever you've clicked on here. ... But also highlights the transcript or whatever it is."
+    },
+    {
+      "id": "E43",
+      "media": "input/meeting.wav",
+      "start": 247.9,
+      "end": 268.8,
+      "speaker": null,
+      "quote": "We have the presentation ... in one and a half weeks or something. ... Nearly two weeks. ... Two weeks. ... Do we have to have done the evaluation by then? ... I thought evaluation maybe for the report."
+    },
+    {
+      "id": "E44",
+      "media": "input/meeting.wav",
+      "start": 220.0,
+      "end": 237.0,
+      "speaker": null,
+      "quote": "One computer scientist, one art student, one dude off the street. ... One supposed to be a woman ... one supposed to be a man. ... Maybe we should just have two. ... One man, one woman."
+    }
+  ]
+}
