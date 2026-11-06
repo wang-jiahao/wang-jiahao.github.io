@@ -1,0 +1,24 @@
+# 委托
+
+对视频主打的屏下摄像头（UDC）显示与成像折衷技术，做以本机为中心的深度研究
+
+## 输入与工作方式
+
+原问题亦见 QUERY.txt。源视频为 media/source.mp4，时间从片头0秒起，时长986.069秒，原声保留。
+源页：https://www.bilibili.com/video/BV1ua411J7VA
+
+允许联网、自主选择研究方向、检索资料、安装依赖、编写脚本。没有额外的任务级工具次数、篇幅或研究条数限制。
+不要访问本题隐藏评分文件、公开benchmark rubric、参考答案、先前交付或其他会话。
+
+可自行抽帧：python toolkit/media.py frame --seconds 340 475 --out frames
+可分段观察音视频：python toolkit/media.py inspect --start 320 --end 400 --mode video --prompt "忠实记录口述与画面" --out observation.json
+--mode audio只传音频；--media 相对路径可读取自行取得并保存在本运行目录内的其他视频或音频。该工具使用Qwen3.8-Omni-Flash；单次最多180秒，可多次调用；观察可能出错，需回查。它无法访问评分数据。
+Python有PyMuPDF、Pillow、requests、Playwright，ffmpeg和Node在PATH。Playwright已安装Chromium，亦可用C:/Program Files/Google/Chrome/Application/chrome.exe。
+
+## 报告交付
+
+将完整报告交付至output/。使用随附的官方OmniDR报告渲染器；填写output/js/data.js（window.DATA = 严格JSON;），字段见output/js/data.schema.js，通用编写规范见REPORT_GUIDE.md。不要将字段示例当成事实或答案。
+报告以视频为中心，综合外部研究；结论有来源和时间位置，相关帧和外部多模态证据可回查。引用使用[S#]并在research中记录实际打开的来源与本地证据。
+output/index.html、js/data.js及其引用的本地素材均须存在，视频复制到output/media/source.mp4。保留模板的index.html、styles.css、js/app.js和js/link.js，可自选已有主题。布局和交互已提供，主要工作是研究和证据组织。
+TOOLS_USED.md只记录真实工具、来源和实测检查。模板中的review/validate_omnidr_report等MCP服务本环境未安装；可用node toolkit/validate_data.mjs output/js/data.js，并用Playwright实际检查页面播放、时间跳转、引用和图片。
+不必额外交付research.json或复现内部研究流程。不要修改源视频或本任务文件。完成后正常总结。

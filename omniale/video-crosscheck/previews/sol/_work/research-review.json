@@ -1,0 +1,131 @@
+{
+  "created": "2026-11-06",
+  "report": "output/index.html",
+  "video": {
+    "src": "media/source.mp4",
+    "duration": 986.069,
+    "duration_checked_with": "ffprobe"
+  },
+  "primary_reader_notes": [
+    {
+      "source": "video",
+      "note": "片中主观判断集中在 04:19–09:00 的显示可见度测试与 14:15–15:00 的收束评价；12:30–13:16 有屏下自拍样张，但没有统一光照、对照机或量化指标。"
+    },
+    {
+      "source": "S1",
+      "note": "已打开 ZTE 2022-05-11 官方发布稿并保存与 UDC 像素/走线/算法、16MP 前摄和后三摄规格相关的原文摘录。"
+    },
+    {
+      "source": "S2",
+      "note": "已打开 Tom’s Guide 2022-07-03 评测并保存其关于日常屏幕隐蔽性与自拍偏软/强光更差的原文摘录。"
+    },
+    {
+      "source": "S3",
+      "note": "已打开 arXiv 2111.01511 摘要和引言并保存其关于遮挡、衍射、反射导致 UDC 失真的原文摘录。"
+    }
+  ],
+  "inspected_used_crops": [
+    {
+      "path": "img/seg1-00m15s.png",
+      "video_time": 15,
+      "used_in": "seg1"
+    },
+    {
+      "path": "img/seg2-04m20s.png",
+      "video_time": 260,
+      "used_in": "seg2"
+    },
+    {
+      "path": "img/seg3-06m30s.png",
+      "video_time": 390,
+      "used_in": "seg3"
+    },
+    {
+      "path": "img/seg3-07m35s.png",
+      "video_time": 455,
+      "used_in": "seg3"
+    },
+    {
+      "path": "img/seg4-10m45s.png",
+      "video_time": 645,
+      "used_in": "seg4"
+    },
+    {
+      "path": "img/seg5-12m32s.png",
+      "video_time": 752,
+      "used_in": "seg5"
+    },
+    {
+      "path": "img/seg5-13m25s.png",
+      "video_time": 805,
+      "used_in": "seg5"
+    },
+    {
+      "path": "img/seg5-14m15s.png",
+      "video_time": 855,
+      "used_in": "seg5"
+    }
+  ],
+  "claim_reviews": [
+    {
+      "claim": "裸机屏下区域日常肉眼难见",
+      "status": "supported",
+      "basis": [
+        "视频 04:19–09:00 的撕膜、壁纸、显微镜和高亮观察",
+        "S1 官方像素/走线说明",
+        "S2 独立评测的 regular usage 观察"
+      ]
+    },
+    {
+      "claim": "屏下自拍仍有画质代价",
+      "status": "supported",
+      "basis": [
+        "视频 12:30–13:16 的自拍样张与“拍照和显示都不容易”原话",
+        "S2 关于偏软/强光更差的独立实测",
+        "S3 关于遮挡、衍射和低感光的论文机制"
+      ]
+    },
+    {
+      "claim": "后三摄能力与 UDC 前摄应分开评价",
+      "status": "supported",
+      "basis": [
+        "视频 10:33–15:00 的相机 UI、多摄同拍/同录演示",
+        "S1 官方三主摄和 8K 全主摄描述"
+      ]
+    }
+  ],
+  "browser_checks": {
+    "method": "Chromium + Playwright against file:///.../output/index.html",
+    "checks": [
+      {
+        "check": "页面载入与语言",
+        "result": "pass",
+        "detail": "document.title、中文 meta、五个分段标题均可见。"
+      },
+      {
+        "check": "视频元素",
+        "result": "pass",
+        "detail": "src 为 media/source.mp4；Chromium loadedmetadata readyState=4，duration=986.087 秒（与 ffprobe 986.069 秒的封装/舍入差异在 0.02 秒内）。"
+      },
+      {
+        "check": "双向 seek",
+        "result": "pass",
+        "detail": "file:// 页面从 0 秒跳至 752 秒后 currentTime=752，再回到 15 秒后 currentTime=15。"
+      },
+      {
+        "check": "引用展开",
+        "result": "pass",
+        "detail": "共检测到 43 个 .cite；dispatch click 于首个 [S1] 后 #src-S1 可见，来源 URL、摘要和本地证据路径均可读。"
+      },
+      {
+        "check": "图片",
+        "result": "pass",
+        "detail": "滚动至页面底部触发 lazy load 后，8/8 发布帧 naturalWidth=720；无 broken image。"
+      }
+    ]
+  },
+  "limitations": [
+    "视频观察服务对 300–540 秒音频的一次请求返回 502，已改用同区间视频观察与可视帧，不据此补写口述。",
+    "原视频未提供受控照度、标准色卡或与传统挖孔前摄的同场定量对照；报告将片中结论标为观察/主观评价。"
+  ]
+}

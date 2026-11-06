@@ -1,0 +1,1796 @@
+{
+  "video_published": "2022-05-09",
+  "dimensions": {
+    "content": 0.5,
+    "citation": 0.3,
+    "presentation": 0.2
+  },
+  "scoring": {
+    "gate_mode": "direction",
+    "coverage_saturation": 0.18
+  },
+  "directions": [
+    {
+      "id": "A1",
+      "ref": "C-IF",
+      "dimension": "content",
+      "name": "指令遵循",
+      "tier": "gate",
+      "logic": "threshold",
+      "threshold": 0.8,
+      "atoms": [
+        {
+          "id": "A1-01",
+          "check": "J",
+          "text": "报告是否以本机UDC显示成像折衷技术为主体，而不是UDC技术泛论？",
+          "expected": "yes",
+          "note": "query 原句『对视频主打的屏下摄像头（UDC）显示与成像折衷技术，做以本机为中心的深度研究』要求以本机的 UDC 显示与成像折衷技术为主体，本题判这一句有没有被执行",
+          "template": "intent"
+        },
+        {
+          "id": "A1-02",
+          "check": "J",
+          "text": "报告是否偏离了任务指定的调研对象，转而铺陈产品评测的通论？",
+          "expected": "no",
+          "note": "对应 query 原句『对视频主打的屏下摄像头（UDC）显示与成像折衷技术，做以本机为中心的深度研究』点名的调研主体与范围",
+          "template": "intent"
+        },
+        {
+          "id": "A1-03",
+          "check": "J",
+          "text": "报告是否遵守了 query 要求的调研范围？",
+          "expected": "yes",
+          "note": "对应 query 原句『对视频主打的屏下摄像头（UDC）显示与成像折衷技术，做以本机为中心的深度研究』点名的调研主体与范围",
+          "template": "intent"
+        },
+        {
+          "id": "A1-04",
+          "check": "J",
+          "text": "报告是否遵守了 query 要求的聚焦对象？",
+          "expected": "yes",
+          "note": "对应 query 原句『对视频主打的屏下摄像头（UDC）显示与成像折衷技术，做以本机为中心的深度研究』点名的调研主体与范围",
+          "template": "intent"
+        },
+        {
+          "id": "A1-05",
+          "check": "J",
+          "text": "报告是否偏离了任务指定的调研对象，转而铺陈与调研对象同类的其他案例？",
+          "expected": "no",
+          "note": "对应 query 原句『对视频主打的屏下摄像头（UDC）显示与成像折衷技术，做以本机为中心的深度研究』点名的调研主体与范围",
+          "template": "intent"
+        }
+      ]
+    },
+    {
+      "id": "A2",
+      "ref": "C-FC",
+      "dimension": "content",
+      "name": "事实覆盖",
+      "tier": "core",
+      "atoms": [
+        {
+          "id": "A2-01",
+          "check": "J",
+          "text": "报告是否给出小米 MIX 4 于 2021 年 8 月 10 日发布，是小米首款量产屏下摄像头手机，采用 CUP（Camera Under Panel）全面屏，屏幕由 TCL 华星光电供应？",
+          "expected": "yes",
+          "note": "来源：media https://www.eet-china.com/mp/a68917.html；media https://www.donews.com/news/detail/5/3159158.html",
+          "fids": [
+            "F0058"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-02",
+          "check": "J",
+          "text": "报告是否给出中兴于2020年9月1日在中国发布全球首款量产屏下摄像头（UDC）5G智能手机Axon 20 5G？",
+          "expected": "yes",
+          "note": "来源：media https://www.theverge.com/2020/9/1/21417941/zte-axon-20-5g-un；official https://www.zte.com.cn/global/about/news/20200901e2.html",
+          "fids": [
+            "F0354"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-03",
+          "check": "J",
+          "text": "报告是否给出中兴Axon 20 5G中国区自2020年9月1日起在myzte、京东等渠道开启预售？",
+          "expected": "yes",
+          "note": "来源：media https://www.theverge.com/2020/9/1/21417941/zte-axon-20-5g-un；official https://www.zte.com.cn/global/about/news/20200901e2.html",
+          "fids": [
+            "F0354"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-04",
+          "check": "J",
+          "text": "报告是否给出三星 Display 的 UPC（屏下摄像头）技术在笔记本端首发后，于 2021 年 8 月被用于三星 Galaxy Z Fold3 手机，这是该技术在手机端的首次量产应用？",
+          "expected": "yes",
+          "note": "来源：media https://www.bgr.com/tech/under-display-camera-samsung-upc-fo；media https://www.notebookcheck.net/Samsung-debuts-the-Galaxy-Z-Fo",
+          "fids": [
+            "F0359"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-05",
+          "check": "J",
+          "text": "报告是否给出中兴 Axon 40 Ultra 的屏幕峰值亮度为 1500nit？",
+          "expected": "yes",
+          "note": "来源：media https://www.laptopmag.com/reviews/zte-axon-40-ultra；official https://www.zte.com.cn/china/about/news/20220509c2.html",
+          "fids": [
+            "F0061"
+          ],
+          "template": "fact_value"
+        },
+        {
+          "id": "A2-06",
+          "check": "J",
+          "text": "报告是否给出监视器-相机成像系统（Monitor-Camera Imaging System, MCIS）是一种为便捷采集 UDC 真实配对数据而设计的成像装置？",
+          "expected": "yes",
+          "note": "来源：academic https://arxiv.org/abs/2003.04857；academic https://yzhouas.github.io/projects/UDC/udc.html",
+          "fids": [
+            "F0369"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-07",
+          "check": "J",
+          "text": "报告是否给出MIPI 挑战赛（Mobile Intelligent Photography & Imaging）设有屏下摄像头（UDC）图像复原赛道？",
+          "expected": "yes",
+          "note": "来源：academic https://arxiv.org/abs/2209.07052；academic https://link.springer.com/chapter/10.1007/978-3-031-25072-9_",
+          "fids": [
+            "F0380"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-08",
+          "check": "J",
+          "text": "报告是否指出学术论文《Image Restoration for Under-Display Camera》首次将屏下摄像头（UDC）定义为一个真实世界单图像复原问题？",
+          "expected": "yes",
+          "note": "来源：academic https://arxiv.org/abs/2003.04857；academic https://yzhouas.github.io/projects/UDC/udc.html",
+          "fids": [
+            "F0392"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-09",
+          "check": "J",
+          "text": "报告是否写明学术论文《Image Restoration for Under-Display Camera》的作者为 Yuqian Zhou 等？",
+          "expected": "yes",
+          "note": "来源：academic https://arxiv.org/abs/2003.04857；academic https://yzhouas.github.io/projects/UDC/udc.html",
+          "fids": [
+            "F0392"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-10",
+          "check": "J",
+          "text": "报告是否给出 OPPO 于 2021 年 8 月发布的下一代屏下摄像头（USC）技术由京东方（BOE）提供？",
+          "expected": "yes",
+          "note": "来源：official https://www.boe.com/company/dynamic-c60bfd3738454786ac23cd22；media https://finance.sina.cn/tech/2021-08-19/detail-ikqciyzm24285",
+          "fids": [
+            "F0396"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-11",
+          "check": "J",
+          "text": "报告是否给出京东方（BOE）将该方案称为柔性 OLED FDC（Full Display with Camera）屏下摄像头技术？",
+          "expected": "yes",
+          "note": "来源：official https://www.boe.com/company/dynamic-c60bfd3738454786ac23cd22；media https://finance.sina.cn/tech/2021-08-19/detail-ikqciyzm24285",
+          "fids": [
+            "F0396"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-12",
+          "check": "J",
+          "text": "报告是否给出 Visionox 于 2020 年 6 月推出首款量产屏下摄像头面板方案『InV see』？",
+          "expected": "yes",
+          "note": "来源：official https://www.visionox.com/en/contents/191/413.html；media https://mittrchina.com/news/detail/5041",
+          "fids": [
+            "F0429"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-13",
+          "check": "J",
+          "text": "报告是否给出 Visionox 于 2020 年 9 月将『InV see』供应给 ZTE Axon 20 5G？",
+          "expected": "yes",
+          "note": "来源：official https://www.visionox.com/en/contents/191/413.html；media https://mittrchina.com/news/detail/5041",
+          "fids": [
+            "F0429"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-14",
+          "check": "J",
+          "text": "报告是否给出OPPO于2019年6月的MWC上海2019（MWC19 Shanghai）首次公开展示其屏下摄像头（USC，Under-Screen Camera）技术，作为全面屏显示的全新解决方案？",
+          "expected": "yes",
+          "note": "来源：media https://www.theverge.com/2019/6/26/18759380/under-display-se；official https://www.prnewswire.com/news-releases/oppo-takes-lead-in-",
+          "fids": [
+            "F0430"
+          ],
+          "template": "fact_value"
+        },
+        {
+          "id": "A2-15",
+          "check": "J",
+          "text": "报告是否给出维信诺在 2021 年 SID Display Week 上发布升级版屏下摄像头方案 InV see Pro？",
+          "expected": "yes",
+          "note": "来源：official https://www.visionox.com/en/contents/191/414.html；media https://www.oled-info.com/visionox-shows-new-oled-technologi",
+          "fids": [
+            "F0431"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-16",
+          "check": "J",
+          "text": "报告是否给出维信诺在 2021 年 SID Display Week 上发布的升级版屏下摄像头方案 InV see Pro 采用新驱动电路提升 OLED 透明度？",
+          "expected": "yes",
+          "note": "来源：official https://www.visionox.com/en/contents/191/414.html；media https://www.oled-info.com/visionox-shows-new-oled-technologi",
+          "fids": [
+            "F0431"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-17",
+          "check": "J",
+          "text": "报告是否引用/转述了「调制传递函数（Modulation Transfer Function, MTF）是评估光学系统（透镜）性能的定量指标，衡量成像系统在特定分辨率下把对比度从物体传递到图像的能力」？",
+          "expected": "yes",
+          "note": "来源：secondary https://www.edmundoptics.cn/knowledge-center/application-not；secondary https://baike.baidu.com/item/%E5%85%89%E5%AD%A6%E4%BC%A0%E9%",
+          "fids": [
+            "F0468"
+          ],
+          "template": "fact_quote"
+        },
+        {
+          "id": "A2-18",
+          "check": "J",
+          "text": "报告是否引用/转述了「反卷积（deconvolution）所用的核通常称为「点扩散函数」（PSF）；在 PSF 已知的情况下，图像复原可看成图像卷积模糊的逆过程」？",
+          "expected": "yes",
+          "note": "来源：official https://reference.wolfram.com/language/ref/ImageDeconvolve.h；academic https://www.oejournal.org/oee/en/article/pdf/preview/10.1208",
+          "fids": [
+            "F0473"
+          ],
+          "template": "fact_quote"
+        },
+        {
+          "id": "A2-19",
+          "check": "J",
+          "text": "报告是否给出拜耳滤镜（Bayer filter）是一种彩色滤光片阵列（CFA）？",
+          "expected": "yes",
+          "note": "来源：secondary https://en.wikipedia.org/wiki/Bayer_filter；primary https://patents.google.com/patent/US3971065A/en",
+          "fids": [
+            "F0475"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-20",
+          "check": "J",
+          "text": "报告是否给出拜耳滤镜（Bayer filter）用于在方形排布的光电传感器上排列 RGB 滤色片？",
+          "expected": "yes",
+          "note": "来源：secondary https://en.wikipedia.org/wiki/Bayer_filter；primary https://patents.google.com/patent/US3971065A/en",
+          "fids": [
+            "F0475"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-21",
+          "check": "J",
+          "text": "报告是否引用/转述了「自动白平衡（Auto White Balance, AWB）是通过算法将不同色温环境光下成像的白色还原成真实白色（通常以 CIE 规定色温 6500K 的 D65 光源为标准照明）的过程」？",
+          "expected": "yes",
+          "note": "来源：ugc https://zhuanlan.zhihu.com/p/462987152；secondary https://www.raynauld.com.tw/custom_15318.html",
+          "fids": [
+            "F0486"
+          ],
+          "template": "fact_quote"
+        },
+        {
+          "id": "A2-22",
+          "check": "J",
+          "text": "报告是否引用/转述了「高动态范围（HDR, High Dynamic Range）通过组合两张（或多张）以不同曝光拍摄的照片来保留亮部和暗部细节，实现比普通数字图像更大的曝光动态范围」？",
+          "expected": "yes",
+          "note": "来源：official https://onlinemanual.nikonimglib.com/z7_z6/zh-cn/09_menu_gui；secondary https://baike.baidu.com/item/HDR/62027025",
+          "fids": [
+            "F0488"
+          ],
+          "template": "fact_quote"
+        },
+        {
+          "id": "A2-23",
+          "check": "J",
+          "text": "报告是否给出红魔（RedMagic）是隶属努比亚（nubia）的游戏手机品牌，其旗舰游戏手机采用屏下摄像头（UDC）前置方案？",
+          "expected": "yes",
+          "note": "来源：media https://www.xda-developers.com/red-magic-8-pro-launch/；secondary https://baike.baidu.com/item/%E7%BA%A2%E9%AD%94/59290655",
+          "fids": [
+            "F0493"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-24",
+          "check": "J",
+          "text": "报告是否给出中兴 Axon 50 Ultra 是 Axon 40 Ultra 的继任机型？",
+          "expected": "yes",
+          "note": "来源：media https://www.gizmochina.com/2023-04-11/zte-axon-50-ultra-desi；secondary https://www.gsmarena.com/zte_axon_50_ultra-12228.php",
+          "fids": [
+            "F0494"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-25",
+          "check": "J",
+          "text": "报告是否给出中兴 Axon 50 Ultra 于 2023 年 4 月发布？",
+          "expected": "yes",
+          "note": "来源：media https://www.gizmochina.com/2023-04-11/zte-axon-50-ultra-desi；secondary https://www.gsmarena.com/zte_axon_50_ultra-12228.php",
+          "fids": [
+            "F0494"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-26",
+          "check": "J",
+          "text": "报告是否给出首尔国立大学（Seoul National University）Thunder 研究组的 Kyusu Ahn、Byeonghyun Ko、HyunGyu Lee、Chanwoo Park、Jaejin Lee 在 NeurIPS 2023 发布了真实世界屏下摄像头数据集 UDC-SIT？",
+          "expected": "yes",
+          "note": "来源：academic https://proceedings.neurips.cc/paper_files/paper/2023/hash/d；primary https://zenodo.org/records/7976904",
+          "fids": [
+            "F0495"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-27",
+          "check": "J",
+          "text": "报告是否给出努比亚红魔9 Pro（RedMagic 9 Pro）全球版于2023年12月27日开启预售？",
+          "expected": "yes",
+          "note": "来源：media https://www.tomsguide.com/reviews/redmagic-9-pro；media https://www.inkl.com/news/redmagic-9-pro-review-this-isn-t-e",
+          "fids": [
+            "F0519"
+          ],
+          "template": "fact_value"
+        },
+        {
+          "id": "A2-28",
+          "check": "J",
+          "text": "报告是否给出努比亚红魔9 Pro（RedMagic 9 Pro）全球版于2024年1月3日正式开售？",
+          "expected": "yes",
+          "note": "来源：media https://www.tomsguide.com/reviews/redmagic-9-pro；media https://www.inkl.com/news/redmagic-9-pro-review-this-isn-t-e",
+          "fids": [
+            "F0519"
+          ],
+          "template": "fact_value"
+        },
+        {
+          "id": "A2-29",
+          "check": "J",
+          "text": "报告是否给出论文《Inverse-Designed Metasurfaces for Wavefront Restoration in Under-Display Camera Systems》（Jaegang Jo等）于2025年4月24日提交至arXiv？",
+          "expected": "yes",
+          "note": "来源：academic https://arxiv.org/abs/2504.17368；academic https://pmc.ncbi.nlm.nih.gov/articles/PMC12397738/",
+          "fids": [
+            "F0526"
+          ],
+          "template": "fact_value"
+        },
+        {
+          "id": "A2-30",
+          "check": "J",
+          "text": "报告是否指出论文《Inverse-Designed Metasurfaces for Wavefront Restoration in Under-Display Camera Systems》（Jaegang Jo等）提出用逆向设计超表面在光学层面直接复原屏下摄像头波前畸变、无需外部软件后处理？",
+          "expected": "yes",
+          "note": "来源：academic https://arxiv.org/abs/2504.17368；academic https://pmc.ncbi.nlm.nih.gov/articles/PMC12397738/",
+          "fids": [
+            "F0526"
+          ],
+          "template": "fact_value"
+        },
+        {
+          "id": "A2-31",
+          "check": "J",
+          "text": "报告是否给出小米初代Mi Mix于2016年10月发布，是采用陶瓷机身与超窄边框的『全面屏』概念手机（自拍摄像头置于机身下方），为后续全面屏与屏下摄像头方向的探索起点之一？",
+          "expected": "yes",
+          "note": "来源：media https://mashable.com/article/xiaomi-mi-mix-phone-innovation；ugc https://www.facebook.com/MKBHD/posts/1487839291262102/",
+          "fids": [
+            "F0528"
+          ],
+          "template": "fact_value"
+        },
+        {
+          "id": "A2-32",
+          "check": "J",
+          "text": "报告是否引用/转述了「小米CEO雷军在小米 MIX 4 发布会上坦承，尽管加入了 AI 图像增强算法，MIX 4 屏下前摄的自拍效果仍在优化中，对自拍效果十分在意的用户他建议购买挖孔屏」？",
+          "expected": "yes",
+          "note": "来源：media https://www.guancha.cn/industry-science/2021_08_11_602449.sh；media https://www.eet-china.com/news/202108111218.html",
+          "fids": [
+            "F0106"
+          ],
+          "template": "fact_quote"
+        },
+        {
+          "id": "A2-33",
+          "check": "J",
+          "text": "报告是否给出三星 Galaxy Z Fold3 于 2021 年 8 月 11 日在三星 Unpacked 发布会上公布，2021 年 8 月 27 日正式上市，是三星首款搭载屏下摄像头（4MP UDC）的商用手机？",
+          "expected": "yes",
+          "note": "来源：media https://www.phonearena.com/reviews/Samsung-Galaxy-Z-Fold-3-r；media https://omdia.tech.informa.com/om021614/display-dynamics--se",
+          "fids": [
+            "F0125"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-34",
+          "check": "J",
+          "text": "报告是否引用/转述了「维信诺研究者结论认为，破坏副屏区域图形规则性可部分抑制衍射，但需配合摄像头算法优化；目前屏下摄像可达到显示与前摄拍照效果的平衡，但仍需进一步提高透明度、抑制衍射来提升前摄画质」？",
+          "expected": "yes",
+          "note": "来源：academic https://www.opticsjournal.net/Articles/OJ358a1d45432a5abd/Fu",
+          "fids": [
+            "F0103"
+          ],
+          "template": "fact_quote"
+        },
+        {
+          "id": "A2-35",
+          "check": "J",
+          "text": "报告是否给出中兴于2020年9月1日在中国发布全球首款量产屏下摄像头（UDC）5G智能手机Axon 20 5G，中国区自9月1日起在myzte、京东等渠道开启预售？",
+          "expected": "yes",
+          "note": "来源：media https://www.theverge.com/2020/9/1/21417941/zte-axon-20-5g-un；official https://www.zte.com.cn/global/about/news/20200901e2.html",
+          "fids": [
+            "F0103"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-36",
+          "check": "J",
+          "text": "报告是否给出ZTE Axon 20 5G是全球首款量产的搭载屏下摄像头的5G智能手机？",
+          "expected": "yes",
+          "note": "来源：official https://www.prnewswire.com/news-releases/zte-to-launch-the-w；media https://www.theverge.com/2020-12-21/22191459/zte-axon-20-5g-",
+          "fids": [
+            "F0105"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-37",
+          "check": "J",
+          "text": "报告是否给出，中兴ZTE Axon 20 5G于2020年12月21日起全球开售、定价449美元？",
+          "expected": "yes",
+          "note": "来源：official https://www.ztedevices.com/rs/news/zte-axon-20-5g-s-order-st；official https://www.prnewswire.com/news-releases/zte-to-launch-the-w",
+          "fids": [
+            "F0106"
+          ],
+          "template": "fact_value"
+        },
+        {
+          "id": "A2-38",
+          "check": "J",
+          "text": "报告是否给出小米 MIX 4 的屏下摄像头（CUP）屏幕面板由 TCL 旗下华星光电（TCL CSOT）供应，而非三星，其 CUP 方案历经三年三次迭代、首创微钻（珍珠）排列以减少光线遮挡？",
+          "expected": "yes",
+          "note": "来源：media https://www.eet-china.com/mp/a71514.html；media https://display.ofweek.com/2021-08/ART-8321304-8500-30517924",
+          "fids": [
+            "F0120"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-39",
+          "check": "J",
+          "text": "报告是否给出该 UDC 研究设计了显示器-相机成像系统（Monitor-Camera Imaging System, MCIS）用于采集配对数据，并发布了 UDC 数据集（240 对训练图像，取自 DIV2K）？",
+          "expected": "yes",
+          "note": "来源：academic https://arxiv.org/abs/2003.04857；academic https://yzhouas.github.io/projects/UDC/udc.html",
+          "fids": [
+            "F0153"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-40",
+          "check": "J",
+          "text": "报告是否给出Zhou 等的 UDC 配对数据集用 MCIS（由 4K LCD 显示器、2K FLIR Point-Grey 相机及可换的 T-OLED/P-OLED/玻璃面板组成）采集，取自 DIV2K 的 300 张图像形成 300 对退化/无退化配对？",
+          "expected": "yes",
+          "note": "来源：academic https://yzhouas.github.io/projects/UDC/udc.html；academic https://arxiv.org/pdf/2003.04857",
+          "fids": [
+            "F0155"
+          ],
+          "template": "fact_value"
+        },
+        {
+          "id": "A2-41",
+          "check": "J",
+          "text": "报告是否给出MIPI 挑战赛（Mobile Intelligent Photography & Imaging）在 ECCV 2022 首次举办，设有屏下摄像头（UDC）图像复原赛道；后续在 CVPR 2023、CVPR 2024 继续举办，形成三届连续系列挑战赛？",
+          "expected": "yes",
+          "note": "来源：academic https://arxiv.org/abs/2209.07052；academic https://arxiv.org/html/2405.04867v1",
+          "fids": [
+            "F0175"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-42",
+          "check": "J",
+          "text": "报告是否给出结构相似性指标（SSIM，structural similarity index）是一种用以衡量两张数字影像相似程度的指标，当其中一张为无失真影像时可作为另一张失真影像的质量衡量指标，其值越大表示两信号越相似、最大值为 1？",
+          "expected": "yes",
+          "note": "来源：secondary https://en.wikipedia.org/wiki/Structural_similarity_index_me；secondary https://zh.wikipedia.org/wiki/%E7%B5%90%E6%A7%8B%E7%9B%B8%E4",
+          "fids": [
+            "F0179"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-43",
+          "check": "J",
+          "text": "报告是否给出峰值信噪比（PSNR，Peak signal-to-noise ratio）是一个表示信号最大可能功率与影响其表示精度的破坏性噪声功率之比值的工程术语，因许多信号动态范围很宽而常用对数分贝（dB）单位表示，并常通过均方误差（MSE）定义？",
+          "expected": "yes",
+          "note": "来源：secondary https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio；secondary https://zh.wikipedia.org/wiki/%E5%B3%B0%E5%80%BC%E4%BF%A1%E5",
+          "fids": [
+            "F0180"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-44",
+          "check": "J",
+          "text": "报告是否给出中兴 Axon 20 5G 的屏下 OLED 显示屏由维信诺（Visionox）供应？",
+          "expected": "yes",
+          "note": "来源：media https://www.sohu.com/a/416003029_159067；secondary https://zhuanlan.zhihu.com/p/382047805",
+          "fids": [
+            "F0191"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-45",
+          "check": "J",
+          "text": "报告是否给出小米 MIX 4 采用名为 CUP（Camera Under Panel）的屏下摄像头技术？",
+          "expected": "yes",
+          "note": "来源：media https://www.theverge.com/2021/8/10/22617979/xiaomi-mi-mix-4-；media https://www.eet-china.com/mp/a71514.html",
+          "fids": [
+            "F0195"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-46",
+          "check": "J",
+          "text": "报告是否给出三星将屏下摄像头技术称为 UPC（Under Panel Camera），并于 2021 年 1 月在季度财报中首次官方预告该技术？",
+          "expected": "yes",
+          "note": "来源：media https://www.myfixguide.com/samsung-explains-upc-technology/；media https://www.oled-info.com/boe-files-lawsuit-against-samsung-",
+          "fids": [
+            "F0198"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-47",
+          "check": "J",
+          "text": "报告是否给出《Image Restoration for Under-Display Camera》的作者来自UIUC、UC Berkeley与微软，该论文被CVPR 2021接收？",
+          "expected": "yes",
+          "note": "来源：academic https://arxiv.org/abs/2003.04857；academic https://yzhouas.github.io/projects/UDC/udc.html",
+          "fids": [
+            "F0204"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-48",
+          "check": "J",
+          "text": "报告是否给出ECCV 2020（RLQ workshop）举办了首届屏下摄像头图像复原挑战赛，设 T-OLED（4k 透明 OLED）与 P-OLED（手机 Pentile OLED）两个赛道，约 150 支队伍注册、最终阶段 T-OLED 有 8 队、P-OLED 有 9 队提交结果；以 PSNR 排名，T-OLED 冠军为百度 Research Vision（38.23 dB）、P-OLED 冠军为 CET CVLAB（32.99 dB）？",
+          "expected": "yes",
+          "note": "来源：academic https://yzhouas.github.io/projects/UDC/udc.html；academic https://arxiv.org/abs/2008.07742",
+          "fids": [
+            "F0205"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-49",
+          "check": "J",
+          "text": "报告是否给出京东方（BOE）的柔性OLED FDC（Full Display with Camera）屏下摄像头技术于2021年8月19日亮相OPPO发布会？",
+          "expected": "yes",
+          "note": "来源：official https://www.boe.com/company/dynamic-c60bfd3738454786ac23cd22；media https://finance.sina.cn/tech/2021-08-19/detail-ikqciyzm24285",
+          "fids": [
+            "F0220"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-50",
+          "check": "J",
+          "text": "报告是否给出DXOMARK 在初始测试协议下给予全球首款屏下摄像头手机中兴 Axon 20 5G 的自拍（Selfie）总分仅为 26 分，为当时数据库中倒数第二，仅高于印度市场的廉价机 Intex Aqua Selfie？",
+          "expected": "yes",
+          "note": "来源：media https://www.dxomark.com/zte-axon-20-5g-selfie-review-under-d；media https://www.slashgear.com/zte-axon-20-5g-under-display-camer",
+          "fids": [
+            "F0226"
+          ],
+          "template": "fact_value"
+        },
+        {
+          "id": "A2-51",
+          "check": "J",
+          "text": "报告是否给出努比亚 Z70 Ultra 于 2024 年 11 月 21 日在中国发布，11 月 26 日全球发布，12 月 5 日全球开售，搭载第七代屏下摄像头技术，6.85 英寸 1.5K OLED 全面屏，首款 1.5K 真全面屏无孔屏幕，与 BOE 联合开发？",
+          "expected": "yes",
+          "note": "来源：official https://eu.nubia.com/blogs/news/nubia-z70-ultra-unveiled-in-；primary https://www.prnewswire.com/news-releases/nubia-z70-ultra-lau",
+          "fids": [
+            "F0265"
+          ],
+          "template": "fact_value"
+        },
+        {
+          "id": "A2-52",
+          "check": "J",
+          "text": "报告是否引用/转述了「DXOMARK 结论认为中兴 Axon 20 5G 屏下设计在性能上做了极大牺牲，成像质量在几乎任何度量下都严重低于标准」？",
+          "expected": "yes",
+          "note": "来源：media https://www.dxomark.cn/zte-axon-20-5g-selfie-review-under-di；media https://mobile.yesky.com/356/724021856.shtml",
+          "fids": [
+            "F0280"
+          ],
+          "template": "fact_quote"
+        },
+        {
+          "id": "A2-53",
+          "check": "J",
+          "text": "报告是否给出Visionox 于 2020 年 6 月推出首款量产屏下摄像头面板方案『InV see』，同年 9 月供应给 ZTE Axon 20 5G，是全球首个量产屏下摄像头面板技术？",
+          "expected": "yes",
+          "note": "来源：official https://www.visionox.com/en/contents/191/413.html；media https://mittrchina.com/news/detail/5041",
+          "fids": [
+            "F0320"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-54",
+          "check": "J",
+          "text": "报告是否给出三星显示的 Eco² OLED 面板（用于 Galaxy Z Fold3 的屏下/屏内摄像头 UPC 区域）通过新的面板结构在内部测试中把透光率提升了 33%、功耗降低最多 25%，以缓解屏下摄像头透光与显示的矛盾？",
+          "expected": "yes",
+          "note": "来源：official https://global.samsungdisplay.com/28402；media https://omdia.tech.informa.com/om021614/display-dynamics--se",
+          "fids": [
+            "F0351"
+          ],
+          "template": "fact_value"
+        },
+        {
+          "id": "A2-55",
+          "check": "J",
+          "text": "报告是否给出中兴 Axon 40 Ultra 于 2022 年 5 月 9 日在中国发布，是中兴第三代屏下摄像头（UDC/UPC）产品？",
+          "expected": "yes",
+          "note": "来源：official https://www.zte.com.cn/china/about/news/20220509c2.html；media https://www.notebookcheck.net/ZTE-Axon-40-Ultra-Flagship-sma",
+          "fids": [
+            "F0356"
+          ],
+          "template": "fact_value"
+        },
+        {
+          "id": "A2-56",
+          "check": "J",
+          "text": "报告是否给出2020 年 8 月 28 日，时任小米高管周受资（Shou Zi Chew）在推特公布小米第三代屏下摄像头技术，并宣布计划于 2021 年量产？",
+          "expected": "yes",
+          "note": "来源：media https://www.androidauthority.com/xiaomi-under-screen-camera-；media https://www.gadgets360.com/mobiles/news/xiaomi-third-generat",
+          "fids": [
+            "F0365"
+          ],
+          "template": "fact_value"
+        },
+        {
+          "id": "A2-57",
+          "check": "J",
+          "text": "报告是否给出苹果的屏下前置传感技术进展缓慢：屏下Face ID预计最早随2026年iPhone 18 Pro推出（有推迟至2027年的传闻），而DSCC分析师Ross Young于2023年3月称因传感器问题该技术至少要到2025年才会面世？",
+          "expected": "yes",
+          "note": "来源：media https://appleinsider.com/articles/25/12/19/iphone-18-pro-rum；media https://www.facebook.com/MacRumors/posts/1281490647347249/",
+          "fids": [
+            "F0368"
+          ],
+          "template": "fact_value"
+        },
+        {
+          "id": "A2-58",
+          "check": "J",
+          "text": "报告是否给出小米 Mi Mix 3 于2018年10月25日在北京发布，采用磁动力滑盖结构隐藏前置摄像头以实现无刘海全面屏？",
+          "expected": "yes",
+          "note": "来源：secondary https://en.wikipedia.org/wiki/Xiaomi_Mi_MIX_3；media https://techcrunch.com/2018-10-25/xiaomi-mi-mix-3/",
+          "fids": [
+            "F0370"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-59",
+          "check": "J",
+          "text": "报告是否给出华硕 Asus ZenFone 6 于2019年5月发布，采用电动翻转（flip）摄像头模组消除刘海，实现无刘海全面屏？",
+          "expected": "yes",
+          "note": "来源：official https://edgeup.asus.com/2019/better-by-design-the-zenfone-6-；media https://www.dxomark.com/asus-zenfone-6-camera-review/",
+          "fids": [
+            "F0374"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A2-60",
+          "check": "J",
+          "text": "报告是否给出vivo NEX 双屏版（NEX Dual Display Edition）于2018年12月11日发布，取消前置摄像头，改用机身背面一块5.49英寸副屏配合后置三摄来自拍，从而实现正面无开孔全面屏？",
+          "expected": "yes",
+          "note": "来源：media https://www.androidauthority.com/Vivo-nex-dual-display-editi；media https://www.cnet.com/reviews/vivo-nex-dual-display-edition-p",
+          "fids": [
+            "F0379"
+          ],
+          "template": "fact_entity"
+        }
+      ]
+    },
+    {
+      "id": "A3",
+      "ref": "C-FD",
+      "dimension": "content",
+      "name": "忠实度",
+      "tier": "gate",
+      "logic": "threshold",
+      "threshold": 0.85,
+      "atoms": [
+        {
+          "id": "A3-01",
+          "check": "J",
+          "text": "报告在提到「「前摄屏幕显示效果微调」页面说明文字为「可针对以下三档大屏亮度分别调整小屏显示效果」」这一处时，是否出现与视频原意不符的转述（改动数值、张冠李戴、增删限定条件）？",
+          "expected": "no",
+          "note": "报告未提到该处则记为通过（覆盖度由 C-FC 计）。来源：07:30 画面界面",
+          "fids": [
+            "F0009"
+          ],
+          "template": "fact_quote"
+        }
+      ]
+    },
+    {
+      "id": "A4",
+      "ref": "C-SEG",
+      "dimension": "content",
+      "name": "分段合理性",
+      "tier": "core",
+      "atoms": [
+        {
+          "id": "A4-01",
+          "check": "M",
+          "text": "报告是否至少有 3 个含起止时间的分段，且段长非机械等长（段长变异系数 ≥0.15）？",
+          "expected": "yes",
+          "machine": {
+            "op": "segments_not_uniform",
+            "args": {
+              "min_cv": 0.15
+            }
+          },
+          "template": "structural"
+        }
+      ]
+    },
+    {
+      "id": "A5",
+      "ref": "C-CA",
+      "dimension": "content",
+      "name": "因果分析",
+      "tier": "core",
+      "atoms": [
+        {
+          "id": "A5-01",
+          "check": "J",
+          "text": "报告是否给出OLED屏幕的发光层与阻挡层会吸收部分光线？",
+          "expected": "yes",
+          "note": "来源：secondary https://www.aiusbcam.com/news/690608478665723950.html",
+          "fids": [
+            "F0134"
+          ],
+          "template": "fact_value"
+        },
+        {
+          "id": "A5-02",
+          "check": "J",
+          "text": "报告是否给出屏下摄像头透过OLED屏幕的透光率仅约30%–40%？",
+          "expected": "yes",
+          "note": "来源：secondary https://www.aiusbcam.com/news/690608478665723950.html",
+          "fids": [
+            "F0134"
+          ],
+          "template": "fact_value"
+        },
+        {
+          "id": "A5-03",
+          "check": "J",
+          "text": "报告是否指出屏下摄像头中低开口率会引发强衍射？",
+          "expected": "yes",
+          "fids": [
+            "F0201"
+          ],
+          "template": "llm_mechanism"
+        },
+        {
+          "id": "A5-04",
+          "check": "J",
+          "text": "报告是否指出屏下摄像头中低开口率会引发严重画质退化？",
+          "expected": "yes",
+          "fids": [
+            "F0201"
+          ],
+          "template": "llm_mechanism"
+        },
+        {
+          "id": "A5-05",
+          "check": "J",
+          "text": "报告是否指出Yang Zhou、Yuda Song和Xin Du认为屏下摄像头的成像退化过程包含亮度衰减？",
+          "expected": "yes",
+          "note": "报告需将亮度衰减列为屏下摄像头成像退化过程的一种成分。",
+          "fids": [
+            "F0211"
+          ],
+          "template": "llm_mechanism"
+        },
+        {
+          "id": "A5-06",
+          "check": "J",
+          "text": "报告是否在对比屏下摄像方案时指出，摄像头隐藏得越隐秘，透光性越低？",
+          "expected": "yes",
+          "note": "报告需明确说明屏下摄像头的隐蔽程度提高会导致透光性下降这一权衡关系。",
+          "fids": [
+            "F0219"
+          ],
+          "template": "llm_opinion"
+        },
+        {
+          "id": "A5-07",
+          "check": "J",
+          "text": "报告是否指出，中兴 Axon 30 屏下摄像头采用多驱 ACE 电路，通过提高电路效率使模组相邻区域的显示过渡更自然？",
+          "expected": "yes",
+          "note": "报告需说明多驱 ACE 电路提高效率与相邻区域显示过渡更自然之间的因果关系。",
+          "fids": [
+            "F0236"
+          ],
+          "template": "llm_mechanism"
+        },
+        {
+          "id": "A5-08",
+          "check": "J",
+          "text": "报告是否指出，屏下摄像头PSF中能量极低的长尾旁瓣只有与足够高强度的场景卷积时，才会被放大为可见的结构化眩光？",
+          "expected": "yes",
+          "note": "判定要点：报告须说明高强度场景与PSF长尾旁瓣卷积会将旁瓣放大为可见眩光。",
+          "fids": [
+            "F0241"
+          ],
+          "template": "llm_mechanism"
+        },
+        {
+          "id": "A5-09",
+          "check": "J",
+          "text": "报告是否指出，在光栅常数d和衍射级次k不变时，由光栅方程dsinθ=kλ可知，波长越长，衍射角θ越大？",
+          "expected": "yes",
+          "note": "报告需说明固定d和k时，光栅方程所体现的波长与衍射角的正向关系。",
+          "fids": [
+            "F0568"
+          ],
+          "template": "llm_mechanism"
+        }
+      ]
+    },
+    {
+      "id": "A6",
+      "ref": "C-TL",
+      "dimension": "content",
+      "name": "时效性",
+      "tier": "core",
+      "atoms": [
+        {
+          "check": "J",
+          "text": "报告是否补充了视频发布之后、近三年的最新进展或现况变化，并标注了信息的时间？",
+          "expected": "yes",
+          "fids": [],
+          "template": "recency",
+          "note": "通用时效题：窗口按视频发布日 2022-05-09 定为「近三年」，参照物是时间窗不是某条事实；查报告有没有更新到近三年的信息并带时间锚点",
+          "id": "A6-01"
+        }
+      ]
+    },
+    {
+      "id": "A7",
+      "ref": "C-CMP",
+      "dimension": "content",
+      "name": "对比分析",
+      "tier": "core",
+      "atoms": [
+        {
+          "id": "A7-01",
+          "check": "J",
+          "text": "报告是否给出UDC基础论文测得无显示屏遮挡时人脸检测召回率为60%？",
+          "expected": "yes",
+          "note": "来源：academic https://arxiv.org/pdf/2003.04857",
+          "fids": [
+            "F0138"
+          ],
+          "template": "fact_value"
+        },
+        {
+          "id": "A7-02",
+          "check": "J",
+          "text": "报告是否给出UDC基础论文测得被T-OLED遮挡时人脸检测召回率降至8%？",
+          "expected": "yes",
+          "note": "来源：academic https://arxiv.org/pdf/2003.04857",
+          "fids": [
+            "F0138"
+          ],
+          "template": "fact_value"
+        },
+        {
+          "id": "A7-03",
+          "check": "J",
+          "text": "报告是否引用/转述了「Tom's Guide 评测者 Richard Priday 指出中兴此前的屏下摄像头机型因摄像头上方存在明显的低分辨率屏幕区域而毁掉了显示效果，而 Axon 40 Ultra 提高了该区域像素密度后正常使用时基本看不出差别」？",
+          "expected": "yes",
+          "note": "来源：media https://www.tomsguide.com/reviews/zte-axon-40-ultra；media https://www.androidheadlines.com/zte-axon-40-ultra-review-pr",
+          "fids": [
+            "F0216"
+          ],
+          "template": "fact_quote"
+        },
+        {
+          "id": "A7-04",
+          "check": "J",
+          "text": "报告是否引用/转述了「Tom's Guide 评测者 Richard Priday 称中兴自己也很实际地提醒用户，不要指望屏下摄像头拍出达到常规自拍摄像头水准的照片」？",
+          "expected": "yes",
+          "note": "来源：media https://www.tomsguide.com/reviews/zte-axon-30-5g",
+          "fids": [
+            "F0228"
+          ],
+          "template": "fact_quote"
+        },
+        {
+          "id": "A7-05",
+          "check": "J",
+          "text": "报告是否显示，T-OLED 的透光率比手机用 P-OLED 高约 17.1 个百分点？",
+          "expected": "yes",
+          "note": "T-OLED 透光率约20%，P-OLED仅2.9%，相减得17.1个百分点。",
+          "fids": [
+            "F0043",
+            "F0150"
+          ],
+          "template": "multihop"
+        },
+        {
+          "id": "A7-06",
+          "check": "J",
+          "text": "报告是否显示，CMU实验T-OLED的23.8%开口率比Zhou等人测得的约21%高2.8个百分点？",
+          "expected": "yes",
+          "note": "23.8%−21%=2.8个百分点。",
+          "fids": [
+            "F0150",
+            "F0302"
+          ],
+          "template": "multihop"
+        },
+        {
+          "id": "A7-07",
+          "check": "J",
+          "text": "报告是否显示，OPPO首次公开展示屏下摄像头技术早于RedMagic 7 Pro作为首款屏下摄像头游戏手机发布？",
+          "expected": "yes",
+          "note": "OPPO于2019年6月公开展示该技术，早于RedMagic 7 Pro在2022年2月发布。",
+          "fids": [
+            "F0430",
+            "F0244"
+          ],
+          "template": "multihop"
+        },
+        {
+          "id": "A7-08",
+          "check": "J",
+          "text": "报告是否显示，OPPO称其算法可使屏下摄像头区域的屏幕寿命最多提升50%，京东方称其亮度补偿算法可使该区域的屏幕寿命提升50%？",
+          "expected": "yes",
+          "note": "OPPO称屏幕寿命“最多提升50%”，京东方称可“提升50%”。两处均出现50%这一数值，但须保留OPPO的“最多”限定，不将两种表述视为完全等价的效果保证。",
+          "fids": [
+            "F0075",
+            "F0410"
+          ],
+          "template": "multihop"
+        },
+        {
+          "id": "A7-09",
+          "check": "J",
+          "text": "报告是否显示，努比亚从2023年12月19日发布的Z60 Ultra到2024年11月21日发布的Z70 Ultra，屏下摄像头技术由第五代升至第七代，跨越了两代？",
+          "expected": "yes",
+          "note": "Z70 Ultra的第七代减去Z60 Ultra的第五代，技术代际增加2代。",
+          "fids": [
+            "F0156",
+            "F0174"
+          ],
+          "template": "multihop"
+        },
+        {
+          "id": "A7-10",
+          "check": "J",
+          "text": "报告是否显示努比亚 Z60 Ultra 的发布时间晚于 RedMagic 7 Pro 超过一年？",
+          "expected": "yes",
+          "note": "RedMagic 7 Pro于2022年2月17日发布，Z60 Ultra于2023年12月19日发布，间隔超过一年。",
+          "fids": [
+            "F0156",
+            "F0244"
+          ],
+          "template": "multihop"
+        },
+        {
+          "id": "A7-11",
+          "check": "J",
+          "text": "报告是否给出三星将其屏下摄像头方案称为屏下相机（Under Panel Camera，UPC）？",
+          "expected": "yes",
+          "note": "来源：media https://www.myfixguide.com/samsung-explains-upc-technology/；media https://www.oled-info.com/boe-files-lawsuit-against-samsung-",
+          "fids": [
+            "F0127"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A7-12",
+          "check": "J",
+          "text": "报告是否给出三星声称通过名为 Eco2 OLED 的技术实现比常规高 33% 的透光率，以避免自拍照过曝发白？",
+          "expected": "yes",
+          "note": "来源：media https://www.myfixguide.com/samsung-explains-upc-technology/；media https://www.oled-info.com/boe-files-lawsuit-against-samsung-",
+          "fids": [
+            "F0127"
+          ],
+          "template": "fact_entity"
+        },
+        {
+          "id": "A7-13",
+          "check": "J",
+          "text": "报告中提及的透光率提升技术所达到的屏下摄像区透光率（约20%），是否高于普通手机OLED显示屏通常的透光率（低于5%）？",
+          "expected": "yes",
+          "note": "F0051称提升技术可达约20%，F0052称普通OLED通常低于5%，20%>5%故更高",
+          "fids": [
+            "F0051",
+            "F0052"
+          ],
+          "template": "multihop"
+        }
+      ]
+    },
+    {
+      "id": "A8",
+      "ref": "C-EXT",
+      "dimension": "content",
+      "name": "内外关联",
+      "tier": "core",
+      "atoms": [
+        {
+          "id": "A8-01",
+          "check": "M",
+          "text": "报告是否有 ≥15% 的叙述块带可解析的外部来源引用（而非通篇复述视频）？",
+          "expected": "yes",
+          "machine": {
+            "op": "external_beyond_recital",
+            "args": {
+              "min_share": 0.15
+            }
+          },
+          "template": "structural"
+        }
+      ]
+    },
+    {
+      "id": "A9",
+      "ref": "C-LOG",
+      "dimension": "content",
+      "name": "逻辑一致性",
+      "tier": "core",
+      "atoms": [
+        {
+          "id": "A9-01",
+          "check": "J",
+          "text": "报告是否引用/转述了「小米总裁卢伟冰在 MIX 4 发布前后解释屏下摄像头的核心矛盾：屏幕 PPI 在 400 左右时相机透光率很低、严重影响拍照效果，而若降低 PPI 提高透过率，又会让屏下区域与整屏 PPI 差距很大、出现色块等显示问题」？",
+          "expected": "yes",
+          "note": "来源：media https://tech.ifeng.com/c/7tcyN9a8Ict；media https://tech.chinadaily.com.cn/a/202108/10/WS6111d755a3101e7",
+          "fids": [
+            "F0295"
+          ],
+          "template": "fact_quote"
+        },
+        {
+          "id": "A9-02",
+          "check": "J",
+          "text": "报告是否显示，实测的2.9%透光率低于手机用OLED显示屏通常低于5%的上限？",
+          "expected": "yes",
+          "note": "实测透光率为2.9%，且2.9%低于通常透光率范围的5%上限。",
+          "fids": [
+            "F0043",
+            "F0052"
+          ],
+          "template": "multihop"
+        }
+      ]
+    },
+    {
+      "id": "A10",
+      "ref": "C-ETH",
+      "dimension": "content",
+      "name": "伦理安全",
+      "tier": "gate",
+      "logic": "all",
+      "atoms": [
+        {
+          "id": "A10-01",
+          "check": "M",
+          "text": "报告是否不含密钥/token 等敏感串？",
+          "expected": "yes",
+          "machine": {
+            "op": "no_secrets",
+            "args": {}
+          },
+          "template": "structural"
+        }
+      ]
+    },
+    {
+      "id": "C1",
+      "ref": "R-NUM",
+      "dimension": "citation",
+      "name": "来源数量",
+      "tier": "core",
+      "atoms": [
+        {
+          "id": "C1-01",
+          "check": "M",
+          "text": "报告的外部来源总数是否 ≥30 个？",
+          "expected": "yes",
+          "machine": {
+            "op": "count_research_min",
+            "args": {
+              "n": 30
+            }
+          },
+          "template": "structural"
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "ref": "R-QTY",
+      "dimension": "citation",
+      "name": "来源可核查性",
+      "tier": "gate",
+      "logic": "all",
+      "atoms": [
+        {
+          "id": "C2-01",
+          "check": "M",
+          "text": "报告中的 [S#] 引用是否全部能解析到来源条目？",
+          "expected": "yes",
+          "machine": {
+            "op": "cite_closure",
+            "args": {}
+          },
+          "template": "structural"
+        },
+        {
+          "id": "C2-02",
+          "check": "M",
+          "text": "来源清单里从未被正文引用的条目是否 ≤15%？",
+          "expected": "yes",
+          "machine": {
+            "op": "cite_reverse_closure",
+            "args": {
+              "max_share": 0.15
+            }
+          },
+          "template": "structural"
+        },
+        {
+          "id": "C2-03",
+          "check": "M",
+          "text": "是否存在可检查的分段正文，且规则检出的排他性表达中，附近未检测到“[S”标记的情况不超过 2 处？",
+          "expected": "yes",
+          "machine": {
+            "op": "no_unsourced_absolutes",
+            "args": {
+              "max": 2
+            }
+          },
+          "template": "structural"
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "ref": "R-DIV",
+      "dimension": "citation",
+      "name": "来源多样性",
+      "tier": "core",
+      "atoms": [
+        {
+          "id": "C3-01",
+          "check": "M",
+          "text": "报告来源是否覆盖 ≥20 个不同域名？",
+          "expected": "yes",
+          "machine": {
+            "op": "distinct_domains_min",
+            "args": {
+              "n": 20
+            }
+          },
+          "template": "structural"
+        },
+        {
+          "id": "C3-02",
+          "check": "M",
+          "text": "报告来源是否覆盖 ≥3 种类型（网页/视频/报告/图片）？",
+          "expected": "yes",
+          "machine": {
+            "op": "research_types_min",
+            "args": {
+              "n": 3
+            }
+          },
+          "template": "structural"
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "ref": "R-AUT",
+      "dimension": "citation",
+      "name": "来源权威性",
+      "tier": "core",
+      "atoms": [
+        {
+          "id": "C4-01",
+          "check": "M",
+          "text": "报告是否不存在以搜索结果页充当来源的引用？",
+          "expected": "yes",
+          "machine": {
+            "op": "no_search_urls",
+            "args": {}
+          },
+          "template": "structural"
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "ref": "R-SUP",
+      "dimension": "citation",
+      "name": "关键论断引用支撑",
+      "tier": "core",
+      "atoms": [
+        {
+          "id": "C5-01",
+          "check": "J",
+          "text": "报告是否为「维信诺在 2021 年 SID Display Week 上发布升级版屏下摄像头方案 InV see Pro，采用新驱动电路提升 OLED 透明度并提高像素密度」给出 ≥2 个不同域名的独立来源？",
+          "expected": "yes",
+          "fids": [
+            "F0431"
+          ],
+          "template": "crossverify"
+        },
+        {
+          "id": "C5-02",
+          "check": "J",
+          "text": "报告是否为「调制传递函数（Modulation Transfer Function, MTF）是评估光学系统（透镜）性能的定量指标，衡量成像系统在特定分辨率下把对比度从物体传递到图像的能力」给出 ≥2 个不同域名的独立来源？",
+          "expected": "yes",
+          "fids": [
+            "F0468"
+          ],
+          "template": "crossverify"
+        },
+        {
+          "id": "C5-03",
+          "check": "J",
+          "text": "报告是否为「反卷积（deconvolution）所用的核通常称为「点扩散函数」（PSF）；在 PSF 已知的情况下，图像复原可看成图像卷积模糊的逆过程」给出 ≥2 个不同域名的独立来源？",
+          "expected": "yes",
+          "fids": [
+            "F0473"
+          ],
+          "template": "crossverify"
+        },
+        {
+          "id": "C5-04",
+          "check": "J",
+          "text": "报告是否为「拜耳滤镜（Bayer filter）是一种彩色滤光片阵列（CFA），用于在方形排布的光电传感器上排列 RGB 滤色片，由柯达科学家 Bryce Bayer 于 1976 年发明，滤光图案比例为 25% 红、50% 绿、25% 蓝」给出 ≥2 个不同域名的独立来源？",
+          "expected": "yes",
+          "fids": [
+            "F0475"
+          ],
+          "template": "crossverify"
+        },
+        {
+          "id": "C5-05",
+          "check": "J",
+          "text": "报告是否为「中兴于2020年9月1日在中国发布全球首款量产屏下摄像头（UDC）5G智能手机Axon 20 5G，中国区自9月1日起在myzte、京东等渠道开启预售」给出 ≥2 个不同域名的独立来源？",
+          "expected": "yes",
+          "fids": [
+            "F0103"
+          ],
+          "template": "crossverify"
+        },
+        {
+          "id": "C5-06",
+          "check": "J",
+          "text": "报告是否为「中兴 ZTE Axon 20 5G 是全球首款量产的屏下摄像头 5G 智能手机，中兴于 2020 年 9 月 1 日正式发布，2020 年 12 月 21 日起全球开售、定价 449 美元」给出 ≥2 个不同域名的独立来源？",
+          "expected": "yes",
+          "fids": [
+            "F0106"
+          ],
+          "template": "crossverify"
+        },
+        {
+          "id": "C5-07",
+          "check": "J",
+          "text": "报告是否为「ZTE Axon 20 5G是全球首款量产的搭载屏下摄像头的5G智能手机」给出 ≥2 个不同域名的独立来源？",
+          "expected": "yes",
+          "fids": [
+            "F0105"
+          ],
+          "template": "crossverify"
+        },
+        {
+          "id": "C5-08",
+          "check": "J",
+          "text": "报告是否为「小米 MIX 4 的屏下摄像头（CUP）屏幕面板由 TCL 旗下华星光电（TCL CSOT）供应，而非三星，其 CUP 方案历经三年三次迭代、首创微钻（珍珠）排列以减少光线遮挡」给出 ≥2 个不同域名的独立来源？",
+          "expected": "yes",
+          "fids": [
+            "F0120"
+          ],
+          "template": "crossverify"
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "ref": "R-FRS",
+      "dimension": "citation",
+      "name": "来源时效性",
+      "tier": "core",
+      "atoms": [
+        {
+          "id": "C6-01",
+          "check": "M",
+          "text": "报告是否有 ≥3 个落在时效窗口内的较新来源（视频>3年问近三年、0.5–3年问近半年）？",
+          "expected": "yes",
+          "machine": {
+            "op": "research_recency",
+            "args": {
+              "n": 3
+            }
+          },
+          "template": "structural"
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "ref": "R-MED",
+      "dimension": "citation",
+      "name": "多模态素材",
+      "tier": "core",
+      "atoms": [
+        {
+          "id": "C7-01",
+          "check": "M",
+          "text": "报告是否包含 ≥3 个视频类来源？",
+          "expected": "yes",
+          "machine": {
+            "op": "count_research_type_min",
+            "args": {
+              "type": "video",
+              "n": 3
+            }
+          },
+          "template": "structural"
+        },
+        {
+          "id": "C7-02",
+          "check": "M",
+          "text": "下载落地的图片素材是否 ≥90% 真的出现在报告里？",
+          "expected": "yes",
+          "machine": {
+            "op": "assets_unused_max",
+            "args": {
+              "max_share": 0.1
+            }
+          },
+          "template": "structural"
+        },
+        {
+          "id": "C7-03",
+          "check": "M",
+          "text": "报告是否有 ≥3 个来源的素材被真正下载落地？",
+          "expected": "yes",
+          "machine": {
+            "op": "research_media_downloaded",
+            "args": {
+              "n": 3
+            }
+          },
+          "template": "structural"
+        },
+        {
+          "id": "C7-04",
+          "check": "M",
+          "text": "报告的 anchors 裁剪图是否 ≥2 张被正文引用？",
+          "expected": "yes",
+          "machine": {
+            "op": "anchors_used",
+            "args": {
+              "n": 2
+            }
+          },
+          "template": "structural"
+        }
+      ]
+    },
+    {
+      "id": "P1",
+      "ref": "P-ALN",
+      "dimension": "presentation",
+      "name": "视频-笔记对齐",
+      "tier": "gate",
+      "logic": "all",
+      "atoms": [
+        {
+          "id": "P1-01",
+          "check": "M",
+          "text": "报告的 data.js 是否通过结构校验？",
+          "expected": "yes",
+          "machine": {
+            "op": "validate_data",
+            "args": {}
+          },
+          "template": "structural"
+        },
+        {
+          "id": "P1-02",
+          "check": "M",
+          "text": "报告分段是否 ≥4 段且每段 start < end 合法？",
+          "expected": "yes",
+          "machine": {
+            "op": "segments_valid",
+            "args": {
+              "min": 4
+            }
+          },
+          "template": "structural"
+        }
+      ]
+    },
+    {
+      "id": "P2",
+      "ref": "P-INT",
+      "dimension": "presentation",
+      "name": "交互功能",
+      "tier": "core",
+      "atoms": [
+        {
+          "id": "P2-01",
+          "check": "M",
+          "text": "报告的 video.src 是否指向非空本地文件，且声明时长为正、分段终点不超过声明时长的 105%？",
+          "expected": "yes",
+          "machine": {
+            "op": "video_playable",
+            "args": {}
+          },
+          "template": "structural"
+        }
+      ]
+    },
+    {
+      "id": "P3",
+      "ref": "P-VIS",
+      "dimension": "presentation",
+      "name": "视觉质量",
+      "tier": "core",
+      "atoms": [
+        {
+          "id": "P3-01",
+          "check": "M",
+          "text": "正文引用的图片是否都能解析到真实文件且宽度 ≥320px？",
+          "expected": "yes",
+          "machine": {
+            "op": "images_resolve",
+            "args": {
+              "min_w": 320
+            }
+          },
+          "template": "structural"
+        },
+        {
+          "id": "P3-02",
+          "check": "M",
+          "text": "报告是否不存在被重复展示的图片？",
+          "expected": "yes",
+          "machine": {
+            "op": "image_reuse_max",
+            "args": {
+              "max": 1
+            }
+          },
+          "template": "structural"
+        },
+        {
+          "id": "P3-03",
+          "check": "M",
+          "text": "覆盖 00:24 的分段所引图片是否都能解析到真实文件且宽度 ≥320px？",
+          "expected": "yes",
+          "machine": {
+            "op": "seg_at_images_resolve",
+            "args": {
+              "min_w": 320,
+              "at": 24
+            }
+          },
+          "template": "structural"
+        },
+        {
+          "id": "P3-04",
+          "check": "M",
+          "text": "覆盖 01:13 的分段所引图片是否都能解析到真实文件且宽度 ≥320px？",
+          "expected": "yes",
+          "machine": {
+            "op": "seg_at_images_resolve",
+            "args": {
+              "min_w": 320,
+              "at": 73
+            }
+          },
+          "template": "structural"
+        },
+        {
+          "id": "P3-05",
+          "check": "M",
+          "text": "覆盖 02:03 的分段所引图片是否都能解析到真实文件且宽度 ≥320px？",
+          "expected": "yes",
+          "machine": {
+            "op": "seg_at_images_resolve",
+            "args": {
+              "min_w": 320,
+              "at": 123
+            }
+          },
+          "template": "structural"
+        },
+        {
+          "id": "P3-06",
+          "check": "M",
+          "text": "覆盖 02:52 的分段所引图片是否都能解析到真实文件且宽度 ≥320px？",
+          "expected": "yes",
+          "machine": {
+            "op": "seg_at_images_resolve",
+            "args": {
+              "min_w": 320,
+              "at": 172
+            }
+          },
+          "template": "structural"
+        },
+        {
+          "id": "P3-07",
+          "check": "M",
+          "text": "覆盖 03:41 的分段所引图片是否都能解析到真实文件且宽度 ≥320px？",
+          "expected": "yes",
+          "machine": {
+            "op": "seg_at_images_resolve",
+            "args": {
+              "min_w": 320,
+              "at": 221
+            }
+          },
+          "template": "structural"
+        },
+        {
+          "id": "P3-08",
+          "check": "M",
+          "text": "覆盖 04:31 的分段所引图片是否都能解析到真实文件且宽度 ≥320px？",
+          "expected": "yes",
+          "machine": {
+            "op": "seg_at_images_resolve",
+            "args": {
+              "min_w": 320,
+              "at": 271
+            }
+          },
+          "template": "structural"
+        }
+      ]
+    },
+    {
+      "id": "P4",
+      "ref": "P-ITC",
+      "dimension": "presentation",
+      "name": "图文对应",
+      "tier": "core",
+      "atoms": [
+        {
+          "id": "P4-01",
+          "check": "M",
+          "text": "是否每个分段都有关键帧或图片块？",
+          "expected": "yes",
+          "machine": {
+            "op": "segments_have_media",
+            "args": {
+              "min_frac": 1.0
+            }
+          },
+          "template": "structural"
+        },
+        {
+          "id": "P4-02",
+          "check": "M",
+          "text": "覆盖 01:13 的分段是否配有能落地的关键帧或图片？",
+          "expected": "yes",
+          "machine": {
+            "op": "seg_at_has_media",
+            "args": {
+              "at": 73
+            }
+          },
+          "template": "structural"
+        },
+        {
+          "id": "P4-03",
+          "check": "M",
+          "text": "覆盖 02:52 的分段，其图注标注的帧时间戳是否都落在本段区间内（允许段界前后各 3 秒误差）？",
+          "expected": "yes",
+          "machine": {
+            "op": "seg_at_imgcap_in_segment",
+            "args": {
+              "tol": 3,
+              "at": 172
+            }
+          },
+          "template": "structural"
+        },
+        {
+          "id": "P4-04",
+          "check": "M",
+          "text": "覆盖 05:20 的分段，其图注标注的帧时间戳是否都落在本段区间内（允许段界前后各 3 秒误差）？",
+          "expected": "yes",
+          "machine": {
+            "op": "seg_at_imgcap_in_segment",
+            "args": {
+              "tol": 3,
+              "at": 320
+            }
+          },
+          "template": "structural"
+        },
+        {
+          "id": "P4-05",
+          "check": "M",
+          "text": "覆盖 07:48 的分段是否配有能落地的关键帧或图片？",
+          "expected": "yes",
+          "machine": {
+            "op": "seg_at_has_media",
+            "args": {
+              "at": 468
+            }
+          },
+          "template": "structural"
+        },
+        {
+          "id": "P4-06",
+          "check": "M",
+          "text": "覆盖 09:26 的分段，其图注标注的帧时间戳是否都落在本段区间内（允许段界前后各 3 秒误差）？",
+          "expected": "yes",
+          "machine": {
+            "op": "seg_at_imgcap_in_segment",
+            "args": {
+              "tol": 3,
+              "at": 566
+            }
+          },
+          "template": "structural"
+        },
+        {
+          "id": "P4-07",
+          "check": "M",
+          "text": "覆盖 11:54 的分段，其图注标注的帧时间戳是否都落在本段区间内（允许段界前后各 3 秒误差）？",
+          "expected": "yes",
+          "machine": {
+            "op": "seg_at_imgcap_in_segment",
+            "args": {
+              "tol": 3,
+              "at": 714
+            }
+          },
+          "template": "structural"
+        },
+        {
+          "id": "P4-08",
+          "check": "M",
+          "text": "覆盖 14:22 的分段是否配有能落地的关键帧或图片？",
+          "expected": "yes",
+          "machine": {
+            "op": "seg_at_has_media",
+            "args": {
+              "at": 862
+            }
+          },
+          "template": "structural"
+        }
+      ]
+    },
+    {
+      "id": "P5",
+      "ref": "P-RD",
+      "dimension": "presentation",
+      "name": "可读性",
+      "tier": "gate",
+      "logic": "threshold",
+      "threshold": 0.8,
+      "atoms": [
+        {
+          "id": "P5-01",
+          "check": "M",
+          "text": "报告是否未把研究方法论/流程叙述写给读者？",
+          "expected": "yes",
+          "machine": {
+            "op": "no_process_narration",
+            "args": {}
+          },
+          "template": "structural"
+        },
+        {
+          "id": "P5-02",
+          "check": "M",
+          "text": "各分段标题是否都是描述性的（非「第 N 段」这类占位）？",
+          "expected": "yes",
+          "machine": {
+            "op": "segment_titles_descriptive",
+            "args": {}
+          },
+          "template": "structural"
+        }
+      ]
+    },
+    {
+      "id": "P6",
+      "ref": "P-FMT",
+      "dimension": "presentation",
+      "name": "格式运用",
+      "tier": "core",
+      "atoms": [
+        {
+          "id": "P6-01",
+          "check": "M",
+          "text": "报告是否有 ≥1 个带 rows 的对比表格？",
+          "expected": "yes",
+          "machine": {
+            "op": "table_min",
+            "args": {
+              "n": 1
+            }
+          },
+          "template": "structural"
+        },
+        {
+          "id": "P6-02",
+          "check": "M",
+          "text": "报告是否使用了 ≥1 个结构化可视化块（flow/mindmap/svg）？",
+          "expected": "yes",
+          "machine": {
+            "op": "block_type_min",
+            "args": {
+              "types": [
+                "flow",
+                "mindmap",
+                "svg"
+              ],
+              "n": 1
+            }
+          },
+          "template": "structural"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1615 @@
+Removing Diffraction Image Artifacts in Under-Display Camera via
+Dynamic Skip Connection Network
+Ruicheng Feng1
+Chongyi Li1
+Huaijin Chen2
+Shuai Li2
+Chen Change Loy1
+Jinwei Gu2,3
+1S-Lab, Nanyang Technological University
+2Tetras.AI
+3Shanghai Al Laboratory
+{ruicheng002, chongyi.li, ccloy}@ntu.edu.sg
+{huaijin.chen, shuailizju}@gmail.com
+gujinwei@tetras.ai
+UDC images
+(a) Simulated data
+Our results
+(b) Real data
+Figure 1. Removing Diffraction Artifacts from Under-Display Camera (UDC) images. The major degradations caused by light diffrac-
+tion, e.g., ﬂare, blur, and haze, could signiﬁcantly affect the visual quality of UDC images. Our method effectively restores ﬁne details and
+suppresses the diffraction effects of UDC images.
+Abstract
+Recent development of Under-Display Camera (UDC)
+systems provides a true bezel-less and notch-free viewing
+experience on smartphones (and TV, laptops, tablets), while
+allowing images to be captured from the selﬁe camera em-
+bedded underneath.
+In a typical UDC system, the mi-
+crostructure of the semi-transparent organic light-emitting
+diode (OLED) pixel array attenuates and diffracts the in-
+cident light on the camera, resulting in signiﬁcant image
+quality degradation. Oftentimes, noise, ﬂare, haze, and blur
+can be observed in UDC images. In this work, we aim to an-
+alyze and tackle the aforementioned degradation problems.
+We deﬁne a physics-based image formation model to bet-
+ter understand the degradation. In addition, we utilize one
+of the world’s ﬁrst commodity UDC smartphone prototypes
+to measure the real-world Point Spread Function (PSF) of
+the UDC system, and provide a model-based data synthesis
+pipeline to generate realistically degraded images. We spe-
+cially design a new domain knowledge-enabled Dynamic
+Skip Connection Network (DISCNet) to restore the UDC
+images. We demonstrate the effectiveness of our method
+through extensive experiments on both synthetic and real
+UDC data. Our physics-based image formation model and
+proposed DISCNet can provide foundations for further ex-
+ploration in UDC image restoration, and even for general
+diffraction artifact removal in a broader sense. 1
+1. Introduction
+The consumer demand for smartphones with bezel-free,
+notch-less display has sparked a surge of interest from the
+phone manufacturers in a newly-deﬁned imaging system,
+Under-Display Camera (UDC). Besides smartphones, UDC
+also demonstrates its practical applicability in other scenar-
+ios, i.e., for videoconferencing with UDC TV, laptops, or
+tablets, enabling more natural gaze focus as they place cam-
+eras at the center of the displays [16]. As Figure 2 shows,
+a typical UDC system has the camera module placed un-
+derneath and closely attached to the semi-transparent Or-
+ganic Light-Emitting Diode (OLED) display. Although the
+display looks partially transparent, the regions where the
+light can pass through, i.e. the gaps between the display pix-
+els, are usually in the micrometer scale, which substantially
+diffracts the incoming light [23], affecting the light propa-
+1Codes and data are available at https://jnjaby.github.io/projects/UDC.
+1
+arXiv:2104.09556v1  [cs.CV]  19 Apr 2021
+
+Normal pixel density
+Reduced pixel density
+(a)
+(b)
+(c)
+✱
+=
+Measured 2D
+HDR PSF
+Real HDR Scene
+UDC Image
+z1
+d
+z2
+Display
+Sensor
+Lens
+1D Dissection
+of the PSF
+Point 
+Source
+Figure 2. (a) A close-up shot of the UDC OLED on the ZTE Axon
+20 phone. The UDC OLED panel has reduced pixel density in the
+area above the camera, allowing for more transparency. (b) The
+schematic of the UDC system. The light emitted from a point light
+source is modulated by the OLED and camera lens, before being
+captured by the sensor. (c) A simulated example of our image for-
+mation model with a real-captured PSF. The 2D PSF is brightened
+in the ﬁgure to visualize the structured sidelobe patterns.
+gation from the scene to the sensor. The UDC systems intro-
+duce a new class of complex image degradation problems,
+combining strong ﬂare, haze, blur, and noise (see top row
+in Figure 1). In the ﬁrst attempt [47] to address the UDC
+image restoration problem, the authors proposed a Monitor-
+Camera Imaging System (MCIS) to capture paired data and
+used the image formation to synthesize the Point Spread
+Function (PSF) of two types of OLED display. However,
+there are several drawbacks of this pioneer work, includ-
+ing 1) inaccurate PSF due to a mismatch between the ac-
+tual and the synthetic PSF, 2) lacking proper high dynamic
+range (HDR) in the MCIS-captured data, missing realistic
+UDC degradation, 3) prototype UDC differs signiﬁcantly
+from actual production UDC, 4) missing real-world evalua-
+tion on non-MCIS data, and 5) proposed network does not
+fully utilize domain knowledge. We examine the drawbacks
+in further details in Section 2.
+In this work, we aim to address the aforementioned is-
+sues. We ﬁrst present a realistic image formation model and
+measurement protocol considering proper dynamic range
+for the scenes and camera sensor, and restore the real-world
+degradation in the actual UDC images. To this end, we
+experiment with one of the world’s ﬁrst production UDC
+device, ZTE Axon 20, which incorporates a UDC system
+into its selﬁe camera. Note that we aim to analyze and in-
+vestigate the artifacts caused by diffraction effects, rather
+than propose a product-ready solution for ZTE phone cam-
+era. Our method is versatile and applicable to other UDC
+device, or more generally, other diffraction-limited imag-
+ing systems, e.g., microscopy imaging, pinhole camera. We
+devise an imaging system to directly measure the PSF of
+the UDC device (see Section 3.2) with a point source. As
+shown in Figure 2, due to the diffraction of the display, the
+resulting PSF has some special characteristics: it has large
+spatial support, strong response at the center, and long-tail
+low-energy sidelobes. With the measured PSF, we refor-
+mulate the image formation model to account for realistic
+ﬂare, haze, and blur, which were missing [46, 47] due to the
+limited dynamic range of scenes. Then, we develop a data
+simulation pipeline based on the image formation model by
+using HDR images to approximate real scenes. Addition-
+ally, we capture real images using the UDC phone’s selﬁe
+camera to validate our simulated data and evaluate the per-
+formance of our restoration network. As shown in Figure 1,
+our simulated and real data reveal similar degradation, espe-
+cially in those high-intensity regions. Speciﬁcally, ﬂare can
+be observed nearby strong light sources, where highlights
+are spread into neighboring low-intensity areas in structured
+diffraction patterns.
+To restore the UDC images, we propose a DynamIc Skip
+Connection Network (DISCNet) that incorporates the do-
+main knowledge of the image formation model into the net-
+work designs. In particular, sensor saturation breaks the
+shift-invariance of the single-PSF-based convolution, lead-
+ing to spatially-variant degradation. This motivates us to
+design a dynamic ﬁlter network to dynamically predict ﬁl-
+ters for each pixel. In addition, due to large support of PSF,
+we propose a multi-scale architecture and perform dynamic
+convolution in the feature domain to obtain a larger recep-
+tive ﬁeld. Also, a condition encoder is introduced to utilize
+the information of PSF.
+In summary, our contributions are as follows:
+• We reformulate the image formation model for UDC
+systems by considering dynamic range and saturation,
+which takes into account the diffraction ﬂare com-
+monly seen in UDC images.
+• We utilize the ﬁrst UDC smartphone prototypes to
+measure the real-world PSF. The PSF is used as part
+of a model-based data synthesis pipeline to generate
+realistic degraded images.
+• We devise a DynamIc Skip Connection Network (DIS-
+CNet) that incorporates the domain knowledge of the
+2
+
+UDC image formation model.
+Experimental results
+show that it is effective for removing diffraction image
+artifacts in UDC systems.
+2. Related Work
+UDC Imaging. Several previous work [24, 32] character-
+ized and analyzed the diffraction effects of UDC systems.
+Kwon et al. [13] modeled the edge spread function of trans-
+parent OLED. Qin et al. [23] discussed pixel structure de-
+sign that can potentially reduce the diffraction. While all
+these works provide good insights into UDC imaging sys-
+tems, none of them tackles the image restoration problem.
+Additionally, several works [8, 30, 29] proposed camera-
+behind-display design for enhanced 3D interaction with ﬂat
+panel display. Though low-resolution images are the by-
+products of those prototype interaction systems, given the
+extremely poor image quality, they are unsuitable for daily
+photography, which is the focus of this work.
+UDC Restoration. To our best knowledge, [47] and the
+subsequent ECCV challenge [46] are the only works that
+directly address the problem of UDC image restoration. In
+[47], the authors devised an MCIS to capture paired images,
+and solve the UDC image restoration problem as a blind
+deconvolution problem using a variant of UNet [26]. While
+the work pioneers the UDC image restoration problem, it
+suffers from several drawbacks.
+First, while MCISs are commonly used in the compu-
+tational imaging community [22, 1] to capture the system
+PSF or acquire paired image data, most commodity monitor
+lacks the high dynamic range which is a must to model re-
+alistic diffraction artifacts in UDC systems. As a result, the
+PSFs they used have incomplete side lobes, and the images
+have less severe artifacts, e.g., blur, haze, and ﬂare. In our
+work, we consider HDR in data generation and PSF mea-
+surement to allow us to tackle real-world scenes properly.
+Secondly, the authors use regular OLED manually covering
+a camera in their setup, instead of an actual rigid UDC as-
+sembly, and perform experiments and evaluations on quasi-
+realistic data. As a result, any slight movements, rotation, or
+tilt of the display with respect to the sensor plane will cause
+variational PSFs, preventing their network from being ap-
+plied to handle variational degradations without the knowl-
+edge of the PSF kernel. To minimize the domain gap, we
+use one of the world’s ﬁrst production UDC device for data
+collection, experiments, and evaluations. Lastly, though the
+authors captured and used the PSF in data synthesis, they
+formulated the UDC image restoration as a blind deconvo-
+lution problem through a simple UNet, without explicitly
+utilizing the PSFs as useful domain knowledge. In contrast,
+we leverage the PSF as important supporting information in
+our proposed DISCNet.
+Non-blind Image Restoration.
+In the context of non-
+blind image restoration, a large body of works has ex-
+erted great effort to tackle this ill-posed problem.
+Prior
+to the deep-learning era, early deconvolution approaches
+[25, 20, 14, 4, 36] imposed prior knowledge to constrain
+the solution space since the noise model is unknown. Then,
+several works [27, 37, 41] focused on establishing the
+connection between optimization-based deconvolution and
+a neural network for non-blind image restoration.
+Also,
+Shocher et al. [28] employed a small image-speciﬁc net-
+work to deal with various degradations of a single image.
+Zhang et al. [42] proposed SRMD to handle multiple degra-
+dations with one network. Gu et al. [5] proposed SFTMD
+and Iterative Kernel Correction (IKC) to iteratively correct
+the kernel code of degradations. Additionally, [3, 40, 44]
+used Generative Adversarial Networks (GANs) to tackle
+different degradations. Similar to SRMD [42], we take the
+PSF kernel as an additional condition but use it in a differ-
+ent way, i.e., feed it into a condition encoder to facilitate
+dynamic ﬁlter generation.
+Dynamic Filter Network. Recent years have witnessed
+great success in dynamic ﬁlter networks employed in a wide
+range of vision applications to handle spatially-variant is-
+sues. Jia et al. [9] ﬁrstly exploited dynamic network to gen-
+erate an individual kernel for each pixel conditioned on the
+input image. Since then, this module has proven to pro-
+vide signiﬁcant beneﬁts for applications, such as video in-
+terpolation [18, 19], denoising [2, 17, 38], super-resolution
+[10, 39, 34], and video deblurring [45]. In addition, Wang
+et al. [33] proposed a kernel prediction module serving as a
+universal upsampling operator. Most previous approaches,
+however, can not be directly applied to UDC image restora-
+tion, because they either apply predicted ﬁlters in the im-
+age domain or mainly focus on a special operation. In this
+work, we construct multi-scale ﬁlter generators and adopt
+the dynamic convolution in the feature domain to handle
+degradation with large-support and long-tail PSF.
+3. Image Formation Model and Dataset
+3.1. Image Formation Model
+We consider a real-world image formation model for
+UDC that suffers from several types of degradation, includ-
+ing diffraction effects, saturation, and camera noise. This
+degradation model is given by
+ˆy = φ[C(x ∗k + n)],
+(1)
+where x represents the real scene irradiance that has a high
+dynamic range (HDR). k is the known convolution kernel,
+commonly referred to as the Point Spread Function (PSF), ∗
+denotes the 2D convolution operator, and n models the cam-
+era noise. To model saturation derived from the limited dy-
+namic range of digital sensor, we apply a clipping operation
+C(·), formulated by C(x) = min(x, xmax), where xmax is
+a range threshold. A non-linear tone mapping function φ(·)
+is used to match the human perception of the scene.
+3
+
+Main peak
+Sidelobes
+Tail
+PSF
+PSF Energy
+UDC
+Normal Camera
+Figure 3. Comparison of PSF energy for UDC and normal cam-
+era. The PSF is brightened to visualize the structured sidelobe
+patterns. Due to the ﬁnite aperture size and manufacturing imper-
+fections, the PSF of a real normal camera (Bottom left) will be a
+blur kernel of some size, rather than a perfect point.
+3.2. PSF Measurement
+In Figure 2, the optical ﬁeld US(p, q) captured by the
+sensor given a unit amplitude point source input can be ex-
+pressed as
+US(p, q) =
+
+exp
+iπr2
+λz1
+
+· t(p, q)
+
+∗exp
+iπr2
+λd
+
+· exp
+−iπr2
+λf
+
+∗exp
+iπr2
+λz2
+
+.
+(2)
+Here, (p, q) is the 2D spatial coordinates, r2 = p2 + q2, λ
+is the wavelength, f is the focal length of the lens, t(p, q) is
+the transmission function of the display. z1, d and z2 denote
+the distance between the light source and the display, the
+distance between the display and the lens, and the distance
+between the lens and the sensor, respectively. ∗denotes the
+convolution, and · denotes multiplication. Finally, the PSF
+of the imaging system is given by k = |US|2.
+With the exact pixel layout of a certain display, we can
+theoretically simulate the PSF of an optical system mod-
+ulated by the display. However, we found that although
+the simulated and real-measured PSF share a similar shape,
+they slightly differ in color and contrast due to model ap-
+proximations and manufacturing imperfections (see Sup-
+plement for light propagation model and simulated PSF).
+Besides, we have no access to the transmission function
+t(p, q) for the OLED display we used in this work, whose
+pixel structure is unknown due to proprietary reasons.
+Therefore, we follow [31] and devise an imaging system
+to directly measure the PSF by placing a white point light
+source 1-meter away from the OLED display. At this dis-
+tance, the size of the point light source is equivalent to one
+pixel of the sensor. Hence, this illuminant can be consid-
+ered as an impulse input. To capture the entire PSF, includ-
+ing the strong main peak and the weak sidelobes, we take
+three images successively at different exposures: [1, 1/32,
+1/768], which are then normalized to the same brightness
+level. Subsequently we pick out all unsaturated pixel val-
+ues to fuse into one HDR image. The captured PSF of the
+UDC system (Figure 3 top) shows structured patterns: 1)
+the response at the center, denoted as main peak, is very
+strong and has greater energy with an order of magnitude.
+2) Compared to the PSF of a normal camera, it has larger
+spatial support (over 800 × 800) and spike-shaped long-tail
+sidelobes whose energy decreases exponentially. 3) In the
+tail regions of the sidelobe, we can an observe obvious color
+shift. To summarize, the PSF of UDC has several special
+characteristics compared to regular blur kernel, which mo-
+tivates a simulation based on HDR images.
+Compared with the UDC image formation model de-
+scribed in [47], our model is closer to the real situation in the
+following two aspects. First, the objects x that we consid-
+ered are real scenes with high dynamic range. Since the PSF
+of UDC has a strong response at the center but vastly lower
+energy at long-tail sidelobes, only when convolved with suf-
+ﬁciently high-intensity scenes, these spike-shaped sidelobes
+can be ampliﬁed to be visible (ﬂares) in the degraded im-
+age. Hence, images captured by UDC systems in real scenes
+will exhibit structured ﬂares near strong light sources. The
+imaging system in [47], however, cannot model this degra-
+dation, because it captures images displayed on an LCD
+monitor, which commonly has limited dynamic range. We
+demonstrate in Supplement that if we clip the same scene
+from high dynamic range to low dynamic range, these ﬂares
+caused by diffraction become invisible. Second, due to the
+high dynamic range of the input scene, the digital sensor
+(usually 10-bit) will inevitably get saturated in real applica-
+tions, resulting in an information loss. This factor should be
+considered in the image formation model as well.
+3.3. Data Collection and Simulation
+Simulated Data. To generate the synthetic data, we gath-
+ered 132 HDR images with large dynamic ranges from
+HDRI Haven dataset2. Each HDR panorama image is a
+360-degree panorama of resolution 8192×4096. We ﬁrst re-
+projected these panorama images back to perspective view
+and then cropped them into 800 × 800 patches. In this way,
+we got a total of 2016 subimages for training and 360 for
+testing. For each of the crops, we simulated the correspond-
+ing degraded image using Eqn. 1, where the PSF calibrated
+in Section 3.2 is used as the kernel k. Refer to the Supple-
+mental Material for more details.
+Real Data. For each real scene, we captured three images
+2https://hdrihaven.com/hdris/.
+4
+
+of different exposures: [1, 1/4, 1/16] using ZTE Axon 20
+phone, and then combine them into one HDR image. To
+ensure the linearity of the data, we directly used the raw
+data after HDR fusion, without any non-linear processing.
+4. Dynamic Skip Connection Network
+4.1. Motivation
+We treat UDC image restoration as a non-blind image
+restoration problem, where a degraded image {ˆyi} and the
+ground-truth degradation (PSF) {ki} are given to restore the
+clear image {xi}. In general, with the known convolution
+kernel, non-blind restoration establishes the upper bound
+for blind restoration, where the kernel needs to be estimated.
+Despite claiming our method as non-blind, we note that it
+can be used towards blind UDC image restoration by incor-
+porating any PSF estimation algorithm.
+Traditionally, non-blind image restoration is solved by
+classical deconvolution, e.g., Wiener ﬁlter [20], which have
+a rigorous assumption on the linearity of the system. UDC
+artifacts occur in HDR scenes, where the sensor is over-
+saturated in high-intensity area, breaking the linearity of
+the system and losing the information within. Additionally,
+traditional deconvolution do not consider extremely large
+kernels (800 × 800), thus causing serious ringing and halo
+artifacts (Figure 5 and Figure 6). Moreover, deep learning-
+based methods could leverage more data to learn restoration
+and require only one forward pass during inference. In this
+regard, we use a network to reconstruct ˆxi = φ(xi), which
+suggests a recovery from ˆy to ˆx in the non-linear tone-
+mapped domain, yielding triplet set {ˆyi, ki, ˆxi}. Such opti-
+mization in the tone-mapped domain gives more emphasis
+to darker pixels and encourages the balance of restoration
+in different regions.
+Moreover, the image formation model in Eqn. 1 assumes
+a shift-invariant 2-D convolution. Now in the tone-mapped
+domain with non-linear sensor saturation, such assumption
+no longer holds, since the PSF’s shape and intensity can be
+variant based on the input pixel and its neighborhood at the
+corresponding location. For example, the OLED diffracting
+saturated highlights into neighboring unsaturated areas mo-
+tivates an adaptive recovery of clipped information from the
+nearby areas. Inspired by recent success of Kernel Predic-
+tion Network (KPN) [9, 17, 18, 45], we propose DynamIc
+Skip Connection Network (DISCNet), which dynamically
+generates ﬁlter kernel at each pixel and applies them to dif-
+ferent feature spaces at different network layers with skip
+connections. This network is conditioned on two inputs: 1)
+the PSF that provides domain knowledge about the image
+formation model, and 2) the degraded image that provides
+light intensity and neighborhood context information to fa-
+cilitate a spatially-variant recovery. We demonstrate the ef-
+fectiveness of the coupled conditions in Section 5.2.
+For dynamic convolution, directly applying the predicted
+ﬁlters in the image domain like most existing KPN-based
+approaches is not best suited for UDC image restoration,
+because the PSF in UDC has large support and long-tail
+side lobes (see Figure 3). As discussed in [37], such an
+inverse convolution process with a large PSF can only be
+well approximated in image domain with sufﬁciently large
+kernels (larger than 100), while the size of dynamic ﬁlters is
+typically far smaller (e.g. 5 or 7). Therefore, we propose to
+apply dynamic convolution in the feature domain. On top of
+that, we construct a multi-scale architecture, where the ﬁlter
+generator at each scale predicts dynamic ﬁlters separately,
+to further enlarge the spatial support of the learned ﬁlters.
+4.2. Network Architecture
+As shown in Figure 4, our network comprises a restora-
+tion branch and a DynamIc Skip Connection Network (DIS-
+CNet).
+The restoration branch learns to extract features
+and restore the ﬁnal clean image. DISCNet is employed
+to tackle various degradations and transform and reﬁne the
+features extracted from the restoration branch.
+Training with Various Degradations.
+Suppose the de-
+graded image ˆyi is of shape H × W × C, where H, W,
+C denote the height, width, and the number of channels
+of images. Following [5], we project the PSF onto a b-
+dimensional vector, referred to as kernel code, by Principal
+Component Analysis (PCA) to reduce computational com-
+plexities. The kernel code is then stretched into degradation
+maps of size H×W ×b and concatenated with the degraded
+image to get the condition maps of size H × W × (b + C)
+, which are then fed into the DISCNet. In this paper, we
+empirically set b = 5.
+Restoration Branch. This branch builds upon an encoder-
+decoder architecture with skip connections to restore the
+degraded images. Speciﬁcally, the encoder contains three
+convolutional blocks, each of which has a 3 × 3 convolu-
+tion layer with stride 2, a LeakyReLU [6] layer, and two
+residual blocks [7], extracting features E1, E2, E3 at three
+different scales. The extracted features are fed into DISC-
+Net and transformed into R1, R2, R3, respectively. Simi-
+larly, the decoder consists of two convolutional blocks, in-
+cluding an up-convolution layer and two residual blocks.
+Each convolutional block takes the transformed feature at
+its corresponding scale as input and reconstructs the ﬁnal
+tone-mapped sharp images.
+DynamIc Skip Connection Network. The proposed DIS-
+CNet mainly consists of three designs: condition encoder,
+multi-scale ﬁlter generator, dynamic convolution.
+Given the condition maps as input, the condition encoder
+extracts scale-speciﬁc feature maps H1, H2, H3 using 3
+blocks similar to the encoder of the restoration branch. Al-
+though the kernel code maps are globally uniform, the con-
+dition encoder could still capture rich information from the
+5
+
+64
+32
+128
+DISCNet
+64
+32
++
+32×𝑠!
+32
+64×𝑠!
+64
+128×𝑠!
+128
+*
+*
+*
+128
+32
+64
+𝐸!
+𝐸"
+𝑅!
+𝑅"
+𝑅#
+𝐸!
+𝑅!
+𝐸"
+𝐸#
+𝑅"
+𝑅#
+𝐸#
+Input
+3×3 Conv. Layer
+Upconv. Layer
+Residual Block
++
+Element-wise Sum
+Dynamic Conv.
+*
+PSF
+𝐺!
+𝐹"
+𝐹#
+1×1 Conv. Layer
+𝐺"
+𝐺#
+𝐻#
+𝐻"
+𝐻!
+Kernel code
+c
+c
+Concatenate
+Restoration Branch
+Condition Encoder
+Figure 4. Illustration of the proposed DISCNet. The main restoration branch consists of an encoder and a decoder, with feature maps
+propagated and transformed by DISCNet through skip connections. DISCNet applies multi-scale dynamic convolutions using generated
+ﬁlters conditioned on PSF kernel code and spatial information from input images.
+degraded image with spatial variability and manage to re-
+cover saturated information from nearby low-light regions.
+Then, the extracted features at different scales are fed
+into their corresponding ﬁlter generators, where each com-
+prises a 3 × 3 convolution layer, two residual blocks, and a
+1 × 1 convolution layer to expand feature dimension. Par-
+ticularly, given the size of dynamic ﬁlters s, a ﬁlter gen-
+erator Gn takes in the extracted feature maps at a spe-
+ciﬁc scale Hn ∈Rh×w×c and outputs predicted ﬁlters
+Fn = Gn(Hn), where the generated ﬁlters Fn is of size
+h × w × cs2. The ﬁlters are then used by a dynamic con-
+volution to reﬁne features En. For each pixel (i, j, cm) of
+features En ∈h × w × c, the output feature Rn is given by
+Rn(i, j, cm) = ⟨Kn(i, j, cm), ϕ(En(i, j, cm))⟩,
+(3)
+where Kn(i, j, cm) is a s × s ﬁlter reshaped from
+Fn(i, j, cm) ∈R1×1×s2. ϕ(·) denotes a s × s patch cen-
+tered at position (i, j, cm), and ⟨·⟩represents inner product.
+The reﬁned feature Rn is then cast to the restoration branch.
+5. Experiments
+5.1. Implementation Details
+Datasets. We train the proposed model with the synthetic
+triplet data. To evaluate the effectiveness of DISCNet for
+non-blind degradations, we consider rotating PSF, which is
+analogous to rotating the display around the optical axis in
+imaging systems. To account for variations in the rotation
+angle, we build a kernel set in which the angles vary within
+(−12, 12) where 0 radian refers to the original PSF. Under
+this setting, each degraded image ˆyi is simulated using Eqn.
+1, with the convolution kernel ki is uniformly sampled from
+the kernel set. During training, the subimages are randomly
+cropped into 256 × 256 patches. More details about simu-
+lation settings can be found in Supplement Material.
+Training Setups. We initialize all networks with Kaim-
+ing Normal [6] and train them using Adam optimizer [12]
+with β1 = 0.9, β2 = 0.999 and θ = 10−8 to minimize a
+weighted combination of L1 loss and VGG loss [11]. The
+mini-batch size for all the experiments is set to 16. The
+learning rate is decayed with a cosine annealing schedule,
+where ηmin = 1×10−7, ηmax = 2×10−4, and is restarted
+every 2×105 iterations. For all experiments, we implement
+our models with the PyTorch [21] framework and train them
+using 2 NVIDIA V100 GPUs.
+5.2. Ablation Study
+In this subsection, we analyze the effectiveness of each
+component in DISCNet. The baseline methods (Table 1(a)
+and (b)) strip DISCNet in Figure 4. In this case, the restora-
+tion branch reduces to a variant of UNet architecture [26],
+and E1, E2, E3 are equivalent to R1, R2, R3, respectively.
+Then we gradually apply different ﬁlter generators and con-
+dition maps for ablation studies. We report PSNR, SSIM,
+and LPIPS [43] as the evaluation metrics. The FLOPs is
+calculated by input size of 800 × 800 × 3.
+Learning Variational Degradations.
+Comparing Table
+1(a) and Table 1(b), we found that our baseline trained on
+a dataset with only 1 kernel can easily overﬁt to single de-
+graded dataset but fails to generalize to other degradation
+types. In particular, the performance deteriorates seriously
+across other datasets, due to the discrepancy between the
+assumed PSF and real ones.
+Type of Conditions. On top of the baseline network, we
+6
+
+Table 1. Ablation results on the simulated dataset. Starting from the baseline model, we gradually add each component in our network
+to validate their effectiveness. “*” indicates results evaluated on the simulation over single PSF. The best results are highlight.
+Method
+PSF
+Filter Generators
+Conditions
+PSNR*
+PSNRavg
+SSIM*
+SSIMavg
+(a) Baseline on 1 kernel
+Single
+-
+-
+41.47
+38.55
+0.9850
+0.9742
+(b) Baseline on various kernels
+Variational
+-
+-
+40.67
+40.87
+0.9823
+0.9833
+(c) w/ image conditions
+Variational
+Single-scale
+Image
+41.33
+41.59
+0.9842
+0.9851
+(d) w/ PSF conditions
+Variational
+Single-scale
+PSF
+41.95
+42.14
+0.9848
+0.9857
+(e) w/ image & PSF conditions
+Variational
+Single-scale
+Image + PSF
+42.60
+42.77
+0.9861
+0.9870
+(f) DISCNet (Ours)
+Variational
+Multi-scale
+Image + PSF
+43.06
+43.27
+0.9870
+0.9877
+Table 2. Results over different sizes of dynamic ﬁlters.
+Filter Size
+s = 3
+s = 5
+s = 7
+s = 9
+PSNR
+42.16
+42.77
+42.62
+42.47
+SSIM
+0.9862
+0.9870
+0.9869
+0.9868
+LPIPS [43]
+0.0126
+0.0119
+0.0119
+0.0119
+Params (M)
+3.18
+3.44
+3.84
+4.37
+FLOPs (G)
+262.10
+272.59
+288.32
+309.29
+ﬁrst investigate a single-scale variant of our network, i.e.,
+removing ﬁlter generators G1 and G2 from Figure 4. As
+a result, feature E1 and E2 remain unchanged and are cast
+back to restoration branch via skip connections. By apply-
+ing different types of conditions, we observe a signiﬁcant
+improvement on average PSNR over the baselines. For ex-
+ample, model with image condition (Table 1(c)) and the one
+with the PSF condition (Table 1(d)) improve 0.72 dB and
+1.27 dB, respectively. Besides, combining both PSF and
+image conditions (Table 1(e)) brings additional improve-
+ments (1.18/0.63 dB increase on PSF/image conditions).
+This indicates even the simplest single-scale dynamic con-
+volution design could beneﬁt the feature reﬁnement.
+Single-scale vs. Multi-scale. By applying multi-scale dy-
+namic ﬁlter generators to transform skip connections at all
+scale, our proposed DISCNet (Table 1(f)) increase 0.5 dB
+over its single-scale counterpart (Table 1(e)). This demon-
+strates the effectiveness of multi-scale strategy.
+Size of Dynamic Filters. To further investigate the best
+trade-offs between performance and model size, we vary
+the size of dynamic ﬁlters. As shown in Table 2, larger
+size of ﬁlters can bring better performance. However, the
+performance become even worse by increasing size after
+s = 5, while the amount of parameters signiﬁcantly in-
+creases. Hence, we empirically choose s = 5 by default.
+5.3. Evaluation on Simulated Dataset
+To demonstrate the efﬁciency of DISCNet, we con-
+duct experiments to evaluate the performance on simulated
+dataset. Since UDC image restoration is a newly-deﬁned
+problem, we carefully select and modify four representative
+and state-of-the-art non-blind image restoration algorithms
+as baselines: Wiener Filter [20] is a classical deconvolu-
+tion algorithm for linear convolution formation. Hence, we
+apply Wiener deconvolution to the degraded images with
+measured PSF k for each channel independently in the lin-
+Table 3. Quantitative comparison on the simulated dataset. “*”
+indicates blind models that do not explicitly use the information of
+kernel. The best two results are highlighted in red and blue.
+Method
+Params
+(M)
+FLOPs
+(G)
+PSNR
+SSIM
+LPIPS
+WF [20]
+-
+-
+27.41
+0.8392
+0.3365
+SRMDNF [42]
+1.49
+951
+34.80
+0.9659
+0.0360
+DE-UNet* [47]
+9.02
+169
+39.81
+0.9795
+0.0206
+SFTMD [5]
+3.85
+2460
+42.35
+0.9863
+0.0123
+DISCNet
+3.80
+364
+43.27
+0.9877
+0.0108
+ear domain. Note that the restored images are still eval-
+uated and displayed in tone-mapped domain. SRMDNF
+[42] is a noise-free version of SRMD, which integrates non-
+blind degradation information to handle multiple degrada-
+tions in a super-resolution network. The network contains
+12 convolution layers, each of which produces 128 feature
+maps. By conventions of network designed for low-level
+tasks [35, 15], we remove BN layers to stabilize the training.
+SFTMD [5]. Iterative Kernel Correction (IKC) is originally
+devised for image super-resolution on blind setting. In our
+experiments, we employ SFTMD network which also lever-
+ages the kernel information to solve the non-blind problem.
+We remove the pixel shufﬂe upsampling layer as the in-
+put and output share the same shape in UDC restoration
+task. DE-UNet [47]. Zhou et al. presents a Double-Encoder
+UNet, referred to as DE-UNet in our experiments, to re-
+cover UDC degraded images. We modify the ﬁrst layers of
+two encoders to take 3-channel RGB images as inputs.
+Quantitative Comparisons. For all deep learning-based
+methods, we train them using the same training settings
+and data. Table 3 shows quantitative results on simulated
+dataset. The proposed algorithm performs favorably against
+other baseline methods. We observe that the proposed DIS-
+CNet consistently outperforms all other approaches on the
+simulated dataset. Even with the exact PSF kernel, Wiener
+Filter [20] only achieves low image quality far below that of
+deep learning-based methods. SRMDNF [42] builds upon a
+plain network and uses a simple strategy to utilize the kernel
+information. Therefore, it cannot adapt to degraded regions
+caused by highlight sources and produces inferior results.
+Compared to SFTMD [5], our network could achieve bet-
+ter performance with only 15% computational cost (decline
+from 2459.57 to 364.34 GFLOPs). This suggests DISCNet
+is efﬁcient and particularly ﬁt for this task, while any other
+7
+
+DE-UNet
+Wiener Filter
+SRMDNF
+SFTMD
+DISCNet (Ours)
+GT
+shanghai_bund
+Figure 5. Visual comparison on a synthetic input image. Our method restores ﬁne details and suppresses ﬂare effects in both highlight
+and dark regions and renders visually pleasing results. Refer to Supplement for more visual results. Zoom in for better view.
+DE-UNet
+SRMDNF
+Camera Output
+Indoor
+Wiener Filter
+SFTMD
+DISCNet (Ours)
+Figure 6. Visual comparison on a real input image. Our method achieves the best perceptual quality while other approaches leave
+noticeable artifacts and suffer from strong noise. Refer to Supplement for more visual results. Zoom in for better view.
+boiler-plate network (e.g., plain net, UNet) produces unsat-
+isfactory results.
+Visual Comparisons.
+Figure 5 compares the proposed
+model with existing methods on simulated dataset. As one
+can see, Wiener ﬁlter produces unpleasing results and suf-
+fers from serious ringing and halo artifacts. In comparison,
+our DISCNet generates the most perceptually pleasant re-
+sults and removes diffraction artifacts derived from high-
+lights in the unsaturated regions. The presented visual re-
+sults in Figure 1 and Figure 5 and additional results in the
+Supplemental Material validate the performance of the pro-
+posed DISCNet for various scene types, e.g., night-time ur-
+ban scenes and indoor settings with strong light sources.
+5.4. Evaluation on Real Dataset
+Apart from the evaluation on synthetic dataset, this sec-
+tion explores reconstruction performance on real dataset.
+Since the ground-truth images are inaccessible, we provide
+the qualitative comparisons as shown in Figure 6. We also
+include the camera output of ZTE phone for comparisons.
+As the real data is captured without ISP, we adopt simple
+post-processing to all outputs except camera output for bet-
+ter visualization. Our network achieves the best percep-
+tual quality while other approaches leave noticeable arti-
+facts and suffer from strong noise or ﬂare. Post-processing
+and more visual results can be found in Supplement.
+6. Discussion
+Limitations. Our work is only the ﬁrst step towards remov-
+ing diffraction image artifacts in UDC systems. Other com-
+plexities, e.g., spatially-varying PSF, noise in low light, and
+defocus, require more study. The proposed DISCNet some-
+times will fail due to the domain gap between simulated
+and real data, e.g., camera noise, motion blur, variations in
+scenes. Our method currently is also too heavy-weight. See
+Supplement for further discussion and failure cases.
+Conclusion. In this paper, we deﬁne a physics-based im-
+age formation model and measure the real-world PSF of
+the UDC system, and provide a model-based data synthesis
+pipeline to generate realistically degraded images. Then, we
+propose a new domain knowledge-enabled Dynamic Skip
+Connection Network (DISCNet) to restore the UDC im-
+ages. We offer a foundation for further exploration in UDC
+image restoration. Our perspective on UDC has potential to
+inspire more diffraction-limited image restoration work.
+Acknowledgements. Thanks Joshua Rego and Guiqi Xiao for as-
+sistance on data collection. This research was conducted in collaboration
+with SenseTime. This work is supported by A*STAR through the Industry
+Alignment Fund - Industry Collaboration Projects Grant.
+8
+
+References
+[1] M Salman Asif, Ali Ayremlou, Aswin Sankaranarayanan,
+Ashok Veeraraghavan, and Richard G Baraniuk.
+Flat-
+cam: Thin, lensless cameras using coded aperture and com-
+putation.
+IEEE Transactions on Computational Imaging,
+3(3):384–397, 2016. 3
+[2] Steve Bako, Thijs Vogels, Brian McWilliams, Mark Meyer,
+Jan Nov´ak, Alex Harvill, Pradeep Sen, Tony Derose, and
+Fabrice Rousselle. Kernel-predicting convolutional networks
+for denoising monte carlo renderings. ACM Trans. Graph.,
+36(4):97–1, 2017. 3
+[3] SeﬁBell-Kligler, Assaf Shocher, and Michal Irani. Blind
+super-resolution kernel estimation using an internal-gan. In
+Advances in Neural Information Processing Systems, pages
+284–293, 2019. 3
+[4] Sunghyun Cho, Jue Wang, and Seungyong Lee. Handling
+outliers in non-blind image deconvolution. In 2011 Inter-
+national Conference on Computer Vision, pages 495–502.
+IEEE, 2011. 3
+[5] Jinjin Gu, Hannan Lu, Wangmeng Zuo, and Chao Dong.
+Blind super-resolution with iterative kernel correction.
+In
+Proceedings of the IEEE Conference on Computer Vision
+and Pattern Recognition, pages 1604–1613, 2019. 3, 5, 7
+[6] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+Delving deep into rectiﬁers: Surpassing human-level perfor-
+mance on imagenet classiﬁcation.
+In Proceedings of the
+IEEE international conference on computer vision, pages
+1026–1034, 2015. 5, 6
+[7] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+Deep residual learning for image recognition. In Proceed-
+ings of the IEEE conference on computer vision and pattern
+recognition, pages 770–778, 2016. 5
+[8] Matthew Hirsch, Douglas Lanman, Henry Holtzman, and
+Ramesh Raskar. Bidi screen: a thin, depth-sensing lcd for 3d
+interaction using light ﬁelds. ACM Transactions on Graphics
+(ToG), 28(5):1–9, 2009. 3
+[9] Xu Jia, Bert De Brabandere, Tinne Tuytelaars, and Luc V
+Gool. Dynamic ﬁlter networks. In Advances in neural infor-
+mation processing systems, pages 667–675, 2016. 3, 5
+[10] Younghyun Jo, Seoung Wug Oh, Jaeyeon Kang, and Seon
+Joo Kim.
+Deep video super-resolution network using dy-
+namic upsampling ﬁlters without explicit motion compensa-
+tion. In Proceedings of the IEEE conference on computer
+vision and pattern recognition, pages 3224–3232, 2018. 3
+[11] Justin Johnson, Alexandre Alahi, and Li Fei-Fei. Perceptual
+losses for real-time style transfer and super-resolution. In
+European conference on computer vision, pages 694–711.
+Springer, 2016. 6
+[12] Diederik P. Kingma and Jimmy Ba. Adam: A method for
+stochastic optimization. CoRR, abs/1412.6980, 2015. 6
+[13] Hyeok-Jun Kwon,
+Chang-Mo Yang,
+Min-Cheol Kim,
+Choon-Woo Kim, Ji-Young Ahn, and Pu-Reum Kim. Mod-
+eling of luminance transition curve of transparent plastics on
+transparent oled displays. Electronic Imaging, 2016(20):1–4,
+2016. 3
+[14] Anat Levin, Yair Weiss, Fredo Durand, and William T Free-
+man. Understanding and evaluating blind deconvolution al-
+gorithms. In 2009 IEEE Conference on Computer Vision and
+Pattern Recognition, pages 1964–1971. IEEE, 2009. 3
+[15] Bee Lim, Sanghyun Son, Heewon Kim, Seungjun Nah, and
+Kyoung Mu Lee. Enhanced deep residual networks for single
+image super-resolution. In Proceedings of the IEEE confer-
+ence on computer vision and pattern recognition workshops,
+pages 136–144, 2017. 7
+[16] Sehoon Lim, Yuqian Zhou, Neil Emerton, Lincoln Ghioni,
+Tim Large, and Steven Bathiche.
+Camera in display,
+2020 (accessed Nov. 9,
+2020).
+https : / / www .
+microsoft.com/applied-sciences/projects/
+camera-in-display. 1
+[17] Ben Mildenhall, Jonathan T Barron, Jiawen Chen, Dillon
+Sharlet, Ren Ng, and Robert Carroll. Burst denoising with
+kernel prediction networks. In Proceedings of the IEEE Con-
+ference on Computer Vision and Pattern Recognition, pages
+2502–2510, 2018. 3, 5
+[18] Simon Niklaus, Long Mai, and Feng Liu. Video frame in-
+terpolation via adaptive convolution. In Proceedings of the
+IEEE Conference on Computer Vision and Pattern Recogni-
+tion, pages 670–679, 2017. 3, 5
+[19] Simon Niklaus, Long Mai, and Feng Liu. Video frame inter-
+polation via adaptive separable convolution. In Proceedings
+of the IEEE International Conference on Computer Vision,
+pages 261–270, 2017. 3
+[20] Franc¸ois Orieux, Jean-Franc¸ois Giovannelli, and Thomas
+Rodet.
+Bayesian estimation of regularization and point
+spread function parameters for wiener–hunt deconvolution.
+JOSA A, 27(7):1593–1607, 2010. 3, 5, 7
+[21] Adam Paszke, Sam Gross, Soumith Chintala, Gregory
+Chanan, Edward Yang, Zachary DeVito, Zeming Lin, Al-
+ban Desmaison, Luca Antiga, and Adam Lerer. Automatic
+differentiation in pytorch. 2017. 6
+[22] Yifan Peng, Qilin Sun, Xiong Dun, Gordon Wetzstein, Wolf-
+gang Heidrich, and Felix Heide.
+Learned large ﬁeld-of-
+view imaging with thin-plate optics. ACM Trans. Graph.,
+38(6):219–1, 2019. 3
+[23] Zong Qin, Yu-Hsiang Tsai, Yen-Wei Yeh, Yi-Pai Huang,
+and Han-Ping David Shieh. See-through image blurring of
+transparent organic light-emitting diodes display: calculation
+method based on diffraction and analysis of pixel structures.
+Journal of Display Technology, 12(11):1242–1249, 2016. 1,
+3
+[24] Zong Qin, Jing Xie, Fang-Cheng Lin, Yi-Pai Huang, and
+Han-Ping D Shieh.
+Evaluation of a transparent display’s
+pixel structure regarding subjective quality of diffracted see-
+through images. IEEE Photonics Journal, 9(4):1–14, 2017.
+3
+[25] William Hadley Richardson.
+Bayesian-based iterative
+method of image restoration. JoSA, 62(1):55–59, 1972. 3
+[26] Olaf Ronneberger, Philipp Fischer, and Thomas Brox. U-
+net: Convolutional networks for biomedical image segmen-
+tation. In International Conference on Medical image com-
+puting and computer-assisted intervention, pages 234–241.
+Springer, 2015. 3, 6
+[27] Christian J Schuler, Harold Christopher Burger, Stefan
+Harmeling, and Bernhard Scholkopf. A machine learning
+9
+
+approach for non-blind image deconvolution. In Proceed-
+ings of the IEEE Conference on Computer Vision and Pattern
+Recognition, pages 1067–1074, 2013. 3
+[28] Assaf Shocher, Nadav Cohen, and Michal Irani. “zero-shot”
+super-resolution using deep internal learning. In Proceed-
+ings of the IEEE Conference on Computer Vision and Pattern
+Recognition, pages 3118–3126, 2018. 3
+[29] Sungjoo Suh, Changkyu Choi, Dusik Park, and Changyeong
+Kim. 50.2: Adding depth-sensing capability to an oled dis-
+play system based on coded aperture imaging. In SID Sympo-
+sium Digest of Technical Papers, volume 44, pages 697–700.
+Wiley Online Library, 2013. 3
+[30] Sungjoo Suh, Changkyu Choi, Kwonju Yi, Dusik Park, and
+Changyeong Kim. P-135: An lcd display system with depth-
+sensing capability based on coded aperture imaging. In SID
+Symposium Digest of Technical Papers, volume 43, pages
+1574–1577. Wiley Online Library, 2012. 3
+[31] Qilin Sun, Ethan Tseng, Qiang Fu, Wolfgang Heidrich, and
+Felix Heide. Learning rank-1 diffractive optics for single-
+shot high dynamic range imaging. In The IEEE Conference
+on Computer Vision and Pattern Recognition (CVPR), June
+2020. 4
+[32] Quan Tang, He Jiang, Xindong Mei, Shaojun Hou, Guanghui
+Liu, and Zhifu Li. 28-2: Study of the image blur through
+ffs lcd panel caused by diffraction for camera under panel.
+In SID Symposium Digest of Technical Papers, volume 51,
+pages 406–409. Wiley Online Library, 2020. 3
+[33] Jiaqi Wang, Kai Chen, Rui Xu, Ziwei Liu, Chen Change Loy,
+and Dahua Lin. Carafe: Content-aware reassembly of fea-
+tures. In Proceedings of the IEEE International Conference
+on Computer Vision, pages 3007–3016, 2019. 3
+[34] Xintao Wang, Ke Yu, Chao Dong, and Chen Change Loy.
+Recovering realistic texture in image super-resolution by
+deep spatial feature transform. In Proceedings of the IEEE
+Conference on Computer Vision and Pattern Recognition,
+pages 606–615, 2018. 3
+[35] Xintao Wang, Ke Yu, Shixiang Wu, Jinjin Gu, Yihao Liu,
+Chao Dong, Yu Qiao, and Chen Change Loy. Esrgan: En-
+hanced super-resolution generative adversarial networks. In
+Proceedings of the European Conference on Computer Vi-
+sion (ECCV), pages 0–0, 2018. 7
+[36] Oliver Whyte, Josef Sivic, and Andrew Zisserman. Deblur-
+ring shaken and partially saturated images.
+International
+journal of computer vision, 110(2):185–201, 2014. 3
+[37] Li Xu, Jimmy SJ Ren, Ce Liu, and Jiaya Jia. Deep convolu-
+tional neural network for image deconvolution. In Advances
+in neural information processing systems, pages 1790–1798,
+2014. 3, 5
+[38] Xiangyu Xu, Muchen Li, and Wenxiu Sun. Learning de-
+formable kernels for image and video denoising.
+arXiv
+preprint arXiv:1904.06903, 2019. 3
+[39] Yu-Syuan Xu, Shou-Yao Roy Tseng, Yu Tseng, Hsien-Kai
+Kuo, and Yi-Min Tsai. Uniﬁed dynamic convolutional net-
+work for super-resolution with variational degradations. In
+Proceedings of the IEEE/CVF Conference on Computer Vi-
+sion and Pattern Recognition, pages 12496–12505, 2020. 3
+[40] Yuan Yuan, Siyuan Liu, Jiawei Zhang, Yongbing Zhang,
+Chao Dong, and Liang Lin.
+Unsupervised image super-
+resolution using cycle-in-cycle generative adversarial net-
+works. In Proceedings of the IEEE Conference on Computer
+Vision and Pattern Recognition Workshops, pages 701–710,
+2018. 3
+[41] Jiawei Zhang, Jinshan Pan, Wei-Sheng Lai, Rynson WH
+Lau, and Ming-Hsuan Yang. Learning fully convolutional
+networks for iterative non-blind deconvolution. In Proceed-
+ings of the IEEE Conference on Computer Vision and Pattern
+Recognition, pages 3817–3825, 2017. 3
+[42] Kai Zhang, Wangmeng Zuo, and Lei Zhang.
+Learning a
+single convolutional super-resolution network for multiple
+degradations. In IEEE Conference on Computer Vision and
+Pattern Recognition, volume 6, 2018. 3, 7
+[43] Richard Zhang, Phillip Isola, Alexei A Efros, Eli Shecht-
+man, and Oliver Wang. The unreasonable effectiveness of
+deep features as a perceptual metric. In Proceedings of the
+IEEE conference on computer vision and pattern recogni-
+tion, pages 586–595, 2018. 6, 7
+[44] Ruofan Zhou and Sabine Susstrunk. Kernel modeling super-
+resolution on real low-resolution images.
+In Proceedings
+of the IEEE International Conference on Computer Vision,
+pages 2433–2443, 2019. 3
+[45] Shangchen Zhou, Jiawei Zhang, Jinshan Pan, Haozhe Xie,
+Wangmeng Zuo, and Jimmy Ren.
+Spatio-temporal ﬁlter
+adaptive network for video deblurring. In Proceedings of the
+IEEE International Conference on Computer Vision, pages
+2482–2491, 2019. 3, 5
+[46] Yuqian Zhou, Michael Kwan, Kyle Tolentino, Neil Emerton,
+Sehoon Lim, Tim Large, Lijiang Fu, Zhihong Pan, Baopu Li,
+Qirui Yang, et al. Udc 2020 challenge on image restoration
+of under-display camera: Methods and results. In European
+Conference on Computer Vision, pages 337–351. Springer,
+2020. 2, 3
+[47] Yuqian Zhou, David Ren, Neil Emerton, Sehoon Lim, and
+Timothy Large. Image restoration for under-display camera.
+arXiv preprint arXiv:2003.04857, 2020. 2, 3, 4, 7
+10
+
+Removing Diffraction Image Artifacts in Under-Display Camera via
+Dynamic Skip Connection Network
+Suppplementary Material
+Ruicheng Feng1
+Chongyi Li1
+Huaijin Chen2
+Shuai Li2
+Chen Change Loy1
+Jinwei Gu2,3
+1S-Lab, Nanyang Technological University
+2Tetras.AI
+3Shanghai Al Laboratory
+{ruicheng002, chongyi.li, ccloy}@ntu.edu.sg
+{huaijin.chen, shuailizju}@gmail.com
+gujinwei@tetras.ai
+In this Supplementary Material, we present additional
+details and discussions for the image formation model and
+DISCNet proposed in the main body as follows:
+• Light Propagation Model
+• Incomplete Degradation in LDR Scenes
+• Comparison with Previous Dataset
+• Training Details
+• Limitations
+• Visual Results on Simulated Dataset
+• Visual Results on Real Dataset
+1. Light Propagation Model
+The light propagation model in the UDC system can be
+divided into following steps:
+Propagation between the point source and the OLED
+display. The light emitted from the point light source ﬁrst
+hit on the front plane of the OLED display, where the opti-
+cal ﬁeld UD−(p, q) can be expressed as
+UD−(p, q) = exp
+ iπ
+λz1
+(p2 + q2)
+
+,
+(1)
+where (p, q) is the 2D spatial coordinates, λ is the wave-
+length and z1 is the distance between the point light source
+and the OLED display. We assume that the point source has
+unit amplitude.
+Modulation by the OLED display. The light hit on the
+front plane of the OLED display will be modulated by its
+transmission function t(p, q), which is determined by the
+speciﬁc design of the display pattern. The optical ﬁeld after
+modulation UD+(p, q) becomes
+UD+(p, q) = UD−(p, q)t(p, q).
+(2)
+Propagation between the OLED display and the lens.
+The light modulated by the OLED display propagates for
+a distance of d, before hitting on the front plane of the lens,
+where the optical ﬁeld UL−(p, q) can be computed using
+Fresnel propagation as
+UL−(p, q) = UD+(p, q) ∗exp
+ iπ
+λd(p2 + q2)
+
+.
+(3)
+Here, ∗denotes the 2-D convolution operator.
+Modulation by the lens. The light hit on the front plane of
+the camera lens will be modulated by the lens transmission
+function, which is determined by focal length f of the lens.
+The optical ﬁeld after modulation UL+(p, q) becomes
+UL+(p, q) = UL−(p, q) exp
+−iπ
+λf (p2 + q2)
+
+.
+(4)
+Propagation between the lens and the sensor. The light
+modulated by the lens propagates for a distance of z2, be-
+fore hitting on the sensor, where the optical ﬁeld US(p, q)
+can be computed using Fresnel propagation as
+US(p, q) = UL+(p, q) ∗exp
+ iπ
+λz2
+(p2 + q2)
+
+.
+(5)
+Finally, the PSF of the imaging system is given by
+k = |US|2.
+(6)
+With the above equations, we can theoretically simulate
+the PSF of a UDC system, given the exact pixel layout of a
+display. Due to proprietary reasons, we do not have access
+to the detailed pixel structures of the particular UDC device
+(ZTE Axon 20) that we used in the main paper. To val-
+idate the above light propagation model, we place another
+commercial OLED display with known pixel layout in front
+of a normal camera to construct a UDC system, and use it
+to measure the PSF. In Figure 1, we found that although
+the simulated and real-measured PSF share a similar shape,
+they slightly differ in color and contrast due to model ap-
+proximations and manufacturing imperfections.
+1
+arXiv:2104.09556v1  [cs.CV]  19 Apr 2021
+
+Figure 1. Comparison of simulated and real-measured PSF. (a)
+The pixel layout of a commercial OLED display. Here, different
+gray-scale values represent different light transmittance of the dis-
+play. (b) Simulated PSF. (c) Real-measured PSF. The PSFs are
+brightened to visualize the structured sidelobe patterns.
+2. Incomplete Degradation in LDR Scenes
+As described in Section 3.2 of the main body, images
+captured by UDC systems in real HDR scenes will exhibit
+structured ﬂares near strong light sources. Since the PSF
+of UDC has a strong response at the center but vastly lower
+energy at long-tail sidelobes, only when convolved with suf-
+ﬁciently high-intensity scenes, these spike-shaped sidelobes
+can be ampliﬁed to be visible in the degraded image.
+Therefore, in an MCIS system proposed in [5], where
+scenes are displayed on a LCD monitor, which commonly
+has limited dynamic range, the degradation of a UDC imag-
+ing system is incomplete compared to the capture in real
+HDR scenes. As shown in Figure 2, if the real HDR scene is
+directly captured with a UDC device, we can observe ﬂare
+effects near strong light sources. However, for the same
+scene and same imaging device, the ﬂares are no longer
+visible in the acquired image if it is displayed on a LCD
+monitor, since the scene in this case only involves limited
+dynamic range.
+Apart from MCIS data, we also illustrate that HDR
+scenes are indispensable for our data simulation pipeline.
+Speciﬁcally, if we clip the scene from HDR to LDR, the
+ﬂare artifacts caused by diffraction effects become invisible
+in the degraded images (see Figure 3). This further illus-
+trates the importance of HDR scenes. Hence, in order to
+correctly model the real degradation of a typical UDC sys-
+tem, we involve real HDR scenes in the image formation
+model in main paper.
+3. Comparison with Previous Dataset
+In this section, we compare the datasets used in our work
+with previous one [5] in Table 1. The proposed image for-
+mation model could simulate more complex and realistic
+degradation compared to the dataset in [5].
+4. Training Details
+Data Simulation for Training. We use the image forma-
+tion model in main paper to simulate degraded images ex-
+hibiting diffraction artifacts. In particular, we set xmax =
+Figure 2. Comparison of UDC images of real HDR scene and
+monitor-generated LDR scene. (a) Real HDR scene captured
+by a normal camera. (b) Real HDR scene captured by the UDC
+device. (c) Monitor-generated LDR scene, i.e. display the image
+(a) on a LCD monitor, captured by the UDC device.
+(a) Simulated w/ LDR
+(b) Simulated w/ HDR
+Figure 3. Comparison of images simulated with LDR and HDR.
+500 for the clipping operation C(·).
+For the tone mapping function, we apply a simple rule
+[2], given by
+φ(x) =
+x
+x + α,
+(7)
+where α controls the scale of high luminances. The hy-
+perparameter is set to 0.25 in our case. This formulation
+mainly compress the high intensities, scaled by approxi-
+mately 1/x, and is guaranteed to bring all intensities within
+displayable range. Many scenes are predominated by a nor-
+mal dynamic range, but have a few high luminance regions
+nearby highlights, e.g., street lamp, sunlight. Besides, the
+sidelobes of the PSF have far lower energy compared to the
+main peak, leading to relatively low-intensity ﬂare and haze
+effects in the degraded images. Therefore, this formulation
+can compress saturated highlights while preserving details
+in lowlight regions, providing a better display of diffraction
+artifacts. For simplicity, we mainly focus on analyzing the
+diffraction effects of UDC and set n = 0, providing a noise-
+free version of the simulated data.
+For testing on simulated datasets, we build a test kernel
+set for quantitative evaluations of different methods. It con-
+sists 9 selected rotation variations that are performed on the
+PSF, i.e., {−12, 9, 6, 3, 0, 3, 6, 9, 12}. The PSFs ﬁrst rotate
+by an angle selected from the above set, and then are con-
+volved with the ground-truth images using image formation
+model in main paper to generate the corresponding degrade
+2
+
+Table 1. Comparison of different datasets.
+Dataset
+Zhou et al. [5]
+Simulated data (Ours)
+Real data (Ours)
+Scene
+Displayed on a monitor
+HDR images
+Real scenes
+Dynamic Range
+Low
+High
+High
+Data Format
+16-bit RAW
+32-bit RGB
+14-bit RGB
+Major Degradation
+Low-light, Color shift
+Flare, Haze, Blur, Saturation
+Flare, Haze, Blur, Saturation, Veiling glare
+UDC System
+Lab prototype
+-
+Commodity UDC production
+images. In total each ground-truth image has 9 degraded
+counterparts, yielding 9 testing sets. Note that only the PSF
+at the center of the sensor is measured, and the rest in the
+kernel are generated by applying rotation transformations
+to the center one. Although it only considers simple vari-
+ations (rotation) on the PSF, it can still be used to evaluate
+the performance of non-blind image restoration approaches.
+Loss Function. To train the proposed model, we adopt two
+widely-used losses of image restoration tasks. We originally
+experimented with L1 loss between the reconstructed and
+ground-truth images in tone-mapped domain. To encourage
+more realistic results, we further apply the perceptual loss in
+[1], which is deﬁned using the pre-trained VGG-19 network
+[3] and given by
+LV GG = ||Φl(˜x) −Φl(ˆx)||2
+2,
+(8)
+where Φl is the feature maps extracted from the l-th layer
+of the pre-trained VGG network, and ˜x is the reconstructed
+image of our network. In particular, we use the “conv5-4”
+layer as [4]. The total loss for training is formulated by
+Ltotal = L1 + λLV GG,
+(9)
+where the weight λ is set to 0.01 for balancing the scale of
+different losses in our experiments.
+5. Limitations
+Kernel Mismatch.
+Under the non-blind setting, our
+method assumes the awareness of the kernel PSF. In real
+scenarios, however, an estimation of the PSF can be easily
+affected by noises and artifacts, which results in a kernel
+mismatch and severely deteriorates the performance of the
+network. Figure 4 shows the sensitivity of the PSNR perfor-
+mance to the kernel mismatch. In the upper-right and lower-
+left regions, where the kernels used for simulation and con-
+dition differ the most, we can observe huge gaps (over 3
+dB) on the PSNR performance. In contrast, the results on
+the diagonal, where the kernels match precisely, show the
+best performance in their corresponding rows or columns.
+Large and Strong Highlights. While achieving rather sat-
+isfactory results on small area of light sources, DISCNet
+still struggles when highlight regions are large and intensi-
+ties are extremely strong, leading to over-corrected results.
+We also conduct experiments on scenes with larger and
+-12
+-6
+0
+6
+12
+Rotate angle (condition)
+-12
+-6
+0
+6
+12
+Rotate angle (simulation)
+-0.22
+-1.52
+-3.53
+-3.62
+-3.58
+-1.25
+0.22
+-1.46
+-2.33
+-3.34
+-3.95
+-1.84
+0.00
+-1.89
+-3.96
+-3.33
+-2.17
+-1.36
+0.34
+-1.18
+-2.84
+-2.83
+-3.25
+-1.36
+-0.03
+PSNR Difference
+3.5
+3.0
+2.5
+2.0
+1.5
+1.0
+0.5
+0.0
+Figure 4. Recovery sensitivity to the kernel mismatch. Simu-
+lation angles indicate rotations of PSF used in simulation, while
+condition angles represent the ones used as conditions to DISC-
+Net.
+Degraded
+Ours
+GT
+Figure 5. Failure cases around strong light sources.
+strong highlights to illustrate the limitations of our method,
+which is shown in Figure 5. The degraded image contains
+extremely strong light sources which causes diffraction ar-
+tifacts in large neighbouring low-intensity regions. Never-
+theless, our method is still able to suppress ﬂare and haze
+3
+
+effects and recover lost details in most regions, even when
+there exists limited information in these regions. The mid-
+dle and bottom rows illustrate a failure mode consisting
+of very strong highlights that affect a large unsaturated re-
+gion. Our method over-corrects the ﬂares and leaves arti-
+facts around the street lamps. This requires further explo-
+ration on extreme cases with large and strong highlights.
+6. Visual Results on Simulated Dataset
+In this section, we demonstrate additional visual results
+on simulated data. As shown in Figure 6, Figure 7, and
+Figure 8, the proposed DISCNet suppresses ﬂare and haze
+effects around highlights, and removes most artifacts in
+nearby unsaturated regions.
+7. Visual Results on Real Dataset
+Post-processing. Since it is beyond the scope of this pa-
+per to build a full Image Signal Processor (ISP) to out-
+put ﬁnal images from raw data, we only perform a sim-
+ple post-processing pipeline on the input data to adjust the
+color intensities and approximate the color of camera out-
+puts, which typically exhibit perceptually better color for
+viewing on a display. The post-processing includes 1) color
+correction by color correction matrix (CCM) from the cam-
+era, 2) RGB scaling which transforms camera RGB values
+into camera’s output RGB values, and 3) contrast enhance-
+ment using Contrast Limited Adaptive Histogram Equaliza-
+tion (CLAHE). Note that we also adopt the post-processing
+pipeline to obtain similar color in the input images for vi-
+sual comparisons.
+Visual Comparisons. We provide more visual comparisons
+with representative methods on real data in Figure 9 and
+Figure 10. Our proposed network could remove diffrac-
+tion image effects, while leaving least artifacts introduced
+by camera.
+References
+[1] Justin Johnson, Alexandre Alahi, and Li Fei-Fei.
+Percep-
+tual losses for real-time style transfer and super-resolution.
+In European conference on computer vision, pages 694–711.
+Springer, 2016. 3
+[2] Erik Reinhard, Michael Stark, Peter Shirley, and James Fer-
+werda.
+Photographic tone reproduction for digital images.
+In Proceedings of the 29th annual conference on Computer
+graphics and interactive techniques, pages 267–276, 2002. 2
+[3] Karen Simonyan and Andrew Zisserman. Very deep convolu-
+tional networks for large-scale image recognition. In Yoshua
+Bengio and Yann LeCun, editors, 3rd International Confer-
+ence on Learning Representations, ICLR 2015, San Diego,
+CA, USA, May 7-9, 2015, Conference Track Proceedings,
+2015. 3
+[4] Xintao Wang, Ke Yu, Shixiang Wu, Jinjin Gu, Yihao Liu,
+Chao Dong, Yu Qiao, and Chen Change Loy. Esrgan: En-
+hanced super-resolution generative adversarial networks. In
+Proceedings of the European Conference on Computer Vision
+(ECCV), pages 0–0, 2018. 3
+[5] Yuqian Zhou, David Ren, Neil Emerton, Sehoon Lim, and
+Timothy Large. Image restoration for under-display camera.
+arXiv preprint arXiv:2003.04857, 2020. 2, 3
+4
+
+DE-UNet
+SRMDNF
+GT
+Wiener Filter
+SFTMD
+DISCNet (Ours)
+plant
+DE-UNet
+SRMDNF
+GT
+Wiener Filter
+SFTMD
+DISCNet (Ours)
+photo_wall
+DE-UNet
+SRMDNF
+GT
+Wiener Filter
+SFTMD
+DISCNet (Ours)
+Pond_bridge
+Figure 6. Visual comparison on simulated input images. (Zoom in for better view.)
+5
+
+DE-UNet
+SRMDNF
+GT
+Wiener Filter
+SFTMD
+DISCNet (Ours)
+lamp
+DE-UNet
+SRMDNF
+GT
+Wiener Filter
+SFTMD
+DISCNet (Ours)
+Rathaus_1
+DE-UNet
+SRMDNF
+GT
+Wiener Filter
+SFTMD
+DISCNet (Ours)
+Rooftop_night
+Figure 7. Visual comparison on simulated input images. (Zoom in for better view.)
+6
+
+DE-UNet
+SRMDNF
+GT
+Wiener Filter
+SFTMD
+DISCNet (Ours)
+Rathaus_2
+DE-UNet
+SRMDNF
+GT
+Wiener Filter
+SFTMD
+DISCNet (Ours)
+Winter_evening
+DE-UNet
+SRMDNF
+GT
+Wiener Filter
+SFTMD
+DISCNet (Ours)
+Shanghai_bund_2
+Figure 8. Visual comparison on simulated input images. (Zoom in for better view.)
+7
+
+DE-UNet
+SRMDNF
+Camera Output
+Wiener Filter
+SFTMD
+DISCNet (Ours)
+Canteen1
+DE-UNet
+SRMDNF
+Camera Output
+Wiener Filter
+SFTMD
+DISCNet (Ours)
+Canteen2
+Wiener Filter
+SFTMD
+DISCNet (Ours)
+Corridor
+DE-UNet
+SRMDNF
+Camera Output
+Figure 9. Visual comparison on real input images. (Zoom in for better view.)
+8
+
+Wiener Filter
+SFTMD
+DISCNet (Ours)
+Outdoor
+DE-UNet
+SRMDNF
+Camera Output
+Wiener Filter
+SFTMD
+DISCNet (Ours)
+Gym
+DE-UNet
+SRMDNF
+Camera Output
+Wiener Filter
+SFTMD
+DISCNet (Ours)
+Cafe
+DE-UNet
+SRMDNF
+Camera Output
+Figure 10. Visual comparison on real input images. (Zoom in for better view.)
+9
