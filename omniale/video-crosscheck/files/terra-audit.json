@@ -1,31 +1,45 @@
 {
-  "time": "2026-11-06T10:26:40.792115+00:00",
-  "judge": "gpt-6-sol",
-  "judge_effort": "high",
-  "primary_raw_score": 63.69,
-  "primary_audited_score": 63.69,
+  "time": "2026-11-06T06:18:31.862332+00:00",
+  "primary_raw_score": 52.35,
+  "primary_audited_score": 52.35,
   "primary_adjustment": 0,
   "raw_repeat_scores": [
-    63.69,
-    63.69,
-    63.69
+    52.35,
+    52.35,
+    52.35
   ],
   "raw_repeat_range": 0.0,
   "original_rubric_sha256": "29e637d0907aab50b586585001e5e104a87be37d5e3e7cd429d6424265881758",
-  "candidate_unchanged_after_completion": true,
   "source_video_sha256": "b7332a0010b5ba7fada60f812b87c12cc400c5d4fb8ce8dbbfd8ff6c7ad3328b",
   "source_copy_matches": true,
+  "candidate_unchanged_after_completion": true,
+  "reviewed_disputes": {},
   "reviewed_points": [
     {
-      "id": "A7-05",
-      "finding": "Report states experimental panel transmission 20% versus 2.9%; the difference is 17.1 percentage points. New judge accepts the quantitative comparison though it is not explicitly stated as a subtraction. Same S4 paper Table 1 supports both values; report correctly does not transfer them to Axon 40 Ultra."
+      "topic": "Original research scope",
+      "finding": "Literal original-rubric gaps remain. The report has valid optical reasoning and quantitative panel facts that are outside some of the original named fact targets. Do not describe all uncredited material as factually wrong."
     },
     {
-      "id": "A7-13",
-      "finding": "New judge accepts 20% versus 2.9%, while its own reason says the report does not establish that ordinary phone OLED transmission is typically below 5%. This is a permissive scope interpretation; preserve verbatim reason as uncertainty, not a confirmed general-population claim."
+      "topic": "A5-05",
+      "finding": "Criterion note checks light/brightness attenuation as a component of degradation. The visible report explains attenuated incoming light and reduced photon count; alternate paper attribution is not treated as an added name gate."
+    },
+    {
+      "topic": "Optical table",
+      "finding": "Original S4 PDF page 3 Table 1 confirms open areas 21% and 23%, transmission 20% and 2.9%. Report keeps experimental panels separate from Axon 40 Ultra."
+    },
+    {
+      "topic": "Source identity",
+      "finding": "S3 is Feng et al. studying Axon 20. S4 is Yuqian Zhou et al. studying non-active laboratory panels. S2 is Android Central, and S5 is a sample from the same review, not an independent publication."
+    },
+    {
+      "topic": "Representative audiovisual evidence",
+      "finding": "390s frame really shows settings and a magnified pixel pattern; 558s frame shows the labelled regions. This differs from the erroneous 260s caption in Sol."
+    },
+    {
+      "topic": "Citation catalog",
+      "finding": "Five catalog entries include the original video. Three independently published external documents are the two papers and one review; the sample image comes from that review."
     }
   ],
-  "repeat_disputes": [],
   "browser": {
     "toc_seeks": 8,
     "cites_jumped": 8,
@@ -37,11 +51,26 @@
     },
     "probe": "grade-1/render_probe.json"
   },
-  "display_policy": "Publish requested judge raw score unchanged. Interpretive and false-positive concerns are explicitly recorded, not silently edited.",
+  "runtime_recovery": {
+    "recorded_at": "2026-11-06T06:05:40.483203+00:00",
+    "cause": "str.splitlines treated the valid U+0085 in a JSON string as a record separator; split on LF parses all records",
+    "events": 185,
+    "u0085_count": 1,
+    "raw_sha256": "827a3fa4ef0807f9ca94173f98af2039b2740c2fced1e1704f432a80b1196a18",
+    "wrapper_exit_code": 1,
+    "native_cli_exit_code": null,
+    "turn_completed": true,
+    "elapsed_lower_bound": 1005.385935,
+    "elapsed_upper_bound": 1006.51691,
+    "elapsed_method": "Start UTC to final-event file mtime / wrapper-cleanup UTC, bounds include logging overhead; original monotonic value lost",
+    "source_log_unchanged": true,
+    "model_not_rerun": true
+  },
   "limitations": [
-    "One solver artifact per model; repeated judging is not repeated solver sampling",
-    "Original broad fact inventory and coverage-saturation aggregation retained",
-    "Semantic recency prompt lacks the explicit evaluation date; date held constant in protocol and audit",
-    "Scores are judge-dependent; retain prior Terra judge results and verbatim disagreements"
+    "One solver sample per model; repeated judging measures this artifact only",
+    "Same Terra family used as solver and judge; no cross-judge confirmation",
+    "Fixed original fact inventory includes broad background; scope limitations disclosed",
+    "No full official research skill; pure Codex CLI plus generic template and media tools",
+    "Native exit code not persisted because post-run JSONL parser failed; complete turn and preserved artifact verified; elapsed time reconstructed within recorded bounds"
   ]
 }

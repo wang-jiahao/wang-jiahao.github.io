@@ -3,13 +3,13 @@
   "upstream_commit": "573b7ecaf576c343ca739d7b232b7de96562cb48",
   "rubric_sha256": "29e637d0907aab50b586585001e5e104a87be37d5e3e7cd429d6424265881758",
   "evaluator": "upstream omnidr_eval.engine, unchanged source",
-  "model": "gpt-6-sol",
+  "model": "gpt-6.1-terra",
   "effort": "high",
   "model_api_transport": "direct, proxy disabled only for model API calls",
   "comparison_to_paper": "Different solver, environment, date and judge; not a paper-score replication",
   "adaptations": [
     "Chat Completions messages losslessly converted to NJU Responses; roles/text/images retained",
-    "Selected gpt-6-sol high judge; minimum 4000 output tokens to include reasoning (upstream vision request: 2000)",
+    "User-selected Terra high judge; minimum 4000 output tokens to include reasoning (upstream vision request: 2000)",
     "UTF-8 Python mode for Windows subprocess decoding of Chinese JSON",
     "Windows enumerated relative file paths normalized to forward slashes before machine checks"
   ],
@@ -21,7 +21,7 @@
     "coverage saturation",
     "N/A rules"
   ],
-  "adapter_sha256": "85ff8aa3ab2bee414216ab517a2836d2b8337d6930b7c28fd7c548d2e3482265",
+  "adapter_sha256": "2b2ab1f286c7bb9567bfd042a6d4f8698804853cf1b5b455fbf394155f39f503",
   "browser_command": [
     "D:\\SoftWare\\Anaconda3\\python.exe",
     "-X",
@@ -31,7 +31,7 @@
     "--report",
     "[run]\\output",
     "--out",
-    "[workspace]\\omniale_cases\\video_crosscheck\\rejudging\\gpt-6-sol-high-20261106\\terra\\grade-1\\render_probe.json"
+    "[workspace]\\omniale_cases\\video_crosscheck\\runs\\omnidr-0008-original-terra-xhigh-01\\grade-1\\render_probe.json"
   ],
   "evaluation_date": "2026-11-06"
 }
