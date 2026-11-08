@@ -10,9 +10,19 @@
 允许联网、自主选择研究方向、检索资料、安装依赖、编写脚本。没有额外的任务级工具次数、篇幅或研究条数限制。
 不要访问本题隐藏评分文件、公开benchmark rubric、参考答案、先前交付或其他会话。
 
-可自行抽帧：python toolkit/media.py frame --seconds 340 475 --out frames
-可分段观察音视频：python toolkit/media.py inspect --start 320 --end 400 --mode video --prompt "忠实记录口述与画面" --out observation.json
---mode audio只传音频；--media 相对路径可读取自行取得并保存在本运行目录内的其他视频或音频。该工具使用Qwen3.8-Omni-Flash；单次最多180秒，可多次调用；观察可能出错，需回查。它无法访问评分数据。
+本环境不提供云端音视频理解或转写服务。已预装 FFmpeg/ffprobe、faster-whisper、PyAV、OpenCV、PyMuPDF、Pillow和Playwright；可以使用本地模型和工具自行感知音视频，也可安装其他依赖。
+
+可自行抽帧：
+`python toolkit/media.py frame --seconds 340 475 --out frames`
+
+可截取单声道16kHz音频：
+`python toolkit/media.py audio --start 320 --end 400 --out work/segment.wav`
+
+可用本地faster-whisper转写（不调用云端模型）：
+`python toolkit/media.py transcribe --start 320 --end 400 --model small --out work/transcript.json`
+
+转写同时生成JSON和带绝对时间戳的TXT。`--model large-v3-turbo`使用已缓存的较大模型；`--media`可读取本运行目录内自行取得的其他视频或音频。模型在本地CPU运行，未提供GPU。工具只负责感知，输出可能有误，需回查原帧、原音和外部资料。
+
 Python有PyMuPDF、Pillow、requests、Playwright，ffmpeg和Node在PATH。Playwright已安装Chromium，亦可用C:/Program Files/Google/Chrome/Application/chrome.exe。
 
 ## 报告交付

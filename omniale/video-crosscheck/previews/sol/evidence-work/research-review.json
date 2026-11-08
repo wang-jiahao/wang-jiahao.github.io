@@ -1,131 +1,512 @@
 {
-  "created": "2026-11-06",
-  "report": "output/index.html",
-  "video": {
-    "src": "../../media/source.mp4",
-    "duration": 986.069,
-    "duration_checked_with": "ffprobe"
+  "format": "local OmniDR research and delivery review",
+  "reviewed_utc": "2026-11-08T13:21:04.826550+00:00",
+  "source_readings": {
+    "S1": {
+      "scope": "Full 986.069 s local audio transcription read; sampled visual reading; claim-critical frames inspected.",
+      "local": "evidence-work/S1/reading.json",
+      "independence_group": "source-video-author",
+      "limits": "A live unboxing, not an instrumented handset laboratory test."
+    },
+    "S2": {
+      "scope": "Full release body read; device launch, display circuitry and front-camera paragraphs verified.",
+      "local": "evidence-assets/docs/S2.html",
+      "independence_group": "ZTE",
+      "limits": "Manufacturer claims; no independent quantitative verification of advertised improvements."
+    },
+    "S3": {
+      "scope": "Specification text read and eight original product panels opened; used independent-drive and wiring panels viewed and cropped.",
+      "local": "evidence-assets/docs/S3.html",
+      "independence_group": "ZTE",
+      "limits": "Same producer as S2. Marketing graphics are explanatory illustrations, not measured micrographs."
+    },
+    "S6": {
+      "scope": "Display, camera, facial-recognition sections and published selfie photograph read and inspected, including author and publication date.",
+      "local": "evidence-assets/docs/S6.html",
+      "independence_group": "Trusted Reviews / Peter Phelps",
+      "limits": "Different unit and setting from source video; web-resized sample, not a matched full-resolution test."
+    },
+    "S8": {
+      "scope": "Abstract and all 10 PDF pages read; primary reading notes saved; Fig. 3 inspected.",
+      "local": "evidence-work/S8/reading.json",
+      "independence_group": "Feng et al. CVPR2021 research team",
+      "limits": "Axon 20 experimental setup; neither measured PSF nor network metrics transferred to Axon 40 Ultra."
+    },
+    "S11": {
+      "scope": "Complete official abstract read.",
+      "local": "evidence-assets/docs/S11.html",
+      "independence_group": "Song et al. ICCV2023 research team",
+      "limits": "Only abstract-level scattering model statements used; no full-paper or deployment claims."
+    },
+    "S12": {
+      "scope": "Complete official abstract read.",
+      "local": "evidence-assets/docs/S12.html",
+      "independence_group": "Yang et al. ICCV2023 research team",
+      "limits": "The throughput improvement belongs to an optical simulation design, not this handset."
+    }
   },
-  "primary_reader_notes": [
-    {
-      "source": "video",
-      "note": "片中主观判断集中在 04:19–09:00 的显示可见度测试与 14:15–15:00 的收束评价；12:30–13:16 有屏下自拍样张，但没有统一光照、对照机或量化指标。"
-    },
-    {
-      "source": "S1",
-      "note": "已打开 ZTE 2022-05-11 官方发布稿并保存与 UDC 像素/走线/算法、16MP 前摄和后三摄规格相关的原文摘录。"
-    },
-    {
-      "source": "S2",
-      "note": "已打开 Tom’s Guide 2022-07-03 评测并保存其关于日常屏幕隐蔽性与自拍偏软/强光更差的原文摘录。"
-    },
-    {
-      "source": "S3",
-      "note": "已打开 arXiv 2111.01511 摘要和引言并保存其关于遮挡、衍射、反射导致 UDC 失真的原文摘录。"
-    }
-  ],
-  "inspected_used_crops": [
-    {
-      "path": "img/seg1-00m15s.png",
-      "video_time": 15,
-      "used_in": "seg1"
-    },
-    {
-      "path": "img/seg2-04m20s.png",
-      "video_time": 260,
-      "used_in": "seg2"
-    },
-    {
-      "path": "img/seg3-06m30s.png",
-      "video_time": 390,
-      "used_in": "seg3"
-    },
-    {
-      "path": "img/seg3-07m35s.png",
-      "video_time": 455,
-      "used_in": "seg3"
-    },
-    {
-      "path": "img/seg4-10m45s.png",
-      "video_time": 645,
-      "used_in": "seg4"
-    },
-    {
-      "path": "img/seg5-12m32s.png",
-      "video_time": 752,
-      "used_in": "seg5"
-    },
-    {
-      "path": "img/seg5-13m25s.png",
-      "video_time": 805,
-      "used_in": "seg5"
-    },
-    {
-      "path": "img/seg5-14m15s.png",
-      "video_time": 855,
-      "used_in": "seg5"
-    }
-  ],
+  "primary_reader_notes": "See source_readings and _work/S8/reading.json; author abstracts alone used for S11/S12.",
   "claim_reviews": [
     {
-      "claim": "裸机屏下区域日常肉眼难见",
-      "status": "supported",
-      "basis": [
-        "视频 04:19–09:00 的撕膜、壁纸、显微镜和高亮观察",
-        "S1 官方像素/走线说明",
-        "S2 独立评测的 regular usage 观察"
-      ]
+      "id": "C1",
+      "claim": "2022 Axon 40 Ultra; 1600万屏下前摄与6400万后摄分开评价。",
+      "locations": [
+        "s01",
+        "s03",
+        "s09"
+      ],
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "evidence": [
+        "00:19–00:34 source identification",
+        "evidence-assets/docs/S3.txt"
+      ],
+      "review": "Supported; product and year independently confirmed by primary specifications."
     },
     {
-      "claim": "屏下自拍仍有画质代价",
-      "status": "supported",
-      "basis": [
-        "视频 12:30–13:16 的自拍样张与“拍照和显示都不容易”原话",
-        "S2 关于偏软/强光更差的独立实测",
-        "S3 关于遮挡、衍射和低感光的论文机制"
-      ]
+      "id": "C2",
+      "claim": "整屏外观与近距离局部融合良好。",
+      "locations": [
+        "s04",
+        "s05",
+        "s11"
+      ],
+      "sources": [
+        "S1",
+        "S6"
+      ],
+      "evidence": [
+        "04:59–06:19",
+        "14:19–14:44",
+        "evidence-assets/docs/S6.txt"
+      ],
+      "review": "Supported within shown viewing conditions; not a display uniformity instrument measurement."
     },
     {
-      "claim": "后三摄能力与 UDC 前摄应分开评价",
-      "status": "supported",
-      "basis": [
-        "视频 10:33–15:00 的相机 UI、多摄同拍/同录演示",
-        "S1 官方三主摄和 8K 全主摄描述"
-      ]
+      "id": "C3",
+      "claim": "可见圆环受到原厂膜开孔影响。",
+      "locations": [
+        "s05",
+        "s12"
+      ],
+      "sources": [
+        "S1"
+      ],
+      "evidence": [
+        "05:23–05:59",
+        "15:19–15:36",
+        "img/S1-15m19s.png",
+        "img/S1-15m33s.png"
+      ],
+      "review": "Supported by actual removal and post-removal view; angles/settings not fixed; no film-based selfie improvement inferred."
+    },
+    {
+      "id": "C4",
+      "claim": "一驱一、透明走线、MRC属于显示链。",
+      "locations": [
+        "s06",
+        "s07"
+      ],
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "evidence": [
+        "07:22–08:19",
+        "evidence-assets/docs/S2.txt",
+        "anchors/S3-pixel-drive.jpg",
+        "anchors/S3-transparent-wiring.jpg"
+      ],
+      "review": "Supported by exact official definition and visible UI; no claim of individual sensor-photosite display control."
+    },
+    {
+      "id": "C5",
+      "claim": "400 PPI和蓝钻排列不要求两区发光单元形状完全相同。",
+      "locations": [
+        "s07",
+        "insights[0]"
+      ],
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "evidence": [
+        "09:04–09:20",
+        "img/S1-09m20s.png",
+        "evidence-work/S1/reviewed-excerpts.txt",
+        "evidence-assets/docs/S2.html"
+      ],
+      "review": "Supported and explained dimensionally. No aperture ratio, transmission or PPI measurement derived from video micrograph."
+    },
+    {
+      "id": "C6",
+      "claim": "UDC通过衰减、衍射及散射损伤成像；亮点和饱和尤其重要。",
+      "locations": [
+        "s07",
+        "insights[1]"
+      ],
+      "sources": [
+        "S8",
+        "S11"
+      ],
+      "evidence": [
+        "evidence-assets/docs/S8.pdf PDF pp. 2–5,8",
+        "evidence-assets/images/S8-fig3-psf.png",
+        "evidence-assets/docs/S11.txt"
+      ],
+      "review": "Mechanistic inference, not a handset measurement. SNR scaling explicitly assumes fixed exposure and photon-noise-dominated conditions."
+    },
+    {
+      "id": "C7",
+      "claim": "源片确实展示自拍，并保留一定毛发轮廓。",
+      "locations": [
+        "s10",
+        "insights[2]"
+      ],
+      "sources": [
+        "S1"
+      ],
+      "evidence": [
+        "12:29–12:46",
+        "img/S1-12m45s.png"
+      ],
+      "review": "Supported. Distinguishes phone-screen enlargement from directly inserted portrait/hair crop. Does not omit the video’s positive evidence."
+    },
+    {
+      "id": "C8",
+      "claim": "独立同款自拍柔化、人脸识别体验不稳定。",
+      "locations": [
+        "s08",
+        "s10",
+        "insights[2]"
+      ],
+      "sources": [
+        "S1",
+        "S6"
+      ],
+      "evidence": [
+        "10:04–10:32",
+        "evidence-assets/docs/S6.txt",
+        "evidence-assets/images/S6-selfie.jpg"
+      ],
+      "review": "Supported as a different unit’s reported experience. No paired comparison, statistical failure rate or security conclusion."
+    },
+    {
+      "id": "C9",
+      "claim": "2.24 μm描述融合效果，灵透3.0名称不足以保证输出画质。",
+      "locations": [
+        "s10",
+        "insights[3]"
+      ],
+      "sources": [
+        "S2",
+        "S3",
+        "S6"
+      ],
+      "evidence": [
+        "evidence-assets/docs/S2.txt",
+        "evidence-work/external-originals/S3-5.jpg",
+        "evidence-assets/docs/S6.html"
+      ],
+      "review": "Supported with exact manufacturer wording; native sensor pitch is not asserted."
+    },
+    {
+      "id": "C10",
+      "claim": "后续相位掩模方案体现光路协同设计方向。",
+      "locations": [
+        "insights[4]"
+      ],
+      "sources": [
+        "S2",
+        "S12"
+      ],
+      "evidence": [
+        "evidence-assets/docs/S12.txt"
+      ],
+      "review": "Limited to abstract’s optical simulation. No claim the commissioned handset adopted it or doubled throughput."
+    },
+    {
+      "id": "C11",
+      "claim": "本机透过率、PSF/MTF、原始自拍、同场景对照及重复解锁结果仍缺失。",
+      "locations": [
+        "s10",
+        "s12",
+        "insights[5]"
+      ],
+      "sources": [
+        "S1",
+        "S6",
+        "S8"
+      ],
+      "evidence": [
+        "evidence-work/S1/reading.json",
+        "evidence-assets/docs/S6.html"
+      ],
+      "review": "Evidence gap disclosed. Follow-up test plan is explicitly a recommendation, not performed experimentation."
     }
   ],
-  "browser_checks": {
-    "method": "Chromium + Playwright against file:///.../output/index.html",
-    "checks": [
-      {
-        "check": "页面载入与语言",
-        "result": "pass",
-        "detail": "document.title、中文 meta、五个分段标题均可见。"
-      },
-      {
-        "check": "视频元素",
-        "result": "pass",
-        "detail": "src 为 media/source.mp4；Chromium loadedmetadata readyState=4，duration=986.087 秒（与 ffprobe 986.069 秒的封装/舍入差异在 0.02 秒内）。"
-      },
-      {
-        "check": "双向 seek",
-        "result": "pass",
-        "detail": "file:// 页面从 0 秒跳至 752 秒后 currentTime=752，再回到 15 秒后 currentTime=15。"
-      },
-      {
-        "check": "引用展开",
-        "result": "pass",
-        "detail": "共检测到 43 个 .cite；dispatch click 于首个 [S1] 后 #src-S1 可见，来源 URL、摘要和本地证据路径均可读。"
-      },
-      {
-        "check": "图片",
-        "result": "pass",
-        "detail": "滚动至页面底部触发 lazy load 后，8/8 发布帧 naturalWidth=720；无 broken image。"
-      }
-    ]
+  "used_frames": [
+    {
+      "path": "img/S1-00m10s.png",
+      "source": "S1",
+      "requested_seconds": 10,
+      "actual_seconds": 10.021,
+      "method": "FFmpeg extraction matched pixel-exactly to decoded PyAV frame; actual PTS recorded in _work/frame-timestamps.json; no sharp-frame selection",
+      "dimensions": [
+        720,
+        360
+      ],
+      "review": "Inspected in contact sheets; critical UDC, micrograph and selfie frames also viewed at original size."
+    },
+    {
+      "path": "img/S1-01m00s.png",
+      "source": "S1",
+      "requested_seconds": 60,
+      "actual_seconds": 60.021,
+      "method": "FFmpeg extraction matched pixel-exactly to decoded PyAV frame; actual PTS recorded in _work/frame-timestamps.json; no sharp-frame selection",
+      "dimensions": [
+        720,
+        360
+      ],
+      "review": "Inspected in contact sheets; critical UDC, micrograph and selfie frames also viewed at original size."
+    },
+    {
+      "path": "img/S1-02m30s.png",
+      "source": "S1",
+      "requested_seconds": 150,
+      "actual_seconds": 150.021,
+      "method": "FFmpeg extraction matched pixel-exactly to decoded PyAV frame; actual PTS recorded in _work/frame-timestamps.json; no sharp-frame selection",
+      "dimensions": [
+        720,
+        360
+      ],
+      "review": "Inspected in contact sheets; critical UDC, micrograph and selfie frames also viewed at original size."
+    },
+    {
+      "path": "img/S1-05m00s.png",
+      "source": "S1",
+      "requested_seconds": 300,
+      "actual_seconds": 300.021,
+      "method": "FFmpeg extraction matched pixel-exactly to decoded PyAV frame; actual PTS recorded in _work/frame-timestamps.json; no sharp-frame selection",
+      "dimensions": [
+        720,
+        360
+      ],
+      "review": "Inspected in contact sheets; critical UDC, micrograph and selfie frames also viewed at original size."
+    },
+    {
+      "path": "img/S1-05m48s.png",
+      "source": "S1",
+      "requested_seconds": 348,
+      "actual_seconds": 348.021,
+      "method": "FFmpeg extraction matched pixel-exactly to decoded PyAV frame; actual PTS recorded in _work/frame-timestamps.json; no sharp-frame selection",
+      "dimensions": [
+        720,
+        360
+      ],
+      "review": "Inspected in contact sheets; critical UDC, micrograph and selfie frames also viewed at original size."
+    },
+    {
+      "path": "img/S1-05m55s.png",
+      "source": "S1",
+      "requested_seconds": 355,
+      "actual_seconds": 355.021,
+      "method": "FFmpeg extraction matched pixel-exactly to decoded PyAV frame; actual PTS recorded in _work/frame-timestamps.json; no sharp-frame selection",
+      "dimensions": [
+        720,
+        360
+      ],
+      "review": "Inspected in contact sheets; critical UDC, micrograph and selfie frames also viewed at original size."
+    },
+    {
+      "path": "img/S1-07m55s.png",
+      "source": "S1",
+      "requested_seconds": 475,
+      "actual_seconds": 475.021,
+      "method": "FFmpeg extraction matched pixel-exactly to decoded PyAV frame; actual PTS recorded in _work/frame-timestamps.json; no sharp-frame selection",
+      "dimensions": [
+        720,
+        360
+      ],
+      "review": "Inspected in contact sheets; critical UDC, micrograph and selfie frames also viewed at original size."
+    },
+    {
+      "path": "img/S1-08m07s.png",
+      "source": "S1",
+      "requested_seconds": 487,
+      "actual_seconds": 487.021,
+      "method": "FFmpeg extraction matched pixel-exactly to decoded PyAV frame; actual PTS recorded in _work/frame-timestamps.json; no sharp-frame selection",
+      "dimensions": [
+        720,
+        360
+      ],
+      "review": "Inspected in contact sheets; critical UDC, micrograph and selfie frames also viewed at original size."
+    },
+    {
+      "path": "img/S1-09m20s.png",
+      "source": "S1",
+      "requested_seconds": 560,
+      "actual_seconds": 560.021,
+      "method": "FFmpeg extraction matched pixel-exactly to decoded PyAV frame; actual PTS recorded in _work/frame-timestamps.json; no sharp-frame selection",
+      "dimensions": [
+        720,
+        360
+      ],
+      "review": "Inspected in contact sheets; critical UDC, micrograph and selfie frames also viewed at original size."
+    },
+    {
+      "path": "img/S1-10m25s.png",
+      "source": "S1",
+      "requested_seconds": 625,
+      "actual_seconds": 625.021,
+      "method": "FFmpeg extraction matched pixel-exactly to decoded PyAV frame; actual PTS recorded in _work/frame-timestamps.json; no sharp-frame selection",
+      "dimensions": [
+        720,
+        360
+      ],
+      "review": "Inspected in contact sheets; critical UDC, micrograph and selfie frames also viewed at original size."
+    },
+    {
+      "path": "img/S1-11m00s.png",
+      "source": "S1",
+      "requested_seconds": 660,
+      "actual_seconds": 660.021,
+      "method": "FFmpeg extraction matched pixel-exactly to decoded PyAV frame; actual PTS recorded in _work/frame-timestamps.json; no sharp-frame selection",
+      "dimensions": [
+        720,
+        360
+      ],
+      "review": "Inspected in contact sheets; critical UDC, micrograph and selfie frames also viewed at original size."
+    },
+    {
+      "path": "img/S1-12m45s.png",
+      "source": "S1",
+      "requested_seconds": 765,
+      "actual_seconds": 765.021,
+      "method": "FFmpeg extraction matched pixel-exactly to decoded PyAV frame; actual PTS recorded in _work/frame-timestamps.json; no sharp-frame selection",
+      "dimensions": [
+        720,
+        360
+      ],
+      "review": "Inspected in contact sheets; critical UDC, micrograph and selfie frames also viewed at original size."
+    },
+    {
+      "path": "img/S1-14m10s.png",
+      "source": "S1",
+      "requested_seconds": 850,
+      "actual_seconds": 850.021,
+      "method": "FFmpeg extraction matched pixel-exactly to decoded PyAV frame; actual PTS recorded in _work/frame-timestamps.json; no sharp-frame selection",
+      "dimensions": [
+        720,
+        360
+      ],
+      "review": "Inspected in contact sheets; critical UDC, micrograph and selfie frames also viewed at original size."
+    },
+    {
+      "path": "img/S1-15m19s.png",
+      "source": "S1",
+      "requested_seconds": 919,
+      "actual_seconds": 919.021,
+      "method": "FFmpeg extraction matched pixel-exactly to decoded PyAV frame; actual PTS recorded in _work/frame-timestamps.json; no sharp-frame selection",
+      "dimensions": [
+        720,
+        360
+      ],
+      "review": "Inspected in contact sheets; critical UDC, micrograph and selfie frames also viewed at original size."
+    },
+    {
+      "path": "img/S1-15m33s.png",
+      "source": "S1",
+      "requested_seconds": 933,
+      "actual_seconds": 933.021,
+      "method": "FFmpeg extraction matched pixel-exactly to decoded PyAV frame; actual PTS recorded in _work/frame-timestamps.json; no sharp-frame selection",
+      "dimensions": [
+        720,
+        360
+      ],
+      "review": "Inspected in contact sheets; critical UDC, micrograph and selfie frames also viewed at original size."
+    }
+  ],
+  "used_crops": [
+    {
+      "path": "anchors/S3-pixel-drive.jpg",
+      "source": "S3",
+      "original": "evidence-work/external-originals/S3-3.jpg",
+      "box_pixels": [
+        0,
+        970,
+        790,
+        1599
+      ],
+      "position": "s06",
+      "review": "Original and crop visually inspected. Title and comparison labels retained; manufacturer illustration identified."
+    },
+    {
+      "path": "anchors/S3-transparent-wiring.jpg",
+      "source": "S3",
+      "original": "evidence-work/external-originals/S3-4.jpg",
+      "box_pixels": [
+        0,
+        0,
+        790,
+        560
+      ],
+      "position": "s07",
+      "review": "Original and crop inspected. Includes transparent-wiring heading and both compared display schematics."
+    },
+    {
+      "path": "evidence-assets/images/S8-fig3-psf.png",
+      "source": "S8",
+      "original": "evidence-assets/docs/S8.pdf",
+      "position": "s07",
+      "review": "PDF page 4, Figure 3; crop inspected; original caption retained; Axon 20 attribution explicit."
+    },
+    {
+      "path": "evidence-assets/images/S6-selfie.jpg",
+      "source": "S6",
+      "original_url": "https://www.trustedreviews.com/wp-content/uploads/sites/7/2022/06/ZTE-Axon-40-Ultra-selfie-scaled-820x461.jpg",
+      "position": "s10",
+      "review": "Inspected at native 820×461, unchanged bytes from public sample; author/site/date credited."
+    }
+  ],
+  "image_placement": {
+    "visible_figures": 19,
+    "poster": "img/poster.png",
+    "unplaced_delivery_images": [],
+    "review_only_images_location": "evidence-work/"
+  },
+  "authoring_diagnostics": {
+    "contiguous_segments": 12,
+    "timeline_start": 0,
+    "timeline_end": 986.069,
+    "all_published_video_frames_inside_segment": true,
+    "structured_diagram_blocks": 1,
+    "comparison_cards_with_two_independent_producers": 3,
+    "quotes_verified_by_validator": 6,
+    "zero_unplaced_delivery_images": true
+  },
+  "browser_review": {
+    "record": "evidence-work/browser/checks.json",
+    "pass": true,
+    "data_sha256": "bd1db43b00a7bc1839d3fc75c43154b3fff8836dad1bd774df6f385f1aa9d9a9",
+    "screenshots_inspected": [
+      "desktop-top.png",
+      "desktop-selfie.png",
+      "desktop-display-controls.png",
+      "desktop-sources.png",
+      "desktop-optics.png",
+      "mobile-top.png"
+    ],
+    "final_optics_screenshot_pending_visual_inspection": false,
+    "optics_visual_review": "Inspected final desktop-optics.png; both display/camera branches and the wide PSF figure render clearly."
   },
   "limitations": [
-    "视频观察服务对 300–540 秒音频的一次请求返回 502，已改用同区间视频观察与可视帧，不据此补写口述。",
-    "原视频未提供受控照度、标准色卡或与传统挖孔前摄的同场定量对照；报告将片中结论标为观察/主观评价。"
+    "No cloud audio/video interpretation used.",
+    "No physical handset tests were performed. Source observations, manufacturer assertions, independent unit results and general optical research remain distinguished.",
+    "No official review/validate MCP service was installed or invoked; local Node validator and actual browser checks used."
   ]
 }

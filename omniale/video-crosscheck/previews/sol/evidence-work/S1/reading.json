@@ -1,0 +1,167 @@
+{
+  "source": "../../media/source.mp4",
+  "source_url": "https://www.bilibili.com/video/BV1ua411J7VA",
+  "duration_seconds": 986.069,
+  "read_mode": "Full source audio processed locally; complete transcript read. Visual reading used timestamped sampled frames, dense sampling at UDC, selfie and film-removal passages. Not a claim of continuous frame-by-frame viewing.",
+  "audio": {
+    "engine": "faster-whisper",
+    "models": [
+      "large-v3-turbo (full 0–986.069 s)",
+      "small (240–580 s cross-check)"
+    ],
+    "device": "CPU",
+    "compute_type": "int8",
+    "cpu_threads": 4,
+    "cloud_services": false,
+    "full_transcript": "evidence-work/S1/source-transcript.json",
+    "cross_check": "evidence-work/S1/udc-small.json",
+    "reviewed_extract": "evidence-work/S1/reviewed-excerpts.txt"
+  },
+  "visual_requested_seconds": [
+    0,
+    10,
+    30,
+    35,
+    60,
+    90,
+    110,
+    145,
+    150,
+    210,
+    225,
+    240,
+    250,
+    260,
+    270,
+    280,
+    300,
+    310,
+    320,
+    330,
+    340,
+    348,
+    350,
+    355,
+    360,
+    365,
+    375,
+    385,
+    390,
+    400,
+    410,
+    430,
+    443,
+    450,
+    455,
+    460,
+    475,
+    480,
+    487,
+    490,
+    500,
+    510,
+    518,
+    520,
+    530,
+    540,
+    550,
+    555,
+    560,
+    570,
+    575,
+    590,
+    610,
+    625,
+    640,
+    650,
+    660,
+    680,
+    700,
+    710,
+    730,
+    748,
+    751,
+    754,
+    757,
+    759,
+    761,
+    763,
+    765,
+    780,
+    815,
+    850,
+    870,
+    880,
+    895,
+    906,
+    910,
+    919,
+    920,
+    923,
+    926,
+    930,
+    933,
+    940,
+    960,
+    970,
+    980
+  ],
+  "published_actual_frame_timestamps": "evidence-work/frame-timestamps.json",
+  "method": "ffprobe + FFmpeg extraction; Pillow contact sheets; direct image inspection. Published images matched pixel-exactly to PyAV-decoded frames to identify actual PTS (requested integer + 0.021 s). Native video is 720×360 at nominal 30 fps.",
+  "findings": [
+    {
+      "range": [
+        0,
+        30.3
+      ],
+      "finding": "Host calls this the technology aesthetics live stream and explicitly says 2022; Axon 40 Ultra is identified verbally and on packaging."
+    },
+    {
+      "range": [
+        323,
+        397.6
+      ],
+      "finding": "Screen-on/off and colored-background demonstrations; host attributes visible ring to factory film; microscope introduced around 379 s."
+    },
+    {
+      "range": [
+        438,
+        499
+      ],
+      "finding": "Front-camera screen display micro-adjustment page; regional luminance/color adjustment. This shows display controls, not sensor exposure or measured transmittance."
+    },
+    {
+      "range": [
+        499,
+        571.56
+      ],
+      "finding": "Microscope imaging of display and UDC region; 560 s inserted micrograph labels screen vs camera region; blue emitting subpixels have visibly different shapes."
+    },
+    {
+      "range": [
+        603,
+        632
+      ],
+      "finding": "One host demonstrates face unlock with progressively covered face and then mask; no trials or error-rate statistics."
+    },
+    {
+      "range": [
+        748.93,
+        766.93
+      ],
+      "finding": "Actual front-camera selfie shown, enlarged on phone, then portrait and hairline crop inserted at 765 s. Original photo/exposure/beauty setting not supplied."
+    },
+    {
+      "range": [
+        904.93,
+        986.069
+      ],
+      "finding": "Host peels the factory film, shows screen after removal, requests future detailed tests, then jokes about reapplying the film."
+    }
+  ],
+  "limitations": [
+    "Automatic speech has name/model/technical-word errors; claim-critical passages checked against subtitles and visible UI.",
+    "No light-meter, transmission spectrum, PSF/MTF, RAW, same-scene conventional selfie reference, or controlled video-call test for this handset.",
+    "The Bilibili API returned 412; source identity and year are grounded in supplied media, not an opened metadata page."
+  ]
+}

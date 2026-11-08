@@ -1,0 +1,281 @@
+{
+  "checks": [
+    {
+      "name": "video_metadata",
+      "passed": true,
+      "details": {
+        "duration": 986.087,
+        "width": 720,
+        "height": 360,
+        "readyState": 4,
+        "seekableEnd": 986.087
+      }
+    },
+    {
+      "name": "desktop_structure",
+      "passed": true,
+      "details": {
+        "segments": 10,
+        "sources": 7,
+        "citations": 81,
+        "lang": "zh",
+        "theme": "t05",
+        "leftVisible": true,
+        "rightVisible": true
+      }
+    },
+    {
+      "name": "muted_playback_advances",
+      "passed": true,
+      "details": {
+        "time": 1.168825,
+        "paused": false,
+        "ended": false
+      }
+    },
+    {
+      "name": "seek_forward",
+      "passed": true,
+      "details": {
+        "requested": 750,
+        "actual": 750,
+        "paused": true,
+        "seekableEnd": 986.087
+      }
+    },
+    {
+      "name": "seek_backward",
+      "passed": true,
+      "details": {
+        "requested": 325,
+        "actual": 325,
+        "paused": true,
+        "seekableEnd": 986.087
+      }
+    },
+    {
+      "name": "timeline_click_seeks_and_activates",
+      "passed": true,
+      "details": {
+        "time": 749.592382,
+        "active": true,
+        "segmentOpen": true
+      }
+    },
+    {
+      "name": "cold_citation_marks_source",
+      "passed": true,
+      "details": {
+        "highlighted": true,
+        "sourceText": "S2\n为大场面而生：中兴 Axon 40 Ultra 正式发布WEB\n2022-05-09官方新闻稿：屏下区400PPI、全屏蓝钻、独立像素一驱一、分布式透明走线、UDC Pro，以及16MP、2.24μm融合大像素效果和灵透算法3.0。属于厂商技术陈述，不是独立计量。",
+        "sourceInViewport": false
+      }
+    },
+    {
+      "name": "all_report_images_decode",
+      "passed": true,
+      "details": {
+        "count": 16,
+        "images": [
+          {
+            "src": "img/seg01-01m32s.jpg",
+            "width": 720,
+            "height": 360
+          },
+          {
+            "src": "img/seg02-05m00s.jpg",
+            "width": 720,
+            "height": 360
+          },
+          {
+            "src": "img/seg03-05m29s.jpg",
+            "width": 720,
+            "height": 360
+          },
+          {
+            "src": "img/seg03-color-06m03s.jpg",
+            "width": 720,
+            "height": 360
+          },
+          {
+            "src": "img/seg04-06m30s.jpg",
+            "width": 720,
+            "height": 360
+          },
+          {
+            "src": "evidence-assets/images/S8-figure2-optics.png",
+            "width": 815,
+            "height": 265
+          },
+          {
+            "src": "img/seg05-08m00s.jpg",
+            "width": 720,
+            "height": 360
+          },
+          {
+            "src": "img/seg06-09m17s.jpg",
+            "width": 720,
+            "height": 360
+          },
+          {
+            "src": "evidence-assets/images/S6-axon20-pixel-density.png",
+            "width": 364,
+            "height": 167
+          },
+          {
+            "src": "img/seg07-10m30s.jpg",
+            "width": 720,
+            "height": 360
+          },
+          {
+            "src": "img/seg08-12m44s.jpg",
+            "width": 720,
+            "height": 360
+          },
+          {
+            "src": "evidence-assets/images/S4-front-before-after.jpg",
+            "width": 640,
+            "height": 427
+          },
+          {
+            "src": "evidence-assets/images/S5-front-sample.jpg",
+            "width": 500,
+            "height": 374
+          },
+          {
+            "src": "img/seg09-14m00s.jpg",
+            "width": 720,
+            "height": 360
+          },
+          {
+            "src": "img/seg10-15m30s.jpg",
+            "width": 720,
+            "height": 360
+          },
+          {
+            "src": "img/seg10-bright-14m39s.jpg",
+            "width": 720,
+            "height": 360
+          }
+        ]
+      }
+    },
+    {
+      "name": "citation_scrolls_to_source_after_images_settle",
+      "passed": true,
+      "details": {
+        "highlighted": true,
+        "sourceInViewport": true
+      }
+    },
+    {
+      "name": "all_seven_citation_targets_work",
+      "passed": true,
+      "details": {
+        "tested_additional": [
+          {
+            "sourceId": "S1",
+            "highlighted": true,
+            "inViewport": true
+          },
+          {
+            "sourceId": "S4",
+            "highlighted": true,
+            "inViewport": true
+          },
+          {
+            "sourceId": "S5",
+            "highlighted": true,
+            "inViewport": true
+          },
+          {
+            "sourceId": "S6",
+            "highlighted": true,
+            "inViewport": true
+          },
+          {
+            "sourceId": "S7",
+            "highlighted": true,
+            "inViewport": true
+          },
+          {
+            "sourceId": "S8",
+            "highlighted": true,
+            "inViewport": true
+          }
+        ],
+        "tested_separately": "S2"
+      }
+    },
+    {
+      "name": "image_lightbox_opens",
+      "passed": true,
+      "details": {
+        "visible": true
+      }
+    },
+    {
+      "name": "image_lightbox_escape_closes",
+      "passed": true,
+      "details": {
+        "visible": false
+      }
+    },
+    {
+      "name": "mobile_layout_no_horizontal_overflow",
+      "passed": true,
+      "details": {
+        "scrollWidth": 390,
+        "innerWidth": 390,
+        "playerWidth": 354,
+        "rightWidth": 390
+      }
+    },
+    {
+      "name": "dark_theme_language_retained",
+      "passed": true,
+      "details": {
+        "background": "#0e1117",
+        "text": "rgb(230, 237, 243)",
+        "lang": "zh",
+        "theme": "t05"
+      }
+    },
+    {
+      "name": "no_page_errors",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "no_console_errors",
+      "passed": true,
+      "details": []
+    }
+  ],
+  "console": [],
+  "page_errors": [],
+  "request_failures": [
+    {
+      "url": "file:///D:/omniale_video_runs/omnidr-0008-localproc-kimi-k3-1-pro-max-01/output/media/source.mp4",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "file:///D:/omniale_video_runs/omnidr-0008-localproc-kimi-k3-1-pro-max-01/output/media/source.mp4",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "file:///D:/omniale_video_runs/omnidr-0008-localproc-kimi-k3-1-pro-max-01/output/media/source.mp4",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "file:///D:/omniale_video_runs/omnidr-0008-localproc-kimi-k3-1-pro-max-01/output/media/source.mp4",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "file:///D:/omniale_video_runs/omnidr-0008-localproc-kimi-k3-1-pro-max-01/output/media/source.mp4",
+      "failure": "net::ERR_ABORTED"
+    }
+  ],
+  "cold_citation_note": "Before lazy images settle, the source is highlighted but its document position can move as images load; the landing assertion is repeated after all images decode.",
+  "all_passed": true
+}

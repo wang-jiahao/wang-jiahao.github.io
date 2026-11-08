@@ -1,0 +1,285 @@
+{
+  "reviewed_at": "2026-11-08",
+  "status": "complete",
+  "source_video": {
+    "reading_manifest": "evidence-work/source-reading.json",
+    "range_covered": [
+      0,
+      986.069
+    ],
+    "method": "完整本地large-v3-turbo转写、30秒全片接触表、关键UDC范围small模型复核、25个精确时间点抽帧；所有采用的帧均已目检。",
+    "transcript": "evidence-work/source-transcript.json",
+    "limitations": [
+      "未使用云端音视频服务",
+      "ASR专名可能误识别，正文以原帧与语义复核为准",
+      "720×360源视频不支持实验室级细节测量"
+    ]
+  },
+  "primary_source_reading": [
+    {
+      "id": "S1",
+      "coverage": "官方产品页全文保存；核对显示屏、系统和前后摄像头规格。",
+      "used_for": "基础规格与前后摄链路区分。",
+      "caveat": "官方存档页不是独立评测，也未给出透光率。",
+      "saved_html": "evidence-assets/docs/S1.html",
+      "saved_text": "evidence-assets/docs/S1.txt"
+    },
+    {
+      "id": "S2",
+      "coverage": "2022-05-09官方新闻稿全文保存；逐句核对UDC屏显与前摄两段。",
+      "used_for": "400PPI、一驱一、透明走线、UDC Pro、2.24μm融合与灵透算法3.0。",
+      "caveat": "明确标为厂商陈述，未改写为独立实测。",
+      "saved_html": "evidence-assets/docs/S2.html",
+      "saved_text": "evidence-assets/docs/S2.txt"
+    },
+    {
+      "id": "S4",
+      "coverage": "锋潮评测全文与全部原文图片下载；目检优化前后自拍。",
+      "used_for": "静态算法收益、残余灯光问题、前摄视频限制。",
+      "caveat": "单组或少数样张，不能推广到所有光线。",
+      "saved_html": "evidence-assets/docs/S4.html",
+      "saved_text": "evidence-assets/docs/S4.txt"
+    },
+    {
+      "id": "S5",
+      "coverage": "TechWeb全文与全部原文图片下载；目检显示区和人像与猫样张。",
+      "used_for": "保留与锋潮不同的积极前摄评价，构成公开评测分歧。",
+      "caveat": "未见统一同场挖孔对照，不把其主观结论当成普遍事实。",
+      "saved_html": "evidence-assets/docs/S5.html",
+      "saved_text": "evidence-assets/docs/S5.txt"
+    },
+    {
+      "id": "S6",
+      "coverage": "CVF摘要、10页PDF及全文文本保存；阅读摘要、引言、Figure 2、成像模型、实验与讨论限制。",
+      "used_for": "Axon 20降密度路线、衍射PSF、高光眩光、算法域差和失败条件。",
+      "caveat": "研究对象是Axon 20和论文系统，不能把数值或失败样例直接归到Axon 40 Ultra。",
+      "saved_html": "evidence-assets/docs/S6.html",
+      "saved_text": "evidence-assets/docs/S6.txt",
+      "saved_pdf": "evidence-assets/docs/S6.pdf",
+      "pdf_text": "evidence-assets/docs/S6-pdf.txt"
+    },
+    {
+      "id": "S7",
+      "coverage": "CVF摘要、10页PDF及全文文本保存；阅读摘要、空间变化退化、3A/ISP、噪声控制与结论。",
+      "used_for": "低光增益噪声、入射角和空间变化、复原偏好。",
+      "caveat": "通用UDC研究，不是本机评测；研究屏透光数值未套用。",
+      "saved_html": "evidence-assets/docs/S7.html",
+      "saved_text": "evidence-assets/docs/S7.txt",
+      "saved_pdf": "evidence-assets/docs/S7.pdf",
+      "pdf_text": "evidence-assets/docs/S7-pdf.txt"
+    },
+    {
+      "id": "S8",
+      "coverage": "CVF摘要、10页PDF及全文文本保存；阅读光学系统、Table 1、PSF/MTF、复原方法与限制。",
+      "used_for": "显示微结构、透光与衍射机制，以及开口面积不等于透光率的实例。",
+      "caveat": "20%和2.9%只属于论文两块实验屏，报告中反复标注。",
+      "saved_html": "evidence-assets/docs/S8.html",
+      "saved_text": "evidence-assets/docs/S8.txt",
+      "saved_pdf": "evidence-assets/docs/S8.pdf",
+      "pdf_text": "evidence-assets/docs/S8-pdf.txt"
+    }
+  ],
+  "claim_reviews": [
+    {
+      "claim": "本机前摄区在原片多色、高亮和撕膜后画面中很难察觉。",
+      "support": "03:23.640–06:19.400、14:16.930–15:36.930原帧；S5提供一致的主观外部观察。",
+      "verdict": "支持为主观显示观察；未升级为亮度、色度或全角度计量结论。"
+    },
+    {
+      "claim": "400PPI和一驱一不等于透光率提升。",
+      "support": "S2屏显目标；S6/S8光学衰减与衍射机制；09:17.140显微图仅显示形态。",
+      "verdict": "支持；报告将屏显、光学和算法三条链路分开。"
+    },
+    {
+      "claim": "熄屏孔位首先是带孔贴膜干扰。",
+      "support": "05:29.120右上角标注与05:30.910–05:35.910口述；15:18后撕膜复测。",
+      "verdict": "支持；未把贴膜孔误判为UDC硬件孔。"
+    },
+    {
+      "claim": "前摄成像不能被宣布为普遍等同挖孔前摄。",
+      "support": "原片只有单张室内自拍；S4与S5结论不同；S4另指出视频不清晰。",
+      "verdict": "支持保守结论；报告保留两家分歧并要求同场照片和视频对照。"
+    },
+    {
+      "claim": "高光、低光和视频是独立验收场景。",
+      "support": "S6的高光PSF与饱和分析、S7的低光增益和空间变化、S4的实际样张与视频评价。",
+      "verdict": "支持；实用建议限定为正面柔和照明、避免强直射灯并检查最终输出。"
+    }
+  ],
+  "image_reviews": [
+    {
+      "path": "img/poster-03m59s.jpg",
+      "source": "../../media/source.mp4",
+      "actual_seconds": 239.92,
+      "sha256_source_frame": "e699e205c75634d08eac6732bdca0f69591a199576abcb7bd23ba10b751c2bba"
+    },
+    {
+      "path": "img/seg01-01m32s.jpg",
+      "source": "../../media/source.mp4",
+      "actual_seconds": 92.46,
+      "sha256_source_frame": "d6df0329c86160a7f2ba5bfe781b11555d58ec288fe8f1227477f59e3ccb7ed0"
+    },
+    {
+      "path": "img/seg02-05m00s.jpg",
+      "source": "../../media/source.mp4",
+      "actual_seconds": 300.84,
+      "sha256_source_frame": "54a7291f87015367a4a95aeb587b2260521e874387bbb33c0cee12ab860edd8f"
+    },
+    {
+      "path": "img/seg03-05m29s.jpg",
+      "source": "../../media/source.mp4",
+      "actual_seconds": 329.12,
+      "sha256_source_frame": "2030a663b97be0349d5bdd5bf76915abde488b43a8729a6c2971b6836f78207a"
+    },
+    {
+      "path": "img/seg03-color-06m03s.jpg",
+      "source": "../../media/source.mp4",
+      "actual_seconds": 363.6,
+      "sha256_source_frame": "5ae795c56ba46ca07192fde034d72a21c86e9c4943a7a0d496662b067bbc650c"
+    },
+    {
+      "path": "img/seg04-06m30s.jpg",
+      "source": "../../media/source.mp4",
+      "actual_seconds": 390.44,
+      "sha256_source_frame": "979b1a4817f6a8084b77f4fa9773f90dad8a4b91417416b220389d4f352f95d9"
+    },
+    {
+      "path": "img/seg05-08m00s.jpg",
+      "source": "../../media/source.mp4",
+      "actual_seconds": 480.02,
+      "sha256_source_frame": "4cf09bba623466f1be2f445236de74000d5a6a72bd6ccb2aa6050bfdf9bc3594"
+    },
+    {
+      "path": "img/seg06-09m17s.jpg",
+      "source": "../../media/source.mp4",
+      "actual_seconds": 557.14,
+      "sha256_source_frame": "7fe1a9a87f3c778b6bdc8df4b3fd3a9c9672bf92a9e727a7c4b6fb523c78de24"
+    },
+    {
+      "path": "img/seg07-10m30s.jpg",
+      "source": "../../media/source.mp4",
+      "actual_seconds": 630.93,
+      "sha256_source_frame": "9d119670f0c3a9d1e6880d0a5b97e23280e9a974a5fbe59df192fd7591a64250"
+    },
+    {
+      "path": "img/seg08-12m44s.jpg",
+      "source": "../../media/source.mp4",
+      "actual_seconds": 764.93,
+      "sha256_source_frame": "f9178791d9ce218157e0361b6f85dccd6e00fd24fbf80c6f70e87226f3bdb87e"
+    },
+    {
+      "path": "img/seg09-14m00s.jpg",
+      "source": "../../media/source.mp4",
+      "actual_seconds": 840.93,
+      "sha256_source_frame": "dd0c6aef92674e9a7b087834a0b63bac8213ba5a23bf3b06191d9fb3c4570bcd"
+    },
+    {
+      "path": "img/seg10-bright-14m39s.jpg",
+      "source": "../../media/source.mp4",
+      "actual_seconds": 879.93,
+      "sha256_source_frame": "483017486e7c9d5ad3e9c474dd89ac25b3876a5e1d1eb96ccbbf2e18ccffaed0"
+    },
+    {
+      "path": "img/seg10-15m30s.jpg",
+      "source": "../../media/source.mp4",
+      "actual_seconds": 930.93,
+      "sha256_source_frame": "3a9983d3669b634361d7bc9b252afc8b6233c6b001689a80bf209aa96fad2d7a"
+    },
+    {
+      "path": "evidence-assets/images/S4-front-before-after.jpg",
+      "source": "image-06.jpg",
+      "size": [
+        640,
+        427
+      ],
+      "inspected": true
+    },
+    {
+      "path": "evidence-assets/images/S5-front-sample.jpg",
+      "source": "image-38.jpg",
+      "size": [
+        500,
+        374
+      ],
+      "inspected": true
+    },
+    {
+      "path": "evidence-assets/images/S8-figure2-optics.png",
+      "source": "work\\sources\\S8-pages\\page-3.png",
+      "crop_box": [
+        75,
+        95,
+        890,
+        360
+      ],
+      "inspected": true
+    },
+    {
+      "path": "evidence-assets/images/S6-axon20-pixel-density.png",
+      "source": "work\\sources\\S6-pages\\page-2.png",
+      "crop_box": [
+        88,
+        105,
+        452,
+        272
+      ],
+      "inspected": true
+    }
+  ],
+  "browser_review": {
+    "results": "evidence-work/browser-checks.json",
+    "all_passed": true,
+    "check_count": 16,
+    "all_seven_citation_targets": true,
+    "decoded_report_images": 16,
+    "screenshots": [
+      "evidence-work/browser-top.png",
+      "evidence-work/browser-seg8.png",
+      "evidence-work/browser-insights.png",
+      "evidence-work/browser-mobile.png"
+    ],
+    "visual_inspection": "桌面双栏、关键前摄段、全部深度结论和390px移动端截图均已打开目检。",
+    "cold_citation_note": "Before lazy images settle, the source is highlighted but its document position can move as images load; the landing assertion is repeated after all images decode.",
+    "console_errors": [],
+    "request_failures": [
+      {
+        "url": "file:///D:/omniale_video_runs/omnidr-0008-localproc-kimi-k3-1-pro-max-01/output/media/source.mp4",
+        "failure": "net::ERR_ABORTED"
+      },
+      {
+        "url": "file:///D:/omniale_video_runs/omnidr-0008-localproc-kimi-k3-1-pro-max-01/output/media/source.mp4",
+        "failure": "net::ERR_ABORTED"
+      },
+      {
+        "url": "file:///D:/omniale_video_runs/omnidr-0008-localproc-kimi-k3-1-pro-max-01/output/media/source.mp4",
+        "failure": "net::ERR_ABORTED"
+      },
+      {
+        "url": "file:///D:/omniale_video_runs/omnidr-0008-localproc-kimi-k3-1-pro-max-01/output/media/source.mp4",
+        "failure": "net::ERR_ABORTED"
+      },
+      {
+        "url": "file:///D:/omniale_video_runs/omnidr-0008-localproc-kimi-k3-1-pro-max-01/output/media/source.mp4",
+        "failure": "net::ERR_ABORTED"
+      }
+    ],
+    "request_failure_interpretation": "仅有本地MP4在播放/定位过程中被取消的net::ERR_ABORTED请求；元数据、实际播放、前跳750秒、回跳325秒和全部时间轴操作均实测通过。"
+  },
+  "integrity": {
+    "template_sha256": {
+      "index.html": "F7E4223FA5EF4C4B421A52C2D896938BD9F14D7E03E943AC0482E8E30970F56C",
+      "styles.css": "A89B975C2FBA9BD7F7951F11EEAACBC2BCAC2C186A83D3010AFDF8AEF3BF87C6",
+      "js/app.js": "4DF1C6D84CD4423B3F8FB2BE2C92540AF4E0C033B95A55C3C22508C7EADE24BE",
+      "js/link.js": "4535F25A39A035CC5E6A3481456D93C336CDC0C01865DD2A57E0594F09D2B4C0"
+    },
+    "template_files_unchanged": true,
+    "source_video_copy_sha256": "B7332A0010B5BA7FADA60F812B87C12CC400C5D4FB8CE8DBBFD8FF6C7AD3328B",
+    "source_video_copy_matches_original": true,
+    "data_validation": "node toolkit/validate_data.mjs output/js/data.js — PASS, zero warnings"
+  },
+  "remaining_limits": [
+    "原视频没有同场挖孔前摄对照、前摄原始文件、系统前摄视频、透光率或本机PSF测量。",
+    "外部媒体评测测试条件不统一，报告将其作为分歧证据而不是统一 benchmark。",
+    "论文提供机制与研究对象实例，不提供Axon 40 Ultra专属透光率或成像分数。"
+  ]
+}

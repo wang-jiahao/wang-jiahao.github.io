@@ -1,0 +1,39 @@
+{
+  "source": "evidence-assets/docs/S8.pdf",
+  "publisher": "Feng et al., IEEE/CVF CVPR 2021",
+  "opened_html": "evidence-assets/docs/S8.html",
+  "read_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "primary_reader_notes": {
+    "1-2": "Identifies light attenuation and diffraction. Actual production device is ZTE Axon 20, explicitly not a product-ready ZTE solution.",
+    "3-4": "Eq. 1 includes convolution, noise, clipping and tone mapping. Measured HDR PSF has a main peak and long-tail side lobes; Figure 3 brightened for visualization. No Axon 40 Ultra transmittance or PSF.",
+    "5-7": "DISCNet conditioned on PSF and degraded image, dynamic feature-domain filtering at several scales; evaluation/ablations are synthetic and do not measure the commissioned handset.",
+    "8": "Real-data evaluation is qualitative because ground truth is unavailable. Limitations explicitly include domain gap, camera noise, motion blur, defocus and computational weight.",
+    "9-10": "References inspected; no citation claims in report are based solely on these unopened referenced works."
+  },
+  "published_crop": {
+    "page": 4,
+    "printed_page": 665,
+    "figure": 3,
+    "pdf_rect_points": [
+      45,
+      65,
+      290,
+      330
+    ],
+    "render_scale": 2.8,
+    "local": "evidence-assets/images/S8-fig3-psf.png",
+    "review": "Viewed extracted crop at native resolution. It retains figure labels, color traces and original caption. Used only for mechanism explanation."
+  },
+  "limits": "No cross-device transfer of PSF support, restoration metrics, throughput or algorithm deployment claims."
+}

@@ -1,0 +1,307 @@
+{
+  "review_date": "2026-11-08",
+  "subject": "ZTE Axon 40 Ultra under-display camera display/imaging trade-off",
+  "report_root": "output/",
+  "source_readings": [
+    {
+      "id": "S1",
+      "type": "video",
+      "url": "https://www.bilibili.com/video/BV1ua411J7VA",
+      "title": "【大家测】中兴 Axon 40 Ultra开箱体验",
+      "publisher": "科技美学 / Bilibili",
+      "read_depth": "全片 986.069 s；small 全片转录 + large-v3-turbo 对 380–575、740–950、945–986.069 s 复听；逐张检查关键帧与声明区间。",
+      "key_findings": [
+        "点亮屏幕后正面无明显挖孔；熄屏圆孔来自原厂贴膜，05:35 与 15:10 两次撕膜均能验证。",
+        "06:19–08:20 展示‘前摄屏幕显示效果微调’，07:45 页面含小屏亮度与 RGB 滑杆；单像素级控制仅为视频转述。",
+        "09:05–09:15 显微镜比较普通显示区与 UDC 区，蓝子像素形状不同但肉眼几乎不可辨。",
+        "12:45 自拍样张以毛发放大作为卖点；15:05 给出满分 10 分的主观评分提示；16:00 后彩蛋称屏幕完美、精致、没有遗憾。"
+      ],
+      "local_evidence": [
+        "../../media/source.mp4",
+        "evidence-assets/docs/S1-transcript.txt",
+        "evidence-work/S1/reading.json",
+        "evidence-work/S1/transcript-timestamped.txt"
+      ],
+      "primary_reader_notes": "视频证据适合证明‘显示侧隐藏’，不足以单独证明前摄成像质量；片尾撕膜后画面和音频同步，前先怀疑的 930/935 s 不同步已排除。"
+    },
+    {
+      "id": "S2",
+      "type": "web",
+      "url": "https://www.androidauthority.com/zte-axon-40-ultra-review-3171686/",
+      "title": "ZTE Axon 40 Ultra review: Hiding in plain sight",
+      "publisher": "Android Authority / Hadlee Simons",
+      "published": "2022-07-03",
+      "read_depth": "保存并阅读正文文本 22,039 字符；核对屏幕隐藏、前摄样张、代际、电池/充电与结论段。",
+      "key_findings": [
+        "‘I found that the camera wasn’t visible most of the time, though you’ll notice a very slight smudge every now and again whenever the screen shows gray shades and blurred backgrounds.’",
+        "‘Even pictures taken in ideal conditions can see smeared hair and plenty of noise, along with a vaseline effect that’s only more pronounced in indoor and backlit scenes.’",
+        "‘ZTE is on its third generation of the tech and images still look worse than many budget phones’",
+        "整机规格段写作 65W wired charging；视频口述 80W 氮化镓充电器，报告将其视作不同口径，未判矛盾。"
+      ],
+      "local_evidence": [
+        "evidence-assets/docs/S2.html",
+        "evidence-assets/docs/S2.txt",
+        "evidence-assets/images/S2-review.jpg"
+      ],
+      "primary_reader_notes": "独立媒体评测，强于官方宣传；但自拍判断基于作者样张与观感，不是实验室测量。"
+    },
+    {
+      "id": "S3",
+      "type": "web",
+      "url": "https://www.ztedevices.com/cn/product/zte-axon-40-ultra/",
+      "title": "中兴 Axon 40 Ultra 参数规格",
+      "publisher": "中兴通讯",
+      "read_depth": "保存 HTTP 200 页面与正文 1,090 字符；核对显示屏、前摄、后摄、电池参数。",
+      "key_findings": [
+        "6.8英寸，FHD+（2480×1116），20:9，120Hz，AMOLED柔性全面屏",
+        "1600万像素（屏下）前摄",
+        "6400万像素超人文主摄（35mm等效焦距，IMX787，f/1.6，OIS）；6400万像素超广角主摄（IMX787，4cm微距）；6400万像素潜望长焦主摄（OIS）",
+        "5000mAh (典型值)"
+      ],
+      "local_evidence": [
+        "evidence-assets/docs/S3.html",
+        "evidence-assets/docs/S3.txt",
+        "evidence-assets/images/S3-official.jpg"
+      ],
+      "primary_reader_notes": "官方规格页只证明厂商标称，不证明成像或显示实际表现。"
+    },
+    {
+      "id": "S4",
+      "type": "report",
+      "url": "https://arxiv.org/abs/2003.04857",
+      "title": "Image Restoration for Under-Display Camera",
+      "publisher": "Yuqian Zhou et al. / arXiv (CVPR 2021)",
+      "read_depth": "下载 arXiv PDF 13 页（16,464,015 bytes），用 PyMuPDF 提取全文；阅读摘要、引言、3.1 Optical System Analysis、Table 1 与 PSF/MTF 段。",
+      "key_findings": [
+        "‘The imaging quality of a camera will be severely degraded due to lower light transmission rate and diffraction effects. As a result, images captured will be noisy and blurry.’",
+        "测试的 P-OLED：‘although the open area can be as large as 23%, the light transmission rate is only 2.9%.’",
+        "‘Light diffracts as it propagates through obstacles with sizes that are similar to its wavelength.’ 近波长像素开口会使 PSF 扩散，图像变模糊或雾化。",
+        "论文提出 deconvolution 与 learning-based restoration，说明恢复是计算补偿而不是消除物理约束。"
+      ],
+      "local_evidence": [
+        "evidence-assets/docs/S4.pdf",
+        "evidence-assets/docs/S4.txt",
+        "evidence-assets/docs/S4-abstract.html",
+        "evidence-assets/images/S4-paper.jpg"
+      ],
+      "primary_reader_notes": "论文测试的是研究显示面板（4K T-OLED 与手机 Pentile OLED），不是 Axon 40 Ultra 的同一块量产面板；报告只用它解释机制，并把 2.9% 明确限定为论文样本。"
+    }
+  ],
+  "claim_reviews": [
+    {
+      "claim": "Axon 40 Ultra 点亮屏幕时几乎看不到屏下前摄。",
+      "verdict": "supported_for_display_visibility",
+      "evidence": [
+        "S1 frame 04:20 and 15:35",
+        "S2: camera wasn’t visible most of the time, with occasional slight smudge on gray/blurred backgrounds"
+      ],
+      "caveat": "是视觉隐藏效果，不是前摄成像质量；灰色/模糊背景与强光下仍可能有轻微痕迹。"
+    },
+    {
+      "claim": "熄屏时看到的孔是原厂贴膜开孔，不是屏幕本身开孔。",
+      "verdict": "supported_by_repeated_visual_check",
+      "evidence": [
+        "S1 05:30 film hole",
+        "S1 05:35 peel",
+        "S1 15:10 second peel"
+      ],
+      "caveat": "贴膜孔位确实存在；是否所有零售机都配同款膜未在本片验证。"
+    },
+    {
+      "claim": "前摄屏幕显示效果微调可做到单像素级控制。",
+      "verdict": "ui_entry_supported_mechanism_not_independently_verified",
+      "evidence": [
+        "S1 07:25 settings entry",
+        "S1 07:45 小屏亮度 + RGB sliders"
+      ],
+      "caveat": "页面能证明分区/RGB 调校入口存在；‘每个像素独立可编程’是主持人对厂商方案的转述，报告不当作独立结论。"
+    },
+    {
+      "claim": "这款屏下摄像头的表现已经趋近于想要的完美效果。",
+      "verdict": "subjective_and_scope_limited",
+      "evidence": [
+        "S1 14:23–14:45 screen recap",
+        "S2 selfie samples are smeared/noisy"
+      ],
+      "caveat": "语境是屏幕显示与整机观感；不能外推到自拍画质、长期可靠性或量产一致性。"
+    },
+    {
+      "claim": "UDC 自拍退化可由低透光、衍射与 PSF 扩散解释。",
+      "verdict": "mechanistically_supported_not_product_quantified",
+      "evidence": [
+        "S4 abstract/introduction/3.1",
+        "S4 Table 1: P-OLED sample 23% open area, 2.9% transmission",
+        "S2 observed smeared hair, noise, vaseline effect"
+      ],
+      "caveat": "机制可解释现象，但论文样本不等于 Axon 40 Ultra；具体透光率、PSF 与算法版本没有公开到本报告可复核的程度。"
+    },
+    {
+      "claim": "视频的 80W 充电器与 Android Authority 的 65W 有线充电矛盾。",
+      "verdict": "unresolved_not_used_as_contradiction",
+      "evidence": [
+        "S1 01:17 80W GaN charger",
+        "S2 65W wired charging"
+      ],
+      "caveat": "可能分别指适配器能力与手机受电功率；没有同条件功率计测试，不写入结论。"
+    }
+  ],
+  "asset_inspections": [
+    {
+      "path": "img/seg01-00m12s.jpg",
+      "time": 12,
+      "inspection": "开场人物与字幕‘完美无缺的屏幕’；画面清晰。"
+    },
+    {
+      "path": "img/seg02-00m55s.jpg",
+      "time": 55,
+      "inspection": "配件与包装展开，手部完整；作为开箱段代表帧。"
+    },
+    {
+      "path": "img/seg03-03m00s.jpg",
+      "time": 180,
+      "inspection": "背面三摄模组与粗磨砂玻璃反光；能证明外观设计，不代表画质。"
+    },
+    {
+      "path": "img/seg04-04m20s.jpg",
+      "time": 260,
+      "inspection": "亮屏正面无可见挖孔，字幕与口述一致。"
+    },
+    {
+      "path": "img/04-05m00s-compare.jpg",
+      "time": 300,
+      "inspection": "与 iPhone 12 Pro Max 并排；屏占比观感对比，无测量数值。"
+    },
+    {
+      "path": "img/seg05-05m30s.jpg",
+      "time": 330,
+      "inspection": "熄屏圆孔与箭头标注清晰，确为贴膜开孔。"
+    },
+    {
+      "path": "img/05-05m35s-peel.jpg",
+      "time": 335,
+      "inspection": "揭膜瞬间，膜边缘卷起；与 330 的孔位对应。"
+    },
+    {
+      "path": "img/seg06-07m45s.jpg",
+      "time": 465,
+      "inspection": "‘前摄屏幕显示效果微调’页，含小屏亮度与 RGB 滑杆。"
+    },
+    {
+      "path": "img/06-07m25s-settings.jpg",
+      "time": 445,
+      "inspection": "设置列表中的入口名清晰可读。"
+    },
+    {
+      "path": "img/seg07-09m15s.jpg",
+      "time": 555,
+      "inspection": "显微镜 RGB 子像素画面；字幕称上方蓝子像素类似圆形。"
+    },
+    {
+      "path": "img/07-09m05s-microscope.jpg",
+      "time": 545,
+      "inspection": "显微镜画面覆盖在手机屏幕上，可看到两种区域对比。"
+    },
+    {
+      "path": "img/seg08-10m40s.jpg",
+      "time": 640,
+      "inspection": "‘相机家族’界面，用于系统/影像上下文段。"
+    },
+    {
+      "path": "img/seg09-12m40s.jpg",
+      "time": 760,
+      "inspection": "前摄取景框与主持人双手，说明样张拍摄场景。"
+    },
+    {
+      "path": "img/09-12m45s-hair.jpg",
+      "time": 765,
+      "inspection": "完整自拍与发际放大对照；字幕邀请观众判断效果。"
+    },
+    {
+      "path": "img/seg10-15m05s.jpg",
+      "time": 905,
+      "inspection": "10 分制主观评分提示卡。"
+    },
+    {
+      "path": "img/10-15m10s-peel.jpg",
+      "time": 910,
+      "inspection": "片尾第二次揭膜，孔位与贴膜关系再次可见。"
+    },
+    {
+      "path": "img/10-15m35s-postpeel.jpg",
+      "time": 935,
+      "inspection": "撕膜后屏幕显示系统页面，前摄位置无可见圆孔。"
+    },
+    {
+      "path": "anchors/A1-screen-promise.jpg",
+      "time": 260,
+      "inspection": "无孔屏承诺的产品定位裁剪。"
+    },
+    {
+      "path": "anchors/A2-film-hole.jpg",
+      "time": 330,
+      "inspection": "贴膜开孔细节裁剪。"
+    },
+    {
+      "path": "anchors/A3-pixel-tuning.jpg",
+      "time": 465,
+      "inspection": "单像素/分区域调光页裁剪。"
+    },
+    {
+      "path": "anchors/A4-subpixel.jpg",
+      "time": 555,
+      "inspection": "UDC 子像素排布裁剪。"
+    },
+    {
+      "path": "anchors/A5-selfie.jpg",
+      "time": 765,
+      "inspection": "自拍与毛发放大裁剪。"
+    },
+    {
+      "path": "anchors/A6-boundary.jpg",
+      "time": 935,
+      "inspection": "撕膜后屏幕与评价边界裁剪。"
+    }
+  ],
+  "browser_checks": {
+    "browser": "Playwright 1.x + local Google Chrome (headless)",
+    "uri": "file:///D:/omniale_video_runs/omnidr-0008-localproc-deepseek-v4-1-flash-max-01/output/index.html",
+    "console_errors": [],
+    "page_errors": [],
+    "video_duration_browser": 986.087,
+    "source_duration_ffprobe": 986.069,
+    "seek_forward_465_s": 465.0,
+    "seek_backward_30_s": 30.0,
+    "playback_after_1_4_s": 31.0335,
+    "toc_clicked": "唯一的‘孔’来自原厂贴膜，而不是屏幕开孔",
+    "toc_expected_start_s": 322.0,
+    "toc_observed_after_play_s": 322.4244,
+    "citation_target": "#src-S2",
+    "citation_flash_class": "src flash",
+    "content_images_loaded": 20,
+    "content_images_total": 20,
+    "all_content_images_naturalWidth_positive": true,
+    "note": "DOM 另有 1 个无 src 的 lightbox 占位 img，计入 img_count=21；不计为内容图。",
+    "mobile_420px_check": {"innerWidth": 420, "scrollWidth": 420, "toc_visible": true, "player_visible": true, "screenshot": "evidence-work/browser/mobile.png"},
+    "screenshots": [
+      "evidence-work/browser/top.png",
+      "evidence-work/browser/seg9.png",
+      "evidence-work/browser/insights.png",
+      "evidence-work/browser/full.png",
+      "evidence-work/browser/seg7.png",
+      "evidence-work/browser/sources.png",
+      "evidence-work/browser/mobile.png"
+    ]
+  },
+  "validation": {
+    "command": "node toolkit/validate_data.mjs output/js/data.js",
+    "result": "✓ output/js/data.js valid — 10 segments, 4 sources, 4 citations resolved, 6 anchors (4 back-refs), 31 local asset(s) found, 1/1 correcting insight(s) evidenced (2 quote(s) verified)",
+    "exit_code": 0
+  },
+  "known_limitations": [
+    "外部自拍评价来自单一独立媒体，缺少实验室原始样张与对照机同场景数据。",
+    "S4 论文采用研究显示面板，不是 Axon 40 Ultra 的量产面板；透光率 2.9% 只作为机制证据。",
+    "‘单像素控制’由视频口述与设置页支撑，未做逆向或厂商技术白皮书核验。",
+    "报告不复核 80W/65W 的功率口径，因为两者可能是适配器与整机受电的不同指标。"
+  ],
+  "delivery_status": "ready_after_local_checks"
+}

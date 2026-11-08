@@ -1,62 +1,55 @@
 {
-  "version": "omnidr-original-0008-v1",
-  "created_at": "2026-11-06T04:41:20.158593+00:00",
+  "version": "omnidr-original-0008-v1-local-perception-v1",
+  "created_at": "2026-11-08T09:14:02.725728+00:00",
   "task_id": "OmniDR-Bench-v0-0008",
   "query": "对视频主打的屏下摄像头（UDC）显示与成像折衷技术，做以本机为中心的深度研究",
   "source_url": "https://www.bilibili.com/video/BV1ua411J7VA",
+  "base_material": "omnidr-original-0008-v1",
+  "upstream_commit": "573b7ecaf576c343ca739d7b232b7de96562cb48",
+  "rubric_sha256": "29e637d0907aab50b586585001e5e104a87be37d5e3e7cd429d6424265881758",
+  "dataset_sha256": "02910f0d527e62faf1831b8a56a465ef41048eee315ee981e3d599b747b731f9",
   "input_hashes": {
     "QUERY.txt": "d7ed3be2940cae967b3e166cfb767e086de15f5888a15eb6d997a805a902d059",
     "REPORT_GUIDE.md": "36a23d012f034a17f128a1dc8c57747c9feeef7469deac5b911a653b629cb45b",
-    "TASK.md": "46b7a11711c5f9e6dde2f8302823f55dadaf660866ce66a2377922ea19af0633",
+    "TASK.md": "9eb6e50364442c71e5e5291a970de20622efe696f92f3a2f4e55a68f5d6ea975",
     "media/source.mp4": "b7332a0010b5ba7fada60f812b87c12cc400c5d4fb8ce8dbbfd8ff6c7ad3328b",
     "output/index.html": "f7e4223fa5ef4c4b421a52c2d896938bd9f14d7e03e943ac0482e8e30970f56c",
     "output/styles.css": "a89b975c2fba9bd7f7951f11eeaacbc2bcac2c186a83d3010afdf8aef3bf87c6",
-    "toolkit/media.py": "fe27f2eb2e61e77758e3a78d9927ed09f33b58fbdcae637a2b1eb60e88060da7",
+    "toolkit/media.py": "204c12d3b94078682664c4668f5a8f5366cd3f1e03ee0c53d1956ace314430b0",
     "toolkit/validate_data.mjs": "6fcfc73aa919d9d76a8d45f2b29c3622174c4702b60b2a60b01472ed5486fa58",
     "output/js/app.js": "4df1c6d84cd4423b3f8fb2be2c92540af4e0c033b95a55c3c22508c7eade24be",
     "output/js/data.js": "39e90a56d1c9a12a967d1deb6735ce36e61ba7b2f2b04007cc1dd294160757f9",
     "output/js/data.schema.js": "97b0589335b28716c39b6708996b7c84b3e625c404e653242787484006a46d33",
     "output/js/link.js": "4535f25a39a035cc5e6a3481456d93c336cdc0c01865dd2a57e0594f09d2b4c0"
   },
-  "rubric_sha256": "29e637d0907aab50b586585001e5e104a87be37d5e3e7cd429d6424265881758",
-  "dataset_sha256": "02910f0d527e62faf1831b8a56a465ef41048eee315ee981e3d599b747b731f9",
-  "upstream_commit": "573b7ecaf576c343ca739d7b232b7de96562cb48",
-  "template_snapshot": {
-    "git_commit": null,
-    "reason": "GitHub API rate limit; archived main and recorded exact file hashes",
-    "archive_sha256": "0a7743749887f0ae036c5633147c0f650bd25e0022e44ea669a8d080852fecf2",
-    "files": {
-      "README.md": "9b5c84e2ac345d9064bd6ec8a7495d80754437e62f02189616b80183fc9c0e95",
-      "qwen_mm_plugins_omnidr/assets/app.js": "4df1c6d84cd4423b3f8fb2be2c92540af4e0c033b95a55c3c22508c7eade24be",
-      "qwen_mm_plugins_omnidr/assets/data.schema.js": "97b0589335b28716c39b6708996b7c84b3e625c404e653242787484006a46d33",
-      "qwen_mm_plugins_omnidr/assets/index.html": "f7e4223fa5ef4c4b421a52c2d896938bd9f14d7e03e943ac0482e8e30970f56c",
-      "qwen_mm_plugins_omnidr/assets/link.js": "4535f25a39a035cc5e6a3481456d93c336cdc0c01865dd2a57e0594f09d2b4c0",
-      "qwen_mm_plugins_omnidr/assets/styles.css": "a89b975c2fba9bd7f7951f11eeaacbc2bcac2c186a83d3010afdf8aef3bf87c6",
-      "qwen_mm_plugins_omnidr/assets/validate_data.mjs": "6fcfc73aa919d9d76a8d45f2b29c3622174c4702b60b2a60b01472ed5486fa58",
-      "skill/references/parallel-orchestration.md": "f1aeff37831106f9b923b11d588c2eb27ad96aa13ad2e7be0eeb656ae0d65cc0",
-      "skill/references/perception.md": "b6906c533d7320dc903e4567d5b8163419b76dce6457f19dc50c1c0b0dc60b1b",
-      "skill/references/report.md": "36a23d012f034a17f128a1dc8c57747c9feeef7469deac5b911a653b629cb45b",
-      "skill/references/research.md": "7ca2f81e2bef2c58f5529a871cde057ebf0c12ab772f33f3c8230ed2d2136e62",
-      "skill/references/review.md": "cc6c8c582b51c8a3cc178a95d08b4361be16868649389777a94524200824d5fc",
-      "skill/references/synthesis.md": "f75aff50dbd8f4c19f168918e633e143baa56e7a1e81c3462b6c30b65d69d3a4",
-      "skill/references/themes.md": "e332ccbc7f0cb7c2d986f26d92c207f06f58a8ef28a8575a68353e63a881104e"
-    }
-  },
+  "changed_files": [
+    "TASK.md",
+    "toolkit/media.py"
+  ],
+  "unchanged_inputs": [
+    "QUERY.txt",
+    "REPORT_GUIDE.md",
+    "media/source.mp4",
+    "output/index.html",
+    "output/styles.css",
+    "output/js/app.js",
+    "output/js/data.js",
+    "output/js/data.schema.js",
+    "output/js/link.js",
+    "toolkit/validate_data.mjs"
+  ],
   "protocol": {
-    "model": "gpt-6.1-sol",
-    "effort": "xhigh",
+    "solver_framework": "Codex CLI after Claude Code HTTP 404",
+    "effort": "max",
     "network": true,
-    "judge": "gpt-6.1-terra",
-    "query_unchanged": true,
-    "rubric_unchanged": true,
+    "cloud_media_model": false,
+    "perception": "FFmpeg/ffprobe and faster-whisper local CPU",
     "seed_research_sources": false,
-    "native_cli": true,
     "reference_harness_installed": false,
     "template_from_official_capability": true
   },
   "runner_dependencies": {
-    "run_original.py": "5800bf588229a7aa9ea5855e9b84648966cd22da79ac8dab2ff82f6a0c8e8487",
-    "run_pilot.py": "42d2fef275aea70b7c573944d8ccb0e7d859290d99db4e98d2db4622de22c187",
-    "author/media_api.py": "c0529dc478cf3236e2487b43fd39a938918f9e3b927d995ebc8632135a092368"
-  }
+    "run_local_perception.py": "378002e5dd9f9b4baddceaca4a09061a2030547f1526d84664aea1d0d5dfad87"
+  },
+  "compatibility_probe_sha256": "591b743598cbb5b328b78b5ee1aa2e081d40614c3c2377887b69b6b7269203d7"
 }

@@ -1,13 +1,14 @@
 {
-  "time": "2026-11-06T05:30:54.262522+00:00",
+  "time": "2026-11-08T13:32:53.401087+00:00",
   "run": "[run]",
+  "material": "omnidr-original-0008-v1-local-perception-v1",
   "status": {
     "status": "completed",
     "model": "gpt-6.1-sol",
-    "effort": "xhigh",
-    "started": "2026-11-06T04:41:25.146464+00:00",
-    "finished": "2026-11-06T05:19:14.395446+00:00",
-    "elapsed_seconds": 2269.25,
+    "effort": "max",
+    "started": "2026-11-08T12:48:10.161448+00:00",
+    "finished": "2026-11-08T13:23:54.920699+00:00",
+    "elapsed_seconds": 2144.4849999998696,
     "exit_code": 0,
     "turn_completed": true,
     "turn_failed": false,
@@ -19,67 +20,49 @@
   "event_types": {
     "thread.started": 1,
     "turn.started": 1,
-    "item.completed": 69,
-    "item.started": 64,
+    "item.completed": 119,
+    "item.started": 108,
     "turn.completed": 1
   },
   "tool_types": {
-    "agent_message": 5,
-    "command_execution": 64
+    "agent_message": 11,
+    "command_execution": 92,
+    "file_change": 16
   },
-  "command_count": 64,
-  "failed_commands": 10,
+  "command_count": 92,
+  "failed_commands": 7,
+  "stream_reconnections": 0,
   "usage": [
     {
-      "input_tokens": 3949869,
-      "cached_input_tokens": 3818496,
+      "input_tokens": 7217401,
+      "cached_input_tokens": 7008000,
       "cache_write_input_tokens": 0,
-      "output_tokens": 30548,
-      "reasoning_output_tokens": 8877
+      "output_tokens": 67032,
+      "reasoning_output_tokens": 27243
     }
   ],
-  "av_observation_calls": 8,
+  "cloud_media_service_present": false,
+  "av_observation_calls": 0,
   "loader_ok": true,
-  "segments": 5,
-  "sources": 3,
+  "segments": 12,
+  "sources": 7,
   "source_types": {
-    "web": 3
+    "video": 1,
+    "web": 5,
+    "report": 1
   },
-  "findings": 3,
-  "upstream_count_checks": [
-    {
-      "id": "C1-01",
-      "text": "报告的外部来源总数是否 ≥30 个？",
-      "machine": {
-        "op": "count_research_min",
-        "args": {
-          "n": 30
-        }
-      }
-    },
-    {
-      "id": "C7-01",
-      "text": "报告是否包含 ≥3 个视频类来源？",
-      "machine": {
-        "op": "count_research_type_min",
-        "args": {
-          "type": "video",
-          "n": 3
-        }
-      }
-    }
-  ],
+  "findings": 6,
   "public_rubric_or_answer_path_command_hits": [],
   "note": "Finite command/input audit; does not certify all network traffic or every scientific claim.",
   "raw_original_aggregate": {
     "dimension_scores": {
-      "content": 0.1837,
-      "citation": 0.5,
+      "content": 0.2324,
+      "citation": 0.6667,
       "presentation": 1.0
     },
     "dimension_raw_scores": {
-      "content": 0.1837,
-      "citation": 0.5,
+      "content": 0.2324,
+      "citation": 0.6667,
       "presentation": 1.0
     },
     "dimension_weights": {
@@ -117,14 +100,14 @@
         "P6": 0.087
       }
     },
-    "base_score": 44.19,
-    "raw_score": 44.19,
+    "base_score": 51.62,
+    "raw_score": 51.62,
     "gate_pass": true,
     "gate_mode": "direction",
     "coverage_saturation": 0.18,
     "coverage_saturation_gate_directions": [],
     "gate_zeroed_dimensions": [],
-    "total_score": 44.19,
+    "total_score": 51.62,
     "gate_failures": [],
     "directions": [
       {
@@ -151,16 +134,16 @@
         "tier": "core",
         "n_atoms": 60,
         "n_scored": 60,
-        "n_passed": 0,
-        "pass_rate": 0.0,
+        "n_passed": 1,
+        "pass_rate": 0.0167,
         "gate_failed": false,
-        "effective_rate": 0.0,
+        "effective_rate": 0.0926,
         "coverage": {
           "saturation": 0.18,
           "n_coverage_atoms": 60,
           "n_other_atoms": 0,
-          "coverage_rate": 0.0,
-          "coverage_credited": 0.0,
+          "coverage_rate": 0.0167,
+          "coverage_credited": 0.0926,
           "other_rate": 0.0
         }
       },
@@ -222,10 +205,10 @@
         "tier": "core",
         "n_atoms": 1,
         "n_scored": 1,
-        "n_passed": 0,
-        "pass_rate": 0.0,
+        "n_passed": 1,
+        "pass_rate": 1.0,
         "gate_failed": false,
-        "effective_rate": 0.0
+        "effective_rate": 1.0
       },
       {
         "id": "A7",
@@ -327,10 +310,10 @@
         "tier": "core",
         "n_atoms": 2,
         "n_scored": 2,
-        "n_passed": 0,
-        "pass_rate": 0.0,
+        "n_passed": 1,
+        "pass_rate": 0.5,
         "gate_failed": false,
-        "effective_rate": 0.0
+        "effective_rate": 0.5
       },
       {
         "id": "C4",
@@ -379,10 +362,10 @@
         "tier": "core",
         "n_atoms": 4,
         "n_scored": 4,
-        "n_passed": 2,
-        "pass_rate": 0.5,
+        "n_passed": 3,
+        "pass_rate": 0.75,
         "gate_failed": false,
-        "effective_rate": 0.5
+        "effective_rate": 0.75
       },
       {
         "id": "P1",
@@ -477,98 +460,91 @@
       "direction": "A2",
       "id": "A2-01",
       "text": "报告是否给出小米 MIX 4 于 2021 年 8 月 10 日发布，是小米首款量产屏下摄像头手机，采用 CUP（Camera Under Panel）全面屏，屏幕由 TCL 华星光电供应？",
-      "reason": "报告聚焦中兴 Axon 40 Ultra，未提及小米 MIX 4，也未给出题述发布时间、首款量产定位、CUP 全面屏及屏幕供应商信息。",
+      "reason": "报告没有提及小米 MIX 4，也没有给出题述发布日期、首款量产屏下摄像头手机、CUP 全面屏或屏幕供应商的信息。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-02",
       "text": "报告是否给出中兴于2020年9月1日在中国发布全球首款量产屏下摄像头（UDC）5G智能手机Axon 20 5G？",
-      "reason": "报告讨论的是 Axon 40 Ultra，未提及 Axon 20 5G 的发布时间、发布地点及其全球首款量产 UDC 5G 智能手机的定位。",
-      "evidence": "未找到"
+      "reason": "报告仅将 Axon 20 作为屏下摄像头光学研究的实验机提及，未给出其于2020年9月1日在中国发布、为全球首款量产UDC 5G智能手机的陈述。",
+      "evidence": "其第 2–4 页在 **Axon 20** 上测量 PSF，显示强中心峰和较宽的长尾旁瓣。"
     },
     {
       "direction": "A2",
       "id": "A2-03",
       "text": "报告是否给出中兴Axon 20 5G中国区自2020年9月1日起在myzte、京东等渠道开启预售？",
-      "reason": "报告讨论的是中兴 Axon 40 Ultra，未给出 Axon 20 5G 在中国区自 2020 年 9 月 1 日起通过 myzte、京东等渠道开启预售的信息。",
-      "evidence": "未找到"
+      "reason": "报告提及 Axon 20 是光学研究的实验设备，但未给出该机中国区自 2020 年 9 月 1 日起在 myzte、京东等渠道开启预售的信息。",
+      "evidence": "Feng 等在 CVPR 2021 的工作分析了 OLED 像素阵列对光的衰减与衍射，指出噪声、眩光、雾感和模糊等退化；其第 2–4 页在 **Axon 20** 上测量 PSF，显示强中心峰和较宽的长尾旁瓣。"
     },
     {
       "direction": "A2",
       "id": "A2-04",
       "text": "报告是否给出三星 Display 的 UPC（屏下摄像头）技术在笔记本端首发后，于 2021 年 8 月被用于三星 Galaxy Z Fold3 手机，这是该技术在手机端的首次量产应用？",
-      "reason": "被评报告聚焦中兴 Axon 40 Ultra 的屏下摄像头技术与成像折衷，未提及三星 Display 的 UPC 技术、笔记本端首发、2021 年 8 月 Galaxy Z Fold3，或该技术在手机端首次量产应用的说法。",
+      "reason": "报告未提及三星 Display 的 UPC 技术、其笔记本端首发，或 Galaxy Z Fold3 于 2021 年 8 月成为该技术在手机端的首次量产应用。",
       "evidence": "未找到"
-    },
-    {
-      "direction": "A2",
-      "id": "A2-05",
-      "text": "报告是否给出中兴 Axon 40 Ultra 的屏幕峰值亮度为 1500nit？",
-      "reason": "报告提及高亮观看和屏幕规格，但没有给出 Axon 40 Ultra 的屏幕峰值亮度为 1500nit。",
-      "evidence": "[research.S1.web] ZTE Axon 40 Ultra officially launched in China — ZTE 官方发布稿（2022-05-11）称 UDC 区域采用 400PPI、全屏蓝钻排列、独立像素驱动、透明分布式走线与 UDC Pro 显示芯片算法；同时给出 16MP UDC、2.24μm 等效大像素和 6.8 英寸 120Hz 屏幕，以及三枚 64MP 后摄、8K 全主摄录制等厂商主张。"
     },
     {
       "direction": "A2",
       "id": "A2-06",
       "text": "报告是否给出监视器-相机成像系统（Monitor-Camera Imaging System, MCIS）是一种为便捷采集 UDC 真实配对数据而设计的成像装置？",
-      "reason": "报告讨论了屏下摄像头的显示与成像折衷、光学损失及自拍评测，但未提及监视器-相机成像系统（MCIS），也未说明该装置用于便捷采集 UDC 真实配对数据。",
+      "reason": "报告讨论了屏下摄像头的成像退化、恢复算法和进一步验证建议，但未提及监视器-相机成像系统（MCIS），也未描述以该装置采集 UDC 真实配对数据。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-07",
       "text": "报告是否给出MIPI 挑战赛（Mobile Intelligent Photography & Imaging）设有屏下摄像头（UDC）图像复原赛道？",
-      "reason": "报告讨论了屏下摄像头的光学损失与图像复原机制，但未提及 MIPI 挑战赛或其设有 UDC 图像复原赛道。",
+      "reason": "报告讨论了屏下摄像头图像复原研究，但未提及 MIPI 挑战赛或其设有 UDC 图像复原赛道。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-08",
       "text": "报告是否指出学术论文《Image Restoration for Under-Display Camera》首次将屏下摄像头（UDC）定义为一个真实世界单图像复原问题？",
-      "reason": "报告引用了另一篇关于屏下摄像头图像重建的论文，但未指出《Image Restoration for Under-Display Camera》首次将 UDC 定义为真实世界单图像复原问题。",
+      "reason": "报告讨论了其他屏下摄像头成像与复原研究，但未指出该论文首次将 UDC 定义为真实世界单图像复原问题。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-09",
       "text": "报告是否写明学术论文《Image Restoration for Under-Display Camera》的作者为 Yuqian Zhou 等？",
-      "reason": "报告引用了另一篇屏下摄像头论文，未写明《Image Restoration for Under-Display Camera》及其作者 Yuqian Zhou 等。",
-      "evidence": "[research.S3.web] ISP-Agnostic Image Reconstruction for Under-Display Cameras — Qi、Li、Heidrich 的 arXiv 论文（2021-11-02）"
+      "reason": "报告列出了其他屏下摄像头相关论文，但未写明《Image Restoration for Under-Display Camera》及其作者 Yuqian Zhou 等。",
+      "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-10",
       "text": "报告是否给出 OPPO 于 2021 年 8 月发布的下一代屏下摄像头（USC）技术由京东方（BOE）提供？",
-      "reason": "报告讨论的是中兴 Axon 40 Ultra 的屏下摄像头技术，未提及 OPPO 2021 年 8 月发布的下一代 USC 技术由京东方提供。",
+      "reason": "报告未提及 OPPO 2021 年 8 月发布的下一代屏下摄像头技术，也未说明该技术由京东方提供。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-11",
       "text": "报告是否给出京东方（BOE）将该方案称为柔性 OLED FDC（Full Display with Camera）屏下摄像头技术？",
-      "reason": "报告未提及京东方（BOE），也未将该方案称为柔性 OLED FDC（Full Display with Camera）屏下摄像头技术。",
+      "reason": "报告介绍了中兴对该机屏下摄像头方案的描述，但未提及京东方将其称为柔性 OLED FDC（Full Display with Camera）技术。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-12",
       "text": "报告是否给出 Visionox 于 2020 年 6 月推出首款量产屏下摄像头面板方案『InV see』？",
-      "reason": "报告未提及 Visionox、InV see，或其于 2020 年 6 月推出量产屏下摄像头面板方案。",
+      "reason": "报告未提及 Visionox 于 2020 年 6 月推出 InV see 量产屏下摄像头面板方案。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-13",
       "text": "报告是否给出 Visionox 于 2020 年 9 月将『InV see』供应给 ZTE Axon 20 5G？",
-      "reason": "报告讨论的是中兴 Axon 40 Ultra 的屏下摄像头方案，未提及 Visionox 于 2020 年 9 月向 ZTE Axon 20 5G 供应 InV see。",
+      "reason": "报告提及 Axon 20 的屏下摄像头光学研究，但未给出 Visionox 于 2020 年 9 月将“InV see”供应给 ZTE Axon 20 5G 的信息。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-14",
       "text": "报告是否给出OPPO于2019年6月的MWC上海2019（MWC19 Shanghai）首次公开展示其屏下摄像头（USC，Under-Screen Camera）技术，作为全面屏显示的全新解决方案？",
-      "reason": "报告聚焦中兴 Axon 40 Ultra，未提及 OPPO 在 2019 年 MWC 上海首次公开展示屏下摄像头技术。",
+      "reason": "报告讨论了中兴 Axon 40 Ultra 的屏下摄像头技术及相关研究，未提及 OPPO 在 2019 年 6 月的 MWC 上海首次公开展示屏下摄像头技术。",
       "evidence": "未找到"
     },
     {
@@ -582,532 +558,511 @@
       "direction": "A2",
       "id": "A2-16",
       "text": "报告是否给出维信诺在 2021 年 SID Display Week 上发布的升级版屏下摄像头方案 InV see Pro 采用新驱动电路提升 OLED 透明度？",
-      "reason": "报告讨论了中兴 Axon 40 Ultra 的屏下摄像头方案，但未提及维信诺、2021 年 SID Display Week、InV see Pro，或该方案采用新驱动电路提升 OLED 透明度。",
+      "reason": "报告讨论了 Axon 40 Ultra 的独立像素驱动和透明走线，但未提及维信诺、InV see Pro 或其在 2021 年 SID Display Week 发布的方案。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-17",
       "text": "报告是否引用/转述了「调制传递函数（Modulation Transfer Function, MTF）是评估光学系统（透镜）性能的定量指标，衡量成像系统在特定分辨率下把对比度从物体传递到图像的能力」？",
-      "reason": "被评报告未引用或转述调制传递函数（MTF）及其作为衡量光学系统在特定分辨率下传递对比度能力的定义。",
-      "evidence": "未找到"
+      "reason": "报告提及 MTF，但没有引用或转述其作为光学系统性能定量指标的定义，也没有说明其衡量特定分辨率下物体到图像的对比度传递能力。",
+      "evidence": "它为真实成像代价提供了补充证据，但该公开缩图也不适合精确算 MTF。"
     },
     {
       "direction": "A2",
       "id": "A2-18",
       "text": "报告是否引用/转述了「反卷积（deconvolution）所用的核通常称为「点扩散函数」（PSF）；在 PSF 已知的情况下，图像复原可看成图像卷积模糊的逆过程」？",
-      "reason": "报告讨论了屏下显示层导致的衍射、模糊及成像损失，但未引用或转述反卷积核、点扩散函数（PSF）及已知PSF时图像复原是卷积模糊逆过程的内容。",
-      "evidence": "未找到"
+      "reason": "报告定义了点扩散函数并用卷积模型解释成像退化，但没有引用或转述反卷积使用PSF作为核、且已知PSF时复原是卷积模糊逆过程的表述。",
+      "evidence": "“拍摄链路仍会损失光通量，并被微结构改变点扩散函数（PSF，理想点光源在照片中扩成的光斑）。”；“可把成像概念化为 y≈clip[T·(x⊗h)+n]：x 是理想场景，T 是总透过因素，h 是归一化 PSF，n 是噪声；这只是解释模型，未拟合 Axon 40 Ultra。”"
     },
     {
       "direction": "A2",
       "id": "A2-19",
       "text": "报告是否给出拜耳滤镜（Bayer filter）是一种彩色滤光片阵列（CFA）？",
-      "reason": "报告未提及拜耳滤镜，也未说明其是一种彩色滤光片阵列。",
+      "reason": "报告讨论了屏下显示像素排列和前摄成像，但没有说明拜耳滤镜是一种彩色滤光片阵列。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-20",
       "text": "报告是否给出拜耳滤镜（Bayer filter）用于在方形排布的光电传感器上排列 RGB 滤色片？",
-      "reason": "报告讨论了屏下显示区域的蓝钻像素排列及光学损失，但未给出拜耳滤镜在方形排布的光电传感器上排列 RGB 滤色片的说明。",
+      "reason": "报告讨论了显示屏的蓝钻子像素排列及其微结构，但未说明拜耳滤镜在方形排布的光电传感器上排列 RGB 滤色片。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-21",
       "text": "报告是否引用/转述了「自动白平衡（Auto White Balance, AWB）是通过算法将不同色温环境光下成像的白色还原成真实白色（通常以 CIE 规定色温 6500K 的 D65 光源为标准照明）的过程」？",
-      "reason": "报告讨论了屏下成像的色偏及算法增强，但没有引用或转述自动白平衡的定义、不同色温下的白色还原过程，也未提及 D65 或 6500K 标准照明。",
+      "reason": "报告讨论了屏下摄像头的显示补偿、透光损失和图像恢复，但未引用或转述自动白平衡的定义，也未提及 D65 或 6500K 标准照明。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-22",
       "text": "报告是否引用/转述了「高动态范围（HDR, High Dynamic Range）通过组合两张（或多张）以不同曝光拍摄的照片来保留亮部和暗部细节，实现比普通数字图像更大的曝光动态范围」？",
-      "reason": "报告提到包围曝光，但未引用或转述HDR通过组合不同曝光照片保留亮部和暗部细节、扩大动态范围的原理。",
-      "evidence": "未找到"
+      "reason": "报告提到相机的多曝光取样功能，但没有引用或转述 HDR 通过组合不同曝光的照片来保留亮部和暗部细节、扩大动态范围的原理。",
+      "evidence": "10:32–12:29 主要浏览后摄与相机软件：三枚 6400 万像素、8K 及高帧率菜单、熄屏快拍、多曝光取样、录音方向、夜景、人文街拍、预对焦、胶片效果和快门水平仪。[S1]"
     },
     {
       "direction": "A2",
       "id": "A2-23",
       "text": "报告是否给出红魔（RedMagic）是隶属努比亚（nubia）的游戏手机品牌，其旗舰游戏手机采用屏下摄像头（UDC）前置方案？",
-      "reason": "报告讨论的是中兴 Axon 40 Ultra 的屏下摄像头，未提及红魔、努比亚或红魔旗舰游戏手机的屏下前摄方案。",
+      "reason": "报告讨论的是中兴 Axon 40 Ultra，未给出红魔隶属努比亚或其旗舰游戏手机采用屏下前摄的说法。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-24",
       "text": "报告是否给出中兴 Axon 50 Ultra 是 Axon 40 Ultra 的继任机型？",
-      "reason": "报告讨论的是中兴 Axon 40 Ultra，未提及 Axon 50 Ultra，也未说明二者的继任关系。",
+      "reason": "报告讨论的是 Axon 40 Ultra，未给出 Axon 50 Ultra 是其继任机型的说法。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-25",
       "text": "报告是否给出中兴 Axon 50 Ultra 于 2023 年 4 月发布？",
-      "reason": "报告讨论的是中兴 Axon 40 Ultra，未给出 Axon 50 Ultra 于 2023 年 4 月发布的信息。",
-      "evidence": "未找到"
+      "reason": "报告讨论的是中兴 Axon 40 Ultra，并给出其于 2022 年 5 月 9 日发布；未提及 Axon 50 Ultra 于 2023 年 4 月发布。",
+      "evidence": "本报告对象是中兴 **Axon 40 Ultra**，不是 Axon 40 Pro，也不是名称接近的 Axon 30 Ultra。中兴于 2022-05-09 发布此机，官方规格为 6.8 英寸、2480×1116、120 Hz AMOLED，前置 1600 万像素屏下摄像头。[S2][S3]"
     },
     {
       "direction": "A2",
       "id": "A2-26",
       "text": "报告是否给出首尔国立大学（Seoul National University）Thunder 研究组的 Kyusu Ahn、Byeonghyun Ko、HyunGyu Lee、Chanwoo Park、Jaejin Lee 在 NeurIPS 2023 发布了真实世界屏下摄像头数据集 UDC-SIT？",
-      "reason": "报告未提及首尔国立大学 Thunder 研究组、所列作者、NeurIPS 2023 或真实世界屏下摄像头数据集 UDC-SIT。",
+      "reason": "报告未提及首尔国立大学 Thunder 研究组、所列作者或 NeurIPS 2023 的 UDC-SIT 数据集。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-27",
       "text": "报告是否给出努比亚红魔9 Pro（RedMagic 9 Pro）全球版于2023年12月27日开启预售？",
-      "reason": "报告讨论的是中兴 Axon 40 Ultra，未提及红魔9 Pro全球版或其预售日期。",
+      "reason": "报告聚焦中兴 Axon 40 Ultra，未提及努比亚红魔9 Pro全球版或其预售日期。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-28",
       "text": "报告是否给出努比亚红魔9 Pro（RedMagic 9 Pro）全球版于2024年1月3日正式开售？",
-      "reason": "报告聚焦中兴 Axon 40 Ultra，未给出红魔9 Pro全球版的正式开售日期。",
-      "evidence": "未找到"
+      "reason": "报告讨论的是中兴 Axon 40 Ultra，没有给出红魔9 Pro 全球版于2024年1月3日正式开售的信息。",
+      "evidence": "本报告对象是中兴 **Axon 40 Ultra**，不是 Axon 40 Pro，也不是名称接近的 Axon 30 Ultra。"
     },
     {
       "direction": "A2",
       "id": "A2-29",
       "text": "报告是否给出论文《Inverse-Designed Metasurfaces for Wavefront Restoration in Under-Display Camera Systems》（Jaegang Jo等）于2025年4月24日提交至arXiv？",
-      "reason": "报告未提及该论文、作者或其提交日期；报告列出的屏下摄像头论文是另一篇。",
-      "evidence": "[research.S3.web] ISP-Agnostic Image Reconstruction for Under-Display Cameras — Qi、Li、Heidrich 的 arXiv 论文（2021-11-02）总结屏幕置于相机上方会造成对比度损失、模糊、噪声、色偏、散射和感光度下降，并把遮挡吸收、像素衍射和层间反射列为主要光学原因。"
+      "reason": "报告未提及该论文、Jaegang Jo 或其于 2025 年 4 月 24 日提交至 arXiv 的信息。",
+      "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-30",
       "text": "报告是否指出论文《Inverse-Designed Metasurfaces for Wavefront Restoration in Under-Display Camera Systems》（Jaegang Jo等）提出用逆向设计超表面在光学层面直接复原屏下摄像头波前畸变、无需外部软件后处理？",
-      "reason": "报告提及的是另一篇屏下摄像头图像重建论文，未提及该逆向设计超表面论文或其无需外部软件后处理的波前复原方案。",
-      "evidence": "[research.S3.web] ISP-Agnostic Image Reconstruction for Under-Display Cameras — Qi、Li、Heidrich 的 arXiv 论文（2021-11-02）总结屏幕置于相机上方会造成对比度损失、模糊、噪声、色偏、散射和感光度下降，并把遮挡吸收、像素衍射和层间反射列为主要光学原因。"
+      "reason": "报告未提及该论文、Jaegang Jo 等作者，或使用逆向设计超表面直接复原波前且无需外部软件后处理的方案。报告提到的是另一项相位掩模与微透镜阵列研究。",
+      "evidence": "ICCV 2023 的相位掩模研究用两层微透镜阵列将光集中到透明区，再校正其影响，在傅里叶光学模拟中同时改善通光量与 PSF 可逆性；摘要报告其设计可使通光量翻倍。"
     },
     {
       "direction": "A2",
       "id": "A2-31",
       "text": "报告是否给出小米初代Mi Mix于2016年10月发布，是采用陶瓷机身与超窄边框的『全面屏』概念手机（自拍摄像头置于机身下方），为后续全面屏与屏下摄像头方向的探索起点之一？",
-      "reason": "报告未提及初代小米 Mi Mix，也未给出其发布时间、机身材质、边框设计、自拍摄像头位置或相关历史地位。",
+      "reason": "报告讨论了中兴 Axon 40 Ultra 的屏下摄像头技术，但未提及小米初代 Mi Mix、其发布时间或相关设计与历史地位。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-32",
       "text": "报告是否引用/转述了「小米CEO雷军在小米 MIX 4 发布会上坦承，尽管加入了 AI 图像增强算法，MIX 4 屏下前摄的自拍效果仍在优化中，对自拍效果十分在意的用户他建议购买挖孔屏」？",
-      "reason": "报告讨论的是中兴 Axon 40 Ultra 的屏下摄像头，没有引用或转述雷军在小米 MIX 4 发布会上的上述表述，也没有提及所列来源。",
+      "reason": "报告讨论了 Axon 40 Ultra 的屏下前摄成像取舍，未引用或转述雷军在小米 MIX 4 发布会上关于自拍效果和挖孔屏的上述表述。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-33",
       "text": "报告是否给出三星 Galaxy Z Fold3 于 2021 年 8 月 11 日在三星 Unpacked 发布会上公布，2021 年 8 月 27 日正式上市，是三星首款搭载屏下摄像头（4MP UDC）的商用手机？",
-      "reason": "被评报告聚焦中兴 Axon 40 Ultra 的屏下摄像头，没有给出三星 Galaxy Z Fold3 于 2021 年 8 月 11 日发布、8 月 27 日上市，或其为首款搭载 4MP UDC 商用手机的相关信息。",
+      "reason": "报告未提及三星 Galaxy Z Fold3，也未给出题述发布、上市日期或其 4MP 屏下摄像头的相关信息。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-34",
       "text": "报告是否引用/转述了「维信诺研究者结论认为，破坏副屏区域图形规则性可部分抑制衍射，但需配合摄像头算法优化；目前屏下摄像可达到显示与前摄拍照效果的平衡，但仍需进一步提高透明度、抑制衍射来提升前摄画质」？",
-      "reason": "报告讨论了屏下显示层的衍射、透明走线和算法，但没有引用或转述维信诺研究者关于破坏图形规则性以抑制衍射、配合算法优化，以及进一步提高透明度的上述结论。",
-      "evidence": "[research.S3.web] ISP-Agnostic Image Reconstruction for Under-Display Cameras — Qi、Li、Heidrich 的 arXiv 论文（2021-11-02）总结屏幕置于相机上方会造成对比度损失、模糊、噪声、色偏、散射和感光度下降，并把遮挡吸收、像素衍射和层间反射列为主要光学原因。"
+      "reason": "报告讨论了屏下摄像头的衰减、衍射及算法恢复，但未引用或转述题述维信诺研究者关于破坏副屏图形规则性及显示与拍照效果平衡的结论。",
+      "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-35",
       "text": "报告是否给出中兴于2020年9月1日在中国发布全球首款量产屏下摄像头（UDC）5G智能手机Axon 20 5G，中国区自9月1日起在myzte、京东等渠道开启预售？",
-      "reason": "报告讨论的是 Axon 40 Ultra，未给出 Axon 20 5G 的发布及中国区预售信息。",
-      "evidence": "未找到"
+      "reason": "报告提到 Axon 20 是所引论文的实验机，但没有给出其于2020年9月1日在中国发布、为全球首款量产UDC 5G智能手机，或在myzte、京东等渠道开启预售的信息。",
+      "evidence": "其第 2–4 页在 **Axon 20** 上测量 PSF，显示强中心峰和较宽的长尾旁瓣。"
     },
     {
       "direction": "A2",
       "id": "A2-36",
       "text": "报告是否给出ZTE Axon 20 5G是全球首款量产的搭载屏下摄像头的5G智能手机？",
-      "reason": "报告聚焦于中兴 Axon 40 Ultra 的屏下摄像头显示与成像折衷，未给出 ZTE Axon 20 5G 是全球首款量产搭载屏下摄像头的 5G 智能手机这一说法。",
-      "evidence": "[video.title] 【大家测】中兴 Axon 40 Ultra开箱体验"
+      "reason": "报告提到 Axon 20 是相关论文的实验设备，但没有称其为全球首款量产搭载屏下摄像头的5G智能手机。",
+      "evidence": "其第 2–4 页在 **Axon 20** 上测量 PSF，显示强中心峰和较宽的长尾旁瓣。"
     },
     {
       "direction": "A2",
       "id": "A2-37",
       "text": "报告是否给出，中兴ZTE Axon 20 5G于2020年12月21日起全球开售、定价449美元？",
-      "reason": "报告讨论的是中兴 Axon 40 Ultra，未给出 Axon 20 5G 的全球开售日期和449美元定价。",
-      "evidence": "未找到"
+      "reason": "报告提及 Axon 20 是论文中的实验设备，但没有给出其全球开售日期或449美元的定价。",
+      "evidence": "其第 2–4 页在 **Axon 20** 上测量 PSF，显示强中心峰和较宽的长尾旁瓣。"
     },
     {
       "direction": "A2",
       "id": "A2-38",
       "text": "报告是否给出小米 MIX 4 的屏下摄像头（CUP）屏幕面板由 TCL 旗下华星光电（TCL CSOT）供应，而非三星，其 CUP 方案历经三年三次迭代、首创微钻（珍珠）排列以减少光线遮挡？",
-      "reason": "报告讨论的是中兴 Axon 40 Ultra，未给出小米 MIX 4 的 CUP 面板供应商、三年三次迭代或微钻（珍珠）排列等信息。",
+      "reason": "报告聚焦中兴 Axon 40 Ultra，未给出小米 MIX 4 的屏下摄像头面板供应商、CUP 方案迭代历程或微钻排列等信息。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-39",
       "text": "报告是否给出该 UDC 研究设计了显示器-相机成像系统（Monitor-Camera Imaging System, MCIS）用于采集配对数据，并发布了 UDC 数据集（240 对训练图像，取自 DIV2K）？",
-      "reason": "报告未提及设计显示器-相机成像系统（MCIS），也未提及发布包含240对、取自DIV2K的训练图像的UDC数据集。",
+      "reason": "报告未提及为该 UDC 研究设计显示器-相机成像系统（MCIS），也未提及发布包含取自 DIV2K 的 240 对训练图像的 UDC 数据集。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-40",
       "text": "报告是否给出Zhou 等的 UDC 配对数据集用 MCIS（由 4K LCD 显示器、2K FLIR Point-Grey 相机及可换的 T-OLED/P-OLED/玻璃面板组成）采集，取自 DIV2K 的 300 张图像形成 300 对退化/无退化配对？",
-      "reason": "报告讨论了屏下摄像头的光学损失和本机显示、自拍表现，但未提及 Zhou 等的 UDC 配对数据集、MCIS 采集装置或取自 DIV2K 的 300 对图像。",
+      "reason": "报告未给出 Zhou 等的 UDC 配对数据集、MCIS 采集装置组成或由 DIV2K 的 300 张图像形成 300 对退化／无退化图像的内容。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-41",
       "text": "报告是否给出MIPI 挑战赛（Mobile Intelligent Photography & Imaging）在 ECCV 2022 首次举办，设有屏下摄像头（UDC）图像复原赛道；后续在 CVPR 2023、CVPR 2024 继续举办，形成三届连续系列挑战赛？",
-      "reason": "报告讨论了屏下摄像头的光学损失与图像复原论文，但未提及 MIPI 挑战赛、ECCV 2022 或 CVPR 2023、2024 的连续举办情况。",
+      "reason": "报告讨论了屏下摄像头图像复原研究，但未提及 MIPI 挑战赛、其 UDC 图像复原赛道或 ECCV 2022、CVPR 2023、CVPR 2024 三届连续举办的情况。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-42",
       "text": "报告是否给出结构相似性指标（SSIM，structural similarity index）是一种用以衡量两张数字影像相似程度的指标，当其中一张为无失真影像时可作为另一张失真影像的质量衡量指标，其值越大表示两信号越相似、最大值为 1？",
-      "reason": "报告讨论了屏下摄像头的显示与成像折衷，但未提及结构相似性指标（SSIM）及其定义、取值含义或最大值。",
+      "reason": "报告未提及结构相似性指标（SSIM），也未给出其用途、数值含义或最大值。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-43",
       "text": "报告是否给出峰值信噪比（PSNR，Peak signal-to-noise ratio）是一个表示信号最大可能功率与影响其表示精度的破坏性噪声功率之比值的工程术语，因许多信号动态范围很宽而常用对数分贝（dB）单位表示，并常通过均方误差（MSE）定义？",
-      "reason": "报告讨论了屏下摄像头的噪声和成像损失，但未给出峰值信噪比（PSNR）的定义，也未说明其分贝表示或与均方误差（MSE）的关系。",
-      "evidence": "未找到"
+      "reason": "报告讨论了信噪比随透过因素变化的条件关系，但没有给出峰值信噪比（PSNR）的定义，也没有说明其分贝表示或通过均方误差定义。",
+      "evidence": "若曝光与场景固定且由光子噪声主导，信噪比随 √T 变化；本机 T 未公开、未测，故不代入任何产品数值。"
     },
     {
       "direction": "A2",
       "id": "A2-44",
       "text": "报告是否给出中兴 Axon 20 5G 的屏下 OLED 显示屏由维信诺（Visionox）供应？",
-      "reason": "报告讨论的是中兴 Axon 40 Ultra，未给出 Axon 20 5G 的屏下 OLED 显示屏由维信诺供应的信息。",
-      "evidence": "未找到"
+      "reason": "报告提到 Axon 20 上的屏下摄像头光学测量，但未说明其屏下 OLED 显示屏由维信诺供应。",
+      "evidence": "Feng 等在 CVPR 2021 的工作分析了 OLED 像素阵列对光的衰减与衍射，指出噪声、眩光、雾感和模糊等退化；其第 2–4 页在 **Axon 20** 上测量 PSF，显示强中心峰和较宽的长尾旁瓣。"
     },
     {
       "direction": "A2",
       "id": "A2-45",
       "text": "报告是否给出小米 MIX 4 采用名为 CUP（Camera Under Panel）的屏下摄像头技术？",
-      "reason": "报告讨论的是中兴 Axon 40 Ultra 的屏下摄像头，未提及小米 MIX 4 或 CUP 技术。",
+      "reason": "报告未提及小米 MIX 4，也未给出其采用 CUP 屏下摄像头技术的说法。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-46",
       "text": "报告是否给出三星将屏下摄像头技术称为 UPC（Under Panel Camera），并于 2021 年 1 月在季度财报中首次官方预告该技术？",
-      "reason": "报告聚焦中兴 Axon 40 Ultra 的屏下摄像头，没有给出三星将该技术称为 UPC，也未提及三星于 2021 年 1 月在季度财报中首次官方预告该技术。",
+      "reason": "报告未提及三星将屏下摄像头技术称为 UPC，也未提及三星于 2021 年 1 月在季度财报中首次官方预告该技术。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-47",
       "text": "报告是否给出《Image Restoration for Under-Display Camera》的作者来自UIUC、UC Berkeley与微软，该论文被CVPR 2021接收？",
-      "reason": "报告提到的是另一篇屏下摄像头图像重建论文，未给出题述论文的作者机构或其被 CVPR 2021 接收的信息。",
-      "evidence": "[research.S3.web] ISP-Agnostic Image Reconstruction for Under-Display Cameras — Qi、Li、Heidrich 的 arXiv 论文（2021-11-02）总结屏幕置于相机上方会造成对比度损失、模糊、噪声、色偏、散射和感光度下降，并把遮挡吸收、像素衍射和层间反射列为主要光学原因。"
+      "reason": "报告未提及题为《Image Restoration for Under-Display Camera》的论文，也未给出其作者所属机构或该论文被 CVPR 2021 接收的信息。报告提到的 CVPR 2021 论文是另一篇。",
+      "evidence": "[research.S8.report] Removing Diffraction Image Artifacts in Under-Display Camera via Dynamic Skip Connection Network（CVPR 2021） — 已打开作者摘要并读完 10 页 PDF"
     },
     {
       "direction": "A2",
       "id": "A2-48",
       "text": "报告是否给出ECCV 2020（RLQ workshop）举办了首届屏下摄像头图像复原挑战赛，设 T-OLED（4k 透明 OLED）与 P-OLED（手机 Pentile OLED）两个赛道，约 150 支队伍注册、最终阶段 T-OLED 有 8 队、P-OLED 有 9 队提交结果；以 PSNR 排名，T-OLED 冠军为百度 Research Vision（38.23 dB）、P-OLED 冠军为 CET CVLAB（32.99 dB）？",
-      "reason": "报告未提及 ECCV 2020 RLQ 首届屏下摄像头图像复原挑战赛，也未给出题述赛道、参赛队伍数量、PSNR 排名及冠军成绩。",
+      "reason": "报告未提及 ECCV 2020 屏下摄像头图像复原挑战赛，也未给出题述赛道、参赛队伍数量、排名或冠军成绩。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-49",
       "text": "报告是否给出京东方（BOE）的柔性OLED FDC（Full Display with Camera）屏下摄像头技术于2021年8月19日亮相OPPO发布会？",
-      "reason": "报告未提及京东方的柔性OLED FDC屏下摄像头技术，也未提及其于2021年8月19日在OPPO发布会亮相。",
+      "reason": "报告没有提及京东方柔性OLED FDC技术，也没有提及该技术于2021年8月19日亮相OPPO发布会。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-50",
       "text": "报告是否给出DXOMARK 在初始测试协议下给予全球首款屏下摄像头手机中兴 Axon 20 5G 的自拍（Selfie）总分仅为 26 分，为当时数据库中倒数第二，仅高于印度市场的廉价机 Intex Aqua Selfie？",
-      "reason": "报告聚焦中兴 Axon 40 Ultra，未给出 Axon 20 5G 的 DXOMARK 自拍总分、数据库排名或与 Intex Aqua Selfie 的比较。",
-      "evidence": "未找到"
+      "reason": "报告提及 Axon 20 上的 PSF 测量，但未给出 DXOMARK 自拍总分、数据库排名或 Intex Aqua Selfie 对比。",
+      "evidence": "其第 2–4 页在 **Axon 20** 上测量 PSF，显示强中心峰和较宽的长尾旁瓣。它提供机制依据，数值不能直接用于这台 Axon 40 Ultra。"
     },
     {
       "direction": "A2",
       "id": "A2-51",
       "text": "报告是否给出努比亚 Z70 Ultra 于 2024 年 11 月 21 日在中国发布，11 月 26 日全球发布，12 月 5 日全球开售，搭载第七代屏下摄像头技术，6.85 英寸 1.5K OLED 全面屏，首款 1.5K 真全面屏无孔屏幕，与 BOE 联合开发？",
-      "reason": "报告讨论的是中兴 Axon 40 Ultra，未给出努比亚 Z70 Ultra 的发布、开售日期及所列屏幕与屏下摄像头规格。",
-      "evidence": "[video.title] 【大家测】中兴 Axon 40 Ultra开箱体验"
+      "reason": "报告聚焦中兴 Axon 40 Ultra，未给出努比亚 Z70 Ultra 的发布、开售日期及所列屏下摄像头和屏幕信息。",
+      "evidence": "本报告对象是中兴 **Axon 40 Ultra**，不是 Axon 40 Pro，也不是名称接近的 Axon 30 Ultra。"
     },
     {
       "direction": "A2",
       "id": "A2-52",
       "text": "报告是否引用/转述了「DXOMARK 结论认为中兴 Axon 20 5G 屏下设计在性能上做了极大牺牲，成像质量在几乎任何度量下都严重低于标准」？",
-      "reason": "报告讨论的是中兴 Axon 40 Ultra，并引用 Tom’s Guide 对该机屏下自拍的评价；未引用或转述题述 DXOMARK 对 Axon 20 5G 的结论。",
-      "evidence": "[research.S2.web] ZTE Axon 40 Ultra review: Can this flagship compete with Android’s best phones? — Tom’s Guide（2022-07-03）将显示与后置相机评价为优点，认为屏下自拍相机仍需改进：日常几乎看不到传感器，但自拍偏软、强光下更差。"
+      "reason": "报告讨论了 Axon 20 的屏下摄像头光学研究，但没有引用或转述题述 DXOMARK 对 Axon 20 5G 自拍性能的结论。",
+      "evidence": "其第 2–4 页在 Axon 20 上测量 PSF，显示强中心峰和较宽的长尾旁瓣。它提供机制依据，数值不能直接用于这台 Axon 40 Ultra。"
     },
     {
       "direction": "A2",
       "id": "A2-53",
       "text": "报告是否给出Visionox 于 2020 年 6 月推出首款量产屏下摄像头面板方案『InV see』，同年 9 月供应给 ZTE Axon 20 5G，是全球首个量产屏下摄像头面板技术？",
-      "reason": "报告未提及 Visionox 的 InV see 方案、2020 年推出及供应 ZTE Axon 20 5G 的历史，也未给出其全球首个量产屏下摄像头面板技术的定位。",
-      "evidence": "未找到"
+      "reason": "报告提到 Axon 20 的屏下摄像头光学研究，但没有给出 Visionox 的 InV see 方案、推出及供应时间，或其全球首个量产屏下摄像头面板技术的地位。",
+      "evidence": "Feng 等在 CVPR 2021 的工作分析了 OLED 像素阵列对光的衰减与衍射，指出噪声、眩光、雾感和模糊等退化；其第 2–4 页在 Axon 20 上测量 PSF，显示强中心峰和较宽的长尾旁瓣。"
     },
     {
       "direction": "A2",
       "id": "A2-54",
       "text": "报告是否给出三星显示的 Eco² OLED 面板（用于 Galaxy Z Fold3 的屏下/屏内摄像头 UPC 区域）通过新的面板结构在内部测试中把透光率提升了 33%、功耗降低最多 25%，以缓解屏下摄像头透光与显示的矛盾？",
-      "reason": "报告讨论的是中兴 Axon 40 Ultra 的屏下摄像头方案，未提及三星显示 Eco² OLED、Galaxy Z Fold3 UPC 区域，或透光率提升 33%、功耗降低最多 25% 的内部测试结果。",
+      "reason": "报告讨论了中兴 Axon 40 Ultra 的屏下摄像头方案及其他光学研究，但未提及三星显示 Eco² OLED、Galaxy Z Fold3 UPC 区域，或所述透光率和功耗测试数据。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-55",
       "text": "报告是否给出中兴 Axon 40 Ultra 于 2022 年 5 月 9 日在中国发布，是中兴第三代屏下摄像头（UDC/UPC）产品？",
-      "reason": "报告提及 Axon 40 Ultra 在中国发布，但所列发布稿日期为 2022 年 5 月 11 日，且未说明该机是中兴第三代屏下摄像头产品。",
-      "evidence": "ZTE Axon 40 Ultra officially launched in China — ZTE 官方发布稿（2022-05-11）称 UDC 区域采用 400PPI、全屏蓝钻排列、独立像素驱动、透明分布式走线与 UDC Pro 显示芯片算法"
+      "reason": "报告给出了该机于 2022 年 5 月 9 日发布，并以中国官网为规格基准，但未明确称其为中兴第三代屏下摄像头产品。",
+      "evidence": "“中兴于 2022-05-09 发布此机，官方规格为 6.8 英寸、2480×1116、120 Hz AMOLED，前置 1600 万像素屏下摄像头。”；“本研究的机型确认和 UDC 规格以中国官网为基准。”"
     },
     {
       "direction": "A2",
       "id": "A2-56",
       "text": "报告是否给出2020 年 8 月 28 日，时任小米高管周受资（Shou Zi Chew）在推特公布小米第三代屏下摄像头技术，并宣布计划于 2021 年量产？",
-      "reason": "报告未提及周受资、小米第三代屏下摄像头技术的推特公布，也未给出2021年量产计划。",
+      "reason": "报告未提及周受资于2020年8月28日在推特公布小米第三代屏下摄像头技术，也未提及计划于2021年量产。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-57",
       "text": "报告是否给出苹果的屏下前置传感技术进展缓慢：屏下Face ID预计最早随2026年iPhone 18 Pro推出（有推迟至2027年的传闻），而DSCC分析师Ross Young于2023年3月称因传感器问题该技术至少要到2025年才会面世？",
-      "reason": "报告讨论的是中兴 Axon 40 Ultra 的屏下摄像头，没有给出苹果屏下 Face ID 的预计推出时间、推迟传闻或 Ross Young 的相关判断。",
-      "evidence": "未找到"
+      "reason": "报告虽提到与 iPhone 12 Pro Max 同框比较，但没有讨论苹果屏下 Face ID 的进展、预计发布时间或 Ross Young 的相关说法。",
+      "evidence": "03:59–05:23，主持人从窄边框、下拉界面和横向观看说明“没有挖孔”的观感，随后与 iPhone 12 Pro Max 同框。"
     },
     {
       "direction": "A2",
       "id": "A2-58",
       "text": "报告是否给出小米 Mi Mix 3 于2018年10月25日在北京发布，采用磁动力滑盖结构隐藏前置摄像头以实现无刘海全面屏？",
-      "reason": "报告讨论的是中兴 Axon 40 Ultra 的屏下摄像头，未提及小米 Mi Mix 3 的发布时间、地点或磁动力滑盖结构。",
+      "reason": "报告聚焦中兴 Axon 40 Ultra 的屏下摄像头，未提及小米 Mi Mix 3 的发布时间、地点或磁动力滑盖结构。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-59",
       "text": "报告是否给出华硕 Asus ZenFone 6 于2019年5月发布，采用电动翻转（flip）摄像头模组消除刘海，实现无刘海全面屏？",
-      "reason": "报告讨论的是中兴 Axon 40 Ultra 的屏下摄像头，未提及华硕 ZenFone 6、其发布时间或电动翻转摄像头模组。",
+      "reason": "报告未提及华硕 ZenFone 6、其发布时间或电动翻转摄像头设计。",
       "evidence": "未找到"
     },
     {
       "direction": "A2",
       "id": "A2-60",
       "text": "报告是否给出vivo NEX 双屏版（NEX Dual Display Edition）于2018年12月11日发布，取消前置摄像头，改用机身背面一块5.49英寸副屏配合后置三摄来自拍，从而实现正面无开孔全面屏？",
-      "reason": "报告聚焦中兴 Axon 40 Ultra，未提及 vivo NEX 双屏版及其发布时间、背面副屏自拍方案。",
-      "evidence": "未找到"
+      "reason": "报告聚焦中兴 Axon 40 Ultra，未给出 vivo NEX 双屏版的发布信息及其副屏自拍方案。",
+      "evidence": "本报告对象是中兴 **Axon 40 Ultra**，不是 Axon 40 Pro，也不是名称接近的 Axon 30 Ultra。"
     },
     {
       "direction": "A5",
       "id": "A5-01",
       "text": "报告是否给出OLED屏幕的发光层与阻挡层会吸收部分光线？",
-      "reason": "报告提到显示层对光线的遮挡和吸收，但没有具体指出 OLED 发光层与阻挡层会吸收部分光线。",
-      "evidence": "论文指出显示层会遮挡/吸收光，像素规则结构还会产生衍射，导致对比度下降、模糊、噪声、色偏和进光减少 [S3]"
+      "reason": "报告提到屏幕结构会衰减入射光、造成光通量损失，但未说明 OLED 的发光层与阻挡层会吸收部分光线。",
+      "evidence": "拍摄链路仍会损失光通量，并被微结构改变点扩散函数（PSF，理想点光源在照片中扩成的光斑）。Feng 等在 CVPR 2021 的工作分析了 OLED 像素阵列对光的衰减与衍射，指出噪声、眩光、雾感和模糊等退化；其第 2–4 页在 **Axon 20** 上测量 PSF，显示强中心峰和较宽的长尾旁瓣。"
     },
     {
       "direction": "A5",
       "id": "A5-02",
       "text": "报告是否给出屏下摄像头透过OLED屏幕的透光率仅约30%–40%？",
-      "reason": "报告讨论了显示层遮挡、吸收导致进光减少，但未给出透光率约30%–40%的数值。",
-      "evidence": "论文指出显示层会遮挡/吸收光，像素规则结构还会产生衍射，导致对比度下降、模糊、噪声、色偏和进光减少 [S3]"
+      "reason": "报告没有给出屏下摄像头透过 OLED 屏幕的透光率约为 30%–40%；相反，报告明确指出本机透光率未公开、未测。",
+      "evidence": "若曝光与场景固定且由光子噪声主导，信噪比随 √T 变化；本机 T 未公开、未测，故不代入任何产品数值。"
     },
     {
       "direction": "A5",
       "id": "A5-03",
       "text": "报告是否指出屏下摄像头中低开口率会引发强衍射？",
-      "reason": "报告提到像素规则结构会产生衍射，但未指出低开口率会引发强衍射。",
-      "evidence": "论文指出显示层会遮挡/吸收光，像素规则结构还会产生衍射，导致对比度下降、模糊、噪声、色偏和进光减少 [S3]。"
+      "reason": "报告讨论了屏下摄像头的衍射及透明开口，但没有指出低开口率会引发强衍射。",
+      "evidence": "Feng 等在 CVPR 2021 的工作分析了 OLED 像素阵列对光的衰减与衍射，指出噪声、眩光、雾感和模糊等退化；其第 2–4 页在 **Axon 20** 上测量 PSF，显示强中心峰和较宽的长尾旁瓣。"
     },
     {
       "direction": "A5",
       "id": "A5-04",
       "text": "报告是否指出屏下摄像头中低开口率会引发严重画质退化？",
-      "reason": "报告讨论了显示层遮挡、衍射等因素造成的画质损失，但没有指出低开口率会引发严重画质退化。",
-      "evidence": "论文指出显示层会遮挡/吸收光，像素规则结构还会产生衍射，导致对比度下降、模糊、噪声、色偏和进光减少 [S3]"
+      "reason": "报告讨论了透光衰减、衍射造成的画质退化，也提及透明开口是设计变量，但没有指出低开口率会引发严重画质退化。",
+      "evidence": "拍摄链路仍会损失光通量，并被微结构改变点扩散函数（PSF，理想点光源在照片中扩成的光斑）。Feng 等在 CVPR 2021 的工作分析了 OLED 像素阵列对光的衰减与衍射，指出噪声、眩光、雾感和模糊等退化；"
     },
     {
       "direction": "A5",
       "id": "A5-05",
       "text": "报告是否指出Yang Zhou、Yuda Song和Xin Du认为屏下摄像头的成像退化过程包含亮度衰减？",
-      "reason": "报告讨论了显示层遮挡和吸收光线，但没有指出 Yang Zhou、Yuda Song 和 Xin Du 认为成像退化过程包含亮度衰减；报告引用的相关论文署名也不同。",
-      "evidence": "Qi、Li、Heidrich 的 arXiv 论文（2021-11-02）总结屏幕置于相机上方会造成对比度损失、模糊、噪声、色偏、散射和感光度下降，并把遮挡吸收、像素衍射和层间反射列为主要光学原因。"
+      "reason": "报告将光的衰减列为屏下摄像头成像退化机制，但将这一分析归于 Feng 等人的研究，未指出 Yang Zhou、Yuda Song 和 Xin Du 认为退化过程包含亮度衰减。",
+      "evidence": "“Feng 等在 CVPR 2021 的工作分析了 OLED 像素阵列对光的衰减与衍射，指出噪声、眩光、雾感和模糊等退化”；“Song 等，ICCV 2023……只引摘要支持的散射机制。”"
     },
     {
       "direction": "A5",
       "id": "A5-06",
       "text": "报告是否在对比屏下摄像方案时指出，摄像头隐藏得越隐秘，透光性越低？",
-      "reason": "报告说明了显示完整性与相机进光之间的折衷，但没有明确指出摄像头隐藏得越隐秘，透光性就越低。",
-      "evidence": "UDC 把相机放到发光像素和走线之后，显示侧必须留出足够的视觉连续性，成像侧却要接收穿过这些层的光。"
+      "reason": "报告讨论了显示融合和穿屏光路损失并存，但没有明确指出摄像头隐藏得越隐秘，透光性就越低。",
+      "evidence": "“‘看不出边界’表示输出观感接近，不能推出摄像头前方的屏幕等效于透明玻璃。”；“拍摄链路仍会损失光通量，并被微结构改变点扩散函数（PSF，理想点光源在照片中扩成的光斑）。”"
     },
     {
       "direction": "A5",
       "id": "A5-07",
       "text": "报告是否指出，中兴 Axon 30 屏下摄像头采用多驱 ACE 电路，通过提高电路效率使模组相邻区域的显示过渡更自然？",
-      "reason": "报告讨论的是中兴 Axon 40 Ultra，未提及 Axon 30 的多驱 ACE 电路，也未说明电路效率提升使相邻区域显示过渡更自然的因果关系。",
-      "evidence": "ZTE 官方发布稿（2022-05-11）称 UDC 区域采用 400PPI、全屏蓝钻排列、独立像素驱动、透明分布式走线与 UDC Pro 显示芯片算法"
+      "reason": "报告讨论的是 Axon 40 Ultra 的一驱一、透明走线与显示补偿，未指出 Axon 30 采用多驱 ACE 电路，也未说明该电路通过提高效率使相邻区域显示过渡更自然。",
+      "evidence": "这台手机的显示方案可拆为三件事：维持屏下区像素密度以减少局部粗糙感；一驱一减少共享驱动造成的显示限制；分布式透明走线与显示补偿降低交界的突兀感。"
     },
     {
       "direction": "A5",
       "id": "A5-08",
       "text": "报告是否指出，屏下摄像头PSF中能量极低的长尾旁瓣只有与足够高强度的场景卷积时，才会被放大为可见的结构化眩光？",
-      "reason": "报告提到了衍射、散射、层间反射及强光下自拍表现更差，但没有说明高强度场景与PSF长尾旁瓣卷积会将旁瓣放大为可见的结构化眩光。",
-      "evidence": "未找到"
+      "reason": "报告提到高亮点通过 PSF 旁瓣将能量扩散到邻近暗区，也给出了包含卷积的概念模型，但没有指出长尾旁瓣能量极低，或说明只有与足够高强度的场景卷积时才会形成可见的结构化眩光。",
+      "evidence": "“高亮点经旁瓣把能量带到邻近暗区，传感器饱和又会丢失信息。”；“可把成像概念化为 y≈clip[T·(x⊗h)+n]：x 是理想场景，T 是总透过因素，h 是归一化 PSF，n 是噪声；这只是解释模型，未拟合 Axon 40 Ultra。”"
     },
     {
       "direction": "A5",
       "id": "A5-09",
       "text": "报告是否指出，在光栅常数d和衍射级次k不变时，由光栅方程dsinθ=kλ可知，波长越长，衍射角θ越大？",
-      "reason": "报告提到像素结构会产生衍射，但没有给出光栅方程，也没有说明固定光栅常数和衍射级次时波长与衍射角的正向关系。",
-      "evidence": "论文指出显示层会遮挡/吸收光，像素规则结构还会产生衍射，导致对比度下降、模糊、噪声、色偏和进光减少 [S3]"
-    },
-    {
-      "direction": "A6",
-      "id": "A6-01",
-      "text": "报告是否补充了视频发布之后、近三年的最新进展或现况变化，并标注了信息的时间？",
-      "reason": "报告虽标注了视频发布后的来源日期，但这些来源主要补充本机发布规格及同期评测，未呈现近三年的技术进展或现况变化。",
-      "evidence": "ZTE Axon 40 Ultra officially launched in China — ZTE 官方发布稿（2022-05-11）称 UDC 区域采用 400PPI、全屏蓝钻排列、独立像素驱动、透明分布式走线与 UDC Pro 显示芯片算法；ZTE Axon 40 Ultra review: Can this flagship compete with Android’s best phones? — Tom’s Guide（2022-07-03）将显示与后置相机评价为优点，认为屏下自拍相机仍需改进：日常几乎看不到传感器，但自拍偏软、强光下更差。"
+      "reason": "报告讨论了屏下显示结构导致的衍射和光斑扩散，但未说明光栅方程，也未指出固定光栅常数和衍射级次时波长越长、衍射角越大的关系。",
+      "evidence": "未找到"
     },
     {
       "direction": "A7",
       "id": "A7-01",
       "text": "报告是否给出UDC基础论文测得无显示屏遮挡时人脸检测召回率为60%？",
-      "reason": "报告讨论了屏下显示层对成像的影响，但未给出无显示屏遮挡时人脸检测召回率为60%的结果，也未引用所述基础论文。",
+      "reason": "报告未给出无显示屏遮挡时人脸检测召回率为60%的数据，也未引用所述基础论文。",
       "evidence": "未找到"
     },
     {
       "direction": "A7",
       "id": "A7-02",
       "text": "报告是否给出UDC基础论文测得被T-OLED遮挡时人脸检测召回率降至8%？",
-      "reason": "报告未给出“被T-OLED遮挡时人脸检测召回率降至8%”这一测量结果，且报告引用的基础论文为另一篇关于图像重建与光学损失的论文。",
-      "evidence": "“ISP-Agnostic Image Reconstruction for Under-Display Cameras — Qi、Li、Heidrich 的 arXiv 论文（2021-11-02）总结屏幕置于相机上方会造成对比度损失、模糊、噪声、色偏、散射和感光度下降，并把遮挡吸收、像素衍射和层间反射列为主要光学原因。”"
+      "reason": "报告讨论了屏下摄像头的光学退化和人脸解锁体验，但未给出被 T-OLED 遮挡时人脸检测召回率降至 8% 的论文结果，也未列出所指论文。",
+      "evidence": "未找到"
     },
     {
       "direction": "A7",
       "id": "A7-03",
       "text": "报告是否引用/转述了「Tom's Guide 评测者 Richard Priday 指出中兴此前的屏下摄像头机型因摄像头上方存在明显的低分辨率屏幕区域而毁掉了显示效果，而 Axon 40 Ultra 提高了该区域像素密度后正常使用时基本看不出差别」？",
-      "reason": "报告转述了 Tom’s Guide 关于 Axon 40 Ultra 日常使用时屏下区域几乎看不出差异的评价，也提到该区域的 400PPI，但没有引用或转述此前机型因相机上方低分辨率屏幕区域明显而破坏显示效果的对比。",
-      "evidence": "“Tom’s Guide（2022-07-03）将显示与后置相机评价为优点，认为屏下自拍相机仍需改进：日常几乎看不到传感器，但自拍偏软、强光下更差。”；“ZTE 官方发布稿（2022-05-11）称 UDC 区域采用 400PPI、全屏蓝钻排列、独立像素驱动、透明分布式走线与 UDC Pro 显示芯片算法。”"
+      "reason": "报告讨论了 Axon 40 Ultra 屏下区域的像素密度和视觉融合，但未引用或转述 Richard Priday 对中兴此前机型低分辨率屏下区域影响显示效果的评价，也未列出 Tom's Guide 或 Android Headlines 为来源。",
+      "evidence": "“维持屏下区像素密度以减少局部粗糙感；一驱一减少共享驱动造成的显示限制；分布式透明走线与显示补偿降低交界的突兀感。”"
     },
     {
       "direction": "A7",
       "id": "A7-04",
       "text": "报告是否引用/转述了「Tom's Guide 评测者 Richard Priday 称中兴自己也很实际地提醒用户，不要指望屏下摄像头拍出达到常规自拍摄像头水准的照片」？",
-      "reason": "报告引用了 Tom’s Guide 对 Axon 40 Ultra 屏下自拍表现的评价，但未提及 Richard Priday 转述中兴提醒用户不要期待达到常规自拍摄像头水准，也未引用题述 Axon 30 5G 评测。",
-      "evidence": "Tom’s Guide（2022-07-03）将显示与后置相机评价为优点，认为屏下自拍相机仍需改进：日常几乎看不到传感器，但自拍偏软、强光下更差。"
+      "reason": "报告讨论了屏下前摄的画质取舍，但没有引用或转述题述 Tom's Guide 评测者 Richard Priday 对中兴提醒用户降低自拍画质预期的说法。",
+      "evidence": "未找到"
     },
     {
       "direction": "A7",
       "id": "A7-05",
       "text": "报告是否显示，T-OLED 的透光率比手机用 P-OLED 高约 17.1 个百分点？",
-      "reason": "报告讨论了屏下显示层的遮挡、吸收和进光减少，但未提及 T-OLED、P-OLED 的透光率或两者相差约 17.1 个百分点。",
-      "evidence": "未找到"
+      "reason": "报告没有给出 T-OLED 和手机用 P-OLED 的透光率，也没有比较二者相差约 17.1 个百分点。",
+      "evidence": "缺少本机透过率、PSF、原始图像和配对实验，无法给出其“比常规前摄少几档光”或“少多少解析力”的数值。"
     },
     {
       "direction": "A7",
       "id": "A7-06",
       "text": "报告是否显示，CMU实验T-OLED的23.8%开口率比Zhou等人测得的约21%高2.8个百分点？",
-      "reason": "报告未提及CMU实验T-OLED的23.8%开口率、Zhou等人测得的约21%，也未进行两者的比较。",
+      "reason": "报告未提及 CMU 实验 T-OLED 的 23.8% 开口率、Zhou 等人测得的约 21%，也未作相差 2.8 个百分点的比较。",
       "evidence": "未找到"
     },
     {
       "direction": "A7",
       "id": "A7-07",
       "text": "报告是否显示，OPPO首次公开展示屏下摄像头技术早于RedMagic 7 Pro作为首款屏下摄像头游戏手机发布？",
-      "reason": "报告未提及 OPPO 首次公开展示屏下摄像头技术，也未提及 RedMagic 7 Pro 的发布，无法从报告中得出两者的时间先后。",
+      "reason": "报告未提及 OPPO 首次公开展示屏下摄像头技术，也未提及 RedMagic 7 Pro 的发布，因而没有显示二者的时间先后关系。",
       "evidence": "未找到"
     },
     {
       "direction": "A7",
       "id": "A7-08",
       "text": "报告是否显示，OPPO称其算法可使屏下摄像头区域的屏幕寿命最多提升50%，京东方称其亮度补偿算法可使该区域的屏幕寿命提升50%？",
-      "reason": "报告未提及OPPO或京东方关于屏下摄像头区域屏幕寿命提升50%的算法主张。",
+      "reason": "报告未提及 OPPO 或京东方关于屏下摄像头区域屏幕寿命提升 50% 的说法。",
       "evidence": "未找到"
     },
     {
       "direction": "A7",
       "id": "A7-09",
       "text": "报告是否显示，努比亚从2023年12月19日发布的Z60 Ultra到2024年11月21日发布的Z70 Ultra，屏下摄像头技术由第五代升至第七代，跨越了两代？",
-      "reason": "报告讨论的是中兴 Axon 40 Ultra 的屏下摄像头技术，未提及努比亚 Z60 Ultra、Z70 Ultra 或两者的技术代际变化。",
-      "evidence": "未找到"
+      "reason": "报告聚焦中兴 Axon 40 Ultra，没有提及努比亚 Z60 Ultra、Z70 Ultra 的发布时间或屏下摄像头技术代际，无法据此得出跨越两代的结论。",
+      "evidence": "本报告对象是中兴 **Axon 40 Ultra**，不是 Axon 40 Pro，也不是名称接近的 Axon 30 Ultra。"
     },
     {
       "direction": "A7",
       "id": "A7-10",
       "text": "报告是否显示努比亚 Z60 Ultra 的发布时间晚于 RedMagic 7 Pro 超过一年？",
-      "reason": "报告讨论的是中兴 Axon 40 Ultra，未提及努比亚 Z60 Ultra 或 RedMagic 7 Pro 的发布时间，因此报告未显示两者发布时间相隔超过一年。",
+      "reason": "报告未提及努比亚 Z60 Ultra 或 RedMagic 7 Pro 的发布时间，也未比较两者的发布时间间隔。",
       "evidence": "未找到"
     },
     {
       "direction": "A7",
       "id": "A7-11",
       "text": "报告是否给出三星将其屏下摄像头方案称为屏下相机（Under Panel Camera，UPC）？",
-      "reason": "报告讨论了中兴 Axon 40 Ultra 的屏下摄像头方案，但未提及三星将其方案称为 Under Panel Camera（UPC）。",
+      "reason": "报告讨论了中兴 Axon 40 Ultra 的屏下摄像头技术，但未提及三星将其方案称为 Under Panel Camera（UPC）。",
       "evidence": "未找到"
     },
     {
       "direction": "A7",
       "id": "A7-12",
       "text": "报告是否给出三星声称通过名为 Eco2 OLED 的技术实现比常规高 33% 的透光率，以避免自拍照过曝发白？",
-      "reason": "报告讨论了中兴 Axon 40 Ultra 的屏下摄像头技术与成像折衷，但未提及三星 Eco2 OLED 技术、透光率提高 33%，或该技术用于避免自拍过曝发白。",
+      "reason": "报告没有提及三星的 Eco2 OLED 技术，也没有给出其透光率比常规高 33% 或用于避免自拍过曝发白的说法。",
       "evidence": "未找到"
     },
     {
       "direction": "A7",
       "id": "A7-13",
       "text": "报告中提及的透光率提升技术所达到的屏下摄像区透光率（约20%），是否高于普通手机OLED显示屏通常的透光率（低于5%）？",
-      "reason": "报告没有给出屏下摄像区约20%的透光率，也没有给出普通手机OLED显示屏通常低于5%的透光率，因此不能依据报告作出该比较。",
-      "evidence": "未找到"
+      "reason": "报告没有给出本机屏下摄像区透光率约20%或普通手机OLED显示屏透光率低于5%的数据，因此无法依据报告作出该比较。",
+      "evidence": "缺少本机透过率、PSF、原始图像和配对实验，无法给出其“比常规前摄少几档光”或“少多少解析力”的数值。"
     },
     {
       "direction": "A9",
       "id": "A9-01",
       "text": "报告是否引用/转述了「小米总裁卢伟冰在 MIX 4 发布前后解释屏下摄像头的核心矛盾：屏幕 PPI 在 400 左右时相机透光率很低、严重影响拍照效果，而若降低 PPI 提高透过率，又会让屏下区域与整屏 PPI 差距很大、出现色块等显示问题」？",
-      "reason": "报告讨论了屏下显示完整性与相机进光之间的折衷，也提到本机屏下区域为 400PPI，但未引用或转述卢伟冰关于降低 PPI 与色块问题的具体解释。",
-      "evidence": "显示侧必须留出足够的视觉连续性，成像侧却要接收穿过这些层的光。论文把显示层的遮挡/吸收、像素结构衍射和层间反射分别对应到亮度与色彩失真、雾化/条纹和模糊 [S3]；ZTE 的 400PPI、透明分布式走线、独立像素驱动与 Selfie Algorithm 3.0 是针对显示一致性、进光和后处理的产品化回答 [S1]。"
+      "reason": "报告讨论了本机屏下区的像素密度、显示融合与成像损失，但未引用或转述卢伟冰关于 MIX 4 的上述具体解释，也未提及降低 PPI 导致色块的说法。",
+      "evidence": "这台手机的显示方案可拆为三件事：维持屏下区像素密度以减少局部粗糙感；一驱一减少共享驱动造成的显示限制；分布式透明走线与显示补偿降低交界的突兀感。它们共同改善“人眼向外看屏幕”的链路。"
     },
     {
       "direction": "A9",
       "id": "A9-02",
       "text": "报告是否显示，实测的2.9%透光率低于手机用OLED显示屏通常低于5%的上限？",
-      "reason": "报告没有给出2.9%的实测透光率，也没有给出手机用OLED显示屏通常低于5%的透光率上限或两者比较。",
-      "evidence": "未找到"
+      "reason": "报告没有给出实测透光率为2.9%，也没有陈述手机用OLED显示屏通常透光率低于5%；报告明确指出本机透过率未公开、未测。",
+      "evidence": "本机 T 未公开、未测，故不代入任何产品数值。"
     },
     {
       "direction": "C1",
       "id": "C1-01",
       "text": "报告的外部来源总数是否 ≥30 个？",
-      "reason": "research=3 (need ≥30)",
+      "reason": "research=7 (need ≥30)",
       "evidence": ""
     },
     {
       "direction": "C3",
       "id": "C3-01",
       "text": "报告来源是否覆盖 ≥20 个不同域名？",
-      "reason": "distinct domains=3 (need ≥20)",
-      "evidence": ""
-    },
-    {
-      "direction": "C3",
-      "id": "C3-02",
-      "text": "报告来源是否覆盖 ≥3 种类型（网页/视频/报告/图片）？",
-      "reason": "types=['web'] (need ≥3 kinds)",
+      "reason": "distinct domains=5 (need ≥20)",
       "evidence": ""
     },
     {
       "direction": "C6",
       "id": "C6-01",
       "text": "报告是否有 ≥3 个落在时效窗口内的较新来源（视频>3年问近三年、0.5–3年问近半年）？",
-      "reason": "近三年（来源年份 ≥2023）：0 个（need ≥3）",
+      "reason": "近三年（来源年份 ≥2023）：2 个（need ≥3）",
       "evidence": ""
     },
     {
       "direction": "C7",
       "id": "C7-01",
       "text": "报告是否包含 ≥3 个视频类来源？",
-      "reason": "video=0 (need ≥3)",
-      "evidence": ""
-    },
-    {
-      "direction": "C7",
-      "id": "C7-04",
-      "text": "报告的 anchors 裁剪图是否 ≥2 张被正文引用？",
-      "reason": "no anchors/*.jpg present",
+      "reason": "video=1 (need ≥3)",
       "evidence": ""
     }
   ],

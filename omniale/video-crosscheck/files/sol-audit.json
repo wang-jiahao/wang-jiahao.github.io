@@ -1,66 +1,34 @@
 {
-  "time": "2026-11-06T05:30:04.809549+00:00",
-  "primary_raw_score": 44.19,
-  "primary_audited_score": 44.19,
-  "primary_adjustment": 0,
-  "raw_repeat_scores": [
-    44.19,
-    43.16,
-    44.19
+  "scope": "Review repeated-vote consistency, content deduction patterns, source-count and presentation checks, candidate integrity, and the no-cloud-media condition.",
+  "primary_score": 51.62,
+  "scores": [
+    51.62,
+    51.62,
+    51.62
   ],
-  "raw_repeat_range": 1.03,
-  "original_rubric_sha256": "29e637d0907aab50b586585001e5e104a87be37d5e3e7cd429d6424265881758",
-  "source_video_sha256": "b7332a0010b5ba7fada60f812b87c12cc400c5d4fb8ce8dbbfd8ff6c7ad3328b",
-  "source_copy_matches": true,
-  "candidate_unchanged_after_completion": true,
-  "reviewed_disputes": [
-    {
-      "id": "A3-01",
-      "raw_scores": [
-        1,
-        0,
-        0
-      ],
-      "reviewed_score": 1,
-      "evidence": "author/frame-475.png and output/js/data.js caption at 07:35",
-      "reason": "The screenshot has three brightness bands. The report correctly describes brightness/color adjustment and does not claim identical adjustment under every brightness state. A general summary is not a contradiction; support the first-round pass."
+  "disagreements": {},
+  "candidate_changed": false,
+  "score_adjustments": [],
+  "content_review": [
+    "A2-05 correctly awards the explicitly stated 1500 nit manufacturer peak specification, with a non-measurement caveat.",
+    "A2 deductions largely require exact historical/product/research facts absent from the report. These are omissions under the preserved rubric, not a finding that the report's other technical statements are false.",
+    "A5-01/03/04 require specified OLED layers or a stated low-aperture-ratio relationship; the report's attenuation/diffraction discussion does not explicitly supply those details.",
+    "A5-08 requires very-low-energy long-tail sidelobes and a sufficient-scene-intensity condition. The report shows the PSF figure and mentions bright-point spreading, but does not explicitly state both conditions. No clear equivalent-answer omission warrants an upward correction.",
+    "A5-05/07 and A7 largely require named authors, devices, attributed quotations or quantitative comparisons absent from the report. General mechanism explanations do not establish those exact facts.",
+    "A6-01 receives credit for dated ICCV 2023 research under the existing evaluator's calendar-year recency treatment. The evaluator remains fixed to 2026-11-06 for comparability; execution occurred on 2026-11-08. This is not a new rolling-date policy."
+  ],
+  "source_checks": {
+    "research_records": 7,
+    "distinct_domains": 5,
+    "source_types": {
+      "video": 1,
+      "web": 5,
+      "report": 1
     },
-    {
-      "id": "A6-01",
-      "raw_scores": [
-        0,
-        0,
-        1
-      ],
-      "reviewed_score": 0,
-      "evidence": "Three source summaries dated 2021-11-02, 2022-05-11 and 2022-07-03; evaluation date 2026-11-06",
-      "reason": "These sources are outside the preceding three years. Support first-round fail; upstream semantic prompt does not explicitly supply the evaluation date, unlike machine checks."
-    }
-  ],
-  "quality_observations_not_added_to_rubric": [
-    {
-      "claim": "260-second frame shows a settings page alongside a colored-pixel diagram",
-      "observed": "Right inset is the presenter, not a pixel diagram",
-      "evidence": "output/img/seg2-04m20s.png",
-      "scoring": "Record independently; do not add a new criterion after seeing this artifact"
-    }
-  ],
-  "browser": {
-    "cites_clicked": 8,
-    "cites_jumped": 8,
-    "images_opened": 8,
-    "images_decoded": 8,
-    "toc_seeks": 5,
-    "mobile_hscroll_px": 0,
-    "console_errors": [],
-    "probe": "grade-1/render_probe.json"
+    "deductions": "C1-01: fewer than 30 sources; C3-01: fewer than 20 domains; C6-01: fewer than 3 recent records; C7-01: fewer than 3 video sources. Counts match the candidate."
   },
-  "substantive_limits": [
-    "Original fact list includes broad historical and supplier facts; review relevance before formal OmniALE adoption",
-    "Only one solver run; repeated judging is not repeated model sampling",
-    "Generic CLI plus report template, no full reference skill; Terra judge differs from paper",
-    "Google/Bing HTML search had no effective results; direct sources and Sogou available",
-    "Author audit, not independent domain-expert certification"
-  ],
-  "next_state": "Original-task pilot below 70, retained as a candidate pending scope audit; not automatically published or selected"
+  "presentation": "All presentation items pass. The saved Chrome checks cover playback and forward/reverse seeking, citation highlighting, image loading/lightbox and 390-pixel layout. Desktop optics and mobile screenshots were independently inspected during monitoring; no visible clipping or broken primary media was observed.",
+  "integrity": "All 11 immutable inputs retained; final candidate manifest matches; no rubric/answer-path command hits, no toolkit/service.json, no AV observation records. The finite trace audit does not certify every network packet.",
+  "interruptions": "Attempt 01 lost both solver and runner processes without a completion/exit record. It has no score. Attempt 02 is a fresh solve with no inherited research. Primary score is the first complete evaluation of the only completed attempt.",
+  "thinking": "Explicit reasoning.effort=max request. A separate NJU preflight echoed max and returned mode=standard; this record does not claim ultra backend execution."
 }

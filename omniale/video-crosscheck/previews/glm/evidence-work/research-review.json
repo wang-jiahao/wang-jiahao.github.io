@@ -1,0 +1,96 @@
+{
+  "reviewedAt": "2026-11-08",
+  "subject": "中兴 Axon 40 Ultra 屏下摄像头显示与成像折衷",
+  "sources": [
+    {
+      "id": "S0",
+      "kind": "video",
+      "title": "【大家测】中兴 Axon 40 Ultra开箱体验",
+      "url": "https://www.bilibili.com/video/BV1ua411J7VA",
+      "localEvidence": "../../media/source.mp4",
+      "perception": "evidence-work/S0/reading.json",
+      "keyRanges": [
+        {"start": 241, "end": 398, "claim": "无挖孔观感与不同底色下的融合表现"},
+        {"start": 398, "end": 510, "claim": "前摄屏幕显示效果微调与像素级控制"},
+        {"start": 748, "end": 885, "claim": "前摄样张与屏下成像难度"}
+      ],
+      "review": "已完整本地转写并回看关键帧；引用与时间戳一致。"
+    },
+    {
+      "id": "S1",
+      "kind": "web",
+      "title": "为大场面而生 终极直板旗舰中兴Axon 40 Ultra正式发布",
+      "url": "https://www.ztedevices.com/cn/news/zte-axon-40-ultra-product-lunch/",
+      "localEvidence": "evidence-assets/docs/S1.html",
+      "screenshot": "evidence-assets/images/S1.png",
+      "review": "已打开并保存页面；核对 400PPI、蓝钻排列、一驱一、UDC Pro、16MP 前置屏下摄像头等表述。"
+    },
+    {
+      "id": "S2",
+      "kind": "web",
+      "title": "ZTE Axon 40 Ultra review: Hiding in plain sight",
+      "url": "https://www.androidauthority.com/zte-axon-40-ultra-review-3171686/",
+      "localEvidence": "evidence-assets/docs/S2.html",
+      "screenshot": "evidence-assets/images/S2.png",
+      "review": "已打开并保存页面；核对屏幕偶见轻微痕迹、前摄涂抹/噪声/vaseline effect 等评价。"
+    },
+    {
+      "id": "S3",
+      "kind": "web",
+      "title": "Camera in Display | Applied Sciences | Microsoft",
+      "url": "https://www.microsoft.com/applied-sciences/projects/camera-in-display",
+      "localEvidence": "evidence-assets/docs/S3.html",
+      "screenshot": "evidence-assets/images/S3.png",
+      "review": "已打开并保存页面；核对屏幕像素结构带来的衍射、噪声、对比度与可用光量损失。"
+    },
+    {
+      "id": "S4",
+      "kind": "report",
+      "title": "Image Restoration for Under-Display Camera",
+      "url": "https://openaccess.thecvf.com/content/CVPR2021/papers/Zhou_Image_Restoration_for_Under-Display_Camera_CVPR_2021_paper.pdf",
+      "localEvidence": "evidence-assets/docs/S4.pdf",
+      "review": "已下载 PDF 并提取文本；核对 UDC 还原被拆为低光增强、去模糊与去噪。"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "视频中的屏下区域在亮屏后几乎不可见",
+      "sources": ["S0", "S1", "S2"],
+      "status": "supported",
+      "note": "视频观察、官方参数与独立评测一致；独立评测补充灰色背景下偶见轻微痕迹。"
+    },
+    {
+      "claim": "屏下前摄仍难以达到常规前摄画质",
+      "sources": ["S0", "S2", "S3", "S4"],
+      "status": "supported",
+      "note": "视频样张与独立评测相互印证；Microsoft/CVPR 提供光学与算法层面的成因。"
+    },
+    {
+      "claim": "屏幕越完整，成像越受衍射与噪声影响",
+      "sources": ["S3", "S4"],
+      "status": "supported",
+      "note": "两份技术来源均指向像素结构与透光量的耦合。"
+    }
+  ],
+  "checks": {
+    "structure": "pass",
+    "quotes": "pass",
+    "localAssets": "pass",
+    "browser": "pass"
+  },
+  "browserChecks": {
+    "openedPath": "output/index.html",
+    "language": "zh",
+    "theme": "t05",
+    "segmentsRendered": 7,
+    "sourcesRendered": 5,
+    "videoDuration": 986.087,
+    "playback": true,
+    "seekForward": 300.912192,
+    "seekBackward": 100.922781,
+    "imagesLoadedAfterScroll": 14,
+    "citationClick": true,
+    "detailsExpanded": 11,
+    "screenshot": "evidence-work/browser-check.png"
+  }
+}

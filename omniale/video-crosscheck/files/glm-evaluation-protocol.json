@@ -1,0 +1,37 @@
+{
+  "task_id": "OmniDR-Bench-v0-0008",
+  "upstream_commit": "573b7ecaf576c343ca739d7b232b7de96562cb48",
+  "rubric_sha256": "29e637d0907aab50b586585001e5e104a87be37d5e3e7cd429d6424265881758",
+  "evaluator": "upstream omnidr_eval.engine, unchanged source",
+  "model": "gpt-6.1-terra",
+  "effort": "high",
+  "model_api_transport": "direct, proxy disabled only for model API calls",
+  "comparison_to_paper": "Different solver, environment, date and judge; not a paper-score replication",
+  "adaptations": [
+    "Chat Completions messages losslessly converted to NJU Responses; roles/text/images retained",
+    "Selected gpt-6.1-terra high judge; minimum 4000 output tokens to include reasoning (upstream vision request: 2000)",
+    "UTF-8 Python mode for Windows subprocess decoding of Chinese JSON",
+    "Windows enumerated relative file paths normalized to forward slashes before machine checks"
+  ],
+  "unchanged": [
+    "all 137 criteria",
+    "original per-atom prompts",
+    "weights 50/30/20",
+    "gates, 3 gate votes",
+    "coverage saturation",
+    "N/A rules"
+  ],
+  "adapter_sha256": "85ff8aa3ab2bee414216ab517a2836d2b8337d6930b7c28fd7c548d2e3482265",
+  "browser_command": [
+    "D:\\SoftWare\\Anaconda3\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "omnidr_eval.render_probe",
+    "--report",
+    "[run]\\output",
+    "--out",
+    "[workspace]\\omniale_cases\\video_crosscheck\\runs\\omnidr-0008-localproc-glm-5-3-max-01\\grade-1\\render_probe.json"
+  ],
+  "evaluation_date": "2026-11-06"
+}

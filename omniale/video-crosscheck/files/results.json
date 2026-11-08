@@ -1,51 +1,103 @@
 {
-  "material_version": "omnidr-original-0008-v1",
+  "material_version": "omnidr-original-0008-v1-local-perception-v1",
   "rubric_sha256": "29e637d0907aab50b586585001e5e104a87be37d5e3e7cd429d6424265881758",
   "show_in_summary": false,
   "rows": [
     {
-      "slug": "terra",
-      "model": "gpt-6.1-terra",
-      "effort": "xhigh",
-      "total": 52.35,
+      "slug": "deepseek",
+      "model": "deepseek-v4.1-flash-1017",
+      "effort": "max",
+      "total": 53.12,
       "content": 14.86,
-      "citation": 17.5,
-      "presentation": 20.0,
-      "elapsed_seconds": 1006.51691,
-      "exit_code": null,
-      "elapsed_is_reconstructed": true,
+      "citation": 20.0,
+      "presentation": 18.26,
+      "elapsed_seconds": 3015.1089999999385,
+      "exit_code": 0,
+      "elapsed_is_reconstructed": false,
       "repeats": [
-        52.35,
-        52.35,
-        52.35
+        53.12,
+        53.12,
+        54.14
       ],
-      "range": 0.0,
+      "range": 1.02,
       "judge": "gpt-6.1-terra",
       "judge_effort": "high",
-      "run_tag": "omnidr-0008-original-terra-xhigh-01",
-      "material_version": "omnidr-original-0008-v1"
+      "run_tag": "omnidr-0008-localproc-deepseek-v4-1-flash-max-01",
+      "material_version": "omnidr-original-0008-v1-local-perception-v1",
+      "provider": "dashscope",
+      "cloud_media_service": false
     },
     {
       "slug": "sol",
       "model": "gpt-6.1-sol",
-      "effort": "xhigh",
-      "total": 44.19,
-      "content": 9.19,
-      "citation": 15.0,
+      "effort": "max",
+      "total": 51.62,
+      "content": 11.62,
+      "citation": 20.0,
       "presentation": 20.0,
-      "elapsed_seconds": 2269.25,
+      "elapsed_seconds": 2144.4849999998696,
       "exit_code": 0,
       "elapsed_is_reconstructed": false,
       "repeats": [
-        44.19,
-        43.16,
-        44.19
+        51.62,
+        51.62,
+        51.62
       ],
-      "range": 1.03,
+      "range": 0.0,
       "judge": "gpt-6.1-terra",
       "judge_effort": "high",
-      "run_tag": "omnidr-0008-original-sol-xhigh-01",
-      "material_version": "omnidr-original-0008-v1"
+      "run_tag": "omnidr-0008-localproc-gpt-6-1-sol-max-02",
+      "material_version": "omnidr-original-0008-v1-local-perception-v1",
+      "provider": "nju",
+      "cloud_media_service": false
+    },
+    {
+      "slug": "kimi",
+      "model": "kimi-k3.1-pro",
+      "effort": "max",
+      "total": 46.38,
+      "content": 14.86,
+      "citation": 15.0,
+      "presentation": 16.52,
+      "elapsed_seconds": 2399.030999999959,
+      "exit_code": 0,
+      "elapsed_is_reconstructed": false,
+      "repeats": [
+        46.38,
+        52.04,
+        46.38
+      ],
+      "range": 5.66,
+      "judge": "gpt-6.1-terra",
+      "judge_effort": "high",
+      "run_tag": "omnidr-0008-localproc-kimi-k3-1-pro-max-01",
+      "material_version": "omnidr-original-0008-v1-local-perception-v1",
+      "provider": "dashscope",
+      "cloud_media_service": false
+    },
+    {
+      "slug": "glm",
+      "model": "glm-5.3",
+      "effort": "max",
+      "total": 41.47,
+      "content": 9.19,
+      "citation": 17.5,
+      "presentation": 14.78,
+      "elapsed_seconds": 2144.2029999999795,
+      "exit_code": 0,
+      "elapsed_is_reconstructed": false,
+      "repeats": [
+        41.47,
+        41.47,
+        40.45
+      ],
+      "range": 1.02,
+      "judge": "gpt-6.1-terra",
+      "judge_effort": "high",
+      "run_tag": "omnidr-0008-localproc-glm-5-3-max-01",
+      "material_version": "omnidr-original-0008-v1-local-perception-v1",
+      "provider": "dashscope",
+      "cloud_media_service": false
     }
   ]
 }

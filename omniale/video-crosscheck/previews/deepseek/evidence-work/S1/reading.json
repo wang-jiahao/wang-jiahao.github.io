@@ -1,0 +1,229 @@
+{
+  "sourceId": "S1",
+  "media": "../../media/source.mp4",
+  "url": "https://www.bilibili.com/video/BV1ua411J7VA",
+  "publisher": "科技美学 / Bilibili",
+  "probe": {
+    "duration": 986.069,
+    "width": 720,
+    "height": 360,
+    "fps": 30,
+    "videoCodec": "h264",
+    "audioCodec": "aac",
+    "bytes": 34630401
+  },
+  "perception": {
+    "engine": "local FFmpeg / faster-whisper CPU; no cloud media service",
+    "language": "zh",
+    "language_probability": 1.0
+  },
+  "transcription": {
+    "primary_model": "small",
+    "primary_manifest": "evidence-work/S1/transcripts/small-full.json",
+    "large_model_verification": [
+      {
+        "range": [
+          380.0,
+          575.0
+        ],
+        "manifest": "evidence-work/S1/transcripts/large-v3-turbo-380-575.json",
+        "reason": "核查亮度补偿、单像素调光与子像素措辞"
+      },
+      {
+        "range": [
+          740.0,
+          950.0
+        ],
+        "manifest": "evidence-work/S1/transcripts/large-v3-turbo-740-950.json",
+        "reason": "核查自拍样张、趋近完美的评价与片尾撕膜验证"
+      },
+      {
+        "range": [
+          945.0,
+          986.069
+        ],
+        "manifest": "evidence-work/S1/transcripts/large-v3-turbo-945-end.json",
+        "reason": "核查彩蛋与结尾，确保全片覆盖"
+      }
+    ],
+    "clean_text": "evidence-assets/docs/S1-transcript.txt",
+    "timestamped_text": "evidence-work/S1/transcript-timestamped.txt",
+    "merged_segments": "evidence-work/S1/transcript-merged.json"
+  },
+  "visual_review": [
+    {
+      "start": 0.0,
+      "end": 30.4,
+      "summary": "主持人以‘完美无缺的屏幕’和被前摄打断的矛盾开场。",
+      "frames": [
+        "img/seg01-00m12s.jpg"
+      ]
+    },
+    {
+      "start": 30.4,
+      "end": 98.0,
+      "summary": "包装、配件与机身首次展开；可确认 80W 氮化镓充电器与双 C 口线的开箱展示。",
+      "frames": [
+        "img/seg02-00m55s.jpg"
+      ]
+    },
+    {
+      "start": 98.0,
+      "end": 230.0,
+      "summary": "正面双微曲面、背面粗磨砂玻璃与三枚镜头模组的外观光影。",
+      "frames": [
+        "img/seg03-03m00s.jpg"
+      ]
+    },
+    {
+      "start": 230.0,
+      "end": 322.0,
+      "summary": "点亮屏幕无可见挖孔；05:00 与 iPhone 12 Pro Max 并排比较屏占比。",
+      "frames": [
+        "img/seg04-04m20s.jpg",
+        "img/04-05m00s-compare.jpg"
+      ]
+    },
+    {
+      "start": 322.0,
+      "end": 379.0,
+      "summary": "熄屏圆孔来自原厂贴膜；05:35 撕膜后孔位消失，亮屏时前摄难以辨认。",
+      "frames": [
+        "img/seg05-05m30s.jpg",
+        "img/05-05m35s-peel.jpg",
+        "anchors/A2-film-hole.jpg"
+      ]
+    },
+    {
+      "start": 379.0,
+      "end": 500.0,
+      "summary": "显示设置出现前摄屏幕显示效果微调；07:45 明确可见小屏亮度、红绿蓝滑杆。",
+      "frames": [
+        "img/seg06-07m45s.jpg",
+        "img/06-07m25s-settings.jpg",
+        "anchors/A3-pixel-tuning.jpg"
+      ]
+    },
+    {
+      "start": 500.0,
+      "end": 576.0,
+      "summary": "显微镜下普通区与 UDC 区均似类钻排列，UDC 蓝子像素更圆；09:05 的叠加画面与 09:15 的特写一致。",
+      "frames": [
+        "img/seg07-09m15s.jpg",
+        "img/07-09m05s-microscope.jpg",
+        "anchors/A4-subpixel.jpg"
+      ]
+    },
+    {
+      "start": 576.0,
+      "end": 751.0,
+      "summary": "系统、指纹/面部解锁、相机家族与 8K 录制设置；10:40 画面停在相机家族入口。",
+      "frames": [
+        "img/seg08-10m40s.jpg"
+      ]
+    },
+    {
+      "start": 751.0,
+      "end": 770.0,
+      "summary": "12:40 前摄预览，12:45 切到完整自拍与发际/毛发放大对比；主持人对细节语气肯定。",
+      "frames": [
+        "img/seg09-12m40s.jpg",
+        "img/09-12m45s-hair.jpg",
+        "anchors/A5-selfie.jpg"
+      ]
+    },
+    {
+      "start": 770.0,
+      "end": 986.069,
+      "summary": "多摄演示、屏幕总结、15:05 评分提示、15:10 撕膜、15:35 撕膜后屏幕验证，以及 16:00 后贴膜倒贴彩蛋。",
+      "frames": [
+        "img/seg10-15m05s.jpg",
+        "img/10-15m10s-peel.jpg",
+        "img/10-15m35s-postpeel.jpg",
+        "anchors/A6-boundary.jpg"
+      ]
+    }
+  ],
+  "frame_checks": [
+    {
+      "time": 260.0,
+      "file": "img/seg04-04m20s.jpg",
+      "observation": "亮屏正面无挖孔；主持人手势靠近屏幕，字幕称看不到挖孔。"
+    },
+    {
+      "time": 300.0,
+      "file": "img/04-05m00s-compare.jpg",
+      "observation": "Axon 40 Ultra 与 iPhone 12 Pro Max 并排；左侧 UDC 正面完整，右侧 iPhone 仍为刘海。"
+    },
+    {
+      "time": 330.0,
+      "file": "img/seg05-05m30s.jpg",
+      "observation": "熄屏可见白色圆孔，画面箭头指向孔位，字幕说明是贴膜开孔。"
+    },
+    {
+      "time": 335.0,
+      "file": "img/05-05m35s-peel.jpg",
+      "observation": "手指正在揭膜，膜边缘卷起，字幕称撕掉后孔位消失。"
+    },
+    {
+      "time": 445.0,
+      "file": "img/06-07m25s-settings.jpg",
+      "observation": "设置列表出现‘前摄屏幕显示效果微调’入口。"
+    },
+    {
+      "time": 465.0,
+      "file": "img/seg06-07m45s.jpg",
+      "observation": "调整页含小屏亮度与 RGB 三条滑杆；手指正在拖动滑杆。"
+    },
+    {
+      "time": 545.0,
+      "file": "img/07-09m05s-microscope.jpg",
+      "observation": "显微镜 RGB 画面叠加在手机上，用于比较两种子像素区。"
+    },
+    {
+      "time": 555.0,
+      "file": "img/seg07-09m15s.jpg",
+      "observation": "放大画面可见红绿蓝子像素；字幕称上方蓝色子像素更圆。"
+    },
+    {
+      "time": 640.0,
+      "file": "img/seg08-10m40s.jpg",
+      "observation": "相机家族界面，多个拍摄模式入口清晰可见。"
+    },
+    {
+      "time": 760.0,
+      "file": "img/seg09-12m40s.jpg",
+      "observation": "手机显示前摄取景画面，主持人双手持机。"
+    },
+    {
+      "time": 765.0,
+      "file": "img/09-12m45s-hair.jpg",
+      "observation": "左侧完整自拍、右侧发际与眉毛放大对照；字幕邀请观众判断效果。"
+    },
+    {
+      "time": 905.0,
+      "file": "img/seg10-15m05s.jpg",
+      "observation": "画面叠加‘给中兴 Axon 40 Ultra 总体表现打分（满分10分）’提示。"
+    },
+    {
+      "time": 910.0,
+      "file": "img/10-15m10s-peel.jpg",
+      "observation": "片尾再次揭膜，膜边缘卷起，字幕称不要轻易模仿。"
+    },
+    {
+      "time": 935.0,
+      "file": "img/10-15m35s-postpeel.jpg",
+      "observation": "撕膜后屏幕显示‘系统与更新’，前摄位置没有可见圆孔；字幕询问是否很难看出摄像头。"
+    }
+  ],
+  "contact_sheets": [
+    "evidence-work/S1/source-contact-sheet.jpg",
+    "evidence-work/S1/reviewed-contact-sheet.jpg",
+    "evidence-work/S1/anchor-crops-contact.jpg"
+  ],
+  "cautions": [
+    "视频以口述和单张自拍呈现前摄效果，没有同场景对照或原始样张文件，不能据此判断前摄画质上限。",
+    "80W 为视频口述的充电器能力；Android Authority 的整机规格为 65W 有线充电，两者口径与测试条件不同，未作等价或矛盾判定。",
+    "‘趋近于完美’评价紧接屏幕演示，主要指向正面显示观感；报告不把它外推为前摄成像或长期可靠性结论。"
+  ]
+}
