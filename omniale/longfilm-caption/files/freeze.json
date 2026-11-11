@@ -1,12 +1,12 @@
 {
-  "frozen_at": "2026-11-11T12:22:47.110081+00:00",
-  "material_version": "caption-v2-testset",
-  "rubric_version": "finite-three-vote-v2",
+  "frozen_at": "2026-11-11T16:07:47.345836+00:00",
+  "material_version": "caption-v2-singlejudge",
+  "rubric_version": "finite-single-judge-v1",
   "input_hashes": {
     "film.mp4": "122f0b8a2e53dfbc6c2c27a43a9bb05f3c3403ea9753334ebd563e9260b3d01d",
     "requests.json": "05f67e5a8a36492f2d6689486a955f9e3b5ec216b6fd003f1b6236fea15b8858",
     "source.json": "b8776095a7ec18f304b73658a53f4547f9735f924afbbc3f6e881e498bac81e2",
-    "TASK.md": "f500d48f07877f7d3fd913d9062b3140527bee79556d72da6af4a627084e4a57"
+    "TASK.md": "f27522749f8f69dad690eef8c01fe86b5c003e06072507609ce63da35fe13c30"
   },
   "evaluation_hashes": {
     "caption-v2-testset/reference.json": "f4ce4bad3ddbc48c614964a7ca29c245f5f7b5ca8c4ffb384f134c9cb9c9074a",
@@ -17,11 +17,17 @@
     "pair_v2_launch.py": "eeea84532732cd7b3ffd72f8fa6c2de413eb1df7d0e490b221b0e180502703da",
     "pair_v2_calibrate.py": "e4f6d6ae754429aba027112b632aae89f8c596abc2c977cf9980688b523fbf8f",
     "pair-v2/calibration/summary.json": "836ac6406da85a4075e0b31f98cbf7083a4a8fcdb687ce4b314415e375bb2d54",
-    "caption_native_driver.py": "52b254836c5ed4d679ea86ece68a967a213b230c2f7cc3622f88dbb68f48a1cc"
+    "caption_native_driver.py": "52b254836c5ed4d679ea86ece68a967a213b230c2f7cc3622f88dbb68f48a1cc",
+    "caption-v2-singlejudge\\reference.json": "f4ce4bad3ddbc48c614964a7ca29c245f5f7b5ca8c4ffb384f134c9cb9c9074a",
+    "caption-v2-singlejudge\\rubric.md": "d37a6c04c396258ac7429808b1807f34a4e7e333da23dba44cb7132407d1784a",
+    "grade_caption_once.py": "7da1d63ba8d2b60be2e7eefb3d21c07cc2a36f727fe32903922b156c36ac8078",
+    "pair_v2_caption_indexed.py": "01f83de0563ab312fef390c3c9b5c5c2ae15a437d84779aa6198fe9b4885e7f6"
   },
   "author_model": "qwen3.8-omni-flash",
   "judge": "gpt-6.1-terra high",
-  "judge_votes": 3,
-  "score": "single arithmetic mean",
-  "organizer_source_review": false
+  "judge_votes": 1,
+  "score": "one complete finite semantic evaluation",
+  "organizer_source_review": false,
+  "semantic_gt_changed": false,
+  "prior_gt_sha256": "f4ce4bad3ddbc48c614964a7ca29c245f5f7b5ca8c4ffb384f134c9cb9c9074a"
 }

@@ -1,14 +1,75 @@
 {
   "case": "longfilm-caption",
-  "material_version": "caption-v2-testset",
+  "title": "长片检索与详尽音画描述",
   "model": "gpt-6.1-sol",
   "actual_effort": "xhigh",
-  "score": 54.648174024047336,
+  "score": 55.67066948223509,
   "elapsed_seconds": 3275.078,
   "exit_code": 0,
   "solver_runs": 1,
-  "judge_votes": 3,
-  "scoring_policy": "finite-three-vote-v2",
-  "score_rule": "每个事件按语义匹配判0／1，段内按事件数计算覆盖率，再对六项委托等权平均；取三次完整裁判评分的平均值。",
-  "show_in_summary": false
+  "judge_rounds": 1,
+  "material_version": "caption-v2-singlejudge",
+  "models": [
+    {
+      "id": "sol",
+      "model": "gpt-6.1-sol",
+      "label": "GPT-6.1 Sol",
+      "state": "已完成",
+      "score": 55.67066948223509,
+      "actual_effort": "xhigh",
+      "elapsed_seconds": 3275.078,
+      "exit_code": 0,
+      "material_version": "caption-v2-testset",
+      "judge_rounds": 1,
+      "audio_subtype_hits": {
+        "speech": {
+          "hits": 27,
+          "total": 56,
+          "rate": 48.214285714285715
+        },
+        "music": {
+          "hits": 1,
+          "total": 2,
+          "rate": 50.0
+        },
+        "sfx": {
+          "hits": 38,
+          "total": 52,
+          "rate": 73.07692307692308
+        }
+      },
+      "category_recall": {
+        "visual": 55.500426734767196,
+        "audio": 68.16180235535074,
+        "synergy": 48.70348949296318
+      },
+      "solver_runs": 1
+    },
+    {
+      "id": "deepseek",
+      "model": "deepseek-v4.1-flash-1017",
+      "label": "DeepSeek V4.1 Flash",
+      "state": "运行中",
+      "score": null,
+      "actual_effort": "max",
+      "elapsed_seconds": null,
+      "exit_code": null,
+      "material_version": "caption-v2-singlejudge",
+      "judge_rounds": 1
+    },
+    {
+      "id": "kimi",
+      "model": "kimi-k3.1-pro",
+      "label": "Kimi K3.1",
+      "state": "等待运行",
+      "score": null,
+      "actual_effort": "max",
+      "elapsed_seconds": null,
+      "exit_code": null,
+      "material_version": null,
+      "judge_rounds": 1
+    }
+  ],
+  "show_in_summary": false,
+  "score_rule": "One complete semantic evaluation per delivery; fixed binary event recall within each target then equal six-target mean."
 }
