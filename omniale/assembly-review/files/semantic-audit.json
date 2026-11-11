@@ -1,0 +1,6211 @@
+{
+  "audit_version": "assembly-v4-author-adjudication-1",
+  "reviewer": "author (Codex)",
+  "independent_human_certification": false,
+  "semantic_audit_complete": true,
+  "method": "逐一复查115条观察及63条原参考。仅接受可见动作或排除实质歧义；保留3条明确遗漏。字段F1的TP/FN采用公开逐项裁定，权重、类别宏平均、时间宽容及原网页交付扣分不变。不是独立重标注基准；不得把本分数当作未经审计的原脚本输出。",
+  "review_scope": "原正面0.5秒抽帧覆盖0–173.5秒，料盒和小件的0.25秒裁图及俯视图作辅助；不从遮挡声称内部接合成功。",
+  "reviewed_front_sheets": [
+    "detail_front_000.00.jpg",
+    "detail_front_006.00.jpg",
+    "detail_front_012.00.jpg",
+    "detail_front_018.00.jpg",
+    "detail_front_024.00.jpg",
+    "detail_front_030.00.jpg",
+    "detail_front_036.00.jpg",
+    "detail_front_042.00.jpg",
+    "detail_front_048.00.jpg",
+    "detail_front_054.00.jpg",
+    "detail_front_060.00.jpg",
+    "detail_front_066.00.jpg",
+    "detail_front_072.00.jpg",
+    "detail_front_078.00.jpg",
+    "detail_front_083.00.jpg",
+    "detail_front_089.00.jpg",
+    "detail_front_095.00.jpg",
+    "detail_front_101.00.jpg",
+    "detail_front_107.00.jpg",
+    "detail_front_113.00.jpg",
+    "detail_front_119.00.jpg",
+    "detail_front_120.00.jpg",
+    "detail_front_126.00.jpg",
+    "detail_front_132.00.jpg",
+    "detail_front_138.00.jpg",
+    "detail_front_144.00.jpg",
+    "detail_front_150.00.jpg",
+    "detail_front_156.00.jpg",
+    "detail_front_162.00.jpg",
+    "detail_front_168.00.jpg"
+  ],
+  "created_at": "2026-11-11T14:24:08.292444+00:00",
+  "source_scorer_sha256": "cd1a574f896b577fe6bd2efc4bb7ae5af2bd07295f82617404c4fa617b5ac30d",
+  "source_truth_sha256": "1339d923973ae449a709b1a082952891fd51f41bea24ac105d355adecf41f484",
+  "reference_policy": {
+    "first": {
+      "start_s": 0,
+      "end_s": 83,
+      "hands": [
+        "left",
+        "right"
+      ],
+      "actions": [
+        "pick_up",
+        "transfer",
+        "adjust",
+        "fit",
+        "fasten",
+        "flip"
+      ]
+    },
+    "second": {
+      "start_s": 83,
+      "end_s": 173.8,
+      "hands": [
+        "left",
+        "right"
+      ],
+      "actions": [
+        "pick_up",
+        "transfer",
+        "adjust",
+        "fit",
+        "fasten",
+        "flip",
+        "put_down"
+      ]
+    },
+    "record_holds": false,
+    "clock": "front",
+    "bilateral_as_two_tracks": true
+  },
+  "model_actions_sha256": "44f06f7255b75de64dbf61191c407ffdfb0aa6d4b8fb565eb0c231f0d50b7f36",
+  "model_policy_sha256": "a54c8c0b6af097518af4ee6f80853cccfaaf6ff2b6c082fbb225ffbdbdde50cd",
+  "neutral_events": [
+    66,
+    72,
+    84,
+    90,
+    94,
+    103
+  ],
+  "action_only_neutral_events": [
+    "E082",
+    "E085"
+  ],
+  "missing_source_ids": [
+    3,
+    4,
+    20
+  ],
+  "missing_events": [
+    {
+      "hand": "left",
+      "action": "adjust",
+      "object": "shaft",
+      "start_s": 13.1333,
+      "end_s": 14.4,
+      "source_labels": [
+        {
+          "action_label": 72,
+          "phase": "normal",
+          "start_frame": 394,
+          "end_frame": 431
+        }
+      ],
+      "id": 3,
+      "accepted_objects": [
+        "shaft"
+      ],
+      "accepted_actions": [
+        "adjust"
+      ],
+      "adjudication": "missing",
+      "model_events": [],
+      "reason": "未找到独立归档记录，保留遗漏。"
+    },
+    {
+      "hand": "left",
+      "action": "fit",
+      "object": "shaft",
+      "start_s": 14.4,
+      "end_s": 18.2333,
+      "source_labels": [
+        {
+          "action_label": 38,
+          "phase": "normal",
+          "start_frame": 432,
+          "end_frame": 546
+        }
+      ],
+      "id": 4,
+      "accepted_objects": [
+        "shaft"
+      ],
+      "accepted_actions": [
+        "fit"
+      ],
+      "adjudication": "missing",
+      "model_events": [],
+      "reason": "未找到独立归档记录，保留遗漏。"
+    },
+    {
+      "hand": "left",
+      "action": "fit",
+      "object": "small_attachment",
+      "start_s": 123.6667,
+      "end_s": 124.6,
+      "source_labels": [
+        {
+          "action_label": 40,
+          "phase": "normal",
+          "start_frame": 3710,
+          "end_frame": 3737
+        }
+      ],
+      "id": 20,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "fit"
+      ],
+      "adjudication": "missing",
+      "model_events": [],
+      "reason": "未找到独立归档记录，保留遗漏。"
+    }
+  ],
+  "predictions": [
+    {
+      "hand": "right",
+      "start_s": 1.2,
+      "end_s": 2.3,
+      "action": "pick_up",
+      "object": "shaft",
+      "note": "右手从蓝色料盒抓持长轴并提离；未把伸手阶段另计。",
+      "id": "E001",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 0.55,
+          "end_s": 2.95
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 0.55,
+          "end_s": 2.95
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "0–8.6秒：取轴、双方转交、左手转轴，右手取壳并翻转；双手靠拢与插入可见。工具／患者式对象命名均接受。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 1.2,
+        "end_s": 2.3,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 2.3,
+      "end_s": 2.9,
+      "action": "transfer",
+      "object": "shaft",
+      "note": "左手接过右手递来的长轴；与右手为同一次转交的两条手轨。",
+      "id": "E002",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 1.65,
+          "end_s": 3.55
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 1.65,
+          "end_s": 3.55
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "0–8.6秒：取轴、双方转交、左手转轴，右手取壳并翻转；双手靠拢与插入可见。工具／患者式对象命名均接受。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 2.3,
+        "end_s": 2.9,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 2.3,
+      "end_s": 2.9,
+      "action": "transfer",
+      "object": "shaft",
+      "note": "右手将长轴交给左手，交接后右手离开去取机体。",
+      "id": "E003",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 1.65,
+          "end_s": 3.55
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 1.65,
+          "end_s": 3.55
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "0–8.6秒：取轴、双方转交、左手转轴，右手取壳并翻转；双手靠拢与插入可见。工具／患者式对象命名均接受。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 2.3,
+        "end_s": 2.9,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 3.0,
+      "end_s": 4.1,
+      "action": "flip",
+      "object": "shaft",
+      "note": "左手将接来的长轴由较直立改为横向，圆盘面方向明显改变。",
+      "id": "E004",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 2.35,
+          "end_s": 4.75
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 2.35,
+          "end_s": 4.75
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "0–8.6秒：取轴、双方转交、左手转轴，右手取壳并翻转；双手靠拢与插入可见。工具／患者式对象命名均接受。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 3.0,
+        "end_s": 4.1,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 3.0,
+      "end_s": 4.2,
+      "action": "pick_up",
+      "object": "body",
+      "note": "右手从蓝盒取出黑色机体。",
+      "id": "E005",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 2.35,
+          "end_s": 4.85
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 2.35,
+          "end_s": 4.85
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "0–8.6秒：取轴、双方转交、左手转轴，右手取壳并翻转；双手靠拢与插入可见。工具／患者式对象命名均接受。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 3.0,
+        "end_s": 4.2,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 4.3,
+      "end_s": 7.0,
+      "action": "flip",
+      "object": "body",
+      "note": "右手连续翻转黑色机体，展示开口及侧面并改变孔口方向；并非数次取起。",
+      "id": "E006",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 3.65,
+          "end_s": 7.65
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 3.65,
+          "end_s": 7.65
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "0–8.6秒：取轴、双方转交、左手转轴，右手取壳并翻转；双手靠拢与插入可见。工具／患者式对象命名均接受。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 4.3,
+        "end_s": 7.0,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 7.0,
+      "end_s": 7.7,
+      "action": "adjust",
+      "object": "shaft",
+      "note": "左手将长轴端朝机体孔口找正；两物尚有可见间隙。",
+      "id": "E007",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 6.35,
+          "end_s": 8.35
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 6.35,
+          "end_s": 8.35
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "0–8.6秒：取轴、双方转交、左手转轴，右手取壳并翻转；双手靠拢与插入可见。工具／患者式对象命名均接受。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 7.0,
+        "end_s": 7.7,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 7.0,
+      "end_s": 7.7,
+      "action": "adjust",
+      "object": "body",
+      "note": "右手移动机体孔口与左手轴端相对，属于主动对位。",
+      "id": "E008",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 6.35,
+          "end_s": 8.35
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 6.35,
+          "end_s": 8.35
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "0–8.6秒：取轴、双方转交、左手转轴，右手取壳并翻转；双手靠拢与插入可见。工具／患者式对象命名均接受。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 7.0,
+        "end_s": 7.7,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 7.7,
+      "end_s": 8.6,
+      "action": "fit",
+      "object": "shaft",
+      "note": "左手沿轴线将轴推进黑色机体；仅记录可见插入。",
+      "id": "E009",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 7.05,
+          "end_s": 9.25
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 7.05,
+          "end_s": 9.25
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "0–8.6秒：取轴、双方转交、左手转轴，右手取壳并翻转；双手靠拢与插入可见。工具／患者式对象命名均接受。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 7.7,
+        "end_s": 8.6,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 7.7,
+      "end_s": 8.6,
+      "action": "fit",
+      "object": "body",
+      "note": "右手将机体向长轴合拢，与左手共同完成可见合拢动作；不推断内部接合。",
+      "id": "E010",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 7.05,
+          "end_s": 9.25
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 7.05,
+          "end_s": 9.25
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "0–8.6秒：取轴、双方转交、左手转轴，右手取壳并翻转；双手靠拢与插入可见。工具／患者式对象命名均接受。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 7.7,
+        "end_s": 8.6,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 8.8,
+      "end_s": 9.7,
+      "action": "pick_up",
+      "object": "gear",
+      "note": "右手从第一只红盒取起较小的齿轮状圆件，带回机体开口处。",
+      "id": "E011",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 8.15,
+          "end_s": 10.35
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 8.15,
+          "end_s": 10.35
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "8.8–18.5秒：取圆件，先对准后压合；允许将来源长段拆成对位和贴合。左手另两段源参考仍保留遗漏。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 8.8,
+        "end_s": 9.7,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 9.7,
+      "end_s": 10.6,
+      "action": "adjust",
+      "object": "gear",
+      "note": "右手捏圆件对准开口内的轴心，先找正位置。",
+      "id": "E012",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 9.05,
+          "end_s": 11.25
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 9.05,
+          "end_s": 11.25
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "8.8–18.5秒：取圆件，先对准后压合；允许将来源长段拆成对位和贴合。左手另两段源参考仍保留遗漏。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 9.7,
+        "end_s": 10.6,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 10.6,
+      "end_s": 18.5,
+      "action": "fit",
+      "object": "gear",
+      "note": "右手把齿轮状圆件压向轴周围，连续小幅转动和压入以就位；不据此断言啮合结果。",
+      "id": "E013",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 9.95,
+          "end_s": 19.15
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 9.95,
+          "end_s": 19.15
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "8.8–18.5秒：取圆件，先对准后压合；允许将来源长段拆成对位和贴合。左手另两段源参考仍保留遗漏。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 10.6,
+        "end_s": 18.5,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 18.7,
+      "end_s": 19.7,
+      "action": "pick_up",
+      "object": "small_attachment",
+      "note": "右手再次从红盒捏起细小附件；具体规格不可辨。",
+      "id": "E014",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 18.05,
+          "end_s": 20.35
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 18.05,
+          "end_s": 20.35
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "18.7–28.6秒：取小件、对位、右指连续旋拧；24–28秒左手在外露轴端也有主动指端旋转，非单纯扶持。源短段不截断持续可见动作。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 18.7,
+        "end_s": 19.7,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 19.7,
+      "end_s": 20.3,
+      "action": "adjust",
+      "object": "small_attachment",
+      "note": "把小附件送到开口中央轴端并对正。",
+      "id": "E015",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 19.05,
+          "end_s": 20.95
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 19.05,
+          "end_s": 20.95
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "18.7–28.6秒：取小件、对位、右指连续旋拧；24–28秒左手在外露轴端也有主动指端旋转，非单纯扶持。源短段不截断持续可见动作。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 19.7,
+        "end_s": 20.3,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 20.3,
+      "end_s": 28.6,
+      "action": "fasten",
+      "object": "small_attachment",
+      "note": "右手拇指、食指在轴心小件上反复捻转，按连续手拧记录，不按每圈分段。",
+      "id": "E016",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 19.65,
+          "end_s": 29.25
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 19.65,
+          "end_s": 29.25
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "18.7–28.6秒：取小件、对位、右指连续旋拧；24–28秒左手在外露轴端也有主动指端旋转，非单纯扶持。源短段不截断持续可见动作。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 20.3,
+        "end_s": 28.6,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 24.4,
+      "end_s": 28.4,
+      "action": "fasten",
+      "object": "shaft",
+      "note": "左手在外露长轴端反复换指转动，协同右手中央手拧；只记录外露部位的可见转动。",
+      "id": "E017",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 23.75,
+          "end_s": 29.05
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 23.75,
+          "end_s": 29.05
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "18.7–28.6秒：取小件、对位、右指连续旋拧；24–28秒左手在外露轴端也有主动指端旋转，非单纯扶持。源短段不截断持续可见动作。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 24.4,
+        "end_s": 28.4,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 28.8,
+      "end_s": 29.4,
+      "action": "pick_up",
+      "object": "wrench",
+      "note": "右手从工具区取起金属扳手。",
+      "id": "E018",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 28.15,
+          "end_s": 30.05
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 28.15,
+          "end_s": 30.05
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "28.8–32.5秒：取扳手、套位、往复旋拧；fasten的对象取扳手或被紧固小件均成立。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 28.8,
+        "end_s": 29.4,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 29.4,
+      "end_s": 29.9,
+      "action": "adjust",
+      "object": "wrench",
+      "note": "将扳手开口找向机体开口内的小件，调整工具接触方向。",
+      "id": "E019",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 28.75,
+          "end_s": 30.55
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 28.75,
+          "end_s": 30.55
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "28.8–32.5秒：取扳手、套位、往复旋拧；fasten的对象取扳手或被紧固小件均成立。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 29.4,
+        "end_s": 29.9,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 29.9,
+      "end_s": 32.5,
+      "action": "fasten",
+      "object": "wrench",
+      "note": "右手持扳手在中央小件处作连续旋拧／换角往复；不判断扭矩。",
+      "id": "E020",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 29.25,
+          "end_s": 33.15
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 29.25,
+          "end_s": 33.15
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "28.8–32.5秒：取扳手、套位、往复旋拧；fasten的对象取扳手或被紧固小件均成立。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 29.9,
+        "end_s": 32.5,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 33.4,
+      "end_s": 34.3,
+      "action": "pick_up",
+      "object": "adapter_plate",
+      "note": "右手从第一只红盒取出较早使用的黑色环状平板。",
+      "id": "E021",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 32.75,
+          "end_s": 34.95
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 32.75,
+          "end_s": 34.95
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "33.4–38.2秒：取适配板、双方转交、对位贴合，随后双手共同翻转机体。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 33.4,
+        "end_s": 34.3,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 34.3,
+      "end_s": 34.8,
+      "action": "transfer",
+      "object": "adapter_plate",
+      "note": "左手接过环状适配件；与右手同一次交接。",
+      "id": "E022",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 33.65,
+          "end_s": 35.45
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 33.65,
+          "end_s": 35.45
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "33.4–38.2秒：取适配板、双方转交、对位贴合，随后双手共同翻转机体。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 34.3,
+        "end_s": 34.8,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 34.3,
+      "end_s": 34.8,
+      "action": "transfer",
+      "object": "adapter_plate",
+      "note": "右手将环状适配件递交左手。",
+      "id": "E023",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 33.65,
+          "end_s": 35.45
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 33.65,
+          "end_s": 35.45
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "33.4–38.2秒：取适配板、双方转交、对位贴合，随后双手共同翻转机体。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 34.3,
+        "end_s": 34.8,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 34.8,
+      "end_s": 35.8,
+      "action": "adjust",
+      "object": "adapter_plate",
+      "note": "左手将适配件中心孔对准外露长轴，尚可见两者分离。",
+      "id": "E024",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 34.15,
+          "end_s": 36.45
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 34.15,
+          "end_s": 36.45
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "33.4–38.2秒：取适配板、双方转交、对位贴合，随后双手共同翻转机体。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 34.8,
+        "end_s": 35.8,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 35.8,
+      "end_s": 37.3,
+      "action": "fit",
+      "object": "adapter_plate",
+      "note": "左手沿轴套入并推近环状适配件，右手主要持机体。",
+      "id": "E025",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 35.15,
+          "end_s": 37.95
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 35.15,
+          "end_s": 37.95
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "33.4–38.2秒：取适配板、双方转交、对位贴合，随后双手共同翻转机体。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 35.8,
+        "end_s": 37.3,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 37.3,
+      "end_s": 38.2,
+      "action": "flip",
+      "object": "body",
+      "note": "左手主动转动含轴机体，与右手同时翻向；并非单纯扶持。",
+      "id": "E026",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 36.65,
+          "end_s": 38.85
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 36.65,
+          "end_s": 38.85
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "33.4–38.2秒：取适配板、双方转交、对位贴合，随后双手共同翻转机体。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 37.3,
+        "end_s": 38.2,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 37.3,
+      "end_s": 38.2,
+      "action": "flip",
+      "object": "body",
+      "note": "右手配合左手把含轴机体翻回开口朝上，露出中央操作区。",
+      "id": "E027",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 36.65,
+          "end_s": 38.85
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 36.65,
+          "end_s": 38.85
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "33.4–38.2秒：取适配板、双方转交、对位贴合，随后双手共同翻转机体。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 37.3,
+        "end_s": 38.2,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 38.3,
+      "end_s": 39.4,
+      "action": "pick_up",
+      "object": "small_attachment",
+      "note": "右手从红盒捏取一枚细小附件，带到机体开口。",
+      "id": "E028",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 37.65,
+          "end_s": 40.05
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 37.65,
+          "end_s": 40.05
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "38.3–47.4秒：小件取持与插入后再次伸入料盒；41–45秒两次取持涉及不同小件，不能仅因均归small_attachment而合成一次。随后双方参与转交。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 38.3,
+        "end_s": 39.4,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 39.4,
+      "end_s": 39.9,
+      "action": "adjust",
+      "object": "small_attachment",
+      "note": "小附件在机体开口上方先找位置。",
+      "id": "E029",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 38.75,
+          "end_s": 40.55
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 38.75,
+          "end_s": 40.55
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "38.3–47.4秒：小件取持与插入后再次伸入料盒；41–45秒两次取持涉及不同小件，不能仅因均归small_attachment而合成一次。随后双方参与转交。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 39.4,
+        "end_s": 39.9,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 39.9,
+      "end_s": 40.9,
+      "action": "fit",
+      "object": "small_attachment",
+      "note": "右手向开口内送入、按放小件；不判断其内部作用或型号。",
+      "id": "E030",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 39.25,
+          "end_s": 41.55
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 39.25,
+          "end_s": 41.55
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "38.3–47.4秒：小件取持与插入后再次伸入料盒；41–45秒两次取持涉及不同小件，不能仅因均归small_attachment而合成一次。随后双方参与转交。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 39.9,
+        "end_s": 40.9,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 41.5,
+      "end_s": 42.5,
+      "action": "pick_up",
+      "object": "small_attachment",
+      "note": "右手从第一红盒取小附件，随后暂置作业区；放下开始在83秒前，不归档。",
+      "id": "E031",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 40.85,
+          "end_s": 43.15
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 40.85,
+          "end_s": 43.15
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "38.3–47.4秒：小件取持与插入后再次伸入料盒；41–45秒两次取持涉及不同小件，不能仅因均归small_attachment而合成一次。随后双方参与转交。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 41.5,
+        "end_s": 42.5,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 43.0,
+      "end_s": 45.5,
+      "action": "pick_up",
+      "object": "small_attachment",
+      "note": "右手继续在同盒内选择并取回小附件；连续搜取合并，不按手指搜寻切碎。",
+      "id": "E032",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 42.35,
+          "end_s": 46.15
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 42.35,
+          "end_s": 46.15
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "38.3–47.4秒：小件取持与插入后再次伸入料盒；41–45秒两次取持涉及不同小件，不能仅因均归small_attachment而合成一次。随后双方参与转交。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 43.0,
+        "end_s": 45.5,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 46.4,
+      "end_s": 47.4,
+      "action": "transfer",
+      "object": "small_attachment",
+      "note": "左手从右手接取细小附件。",
+      "id": "E033",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 45.75,
+          "end_s": 48.05
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 45.75,
+          "end_s": 48.05
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "38.3–47.4秒：小件取持与插入后再次伸入料盒；41–45秒两次取持涉及不同小件，不能仅因均归small_attachment而合成一次。随后双方参与转交。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 46.4,
+        "end_s": 47.4,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 46.4,
+      "end_s": 47.4,
+      "action": "transfer",
+      "object": "small_attachment",
+      "note": "右手将掌内小件交给左手指尖，具体细分类不可辨。",
+      "id": "E034",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 45.75,
+          "end_s": 48.05
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 45.75,
+          "end_s": 48.05
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "38.3–47.4秒：小件取持与插入后再次伸入料盒；41–45秒两次取持涉及不同小件，不能仅因均归small_attachment而合成一次。随后双方参与转交。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 46.4,
+        "end_s": 47.4,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 47.5,
+      "end_s": 48.7,
+      "action": "adjust",
+      "object": "small_attachment",
+      "note": "左手持小附件靠近机体上缘找正。",
+      "id": "E035",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 46.85,
+          "end_s": 49.35
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 46.85,
+          "end_s": 49.35
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "47.5–52.8秒：左手找位、右手从桌面再次取件、双手靠拢贴合、左指旋拧，右手取工具。短对位／贴合与持续旋拧可分记。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 47.5,
+        "end_s": 48.7,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 47.6,
+      "end_s": 48.3,
+      "action": "pick_up",
+      "object": "small_attachment",
+      "note": "右手从机体前方桌面捏起先前暂置的小件。",
+      "id": "E036",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 46.95,
+          "end_s": 48.95
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 46.95,
+          "end_s": 48.95
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "47.5–52.8秒：左手找位、右手从桌面再次取件、双手靠拢贴合、左指旋拧，右手取工具。短对位／贴合与持续旋拧可分记。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 47.6,
+        "end_s": 48.3,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 48.3,
+      "end_s": 49.0,
+      "action": "adjust",
+      "object": "small_attachment",
+      "note": "右手把桌面取来的小件送到左手所持件附近并调整方向。",
+      "id": "E037",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 47.65,
+          "end_s": 49.65
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 47.65,
+          "end_s": 49.65
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "47.5–52.8秒：左手找位、右手从桌面再次取件、双手靠拢贴合、左指旋拧，右手取工具。短对位／贴合与持续旋拧可分记。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 48.3,
+        "end_s": 49.0,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 48.7,
+      "end_s": 49.6,
+      "action": "fit",
+      "object": "small_attachment",
+      "note": "左手持小件主动靠拢并压向机体上缘，与右手协同就位；仅记录可见动作。",
+      "id": "E038",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 48.05,
+          "end_s": 50.25
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 48.05,
+          "end_s": 50.25
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "47.5–52.8秒：左手找位、右手从桌面再次取件、双手靠拢贴合、左指旋拧，右手取工具。短对位／贴合与持续旋拧可分记。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 48.7,
+        "end_s": 49.6,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 49.0,
+      "end_s": 49.6,
+      "action": "fit",
+      "object": "small_attachment",
+      "note": "右手指尖把小附件向机体上缘／左手所持件压合；结合处部分被手指挡住。之后主要稳定该处。",
+      "id": "E039",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 48.35,
+          "end_s": 50.25
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 48.35,
+          "end_s": 50.25
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "47.5–52.8秒：左手找位、右手从桌面再次取件、双手靠拢贴合、左指旋拧，右手取工具。短对位／贴合与持续旋拧可分记。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 49.0,
+        "end_s": 49.6,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 49.6,
+      "end_s": 51.7,
+      "action": "fasten",
+      "object": "small_attachment",
+      "note": "左手拇指食指在机体边缘细小件上反复捻转和换指，记录手拧，不推断紧固程度。",
+      "id": "E040",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 48.95,
+          "end_s": 52.35
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 48.95,
+          "end_s": 52.35
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "47.5–52.8秒：左手找位、右手从桌面再次取件、双手靠拢贴合、左指旋拧，右手取工具。短对位／贴合与持续旋拧可分记。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 49.6,
+        "end_s": 51.7,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 51.8,
+      "end_s": 52.8,
+      "action": "pick_up",
+      "object": "screwdriver",
+      "note": "右手从工具区取红黄柄螺丝刀。",
+      "id": "E041",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 51.15,
+          "end_s": 53.45
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 51.15,
+          "end_s": 53.45
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "47.5–52.8秒：左手找位、右手从桌面再次取件、双手靠拢贴合、左指旋拧，右手取工具。短对位／贴合与持续旋拧可分记。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 51.8,
+        "end_s": 52.8,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 52.8,
+      "end_s": 54.8,
+      "action": "adjust",
+      "object": "screwdriver",
+      "note": "右手将工具尖端送到左手所持小件处，调整轴线和接触角。",
+      "id": "E042",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 52.15,
+          "end_s": 55.45
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 52.15,
+          "end_s": 55.45
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "52.8–82.3秒：工具先找位再旋拧；63.4秒后停止旋拧并翻面，左手重新取件，右手再次找位再旋拧。来源52.8–82.8秒单段不能将这些真实变更全部吞并。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 52.8,
+        "end_s": 54.8,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 54.8,
+      "end_s": 63.6,
+      "action": "fasten",
+      "object": "screwdriver",
+      "note": "右手连续旋转红黄柄螺丝刀；左手大部分时段只稳定尖端附近小件，不另计扶持。",
+      "id": "E043",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 54.15,
+          "end_s": 64.25
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 54.15,
+          "end_s": 64.25
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "52.8–82.3秒：工具先找位再旋拧；63.4秒后停止旋拧并翻面，左手重新取件，右手再次找位再旋拧。来源52.8–82.8秒单段不能将这些真实变更全部吞并。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 54.8,
+        "end_s": 63.6,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 63.7,
+      "end_s": 65.3,
+      "action": "flip",
+      "object": "body",
+      "note": "左手拿住含轴机体明显翻面，黑色封闭背面由侧向转到朝上。",
+      "id": "E044",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 63.05,
+          "end_s": 65.95
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 63.05,
+          "end_s": 65.95
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "52.8–82.3秒：工具先找位再旋拧；63.4秒后停止旋拧并翻面，左手重新取件，右手再次找位再旋拧。来源52.8–82.8秒单段不能将这些真实变更全部吞并。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 63.7,
+        "end_s": 65.3,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 67.9,
+      "end_s": 68.6,
+      "action": "pick_up",
+      "object": "small_attachment",
+      "note": "左手另从灰色作业区拾起条状小附件，带回机体右上缘。",
+      "id": "E045",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 67.25,
+          "end_s": 69.25
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 67.25,
+          "end_s": 69.25
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "52.8–82.3秒：工具先找位再旋拧；63.4秒后停止旋拧并翻面，左手重新取件，右手再次找位再旋拧。来源52.8–82.8秒单段不能将这些真实变更全部吞并。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 67.9,
+        "end_s": 68.6,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 68.6,
+      "end_s": 69.1,
+      "action": "adjust",
+      "object": "small_attachment",
+      "note": "左手把小件举到刀尖／机体边缘找正，不能据接近认定已结合。",
+      "id": "E046",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 67.95,
+          "end_s": 69.75
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 67.95,
+          "end_s": 69.75
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "52.8–82.3秒：工具先找位再旋拧；63.4秒后停止旋拧并翻面，左手重新取件，右手再次找位再旋拧。来源52.8–82.8秒单段不能将这些真实变更全部吞并。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 68.6,
+        "end_s": 69.1,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 68.8,
+      "end_s": 70.0,
+      "action": "adjust",
+      "object": "screwdriver",
+      "note": "右手调整红黄柄刀尖以对准左手持件。",
+      "id": "E047",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 68.15,
+          "end_s": 70.65
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 68.15,
+          "end_s": 70.65
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "52.8–82.3秒：工具先找位再旋拧；63.4秒后停止旋拧并翻面，左手重新取件，右手再次找位再旋拧。来源52.8–82.8秒单段不能将这些真实变更全部吞并。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 68.8,
+        "end_s": 70.0,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 69.1,
+      "end_s": 70.0,
+      "action": "fit",
+      "object": "small_attachment",
+      "note": "左手将小件贴向机体边缘并与刀尖接触区域合拢；细节有手指遮挡。",
+      "id": "E048",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 68.45,
+          "end_s": 70.65
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 68.45,
+          "end_s": 70.65
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "52.8–82.3秒：工具先找位再旋拧；63.4秒后停止旋拧并翻面，左手重新取件，右手再次找位再旋拧。来源52.8–82.8秒单段不能将这些真实变更全部吞并。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 69.1,
+        "end_s": 70.0,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 70.0,
+      "end_s": 82.3,
+      "action": "fasten",
+      "object": "small_attachment",
+      "note": "左手指尖在另一端小件上可见反复捻转与换指；不以此证明内部螺纹或紧固结果。",
+      "id": "E049",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 69.35,
+          "end_s": 82.95
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 69.35,
+          "end_s": 82.95
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "52.8–82.3秒：工具先找位再旋拧；63.4秒后停止旋拧并翻面，左手重新取件，右手再次找位再旋拧。来源52.8–82.8秒单段不能将这些真实变更全部吞并。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 70.0,
+        "end_s": 82.3,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 70.0,
+      "end_s": 82.3,
+      "action": "fasten",
+      "object": "screwdriver",
+      "note": "右手在同一位置持续换指旋转螺丝刀，短暂停顿未另切事件。",
+      "id": "E050",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 69.35,
+          "end_s": 82.95
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 69.35,
+          "end_s": 82.95
+        }
+      ],
+      "policy_segment": "first",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "52.8–82.3秒：工具先找位再旋拧；63.4秒后停止旋拧并翻面，左手重新取件，右手再次找位再旋拧。来源52.8–82.8秒单段不能将这些真实变更全部吞并。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 70.0,
+        "end_s": 82.3,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 83.0,
+      "end_s": 83.9,
+      "action": "flip",
+      "object": "body",
+      "note": "左手同时主动转动机体，和右手共同翻向。",
+      "id": "E051",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 82.35,
+          "end_s": 84.55
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 82.35,
+          "end_s": 84.55
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "83–89.9秒：双方翻面、取圆盘与双方转交、对位压合；82秒前放在桌面的旧工具在88秒重新取起后归还，再取另一工具。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 83.0,
+        "end_s": 83.9,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 83.0,
+      "end_s": 83.9,
+      "action": "flip",
+      "object": "body",
+      "note": "右手将含轴机体翻向另一面，使圆盘安装口朝上。",
+      "id": "E052",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 82.35,
+          "end_s": 84.55
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 82.35,
+          "end_s": 84.55
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "83–89.9秒：双方翻面、取圆盘与双方转交、对位压合；82秒前放在桌面的旧工具在88秒重新取起后归还，再取另一工具。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 83.0,
+        "end_s": 83.9,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 84.0,
+      "end_s": 85.3,
+      "action": "pick_up",
+      "object": "bearing_plate",
+      "note": "左手从第二只红盒取出较大的圆盘总成。",
+      "id": "E053",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 83.35,
+          "end_s": 85.95
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 83.35,
+          "end_s": 85.95
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "83–89.9秒：双方翻面、取圆盘与双方转交、对位压合；82秒前放在桌面的旧工具在88秒重新取起后归还，再取另一工具。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 84.0,
+        "end_s": 85.3,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 85.3,
+      "end_s": 86.1,
+      "action": "transfer",
+      "object": "bearing_plate",
+      "note": "左手把圆盘总成送到右手，随后改持机体。",
+      "id": "E054",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 84.65,
+          "end_s": 86.75
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 84.65,
+          "end_s": 86.75
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "83–89.9秒：双方翻面、取圆盘与双方转交、对位压合；82秒前放在桌面的旧工具在88秒重新取起后归还，再取另一工具。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 85.3,
+        "end_s": 86.1,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 85.3,
+      "end_s": 86.1,
+      "action": "transfer",
+      "object": "bearing_plate",
+      "note": "右手从左手接取圆盘总成。",
+      "id": "E055",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 84.65,
+          "end_s": 86.75
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 84.65,
+          "end_s": 86.75
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "83–89.9秒：双方翻面、取圆盘与双方转交、对位压合；82秒前放在桌面的旧工具在88秒重新取起后归还，再取另一工具。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 85.3,
+        "end_s": 86.1,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 86.1,
+      "end_s": 86.9,
+      "action": "adjust",
+      "object": "bearing_plate",
+      "note": "右手把圆盘总成对向机体上口，先调整角度／孔位。",
+      "id": "E056",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 85.45,
+          "end_s": 87.55
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 85.45,
+          "end_s": 87.55
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "83–89.9秒：双方翻面、取圆盘与双方转交、对位压合；82秒前放在桌面的旧工具在88秒重新取起后归还，再取另一工具。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 86.1,
+        "end_s": 86.9,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 86.9,
+      "end_s": 88.1,
+      "action": "fit",
+      "object": "bearing_plate",
+      "note": "右手将圆盘总成压合到机体开口，手掌向下按近；仅指可见贴合。",
+      "id": "E057",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 86.25,
+          "end_s": 88.75
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 86.25,
+          "end_s": 88.75
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "83–89.9秒：双方翻面、取圆盘与双方转交、对位压合；82秒前放在桌面的旧工具在88秒重新取起后归还，再取另一工具。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 86.9,
+        "end_s": 88.1,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 88.1,
+      "end_s": 88.5,
+      "action": "pick_up",
+      "object": "screwdriver",
+      "note": "右手从作业区取起此前暂置的红黄柄螺丝刀，准备归还。",
+      "id": "E058",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 87.45,
+          "end_s": 89.15
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 87.45,
+          "end_s": 89.15
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "83–89.9秒：双方翻面、取圆盘与双方转交、对位压合；82秒前放在桌面的旧工具在88秒重新取起后归还，再取另一工具。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 88.1,
+        "end_s": 88.5,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 88.5,
+      "end_s": 89.1,
+      "action": "put_down",
+      "object": "screwdriver",
+      "note": "右手把红黄柄螺丝刀放回画面左侧工具区并松手。",
+      "id": "E059",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 87.85,
+          "end_s": 89.75
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 87.85,
+          "end_s": 89.75
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "83–89.9秒：双方翻面、取圆盘与双方转交、对位压合；82秒前放在桌面的旧工具在88秒重新取起后归还，再取另一工具。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 88.5,
+        "end_s": 89.1,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 89.1,
+      "end_s": 89.9,
+      "action": "pick_up",
+      "object": "screwdriver",
+      "note": "右手从工具区取绿色黑色柄螺丝刀；与上一把分开。",
+      "id": "E060",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 88.45,
+          "end_s": 90.55
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 88.45,
+          "end_s": 90.55
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "83–89.9秒：双方翻面、取圆盘与双方转交、对位压合；82秒前放在桌面的旧工具在88秒重新取起后归还，再取另一工具。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 89.1,
+        "end_s": 89.9,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 90.0,
+      "end_s": 91.5,
+      "action": "pick_up",
+      "object": "small_attachment",
+      "note": "左手从第二红盒捏取细小紧固附件，带到螺丝刀前。",
+      "id": "E061",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 89.35,
+          "end_s": 92.15
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 89.35,
+          "end_s": 92.15
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "90–106.7秒：取小件、在工具尖端对位／贴合，再移至圆盘边缘旋拧。工具作object与受影响零件作object均接受；不要求猜遮挡中的内部结果。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 90.0,
+        "end_s": 91.5,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 91.5,
+      "end_s": 92.3,
+      "action": "adjust",
+      "object": "small_attachment",
+      "note": "左手将小件对向右手刀尖，先调整接触方向。",
+      "id": "E062",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 90.85,
+          "end_s": 92.95
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 90.85,
+          "end_s": 92.95
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "90–106.7秒：取小件、在工具尖端对位／贴合，再移至圆盘边缘旋拧。工具作object与受影响零件作object均接受；不要求猜遮挡中的内部结果。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 91.5,
+        "end_s": 92.3,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 91.8,
+      "end_s": 94.4,
+      "action": "adjust",
+      "object": "screwdriver",
+      "note": "右手先持刀尖朝左手捏持的小件找正，再朝圆盘边缘孔位找角度；连续对位过程合并，尚未开始旋拧。",
+      "id": "E063",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 91.15,
+          "end_s": 95.05
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 91.15,
+          "end_s": 95.05
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "90–106.7秒：取小件、在工具尖端对位／贴合，再移至圆盘边缘旋拧。工具作object与受影响零件作object均接受；不要求猜遮挡中的内部结果。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 91.8,
+        "end_s": 94.4,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 92.3,
+      "end_s": 94.3,
+      "action": "fit",
+      "object": "small_attachment",
+      "note": "左手将小附件贴到工具尖端，继而送入圆盘边缘孔位；连续就位过程合并，头型未知。",
+      "id": "E064",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 91.65,
+          "end_s": 94.95
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 91.65,
+          "end_s": 94.95
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "90–106.7秒：取小件、在工具尖端对位／贴合，再移至圆盘边缘旋拧。工具作object与受影响零件作object均接受；不要求猜遮挡中的内部结果。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 92.3,
+        "end_s": 94.3,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 94.4,
+      "end_s": 106.7,
+      "action": "fasten",
+      "object": "screwdriver",
+      "note": "右手持续转动绿黑柄螺丝刀，刀杆保持指向圆盘边缘；98.5秒后左手短时接触柄部，未把每次旋转切碎。",
+      "id": "E065",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 93.75,
+          "end_s": 107.35
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 93.75,
+          "end_s": 107.35
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "90–106.7秒：取小件、在工具尖端对位／贴合，再移至圆盘边缘旋拧。工具作object与受影响零件作object均接受；不要求猜遮挡中的内部结果。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 94.4,
+        "end_s": 106.7,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 98.5,
+      "end_s": 104.9,
+      "action": null,
+      "object": "screwdriver",
+      "note": "左手离开机体，包住螺丝刀靠近柄部的区域，右手继续旋转；左手是稳定工具还是主动施转不能可靠区分，动作置null。",
+      "id": "E066",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 97.85,
+          "end_s": 105.55
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 97.85,
+          "end_s": 105.55
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "neutral",
+        "object": "neutral",
+        "hand": "neutral",
+        "localization": "neutral"
+      },
+      "reason": "98.5–104.9秒左手在工具上协作，稳定与主动施转难分；模型诚实写null。整条观察中性排除，不当作正确工作动作。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 98.5,
+        "end_s": 104.9,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 106.7,
+      "end_s": 109.3,
+      "action": "adjust",
+      "object": "screwdriver",
+      "note": "右手从孔位抬开螺丝刀，对向左手掌中小附件重新找正刀尖，再把工具移向另一孔位；连续对位合并。",
+      "id": "E067",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 106.05,
+          "end_s": 109.95
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 106.05,
+          "end_s": 109.95
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "106.7–121.6秒：抬起工具，左手小件对位、压合及短时指端转动，再以工具旋拧；120秒后工具明确放回桌面。对位与贴合边界按可见接近／接触接受。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 106.7,
+        "end_s": 109.3,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 106.8,
+      "end_s": 108.4,
+      "action": "adjust",
+      "object": "small_attachment",
+      "note": "左手掌中小附件靠近刀尖，由指尖调整位置；小件是否同前一枚无法确认。",
+      "id": "E068",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 106.15,
+          "end_s": 109.05
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 106.15,
+          "end_s": 109.05
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "106.7–121.6秒：抬起工具，左手小件对位、压合及短时指端转动，再以工具旋拧；120秒后工具明确放回桌面。对位与贴合边界按可见接近／接触接受。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 106.8,
+        "end_s": 108.4,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 108.4,
+      "end_s": 109.2,
+      "action": "fit",
+      "object": "small_attachment",
+      "note": "左手将小件贴向圆盘另一边缘孔位。",
+      "id": "E069",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 107.75,
+          "end_s": 109.85
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 107.75,
+          "end_s": 109.85
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "106.7–121.6秒：抬起工具，左手小件对位、压合及短时指端转动，再以工具旋拧；120秒后工具明确放回桌面。对位与贴合边界按可见接近／接触接受。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 108.4,
+        "end_s": 109.2,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 109.2,
+      "end_s": 111.1,
+      "action": "fasten",
+      "object": "small_attachment",
+      "note": "右手工具暂抬离时，左手指尖在孔口小件上连续捻转，记录手指起扣。",
+      "id": "E070",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 108.55,
+          "end_s": 111.75
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 108.55,
+          "end_s": 111.75
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "106.7–121.6秒：抬起工具，左手小件对位、压合及短时指端转动，再以工具旋拧；120秒后工具明确放回桌面。对位与贴合边界按可见接近／接触接受。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 109.2,
+        "end_s": 111.1,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 111.1,
+      "end_s": 120.3,
+      "action": "fasten",
+      "object": "screwdriver",
+      "note": "右手重新让刀尖接触孔口并连续旋拧，直到抬开工具。",
+      "id": "E071",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 110.45,
+          "end_s": 120.95
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 110.45,
+          "end_s": 120.95
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "106.7–121.6秒：抬起工具，左手小件对位、压合及短时指端转动，再以工具旋拧；120秒后工具明确放回桌面。对位与贴合边界按可见接近／接触接受。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 111.1,
+        "end_s": 120.3,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 112.3,
+      "end_s": 117.8,
+      "action": null,
+      "object": "screwdriver",
+      "note": "左手在工具柄／杆附近协作，稳定、对位与主动施转边界不清；此观察中点处于公开左手111–118秒歧义排除区，保留未知。",
+      "id": "E072",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 111.65,
+          "end_s": 118.45
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 111.65,
+          "end_s": 118.45
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": true,
+      "adjudication": {
+        "action": "neutral",
+        "object": "neutral",
+        "hand": "neutral",
+        "localization": "neutral"
+      },
+      "reason": "左手111–118秒，试跑前公开排除区间。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 112.3,
+        "end_s": 117.8,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 120.4,
+      "end_s": 121.6,
+      "action": "put_down",
+      "object": "screwdriver",
+      "note": "右手把绿黑柄螺丝刀放在机体前方偏右的桌面并松开。",
+      "id": "E073",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 119.75,
+          "end_s": 122.25
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 119.75,
+          "end_s": 122.25
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "106.7–121.6秒：抬起工具，左手小件对位、压合及短时指端转动，再以工具旋拧；120秒后工具明确放回桌面。对位与贴合边界按可见接近／接触接受。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 120.4,
+        "end_s": 121.6,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 121.9,
+      "end_s": 123.3,
+      "action": "pick_up",
+      "object": "small_attachment",
+      "note": "右手从第三红盒取出黑色条状小附件，带离料盒；不是末段长柄。",
+      "id": "E074",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 121.25,
+          "end_s": 123.95
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 121.25,
+          "end_s": 123.95
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "121.9–136.9秒：右手伸入远侧料盒、双方转交、再取小件、对位及接触，之后在机体孔口和离体小件间切换操作。E082/E085的fit/fasten分类争议只在action字段中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 121.9,
+        "end_s": 123.3,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 123.3,
+      "end_s": 123.8,
+      "action": "transfer",
+      "object": "small_attachment",
+      "note": "左手接过右手取出的黑色条状小附件。",
+      "id": "E075",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 122.65,
+          "end_s": 124.45
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 122.65,
+          "end_s": 124.45
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "121.9–136.9秒：右手伸入远侧料盒、双方转交、再取小件、对位及接触，之后在机体孔口和离体小件间切换操作。E082/E085的fit/fasten分类争议只在action字段中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 123.3,
+        "end_s": 123.8,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 123.3,
+      "end_s": 123.8,
+      "action": "transfer",
+      "object": "small_attachment",
+      "note": "右手将黑色条状附件递给左手，左手接取后右手改动其端部。",
+      "id": "E076",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 122.65,
+          "end_s": 124.45
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 122.65,
+          "end_s": 124.45
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "121.9–136.9秒：右手伸入远侧料盒、双方转交、再取小件、对位及接触，之后在机体孔口和离体小件间切换操作。E082/E085的fit/fasten分类争议只在action字段中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 123.3,
+        "end_s": 123.8,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 123.8,
+      "end_s": 124.9,
+      "action": "adjust",
+      "object": "small_attachment",
+      "note": "右手在左手持件端部捏动、调整，较小接触区域不足以判定已插入。",
+      "id": "E077",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 123.15,
+          "end_s": 125.55
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 123.15,
+          "end_s": 125.55
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "121.9–136.9秒：右手伸入远侧料盒、双方转交、再取小件、对位及接触，之后在机体孔口和离体小件间切换操作。E082/E085的fit/fasten分类争议只在action字段中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 123.8,
+        "end_s": 124.9,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 125.2,
+      "end_s": 127.3,
+      "action": "pick_up",
+      "object": "small_attachment",
+      "note": "右手再次到第三红盒捏取细小金属件并带回左手持件附近。",
+      "id": "E078",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 124.55,
+          "end_s": 127.95
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 124.55,
+          "end_s": 127.95
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "121.9–136.9秒：右手伸入远侧料盒、双方转交、再取小件、对位及接触，之后在机体孔口和离体小件间切换操作。E082/E085的fit/fasten分类争议只在action字段中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 125.2,
+        "end_s": 127.3,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 127.4,
+      "end_s": 128.1,
+      "action": "adjust",
+      "object": "small_attachment",
+      "note": "右手将新取小件与左手持件端部对准。",
+      "id": "E079",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 126.75,
+          "end_s": 128.75
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 126.75,
+          "end_s": 128.75
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "121.9–136.9秒：右手伸入远侧料盒、双方转交、再取小件、对位及接触，之后在机体孔口和离体小件间切换操作。E082/E085的fit/fasten分类争议只在action字段中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 127.4,
+        "end_s": 128.1,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 128.1,
+      "end_s": 128.9,
+      "action": "fit",
+      "object": "small_attachment",
+      "note": "右手把细小件送向黑色条状附件端部，能看到接触压合，不能判断锁定。",
+      "id": "E080",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 127.45,
+          "end_s": 129.55
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 127.45,
+          "end_s": 129.55
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "121.9–136.9秒：右手伸入远侧料盒、双方转交、再取小件、对位及接触，之后在机体孔口和离体小件间切换操作。E082/E085的fit/fasten分类争议只在action字段中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 128.1,
+        "end_s": 128.9,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 129.0,
+      "end_s": 129.5,
+      "action": "adjust",
+      "object": "small_attachment",
+      "note": "右手从掌前移到圆盘边缘，指尖小件找向孔口。",
+      "id": "E081",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 128.35,
+          "end_s": 130.15
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 128.35,
+          "end_s": 130.15
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "121.9–136.9秒：右手伸入远侧料盒、双方转交、再取小件、对位及接触，之后在机体孔口和离体小件间切换操作。E082/E085的fit/fasten分类争议只在action字段中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 129.0,
+        "end_s": 129.5,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 129.5,
+      "end_s": 131.1,
+      "action": "fasten",
+      "object": "small_attachment",
+      "note": "右手指尖在圆盘孔口附近作反复捻转／起扣动作；小件头型与螺纹结果不可见。",
+      "id": "E082",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 128.85,
+          "end_s": 131.75
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 128.85,
+          "end_s": 131.75
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "neutral",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "121.9–136.9秒：右手伸入远侧料盒、双方转交、再取小件、对位及接触，之后在机体孔口和离体小件间切换操作。E082/E085的fit/fasten分类争议只在action字段中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 129.5,
+        "end_s": 131.1,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 131.1,
+      "end_s": 132.2,
+      "action": "adjust",
+      "object": "small_attachment",
+      "note": "右手回到左手所持条状附件端部，重新对小件方向。",
+      "id": "E083",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 130.45,
+          "end_s": 132.85
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 130.45,
+          "end_s": 132.85
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "121.9–136.9秒：右手伸入远侧料盒、双方转交、再取小件、对位及接触，之后在机体孔口和离体小件间切换操作。E082/E085的fit/fasten分类争议只在action字段中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 131.1,
+        "end_s": 132.2,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 132.2,
+      "end_s": 133.3,
+      "action": "adjust",
+      "object": "small_attachment",
+      "note": "左手主动转动黑色条状件朝向，让其端部面对右手所持小件，随后主要稳定。",
+      "id": "E084",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 131.55,
+          "end_s": 133.95
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 131.55,
+          "end_s": 133.95
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "neutral",
+        "object": "neutral",
+        "hand": "neutral",
+        "localization": "neutral"
+      },
+      "reason": "132.2–133.3秒左手轻微改变小件朝向，主动对位与伴随扶持边界不清，整条中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 132.2,
+        "end_s": 133.3,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 132.2,
+      "end_s": 136.9,
+      "action": "fasten",
+      "object": "small_attachment",
+      "note": "右手拇指食指在悬空小附件端部连续捻转，左手主要持黑色条状件；不把每次换指拆开。",
+      "id": "E085",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 131.55,
+          "end_s": 137.55
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 131.55,
+          "end_s": 137.55
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "neutral",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "121.9–136.9秒：右手伸入远侧料盒、双方转交、再取小件、对位及接触，之后在机体孔口和离体小件间切换操作。E082/E085的fit/fasten分类争议只在action字段中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 132.2,
+        "end_s": 136.9,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 137.0,
+      "end_s": 137.7,
+      "action": "put_down",
+      "object": "small_attachment",
+      "note": "左手将小附件暂置在机体左上方的桌面并离开。",
+      "id": "E086",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 136.35,
+          "end_s": 138.35
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 136.35,
+          "end_s": 138.35
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "137–144.8秒：左手短暂放下／重新取持后，多次分离、转向、重新靠拢；右手的两次接合尝试之间存在明显分离，不当作逐帧重复。E090/E094左手是否主动贴合另作中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 137.0,
+        "end_s": 137.7,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 138.0,
+      "end_s": 138.5,
+      "action": "pick_up",
+      "object": "small_attachment",
+      "note": "左手从刚才暂置处重新取起小附件。",
+      "id": "E087",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 137.35,
+          "end_s": 139.15
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 137.35,
+          "end_s": 139.15
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "137–144.8秒：左手短暂放下／重新取持后，多次分离、转向、重新靠拢；右手的两次接合尝试之间存在明显分离，不当作逐帧重复。E090/E094左手是否主动贴合另作中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 138.0,
+        "end_s": 138.5,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 138.5,
+      "end_s": 139.2,
+      "action": "adjust",
+      "object": "small_attachment",
+      "note": "左手把取回件端部对向右手小件。",
+      "id": "E088",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 137.85,
+          "end_s": 139.85
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 137.85,
+          "end_s": 139.85
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "137–144.8秒：左手短暂放下／重新取持后，多次分离、转向、重新靠拢；右手的两次接合尝试之间存在明显分离，不当作逐帧重复。E090/E094左手是否主动贴合另作中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 138.5,
+        "end_s": 139.2,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 138.5,
+      "end_s": 139.2,
+      "action": "adjust",
+      "object": "small_attachment",
+      "note": "右手指尖靠近左手持件端部找正，能见分离后再次靠近。",
+      "id": "E089",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 137.85,
+          "end_s": 139.85
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 137.85,
+          "end_s": 139.85
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "137–144.8秒：左手短暂放下／重新取持后，多次分离、转向、重新靠拢；右手的两次接合尝试之间存在明显分离，不当作逐帧重复。E090/E094左手是否主动贴合另作中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 138.5,
+        "end_s": 139.2,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 139.2,
+      "end_s": 140.8,
+      "action": "fit",
+      "object": "small_attachment",
+      "note": "左手主动把条状件移向右手小件，协同压合；不是仅静止扶住。",
+      "id": "E090",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 138.55,
+          "end_s": 141.45
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 138.55,
+          "end_s": 141.45
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "neutral",
+        "object": "neutral",
+        "hand": "neutral",
+        "localization": "neutral"
+      },
+      "reason": "139.2–140.8秒左手是否主动贴合或仅持件不够明确，整条中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 139.2,
+        "end_s": 140.8,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 139.2,
+      "end_s": 140.8,
+      "action": "fit",
+      "object": "small_attachment",
+      "note": "右手把指尖小件送入／压向左手所持件端部；短段接合被指尖部分遮挡，不推断成功。",
+      "id": "E091",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 138.55,
+          "end_s": 141.45
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 138.55,
+          "end_s": 141.45
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "137–144.8秒：左手短暂放下／重新取持后，多次分离、转向、重新靠拢；右手的两次接合尝试之间存在明显分离，不当作逐帧重复。E090/E094左手是否主动贴合另作中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 139.2,
+        "end_s": 140.8,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 140.8,
+      "end_s": 141.5,
+      "action": "adjust",
+      "object": "small_attachment",
+      "note": "左手把条状件抬起改变角度并与右手小件重新对向。",
+      "id": "E092",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 140.15,
+          "end_s": 142.15
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 140.15,
+          "end_s": 142.15
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "137–144.8秒：左手短暂放下／重新取持后，多次分离、转向、重新靠拢；右手的两次接合尝试之间存在明显分离，不当作逐帧重复。E090/E094左手是否主动贴合另作中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 140.8,
+        "end_s": 141.5,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 140.8,
+      "end_s": 141.5,
+      "action": "adjust",
+      "object": "small_attachment",
+      "note": "右手与左手持件短暂分开，重新找向其端部。",
+      "id": "E093",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 140.15,
+          "end_s": 142.15
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 140.15,
+          "end_s": 142.15
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "137–144.8秒：左手短暂放下／重新取持后，多次分离、转向、重新靠拢；右手的两次接合尝试之间存在明显分离，不当作逐帧重复。E090/E094左手是否主动贴合另作中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 140.8,
+        "end_s": 141.5,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 141.5,
+      "end_s": 142.9,
+      "action": "fit",
+      "object": "small_attachment",
+      "note": "左手把条状件靠拢右手小件，连续压合准备。",
+      "id": "E094",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 140.85,
+          "end_s": 143.55
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 140.85,
+          "end_s": 143.55
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "neutral",
+        "object": "neutral",
+        "hand": "neutral",
+        "localization": "neutral"
+      },
+      "reason": "141.5–142.9秒左手是否主动贴合或仅持件不够明确，整条中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 141.5,
+        "end_s": 142.9,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 141.5,
+      "end_s": 142.9,
+      "action": "fit",
+      "object": "small_attachment",
+      "note": "右手再次将小件按向左手持件端部；按可见压合记录。",
+      "id": "E095",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 140.85,
+          "end_s": 143.55
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 140.85,
+          "end_s": 143.55
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "137–144.8秒：左手短暂放下／重新取持后，多次分离、转向、重新靠拢；右手的两次接合尝试之间存在明显分离，不当作逐帧重复。E090/E094左手是否主动贴合另作中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 141.5,
+        "end_s": 142.9,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 142.9,
+      "end_s": 143.4,
+      "action": "adjust",
+      "object": "small_attachment",
+      "note": "左手将已在手中处理的小附件移至机体边缘，找正安放位置。",
+      "id": "E096",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 142.25,
+          "end_s": 144.05
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 142.25,
+          "end_s": 144.05
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "137–144.8秒：左手短暂放下／重新取持后，多次分离、转向、重新靠拢；右手的两次接合尝试之间存在明显分离，不当作逐帧重复。E090/E094左手是否主动贴合另作中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 142.9,
+        "end_s": 143.4,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 142.9,
+      "end_s": 143.4,
+      "action": "adjust",
+      "object": "small_attachment",
+      "note": "右手把小附件端部对准机体边缘。",
+      "id": "E097",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 142.25,
+          "end_s": 144.05
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 142.25,
+          "end_s": 144.05
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "137–144.8秒：左手短暂放下／重新取持后，多次分离、转向、重新靠拢；右手的两次接合尝试之间存在明显分离，不当作逐帧重复。E090/E094左手是否主动贴合另作中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 142.9,
+        "end_s": 143.4,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 143.4,
+      "end_s": 144.8,
+      "action": "fit",
+      "object": "small_attachment",
+      "note": "左手主动向下按住、贴合小附件至机体边缘；不证明内部锁止。",
+      "id": "E098",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 142.75,
+          "end_s": 145.45
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 142.75,
+          "end_s": 145.45
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "137–144.8秒：左手短暂放下／重新取持后，多次分离、转向、重新靠拢；右手的两次接合尝试之间存在明显分离，不当作逐帧重复。E090/E094左手是否主动贴合另作中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 143.4,
+        "end_s": 144.8,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 143.4,
+      "end_s": 144.8,
+      "action": "fit",
+      "object": "small_attachment",
+      "note": "右手将小附件向机体边缘压入／贴合，与左手同时操作。",
+      "id": "E099",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 142.75,
+          "end_s": 145.45
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 142.75,
+          "end_s": 145.45
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "137–144.8秒：左手短暂放下／重新取持后，多次分离、转向、重新靠拢；右手的两次接合尝试之间存在明显分离，不当作逐帧重复。E090/E094左手是否主动贴合另作中性排除。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 143.4,
+        "end_s": 144.8,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 144.9,
+      "end_s": 145.5,
+      "action": "pick_up",
+      "object": "screwdriver",
+      "note": "右手从机体前方桌面重新取起绿黑柄螺丝刀。",
+      "id": "E100",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 144.25,
+          "end_s": 146.15
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 144.25,
+          "end_s": 146.15
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "144.9–173.6秒：重新取工具、找位和持续旋拧、归还；取长柄、右手提起并翻转壳体、对位和插入、左手旋拧长柄，最后双手翻面并放回桌面。双方最后放下均有可见参与。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 144.9,
+        "end_s": 145.5,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 145.5,
+      "end_s": 146.0,
+      "action": "adjust",
+      "object": "screwdriver",
+      "note": "右手将刀尖对向刚贴合附件的边缘孔口。",
+      "id": "E101",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 144.85,
+          "end_s": 146.65
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 144.85,
+          "end_s": 146.65
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "144.9–173.6秒：重新取工具、找位和持续旋拧、归还；取长柄、右手提起并翻转壳体、对位和插入、左手旋拧长柄，最后双手翻面并放回桌面。双方最后放下均有可见参与。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 145.5,
+        "end_s": 146.0,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 146.0,
+      "end_s": 158.9,
+      "action": "fasten",
+      "object": "screwdriver",
+      "note": "右手连续旋转绿黑柄螺丝刀，中间左手短时接触柄／杆区域；刀尖仍指向同一安装位置，不按往复细分。",
+      "id": "E102",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 145.35,
+          "end_s": 159.55
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 145.35,
+          "end_s": 159.55
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "144.9–173.6秒：重新取工具、找位和持续旋拧、归还；取长柄、右手提起并翻转壳体、对位和插入、左手旋拧长柄，最后双手翻面并放回桌面。双方最后放下均有可见参与。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 146.0,
+        "end_s": 158.9,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 146.9,
+      "end_s": 149.6,
+      "action": null,
+      "object": "screwdriver",
+      "note": "左手围住工具柄／杆附近协作，扶持和主动施转的边界不清，动作置null；中点落在公开146–150秒左手歧义排除区。",
+      "id": "E103",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 146.25,
+          "end_s": 150.25
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 146.25,
+          "end_s": 150.25
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": true,
+      "adjudication": {
+        "action": "neutral",
+        "object": "neutral",
+        "hand": "neutral",
+        "localization": "neutral"
+      },
+      "reason": "左手146–150秒，试跑前公开排除区间。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 146.9,
+        "end_s": 149.6,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 159.0,
+      "end_s": 159.7,
+      "action": "put_down",
+      "object": "screwdriver",
+      "note": "右手抬开工具并放在机体左侧说明纸上，松手后去持机体。",
+      "id": "E104",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 158.35,
+          "end_s": 160.35
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 158.35,
+          "end_s": 160.35
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "144.9–173.6秒：重新取工具、找位和持续旋拧、归还；取长柄、右手提起并翻转壳体、对位和插入、左手旋拧长柄，最后双手翻面并放回桌面。双方最后放下均有可见参与。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 159.0,
+        "end_s": 159.7,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 159.7,
+      "end_s": 160.7,
+      "action": "pick_up",
+      "object": "handle",
+      "note": "左手从最右红盒取出黑色长柄。",
+      "id": "E105",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 159.05,
+          "end_s": 161.35
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 159.05,
+          "end_s": 161.35
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "144.9–173.6秒：重新取工具、找位和持续旋拧、归还；取长柄、右手提起并翻转壳体、对位和插入、左手旋拧长柄，最后双手翻面并放回桌面。双方最后放下均有可见参与。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 159.7,
+        "end_s": 160.7,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 160.4,
+      "end_s": 161.2,
+      "action": "pick_up",
+      "object": "body",
+      "note": "右手抓住含轴机体并从桌面提起。",
+      "id": "E106",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 159.75,
+          "end_s": 161.85
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 159.75,
+          "end_s": 161.85
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "144.9–173.6秒：重新取工具、找位和持续旋拧、归还；取长柄、右手提起并翻转壳体、对位和插入、左手旋拧长柄，最后双手翻面并放回桌面。双方最后放下均有可见参与。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 160.4,
+        "end_s": 161.2,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 161.2,
+      "end_s": 162.8,
+      "action": "flip",
+      "object": "body",
+      "note": "右手连续把机体立起并翻向，露出侧面安装位置。",
+      "id": "E107",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 160.55,
+          "end_s": 163.45
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 160.55,
+          "end_s": 163.45
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "144.9–173.6秒：重新取工具、找位和持续旋拧、归还；取长柄、右手提起并翻转壳体、对位和插入、左手旋拧长柄，最后双手翻面并放回桌面。双方最后放下均有可见参与。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 161.2,
+        "end_s": 162.8,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 161.5,
+      "end_s": 162.8,
+      "action": "adjust",
+      "object": "handle",
+      "note": "左手调整长柄端部方向，朝向右手持机体的侧孔，初时尚有明显间隙。",
+      "id": "E108",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 160.85,
+          "end_s": 163.45
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 160.85,
+          "end_s": 163.45
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "144.9–173.6秒：重新取工具、找位和持续旋拧、归还；取长柄、右手提起并翻转壳体、对位和插入、左手旋拧长柄，最后双手翻面并放回桌面。双方最后放下均有可见参与。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 161.5,
+        "end_s": 162.8,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 162.8,
+      "end_s": 163.4,
+      "action": "fit",
+      "object": "handle",
+      "note": "左手将长柄端部贴入机体侧孔区域；只描述可见靠拢和插入。",
+      "id": "E109",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 162.15,
+          "end_s": 164.05
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 162.15,
+          "end_s": 164.05
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "144.9–173.6秒：重新取工具、找位和持续旋拧、归还；取长柄、右手提起并翻转壳体、对位和插入、左手旋拧长柄，最后双手翻面并放回桌面。双方最后放下均有可见参与。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 162.8,
+        "end_s": 163.4,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 162.8,
+      "end_s": 163.3,
+      "action": "adjust",
+      "object": "body",
+      "note": "右手将机体侧面主动朝向长柄端部找正。",
+      "id": "E110",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 162.15,
+          "end_s": 163.95
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 162.15,
+          "end_s": 163.95
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "144.9–173.6秒：重新取工具、找位和持续旋拧、归还；取长柄、右手提起并翻转壳体、对位和插入、左手旋拧长柄，最后双手翻面并放回桌面。双方最后放下均有可见参与。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 162.8,
+        "end_s": 163.3,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 163.4,
+      "end_s": 171.2,
+      "action": "fasten",
+      "object": "handle",
+      "note": "左手绕长柄自身轴线反复旋转、换握，右手主要稳定机体；连续手拧合并，不推断扭矩。",
+      "id": "E111",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 162.75,
+          "end_s": 171.85
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 162.75,
+          "end_s": 171.85
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "144.9–173.6秒：重新取工具、找位和持续旋拧、归还；取长柄、右手提起并翻转壳体、对位和插入、左手旋拧长柄，最后双手翻面并放回桌面。双方最后放下均有可见参与。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 163.4,
+        "end_s": 171.2,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 171.2,
+      "end_s": 172.4,
+      "action": "flip",
+      "object": "body",
+      "note": "左手握长柄带动整体转向，与右手同时翻动机体。",
+      "id": "E112",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 170.55,
+          "end_s": 173.05
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 170.55,
+          "end_s": 173.05
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "144.9–173.6秒：重新取工具、找位和持续旋拧、归还；取长柄、右手提起并翻转壳体、对位和插入、左手旋拧长柄，最后双手翻面并放回桌面。双方最后放下均有可见参与。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 171.2,
+        "end_s": 172.4,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 171.2,
+      "end_s": 172.4,
+      "action": "flip",
+      "object": "body",
+      "note": "右手将已连长柄的机体明显转向，准备放回桌面。",
+      "id": "E113",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 170.55,
+          "end_s": 173.05
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 170.55,
+          "end_s": 173.05
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "144.9–173.6秒：重新取工具、找位和持续旋拧、归还；取长柄、右手提起并翻转壳体、对位和插入、左手旋拧长柄，最后双手翻面并放回桌面。双方最后放下均有可见参与。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 171.2,
+        "end_s": 172.4,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "left",
+      "start_s": 172.4,
+      "end_s": 173.6,
+      "action": "put_down",
+      "object": "body",
+      "note": "左手握着已连接的长柄协同将整体放回桌面，随后松开；按整体机体记录。",
+      "id": "E114",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 171.75,
+          "end_s": 173.8
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 171.75,
+          "end_s": 173.8
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "144.9–173.6秒：重新取工具、找位和持续旋拧、归还；取长柄、右手提起并翻转壳体、对位和插入、左手旋拧长柄，最后双手翻面并放回桌面。双方最后放下均有可见参与。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 172.4,
+        "end_s": 173.6,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    },
+    {
+      "hand": "right",
+      "start_s": 172.4,
+      "end_s": 173.6,
+      "action": "put_down",
+      "object": "body",
+      "note": "右手将整体机体降到灰色区域桌面并松开；173.5秒可见手指离开。",
+      "id": "E115",
+      "evidence": [
+        {
+          "file": "front.mp4",
+          "start_s": 171.75,
+          "end_s": 173.8
+        },
+        {
+          "file": "top.mp4",
+          "start_s": 171.75,
+          "end_s": 173.8
+        }
+      ],
+      "policy_segment": "second",
+      "evaluation_excluded": false,
+      "adjudication": {
+        "action": "accepted",
+        "object": "accepted",
+        "hand": "accepted",
+        "localization": "accepted"
+      },
+      "reason": "144.9–173.6秒：重新取工具、找位和持续旋拧、归还；取长柄、右手提起并翻转壳体、对位和插入、左手旋拧长柄，最后双手翻面并放回桌面。双方最后放下均有可见参与。",
+      "review_evidence": {
+        "clock": "front",
+        "start_s": 172.4,
+        "end_s": 173.6,
+        "archive": "sol-output.zip",
+        "directory": "review/"
+      }
+    }
+  ],
+  "source_review": [
+    {
+      "hand": "left",
+      "action": "transfer",
+      "object": "shaft",
+      "start_s": 2.4,
+      "end_s": 3.2333,
+      "source_labels": [
+        {
+          "action_label": 84,
+          "phase": "normal",
+          "start_frame": 72,
+          "end_frame": 96
+        }
+      ],
+      "id": 1,
+      "accepted_objects": [
+        "shaft"
+      ],
+      "accepted_actions": [
+        "transfer"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E002"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "left",
+      "action": "fit",
+      "object": "shaft",
+      "start_s": 7.4333,
+      "end_s": 8.4667,
+      "source_labels": [
+        {
+          "action_label": 38,
+          "phase": "normal",
+          "start_frame": 223,
+          "end_frame": 253
+        }
+      ],
+      "id": 2,
+      "accepted_objects": [
+        "shaft"
+      ],
+      "accepted_actions": [
+        "fit"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E009"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "left",
+      "action": "adjust",
+      "object": "shaft",
+      "start_s": 13.1333,
+      "end_s": 14.4,
+      "source_labels": [
+        {
+          "action_label": 72,
+          "phase": "normal",
+          "start_frame": 394,
+          "end_frame": 431
+        }
+      ],
+      "id": 3,
+      "accepted_objects": [
+        "shaft"
+      ],
+      "accepted_actions": [
+        "adjust"
+      ],
+      "adjudication": "missing",
+      "model_events": [],
+      "reason": "未找到独立归档记录，保留遗漏。"
+    },
+    {
+      "hand": "left",
+      "action": "fit",
+      "object": "shaft",
+      "start_s": 14.4,
+      "end_s": 18.2333,
+      "source_labels": [
+        {
+          "action_label": 38,
+          "phase": "normal",
+          "start_frame": 432,
+          "end_frame": 546
+        }
+      ],
+      "id": 4,
+      "accepted_objects": [
+        "shaft"
+      ],
+      "accepted_actions": [
+        "fit"
+      ],
+      "adjudication": "missing",
+      "model_events": [],
+      "reason": "未找到独立归档记录，保留遗漏。"
+    },
+    {
+      "hand": "left",
+      "action": "transfer",
+      "object": "adapter_plate",
+      "start_s": 33.5333,
+      "end_s": 34.8,
+      "source_labels": [
+        {
+          "action_label": 86,
+          "phase": "normal",
+          "start_frame": 1006,
+          "end_frame": 1043
+        }
+      ],
+      "id": 5,
+      "accepted_objects": [
+        "adapter_plate"
+      ],
+      "accepted_actions": [
+        "transfer"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E022"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "left",
+      "action": "fit",
+      "object": "adapter_plate",
+      "start_s": 35.5,
+      "end_s": 37.2667,
+      "source_labels": [
+        {
+          "action_label": 35,
+          "phase": "normal",
+          "start_frame": 1065,
+          "end_frame": 1117
+        }
+      ],
+      "id": 6,
+      "accepted_objects": [
+        "adapter_plate"
+      ],
+      "accepted_actions": [
+        "fit"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E025"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "left",
+      "action": "transfer",
+      "object": "small_attachment",
+      "start_s": 46.0,
+      "end_s": 47.5333,
+      "source_labels": [
+        {
+          "action_label": 89,
+          "phase": "normal",
+          "start_frame": 1380,
+          "end_frame": 1425
+        }
+      ],
+      "id": 7,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "transfer"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E033"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "left",
+      "action": "fasten",
+      "object": "small_attachment",
+      "start_s": 47.5333,
+      "end_s": 51.2667,
+      "source_labels": [
+        {
+          "action_label": 52,
+          "phase": "normal",
+          "start_frame": 1426,
+          "end_frame": 1458
+        },
+        {
+          "action_label": 54,
+          "phase": "normal",
+          "start_frame": 1459,
+          "end_frame": 1537
+        }
+      ],
+      "id": 8,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "fasten"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E035",
+        "E038",
+        "E040"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "left",
+      "action": "flip",
+      "object": "body",
+      "start_s": 63.4,
+      "end_s": 65.5,
+      "source_labels": [
+        {
+          "action_label": 133,
+          "phase": "normal",
+          "start_frame": 1902,
+          "end_frame": 1964
+        }
+      ],
+      "id": 9,
+      "accepted_objects": [
+        "body"
+      ],
+      "accepted_actions": [
+        "flip"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E044"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "left",
+      "action": "pick_up",
+      "object": "small_attachment",
+      "start_s": 66.9333,
+      "end_s": 68.4667,
+      "source_labels": [
+        {
+          "action_label": 9,
+          "phase": "normal",
+          "start_frame": 2008,
+          "end_frame": 2053
+        }
+      ],
+      "id": 10,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "pick_up"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E045"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "left",
+      "action": "fasten",
+      "object": "small_attachment",
+      "start_s": 68.4667,
+      "end_s": 76.5,
+      "source_labels": [
+        {
+          "action_label": 52,
+          "phase": "normal",
+          "start_frame": 2054,
+          "end_frame": 2088
+        },
+        {
+          "action_label": 54,
+          "phase": "normal",
+          "start_frame": 2089,
+          "end_frame": 2294
+        }
+      ],
+      "id": 11,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "fasten"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E046",
+        "E048",
+        "E049"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "left",
+      "action": "flip",
+      "object": "body",
+      "start_s": 82.4667,
+      "end_s": 83.4333,
+      "source_labels": [
+        {
+          "action_label": 133,
+          "phase": "normal",
+          "start_frame": 2474,
+          "end_frame": 2502
+        }
+      ],
+      "id": 12,
+      "accepted_objects": [
+        "body"
+      ],
+      "accepted_actions": [
+        "flip"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E051"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "left",
+      "action": "pick_up",
+      "object": "bearing_plate",
+      "start_s": 83.4333,
+      "end_s": 85.0667,
+      "source_labels": [
+        {
+          "action_label": 6,
+          "phase": "normal",
+          "start_frame": 2503,
+          "end_frame": 2551
+        }
+      ],
+      "id": 13,
+      "accepted_objects": [
+        "bearing_plate"
+      ],
+      "accepted_actions": [
+        "pick_up"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E053"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "left",
+      "action": "transfer",
+      "object": "bearing_plate",
+      "start_s": 85.0667,
+      "end_s": 86.1,
+      "source_labels": [
+        {
+          "action_label": 87,
+          "phase": "normal",
+          "start_frame": 2552,
+          "end_frame": 2582
+        }
+      ],
+      "id": 14,
+      "accepted_objects": [
+        "bearing_plate"
+      ],
+      "accepted_actions": [
+        "transfer"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E054"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "left",
+      "action": "pick_up",
+      "object": "small_attachment",
+      "start_s": 89.3667,
+      "end_s": 91.7,
+      "source_labels": [
+        {
+          "action_label": 7,
+          "phase": "normal",
+          "start_frame": 2681,
+          "end_frame": 2750
+        }
+      ],
+      "id": 15,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "pick_up"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E061"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "left",
+      "action": "transfer",
+      "object": "small_attachment",
+      "start_s": 106.4333,
+      "end_s": 108.0,
+      "source_labels": [
+        {
+          "action_label": 88,
+          "phase": "normal",
+          "start_frame": 3193,
+          "end_frame": 3239
+        }
+      ],
+      "id": 16,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "transfer"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E068"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "left",
+      "action": "fit",
+      "object": "small_attachment",
+      "start_s": 108.0,
+      "end_s": 110.8333,
+      "source_labels": [
+        {
+          "action_label": 39,
+          "phase": "normal",
+          "start_frame": 3240,
+          "end_frame": 3324
+        }
+      ],
+      "id": 17,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "fit"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E069",
+        "E070"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "left",
+      "action": "fasten",
+      "object": "small_attachment",
+      "start_s": 111.8333,
+      "end_s": 117.8,
+      "source_labels": [
+        {
+          "action_label": 59,
+          "phase": "normal",
+          "start_frame": 3355,
+          "end_frame": 3533
+        }
+      ],
+      "id": 18,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "fasten"
+      ],
+      "adjudication": "neutral",
+      "model_events": [
+        "E072"
+      ],
+      "reason": "试跑前公开排除：左手111–118秒。"
+    },
+    {
+      "hand": "left",
+      "action": "pick_up",
+      "object": "small_attachment",
+      "start_s": 122.0333,
+      "end_s": 123.6667,
+      "source_labels": [
+        {
+          "action_label": 10,
+          "phase": "normal",
+          "start_frame": 3661,
+          "end_frame": 3709
+        }
+      ],
+      "id": 19,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "pick_up"
+      ],
+      "adjudication": "neutral",
+      "model_events": [],
+      "reason": "122秒附近可见右手跨过桌面伸入远侧料盒；左手源标签和遮挡视角对取持的归属不足以排除合理另一解释，不罚此参考的漏报。"
+    },
+    {
+      "hand": "left",
+      "action": "fit",
+      "object": "small_attachment",
+      "start_s": 123.6667,
+      "end_s": 124.6,
+      "source_labels": [
+        {
+          "action_label": 40,
+          "phase": "normal",
+          "start_frame": 3710,
+          "end_frame": 3737
+        }
+      ],
+      "id": 20,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "fit"
+      ],
+      "adjudication": "missing",
+      "model_events": [],
+      "reason": "未找到独立归档记录，保留遗漏。"
+    },
+    {
+      "hand": "left",
+      "action": "transfer",
+      "object": "small_attachment",
+      "start_s": 124.6,
+      "end_s": 125.4,
+      "source_labels": [
+        {
+          "action_label": 91,
+          "phase": "normal",
+          "start_frame": 3738,
+          "end_frame": 3761
+        }
+      ],
+      "id": 21,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "transfer"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E075"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "left",
+      "action": "pick_up",
+      "object": "small_attachment",
+      "start_s": 136.6333,
+      "end_s": 138.3,
+      "source_labels": [
+        {
+          "action_label": 12,
+          "phase": "normal",
+          "start_frame": 4099,
+          "end_frame": 4148
+        }
+      ],
+      "id": 22,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "pick_up"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E087"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "left",
+      "action": "put_down",
+      "object": "small_attachment",
+      "start_s": 138.3,
+      "end_s": 139.4333,
+      "source_labels": [
+        {
+          "action_label": 29,
+          "phase": "normal",
+          "start_frame": 4149,
+          "end_frame": 4182
+        }
+      ],
+      "id": 23,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "put_down"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E086"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "left",
+      "action": "fit",
+      "object": "small_attachment",
+      "start_s": 142.8667,
+      "end_s": 143.9667,
+      "source_labels": [
+        {
+          "action_label": 39,
+          "phase": "normal",
+          "start_frame": 4286,
+          "end_frame": 4318
+        }
+      ],
+      "id": 24,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "fit"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E098"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "left",
+      "action": "fasten",
+      "object": "small_attachment",
+      "start_s": 146.8,
+      "end_s": 149.4667,
+      "source_labels": [
+        {
+          "action_label": 59,
+          "phase": "normal",
+          "start_frame": 4404,
+          "end_frame": 4483
+        }
+      ],
+      "id": 25,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "fasten"
+      ],
+      "adjudication": "neutral",
+      "model_events": [
+        "E103"
+      ],
+      "reason": "试跑前公开排除：左手146–150秒。"
+    },
+    {
+      "hand": "left",
+      "action": "pick_up",
+      "object": "handle",
+      "start_s": 159.2,
+      "end_s": 160.9667,
+      "source_labels": [
+        {
+          "action_label": 13,
+          "phase": "normal",
+          "start_frame": 4776,
+          "end_frame": 4828
+        }
+      ],
+      "id": 26,
+      "accepted_objects": [
+        "handle"
+      ],
+      "accepted_actions": [
+        "pick_up"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E105"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "left",
+      "action": "flip",
+      "object": "body",
+      "start_s": 162.3,
+      "end_s": 163.1667,
+      "source_labels": [
+        {
+          "action_label": 133,
+          "phase": "normal",
+          "start_frame": 4869,
+          "end_frame": 4894
+        }
+      ],
+      "id": 27,
+      "accepted_objects": [
+        "body"
+      ],
+      "accepted_actions": [
+        "flip"
+      ],
+      "adjudication": "neutral",
+      "model_events": [],
+      "reason": "162秒左手主要持长柄，机体由右手翻转；来源left/flip/body与实际主动手存在争议，中性排除该参考。"
+    },
+    {
+      "hand": "left",
+      "action": "fasten",
+      "object": "handle",
+      "start_s": 163.1667,
+      "end_s": 172.2667,
+      "source_labels": [
+        {
+          "action_label": 60,
+          "phase": "normal",
+          "start_frame": 4895,
+          "end_frame": 5167
+        }
+      ],
+      "id": 28,
+      "accepted_objects": [
+        "handle"
+      ],
+      "accepted_actions": [
+        "fasten"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E109",
+        "E111"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "pick_up",
+      "object": "shaft",
+      "start_s": 0.0,
+      "end_s": 2.6667,
+      "source_labels": [
+        {
+          "action_label": 3,
+          "phase": "normal",
+          "start_frame": 0,
+          "end_frame": 79
+        }
+      ],
+      "id": 29,
+      "accepted_objects": [
+        "shaft"
+      ],
+      "accepted_actions": [
+        "pick_up"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E001"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "pick_up",
+      "object": "body",
+      "start_s": 2.6667,
+      "end_s": 4.2333,
+      "source_labels": [
+        {
+          "action_label": 1,
+          "phase": "normal",
+          "start_frame": 80,
+          "end_frame": 126
+        }
+      ],
+      "id": 30,
+      "accepted_objects": [
+        "body"
+      ],
+      "accepted_actions": [
+        "pick_up"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E005"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "adjust",
+      "object": "shaft",
+      "start_s": 4.2333,
+      "end_s": 7.4333,
+      "source_labels": [
+        {
+          "action_label": 72,
+          "phase": "normal",
+          "start_frame": 127,
+          "end_frame": 222
+        }
+      ],
+      "id": 31,
+      "accepted_objects": [
+        "shaft"
+      ],
+      "accepted_actions": [
+        "adjust"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E006",
+        "E008"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "fit",
+      "object": "shaft",
+      "start_s": 7.4333,
+      "end_s": 8.4,
+      "source_labels": [
+        {
+          "action_label": 38,
+          "phase": "normal",
+          "start_frame": 223,
+          "end_frame": 251
+        }
+      ],
+      "id": 32,
+      "accepted_objects": [
+        "shaft"
+      ],
+      "accepted_actions": [
+        "fit"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E010"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "pick_up",
+      "object": "gear",
+      "start_s": 8.4,
+      "end_s": 9.9333,
+      "source_labels": [
+        {
+          "action_label": 4,
+          "phase": "normal",
+          "start_frame": 252,
+          "end_frame": 297
+        }
+      ],
+      "id": 33,
+      "accepted_objects": [
+        "gear"
+      ],
+      "accepted_actions": [
+        "pick_up"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E011"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "fit",
+      "object": "gear",
+      "start_s": 9.9333,
+      "end_s": 18.1333,
+      "source_labels": [
+        {
+          "action_label": 37,
+          "phase": "normal",
+          "start_frame": 298,
+          "end_frame": 543
+        }
+      ],
+      "id": 34,
+      "accepted_objects": [
+        "gear"
+      ],
+      "accepted_actions": [
+        "fit"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E012",
+        "E013"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "pick_up",
+      "object": "small_attachment",
+      "start_s": 18.1333,
+      "end_s": 19.8,
+      "source_labels": [
+        {
+          "action_label": 9,
+          "phase": "normal",
+          "start_frame": 544,
+          "end_frame": 593
+        }
+      ],
+      "id": 35,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "pick_up"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E014"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "fasten",
+      "object": "small_attachment",
+      "start_s": 19.8,
+      "end_s": 21.5667,
+      "source_labels": [
+        {
+          "action_label": 52,
+          "phase": "normal",
+          "start_frame": 594,
+          "end_frame": 646
+        }
+      ],
+      "id": 36,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "fasten"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E015",
+        "E016"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "pick_up",
+      "object": "wrench",
+      "start_s": 28.4,
+      "end_s": 29.5667,
+      "source_labels": [
+        {
+          "action_label": 15,
+          "phase": "normal",
+          "start_frame": 852,
+          "end_frame": 886
+        }
+      ],
+      "id": 37,
+      "accepted_objects": [
+        "wrench"
+      ],
+      "accepted_actions": [
+        "pick_up"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E018"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "fasten",
+      "object": "small_attachment",
+      "start_s": 29.5667,
+      "end_s": 32.0,
+      "source_labels": [
+        {
+          "action_label": 55,
+          "phase": "normal",
+          "start_frame": 887,
+          "end_frame": 959
+        }
+      ],
+      "id": 38,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "fasten"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E019",
+        "E020"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "pick_up",
+      "object": "adapter_plate",
+      "start_s": 33.0,
+      "end_s": 34.5333,
+      "source_labels": [
+        {
+          "action_label": 5,
+          "phase": "normal",
+          "start_frame": 990,
+          "end_frame": 1035
+        }
+      ],
+      "id": 39,
+      "accepted_objects": [
+        "adapter_plate"
+      ],
+      "accepted_actions": [
+        "pick_up"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E021"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "pick_up",
+      "object": "small_attachment",
+      "start_s": 37.9333,
+      "end_s": 39.4,
+      "source_labels": [
+        {
+          "action_label": 7,
+          "phase": "normal",
+          "start_frame": 1138,
+          "end_frame": 1181
+        }
+      ],
+      "id": 40,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "pick_up"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E028"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "fit",
+      "object": "small_attachment",
+      "start_s": 39.4,
+      "end_s": 40.7333,
+      "source_labels": [
+        {
+          "action_label": 39,
+          "phase": "normal",
+          "start_frame": 1182,
+          "end_frame": 1221
+        }
+      ],
+      "id": 41,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "fit"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E029",
+        "E030"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "pick_up",
+      "object": "small_attachment",
+      "start_s": 40.7333,
+      "end_s": 45.4333,
+      "source_labels": [
+        {
+          "action_label": 7,
+          "phase": "normal",
+          "start_frame": 1222,
+          "end_frame": 1274
+        },
+        {
+          "action_label": 9,
+          "phase": "normal",
+          "start_frame": 1275,
+          "end_frame": 1362
+        }
+      ],
+      "id": 42,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "pick_up"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E031",
+        "E032"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "transfer",
+      "object": "small_attachment",
+      "start_s": 45.4333,
+      "end_s": 47.3333,
+      "source_labels": [
+        {
+          "action_label": 89,
+          "phase": "anomaly",
+          "start_frame": 1363,
+          "end_frame": 1377
+        },
+        {
+          "action_label": 89,
+          "phase": "normal",
+          "start_frame": 1378,
+          "end_frame": 1419
+        }
+      ],
+      "id": 43,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "transfer"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E034"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "pick_up",
+      "object": "screwdriver",
+      "start_s": 51.4667,
+      "end_s": 52.8,
+      "source_labels": [
+        {
+          "action_label": 16,
+          "phase": "normal",
+          "start_frame": 1544,
+          "end_frame": 1583
+        }
+      ],
+      "id": 44,
+      "accepted_objects": [
+        "screwdriver"
+      ],
+      "accepted_actions": [
+        "pick_up"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E041"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "fasten",
+      "object": "small_attachment",
+      "start_s": 52.8,
+      "end_s": 82.7667,
+      "source_labels": [
+        {
+          "action_label": 59,
+          "phase": "normal",
+          "start_frame": 1584,
+          "end_frame": 1898
+        },
+        {
+          "action_label": 59,
+          "phase": "anomaly",
+          "start_frame": 1899,
+          "end_frame": 2055
+        },
+        {
+          "action_label": 59,
+          "phase": "normal",
+          "start_frame": 2056,
+          "end_frame": 2457
+        },
+        {
+          "action_label": 59,
+          "phase": "anomaly",
+          "start_frame": 2458,
+          "end_frame": 2482
+        }
+      ],
+      "id": 45,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "fasten"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E042",
+        "E043",
+        "E047",
+        "E050"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "transfer",
+      "object": "bearing_plate",
+      "start_s": 84.9333,
+      "end_s": 86.2,
+      "source_labels": [
+        {
+          "action_label": 87,
+          "phase": "normal",
+          "start_frame": 2548,
+          "end_frame": 2585
+        }
+      ],
+      "id": 46,
+      "accepted_objects": [
+        "bearing_plate"
+      ],
+      "accepted_actions": [
+        "transfer"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E055"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "adjust",
+      "object": "bearing_plate",
+      "start_s": 86.2,
+      "end_s": 87.2,
+      "source_labels": [
+        {
+          "action_label": 73,
+          "phase": "normal",
+          "start_frame": 2586,
+          "end_frame": 2615
+        }
+      ],
+      "id": 47,
+      "accepted_objects": [
+        "bearing_plate"
+      ],
+      "accepted_actions": [
+        "adjust"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E056"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "fit",
+      "object": "bearing_plate",
+      "start_s": 87.2,
+      "end_s": 87.9333,
+      "source_labels": [
+        {
+          "action_label": 42,
+          "phase": "normal",
+          "start_frame": 2616,
+          "end_frame": 2637
+        }
+      ],
+      "id": 48,
+      "accepted_objects": [
+        "bearing_plate"
+      ],
+      "accepted_actions": [
+        "fit"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E057"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "put_down",
+      "object": "screwdriver",
+      "start_s": 87.9333,
+      "end_s": 89.0667,
+      "source_labels": [
+        {
+          "action_label": 130,
+          "phase": "normal",
+          "start_frame": 2638,
+          "end_frame": 2671
+        }
+      ],
+      "id": 49,
+      "accepted_objects": [
+        "screwdriver"
+      ],
+      "accepted_actions": [
+        "put_down"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E058",
+        "E059"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "pick_up",
+      "object": "screwdriver",
+      "start_s": 89.0667,
+      "end_s": 89.8667,
+      "source_labels": [
+        {
+          "action_label": 17,
+          "phase": "normal",
+          "start_frame": 2672,
+          "end_frame": 2695
+        }
+      ],
+      "id": 50,
+      "accepted_objects": [
+        "screwdriver"
+      ],
+      "accepted_actions": [
+        "pick_up"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E060"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "fit",
+      "object": "small_attachment",
+      "start_s": 91.5667,
+      "end_s": 95.3333,
+      "source_labels": [
+        {
+          "action_label": 39,
+          "phase": "normal",
+          "start_frame": 2747,
+          "end_frame": 2859
+        }
+      ],
+      "id": 51,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "fit"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E063"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "fasten",
+      "object": "small_attachment",
+      "start_s": 95.3333,
+      "end_s": 106.4667,
+      "source_labels": [
+        {
+          "action_label": 59,
+          "phase": "normal",
+          "start_frame": 2860,
+          "end_frame": 3193
+        }
+      ],
+      "id": 52,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "fasten"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E065"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "fit",
+      "object": "small_attachment",
+      "start_s": 106.4667,
+      "end_s": 109.3667,
+      "source_labels": [
+        {
+          "action_label": 80,
+          "phase": "normal",
+          "start_frame": 3194,
+          "end_frame": 3214
+        },
+        {
+          "action_label": 80,
+          "phase": "anomaly",
+          "start_frame": 3215,
+          "end_frame": 3241
+        },
+        {
+          "action_label": 39,
+          "phase": "normal",
+          "start_frame": 3242,
+          "end_frame": 3280
+        }
+      ],
+      "id": 53,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "fit"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E067"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "fasten",
+      "object": "small_attachment",
+      "start_s": 110.9333,
+      "end_s": 119.9667,
+      "source_labels": [
+        {
+          "action_label": 59,
+          "phase": "normal",
+          "start_frame": 3328,
+          "end_frame": 3598
+        }
+      ],
+      "id": 54,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "fasten"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E071"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "pick_up",
+      "object": "small_attachment",
+      "start_s": 121.5,
+      "end_s": 123.7333,
+      "source_labels": [
+        {
+          "action_label": 11,
+          "phase": "normal",
+          "start_frame": 3645,
+          "end_frame": 3711
+        }
+      ],
+      "id": 55,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "pick_up"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E074"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "transfer",
+      "object": "small_attachment",
+      "start_s": 123.7333,
+      "end_s": 124.9,
+      "source_labels": [
+        {
+          "action_label": 91,
+          "phase": "normal",
+          "start_frame": 3712,
+          "end_frame": 3746
+        }
+      ],
+      "id": 56,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "transfer"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E076"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "fit",
+      "object": "small_attachment",
+      "start_s": 129.1,
+      "end_s": 136.6333,
+      "source_labels": [
+        {
+          "action_label": 39,
+          "phase": "normal",
+          "start_frame": 3873,
+          "end_frame": 3993
+        },
+        {
+          "action_label": 39,
+          "phase": "anomaly",
+          "start_frame": 3994,
+          "end_frame": 4098
+        }
+      ],
+      "id": 57,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "fit"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E081",
+        "E082",
+        "E083",
+        "E085"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "fit",
+      "object": "small_attachment",
+      "start_s": 140.1667,
+      "end_s": 142.6333,
+      "source_labels": [
+        {
+          "action_label": 40,
+          "phase": "normal",
+          "start_frame": 4205,
+          "end_frame": 4278
+        }
+      ],
+      "id": 58,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "fit"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E091",
+        "E093",
+        "E095"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "adjust",
+      "object": "small_attachment",
+      "start_s": 142.6333,
+      "end_s": 143.3333,
+      "source_labels": [
+        {
+          "action_label": 74,
+          "phase": "normal",
+          "start_frame": 4279,
+          "end_frame": 4299
+        }
+      ],
+      "id": 59,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "adjust"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E097"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "fit",
+      "object": "small_attachment",
+      "start_s": 143.3333,
+      "end_s": 144.5333,
+      "source_labels": [
+        {
+          "action_label": 41,
+          "phase": "normal",
+          "start_frame": 4300,
+          "end_frame": 4335
+        }
+      ],
+      "id": 60,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "fit"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E099"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "pick_up",
+      "object": "screwdriver",
+      "start_s": 144.5333,
+      "end_s": 145.6,
+      "source_labels": [
+        {
+          "action_label": 17,
+          "phase": "normal",
+          "start_frame": 4336,
+          "end_frame": 4367
+        }
+      ],
+      "id": 61,
+      "accepted_objects": [
+        "screwdriver"
+      ],
+      "accepted_actions": [
+        "pick_up"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E100"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "fasten",
+      "object": "small_attachment",
+      "start_s": 145.6,
+      "end_s": 158.9,
+      "source_labels": [
+        {
+          "action_label": 59,
+          "phase": "normal",
+          "start_frame": 4368,
+          "end_frame": 4766
+        }
+      ],
+      "id": 62,
+      "accepted_objects": [
+        "small_attachment"
+      ],
+      "accepted_actions": [
+        "fasten"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E101",
+        "E102"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    },
+    {
+      "hand": "right",
+      "action": "flip",
+      "object": "body",
+      "start_s": 161.4667,
+      "end_s": 163.2333,
+      "source_labels": [
+        {
+          "action_label": 133,
+          "phase": "normal",
+          "start_frame": 4844,
+          "end_frame": 4896
+        }
+      ],
+      "id": 63,
+      "accepted_objects": [
+        "body"
+      ],
+      "accepted_actions": [
+        "flip"
+      ],
+      "adjudication": "represented_by_accepted_episode",
+      "model_events": [
+        "E107",
+        "E110"
+      ],
+      "reason": "允许有画面依据的分段、双手参与和工具／受影响零件表达；逐候选裁定另列。"
+    }
+  ],
+  "raw_total": 60.319700060462615
+}

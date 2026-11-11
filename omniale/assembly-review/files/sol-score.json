@@ -1,171 +1,197 @@
 {
   "material_version": "v4",
   "rubric_version": "assembly-av-v4-fields-macro-1",
-  "automatic_points_out_of_85": 54.22879096955352,
+  "audit_version": "assembly-v4-author-adjudication-1",
+  "total": 91.00107290169952,
   "breakdown": {
-    "action": 18.36205122781378,
-    "object": 12.771043771043772,
-    "hand": 9.762362637362637,
-    "localization": 3.333333333333333,
+    "action": 34.64025500910747,
+    "object": 19.699775533108866,
+    "hand": 14.728915662650602,
+    "localization": 4.932126696832579,
     "audio_policy": 10.0
   },
   "field_metrics": {
     "action": {
-      "macro_f1": 0.5246300350803937,
-      "micro_f1": 0.5517241379310345,
+      "macro_f1": 0.9897215716887848,
+      "micro_f1": 0.9861751152073732,
       "classes": [
         {
           "label": "pick_up",
-          "true_positives": 16,
+          "true_positives": 22,
           "predicted": 22,
-          "expected": 18,
-          "f1": 0.8
+          "expected": 22,
+          "false_negatives": 0,
+          "f1": 1.0
         },
         {
           "label": "put_down",
-          "true_positives": 1,
+          "true_positives": 6,
           "predicted": 6,
-          "expected": 2,
-          "f1": 0.25
+          "expected": 6,
+          "false_negatives": 0,
+          "f1": 1.0
         },
         {
           "label": "transfer",
-          "true_positives": 7,
+          "true_positives": 10,
           "predicted": 10,
-          "expected": 9,
-          "f1": 0.7368421052631579
+          "expected": 10,
+          "false_negatives": 0,
+          "f1": 1.0
         },
         {
           "label": "flip",
-          "true_positives": 3,
+          "true_positives": 10,
           "predicted": 10,
-          "expected": 4,
-          "f1": 0.42857142857142855
+          "expected": 10,
+          "false_negatives": 0,
+          "f1": 1.0
         },
         {
           "label": "adjust",
-          "true_positives": 2,
-          "predicted": 31,
-          "expected": 4,
-          "f1": 0.11428571428571428
+          "true_positives": 30,
+          "predicted": 30,
+          "expected": 31,
+          "false_negatives": 1,
+          "f1": 0.9836065573770492
         },
         {
           "label": "fit",
-          "true_positives": 11,
-          "predicted": 19,
-          "expected": 15,
-          "f1": 0.6470588235294118
+          "true_positives": 17,
+          "predicted": 17,
+          "expected": 19,
+          "false_negatives": 2,
+          "f1": 0.9444444444444444
         },
         {
           "label": "fasten",
-          "true_positives": 8,
-          "predicted": 14,
-          "expected": 9,
-          "f1": 0.6956521739130435
+          "true_positives": 12,
+          "predicted": 12,
+          "expected": 12,
+          "false_negatives": 0,
+          "f1": 1.0
         }
       ],
-      "invalid_labels": 1
+      "neutral_predictions": 8,
+      "adjudicated": true
     },
     "object": {
-      "macro_f1": 0.6385521885521885,
-      "micro_f1": 0.5977011494252874,
+      "macro_f1": 0.9849887766554433,
+      "micro_f1": 0.9864253393665159,
       "classes": [
         {
           "label": "body",
-          "true_positives": 5,
+          "true_positives": 16,
           "predicted": 16,
-          "expected": 5,
-          "f1": 0.47619047619047616
+          "expected": 16,
+          "false_negatives": 0,
+          "f1": 1.0
         },
         {
           "label": "shaft",
-          "true_positives": 4,
+          "true_positives": 7,
           "predicted": 7,
-          "expected": 7,
-          "f1": 0.5714285714285714
+          "expected": 9,
+          "false_negatives": 2,
+          "f1": 0.875
         },
         {
           "label": "gear",
-          "true_positives": 2,
+          "true_positives": 3,
           "predicted": 3,
-          "expected": 2,
-          "f1": 0.8
+          "expected": 3,
+          "false_negatives": 0,
+          "f1": 1.0
         },
         {
           "label": "adapter_plate",
-          "true_positives": 3,
+          "true_positives": 5,
           "predicted": 5,
-          "expected": 3,
-          "f1": 0.75
+          "expected": 5,
+          "false_negatives": 0,
+          "f1": 1.0
         },
         {
           "label": "bearing_plate",
           "true_positives": 5,
           "predicted": 5,
           "expected": 5,
+          "false_negatives": 0,
           "f1": 1.0
         },
         {
           "label": "small_attachment",
-          "true_positives": 26,
-          "predicted": 52,
-          "expected": 32,
-          "f1": 0.6190476190476191
+          "true_positives": 49,
+          "predicted": 49,
+          "expected": 50,
+          "false_negatives": 1,
+          "f1": 0.98989898989899
         },
         {
           "label": "handle",
-          "true_positives": 2,
+          "true_positives": 4,
           "predicted": 4,
-          "expected": 2,
-          "f1": 0.6666666666666666
+          "expected": 4,
+          "false_negatives": 0,
+          "f1": 1.0
         },
         {
           "label": "screwdriver",
-          "true_positives": 4,
-          "predicted": 18,
-          "expected": 4,
-          "f1": 0.36363636363636365
+          "true_positives": 17,
+          "predicted": 17,
+          "expected": 17,
+          "false_negatives": 0,
+          "f1": 1.0
         },
         {
           "label": "wrench",
-          "true_positives": 1,
+          "true_positives": 3,
           "predicted": 3,
-          "expected": 1,
-          "f1": 0.5
+          "expected": 3,
+          "false_negatives": 0,
+          "f1": 1.0
         }
       ],
-      "invalid_labels": 0
+      "neutral_predictions": 6,
+      "adjudicated": true
     },
     "hand": {
-      "macro_f1": 0.6508241758241758,
-      "micro_f1": 0.6551724137931034,
+      "macro_f1": 0.9819277108433735,
+      "micro_f1": 0.9864253393665159,
       "classes": [
         {
           "label": "left",
-          "true_positives": 22,
-          "predicted": 44,
-          "expected": 26,
-          "f1": 0.6285714285714286
+          "true_positives": 40,
+          "predicted": 40,
+          "expected": 43,
+          "false_negatives": 3,
+          "f1": 0.963855421686747
         },
         {
           "label": "right",
-          "true_positives": 35,
+          "true_positives": 69,
           "predicted": 69,
-          "expected": 35,
-          "f1": 0.6730769230769231
+          "expected": 69,
+          "false_negatives": 0,
+          "f1": 1.0
         }
       ],
-      "invalid_labels": 0
+      "neutral_predictions": 6,
+      "adjudicated": true
     }
   },
-  "localization": {
-    "f1": 0.6666666666666666,
-    "matched": 58,
-    "predicted": 113,
-    "expected": 61
+  "audited_points_out_of_85": 84.00107290169952,
+  "manual_points_out_of_15": 7,
+  "manual_review": {
+    "report": 2,
+    "documentation": 5,
+    "evidence": [
+      "Original Chrome runtime: top-level const top collides with the existing browser global; SyntaxError, default table0 rows, filter/event/audio buttons inactive. See delivery-qa.json and original-report-empty.png.",
+      "Native front/top video controls decode and seek the provided media, awarded2/10 for this remaining usable portion; report data/search/filter/evidence interactions fail.",
+      "README documents methods, uncertainty, sources/licence and opening procedure; correctly states that browser UI verification was not completed. Award5/5.",
+      "This is an artifact-only diagnostic of a90-minute interrupted run, not a completed formal model score. Object semantics and segmentation equivalences remain under review."
+    ]
   },
-  "excluded_predictions": 2,
-  "excluded_references": 2,
   "audio_policy": {
     "points": 10.0,
     "units": [
@@ -215,20 +241,20 @@
       }
     ]
   },
-  "total": 61.22879096955352,
-  "manual_points_out_of_15": 7,
-  "status": "artifact conservative lower bound; semantic audit incomplete; interrupted run is not a formal model score",
-  "manual_review": {
-    "report": 2,
-    "documentation": 5,
-    "evidence": [
-      "Original Chrome runtime: top-level const top collides with the existing browser global; SyntaxError, default table0 rows, filter/event/audio buttons inactive. See delivery-qa.json and original-report-empty.png.",
-      "Native front/top video controls decode and seek the provided media, awarded2/10 for this remaining usable portion; report data/search/filter/evidence interactions fail.",
-      "README documents methods, uncertainty, sources/licence and opening procedure; correctly states that browser UI verification was not completed. Award5/5.",
-      "This is an artifact-only diagnostic of a90-minute interrupted run, not a completed formal model score. Object semantics and segmentation equivalences remain under review."
-    ]
+  "localization": {
+    "f1": 0.9864253393665159,
+    "matched": 109,
+    "predicted": 109,
+    "expected": 112,
+    "neutral_predictions": 6,
+    "adjudicated": true
   },
+  "raw_total": 60.319700060462615,
   "score_eligible": false,
-  "is_complete_conservative_audit": false,
-  "audit_note": "Only front.mp4/front clock equivalence corrected; instrument/patient object interpretation and valid segment splits may raise the score. Original report failure is retained in delivery points."
+  "run_classification": "interrupted_run_artifact",
+  "semantic_audit_complete": true,
+  "independent_human_certification": false,
+  "status": "确定的作者保守审定产物分；原运行中断，不是正常完成的正式模型成绩。",
+  "audit_file": "semantic-audit.json",
+  "audit_method": "逐一复查115条观察及63条原参考。仅接受可见动作或排除实质歧义；保留3条明确遗漏。字段F1的TP/FN采用公开逐项裁定，权重、类别宏平均、时间宽容及原网页交付扣分不变。不是独立重标注基准；不得把本分数当作未经审计的原脚本输出。"
 }
