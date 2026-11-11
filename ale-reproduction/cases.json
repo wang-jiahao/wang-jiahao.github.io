@@ -1,7 +1,7 @@
 {
   "title": "ALE Omni Case 复现",
   "url": "https://wang-jiahao.github.io/ale-reproduction/",
-  "updated_at": "2026-11-05T19:55:00.910628+08:00",
+  "updated_at": "2026-11-11T14:38:56.910827+08:00",
   "cases": [
     {
       "id": "music",
@@ -24,7 +24,8 @@
       "cover_label": "实际交付 · MuseScore",
       "owner": "wang-jiahao",
       "external": false,
-      "preview_run_path": "results/ale-music-nju-independent-proxy-repeat-r3/codex_nju_gpt61sol_xhigh/gpt-6-1-sol/visual_media__music_transcription/v0/20261104_052544"
+      "preview_run_path": "results/ale-music-nju-independent-proxy-repeat-r3/codex_nju_gpt61sol_xhigh/gpt-6-1-sol/visual_media__music_transcription/v0/20261104_052544",
+      "reasoning_effort": "xhigh"
     },
     {
       "id": "aerobics",
@@ -64,7 +65,8 @@
       "cover_label": "任务输入 · 三人健美操",
       "owner": "wang-jiahao",
       "external": false,
-      "preview_run_path": "results/ale-aerobics-nju-userproxy-repeat-r3/codex_nju_gpt61sol_xhigh/gpt-6-1-sol/other__aerobics_wc2026_portugal_trio_difficulty_scoring/v0/20261104_040643"
+      "preview_run_path": "results/ale-aerobics-nju-userproxy-repeat-r3/codex_nju_gpt61sol_xhigh/gpt-6-1-sol/other__aerobics_wc2026_portugal_trio_difficulty_scoring/v0/20261104_040643",
+      "reasoning_effort": "xhigh"
     },
     {
       "id": "migration",
@@ -81,7 +83,8 @@
       "cover_label": "工程迁移示意",
       "owner": "walnutpz",
       "external": true,
-      "source_sha256": "6fd52ca89bbac0552b7890a55291d63c8f14ceb72c3192529bd825fbac1aacd0"
+      "source_sha256": "6fd52ca89bbac0552b7890a55291d63c8f14ceb72c3192529bd825fbac1aacd0",
+      "reasoning_effort": "xhigh"
     },
     {
       "id": "crane",
@@ -137,7 +140,155 @@
       "cover_source": "https://huayuankou333.github.io/omniale/ale-crane-keying/assets/cover.jpg",
       "source_sha256": "f6e3fcdfc8773aa56bcaa32d36de47341b93375e28ee8f20606e25d00f894295",
       "results_source": "https://huayuankou333.github.io/omniale/ale-crane-keying/files/results.json",
-      "results_source_sha256": "be8ec56b104c5dc3826a4a9ac3cb611fa67cf66c28ae49ba96aa87665f986f91"
+      "results_source_sha256": "be8ec56b104c5dc3826a4a9ac3cb611fa67cf66c28ae49ba96aa87665f986f91",
+      "reasoning_effort": "high"
+    },
+    {
+      "id": "storyboard",
+      "task_id": "visual_media/video_storyboard_001",
+      "title": "看动画，编写修复前镜头日志",
+      "domain": "档案检索与证据研究",
+      "scenario": "动画镜头日志与事实核查",
+      "description": "观看11分16秒老动画，参照QC核查简报，按时间顺序记录镜头、动作、场景与字幕，交付可供核查人员恢复事实的Word日志。",
+      "url": "https://nanxiang-git.github.io/ALE_reproduce/ALE_repro/dashboard/dist/index.html",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "score": 100.0,
+      "score_text": "100.00 / 100",
+      "score_scale": [
+        0,
+        100
+      ],
+      "native_score_scale": [
+        0,
+        1
+      ],
+      "models": [
+        {
+          "model": "gpt-6.1-sol",
+          "score": 100.0,
+          "score_text": "100.00 / 100",
+          "reasoning_effort": "high"
+        },
+        {
+          "model": "gpt-6-astra",
+          "score": 100.0,
+          "score_text": "100.00 / 100",
+          "reasoning_effort": "high"
+        }
+      ],
+      "run_count": 1,
+      "runs_per_model": 1,
+      "aggregation": "one_completed_run_per_model",
+      "cover": "assets/storyboard.jpg",
+      "cover_alt": "老动画《A Wolf is a Wolf》的实际输入画面",
+      "cover_label": "任务输入 · 老动画",
+      "owner": "nanxiang-git",
+      "external": true,
+      "source_snapshot": "site_reference/nanxiang-dashboard-20261111.json",
+      "protocol_note": "Sol high, Windows and ChatGPT subscription; Astra high, Linux/API with shell network disabled. Conditions differ; source dashboard records both.",
+      "results_source": "https://nanxiang-git.github.io/ALE_reproduce/ALE_repro/dashboard/dist/index.html",
+      "cover_source": "https://nanxiang-git.github.io/ALE_reproduce/ALE_repro/dashboard/dist/assets/film-poster.jpg"
+    },
+    {
+      "id": "butterfly",
+      "task_id": "visual_media/butterfly_flap_animation",
+      "title": "让蝴蝶原图振翅，沿曲线飞行",
+      "domain": "三维动画与产品可视化",
+      "scenario": "图像驱动动画制作",
+      "description": "从蝴蝶原图分离身体与双翼，保留纹理，制作四次完整振翅与平滑曲线飞行，交付1920×1080、30 fps的MP4。",
+      "url": "https://nanxiang-git.github.io/ALE_reproduce/ALE_repro/dashboard/dist/index.html",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "score": 97.4035,
+      "score_text": "97.40 / 100",
+      "score_scale": [
+        0,
+        100
+      ],
+      "native_score_scale": [
+        0,
+        1
+      ],
+      "models": [
+        {
+          "model": "gpt-6-astra",
+          "score": 100.0,
+          "score_text": "100.00 / 100",
+          "reasoning_effort": "high"
+        },
+        {
+          "model": "gpt-6.1-sol",
+          "score": 97.4035,
+          "score_text": "97.40 / 100",
+          "reasoning_effort": "high"
+        }
+      ],
+      "run_count": 1,
+      "runs_per_model": 1,
+      "aggregation": "one_completed_run_per_model",
+      "cover": "assets/butterfly.jpg",
+      "cover_alt": "题目提供的蝴蝶原图",
+      "cover_label": "任务输入 · 蝴蝶原图",
+      "owner": "nanxiang-git",
+      "external": true,
+      "source_snapshot": "site_reference/nanxiang-dashboard-20261111.json",
+      "protocol_note": "Sol high, Windows and ChatGPT subscription; Astra high, Linux/API with shell network disabled. Conditions differ; source dashboard records both.",
+      "results_source": "https://nanxiang-git.github.io/ALE_reproduce/ALE_repro/dashboard/dist/index.html",
+      "cover_source": "https://nanxiang-git.github.io/ALE_reproduce/ALE_repro/dashboard/dist/assets/butterfly.jpeg"
     }
-  ]
+  ],
+  "sol_average": {
+    "model": "gpt-6.1-sol",
+    "case_count": 6,
+    "aggregation": "equal_weight_arithmetic_mean_across_cases",
+    "aerobics_score_policy": "Use partial credit 50/100; official binary score is unchanged.",
+    "mean": 59.905780437470405,
+    "mean_display": "59.91",
+    "total": 359.4346826248224,
+    "rows": [
+      {
+        "id": "music",
+        "title": "从管弦乐录音，转写完整总谱",
+        "score_100": 12.525754534728135,
+        "reasoning_effort": "xhigh",
+        "basis": "汇总采用分"
+      },
+      {
+        "id": "aerobics",
+        "title": "看清难度动作，写对每一个 FIG 编码",
+        "score_100": 50.0,
+        "reasoning_effort": "xhigh",
+        "basis": "部分分"
+      },
+      {
+        "id": "migration",
+        "title": "把交响乐工程迁到 Linux，恢复原有声音",
+        "score_100": 48.51,
+        "reasoning_effort": "xhigh",
+        "basis": "汇总采用分"
+      },
+      {
+        "id": "crane",
+        "title": "从天空中的白鹤，分离出完整绿幕主体",
+        "score_100": 50.995428090094286,
+        "reasoning_effort": "high",
+        "basis": "汇总采用分"
+      },
+      {
+        "id": "storyboard",
+        "title": "看动画，编写修复前镜头日志",
+        "score_100": 100.0,
+        "reasoning_effort": "high",
+        "basis": "汇总采用分"
+      },
+      {
+        "id": "butterfly",
+        "title": "让蝴蝶原图振翅，沿曲线飞行",
+        "score_100": 97.4035,
+        "reasoning_effort": "high",
+        "basis": "汇总采用分"
+      }
+    ]
+  }
 }
