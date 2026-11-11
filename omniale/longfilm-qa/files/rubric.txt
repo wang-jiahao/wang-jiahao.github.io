@@ -1,9 +1,3 @@
-# open-av-5point-v1（运行前固定）
-
-17题开放答案各5分：音频事实1、画面事实1、音画/实例关系2、有效证据定位1。语义裁判gpt-6.1-terra high只给四项0/0.5/1或待原片复核null及简短原因，代码线性合分；不设标签分。不给求解者参考答案、作者时间索引或裁判提示。
-
-只核必要内容，同义表达和有效替代引证接受。30–120秒上下文不因宽于短声扣分，不要求毫秒/单帧/亮灭相位、特定鸟种/器材或精确人数；正确指出错误前提也可完整给分。无引用的正确内容可以保留内容分，引用定位项单独处理。实际有争议或参考遗漏必须回原片，不用关键词/窗口交集自动判错。
-
-所有17条参考未人工确认。原始匹配分仅开发诊断，所有失分与题面有效性需原片审计，保留原始分与上调记录。无效前提/不可唯一定位/不可听题从有效分母排除，既列17题原始诊断又列有效题采用分、排除原因与上下界。未经人工确认不宣称难度已达标；未评完不把null当0。权重与尺度不按模型结果改，API失败或运行中断无模型分。
-
-预登记重点争议：MAV05玻璃短声时瓶子位置；MAV08低电平处理声；MAV10金属短声实例；MAV12声先画后/可见性；MAV13/14独立换片短声是否成立；MAV16首冲击/尾响。其他题也允许发现新的无效前提。只读公开操作和交付，不读私有推理。此次不与旧evidence-v1或逐题二选一准确率混算。
+# Open audiovisual QA v3
+Qwen3.8-Omni-Flash independently receives actual original AV context plus a question, generates dense visual/audio logs with visual anchors, and derives the standard answer, core facts, accepted alternatives and nonrequired details. Previous solver answers are never sent during GT construction. Public questions stay byte-equivalent to the previous17 questions; Qwen question edits are not adopted or shown to the solver.
+17questions equally weighted. Per-question audio1,visual1,relation2,evidence1. Each component takes0/.5/1. Accept semantic equivalent core facts and stated alternatives; no exact bird species, hardware identity, masked buckle internals, millisecond boundaries or verbatim dialogue required. Effective broad evidence allowed. Final score is mean of3complete Terra-high ballots; no null votes or intervals. Invalid/missing decisions retry, never silently fill0. No organizer source-review overrides. Infrastructure failures unscored.

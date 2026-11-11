@@ -1,0 +1,38 @@
+{
+  "created_at": "2026-11-11T12:10:35.321708+00:00",
+  "files": [
+    {
+      "file": "gen_time.py",
+      "sha256": "75c3a5894d95039a2ca42f421effc21c5afd674ca781629b53e547afb2bd5b8b"
+    },
+    {
+      "file": "dense_captioning.py",
+      "sha256": "90d571bd9016ec412129d1ff8c5e6cfc2c8e5df5c874838380b8022713650dbd"
+    },
+    {
+      "file": "final.py",
+      "sha256": "e7b8f9b25d7476747704da795c38513157b0842393e5fd994333afc0b73a02d5"
+    },
+    {
+      "file": "extract_events.py",
+      "sha256": "4e5f1f8b5cdbef171aafd45d2393f013e75248fac7683d5dc2a8d6535ce1ac80"
+    },
+    {
+      "file": "eval_gpt.py",
+      "sha256": "cfe0dda574dfd74eca14dfdc55dbf6d74e1a5ab43e3cbe56050125ec1c441d66"
+    },
+    {
+      "file": "prompts/rejudge_connector_agnostic_v2_minimal.txt",
+      "sha256": "9418172f11a1baeea8796d525ff71b0d75f949c4eb57c76f9681a07729afff92"
+    }
+  ],
+  "adaptations": [
+    "Qwen3.8-Omni-Flash replaces Gemini in every authoring stage.",
+    "Continuous segment edges have no one-second gaps; numeric local seconds avoid MM:SS rounding loss.",
+    "JSON text envelopes preserve exact stage output and parser validity.",
+    "Do not infer physical audio causes from visual anchors. Unknown source is described acoustically.",
+    "Speech semantic paraphrases accepted, no lyrics copying. Candidate format unrestricted.",
+    "Strict complete 0/1 judge arrays; missing arrays/errors are retried, never padded with zero.",
+    "Three fresh Terra-high ballots, arithmetic mean fixed before runs; no organizer video-review overrides."
+  ]
+}

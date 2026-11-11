@@ -1,23 +1,27 @@
 {
-  "frozen_at": "2026-11-11T08:09:11.478309+00:00",
-  "material_version": "caption-v1-diagnostic",
-  "rubric_version": "event-recall-v1",
+  "frozen_at": "2026-11-11T12:22:47.110081+00:00",
+  "material_version": "caption-v2-testset",
+  "rubric_version": "finite-three-vote-v2",
   "input_hashes": {
     "film.mp4": "122f0b8a2e53dfbc6c2c27a43a9bb05f3c3403ea9753334ebd563e9260b3d01d",
-    "requests.json": "e94c73685ef3fd2c9010f89cb3aab5008a3a4a1296853ee2ed93da66d8fc4f77",
+    "requests.json": "05f67e5a8a36492f2d6689486a955f9e3b5ec216b6fd003f1b6236fea15b8858",
     "source.json": "b8776095a7ec18f304b73658a53f4547f9735f924afbbc3f6e881e498bac81e2",
-    "TASK.md": "cbe79da9fdfe37a55add5b1439dc63792e8a4b3f3923795ef93110620d141534"
+    "TASK.md": "f500d48f07877f7d3fd913d9062b3140527bee79556d72da6af4a627084e4a57"
   },
   "evaluation_hashes": {
-    "caption-v1-diagnostic/reference.provisional.json": "d928c64dacc6ddb48ef75af4e03ea63eb02acf28a85c0f985ff3ba723db92a58",
-    "caption-v1-diagnostic/pool-selection.json": "c6aa54f0d9c675b4a9ec3ccbfa011a7ed4abe7825e2202461e4d9aa4b5030b97",
-    "caption-v1-diagnostic/rubric.md": "6c6342dad800fb43a09baa74008f434e2dd9f4e04690f6eb91c8292a6b9975e8",
-    "score_caption.py": "4ca7cdb9de42d9bf9fe078edf81d8c07b64456b78e11cf97529b67329e2e60e7",
-    "caption_native_driver.py": "52b254836c5ed4d679ea86ece68a967a213b230c2f7cc3622f88dbb68f48a1cc",
-    "launch_caption.py": "6b3984f63041dfb34063fa23f166338ca2f469d90e10f8c056179a73ab325cd1",
-    "calibrate_caption_judge.py": "f54b185ba294d695a06e785da4f26203b82256b9c9793454603bf45f3b0f070e"
+    "caption-v2-testset/reference.json": "f4ce4bad3ddbc48c614964a7ca29c245f5f7b5ca8c4ffb384f134c9cb9c9074a",
+    "caption-v2-testset/rubric.md": "da0bb8625db0fb619d12bd187a35bade5a0e88bb4df1234fbbf46d44de676876",
+    "caption-v2-testset/method-provenance.json": "fb542f2ed96386be1cd3e4bc49223bbbde01563e551c760aab1a4bbdd68ce001",
+    "pair_v2_author.py": "e37312254fea116582438611f8ec151c6d6cef184f6cbce3594ba3f220a5fcc4",
+    "pair_v2_score.py": "4f80ae2c00b35d7906328825f9a4a97b9f7c79e57ea2776408d141a422c2dadb",
+    "pair_v2_launch.py": "eeea84532732cd7b3ffd72f8fa6c2de413eb1df7d0e490b221b0e180502703da",
+    "pair_v2_calibrate.py": "e4f6d6ae754429aba027112b632aae89f8c596abc2c977cf9980688b523fbf8f",
+    "pair-v2/calibration/summary.json": "836ac6406da85a4075e0b31f98cbf7083a4a8fcdb687ce4b314415e375bb2d54",
+    "caption_native_driver.py": "52b254836c5ed4d679ea86ece68a967a213b230c2f7cc3622f88dbb68f48a1cc"
   },
-  "human_gold_verified": false,
-  "eligible_events": 88,
-  "total_candidates": 152
+  "author_model": "qwen3.8-omni-flash",
+  "judge": "gpt-6.1-terra high",
+  "judge_votes": 3,
+  "score": "single arithmetic mean",
+  "organizer_source_review": false
 }

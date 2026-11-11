@@ -1,24 +1,24 @@
 {
-  "policy": "Original judge votes only; no organizer source-review overrides. User instruction 2026-11-11.",
-  "formal_score": null,
-  "human_gold_verified": false,
+  "case": "qa",
+  "version": "micro-v3-testset-r2",
+  "model": "gpt-6.1-sol",
+  "judge": "gpt-6.1-terra",
+  "judge_effort": "high",
+  "judge_votes": 3,
   "solver_runs": 1,
-  "judge_repeats": 2,
-  "judge": "gpt-6.1-terra high",
-  "score_interval": [
-    73.52941176470588,
-    100.0
+  "score": 91.56862745098039,
+  "vote_scores": [
+    91.76470588235294,
+    91.76470588235294,
+    91.17647058823529
   ],
-  "category_recall_lower": {},
+  "score_rule": "arithmetic mean of three complete finite semantic votes; equal targets/questions",
+  "submission_sha256": "6e5e3115374cd7fec4a14ae79ba5faf9c32d67eaf3038c58749b7696484bc254",
+  "reference_sha256": "9b6d1e6153c52e2f0abcd3921602b3dccc5d489c4c6fb2c76de9ab85f5ebbc46",
+  "scored_at": "2026-11-11T15:04:33.401124+00:00",
   "results": [
     {
-      "score": null,
-      "score_interval": [
-        75.29411764705883,
-        100.0
-      ],
-      "valid_questions": 17,
-      "excluded": [],
+      "score": 91.76470588235294,
       "rows": [
         {
           "question_id": "MAV01",
@@ -29,16 +29,13 @@
             "evidence": 1
           },
           "points": 5,
-          "maximum_points": 5,
-          "pending_parts": [],
-          "source_review": false,
+          "score": 100,
           "reasons": {
-            "audio": "描述了电话段中短促、较硬的点击。",
-            "visual": "手握听筒，在机座附近提动，尚未举到耳边。",
-            "relation": "将点击对应取听筒阶段，并区别后续持话。",
-            "evidence": "引用覆盖点击、提动及后续举起的对照。"
-          },
-          "audit": null
+            "audio": "描述了短促、较硬的点击声。",
+            "visual": "手握听筒并将其离座提起，尚未贴耳。",
+            "relation": "将硬点击对准摘机提筒阶段，并区分后续持话。",
+            "evidence": "768—776秒覆盖提筒、点击及后续贴耳。"
+          }
         },
         {
           "question_id": "MAV02",
@@ -49,16 +46,13 @@
             "evidence": 1
           },
           "points": 5,
-          "maximum_points": 5,
-          "pending_parts": [],
-          "source_review": false,
+          "score": 100,
           "reasons": {
-            "audio": "描述了较早的粗哑鸟叫。",
-            "visual": "指出细枝间带水珠的蛛网及绿色背景。",
-            "relation": "将较早鸟叫对应蛛网，并与后面的地衣镜头区分。",
-            "evidence": "两个区间分别定位蛛网和后续地衣镜头。"
-          },
-          "audit": null
+            "audio": "描述了较早的粗哑短鸟叫。",
+            "visual": "指出带水珠的蛛网和细枝，并与树皮地衣区分。",
+            "relation": "将较早鸟叫对应蛛网微距，后续镜头对应地衣。",
+            "evidence": "1094—1109秒覆盖两个微距镜头及鸟叫。"
+          }
         },
         {
           "question_id": "MAV03",
@@ -69,16 +63,13 @@
             "evidence": 1
           },
           "points": 5,
-          "maximum_points": 5,
-          "pending_parts": [],
-          "source_review": false,
+          "score": 100,
           "reasons": {
-            "audio": "描述了后一次相似的粗哑短叫。",
-            "visual": "指出树皮上的灰绿色地衣和发声者未入镜。",
-            "relation": "将后一次叫声对应树皮地衣，区别前面的蛛网。",
-            "evidence": "引用分别覆盖前后两次叫声及对应镜头。"
-          },
-          "audit": null
+            "audio": "描述了后一次粗哑短鸟叫。",
+            "visual": "指出粗糙树皮与浅绿地衣，且画内没有鸟。",
+            "relation": "将后一次画外鸟叫对应树皮地衣镜头。",
+            "evidence": "1094—1109秒覆盖两次鸟叫及对应画面。"
+          }
         },
         {
           "question_id": "MAV04",
@@ -89,44 +80,16 @@
             "evidence": 1
           },
           "points": 5,
-          "maximum_points": 5,
-          "pending_parts": [],
-          "source_review": false,
+          "score": 100,
           "reasons": {
-            "audio": "描述了短机械起音及接续的气流样声音。",
-            "visual": "指出切入炉头时蓝焰显现，并说明镜头切入时火焰已可见。",
-            "relation": "将短声与炉火显现时段相连，并区别后续宽景。",
-            "evidence": "区间覆盖炉头近景及后续厨房宽景。"
-          },
-          "audit": null
+            "audio": "描述了短咔哒及其后的气流样声音。",
+            "visual": "指出极近景蓝焰跳动、局部窜高，以及宽景持续燃烧。",
+            "relation": "将短声对准火焰动态变化，并与后续稳定状态区分；谨慎表述首次点燃可接受。",
+            "evidence": "1162.5—1171秒覆盖炉火特写、短声和后续宽景。"
+          }
         },
         {
           "question_id": "MAV05",
-          "parts": {
-            "audio": null,
-            "visual": null,
-            "relation": null,
-            "evidence": null
-          },
-          "points": 0,
-          "maximum_points": 5,
-          "pending_parts": [
-            "audio",
-            "visual",
-            "relation",
-            "evidence"
-          ],
-          "source_review": true,
-          "reasons": {
-            "audio": "交付把最清楚的碰瓶声定位在1353—1354秒，需核对是否为第一下短响。",
-            "visual": "交付称瓶子互碰，参考对第一声时是否互碰尚未确认。",
-            "relation": "第一声与互碰动作的对应及先后需原片确认。",
-            "evidence": "引用从1352.4秒开始，需确认是否覆盖第一下玻璃样短响。"
-          },
-          "audit": null
-        },
-        {
-          "question_id": "MAV06",
           "parts": {
             "audio": 1,
             "visual": 1,
@@ -134,16 +97,30 @@
             "evidence": 1
           },
           "points": 5,
-          "maximum_points": 5,
-          "pending_parts": [],
-          "source_review": false,
+          "score": 100,
           "reasons": {
-            "audio": "描述了一记突出的短促硬哐。",
-            "visual": "绿衬衫男子放下银桶，白衬衫男子在旁持瓶。",
-            "relation": "将重哐对应绿衣男子放桶，区别旁人的动作。",
-            "evidence": "主要区间覆盖放桶及重哐，并引用较早饮酒作对照。"
+            "audio": "描述了清亮短促的玻璃碰响。",
+            "visual": "指出瓶子向彼此伸出碰杯，随后才送到嘴边。",
+            "relation": "将第一声短响对应举瓶碰杯而非饮用。",
+            "evidence": "1350—1358秒覆盖碰杯声及随后的饮用动作。"
+          }
+        },
+        {
+          "question_id": "MAV06",
+          "parts": {
+            "audio": 1,
+            "visual": 0.5,
+            "relation": 0.5,
+            "evidence": 1
           },
-          "audit": null
+          "points": 3.5,
+          "score": 70.0,
+          "reasons": {
+            "audio": "描述了较重的金属样哐声。",
+            "visual": "正确指出绿衫男子将金属桶落台，但另一人只描述为持瓶、手在瓶口附近，未明确开瓶。",
+            "relation": "正确将重响对应冰桶落台，但未明确同时发生的另一人开瓶动作。",
+            "evidence": "1454—1459秒覆盖开瓶、提桶和落台声。"
+          }
         },
         {
           "question_id": "MAV07",
@@ -154,40 +131,30 @@
             "evidence": 1
           },
           "points": 5,
-          "maximum_points": 5,
-          "pending_parts": [],
-          "source_review": false,
+          "score": 100,
           "reasons": {
-            "audio": "描述第一次尖锐碎裂或撕裂样短声。",
-            "visual": "指出桶内俯拍及手臂压入、扰动冰块。",
-            "relation": "将首次短声对应伸手入冰的近景，并区别宽景。",
-            "evidence": "引用覆盖首次短声附近及后续动作。"
-          },
-          "audit": null
+            "audio": "描述了尖利、干脆的碎裂样短声。",
+            "visual": "指出俯拍桶内近景及手伸入、压动冰块。",
+            "relation": "将第一次尖响对应近景中的手与冰接触，并区分此前宽景。",
+            "evidence": "1471—1477秒覆盖宽景转近景及手入冰的声音。"
+          }
         },
         {
           "question_id": "MAV08",
           "parts": {
-            "audio": null,
+            "audio": 1,
             "visual": 1,
-            "relation": null,
-            "evidence": null
+            "relation": 1,
+            "evidence": 1
           },
-          "points": 1,
-          "maximum_points": 5,
-          "pending_parts": [
-            "audio",
-            "relation",
-            "evidence"
-          ],
-          "source_review": true,
+          "points": 5,
+          "score": 100,
           "reasons": {
-            "audio": "交付描述短摩擦和落页声，候选仅确认微弱处理声，是否可辨需听原片。",
-            "visual": "指出女子双手翻动相册纸页。",
-            "relation": "交付强调约2456秒的后一次翻页声，需核对其与题目所指声音是否为同一实例。",
-            "evidence": "引用同时包含候选窗口和较晚翻页窗口，需确认哪一处有题目所指短声。"
-          },
-          "audit": null
+            "audio": "描述翻页摩擦轻拍声，并区分后续较持续的气流声。",
+            "visual": "指出女子翻相册并合上，后续是管道和压力表。",
+            "relation": "将短摩擦声归于翻页，区分后续工业声。",
+            "evidence": "2451—2471秒覆盖相册翻页和后续管道段。"
+          }
         },
         {
           "question_id": "MAV09",
@@ -198,40 +165,30 @@
             "evidence": 1
           },
           "points": 5,
-          "maximum_points": 5,
-          "pending_parts": [],
-          "source_review": false,
+          "score": 100,
           "reasons": {
-            "audio": "描述了明显钝响及随后的散落、摩擦声。",
-            "visual": "描述深色上衣男子向白衣男子推进，以及带镜子和台面的较宽取景。",
-            "relation": "将第一响对应身体推进，区别后续近脸抓握。",
-            "evidence": "引用覆盖冲撞及前后取景对照。"
-          },
-          "audit": null
+            "audio": "描述了钝响及伴随的散落样碰响和摩擦声。",
+            "visual": "指出深色上衣男子推撞白T恤男子，画面为可见镜子的较宽中景。",
+            "relation": "将首簇碰撞声对应中景推挤，并区分后续近脸抓握。",
+            "evidence": "2556—2564秒覆盖推撞及后续近景。"
+          }
         },
         {
           "question_id": "MAV10",
           "parts": {
             "audio": 1,
-            "visual": null,
-            "relation": null,
-            "evidence": null
+            "visual": 1,
+            "relation": 1,
+            "evidence": 1
           },
-          "points": 1,
-          "maximum_points": 5,
-          "pending_parts": [
-            "visual",
-            "relation",
-            "evidence"
-          ],
-          "source_review": true,
+          "points": 5,
+          "score": 100,
           "reasons": {
-            "audio": "描述了厨房段较亮的短金属刮碰声。",
-            "visual": "交付称搬动长方形托盘，候选记为圆形盘或盆，形状需原片核对。",
-            "relation": "厨工与金属盘的对应一致，但目标器物形状存在冲突。",
-            "evidence": "引用覆盖目标厨房时段，但其中长方形盘的描述与候选不一致。"
-          },
-          "audit": null
+            "audio": "描述了较亮的金属刮碰和哐啷声。",
+            "visual": "指出白衣发网厨房女工搬动大型金属烤盘或托盘。",
+            "relation": "将金属短响对应厨房女工搬盘的动作。",
+            "evidence": "2949—2970秒覆盖蒙太奇上下文及厨房搬盘。"
+          }
         },
         {
           "question_id": "MAV11",
@@ -242,36 +199,30 @@
             "evidence": 1
           },
           "points": 5,
-          "maximum_points": 5,
-          "pending_parts": [],
-          "source_review": false,
+          "score": 100,
           "reasons": {
-            "audio": "指出设备操作段较早的干短咔嗒及后续处理声。",
-            "visual": "描述双手在设备上部盘轴附近取动圆形带盘。",
-            "relation": "将第一声与卷盘附近的手部操作相联系。",
-            "evidence": "引用覆盖第一声附近和后续设备操作。"
-          },
-          "audit": null
+            "audio": "描述了干短的机械咔嗒声。",
+            "visual": "指出手位于卷盘及轴座附近，操作透明圆形卷盘。",
+            "relation": "将首下咔嗒对应卷盘取放操作，并区分旋钮。",
+            "evidence": "3004—3025秒覆盖设备操作、短响及后续海鸟镜头。"
+          }
         },
         {
           "question_id": "MAV12",
           "parts": {
             "audio": 1,
-            "visual": 1,
-            "relation": 1,
+            "visual": 0.5,
+            "relation": 0.5,
             "evidence": 1
           },
-          "points": 5,
-          "maximum_points": 5,
-          "pending_parts": [],
-          "source_review": false,
+          "points": 3.5,
+          "score": 70.0,
           "reasons": {
-            "audio": "描述机械段之后的尖锐短鸟叫。",
-            "visual": "指出天空镜头中鸟短暂入画，随后飞出画框。",
-            "relation": "说明鸟叫期间并非全程可见鸟，且无法确认具体发声者。",
-            "evidence": "引用覆盖机器结束、天空与鸟叫及后续海边镜头。"
-          },
-          "audit": null
+            "audio": "描述了高尖短促的鸟叫。",
+            "visual": "正确指出天空中的飞鸟，但称鸟叫起时鸟仍在画外，与标准的声起时可见不符。",
+            "relation": "正确将鸟叫放在天空段，但对短声时声源可见程度的判断与标准不同。",
+            "evidence": "3004—3025秒覆盖设备、天空飞鸟、短叫及后续海面。"
+          }
         },
         {
           "question_id": "MAV13",
@@ -282,16 +233,13 @@
             "evidence": 1
           },
           "points": 5,
-          "maximum_points": 5,
-          "pending_parts": [],
-          "source_review": false,
+          "score": 100,
           "reasons": {
-            "audio": "描述了候选换片时的短机械声。",
-            "visual": "指出人物照片之后出现湖面及木栈桥照片。",
-            "relation": "将这次换片与木栈桥照片相连，并区别后续自行车照片。",
-            "evidence": "引用覆盖人物照片、换片时刻和后续湖景。"
-          },
-          "audit": null
+            "audio": "描述了换片时的短机械响和运转底声。",
+            "visual": "指出人物照后出现湖面和木栈桥风景照。",
+            "relation": "将短响对应人物照换为木栈桥照，区分更晚的自行车照。",
+            "evidence": "3470—3490.5秒覆盖指定换片及后续参照。"
+          }
         },
         {
           "question_id": "MAV14",
@@ -302,67 +250,33 @@
             "evidence": 1
           },
           "points": 5,
-          "maximum_points": 5,
-          "pending_parts": [],
-          "source_review": false,
+          "score": 100,
           "reasons": {
-            "audio": "描述了较晚一次短机械咔嚓。",
-            "visual": "指出新照片中的自行车和人物。",
-            "relation": "将较晚换片对应自行车照片，并区别先前木栈桥。",
-            "evidence": "引用覆盖过渡、自行车照片及较早木栈桥对照。"
-          },
-          "audit": null
+            "audio": "描述了较晚一次短促机械换片声。",
+            "visual": "指出亮白过渡后的三人与自行车照片。",
+            "relation": "将较晚短响对应自行车照，并与更早木栈桥照区分。",
+            "evidence": "3470—3490.5秒覆盖两次换片及亮白过渡。"
+          }
         },
         {
           "question_id": "MAV15",
           "parts": {
             "audio": 1,
-            "visual": null,
-            "relation": null,
-            "evidence": null
+            "visual": 0.5,
+            "relation": 0.5,
+            "evidence": 0.5
           },
-          "points": 1,
-          "maximum_points": 5,
-          "pending_parts": [
-            "visual",
-            "relation",
-            "evidence"
-          ],
-          "source_review": true,
+          "points": 3.0,
+          "score": 60.0,
           "reasons": {
-            "audio": "描述了雨刷周期声之外的独立短咔嗒。",
-            "visual": "交付称手拨动扣片但锁舌被遮挡，不能判断扣合或解开；与候选插接动作需原片核对。",
-            "relation": "短声与安全带扣操作相连，但具体插接还是解开存在未决分歧。",
-            "evidence": "引用定位到安全带扣近景，具体动作及与候选窗口的偏移需复核。"
-          },
-          "audit": null
+            "audio": "描述了独立于周期雨刮声的短硬咔嗒。",
+            "visual": "正确识别安全带红色按钮锁扣，但把扣合误述为释放。",
+            "relation": "将咔嗒关联到正确的安全带锁扣实例，但动作方向与标准相反。",
+            "evidence": "4703—4710秒覆盖正确实例，但证据内容错误描述为解扣。"
+          }
         },
         {
           "question_id": "MAV16",
-          "parts": {
-            "audio": null,
-            "visual": 1,
-            "relation": null,
-            "evidence": null
-          },
-          "points": 1,
-          "maximum_points": 5,
-          "pending_parts": [
-            "audio",
-            "relation",
-            "evidence"
-          ],
-          "source_review": true,
-          "reasons": {
-            "audio": "交付把大撞击和尾声定位于4719—4720秒附近，与候选的较早冲击及尾响时段不一致。",
-            "visual": "描述林中车辆外景、车身颠簸和扬尘。",
-            "relation": "交付所指大撞击后的尾声是否为题目目标实例需听看确认。",
-            "evidence": "引用主要定位较晚的撞击和尾声，需确认是否覆盖题目所指实例。"
-          },
-          "audit": null
-        },
-        {
-          "question_id": "MAV17",
           "parts": {
             "audio": 1,
             "visual": 1,
@@ -370,41 +284,35 @@
             "evidence": 1
           },
           "points": 5,
-          "maximum_points": 5,
-          "pending_parts": [],
-          "source_review": false,
+          "score": 100,
           "reasons": {
-            "audio": "描述停车后重复的离散短滴答或咔嗒。",
-            "visual": "指出仪表台红色指示件，并对照此前雨刷往返。",
-            "relation": "将重复短响对应仪表台画面，区别雨刷运动，未强求灯光相位。",
-            "evidence": "引用覆盖仪表台短响及此前雨刷对照。"
+            "audio": "描述了低重撞击和较短的衰减尾声。",
+            "visual": "指出林间外景、车停于树间以及周围扬尘逐渐散开。",
+            "relation": "将撞击尾响附近对应车辆停住及尘雾变化的外景。",
+            "evidence": "4714—4728秒覆盖冲撞及其后林间停车、扬尘。"
+          }
+        },
+        {
+          "question_id": "MAV17",
+          "parts": {
+            "audio": 1,
+            "visual": 0.5,
+            "relation": 0.5,
+            "evidence": 0.5
           },
-          "audit": null
+          "points": 3.0,
+          "score": 60.0,
+          "reasons": {
+            "audio": "描述了停车后规律、干短的重复咔哒。",
+            "visual": "闪灯仪表台是允许的实例，但用行车时雨刮画面替代了题指的后续挡风玻璃男子画面。",
+            "relation": "正确关联咔哒与仪表灯闪烁，但未指出后续挡风玻璃中男子动作与咔哒不同步。",
+            "evidence": "4731—4744秒支持仪表台实例；所选4703—4706秒对照段不是题指的停车后挡风玻璃镜头。"
+          }
         }
-      ],
-      "source_audit_complete": false,
-      "metric": "equal-weight open answers: audio1 visual1 relation2 citation1; provisional gold, development diagnostic only",
-      "unverified_reference_point_estimate": null,
-      "semantic_score_before_source_audit": null,
-      "graded_at": "2026-11-11T07:48:05.792025+00:00",
-      "score_status": "candidate-reference diagnostic; source/human confirmation required",
-      "human_gold_verified": false,
-      "model": "gpt-6.1-sol",
-      "actual_effort": "xhigh",
-      "requested_effort": "xhigh",
-      "judge": "gpt-6.1-terra high",
-      "submission_sha256": "799e66704cf504539273df720c14d4dc5f96d6d7d7b00e68f7d7ff536ae1339c",
-      "judge_prompt_sha256": "b7f2d5d3f8d65a91d87c76a3badb1c144b7d76eec8d59149cba817c5daa73419",
-      "solver_run": "[user]\\.cache\\omniale_runs\\longfilm_micro-v2-openanswers-r1_sol_r02_20261111"
+      ]
     },
     {
-      "score": null,
-      "score_interval": [
-        71.76470588235294,
-        100.0
-      ],
-      "valid_questions": 17,
-      "excluded": [],
+      "score": 91.76470588235294,
       "rows": [
         {
           "question_id": "MAV01",
@@ -415,16 +323,13 @@
             "evidence": 1
           },
           "points": 5,
-          "maximum_points": 5,
-          "pending_parts": [],
-          "source_review": false,
+          "score": 100,
           "reasons": {
-            "audio": "描述了电话段短促、较硬的点击。",
-            "visual": "手握听筒，在机座附近提动，尚未靠耳。",
-            "relation": "将点击对应取听筒阶段，并与后续持话区分。",
-            "evidence": "引用了点击及随后举起听筒的相邻区间。"
-          },
-          "audit": null
+            "audio": "描述了较硬、短促的点击声。",
+            "visual": "手握听筒并将其提离座叉，尚未贴耳。",
+            "relation": "将点击对应到摘机提筒阶段，并区分后续持话。",
+            "evidence": "768—776秒覆盖摘机、点击及后续抬听筒。"
+          }
         },
         {
           "question_id": "MAV02",
@@ -435,16 +340,13 @@
             "evidence": 1
           },
           "points": 5,
-          "maximum_points": 5,
-          "pending_parts": [],
-          "source_review": false,
+          "score": 100,
           "reasons": {
-            "audio": "描述了较早的粗哑鸟叫。",
-            "visual": "指出带水珠的细枝和蛛网，画中无发声鸟。",
-            "relation": "将较早鸟叫对应蛛网，并与后续地衣镜头区分。",
-            "evidence": "引用区间覆盖蛛网、鸟叫及后续地衣镜头。"
-          },
-          "audit": null
+            "audio": "描述了较早的粗哑短鸟叫。",
+            "visual": "指出带水珠的细枝蛛网及后续树皮地衣。",
+            "relation": "将较早鸟叫对应蛛网镜头，并与后续对象区分。",
+            "evidence": "1094—1109秒覆盖两个微距镜头及鸟叫。"
+          }
         },
         {
           "question_id": "MAV03",
@@ -455,67 +357,33 @@
             "evidence": 1
           },
           "points": 5,
-          "maximum_points": 5,
-          "pending_parts": [],
-          "source_review": false,
+          "score": 100,
           "reasons": {
-            "audio": "指出后一次相似的粗哑短叫。",
-            "visual": "描述树皮上的灰绿色地衣，且发声者未入镜。",
-            "relation": "将后一次叫声对应地衣镜头，与前一蛛网镜头区分。",
-            "evidence": "分别引用前后两次叫声及对应镜头。"
-          },
-          "audit": null
+            "audio": "描述了后一次粗哑短鸟叫。",
+            "visual": "指出粗糙树皮上的浅绿地衣，且鸟未入画。",
+            "relation": "将后一次鸟叫对应树皮地衣镜头及画外声源。",
+            "evidence": "1094—1109秒覆盖后一次鸟叫及相应画面。"
+          }
         },
         {
           "question_id": "MAV04",
           "parts": {
             "audio": 1,
-            "visual": null,
-            "relation": null,
-            "evidence": null
+            "visual": 0.5,
+            "relation": 0.5,
+            "evidence": 1
           },
-          "points": 1,
-          "maximum_points": 5,
-          "pending_parts": [
-            "visual",
-            "relation",
-            "evidence"
-          ],
-          "source_review": true,
+          "points": 3.5,
+          "score": 70.0,
           "reasons": {
-            "audio": "描述短促机械起音和接续气流样声音。",
-            "visual": "交付指出切入炉头时蓝焰已可见，需复核是否能看到火焰建立。",
-            "relation": "短声与火焰显现或建立的相邻关系需结合连续画面复核。",
-            "evidence": "所引区间覆盖目标，但火焰在切镜时已可见，需复核文字所述变化。"
-          },
-          "audit": null
+            "audio": "描述了短硬咔哒及短促气流样声音。",
+            "visual": "指出蓝焰跳动及宽景持续燃烧，但未认定极近景的点燃或建立变化。",
+            "relation": "将短声与火苗窜动对应，但未给出标准中的点火事件关系。",
+            "evidence": "1162.5—1171秒覆盖极近景短声及随后厨房宽景。"
+          }
         },
         {
           "question_id": "MAV05",
-          "parts": {
-            "audio": 1,
-            "visual": null,
-            "relation": null,
-            "evidence": null
-          },
-          "points": 1,
-          "maximum_points": 5,
-          "pending_parts": [
-            "visual",
-            "relation",
-            "evidence"
-          ],
-          "source_review": true,
-          "reasons": {
-            "audio": "描述了清脆的玻璃样短响。",
-            "visual": "交付明确称瓶子互碰；参考对第一响时是否互碰保留疑问。",
-            "relation": "需复核第一下短响是否对应交付所述碰瓶，而非仅举瓶靠拢。",
-            "evidence": "所引区间邻近目标，但第一响及瓶子是否接触需原片确认。"
-          },
-          "audit": null
-        },
-        {
-          "question_id": "MAV06",
           "parts": {
             "audio": 1,
             "visual": 1,
@@ -523,16 +391,30 @@
             "evidence": 1
           },
           "points": 5,
-          "maximum_points": 5,
-          "pending_parts": [],
-          "source_review": false,
+          "score": 100,
           "reasons": {
-            "audio": "指出明显、短促的硬哐声。",
-            "visual": "绿衣男子放下银色桶，白衣男子在旁持瓶。",
-            "relation": "将较重哐声与绿衣男子落桶对应，并区分另一人的动作。",
-            "evidence": "引用落桶及白衣男子持瓶的目标区间。"
+            "audio": "描述了清亮短促的玻璃样碰响。",
+            "visual": "指出瓶子向彼此伸出相碰，随后才送入口饮用。",
+            "relation": "将第一下短响对应举瓶碰杯，而非饮用阶段。",
+            "evidence": "1350—1358秒覆盖碰杯声、举瓶及后续饮用。"
+          }
+        },
+        {
+          "question_id": "MAV06",
+          "parts": {
+            "audio": 1,
+            "visual": 0.5,
+            "relation": 1,
+            "evidence": 1
           },
-          "audit": null
+          "points": 4.5,
+          "score": 90.0,
+          "reasons": {
+            "audio": "描述了较重的金属样哐声。",
+            "visual": "正确指出绿衬衫男子将冰桶落台，但另一人只描述为持瓶、手在瓶口附近，未明确开瓶。",
+            "relation": "将重响对应绿衬衫男子把冰桶放到台面。",
+            "evidence": "1454—1459秒覆盖开瓶附近及冰桶落台。"
+          }
         },
         {
           "question_id": "MAV07",
@@ -543,40 +425,30 @@
             "evidence": 1
           },
           "points": 5,
-          "maximum_points": 5,
-          "pending_parts": [],
-          "source_review": false,
+          "score": 100,
           "reasons": {
-            "audio": "指出第一次尖锐碎裂或撕裂样短声。",
-            "visual": "描述桶内俯拍及手臂伸入、扰动冰块。",
-            "relation": "将第一声对应桶内近景，没有把声学类比当成实际撕纸。",
-            "evidence": "所引区间覆盖首次短声附近和后续宽景。"
-          },
-          "audit": null
+            "audio": "描述了尖锐、干脆的碎裂及碰响。",
+            "visual": "指出俯拍桶内近景及手压入、翻动冰块。",
+            "relation": "将首次尖响对应桶内近景的手入冰动作。",
+            "evidence": "1471—1477秒覆盖宽景转近景和首次碎响。"
+          }
         },
         {
           "question_id": "MAV08",
           "parts": {
-            "audio": null,
+            "audio": 1,
             "visual": 1,
-            "relation": null,
-            "evidence": null
+            "relation": 1,
+            "evidence": 1
           },
-          "points": 1,
-          "maximum_points": 5,
-          "pending_parts": [
-            "audio",
-            "relation",
-            "evidence"
-          ],
-          "source_review": true,
+          "points": 5,
+          "score": 100,
           "reasons": {
-            "audio": "交付强调约2456秒的翻页声，候选目标则是约2444秒的微弱处理声。",
-            "visual": "指出手在翻动相册纸页，并区分后续管道和压力表。",
-            "relation": "目标窗口内微弱摩擦声是否可辨及是否与翻页同期需复核。",
-            "evidence": "引用覆盖候选窗口，也引用较晚翻页；需确认哪一处含题述短声。"
-          },
-          "audit": null
+            "audio": "描述了短促翻页摩擦声，并与持续气流声区分。",
+            "visual": "指出女子翻动相册页并合上相册。",
+            "relation": "将摩擦轻拍对应翻页，区分后续管道声音。",
+            "evidence": "2451—2471秒覆盖相册动作及后续管道段。"
+          }
         },
         {
           "question_id": "MAV09",
@@ -587,40 +459,30 @@
             "evidence": 1
           },
           "points": 5,
-          "maximum_points": 5,
-          "pending_parts": [],
-          "source_review": false,
+          "score": 100,
           "reasons": {
-            "audio": "描述第一下钝响及紧随的散落、摩擦声。",
-            "visual": "深色上衣男子向前推动白衣男子，画面为带镜子的较宽双人镜头。",
-            "relation": "将首个大响对应身体推进，并与后续近脸抓握区分。",
-            "evidence": "引用首响前、首响时和后续近景的相邻区间。"
-          },
-          "audit": null
+            "audio": "描述了钝撞及后续散落样摩擦碰响。",
+            "visual": "指出深色上衣男子推压白T恤男子，以及可见镜子的双人中景。",
+            "relation": "将第一簇碰撞声对应中景推撞，区分后续近脸抓握。",
+            "evidence": "2556—2564秒覆盖推撞声、中景及后续近景。"
+          }
         },
         {
           "question_id": "MAV10",
           "parts": {
             "audio": 1,
-            "visual": null,
-            "relation": null,
-            "evidence": null
+            "visual": 1,
+            "relation": 1,
+            "evidence": 1
           },
-          "points": 1,
-          "maximum_points": 5,
-          "pending_parts": [
-            "visual",
-            "relation",
-            "evidence"
-          ],
-          "source_review": true,
+          "points": 5,
+          "score": 100,
           "reasons": {
-            "audio": "描述厨房段较亮的短金属刮碰声。",
-            "visual": "交付称大型长方形托盘，候选称圆形盘或盆，形状存在冲突。",
-            "relation": "厨工搬动物件与该次声音的对应，以及物件形状需原片确认。",
-            "evidence": "所引目标区间合理，但长方形盘与候选圆形器物的差异需核对。"
-          },
-          "audit": null
+            "audio": "描述了较亮的金属刮碰和哐啷声。",
+            "visual": "指出戴发网的厨房女工搬动大号长方形金属盘。",
+            "relation": "将金属刮碰声对应厨房女工搬盘。",
+            "evidence": "2949—2970秒覆盖蒙太奇上下文和厨房搬盘段。"
+          }
         },
         {
           "question_id": "MAV11",
@@ -631,36 +493,30 @@
             "evidence": 1
           },
           "points": 5,
-          "maximum_points": 5,
-          "pending_parts": [],
-          "source_review": false,
+          "score": 100,
           "reasons": {
-            "audio": "指出设备操作时较早的干短机械咔嗒。",
-            "visual": "描述手在设备上部盘轴附近取动圆形盘状物。",
-            "relation": "将第一声与卷盘附近的手部操作联系。",
-            "evidence": "引用第一声及随后取放圆盘的区间。"
-          },
-          "audit": null
+            "audio": "描述了干短机械咔嗒及后续轻碰声。",
+            "visual": "指出手在卷盘及轴座处操作透明圆形卷盘。",
+            "relation": "将首个清楚短响对应卷盘取放操作。",
+            "evidence": "3004—3025秒覆盖设备操作及后续海鸟镜头。"
+          }
         },
         {
           "question_id": "MAV12",
           "parts": {
             "audio": 1,
-            "visual": 1,
-            "relation": 1,
+            "visual": 0.5,
+            "relation": 0.5,
             "evidence": 1
           },
-          "points": 5,
-          "maximum_points": 5,
-          "pending_parts": [],
-          "source_review": false,
+          "points": 3.5,
+          "score": 70.0,
           "reasons": {
-            "audio": "描述机械段后的尖锐短鸟叫。",
-            "visual": "指出天空中鸟短暂可见，随后飞出画框，海面镜头更晚。",
-            "relation": "说明鸟叫期间可见性变化，且不把叫声确定归给某只鸟。",
-            "evidence": "引用切入天空、鸟短暂可见及后续海面的区间。"
-          },
-          "audit": null
+            "audio": "描述了高尖、短促的鸟叫。",
+            "visual": "正确指出天空和飞鸟镜头，但称声起时鸟不在画内，与标准的声源可见不符。",
+            "relation": "正确将鸟叫定位于天空段，但将叫声与飞鸟可见状态错开。",
+            "evidence": "3004—3025秒覆盖机械镜头、天空飞鸟与海面转场。"
+          }
         },
         {
           "question_id": "MAV13",
@@ -671,16 +527,13 @@
             "evidence": 1
           },
           "points": 5,
-          "maximum_points": 5,
-          "pending_parts": [],
-          "source_review": false,
+          "score": 100,
           "reasons": {
-            "audio": "描述候选换片时的短机械响。",
-            "visual": "指出随后出现湖面和木栈桥照片。",
-            "relation": "将人物照片换为木栈桥照片，与更晚自行车照片区分。",
-            "evidence": "引用换片前人物照片和换片后湖景的相邻区间。"
-          },
-          "audit": null
+            "audio": "描述了换片短机械响及运转底声。",
+            "visual": "指出人物照后出现湖面和木栈桥风景照。",
+            "relation": "将该次换片声对应人物照之后的木栈桥湖景。",
+            "evidence": "3470—3490.5秒覆盖该次换片及更晚对照实例。"
+          }
         },
         {
           "question_id": "MAV14",
@@ -691,67 +544,33 @@
             "evidence": 1
           },
           "points": 5,
-          "maximum_points": 5,
-          "pending_parts": [],
-          "source_review": false,
+          "score": 100,
           "reasons": {
-            "audio": "描述更晚一次短机械咔嚓。",
-            "visual": "指出新照片里醒目的自行车及人物。",
-            "relation": "将自行车照片与此前木栈桥照片区分。",
-            "evidence": "引用亮面过渡、自行车照片及较早木栈桥照片。"
-          },
-          "audit": null
+            "audio": "描述了更晚一次短促机械换片声。",
+            "visual": "指出亮白过渡后出现人物与自行车照片。",
+            "relation": "将较晚换片声对应自行车照，并区分较早木栈桥照。",
+            "evidence": "3470—3490.5秒覆盖木栈桥照、亮白过渡及自行车照。"
+          }
         },
         {
           "question_id": "MAV15",
           "parts": {
             "audio": 1,
-            "visual": null,
-            "relation": null,
-            "evidence": null
+            "visual": 0.5,
+            "relation": 0.5,
+            "evidence": 1
           },
-          "points": 1,
-          "maximum_points": 5,
-          "pending_parts": [
-            "visual",
-            "relation",
-            "evidence"
-          ],
-          "source_review": true,
+          "points": 3.5,
+          "score": 70.0,
           "reasons": {
-            "audio": "指出周期雨刷声之外的独立短咔嗒。",
-            "visual": "交付称锁舌被手遮挡，无法分辨扣合或解开；候选称完成插接。",
-            "relation": "短声与安全带扣操作的联系已描述，但是否为插接动作需复核。",
-            "evidence": "区间邻近候选窗口，但交付指出关键接合处被遮挡，需核对动作。"
-          },
-          "audit": null
+            "audio": "描述了独立短咔哒及周期雨刮底声。",
+            "visual": "认出了安全带红色锁扣，但将扣合动作反说为解开。",
+            "relation": "将独立短响对应安全带锁扣，但对应动作方向错误。",
+            "evidence": "4703—4710秒覆盖雨刮与安全带锁扣特写。"
+          }
         },
         {
           "question_id": "MAV16",
-          "parts": {
-            "audio": null,
-            "visual": 1,
-            "relation": null,
-            "evidence": null
-          },
-          "points": 1,
-          "maximum_points": 5,
-          "pending_parts": [
-            "audio",
-            "relation",
-            "evidence"
-          ],
-          "source_review": true,
-          "reasons": {
-            "audio": "交付将大撞击标在约4719.45秒，晚于候选记录的主要冲击范围。",
-            "visual": "描述林中车辆外景、车身颠簸减速及扬尘。",
-            "relation": "交付所述大撞击和尾响比候选目标窗口晚，需确认是否为同一实例。",
-            "evidence": "引用主要落在候选目标窗口之后，需结合声音与画面判断定位。"
-          },
-          "audit": null
-        },
-        {
-          "question_id": "MAV17",
           "parts": {
             "audio": 1,
             "visual": 1,
@@ -759,32 +578,326 @@
             "evidence": 1
           },
           "points": 5,
-          "maximum_points": 5,
-          "pending_parts": [],
-          "source_review": false,
+          "score": 100,
           "reasons": {
-            "audio": "描述停车后的重复短滴答声，并与行驶时的刷擦声区分。",
-            "visual": "指出仪表台和闪光指示件，并对照此前雨刷往返。",
-            "relation": "将短咔哒对应停车后的仪表台画面，不强求灯光相位。",
-            "evidence": "引用停车后仪表台及此前雨刷的对照区间。"
+            "audio": "描述了低重撞击及较短衰减尾声。",
+            "visual": "指出林间外景中车辆停在树间，周围尘土和碎屑扬起、消散。",
+            "relation": "将撞击尾声与车辆回落停住及林间扬尘对应。",
+            "evidence": "4714—4728秒覆盖撞击、林间外景和停车扬尘。"
+          }
+        },
+        {
+          "question_id": "MAV17",
+          "parts": {
+            "audio": 1,
+            "visual": 0.5,
+            "relation": 0.5,
+            "evidence": 0.5
           },
-          "audit": null
+          "points": 3.0,
+          "score": 60.0,
+          "reasons": {
+            "audio": "描述了停车后的规律短咔哒，并谨慎推断继电器声。",
+            "visual": "仪表台及闪烁红灯是允许的实例，但比较用了更早行车时的雨刮，未描述停车后挡风玻璃镜头中男子擦脸低头。",
+            "relation": "正确关联咔哒与红灯闪烁，但未纠正题面所指挡风玻璃人物动作与咔哒不同步的前提。",
+            "evidence": "4731—4744秒有效支持仪表台实例；4703—4706秒属于此前行车段，未覆盖停车后的挡风玻璃对照镜头。"
+          }
         }
-      ],
-      "source_audit_complete": false,
-      "metric": "equal-weight open answers: audio1 visual1 relation2 citation1; provisional gold, development diagnostic only",
-      "unverified_reference_point_estimate": null,
-      "semantic_score_before_source_audit": null,
-      "graded_at": "2026-11-11T07:51:29.167970+00:00",
-      "score_status": "candidate-reference diagnostic; source/human confirmation required",
-      "human_gold_verified": false,
-      "model": "gpt-6.1-sol",
-      "actual_effort": "xhigh",
-      "requested_effort": "xhigh",
-      "judge": "gpt-6.1-terra high",
-      "submission_sha256": "799e66704cf504539273df720c14d4dc5f96d6d7d7b00e68f7d7ff536ae1339c",
-      "judge_prompt_sha256": "b7f2d5d3f8d65a91d87c76a3badb1c144b7d76eec8d59149cba817c5daa73419",
-      "solver_run": "[user]\\.cache\\omniale_runs\\longfilm_micro-v2-openanswers-r1_sol_r02_20261111"
+      ]
+    },
+    {
+      "score": 91.17647058823529,
+      "rows": [
+        {
+          "question_id": "MAV01",
+          "parts": {
+            "audio": 1,
+            "visual": 1,
+            "relation": 1,
+            "evidence": 1
+          },
+          "points": 5,
+          "score": 100,
+          "reasons": {
+            "audio": "描述了短促、较硬的点击声。",
+            "visual": "手握听筒并将其离座提起，尚未贴耳。",
+            "relation": "将硬点击对应到摘机提筒阶段。",
+            "evidence": "所给范围覆盖摘机点击及其后的持话动作。"
+          }
+        },
+        {
+          "question_id": "MAV02",
+          "parts": {
+            "audio": 1,
+            "visual": 1,
+            "relation": 1,
+            "evidence": 1
+          },
+          "points": 5,
+          "score": 100,
+          "reasons": {
+            "audio": "描述了较早的粗哑短鸟叫。",
+            "visual": "指出带水滴的蛛网和细枝，并区分后面的地衣树皮。",
+            "relation": "将较早鸟叫对应蛛网微距，区分后续树皮镜头。",
+            "evidence": "范围覆盖两段微距及相应鸟叫。"
+          }
+        },
+        {
+          "question_id": "MAV03",
+          "parts": {
+            "audio": 1,
+            "visual": 1,
+            "relation": 1,
+            "evidence": 1
+          },
+          "points": 5,
+          "score": 100,
+          "reasons": {
+            "audio": "描述了后一次粗哑短鸟叫。",
+            "visual": "指出地衣覆盖的粗糙树皮及鸟未入画。",
+            "relation": "将后一次鸟叫对应树皮地衣镜头，声源画外。",
+            "evidence": "范围和内容覆盖树皮特写及后一次鸟叫。"
+          }
+        },
+        {
+          "question_id": "MAV04",
+          "parts": {
+            "audio": 1,
+            "visual": 1,
+            "relation": 1,
+            "evidence": 1
+          },
+          "points": 5,
+          "score": 100,
+          "reasons": {
+            "audio": "描述了短硬咔哒及短促气流样声音。",
+            "visual": "描述极近景中蓝焰跳动、窜高及后续宽景的持续蓝焰。",
+            "relation": "将短声对应火苗动态，并与宽景稳定燃烧区分；对首次点燃持谨慎态度。",
+            "evidence": "范围覆盖炉火特写、短声及后续厨房宽景。"
+          }
+        },
+        {
+          "question_id": "MAV05",
+          "parts": {
+            "audio": 1,
+            "visual": 1,
+            "relation": 1,
+            "evidence": 1
+          },
+          "points": 5,
+          "score": 100,
+          "reasons": {
+            "audio": "描述了清亮短促的玻璃样碰响。",
+            "visual": "指出瓶子向彼此伸出碰杯，随后才送到嘴边饮用。",
+            "relation": "将第一下短响对应举瓶碰杯阶段。",
+            "evidence": "范围覆盖碰瓶短响及之后的饮用动作。"
+          }
+        },
+        {
+          "question_id": "MAV06",
+          "parts": {
+            "audio": 1,
+            "visual": 0.5,
+            "relation": 0.5,
+            "evidence": 1
+          },
+          "points": 3.5,
+          "score": 70.0,
+          "reasons": {
+            "audio": "描述了较重的金属样哐声。",
+            "visual": "正确指出绿衬衫男子将冰桶落台，另一人持瓶，但未明确其正在用开瓶器撬盖。",
+            "relation": "正确对应冰桶落台与重响，但另一人的开瓶动作未明确。",
+            "evidence": "范围覆盖冰桶落台、重响及另一人持瓶的画面。"
+          }
+        },
+        {
+          "question_id": "MAV07",
+          "parts": {
+            "audio": 1,
+            "visual": 1,
+            "relation": 1,
+            "evidence": 1
+          },
+          "points": 5,
+          "score": 100,
+          "reasons": {
+            "audio": "描述了首次尖利、干脆的碎裂及碰擦声。",
+            "visual": "指出俯拍桶内近景中手伸入并压动冰块。",
+            "relation": "将首次尖响对应手进入冰堆的近景，区分宽景对话。",
+            "evidence": "范围覆盖宽景转近景及手入冰时的尖响。"
+          }
+        },
+        {
+          "question_id": "MAV08",
+          "parts": {
+            "audio": 1,
+            "visual": 1,
+            "relation": 1,
+            "evidence": 1
+          },
+          "points": 5,
+          "score": 100,
+          "reasons": {
+            "audio": "描述纸页摩擦轻拍，并与持续的管道气流声区分。",
+            "visual": "指出女子翻动并收合相册，而非操作管件。",
+            "relation": "将短摩擦声对应翻页，区分后续管道段声音。",
+            "evidence": "范围覆盖相册操作及后续管道、压力表镜头。"
+          }
+        },
+        {
+          "question_id": "MAV09",
+          "parts": {
+            "audio": 1,
+            "visual": 1,
+            "relation": 1,
+            "evidence": 1
+          },
+          "points": 5,
+          "score": 100,
+          "reasons": {
+            "audio": "描述了钝撞击及随后的零碎散落、摩擦声。",
+            "visual": "指出深色上衣男子推撞白T恤男子，画面为可见镜子的双人中景。",
+            "relation": "将第一簇碰撞声对应中景推挤，而非后续近脸抓握。",
+            "evidence": "范围覆盖推撞声、中景及后续近景。"
+          }
+        },
+        {
+          "question_id": "MAV10",
+          "parts": {
+            "audio": 1,
+            "visual": 1,
+            "relation": 1,
+            "evidence": 1
+          },
+          "points": 5,
+          "score": 100,
+          "reasons": {
+            "audio": "描述了较亮的金属刮碰和哐啷声。",
+            "visual": "指出白衣发网厨房女工搬动大号金属托盘。",
+            "relation": "将金属刮碰声对应厨房女工搬盘动作。",
+            "evidence": "范围覆盖体检、控制室及厨房搬盘片段。"
+          }
+        },
+        {
+          "question_id": "MAV11",
+          "parts": {
+            "audio": 1,
+            "visual": 1,
+            "relation": 1,
+            "evidence": 1
+          },
+          "points": 5,
+          "score": 100,
+          "reasons": {
+            "audio": "描述了设备特写中的干短机械咔哒。",
+            "visual": "指出手在卷盘及轴座附近操作透明圆形盘片。",
+            "relation": "将首下咔哒对应卷盘取放操作，并谨慎处理具体声源。",
+            "evidence": "范围覆盖设备操作、咔哒及随后海鸟镜头。"
+          }
+        },
+        {
+          "question_id": "MAV12",
+          "parts": {
+            "audio": 1,
+            "visual": 0.5,
+            "relation": 0.5,
+            "evidence": 0.5
+          },
+          "points": 3.0,
+          "score": 60.0,
+          "reasons": {
+            "audio": "描述了尖锐短促的鸟叫。",
+            "visual": "正确指出天空中的飞鸟，但称叫声起时鸟尚未入画，与标准的声时可见不符。",
+            "relation": "正确将鸟叫放在天空镜头，但声源可见程度判断与标准不同。",
+            "evidence": "范围覆盖天空、鸟叫和飞鸟，但内容将鸟入画置于叫声之后。"
+          }
+        },
+        {
+          "question_id": "MAV13",
+          "parts": {
+            "audio": 1,
+            "visual": 1,
+            "relation": 1,
+            "evidence": 1
+          },
+          "points": 5,
+          "score": 100,
+          "reasons": {
+            "audio": "描述了换片时的短机械声及运转底声。",
+            "visual": "正确指出人物照之后是湖面与木栈桥风景照。",
+            "relation": "将该次机械响对应人物照换为木栈桥湖景。",
+            "evidence": "范围覆盖人物照、换片声与紧接的湖景。"
+          }
+        },
+        {
+          "question_id": "MAV14",
+          "parts": {
+            "audio": 1,
+            "visual": 1,
+            "relation": 1,
+            "evidence": 1
+          },
+          "points": 5,
+          "score": 100,
+          "reasons": {
+            "audio": "描述了较晚一次短促机械换片声。",
+            "visual": "指出亮白过渡后的照片中有自行车，数量细节不作要求。",
+            "relation": "将较晚换片声对应自行车照片，并区分更早的木栈桥照。",
+            "evidence": "范围覆盖亮白过渡、换片声及自行车照片。"
+          }
+        },
+        {
+          "question_id": "MAV15",
+          "parts": {
+            "audio": 1,
+            "visual": 0.5,
+            "relation": 0.5,
+            "evidence": 0.5
+          },
+          "points": 3.0,
+          "score": 60.0,
+          "reasons": {
+            "audio": "描述了雨刮周期声之外的一次独立硬咔哒。",
+            "visual": "认出了安全带红色锁扣，但将扣合误判为按下释放、解开安全带。",
+            "relation": "将独立咔哒对应到安全带锁扣，但动作方向与标准相反。",
+            "evidence": "时间范围覆盖安全带特写与独立咔哒，但证据内容将扣合说成释放。"
+          }
+        },
+        {
+          "question_id": "MAV16",
+          "parts": {
+            "audio": 1,
+            "visual": 1,
+            "relation": 1,
+            "evidence": 1
+          },
+          "points": 5,
+          "score": 100,
+          "reasons": {
+            "audio": "描述了低重撞击及较短的衰减尾声。",
+            "visual": "指出林间外景中车辆最终停住，周围扬起并逐渐散开的尘土碎屑。",
+            "relation": "将撞击后的短尾响对应林间停车及扬尘画面。",
+            "evidence": "范围覆盖车辆冲入林地、撞击尾声和停车扬尘。"
+          }
+        },
+        {
+          "question_id": "MAV17",
+          "parts": {
+            "audio": 1,
+            "visual": 0.5,
+            "relation": 0.5,
+            "evidence": 0.5
+          },
+          "points": 3.0,
+          "score": 60.0,
+          "reasons": {
+            "audio": "描述了停车后规律、干短的重复咔哒。",
+            "visual": "仪表台闪烁红灯及肩背属于标准允许的当前镜头，但对照使用了更早的行车雨刮，未描述题指的停车后挡风玻璃镜头或静止的狗。",
+            "relation": "正确指出红灯闪动与咔哒的对应，但未纠正题面关于停车后挡风玻璃人物动作与咔哒同步的前提。",
+            "evidence": "仪表台证据覆盖红灯与咔哒；所给挡风玻璃对照是更早的行车片段，未覆盖标准中的停车后人物及狗镜头。"
+          }
+        }
+      ]
     }
   ]
 }

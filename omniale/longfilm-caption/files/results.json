@@ -1,14 +1,14 @@
 {
   "case": "longfilm-caption",
-  "material_version": "caption-v1-diagnostic",
+  "material_version": "caption-v2-testset",
   "model": "gpt-6.1-sol",
   "actual_effort": "xhigh",
-  "score": 74.61219336219337,
-  "elapsed_seconds": 3518.875,
+  "score": 54.648174024047336,
+  "elapsed_seconds": 3275.078,
   "exit_code": 0,
   "solver_runs": 1,
-  "judge_votes": 2,
-  "scoring_policy": "confirmed-event-coverage-v1",
-  "score_rule": "只对裁判确认覆盖的事件计命中，其余不计入命中数。段内按事件数计算覆盖率，再对六项委托等权平均；两次裁判评分取平均。",
+  "judge_votes": 3,
+  "scoring_policy": "finite-three-vote-v2",
+  "score_rule": "每个事件按语义匹配判0／1，段内按事件数计算覆盖率，再对六项委托等权平均；取三次完整裁判评分的平均值。",
   "show_in_summary": false
 }

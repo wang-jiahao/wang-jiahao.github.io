@@ -1,6 +1,6 @@
 
 let data;const $=id=>document.getElementById(id),params=new URLSearchParams(location.search);
-const selected=params.get('run'),view=params.get('view');if(['sol','deepseek','kimi'].includes(selected))$('run').value=selected;
+const selected=params.get('run'),view=params.get('view');if(['sol','astra','terra'].includes(selected))$('run').value=selected;
 if(['summary','key','all'].includes(view))$('view').value=view;
 let focusEvent=Number(params.get('event')||location.hash.replace('#event-',''))||null;
 if(focusEvent)$('view').value='all';

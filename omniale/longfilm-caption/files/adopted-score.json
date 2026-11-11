@@ -1,15 +1,5244 @@
 {
-  "score": 74.61219336219337,
+  "case": "caption",
+  "version": "caption-v2-testset",
+  "model": "gpt-6.1-sol",
+  "judge": "gpt-6.1-terra",
+  "judge_effort": "high",
+  "judge_votes": 3,
+  "solver_runs": 1,
+  "score": 54.648174024047336,
+  "vote_scores": [
+    55.67066948223509,
+    53.04307339385927,
+    55.23077919604765
+  ],
+  "score_rule": "arithmetic mean of three complete finite semantic votes; equal targets/questions",
+  "submission_sha256": "393655ab86da30b3d4388cb363c1825014d11fd178eecedf4aa8c06c84b1ccbf",
+  "reference_sha256": "f4ce4bad3ddbc48c614964a7ca29c245f5f7b5ca8c4ffb384f134c9cb9c9074a",
+  "scored_at": "2026-11-11T15:26:57.093405+00:00",
+  "results": [
+    {
+      "score": 55.67066948223509,
+      "category_recall": {
+        "visual": 55.500426734767196,
+        "audio": 68.16180235535074,
+        "synergy": 48.70348949296318
+      },
+      "audio_subtype_recall": {
+        "speech": 72.75828460038986,
+        "music": 50.0,
+        "sfx": 70.24572649572649
+      },
+      "rows": [
+        {
+          "target_id": "CAP01",
+          "total_recall": 0.48148148148148145,
+          "visual_recall": 0.4,
+          "audio_recall": 0.6666666666666666,
+          "synergy_recall": 0.75,
+          "audio_subtypes": {
+            "speech": 1.0,
+            "music": null,
+            "sfx": 0.5
+          },
+          "event_count": 27,
+          "hits": 13,
+          "localization": "correct",
+          "hits_detail": {
+            "visual_hits": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "audio_hits": [
+              1,
+              0,
+              1
+            ],
+            "synergy_hits": [
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "miss_reasons": [
+            {
+              "category": "visual",
+              "index": 0,
+              "reason": "未描述带镰刀锤子浮雕的建筑外立面。",
+              "candidate_quote": "冷蓝灰色的控制室里"
+            },
+            {
+              "category": "visual",
+              "index": 1,
+              "reason": "未提及壁画上的CCCP或1962。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 2,
+              "reason": "未描述建筑玻璃窗和波浪形屋顶。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 3,
+              "reason": "未描述松枝和阴天外景。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 4,
+              "reason": "未描述外景时间码及静止镜头。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 9,
+              "reason": "未描述控制室画面上的递增时间戳。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 14,
+              "reason": "未呈现第二座建筑的外景。",
+              "candidate_quote": "片段在切到后续外景前结束"
+            },
+            {
+              "category": "visual",
+              "index": 15,
+              "reason": "未描述入口雨棚、立柱和窗户。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 16,
+              "reason": "未描述入口旁的金属雕塑。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 17,
+              "reason": "未描述外景前景中的模糊水平线条。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 18,
+              "reason": "未提及外景时间戳00:13:08.400。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 19,
+              "reason": "未描述第二处外景的阴天光线和镜头状态。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 1,
+              "reason": "未提及持续的高频电子音或无线电调谐蜂鸣。",
+              "candidate_quote": "很低的室内设备底声和零星轻嗒声"
+            },
+            {
+              "category": "synergy",
+              "index": 0,
+              "reason": "操作时关联的是轻碰和摩擦声，而非高频电子音及蜂鸣杂音。",
+              "candidate_quote": "操作附近伴有短促的咔嗒、轻碰和衣物摩擦"
+            }
+          ]
+        },
+        {
+          "target_id": "CAP02",
+          "total_recall": 0.41228070175438597,
+          "visual_recall": 0.4576271186440678,
+          "audio_recall": 0.45161290322580644,
+          "synergy_recall": 0.25,
+          "audio_subtypes": {
+            "speech": 0.42105263157894735,
+            "music": null,
+            "sfx": 0.5
+          },
+          "event_count": 114,
+          "hits": 47,
+          "localization": "correct",
+          "hits_detail": {
+            "visual_hits": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "audio_hits": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1
+            ],
+            "synergy_hits": [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0
+            ]
+          },
+          "miss_reasons": [
+            {
+              "category": "visual",
+              "index": 0,
+              "reason": "未提及酒瓶货架或老式点唱机。",
+              "candidate_quote": "暖暗的酒吧内"
+            },
+            {
+              "category": "visual",
+              "index": 1,
+              "reason": "未描述两人在吧台处各举一瓶的场景。",
+              "candidate_quote": "两名年轻男子隔桌相对"
+            },
+            {
+              "category": "visual",
+              "index": 2,
+              "reason": "未描述绿衣男子举瓶示意。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 3,
+              "reason": "未描述绿衣男子蹲到吧台后。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 4,
+              "reason": "未描述白衣男子目送后饮酒。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 5,
+              "reason": "未描述绿衣男子从吧台下起身并从架上取桶。",
+              "candidate_quote": "一只装冰的金属桶被带到"
+            },
+            {
+              "category": "visual",
+              "index": 7,
+              "reason": "未描述坐着的男子先看桶再抬头看对方。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 8,
+              "reason": "未提及画面时间码。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 9,
+              "reason": "未描述开瓶器或撬瓶盖。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 10,
+              "reason": "未描述绿衣男子微笑看人开瓶。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 11,
+              "reason": "未描述光头男子从右侧背景走入。",
+              "candidate_quote": "先给一名秃头、穿白衬衫的吧台人员严肃的面部近景"
+            },
+            {
+              "category": "visual",
+              "index": 14,
+              "reason": "未提及酒瓶红色层架和墙上相框。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 15,
+              "reason": "未提及画面时间码。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 16,
+              "reason": "未描述从侧后方拍摄光头男子及模糊坐姿人物。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 17,
+              "reason": "未描述越过吧台及前景虚焦啤酒龙头的视角。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 19,
+              "reason": "窗台上的模拟时钟和折叠红蓝布料未被描述。",
+              "candidate_quote": "窗台上放着小收音机和台灯"
+            },
+            {
+              "category": "visual",
+              "index": 20,
+              "reason": "未描述白衣男子左手持瓶、右手比划交谈。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 21,
+              "reason": "未描述两人抬起手掌相对。",
+              "candidate_quote": "白衬衫男子示意对方伸手"
+            },
+            {
+              "category": "visual",
+              "index": 22,
+              "reason": "未描述白衣男子调整领带或触碰脖颈。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 23,
+              "reason": "未提及画面时间码。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 26,
+              "reason": "未描述绿衣男子举起张开的右手示意。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 29,
+              "reason": "未提及画面时间码。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 30,
+              "reason": "未提及时间码。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 33,
+              "reason": "未描述白衣男子扇绿衣男子耳光。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 37,
+              "reason": "未提及画面时间码。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 38,
+              "reason": "未描述极短的失焦男子侧脸镜头。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 40,
+              "reason": "提到日历数字，但未描述红秒针或表盘文字。",
+              "candidate_quote": "圆形数字表盘旁有显示“3”的日历窗"
+            },
+            {
+              "category": "visual",
+              "index": 42,
+              "reason": "未提及该时刻的画面时间码或表盘上的文字。",
+              "candidate_quote": "墙上石英钟特写"
+            },
+            {
+              "category": "visual",
+              "index": 44,
+              "reason": "未描述绿衣男子饮酒并放下瓶子。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 56,
+              "reason": "未描述赤脚和白色长裤的特写。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 57,
+              "reason": "未描述赤脚特写中的浅色木条或横梁。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 58,
+              "reason": "未描述脚趾蜷缩或脚部轻微移动。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 0,
+              "reason": "未提及“Wait”。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 1,
+              "reason": "未提及惊慌的连续道歉。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 2,
+              "reason": "未提及关于冰的这句对白。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 3,
+              "reason": "未提及需要取得某物的对白。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 4,
+              "reason": "未提及道歉。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 5,
+              "reason": "未提及此处接受式的“Okay”。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 9,
+              "reason": "回答被错误描述为涉及姑娘，而非游戏。",
+              "candidate_quote": "回答涉及“那个姑娘”"
+            },
+            {
+              "category": "audio",
+              "index": 10,
+              "reason": "未提及“Go on then”的挑战。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 11,
+              "reason": "未提及犹豫的“Um”。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 12,
+              "reason": "未提及此处的“Okay”。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 14,
+              "reason": "未提及肯定的低哼。",
+              "candidate_quote": "另一人回应"
+            },
+            {
+              "category": "audio",
+              "index": 19,
+              "reason": "未描述远处人声与电子杂音。",
+              "candidate_quote": "没有把不明确的低底声另认作确定配乐"
+            },
+            {
+              "category": "audio",
+              "index": 20,
+              "reason": "未描述吞咽声。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 22,
+              "reason": "未描述开瓶器撬动和瓶盖弹开声。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 24,
+              "reason": "未描述巴掌声。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 27,
+              "reason": "未描述饮酒吞咽和放瓶声。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 28,
+              "reason": "未描述沉闷爆响。",
+              "candidate_quote": "桶中冰块及桌面又有一阵短促轻响"
+            },
+            {
+              "category": "synergy",
+              "index": 0,
+              "reason": "未描述远处人声与电子杂音。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 1,
+              "reason": "未描述蹲下或“Wait”。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 2,
+              "reason": "未描述饮酒及吞咽声。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 4,
+              "reason": "未描述开瓶动作及其声响。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 5,
+              "reason": "未描述光头男子入场时的惊慌道歉。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 6,
+              "reason": "未描述持瓶比划时关于冰的对白。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 7,
+              "reason": "未描述关于需要取得某物的对白。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 8,
+              "reason": "未描述道歉与回应。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 9,
+              "reason": "有伸手指令，但未描述双方举起手掌相对。",
+              "candidate_quote": "白衬衫男子示意对方伸手"
+            },
+            {
+              "category": "synergy",
+              "index": 10,
+              "reason": "有先抽手的规则，但未描述绿衣男子举掌示意。",
+              "candidate_quote": "随后说出规则：谁先把手抽出来谁输"
+            },
+            {
+              "category": "synergy",
+              "index": 12,
+              "reason": "对白回答被描述为姑娘，未描述“输掉游戏”。",
+              "candidate_quote": "问“输什么”，回答涉及“那个姑娘”"
+            },
+            {
+              "category": "synergy",
+              "index": 13,
+              "reason": "未提及“Go on then”的挑战对白。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 14,
+              "reason": "未描述扇耳光及巴掌声。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 17,
+              "reason": "未提及低沉犹豫的“Um”。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 18,
+              "reason": "未描述绿衣男子饮酒、吞咽和放下瓶子。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 19,
+              "reason": "提到沉默约定，但未描述对白中的“Okay”和肯定低哼。",
+              "candidate_quote": "一人提出类似“订一个沉默的约定”"
+            },
+            {
+              "category": "synergy",
+              "index": 22,
+              "reason": "有抽手和呼喊，但未描述倒数结束时的沉闷爆响。",
+              "candidate_quote": "桶中冰块及桌面又有一阵短促轻响"
+            },
+            {
+              "category": "synergy",
+              "index": 23,
+              "reason": "未描述赤脚及脚趾移动的场景。",
+              "candidate_quote": ""
+            }
+          ]
+        },
+        {
+          "target_id": "CAP03",
+          "total_recall": 0.48672566371681414,
+          "visual_recall": 0.5675675675675675,
+          "audio_recall": 0.5,
+          "synergy_recall": 0.39473684210526316,
+          "audio_subtypes": {
+            "speech": 0.4444444444444444,
+            "music": 0.5,
+            "sfx": 0.6666666666666666
+          },
+          "event_count": 113,
+          "hits": 55,
+          "localization": "correct",
+          "hits_detail": {
+            "visual_hits": [
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1
+            ],
+            "audio_hits": [
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              0,
+              1,
+              0
+            ],
+            "synergy_hits": [
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          },
+          "miss_reasons": [
+            {
+              "category": "visual",
+              "index": 0,
+              "reason": "未描述橙色赛车服者双手捧白色头盔的特写。",
+              "candidate_quote": "一只手提着圆头盔"
+            },
+            {
+              "category": "visual",
+              "index": 1,
+              "reason": "未描述将头盔从胸前放下。",
+              "candidate_quote": "头盔随着步子轻晃"
+            },
+            {
+              "category": "visual",
+              "index": 2,
+              "reason": "未提及棕绿色几何纹样背景。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 3,
+              "reason": "未提及画面时间戳。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 6,
+              "reason": "仅提及柠檬，未描述背景中的酒杯和木墩。",
+              "candidate_quote": "柠檬与盘子"
+            },
+            {
+              "category": "visual",
+              "index": 8,
+              "reason": "未描述从身后看女子及窗台香草盆栽。",
+              "candidate_quote": "随后回头露出笑容"
+            },
+            {
+              "category": "visual",
+              "index": 10,
+              "reason": "未描述发夹、绿色花纹挂毯和窗台盆栽。",
+              "candidate_quote": "棕发半束的女子穿浅色针织外套"
+            },
+            {
+              "category": "visual",
+              "index": 17,
+              "reason": "未描述另一位棕发女子的独立特写。",
+              "candidate_quote": "棕发半束的女子"
+            },
+            {
+              "category": "visual",
+              "index": 23,
+              "reason": "未描述女子递出东西。",
+              "candidate_quote": "她边笑边忙"
+            },
+            {
+              "category": "visual",
+              "index": 24,
+              "reason": "未描述肯定回答及品尝后的反应。",
+              "candidate_quote": "又有关于牛奶在哪里的问话"
+            },
+            {
+              "category": "visual",
+              "index": 25,
+              "reason": "未描述镜头平移露出酒瓶和高脚杯桌面。",
+              "candidate_quote": "瓶子、酒杯和高磨椒器"
+            },
+            {
+              "category": "visual",
+              "index": 26,
+              "reason": "未描述明亮背景下年轻深发女子的侧脸。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 27,
+              "reason": "未描述昏暗环境中低头男子的侧脸特写。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 30,
+              "reason": "行走方向被描述为朝镜头走近，而非背对镜头走向深处。",
+              "candidate_quote": "缓慢向前走来……身影一点点接近"
+            },
+            {
+              "category": "visual",
+              "index": 31,
+              "reason": "未提及画面时间戳。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 32,
+              "reason": "未描述再次闪回废弃走廊。",
+              "candidate_quote": "切回厨房"
+            },
+            {
+              "category": "audio",
+              "index": 2,
+              "reason": "未提及男子说音乐已经放上。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 6,
+              "reason": "未描述男子热切接受的回应。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 7,
+              "reason": "未描述女子俏皮地连声拒绝。",
+              "candidate_quote": "女子拒绝"
+            },
+            {
+              "category": "audio",
+              "index": 8,
+              "reason": "未描述男子的惊呼。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 9,
+              "reason": "未描述女子再次俏皮拒绝。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 10,
+              "reason": "未描述男子请求要一点。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 11,
+              "reason": "未描述女子说男子又获晋升。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 13,
+              "reason": "未描述女子询问晋升到什么职位。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 15,
+              "reason": "未提及让对方听Yomi的话。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 19,
+              "reason": "未描述女子说“给你”。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 22,
+              "reason": "未描述男子对牛奶问题的肯定回答。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 23,
+              "reason": "未描述女子品尝后的满足鼻音。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 24,
+              "reason": "未描述返回厨房时男子随意说“是”。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 25,
+              "reason": "未描述女子说“我没那么……”。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 26,
+              "reason": "未描述男子说自己要走。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 27,
+              "reason": "描述的是低沉抒情男声，未提及节奏明快的流行歌曲。",
+              "candidate_quote": "低沉男声歌唱及柔和伴奏"
+            },
+            {
+              "category": "audio",
+              "index": 32,
+              "reason": "描述亲吻画面，但未提及亲吻声。",
+              "candidate_quote": "男女贴近、短暂亲吻"
+            },
+            {
+              "category": "audio",
+              "index": 35,
+              "reason": "未描述空旷封闭空间中的脚步回响。",
+              "candidate_quote": "轻而疏的脚步、敲落和拖擦声"
+            },
+            {
+              "category": "audio",
+              "index": 37,
+              "reason": "未提及持续的低频环境嗡鸣。",
+              "candidate_quote": "沉缓的男声旋律跨切镜延续"
+            },
+            {
+              "category": "synergy",
+              "index": 0,
+              "reason": "未描述放下头盔及其伴随摩擦声。",
+              "candidate_quote": "一只手提着圆头盔"
+            },
+            {
+              "category": "synergy",
+              "index": 2,
+              "reason": "女子忙碌场景中未描述轻微脚步或身体挪动声。",
+              "candidate_quote": "刀具、盘碗和台面的轻叩、细碎叮当"
+            },
+            {
+              "category": "synergy",
+              "index": 3,
+              "reason": "催促声被归为画外，未关联到女子说话。",
+              "candidate_quote": "画外有人催促、赞叹"
+            },
+            {
+              "category": "synergy",
+              "index": 5,
+              "reason": "未提及男子说音乐已经放上。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 9,
+              "reason": "未描述男子热切接受的回应。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 10,
+              "reason": "未将俏皮拒绝关联到男子伸手。",
+              "candidate_quote": "男子从女子旁边、后方伸手参与"
+            },
+            {
+              "category": "synergy",
+              "index": 11,
+              "reason": "未描述男子伸手时的惊呼。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 12,
+              "reason": "未描述女子再次俏皮拒绝。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 13,
+              "reason": "未描述男子请求要一点。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 14,
+              "reason": "未描述女子谈及男子再次晋升。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 15,
+              "reason": "未描述另一位棕发女子特写及其间的祝贺问题。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 16,
+              "reason": "未描述另一位女子询问晋升到什么职位。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 17,
+              "reason": "未提及亲吻声。",
+              "candidate_quote": "男女贴近、短暂亲吻"
+            },
+            {
+              "category": "synergy",
+              "index": 20,
+              "reason": "未提及落针时男子让对方听Yomi。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 21,
+              "reason": "未描述落针后开始播放节奏明快的男声流行曲。",
+              "candidate_quote": "低沉男声歌唱及柔和伴奏逐渐进入"
+            },
+            {
+              "category": "synergy",
+              "index": 25,
+              "reason": "未描述女子递东西时说“给你”。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 28,
+              "reason": "未描述男子对牛奶问题的肯定回答。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 29,
+              "reason": "未描述女子品尝后发出满足鼻音。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 31,
+              "reason": "未描述脚步在走廊中回响，且行走方向不符。",
+              "candidate_quote": "身影一点点接近"
+            },
+            {
+              "category": "synergy",
+              "index": 32,
+              "reason": "未描述走廊中的低频环境嗡鸣。",
+              "candidate_quote": "沉缓的男声旋律跨切镜延续"
+            },
+            {
+              "category": "synergy",
+              "index": 33,
+              "reason": "未描述切回厨房时男子说“是”。",
+              "candidate_quote": "低声对白重新叠进来"
+            },
+            {
+              "category": "synergy",
+              "index": 35,
+              "reason": "未描述女子微笑时说“我没那么……”。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 36,
+              "reason": "未描述餐桌前男子说自己要走。",
+              "candidate_quote": ""
+            }
+          ]
+        },
+        {
+          "target_id": "CAP04",
+          "total_recall": 0.7843137254901961,
+          "visual_recall": 0.782608695652174,
+          "audio_recall": 0.9285714285714286,
+          "synergy_recall": 0.6428571428571429,
+          "audio_subtypes": {
+            "speech": 1.0,
+            "music": null,
+            "sfx": 0.9230769230769231
+          },
+          "event_count": 51,
+          "hits": 40,
+          "localization": "correct",
+          "hits_detail": {
+            "visual_hits": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0
+            ],
+            "audio_hits": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "synergy_hits": [
+              1,
+              0,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1
+            ]
+          },
+          "miss_reasons": [
+            {
+              "category": "visual",
+              "index": 8,
+              "reason": "未提及女子在笔记本电脑上打字。",
+              "candidate_quote": "女子在桌边坐下或俯身，从旧物中取起黑色大相册"
+            },
+            {
+              "category": "visual",
+              "index": 11,
+              "reason": "未描述男子在模糊镜头中快速移动或奔跑。",
+              "candidate_quote": "手中拿着展开的大幅图纸，一边向前走一边抬眼察看"
+            },
+            {
+              "category": "visual",
+              "index": 12,
+              "reason": "描述的是相册中的设施照片，未提及女子手持装有人物照片的黑色相框。",
+              "candidate_quote": "女子手中的相册，一张火箭或发射设施黑白照片占据页心"
+            },
+            {
+              "category": "visual",
+              "index": 21,
+              "reason": "未明确描述透过窗户观看远处建筑的视角。",
+              "candidate_quote": "远处楼房的画面叠化回女子在明亮窗帘边的侧背影"
+            },
+            {
+              "category": "visual",
+              "index": 22,
+              "reason": "描述了窗边女子和画面变暗，但未提及玻璃上逐渐出现的倒影。",
+              "candidate_quote": "女子在明亮窗帘边的侧背影，窗光把她的轮廓照亮"
+            },
+            {
+              "category": "audio",
+              "index": 6,
+              "reason": "未提及与快速移动相伴的短暂呼啸声。",
+              "candidate_quote": "一边向前走一边抬眼察看"
+            },
+            {
+              "category": "synergy",
+              "index": 1,
+              "reason": "脚步声未与女子走入并站在墙边的动作建立关联。",
+              "candidate_quote": "后半开始出现疏疏的脚步和踩擦碎物似的声音，声源并非每一拍都在画内"
+            },
+            {
+              "category": "synergy",
+              "index": 5,
+              "reason": "未描述男子快速移动或奔跑时的短暂呼啸声。",
+              "candidate_quote": "他继续走、回头察看"
+            },
+            {
+              "category": "synergy",
+              "index": 6,
+              "reason": "未描述女子手持黑色相框及其相应的安静环境声。",
+              "candidate_quote": "女子手中的相册，一张火箭或发射设施黑白照片占据页心"
+            },
+            {
+              "category": "synergy",
+              "index": 11,
+              "reason": "候选明确称爆响早于可见黑烟，未将爆响与爆炸画面同步关联。",
+              "candidate_quote": "爆响在可见黑烟前已出现"
+            },
+            {
+              "category": "synergy",
+              "index": 12,
+              "reason": "鸟鸣与建筑远景相关，但未描述透过窗户观看建筑的视角。",
+              "candidate_quote": "远景中又能分辨风一样的环境底声和鸟叫"
+            }
+          ]
+        },
+        {
+          "target_id": "CAP05",
+          "total_recall": 0.543859649122807,
+          "visual_recall": 0.5666666666666667,
+          "audio_recall": 0.6428571428571429,
+          "synergy_recall": 0.38461538461538464,
+          "audio_subtypes": {
+            "speech": 0.5,
+            "music": null,
+            "sfx": 0.75
+          },
+          "event_count": 57,
+          "hits": 31,
+          "localization": "correct",
+          "hits_detail": {
+            "visual_hits": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              1,
+              1,
+              0,
+              1,
+              0
+            ],
+            "audio_hits": [
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "synergy_hits": [
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "miss_reasons": [
+            {
+              "category": "visual",
+              "index": 0,
+              "reason": "The abandoned industrial hall and its columns are absent.",
+              "candidate_quote": "蓝灰色、光线偏暗的居室里"
+            },
+            {
+              "category": "visual",
+              "index": 1,
+              "reason": "No rubble, broken concrete, or high industrial ceiling is described.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 2,
+              "reason": "The industrial hall's openings and dark corridor are absent.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 3,
+              "reason": "The opening on-screen timecode is not mentioned.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 4,
+              "reason": "No column-lined industrial corridor is described.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 13,
+              "reason": "The woman is not described as folding paper stars.",
+              "candidate_quote": "具体手在处理什么没有完整入画"
+            },
+            {
+              "category": "visual",
+              "index": 15,
+              "reason": "She takes a berry, but continued paper folding is not described.",
+              "candidate_quote": "她从他手边取食"
+            },
+            {
+              "category": "visual",
+              "index": 17,
+              "reason": "No on-screen timecode is described for the mirror scene.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 19,
+              "reason": "The hand near her mouth is described as a light touch, without covering her mouth or a shocked reaction.",
+              "candidate_quote": "手掌托近她的下巴、脸颊，手指一度掠过嘴边"
+            },
+            {
+              "category": "visual",
+              "index": 21,
+              "reason": "The caption does not describe him releasing her mouth and then adjusting her headscarf.",
+              "candidate_quote": "双手渐渐放低"
+            },
+            {
+              "category": "visual",
+              "index": 23,
+              "reason": "The man taking a white handset and approaching the mirror is absent.",
+              "candidate_quote": "男子留在后方镜面里，低头看手中东西"
+            },
+            {
+              "category": "visual",
+              "index": 27,
+              "reason": "The reception scene's on-screen timecode is not mentioned.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 29,
+              "reason": "The receptionist is described as seated, but not as keeping her head down throughout.",
+              "candidate_quote": "后方女职员坐着"
+            },
+            {
+              "category": "audio",
+              "index": 1,
+              "reason": "The question is attributed to the woman rather than the man.",
+              "candidate_quote": "她用英语说“你吓到我了”，又问他站在那里很久了吗"
+            },
+            {
+              "category": "audio",
+              "index": 2,
+              "reason": "The answer is attributed to the man rather than an off-screen woman.",
+              "candidate_quote": "男子，他简短回答“没有”"
+            },
+            {
+              "category": "audio",
+              "index": 3,
+              "reason": "The remark about knocking is attributed to the woman rather than the man.",
+              "candidate_quote": "女子说他该敲门"
+            },
+            {
+              "category": "audio",
+              "index": 6,
+              "reason": "No low wind or ambient industrial rumble is described.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 10,
+              "reason": "No chewing sound is explicitly described.",
+              "candidate_quote": "她从他手边取食"
+            },
+            {
+              "category": "synergy",
+              "index": 0,
+              "reason": "Neither the industrial corridor nor its ambient rumble is described.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 2,
+              "reason": "Clothing sounds are not linked to the woman's startled turn.",
+              "candidate_quote": "此前断续的纸质擦、咔嚓小响延续到她抬头附近"
+            },
+            {
+              "category": "synergy",
+              "index": 4,
+              "reason": "The question is attributed to the woman, not the shadowed man.",
+              "candidate_quote": "她用英语说“你吓到我了”，又问他站在那里很久了吗"
+            },
+            {
+              "category": "synergy",
+              "index": 5,
+              "reason": "The answer is attributed to the man, not an off-screen woman.",
+              "candidate_quote": "男子，他简短回答“没有”"
+            },
+            {
+              "category": "synergy",
+              "index": 6,
+              "reason": "The knocking remark is attributed to the woman, contrary to the specified male speech.",
+              "candidate_quote": "女子说他该敲门，男子解释给她带了一些莓果"
+            },
+            {
+              "category": "synergy",
+              "index": 7,
+              "reason": "Paper-like sounds are mentioned, but the woman folding stars is not described.",
+              "candidate_quote": "具体手在处理什么没有完整入画"
+            },
+            {
+              "category": "synergy",
+              "index": 8,
+              "reason": "Neither chewing sounds nor continued paper folding are described with the berry eating.",
+              "candidate_quote": "她从他手边取食"
+            },
+            {
+              "category": "synergy",
+              "index": 11,
+              "reason": "The man taking the white telephone handset is not described.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 21,
+              "reason": "After the ringing, the caption describes his hands lowering but does not describe him adjusting her headscarf.",
+              "candidate_quote": "双手渐渐放低"
+            }
+          ]
+        },
+        {
+          "target_id": "CAP06",
+          "total_recall": 0.631578947368421,
+          "visual_recall": 0.5555555555555556,
+          "audio_recall": 0.9,
+          "synergy_recall": 0.5,
+          "audio_subtypes": {
+            "speech": 1.0,
+            "music": null,
+            "sfx": 0.875
+          },
+          "event_count": 38,
+          "hits": 24,
+          "localization": "correct",
+          "hits_detail": {
+            "visual_hits": [
+              0,
+              0,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              0
+            ],
+            "audio_hits": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "synergy_hits": [
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0
+            ]
+          },
+          "miss_reasons": [
+            {
+              "category": "visual",
+              "index": 0,
+              "reason": "The opening scene with the man in orange on the sofa is omitted.",
+              "candidate_quote": "雨湿的森林道路上，黑色旧轿车已经在行驶。"
+            },
+            {
+              "category": "visual",
+              "index": 1,
+              "reason": "The opening timecode is omitted.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 5,
+              "reason": "The caption describes unfastling the seat belt, the opposite of the specified action.",
+              "candidate_quote": "把带端从黑红扣件中抽开"
+            },
+            {
+              "category": "visual",
+              "index": 10,
+              "reason": "The passing trees are not described from inside through a lowered window or open door.",
+              "candidate_quote": "镜头切到车身外侧和迅速掠过、倾斜拖影的树干"
+            },
+            {
+              "category": "visual",
+              "index": 11,
+              "reason": "The car leaves the road, but sideways skidding or drifting is not described.",
+              "candidate_quote": "车已经偏离湿公路，朝树间草地、沟坎冲去"
+            },
+            {
+              "category": "visual",
+              "index": 12,
+              "reason": "The specified collision with trees and the cloud fully obscuring the car are not described.",
+              "candidate_quote": "镜头没有拍到整辆车正面撞上某一棵树"
+            },
+            {
+              "category": "visual",
+              "index": 14,
+              "reason": "The rear view omits the license plate and damaged rear bumper.",
+              "candidate_quote": "车尾停在不平的地上"
+            },
+            {
+              "category": "visual",
+              "index": 17,
+              "reason": "The rain-covered side window and blurred night view are omitted.",
+              "candidate_quote": "到下一次看车外侧窗之前结束"
+            },
+            {
+              "category": "audio",
+              "index": 6,
+              "reason": "High-revving engine and tires skidding on dirt or grass are not described.",
+              "candidate_quote": "粗重的颠撞、抖响和摩擦声"
+            },
+            {
+              "category": "synergy",
+              "index": 1,
+              "reason": "The click is linked to unfastling the buckle rather than fastening it.",
+              "candidate_quote": "把带端从黑红扣件中抽开……有一下很轻、很短的咔嗒"
+            },
+            {
+              "category": "synergy",
+              "index": 4,
+              "reason": "The male shout is linked to the preceding interior action, not the exterior shot of the car racing through the forest.",
+              "candidate_quote": "切司机猛然转头、横身扑向副驾方向……一声短促男声喊叫或闷叫"
+            },
+            {
+              "category": "synergy",
+              "index": 5,
+              "reason": "The caption does not link a sideways skid to high engine revs and slipping tires.",
+              "candidate_quote": "粗重的颠撞、抖响和摩擦声紧跟这阵冲入与弹跳"
+            },
+            {
+              "category": "synergy",
+              "index": 6,
+              "reason": "The sound is linked to rough movement, while the specified collision with a tree and obscuring dust cloud are not described.",
+              "candidate_quote": "镜头没有拍到整辆车正面撞上某一棵树"
+            },
+            {
+              "category": "synergy",
+              "index": 9,
+              "reason": "The rain-covered side-window scene is absent.",
+              "candidate_quote": "到下一次看车外侧窗之前结束"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "score": 53.04307339385927,
+      "category_recall": {
+        "visual": 55.420346654687116,
+        "audio": 65.20144447139354,
+        "synergy": 35.960494184178394
+      },
+      "audio_subtype_recall": {
+        "speech": 81.70890188434048,
+        "music": 0.0,
+        "sfx": 58.67165242165242
+      },
+      "rows": [
+        {
+          "target_id": "CAP01",
+          "total_recall": 0.37037037037037035,
+          "visual_recall": 0.4,
+          "audio_recall": 0.3333333333333333,
+          "synergy_recall": 0.25,
+          "audio_subtypes": {
+            "speech": 1.0,
+            "music": null,
+            "sfx": 0.0
+          },
+          "event_count": 27,
+          "hits": 10,
+          "localization": "correct",
+          "hits_detail": {
+            "visual_hits": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "audio_hits": [
+              1,
+              0,
+              0
+            ],
+            "synergy_hits": [
+              0,
+              1,
+              0,
+              0
+            ]
+          },
+          "miss_reasons": [
+            {
+              "category": "visual",
+              "index": 0,
+              "reason": "未描述带镰刀锤子浮雕的建筑外立面。",
+              "candidate_quote": "冷蓝灰色的控制室里"
+            },
+            {
+              "category": "visual",
+              "index": 1,
+              "reason": "未提及CCCP字样或1962年。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 2,
+              "reason": "未描述建筑玻璃窗或波浪形屋顶。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 3,
+              "reason": "未描述松枝或阴沉天空。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 4,
+              "reason": "未描述室外时间码或静止镜头。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 9,
+              "reason": "未描述控制室画面中的递增时间戳。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 14,
+              "reason": "未呈现后续混凝土建筑外景。",
+              "candidate_quote": "片段在切到后续外景前结束"
+            },
+            {
+              "category": "visual",
+              "index": 15,
+              "reason": "未描述入口雨棚、立柱和窗户。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 16,
+              "reason": "未描述入口旁的抽象金属雕塑。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 17,
+              "reason": "未描述室外前景中的模糊横线。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 18,
+              "reason": "未提及室外时间戳。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 19,
+              "reason": "未描述后续外景的阴天光线和镜头状态。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 1,
+              "reason": "未描述高频电子音、调谐声或蜂鸣杂音。",
+              "candidate_quote": "很低的室内设备底声和零星轻嗒声"
+            },
+            {
+              "category": "audio",
+              "index": 2,
+              "reason": "设备底声未明确描述为低沉电子嗡鸣或静电噪音。",
+              "candidate_quote": "微弱设备声"
+            },
+            {
+              "category": "synergy",
+              "index": 0,
+              "reason": "操作控制件时关联的是咔嗒和摩擦声，未提及对应的高频电子音或蜂鸣杂音。",
+              "candidate_quote": "操作附近伴有短促的咔嗒、轻碰和衣物摩擦"
+            },
+            {
+              "category": "synergy",
+              "index": 2,
+              "reason": "控制室场景未明确关联低沉电子嗡鸣与静电噪音。",
+              "candidate_quote": "很低的室内设备底声"
+            },
+            {
+              "category": "synergy",
+              "index": 3,
+              "reason": "绿色屏幕画面未明确关联低沉嗡鸣与静电噪音。",
+              "candidate_quote": "柔和弦乐及细小底声延续"
+            }
+          ]
+        },
+        {
+          "target_id": "CAP02",
+          "total_recall": 0.41228070175438597,
+          "visual_recall": 0.4576271186440678,
+          "audio_recall": 0.41935483870967744,
+          "synergy_recall": 0.2916666666666667,
+          "audio_subtypes": {
+            "speech": 0.42105263157894735,
+            "music": null,
+            "sfx": 0.4166666666666667
+          },
+          "event_count": 114,
+          "hits": 47,
+          "localization": "correct",
+          "hits_detail": {
+            "visual_hits": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "audio_hits": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              0
+            ],
+            "synergy_hits": [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              0,
+              0
+            ]
+          },
+          "miss_reasons": [
+            {
+              "category": "visual",
+              "index": 0,
+              "reason": "未描述酒瓶货架和老式点唱机。",
+              "candidate_quote": "暖暗的酒吧内"
+            },
+            {
+              "category": "visual",
+              "index": 1,
+              "reason": "未描述最初坐着的蓄须白衣男子和站立的绿衣男子各持酒瓶。",
+              "candidate_quote": "两名年轻男子隔桌相对"
+            },
+            {
+              "category": "visual",
+              "index": 2,
+              "reason": "未提及绿衣男子举瓶示意。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 3,
+              "reason": "未提及绿衣男子蹲到吧台后。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 4,
+              "reason": "未描述白衣男子目送对方蹲下并饮酒。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 5,
+              "reason": "未描述绿衣男子从吧台下起身并从架上取桶。",
+              "candidate_quote": "一只装冰的金属桶被带到"
+            },
+            {
+              "category": "visual",
+              "index": 7,
+              "reason": "未描述坐着的男子先看冰桶再抬头看对方。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 8,
+              "reason": "未提及该时间码。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 9,
+              "reason": "未提及开瓶器或准备开啤酒。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 10,
+              "reason": "未描述绿衣男子微笑观看开瓶。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 11,
+              "reason": "未描述光头男子从右侧背景走入。",
+              "candidate_quote": "先给一名秃头、穿白衬衫的吧台人员严肃的面部近景"
+            },
+            {
+              "category": "visual",
+              "index": 14,
+              "reason": "未描述红色酒瓶层架和墙上相框。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 15,
+              "reason": "未提及该时间码。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 16,
+              "reason": "未描述从侧后方拍摄光头男子及背景中的坐姿身影。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 17,
+              "reason": "未描述越过吧台和虚焦啤酒龙头的视角。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 19,
+              "reason": "未描述窗台上的小钟和折叠红蓝布料。",
+              "candidate_quote": "窗台上放着小收音机和台灯"
+            },
+            {
+              "category": "visual",
+              "index": 20,
+              "reason": "未描述白衣男子左手持瓶、右手交谈比划。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 21,
+              "reason": "未描述两人举起手掌相对。",
+              "candidate_quote": "示意对方伸手"
+            },
+            {
+              "category": "visual",
+              "index": 22,
+              "reason": "未描述白衣男子调整领带或触摸脖颈。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 23,
+              "reason": "未提及该时间码。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 26,
+              "reason": "未描述绿衣男子举起右手掌示意。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 29,
+              "reason": "未提及该时间码。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 33,
+              "reason": "未描述白衣男子手持酒杯。",
+              "candidate_quote": "白衬衫男子也盯着他和桶"
+            },
+            {
+              "category": "visual",
+              "index": 35,
+              "reason": "未描述绿衣男子把脸藏进双臂、肩膀剧烈颤抖。",
+              "candidate_quote": "低头缩起脸"
+            },
+            {
+              "category": "visual",
+              "index": 37,
+              "reason": "未提及该时间码。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 38,
+              "reason": "未描述短暂失焦的男子侧脸镜头。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 39,
+              "reason": "未描述钟面显示接近六点五十四分。",
+              "candidate_quote": "圆形数字表盘旁有显示“3”的日历窗"
+            },
+            {
+              "category": "visual",
+              "index": 44,
+              "reason": "未描述绿衣男子仰头饮酒、放下瓶子。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 46,
+              "reason": "未描述该绿衣男子近景中的模糊白色前景物。",
+              "candidate_quote": "他压着笑、抬眼看对方，又低下视线"
+            },
+            {
+              "category": "visual",
+              "index": 56,
+              "reason": "未描述赤脚和白色宽松长裤。",
+              "candidate_quote": "在转入下一处生活场景之前结束"
+            },
+            {
+              "category": "visual",
+              "index": 57,
+              "reason": "未描述地面旁的浅色木条。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 58,
+              "reason": "未描述脚趾蜷缩和脚部轻微移动。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 0,
+              "reason": "未提及“Wait”。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 1,
+              "reason": "未提及惊慌道歉的话语。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 2,
+              "reason": "未提及关于冰的这句对白。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 3,
+              "reason": "未提及需要购买物品的对白。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 4,
+              "reason": "未提及道歉。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 5,
+              "reason": "未提及此处的“Okay”。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 9,
+              "reason": "回答被描述为涉及姑娘，并非“游戏”。",
+              "candidate_quote": "回答涉及“那个姑娘”"
+            },
+            {
+              "category": "audio",
+              "index": 10,
+              "reason": "未提及“Go on then”或相应催促。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 11,
+              "reason": "未提及犹豫的“Um”。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 12,
+              "reason": "未提及这句“Okay”。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 14,
+              "reason": "未提及肯定的低哼。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 19,
+              "reason": "未描述微弱远处人声和电子杂音。",
+              "candidate_quote": "没有把不明确的低底声另认作确定配乐"
+            },
+            {
+              "category": "audio",
+              "index": 20,
+              "reason": "未描述吞咽声。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 22,
+              "reason": "未描述开瓶器撬开瓶盖的声音。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 24,
+              "reason": "未描述清脆的巴掌声。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 27,
+              "reason": "未描述饮酒吞咽和放下瓶子的声音。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 28,
+              "reason": "未描述沉闷爆响或破裂声。",
+              "candidate_quote": "桶中冰块及桌面又有一阵短促轻响"
+            },
+            {
+              "category": "audio",
+              "index": 30,
+              "reason": "未描述赤脚场景中的持续摩擦和沙沙声。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 0,
+              "reason": "未将远处人声和电子杂音与房间场景联系起来。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 1,
+              "reason": "未描述蹲下及同时喊“Wait”。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 2,
+              "reason": "未描述白衣男子饮酒及吞咽声。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 4,
+              "reason": "未描述开瓶动作及相应金属声。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 5,
+              "reason": "未关联光头男子的反应和惊慌道歉。",
+              "candidate_quote": "先给一名秃头、穿白衬衫的吧台人员严肃的面部近景"
+            },
+            {
+              "category": "synergy",
+              "index": 6,
+              "reason": "未描述白衣男子持瓶比划时说的关于冰的话。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 7,
+              "reason": "未描述灰衣男子关于需要购买物品的回应。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 8,
+              "reason": "未描述道歉与“Okay”的应答。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 9,
+              "reason": "虽提到要求看手，但未描述两人亮出相对的手掌。",
+              "candidate_quote": "白衬衫男子示意对方伸手"
+            },
+            {
+              "category": "synergy",
+              "index": 10,
+              "reason": "未将先抽手的规则与绿衣男子举掌手势联系起来。",
+              "candidate_quote": "谁先把手抽出来谁输"
+            },
+            {
+              "category": "synergy",
+              "index": 12,
+              "reason": "虽提到询问输什么，但把回答描述为关于姑娘，而非游戏。",
+              "candidate_quote": "问“输什么”，回答涉及“那个姑娘”"
+            },
+            {
+              "category": "synergy",
+              "index": 13,
+              "reason": "未描述白衣男子持杯观看时说“Go on then”。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 14,
+              "reason": "未描述扇耳光及其声音。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 17,
+              "reason": "未把犹豫的“Um”与白衣男子近景联系起来。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 18,
+              "reason": "未描述绿衣男子饮酒、放下瓶子及相应声音。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 22,
+              "reason": "未描述桶内爆响，且称两人几乎同时抽手。",
+              "candidate_quote": "两人几乎一起快速抽回手"
+            },
+            {
+              "category": "synergy",
+              "index": 23,
+              "reason": "未描述赤脚及其移动时的摩擦声。",
+              "candidate_quote": ""
+            }
+          ]
+        },
+        {
+          "target_id": "CAP03",
+          "total_recall": 0.415929203539823,
+          "visual_recall": 0.5405405405405406,
+          "audio_recall": 0.47368421052631576,
+          "synergy_recall": 0.23684210526315788,
+          "audio_subtypes": {
+            "speech": 0.48148148148148145,
+            "music": 0.0,
+            "sfx": 0.5555555555555556
+          },
+          "event_count": 113,
+          "hits": 47,
+          "localization": "correct",
+          "hits_detail": {
+            "visual_hits": [
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1
+            ],
+            "audio_hits": [
+              1,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0
+            ],
+            "synergy_hits": [
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "miss_reasons": [
+            {
+              "category": "visual",
+              "index": 0,
+              "reason": "没有描述开场双手捧白色头盔。",
+              "candidate_quote": "一只手提着圆头盔"
+            },
+            {
+              "category": "visual",
+              "index": 1,
+              "reason": "没有描述将头盔从胸前放到膝部。",
+              "candidate_quote": "头盔随着步子轻晃"
+            },
+            {
+              "category": "visual",
+              "index": 2,
+              "reason": "没有提及棕绿色几何纹背景。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 3,
+              "reason": "没有提及开场时间戳。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 6,
+              "reason": "提到柠檬，但没有背景酒杯和木墩。",
+              "candidate_quote": "柠檬与盘子"
+            },
+            {
+              "category": "visual",
+              "index": 7,
+              "reason": "没有交代女子站在厚重深色窗帘前。",
+              "candidate_quote": "正在切配"
+            },
+            {
+              "category": "visual",
+              "index": 8,
+              "reason": "没有描述背面视角及窗台香草植物。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 10,
+              "reason": "没有描述绿色花纹挂毯和日光下的盆栽。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 17,
+              "reason": "没有明确描述另一位棕发女子的特写。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 22,
+              "reason": "没有交代情侣站在明亮窗户和绿色窗帘前。",
+              "candidate_quote": "回到料理台边"
+            },
+            {
+              "category": "visual",
+              "index": 23,
+              "reason": "没有描述女子递出东西。",
+              "candidate_quote": "她边笑边忙"
+            },
+            {
+              "category": "visual",
+              "index": 24,
+              "reason": "没有描述确认、回答及品尝反应的完整互动。",
+              "candidate_quote": "又有关于牛奶在哪里的问话"
+            },
+            {
+              "category": "visual",
+              "index": 26,
+              "reason": "没有描述明亮背景下深发女子的侧脸特写。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 27,
+              "reason": "没有描述昏暗环境中低头男子的侧脸特写。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 30,
+              "reason": "行走方向与背对镜头向深处走不符。",
+              "candidate_quote": "缓慢向前走来"
+            },
+            {
+              "category": "visual",
+              "index": 31,
+              "reason": "没有提及走廊段落的时间戳。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 32,
+              "reason": "没有描述短暂闪回废弃走廊。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 2,
+              "reason": "没有提到男子说放了音乐。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 4,
+              "reason": "没有单独提及男子的感叹。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 6,
+              "reason": "没有提及热切接受的回应。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 8,
+              "reason": "没有提及男子的惊呼。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 10,
+              "reason": "没有提及请求一点东西。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 11,
+              "reason": "没有提及再次升职。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 13,
+              "reason": "没有提及女子问升任什么。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 15,
+              "reason": "没有提及听Yomi的对白。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 19,
+              "reason": "没有提及女子说递给对方东西。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 22,
+              "reason": "没有提及男子肯定回答牛奶问题。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 23,
+              "reason": "没有提及品尝后的满足鼻音。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 24,
+              "reason": "没有提及随后随意说的肯定回应。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 25,
+              "reason": "没有提及女子未说完的话。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 26,
+              "reason": "没有提及男子说要离开。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 27,
+              "reason": "描述的是低沉抒情男声，没有明快流行歌曲。",
+              "candidate_quote": "低沉男声歌唱及柔和伴奏"
+            },
+            {
+              "category": "audio",
+              "index": 28,
+              "reason": "没有明确描述高亢男声歌剧咏叹调。",
+              "candidate_quote": "沉缓的男声旋律"
+            },
+            {
+              "category": "audio",
+              "index": 32,
+              "reason": "没有提及亲吻声。",
+              "candidate_quote": "短暂亲吻"
+            },
+            {
+              "category": "audio",
+              "index": 33,
+              "reason": "提到轻微操作声，但没有持续噼啪底噪。",
+              "candidate_quote": "细小咔嗒、沙擦似的操作声"
+            },
+            {
+              "category": "audio",
+              "index": 35,
+              "reason": "没有提及空旷空间中的脚步回响。",
+              "candidate_quote": "轻而疏的脚步"
+            },
+            {
+              "category": "audio",
+              "index": 37,
+              "reason": "没有提及持续低频环境嗡鸣。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 0,
+              "reason": "没有开场放低头盔与摩擦声的关联。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 2,
+              "reason": "没有将轻微脚步声关联到窗前忙碌的女子。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 3,
+              "reason": "催促声被描述为画外声音，没有归给女子。",
+              "candidate_quote": "画外有人催促"
+            },
+            {
+              "category": "synergy",
+              "index": 4,
+              "reason": "没有女子背向窗户时的画外男声对应。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 5,
+              "reason": "没有提到画外男子说放了音乐。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 6,
+              "reason": "没有把牛奶问题关联到女子背对镜头回望。",
+              "candidate_quote": "对话提到牛奶"
+            },
+            {
+              "category": "synergy",
+              "index": 7,
+              "reason": "没有将男子的感叹关联到墙前微笑镜头。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 9,
+              "reason": "没有提及男子热切接受的回应。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 10,
+              "reason": "没有把俏皮拒绝关联到男子伸手镜头。",
+              "candidate_quote": "女子拒绝"
+            },
+            {
+              "category": "synergy",
+              "index": 11,
+              "reason": "没有提及男子伸手时的惊呼。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 12,
+              "reason": "没有把再次拒绝关联到女子抬头迎向男子。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 13,
+              "reason": "没有提及请求一点东西。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 14,
+              "reason": "没有提及再次升职的调侃。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 15,
+              "reason": "没有将祝贺问题关联到另一位女子的特写。",
+              "candidate_quote": "开玩笑地要求祝贺"
+            },
+            {
+              "category": "synergy",
+              "index": 16,
+              "reason": "没有提及女子问升任什么。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 17,
+              "reason": "没有提及亲吻时的嘴唇接触声。",
+              "candidate_quote": "短暂亲吻"
+            },
+            {
+              "category": "synergy",
+              "index": 19,
+              "reason": "唱针操作声没有包含持续的噼啪底噪。",
+              "candidate_quote": "细小咔嗒、沙擦似的操作声"
+            },
+            {
+              "category": "synergy",
+              "index": 20,
+              "reason": "没有提及落针时的Listen to Yomi。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 21,
+              "reason": "没有描述落针后开始播放明快男声流行曲。",
+              "candidate_quote": "低沉男声歌唱及柔和伴奏"
+            },
+            {
+              "category": "synergy",
+              "index": 22,
+              "reason": "帮忙问题没有明确关联到明亮窗前男子走近女子。",
+              "candidate_quote": "对白同时说到“看着真好吃”“要帮忙吗”"
+            },
+            {
+              "category": "synergy",
+              "index": 25,
+              "reason": "没有描述女子递东西并说Here。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 28,
+              "reason": "没有提及男子对牛奶问题的肯定回答。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 29,
+              "reason": "没有提及女子品尝后的鼻音。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 31,
+              "reason": "没有描述脚步在走廊中的回响。",
+              "candidate_quote": "轻而疏的脚步"
+            },
+            {
+              "category": "synergy",
+              "index": 32,
+              "reason": "没有描述走廊中的低频环境嗡鸣。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 33,
+              "reason": "没有提及切回厨房时男子说Yeah。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 35,
+              "reason": "没有提及女子微笑时未说完的对白。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 36,
+              "reason": "没有提及餐桌前男子说要离开。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 37,
+              "reason": "餐桌背景歌声没有明确描述为高亢男声歌剧咏叹调。",
+              "candidate_quote": "抒情男声和伴奏保持低铺"
+            }
+          ]
+        },
+        {
+          "target_id": "CAP04",
+          "total_recall": 0.7647058823529411,
+          "visual_recall": 0.782608695652174,
+          "audio_recall": 0.9285714285714286,
+          "synergy_recall": 0.5714285714285714,
+          "audio_subtypes": {
+            "speech": 1.0,
+            "music": null,
+            "sfx": 0.9230769230769231
+          },
+          "event_count": 51,
+          "hits": 39,
+          "localization": "correct",
+          "hits_detail": {
+            "visual_hits": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0
+            ],
+            "audio_hits": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "synergy_hits": [
+              1,
+              0,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "miss_reasons": [
+            {
+              "category": "visual",
+              "index": 8,
+              "reason": "未提及女子使用笔记本电脑打字。",
+              "candidate_quote": "低头查阅，手指压着纸页边缘再翻过去"
+            },
+            {
+              "category": "visual",
+              "index": 11,
+              "reason": "未描述男子在模糊镜头中快速移动或奔跑。",
+              "candidate_quote": "一边向前走一边抬眼察看"
+            },
+            {
+              "category": "visual",
+              "index": 12,
+              "reason": "描述的是相册中的火箭或设施照片，没有女子手捧黑色相框及其中人影的场景。",
+              "candidate_quote": "一张火箭或发射设施黑白照片占据页心"
+            },
+            {
+              "category": "visual",
+              "index": 21,
+              "reason": "未描述透过窗户看远处建筑的视角。",
+              "candidate_quote": "远处楼房的画面叠化回女子在明亮窗帘边的侧背影"
+            },
+            {
+              "category": "visual",
+              "index": 22,
+              "reason": "未描述女子在玻璃上的倒影逐渐浮现。",
+              "candidate_quote": "女子在明亮窗帘边的侧背影"
+            },
+            {
+              "category": "audio",
+              "index": 6,
+              "reason": "未描述与快速移动相应的短暂呼啸声。",
+              "candidate_quote": "风压似的过渡声"
+            },
+            {
+              "category": "synergy",
+              "index": 1,
+              "reason": "脚步声出现在较后的桌面段落，没有与女子走入墙边同步关联。",
+              "candidate_quote": "后半开始出现疏疏的脚步"
+            },
+            {
+              "category": "synergy",
+              "index": 5,
+              "reason": "未描述男子快速移动，也未将短暂呼啸声与该动作关联。",
+              "candidate_quote": "他继续走、回头察看"
+            },
+            {
+              "category": "synergy",
+              "index": 6,
+              "reason": "未描述女子手捧黑色相框凝视的画面。",
+              "candidate_quote": "一张火箭或发射设施黑白照片占据页心"
+            },
+            {
+              "category": "synergy",
+              "index": 11,
+              "reason": "明确说爆响先于可见黑烟，未呈现爆炸画面与巨响同步。",
+              "candidate_quote": "爆响在可见黑烟前已出现"
+            },
+            {
+              "category": "synergy",
+              "index": 12,
+              "reason": "提到远景中的鸟叫，但未描述从窗户向外看的视角。",
+              "candidate_quote": "远景中又能分辨风一样的环境底声和鸟叫"
+            },
+            {
+              "category": "synergy",
+              "index": 13,
+              "reason": "叹息与女子停顿相关，但没有描述玻璃倒影浮现及凝视窗外。",
+              "candidate_quote": "一口明显的吸气、叹息或呼气在安静里凸显"
+            }
+          ]
+        },
+        {
+          "target_id": "CAP05",
+          "total_recall": 0.5614035087719298,
+          "visual_recall": 0.5333333333333333,
+          "audio_recall": 0.8571428571428571,
+          "synergy_recall": 0.3076923076923077,
+          "audio_subtypes": {
+            "speech": 1.0,
+            "music": null,
+            "sfx": 0.75
+          },
+          "event_count": 57,
+          "hits": 32,
+          "localization": "correct",
+          "hits_detail": {
+            "visual_hits": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "audio_hits": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "synergy_hits": [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "miss_reasons": [
+            {
+              "category": "visual",
+              "index": 0,
+              "reason": "未描述废弃工业大厅或混凝土立柱。",
+              "candidate_quote": "蓝灰色、光线偏暗的居室里"
+            },
+            {
+              "category": "visual",
+              "index": 1,
+              "reason": "未描述工业大厅的碎石地面和高耸昏暗的天花板。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 2,
+              "reason": "未描述工业大厅左侧采光及消失在黑暗中的通道。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 3,
+              "reason": "未提及该段左上角递增的时间码。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 4,
+              "reason": "未描述两排混凝土立柱之间的通道。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 13,
+              "reason": "三面镜和纸星均有描述，但未确认女子正在折纸。",
+              "candidate_quote": "具体手在处理什么没有完整入画"
+            },
+            {
+              "category": "visual",
+              "index": 15,
+              "reason": "描述了女子吃莓果，但未描述她同时继续折纸。",
+              "candidate_quote": "她从他手边取食"
+            },
+            {
+              "category": "visual",
+              "index": 17,
+              "reason": "未提及三面镜画面左上角的时间码。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 19,
+              "reason": "只描述手靠近或掠过嘴边，未描述男子捂住女子的嘴及她震惊的反应。",
+              "candidate_quote": "手指一度掠过嘴边"
+            },
+            {
+              "category": "visual",
+              "index": 21,
+              "reason": "未描述男子松手后整理女子的头巾。",
+              "candidate_quote": "双手渐渐放低"
+            },
+            {
+              "category": "visual",
+              "index": 23,
+              "reason": "未描述男子拿起白色听筒并走向镜面。",
+              "candidate_quote": "男子留在后方镜面里，低头看手中东西"
+            },
+            {
+              "category": "visual",
+              "index": 27,
+              "reason": "未提及接待场景左上角的递增时间码。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 28,
+              "reason": "描述了男子通话，但未描述其身体轻晃或目光扫视。",
+              "candidate_quote": "他开口说“嗨，是我”"
+            },
+            {
+              "category": "visual",
+              "index": 29,
+              "reason": "只提到女职员坐着，未描述她始终低头且没有互动。",
+              "candidate_quote": "后方女职员坐着"
+            },
+            {
+              "category": "audio",
+              "index": 6,
+              "reason": "未描述工业大厅中的低沉风声或轰鸣。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 10,
+              "reason": "描述了吃莓果，但未提及咀嚼声。",
+              "candidate_quote": "她从他手边取食"
+            },
+            {
+              "category": "synergy",
+              "index": 0,
+              "reason": "未描述工业通道及其对应的环境风声或轰鸣。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 1,
+              "reason": "有纸张样声音，但未描述女子触碰折纸星星。",
+              "candidate_quote": "具体手在处理什么没有完整入画"
+            },
+            {
+              "category": "synergy",
+              "index": 2,
+              "reason": "未将衣物或身体窸窣声与女子惊转的动作联系起来。",
+              "candidate_quote": "此前断续的纸质擦、咔嚓小响延续到她抬头附近"
+            },
+            {
+              "category": "synergy",
+              "index": 4,
+              "reason": "将这句问话归给女子，而非门口男子。",
+              "candidate_quote": "她用英语说“你吓到我了”，又问他站在那里很久了吗"
+            },
+            {
+              "category": "synergy",
+              "index": 5,
+              "reason": "将“没有”归给画面中的男子，而非画外女子。",
+              "candidate_quote": "男子，他简短回答“没有”"
+            },
+            {
+              "category": "synergy",
+              "index": 6,
+              "reason": "将该敲门的话归给女子，未同时保留两句对白与男子的关联。",
+              "candidate_quote": "女子说他该敲门，男子解释给她带了一些莓果"
+            },
+            {
+              "category": "synergy",
+              "index": 7,
+              "reason": "有纸张样声音，但未确认女子正在折纸星。",
+              "candidate_quote": "具体手在处理什么没有完整入画"
+            },
+            {
+              "category": "synergy",
+              "index": 8,
+              "reason": "未描述咀嚼声或吃莓果时继续折纸。",
+              "candidate_quote": "她从他手边取食"
+            },
+            {
+              "category": "synergy",
+              "index": 11,
+              "reason": "未描述男子拿起听筒的动作及其操作声。",
+              "candidate_quote": ""
+            }
+          ]
+        },
+        {
+          "target_id": "CAP06",
+          "total_recall": 0.6578947368421053,
+          "visual_recall": 0.6111111111111112,
+          "audio_recall": 0.9,
+          "synergy_recall": 0.5,
+          "audio_subtypes": {
+            "speech": 1.0,
+            "music": null,
+            "sfx": 0.875
+          },
+          "event_count": 38,
+          "hits": 25,
+          "localization": "correct",
+          "hits_detail": {
+            "visual_hits": [
+              0,
+              0,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0
+            ],
+            "audio_hits": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "synergy_hits": [
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0
+            ]
+          },
+          "miss_reasons": [
+            {
+              "category": "visual",
+              "index": 0,
+              "reason": "The opening scene with the man in orange on a sofa is absent.",
+              "candidate_quote": "雨湿的森林道路上，黑色旧轿车已经在行驶。"
+            },
+            {
+              "category": "visual",
+              "index": 1,
+              "reason": "The opening timecode is not mentioned.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 5,
+              "reason": "The caption describes releasing the buckle, the opposite of fastening it.",
+              "candidate_quote": "手按下红色释放部，把带端从黑红扣件中抽开"
+            },
+            {
+              "category": "visual",
+              "index": 10,
+              "reason": "Passing tree trunks are described, but not the view through a lowered window or open door.",
+              "candidate_quote": "镜头切到车身外侧和迅速掠过、倾斜拖影的树干"
+            },
+            {
+              "category": "visual",
+              "index": 11,
+              "reason": "The car leaves the road, but sideways skidding or drifting is not described.",
+              "candidate_quote": "车已经偏离湿公路，朝树间草地、沟坎冲去"
+            },
+            {
+              "category": "visual",
+              "index": 12,
+              "reason": "A collision with trees that hides the car in dust is not described.",
+              "candidate_quote": "镜头没有拍到整辆车正面撞上某一棵树"
+            },
+            {
+              "category": "visual",
+              "index": 17,
+              "reason": "The post-crash view through the rain-covered side window is absent.",
+              "candidate_quote": "到下一次看车外侧窗之前结束"
+            },
+            {
+              "category": "audio",
+              "index": 6,
+              "reason": "Friction and impacts are mentioned, but high engine revving and tires skidding on dirt or grass are not.",
+              "candidate_quote": "粗重的颠撞、抖响和摩擦声"
+            },
+            {
+              "category": "synergy",
+              "index": 1,
+              "reason": "The click is linked to releasing the buckle rather than fastening it.",
+              "candidate_quote": "松开安全带的动作……有一下很轻、很短的咔嗒"
+            },
+            {
+              "category": "synergy",
+              "index": 4,
+              "reason": "The male shout is associated with the preceding interior action, not the exterior forest-driving shot.",
+              "candidate_quote": "切司机猛然转头、横身扑向副驾方向……一声短促男声喊叫或闷叫"
+            },
+            {
+              "category": "synergy",
+              "index": 5,
+              "reason": "The caption does not link high engine revs and tire skidding sounds to a sideways drift.",
+              "candidate_quote": "车轮越过土坎、短暂弹起……粗重的颠撞、抖响和摩擦声"
+            },
+            {
+              "category": "synergy",
+              "index": 6,
+              "reason": "Impact sounds accompany the car's rough movement, but the described tree collision and dust cloud are absent.",
+              "candidate_quote": "镜头没有拍到整辆车正面撞上某一棵树"
+            },
+            {
+              "category": "synergy",
+              "index": 9,
+              "reason": "The rain-covered side-window scene is absent, so its link to ambient sound is not established.",
+              "candidate_quote": "到下一次看车外侧窗之前结束"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "score": 55.23077919604765,
+      "category_recall": {
+        "visual": 55.103419558099,
+        "audio": 67.6241679467486,
+        "synergy": 49.10834779255832
+      },
+      "audio_subtype_recall": {
+        "speech": 72.75828460038986,
+        "music": 50.0,
+        "sfx": 68.8568376068376
+      },
+      "rows": [
+        {
+          "target_id": "CAP01",
+          "total_recall": 0.48148148148148145,
+          "visual_recall": 0.4,
+          "audio_recall": 0.6666666666666666,
+          "synergy_recall": 0.75,
+          "audio_subtypes": {
+            "speech": 1.0,
+            "music": null,
+            "sfx": 0.5
+          },
+          "event_count": 27,
+          "hits": 13,
+          "localization": "correct",
+          "hits_detail": {
+            "visual_hits": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "audio_hits": [
+              1,
+              0,
+              1
+            ],
+            "synergy_hits": [
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "miss_reasons": [
+            {
+              "category": "visual",
+              "index": 0,
+              "reason": "The exterior building and relief mural are absent.",
+              "candidate_quote": "冷蓝灰色的控制室里"
+            },
+            {
+              "category": "visual",
+              "index": 1,
+              "reason": "The mural inscription and year are absent.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 2,
+              "reason": "The exterior windows and wavy roof are absent.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 3,
+              "reason": "The pine branches and overcast sky are absent.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 4,
+              "reason": "The exterior timecodes and static shot are absent.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 9,
+              "reason": "The control-room timecode progression is absent.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 14,
+              "reason": "The second exterior building is absent.",
+              "candidate_quote": "片段在切到后续外景前结束"
+            },
+            {
+              "category": "visual",
+              "index": 15,
+              "reason": "The entrance canopy, columns and windows are absent.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 16,
+              "reason": "The exterior metal sculpture is absent.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 17,
+              "reason": "The blurred foreground lines are absent.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 18,
+              "reason": "The exterior timecode is absent.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 19,
+              "reason": "The outdoor lighting, overcast sky and camera movement are absent.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 1,
+              "reason": "No sustained high-frequency electronic tone or tuning buzz is described.",
+              "candidate_quote": "轻柔、拉长的弦乐样旋律"
+            },
+            {
+              "category": "synergy",
+              "index": 0,
+              "reason": "The control adjustments are linked to clicks and contact sounds, not electronic tuning tones or buzzing.",
+              "candidate_quote": "操作附近伴有短促的咔嗒、轻碰和衣物摩擦"
+            }
+          ]
+        },
+        {
+          "target_id": "CAP02",
+          "total_recall": 0.37719298245614036,
+          "visual_recall": 0.4067796610169492,
+          "audio_recall": 0.41935483870967744,
+          "synergy_recall": 0.25,
+          "audio_subtypes": {
+            "speech": 0.42105263157894735,
+            "music": null,
+            "sfx": 0.4166666666666667
+          },
+          "event_count": 114,
+          "hits": 43,
+          "localization": "correct",
+          "hits_detail": {
+            "visual_hits": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "audio_hits": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              0
+            ],
+            "synergy_hits": [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0
+            ]
+          },
+          "miss_reasons": [
+            {
+              "category": "visual",
+              "index": 1,
+              "reason": "未提及酒瓶货架或点唱机。",
+              "candidate_quote": "暖暗的酒吧内"
+            },
+            {
+              "category": "visual",
+              "index": 2,
+              "reason": "未描述吧台前两人各持酒瓶的初始画面。",
+              "candidate_quote": "两名年轻男子隔桌相对"
+            },
+            {
+              "category": "visual",
+              "index": 3,
+              "reason": "未提及绿衣男子举瓶示意。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 4,
+              "reason": "未提及绿衣男子蹲到吧台后。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 5,
+              "reason": "未描述白衣男子目送对方后饮酒。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 6,
+              "reason": "未描述绿衣男子从吧台下起身并从架上取桶。",
+              "candidate_quote": "一只装冰的金属桶被带到"
+            },
+            {
+              "category": "visual",
+              "index": 8,
+              "reason": "未描述坐着的男子先看桶再看绿衣男子。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 9,
+              "reason": "未提及画面时间码。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 10,
+              "reason": "未提及开瓶器或撬瓶动作。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 11,
+              "reason": "未描述绿衣男子微笑注视开瓶的人。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 12,
+              "reason": "未描述光头男子从右侧背景走入。",
+              "candidate_quote": "先给一名秃头、穿白衬衫的吧台人员严肃的面部近景"
+            },
+            {
+              "category": "visual",
+              "index": 15,
+              "reason": "未提及红色酒瓶层架或墙上相框。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 16,
+              "reason": "未提及该时间码。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 17,
+              "reason": "未描述从侧后方拍摄光头男子及背景中坐着的人。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 18,
+              "reason": "未提及越过吧台的视角和虚焦啤酒龙头。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 20,
+              "reason": "窗台物品被描述为收音机和台灯，未提及时钟和折叠布料。",
+              "candidate_quote": "窗台上放着小收音机和台灯"
+            },
+            {
+              "category": "visual",
+              "index": 21,
+              "reason": "未描述白衣男子左手持瓶、右手比划交谈。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 22,
+              "reason": "未描述两人向彼此亮出手掌。",
+              "candidate_quote": "白衬衫男子示意对方伸手"
+            },
+            {
+              "category": "visual",
+              "index": 23,
+              "reason": "未描述白衣男子调整领带或触碰脖颈。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 24,
+              "reason": "未提及该时间码。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 27,
+              "reason": "未提及绿衣男子举起张开的右手示意。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 30,
+              "reason": "未提及该时间码。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 34,
+              "reason": "未描述白衣男子扇耳光。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 36,
+              "reason": "未描述他把脸埋进双臂、肩膀剧烈颤抖。",
+              "candidate_quote": "紧闭眼、低头缩起脸"
+            },
+            {
+              "category": "visual",
+              "index": 38,
+              "reason": "未提及该时间码。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 39,
+              "reason": "未描述短暂失焦的男子侧脸镜头。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 40,
+              "reason": "提及钟表特写，但未描述指针所指的约六点五十四分。",
+              "candidate_quote": "墙上石英钟特写"
+            },
+            {
+              "category": "visual",
+              "index": 41,
+              "reason": "提及日历数字3，但未描述红色秒针逐格跳动。",
+              "candidate_quote": "圆形数字表盘旁有显示“3”的日历窗"
+            },
+            {
+              "category": "visual",
+              "index": 43,
+              "reason": "未提及该时间码或钟面上的相关细节。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 45,
+              "reason": "未描述绿衣男子饮酒、放下瓶子。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 46,
+              "reason": "未描述白衣男子抬眼游移后绿衣男子低头再抬眼的顺序。",
+              "candidate_quote": "他压着笑、抬眼看对方，又低下视线"
+            },
+            {
+              "category": "visual",
+              "index": 52,
+              "reason": "未描述绿衣男子额头渗汗。",
+              "candidate_quote": "镜头轮流停在两人的紧张脸部"
+            },
+            {
+              "category": "visual",
+              "index": 57,
+              "reason": "未描述穿白色长裤的赤脚特写。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 58,
+              "reason": "未描述地面旁的浅色木条或横梁。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 59,
+              "reason": "未描述脚趾蜷缩或脚部轻微移动。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 1,
+              "reason": "未提及“Wait”。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 2,
+              "reason": "未提及惊慌的道歉对白。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 3,
+              "reason": "未提及关于冰的这句对白。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 4,
+              "reason": "未提及需要取得某物的对白。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 5,
+              "reason": "未提及道歉。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 6,
+              "reason": "未提及此处的“Okay”。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 10,
+              "reason": "回答被写成涉及姑娘，未表达“游戏”。",
+              "candidate_quote": "回答涉及“那个姑娘”"
+            },
+            {
+              "category": "audio",
+              "index": 11,
+              "reason": "未提及“Go on then”或相应催促。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 12,
+              "reason": "未提及犹豫的“Um”。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 13,
+              "reason": "未提及此处的“Okay”。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 15,
+              "reason": "未提及肯定的低哼。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 20,
+              "reason": "未提及远处模糊人声和电子杂音。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 21,
+              "reason": "未提及吞咽声。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 23,
+              "reason": "未提及金属撬动和瓶盖弹开的声音。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 25,
+              "reason": "未提及巴掌声。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 28,
+              "reason": "未提及饮酒后的吞咽及放瓶声。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 29,
+              "reason": "未提及沉闷爆响。",
+              "candidate_quote": "桶中冰块及桌面又有一阵短促轻响"
+            },
+            {
+              "category": "audio",
+              "index": 31,
+              "reason": "未描述赤脚场景中的持续摩擦和沙沙声。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 1,
+              "reason": "未描述远处人声或电子杂音。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 2,
+              "reason": "未描述蹲下及“Wait”。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 3,
+              "reason": "未描述饮酒及吞咽声。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 5,
+              "reason": "未描述开瓶动作或开瓶声。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 6,
+              "reason": "未将光头男子的反应关联到惊慌道歉。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 7,
+              "reason": "未描述持瓶比划时关于冰的对白。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 8,
+              "reason": "未提及相关对白。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 9,
+              "reason": "未提及道歉和回应。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 10,
+              "reason": "虽提及要求看手，但未描述两人向彼此亮出手掌。",
+              "candidate_quote": "白衬衫男子示意对方伸手"
+            },
+            {
+              "category": "synergy",
+              "index": 11,
+              "reason": "未描述绿衣男子举起手掌的动作。",
+              "candidate_quote": "随后说出规则：谁先把手抽出来谁输"
+            },
+            {
+              "category": "synergy",
+              "index": 13,
+              "reason": "问题有提及，但回答被描述为涉及姑娘，而非游戏。",
+              "candidate_quote": "问“输什么”，回答涉及“那个姑娘”"
+            },
+            {
+              "category": "synergy",
+              "index": 14,
+              "reason": "未提及“Go on then”及白衣男子持杯注视。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 15,
+              "reason": "未描述耳光及其声音。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 18,
+              "reason": "未提及犹豫的“Um”。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 19,
+              "reason": "未描述绿衣男子饮酒及吞咽、放瓶声。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 20,
+              "reason": "虽提及沉默约定，但未提及“Okay”和回应的低哼。",
+              "candidate_quote": "一人提出类似“订一个沉默的约定”"
+            },
+            {
+              "category": "synergy",
+              "index": 23,
+              "reason": "提及倒数结束后抽手和呼叫，但未提及桶内爆响。",
+              "candidate_quote": "桶中冰块及桌面又有一阵短促轻响"
+            },
+            {
+              "category": "synergy",
+              "index": 24,
+              "reason": "未描述赤脚移动及其摩擦声。",
+              "candidate_quote": ""
+            }
+          ]
+        },
+        {
+          "target_id": "CAP03",
+          "total_recall": 0.4778761061946903,
+          "visual_recall": 0.5945945945945946,
+          "audio_recall": 0.5,
+          "synergy_recall": 0.34210526315789475,
+          "audio_subtypes": {
+            "speech": 0.4444444444444444,
+            "music": 0.5,
+            "sfx": 0.6666666666666666
+          },
+          "event_count": 113,
+          "hits": 54,
+          "localization": "correct",
+          "hits_detail": {
+            "visual_hits": [
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "audio_hits": [
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              0,
+              1,
+              0
+            ],
+            "synergy_hits": [
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          },
+          "miss_reasons": [
+            {
+              "category": "visual",
+              "index": 0,
+              "reason": "未描述开场人物捧着白色头盔。",
+              "candidate_quote": "暖日光的厨房里，先近看案板"
+            },
+            {
+              "category": "visual",
+              "index": 1,
+              "reason": "未描述头盔从胸前放到膝部。",
+              "candidate_quote": "一只手提着圆头盔"
+            },
+            {
+              "category": "visual",
+              "index": 2,
+              "reason": "未提及棕绿色几何纹地毯或内饰。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 3,
+              "reason": "未提及画面时间戳。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 6,
+              "reason": "提到柠檬，但未提及背景酒杯和木墩。",
+              "candidate_quote": "柠檬与盘子"
+            },
+            {
+              "category": "visual",
+              "index": 8,
+              "reason": "未描述女子背影旁的盆栽及绿色花纹窗帘。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 10,
+              "reason": "未描述绿色花纹挂毯、明亮窗台及盆栽。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 17,
+              "reason": "未明确描述另一位棕发女子的特写。",
+              "candidate_quote": "女子笑脸"
+            },
+            {
+              "category": "visual",
+              "index": 23,
+              "reason": "未提到女子递出东西。",
+              "candidate_quote": "她边笑边忙"
+            },
+            {
+              "category": "visual",
+              "index": 24,
+              "reason": "未描述疑问、肯定回答及品尝反应的完整互动。",
+              "candidate_quote": "又有关于牛奶在哪里的问话"
+            },
+            {
+              "category": "visual",
+              "index": 25,
+              "reason": "未描述镜头平移露出前景酒瓶和酒杯。",
+              "candidate_quote": "瓶子、酒杯和高磨椒器"
+            },
+            {
+              "category": "visual",
+              "index": 26,
+              "reason": "未描述切入明亮背景下的深发女子侧脸。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 27,
+              "reason": "未描述昏暗环境中低头男子的侧脸特写。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 30,
+              "reason": "行走方向与背对镜头向走廊深处走相反。",
+              "candidate_quote": "缓慢向前走来"
+            },
+            {
+              "category": "visual",
+              "index": 31,
+              "reason": "未提及画面时间戳。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 32,
+              "reason": "未描述短暂再次闪回废弃走廊。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 2,
+              "reason": "未提及男子说已经放上音乐。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 6,
+              "reason": "未提及男子热切接受的回应。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 7,
+              "reason": "未提及此前俏皮的反复拒绝。",
+              "candidate_quote": "女子拒绝"
+            },
+            {
+              "category": "audio",
+              "index": 8,
+              "reason": "未提及男子惊呼。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 9,
+              "reason": "未提及再次俏皮拒绝。",
+              "candidate_quote": "女子拒绝"
+            },
+            {
+              "category": "audio",
+              "index": 10,
+              "reason": "未提及请求一点东西。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 11,
+              "reason": "未提及女子调侃男子再次升职。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 13,
+              "reason": "未提及女子询问升了什么职。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 15,
+              "reason": "未提及让人听Yomi的话。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 19,
+              "reason": "未提及女子递东西时说的回应。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 22,
+              "reason": "未提及男子对牛奶问题的肯定回答。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 23,
+              "reason": "未提及品尝后的鼻音。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 24,
+              "reason": "未提及后段男子的具体回应。",
+              "candidate_quote": "低声对白重新叠进来"
+            },
+            {
+              "category": "audio",
+              "index": 25,
+              "reason": "未提及女子后段未说完的话。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 26,
+              "reason": "未提及男子说他要走了。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "audio",
+              "index": 27,
+              "reason": "描述的是低沉抒情男声，未描述节奏明快的流行歌曲。",
+              "candidate_quote": "低沉男声歌唱及柔和伴奏"
+            },
+            {
+              "category": "audio",
+              "index": 32,
+              "reason": "提及亲吻，但未提及亲吻声。",
+              "candidate_quote": "短暂亲吻"
+            },
+            {
+              "category": "audio",
+              "index": 35,
+              "reason": "未提及脚步回响。",
+              "candidate_quote": "轻而疏的脚步、敲落和拖擦声"
+            },
+            {
+              "category": "audio",
+              "index": 37,
+              "reason": "未提及低频环境嗡鸣。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 0,
+              "reason": "未描述开场放下头盔及其摩擦声。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 2,
+              "reason": "未将脚步挪动声与窗前忙碌的女子联系起来。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 3,
+              "reason": "催促声被描述为画外声音，未归给女子。",
+              "candidate_quote": "画外有人催促、赞叹"
+            },
+            {
+              "category": "synergy",
+              "index": 5,
+              "reason": "未提及男子说音乐已经放上。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 6,
+              "reason": "提及牛奶对话，但未将其与女子回头时男子询问牛奶联系起来。",
+              "candidate_quote": "对话提到牛奶"
+            },
+            {
+              "category": "synergy",
+              "index": 9,
+              "reason": "未提及男子热切回应。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 10,
+              "reason": "未将俏皮拒绝与男子伸手联系起来。",
+              "candidate_quote": "男子从女子旁边、后方伸手参与"
+            },
+            {
+              "category": "synergy",
+              "index": 11,
+              "reason": "未提及伸手时的惊呼。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 12,
+              "reason": "未提及女子再次俏皮拒绝。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 13,
+              "reason": "未提及男子请求一点东西。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 14,
+              "reason": "未提及女子调侃男子再次升职。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 15,
+              "reason": "未明确描述另一位棕发女子特写。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 16,
+              "reason": "未提及女子询问升了什么职。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 17,
+              "reason": "提及亲吻画面，但未描述亲吻声。",
+              "candidate_quote": "男女贴近、短暂亲吻"
+            },
+            {
+              "category": "synergy",
+              "index": 18,
+              "reason": "讨吻对白被明确放在此前唱机镜头上，未与亲吻画面联系。",
+              "candidate_quote": "讨吻的对白仍在唱机画面上继续"
+            },
+            {
+              "category": "synergy",
+              "index": 20,
+              "reason": "未提及落针时男子说听Yomi。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 21,
+              "reason": "未描述落针后开始播放节奏明快的男声流行曲。",
+              "candidate_quote": "低沉男声歌唱及柔和伴奏逐渐进入"
+            },
+            {
+              "category": "synergy",
+              "index": 25,
+              "reason": "未提及女子递东西或说‘Here’。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 28,
+              "reason": "未提及男子对牛奶问题的肯定回答。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 29,
+              "reason": "未提及女子品尝后的鼻音。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 31,
+              "reason": "未描述走廊脚步的回响，且行走方向不同。",
+              "candidate_quote": "缓慢向前走来"
+            },
+            {
+              "category": "synergy",
+              "index": 32,
+              "reason": "未提及走廊中的低频环境嗡鸣。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 33,
+              "reason": "未提及切回厨房时男子的具体回应。",
+              "candidate_quote": "低声对白重新叠进来"
+            },
+            {
+              "category": "synergy",
+              "index": 35,
+              "reason": "未提及女子微笑时说的未完话语。",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 36,
+              "reason": "未提及男子在餐桌前说他要走了。",
+              "candidate_quote": ""
+            }
+          ]
+        },
+        {
+          "target_id": "CAP04",
+          "total_recall": 0.7843137254901961,
+          "visual_recall": 0.782608695652174,
+          "audio_recall": 0.9285714285714286,
+          "synergy_recall": 0.6428571428571429,
+          "audio_subtypes": {
+            "speech": 1.0,
+            "music": null,
+            "sfx": 0.9230769230769231
+          },
+          "event_count": 51,
+          "hits": 40,
+          "localization": "correct",
+          "hits_detail": {
+            "visual_hits": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0
+            ],
+            "audio_hits": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "synergy_hits": [
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          "miss_reasons": [
+            {
+              "category": "visual",
+              "index": 8,
+              "reason": "未提及女子在笔记本电脑上打字。",
+              "candidate_quote": "女子在桌边坐下或俯身，从旧物中取起黑色大相册"
+            },
+            {
+              "category": "visual",
+              "index": 11,
+              "reason": "未描述男子在极度模糊的工业场景中快速移动或奔跑。",
+              "candidate_quote": "一边向前走一边抬眼察看"
+            },
+            {
+              "category": "visual",
+              "index": 12,
+              "reason": "描述的是翻看相册中的设施照片，没有黑色相框及其中的人影。",
+              "candidate_quote": "女子手中的相册，一张火箭或发射设施黑白照片占据页心"
+            },
+            {
+              "category": "visual",
+              "index": 21,
+              "reason": "提到远处建筑和女子窗边的画面，但没有描述透过窗户望向建筑。",
+              "candidate_quote": "远处楼房的画面叠化回女子在明亮窗帘边的侧背影"
+            },
+            {
+              "category": "visual",
+              "index": 22,
+              "reason": "没有描述女子在玻璃上逐渐浮现的倒影。",
+              "candidate_quote": "女子在明亮窗帘边的侧背影"
+            },
+            {
+              "category": "audio",
+              "index": 6,
+              "reason": "没有描述伴随快速移动的短暂呼啸声。",
+              "candidate_quote": "一边向前走一边抬眼察看"
+            },
+            {
+              "category": "synergy",
+              "index": 1,
+              "reason": "脚步声出现在较后的桌面段落，未与女子走入墙边同步关联。",
+              "candidate_quote": "后半开始出现疏疏的脚步"
+            },
+            {
+              "category": "synergy",
+              "index": 3,
+              "reason": "提到封皮碰桌声，但未将闷响与抓起并扶住黑色物体的动作关联。",
+              "candidate_quote": "封皮碰桌的细响伴随她的手势"
+            },
+            {
+              "category": "synergy",
+              "index": 5,
+              "reason": "没有描述男子快速移动的模糊镜头及其伴随的呼啸声。",
+              "candidate_quote": "一边向前走一边抬眼察看"
+            },
+            {
+              "category": "synergy",
+              "index": 6,
+              "reason": "没有描述女子手捧黑色相框凝视照片及其细微持物声。",
+              "candidate_quote": "女子手中的相册，一张火箭或发射设施黑白照片占据页心"
+            },
+            {
+              "category": "synergy",
+              "index": 11,
+              "reason": "明确称爆响早于黑烟，否定了与可见爆炸同步。",
+              "candidate_quote": "爆响在可见黑烟前已出现，不能把两者硬写成同一帧同步发生"
+            }
+          ]
+        },
+        {
+          "target_id": "CAP05",
+          "total_recall": 0.5614035087719298,
+          "visual_recall": 0.5666666666666667,
+          "audio_recall": 0.6428571428571429,
+          "synergy_recall": 0.46153846153846156,
+          "audio_subtypes": {
+            "speech": 0.5,
+            "music": null,
+            "sfx": 0.75
+          },
+          "event_count": 57,
+          "hits": 32,
+          "localization": "correct",
+          "hits_detail": {
+            "visual_hits": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              1,
+              1,
+              0,
+              1,
+              0
+            ],
+            "audio_hits": [
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "synergy_hits": [
+              0,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "miss_reasons": [
+            {
+              "category": "visual",
+              "index": 0,
+              "reason": "The abandoned industrial hall is omitted.",
+              "candidate_quote": "蓝灰色、光线偏暗的居室里"
+            },
+            {
+              "category": "visual",
+              "index": 1,
+              "reason": "The rubble-filled industrial hall and dark ceiling are omitted.",
+              "candidate_quote": "蓝灰色、光线偏暗的居室里"
+            },
+            {
+              "category": "visual",
+              "index": 2,
+              "reason": "The industrial hall's openings and dark corridor are omitted.",
+              "candidate_quote": "蓝灰色、光线偏暗的居室里"
+            },
+            {
+              "category": "visual",
+              "index": 3,
+              "reason": "The opening on-screen timecode is not mentioned.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 4,
+              "reason": "The corridor between concrete columns is omitted.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 13,
+              "reason": "The caption does not show her folding paper stars and says her hands are obscured.",
+              "candidate_quote": "具体手在处理什么没有完整入画"
+            },
+            {
+              "category": "visual",
+              "index": 15,
+              "reason": "She takes a berry, but continued folding and chewing are not described.",
+              "candidate_quote": "她从他手边取食"
+            },
+            {
+              "category": "visual",
+              "index": 17,
+              "reason": "The on-screen timecode is not mentioned.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 19,
+              "reason": "The hand is described near her mouth, not covering it to stop her.",
+              "candidate_quote": "手指一度掠过嘴边"
+            },
+            {
+              "category": "visual",
+              "index": 21,
+              "reason": "A prior touch to her headscarf is described, but not an adjustment after he releases her.",
+              "candidate_quote": "双手渐渐放低"
+            },
+            {
+              "category": "visual",
+              "index": 23,
+              "reason": "The man taking the white receiver and approaching the mirror is omitted.",
+              "candidate_quote": "男子留在后方镜面里，低头看手中东西"
+            },
+            {
+              "category": "visual",
+              "index": 27,
+              "reason": "The reception scene's on-screen timecode is omitted.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 29,
+              "reason": "The employee is seated, but her continued downward gaze and lack of interaction are not described.",
+              "candidate_quote": "后方女职员坐着"
+            },
+            {
+              "category": "audio",
+              "index": 1,
+              "reason": "The question is attributed to the woman rather than the male voice specified in the GT.",
+              "candidate_quote": "她用英语说“你吓到我了”，又问他站在那里很久了吗"
+            },
+            {
+              "category": "audio",
+              "index": 2,
+              "reason": "The response is attributed to the man rather than an off-screen woman.",
+              "candidate_quote": "男子，他简短回答“没有”"
+            },
+            {
+              "category": "audio",
+              "index": 3,
+              "reason": "The line about knocking is attributed to the woman rather than the man.",
+              "candidate_quote": "女子说他该敲门"
+            },
+            {
+              "category": "audio",
+              "index": 6,
+              "reason": "The low ambient wind or rumble is omitted.",
+              "candidate_quote": "背景仍以安静室内声为主"
+            },
+            {
+              "category": "audio",
+              "index": 10,
+              "reason": "Chewing sounds are not described.",
+              "candidate_quote": "她从他手边取食"
+            },
+            {
+              "category": "synergy",
+              "index": 0,
+              "reason": "Neither the industrial corridor nor its ambient rumble is described.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "synergy",
+              "index": 4,
+              "reason": "The question is attributed to the woman, not the shadowed man.",
+              "candidate_quote": "她用英语说“你吓到我了”，又问他站在那里很久了吗"
+            },
+            {
+              "category": "synergy",
+              "index": 5,
+              "reason": "The response is attributed to the man rather than an off-screen woman.",
+              "candidate_quote": "男子，他简短回答“没有”"
+            },
+            {
+              "category": "synergy",
+              "index": 6,
+              "reason": "The caption attributes the knocking line to the woman, although it attributes the berries line to the man.",
+              "candidate_quote": "女子说他该敲门，男子解释给她带了一些莓果"
+            },
+            {
+              "category": "synergy",
+              "index": 7,
+              "reason": "Paper-like sounds are mentioned, but folding the stars is not shown or asserted.",
+              "candidate_quote": "具体手在处理什么没有完整入画"
+            },
+            {
+              "category": "synergy",
+              "index": 8,
+              "reason": "Eating a berry is described without chewing sounds or continued paper folding.",
+              "candidate_quote": "她从他手边取食"
+            },
+            {
+              "category": "synergy",
+              "index": 11,
+              "reason": "The man picking up the white receiver is not described.",
+              "candidate_quote": "男子留在后方镜面里，低头看手中东西"
+            }
+          ]
+        },
+        {
+          "target_id": "CAP06",
+          "total_recall": 0.631578947368421,
+          "visual_recall": 0.5555555555555556,
+          "audio_recall": 0.9,
+          "synergy_recall": 0.5,
+          "audio_subtypes": {
+            "speech": 1.0,
+            "music": null,
+            "sfx": 0.875
+          },
+          "event_count": 38,
+          "hits": 24,
+          "localization": "correct",
+          "hits_detail": {
+            "visual_hits": [
+              0,
+              0,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              0
+            ],
+            "audio_hits": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "synergy_hits": [
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0
+            ]
+          },
+          "miss_reasons": [
+            {
+              "category": "visual",
+              "index": 0,
+              "reason": "The opening smoky room and man in orange are absent.",
+              "candidate_quote": "雨湿的森林道路上，黑色旧轿车已经在行驶。"
+            },
+            {
+              "category": "visual",
+              "index": 1,
+              "reason": "The opening timecode is absent.",
+              "candidate_quote": ""
+            },
+            {
+              "category": "visual",
+              "index": 5,
+              "reason": "The caption describes releasing the seat belt rather than fastening it.",
+              "candidate_quote": "把带端从黑红扣件中抽开"
+            },
+            {
+              "category": "visual",
+              "index": 10,
+              "reason": "Passing trees are described from outside the car, without the interior view through an open window or door.",
+              "candidate_quote": "镜头切到车身外侧和迅速掠过、倾斜拖影的树干"
+            },
+            {
+              "category": "visual",
+              "index": 11,
+              "reason": "The car leaves the road, but a sideways skid or drift is not described.",
+              "candidate_quote": "朝树间草地、沟坎冲去"
+            },
+            {
+              "category": "visual",
+              "index": 12,
+              "reason": "A collision with trees and a cloud completely obscuring the car are not described.",
+              "candidate_quote": "镜头没有拍到整辆车正面撞上某一棵树"
+            },
+            {
+              "category": "visual",
+              "index": 14,
+              "reason": "The rear view lacks the visible license plate and damaged bumper.",
+              "candidate_quote": "车尾停在不平的地上"
+            },
+            {
+              "category": "visual",
+              "index": 17,
+              "reason": "The rain-covered side-window view is explicitly absent.",
+              "candidate_quote": "到下一次看车外侧窗之前结束"
+            },
+            {
+              "category": "audio",
+              "index": 6,
+              "reason": "The caption mentions friction and jolting, but not high engine revs and tires skidding on dirt or grass.",
+              "candidate_quote": "粗重的颠撞、抖响和摩擦声"
+            },
+            {
+              "category": "synergy",
+              "index": 1,
+              "reason": "The click is linked to releasing the belt, the opposite of the GT fastening action.",
+              "candidate_quote": "把带端从黑红扣件中抽开……有一下很轻、很短的咔嗒"
+            },
+            {
+              "category": "synergy",
+              "index": 4,
+              "reason": "The male shout is linked to the preceding interior shot, not the car speeding through the forest.",
+              "candidate_quote": "切司机猛然转头……一声短促男声喊叫或闷叫"
+            },
+            {
+              "category": "synergy",
+              "index": 5,
+              "reason": "The caption does not link a sideways skid with high engine revs and tire skidding sounds.",
+              "candidate_quote": "粗重的颠撞、抖响和摩擦声紧跟这阵冲入与弹跳"
+            },
+            {
+              "category": "synergy",
+              "index": 6,
+              "reason": "The described impact sounds are linked to jolting through the woods, without the GT collision with trees and obscuring dust cloud.",
+              "candidate_quote": "镜头没有拍到整辆车正面撞上某一棵树"
+            },
+            {
+              "category": "synergy",
+              "index": 9,
+              "reason": "The rain-covered side-window scene is absent.",
+              "candidate_quote": "到下一次看车外侧窗之前结束"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "category_recall": {
-    "visual": 76.99074074074073,
-    "audio": 76.66666666666666,
-    "synergy": 52.77777777777777
+    "visual": 55.34139764918444,
+    "audio": 66.99580492449763,
+    "synergy": 44.59077715656664
   },
-  "judge": "gpt-6.1-terra high",
-  "judge_votes": 2,
-  "score_rule": "只对裁判确认覆盖的事件计命中，其余不计入命中数。段内按事件数计算覆盖率，再对六项委托等权平均；两次裁判评分取平均。",
-  "source_vote_files": [
-    "terra-high-r1-semantic-decisions.json",
-    "terra-high-r2-semantic-decisions.json"
-  ]
+  "audio_subtype_recall": {
+    "speech": 75.74182369504007,
+    "music": 33.333333333333336,
+    "sfx": 65.9247388414055
+  },
+  "execution_protocol": "Indexed event IDs per API target; deterministic conversion to original arrays. Frozen GT, semantic rubric, weights and cap_calculate are unchanged. Invalid positional-array attempts are not adopted.",
+  "original_frozen_grader_sha256": "4f80ae2c00b35d7906328825f9a4a97b9f7c79e57ea2776408d141a422c2dadb"
 }
