@@ -12,9 +12,9 @@ permalink: /ale-reproduction/
 <nav class="topline" aria-label="站点导航"><a href="/omniale/">← OmniALE 案例集</a><a href="https://github.com/rdi-berkeley/agents-last-exam">Agents Last Exam ↗</a></nav>
 <header><div class="eyebrow">OMNIALE · ALE REPRODUCTION</div><h1>ALE Omni Case 复现</h1>
 <p class="lead">每个案例收录任务定义、运行结果、轨迹与失败分析。</p></header>
-<section class="average" aria-labelledby="average-heading"><div class="average-heading"><h2 id="average-heading">gpt-6.1-sol · 6题等权平均</h2><p class="average-value">59.91 <span>/ 100</span></p></div>
+<section class="average" aria-labelledby="average-heading"><div class="average-heading"><h2 id="average-heading">gpt-6.1-sol · 6题等权平均</h2><p class="average-value">59.67 <span>/ 100</span></p></div>
 <p>体操按部分分50计；其余采用各案例当前汇总分，按原始精度计算，每题权重相同。</p>
-<details><summary>查看分数与推理强度</summary><div class="average-table"><table><thead><tr><th>案例</th><th>Sol 推理强度</th><th>计入分 /100</th><th>口径</th></tr></thead><tbody><tr><td>从管弦乐录音，转写完整总谱</td><td>xhigh</td><td>12.53</td><td>汇总采用分</td></tr><tr><td>看清难度动作，写对每一个 FIG 编码</td><td>xhigh</td><td>50.00</td><td>部分分</td></tr><tr><td>把交响乐工程迁到 Linux，恢复原有声音</td><td>xhigh</td><td>48.51</td><td>汇总采用分</td></tr><tr><td>从天空中的白鹤，分离出完整绿幕主体</td><td>high</td><td>51.00</td><td>汇总采用分</td></tr><tr><td>看动画，编写修复前镜头日志</td><td>high</td><td>100.00</td><td>汇总采用分</td></tr><tr><td>让蝴蝶原图振翅，沿曲线飞行</td><td>high</td><td>97.40</td><td>汇总采用分</td></tr></tbody></table></div>
+<details><summary>查看分数与推理强度</summary><div class="average-table"><table><thead><tr><th>案例</th><th>Sol 推理强度</th><th>计入分 /100</th><th>口径</th></tr></thead><tbody><tr><td>从管弦乐录音，转写完整总谱</td><td>xhigh</td><td>12.53</td><td>汇总采用分</td></tr><tr><td>看清难度动作，写对每一个 FIG 编码</td><td>xhigh</td><td>50.00</td><td>部分分</td></tr><tr><td>把交响乐工程迁到 Linux，恢复原有声音</td><td>xhigh</td><td>48.51</td><td>汇总采用分</td></tr><tr><td>从天空中的白鹤，分离出完整绿幕主体</td><td>xhigh</td><td>49.57</td><td>汇总采用分</td></tr><tr><td>看动画，编写修复前镜头日志</td><td>high</td><td>100.00</td><td>汇总采用分</td></tr><tr><td>让蝴蝶原图振翅，沿曲线飞行</td><td>high</td><td>97.40</td><td>汇总采用分</td></tr></tbody></table></div>
 <p>各案例有多次运行时，先取该案例已公布的汇总成绩，再计算题间均值。high和xhigh分别标明；各题运行与评分条件见详情。</p><a href="cases.json">完整精度与计算明细 JSON</a></details></section><section id="cases" aria-labelledby="case-heading"><div class="collection-heading"><h2 id="case-heading">复现案例</h2><span class="count">6 个案例</span></div>
 <a class="case" id="music" href="https://wang-jiahao.github.io/omniale/ale-music-transcription/" aria-labelledby="title-music">
 <div class="cover"><img src="assets/music.jpg" width="840" height="540" alt="本轮独立转谱交付在MuseScore中的实际画面"><span class="cover-label" aria-hidden="true">实际交付 · MuseScore</span></div>
@@ -32,10 +32,10 @@ permalink: /ale-reproduction/
 <h3 id="title-migration">把交响乐工程迁到 Linux，恢复原有声音</h3><p class="desc">原工程的商业音源和效果器不可用，Agent需在Ardour中选择开源替代，保留音符、奏法、强弱和路由，交付可编辑工程、完整混音与独立分轨。</p>
 <div class="card-footer"><p class="score">gpt-6.1-sol<strong>48.51 / 100</strong></p><span class="destination">walnutpz 复现 · 查看案例 ↗</span></div></div></a>
 <a class="case" id="crane" href="https://huayuankou333.github.io/omniale/ale-crane-keying/" aria-labelledby="title-crane">
-<div class="cover"><img src="assets/crane.jpg" width="840" height="540" alt="真实白鹤输入帧及Sol、Luna第1轮的实际绿幕抠像成片"><span class="cover-label" aria-hidden="true">真实输入与交付 · Resolve / Fusion</span></div>
+<div class="cover"><img src="assets/crane.jpg" width="840" height="540" alt="真实白鹤输入帧及Sol、Terra第1轮的实际绿幕抠像成片"><span class="cover-label" aria-hidden="true">真实输入与交付 · Resolve / Fusion</span></div>
 <div class="body"><div class="badge">视觉媒体与视频后期<span class="scenario">参考引导抠像</span></div>
-<h3 id="title-crane">从天空中的白鹤，分离出完整绿幕主体</h3><p class="desc">从约10秒的天空视频中分离运动白鹤，保留羽翼、颈腿和完整运动，在Resolve/Fusion中交付可编辑工程及绿幕成片。Sol、Luna各三次独立运行，提供同步成片对照、逐帧评分与工具轨迹。</p>
-<div class="card-footer"><p class="score">gpt-6.1-sol<strong>51.0 / 100</strong> · gpt-6-luna <span>18.6 / 100</span></p><span class="destination">huayuankou333 复现 · 查看案例 ↗</span></div></div></a>
+<h3 id="title-crane">从天空中的白鹤，分离出完整绿幕主体</h3><p class="desc">从约10秒的天空视频中分离运动白鹤，保留羽翼、颈腿和完整运动，在Resolve/Fusion中交付可编辑工程及绿幕成片。Sol、Terra各三次独立运行，提供同步成片对照、逐帧评分与工具轨迹。</p>
+<div class="card-footer"><p class="score">gpt-6.1-sol<strong>49.6 / 100</strong> · gpt-6.1-terra <span>43.2 / 100</span></p><span class="destination">huayuankou333 复现 · 查看案例 ↗</span></div></div></a>
 <a class="case" id="storyboard" href="https://nanxiang-git.github.io/ALE_reproduce/ALE_repro/dashboard/dist/index.html" aria-labelledby="title-storyboard">
 <div class="cover"><img src="assets/storyboard.jpg" width="840" height="540" alt="老动画《A Wolf is a Wolf》的实际输入画面"><span class="cover-label" aria-hidden="true">任务输入 · 老动画</span></div>
 <div class="body"><div class="badge">档案检索与证据研究<span class="scenario">动画镜头日志与事实核查</span></div>

@@ -1,7 +1,7 @@
 {
   "title": "ALE Omni Case 复现",
   "url": "https://wang-jiahao.github.io/ale-reproduction/",
-  "updated_at": "2026-11-11T14:38:56.910827+08:00",
+  "updated_at": "2026-11-12T00:00:45.455170+08:00",
   "cases": [
     {
       "id": "music",
@@ -91,34 +91,34 @@
       "title": "从天空中的白鹤，分离出完整绿幕主体",
       "domain": "视觉媒体与视频后期",
       "scenario": "参考引导抠像",
-      "description": "从约10秒的天空视频中分离运动白鹤，保留羽翼、颈腿和完整运动，在Resolve/Fusion中交付可编辑工程及绿幕成片。Sol、Luna各三次独立运行，提供同步成片对照、逐帧评分与工具轨迹。",
+      "description": "从约10秒的天空视频中分离运动白鹤，保留羽翼、颈腿和完整运动，在Resolve/Fusion中交付可编辑工程及绿幕成片。Sol、Terra各三次独立运行，提供同步成片对照、逐帧评分与工具轨迹。",
       "url": "https://huayuankou333.github.io/omniale/ale-crane-keying/",
       "models": [
         {
           "model": "gpt-6.1-sol",
           "scores": [
-            0.5254622793351755,
-            0.522342592710204,
-            0.4820579706574491
+            0.4581308083664621,
+            0.4941583201212051,
+            0.5346788694087239
           ],
-          "mean": 0.5099542809009429,
-          "sample_standard_deviation": 0.024209217357453926,
-          "score_text": "51.0 / 100"
+          "mean": 0.495655999298797,
+          "sample_standard_deviation": 0.03829600102519458,
+          "score_text": "49.6 / 100"
         },
         {
-          "model": "gpt-6-luna",
+          "model": "gpt-6.1-terra",
           "scores": [
-            0.09182800314477889,
-            0.25695113253972196,
-            0.20831014870451176
+            0.4796494414325303,
+            0.524296293186827,
+            0.293236143786037
           ],
-          "mean": 0.18569642812967085,
-          "sample_standard_deviation": 0.08485250281501727,
-          "score_text": "18.6 / 100"
+          "mean": 0.43239395946846476,
+          "sample_standard_deviation": 0.12256430390623911,
+          "score_text": "43.2 / 100"
         }
       ],
-      "score": 50.995428090094286,
-      "score_text": "gpt-6.1-sol 51.0 / 100 · gpt-6-luna 18.6 / 100",
+      "score": 49.5655999298797,
+      "score_text": "gpt-6.1-sol 49.6 / 100 · gpt-6.1-terra 43.2 / 100",
       "score_scale": [
         0,
         100
@@ -133,15 +133,15 @@
       "software": "DaVinci Resolve / Fusion",
       "protocol_note": "ALE native scoring rules; configured gpt-6-astra soft judge; Resolve Free Lua API bridge differs from default judge and GUI settings.",
       "cover": "assets/crane.jpg",
-      "cover_alt": "真实白鹤输入帧及Sol、Luna第1轮的实际绿幕抠像成片",
+      "cover_alt": "真实白鹤输入帧及Sol、Terra第1轮的实际绿幕抠像成片",
       "cover_label": "真实输入与交付 · Resolve / Fusion",
       "owner": "huayuankou333",
       "external": true,
       "cover_source": "https://huayuankou333.github.io/omniale/ale-crane-keying/assets/cover.jpg",
-      "source_sha256": "f6e3fcdfc8773aa56bcaa32d36de47341b93375e28ee8f20606e25d00f894295",
+      "source_sha256": "901457aa367af4d02eca7df6579451f2956f923b782e73c41289480d1d296440",
       "results_source": "https://huayuankou333.github.io/omniale/ale-crane-keying/files/results.json",
-      "results_source_sha256": "be8ec56b104c5dc3826a4a9ac3cb611fa67cf66c28ae49ba96aa87665f986f91",
-      "reasoning_effort": "high"
+      "results_source_sha256": "dd2888593da3200a698463f8231955543600f4f1555bb3ad28e44f8dd96d3ab0",
+      "reasoning_effort": "xhigh"
     },
     {
       "id": "storyboard",
@@ -243,9 +243,9 @@
     "case_count": 6,
     "aggregation": "equal_weight_arithmetic_mean_across_cases",
     "aerobics_score_policy": "Use partial credit 50/100; official binary score is unchanged.",
-    "mean": 59.905780437470405,
-    "mean_display": "59.91",
-    "total": 359.4346826248224,
+    "mean": 59.6674757441013,
+    "mean_display": "59.67",
+    "total": 358.00485446460783,
     "rows": [
       {
         "id": "music",
@@ -271,8 +271,8 @@
       {
         "id": "crane",
         "title": "从天空中的白鹤，分离出完整绿幕主体",
-        "score_100": 50.995428090094286,
-        "reasoning_effort": "high",
+        "score_100": 49.5655999298797,
+        "reasoning_effort": "xhigh",
         "basis": "汇总采用分"
       },
       {
