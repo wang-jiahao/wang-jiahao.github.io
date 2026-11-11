@@ -1,0 +1,1234 @@
+{
+  "metric": "Within-target event-count weighted recall, then equal mean over retrieval targets; AVSCap-inspired long-film adaptation",
+  "status": "provisional_diagnostic",
+  "score": null,
+  "diagnostic_point_estimate": null,
+  "score_interval": [
+    74.96993746993748,
+    77.08032708032708
+  ],
+  "category_recall_lower": {
+    "visual": 77.68518518518519,
+    "audio": 73.88888888888889,
+    "synergy": 58.333333333333336
+  },
+  "audio_subtype_recall_lower": {
+    "speech": 70.0,
+    "music": 100.0,
+    "sfx": 63.88888888888889
+  },
+  "nonasr_recall_lower": 75.0,
+  "pending_events": [
+    "CAP01-S03",
+    "CAP02-A10"
+  ],
+  "rows": [
+    {
+      "target_id": "CAP01",
+      "event_count": 11,
+      "counts": {
+        "visual": [
+          1,
+          3
+        ],
+        "audio": [
+          3,
+          5
+        ],
+        "synergy": [
+          1,
+          3
+        ]
+      },
+      "audio_counts": {
+        "speech": [
+          1,
+          1
+        ],
+        "music": [
+          1,
+          1
+        ],
+        "sfx": [
+          1,
+          3
+        ]
+      },
+      "recall_lower": {
+        "visual": 0.3333333333333333,
+        "audio": 0.6,
+        "synergy": 0.3333333333333333
+      },
+      "audio_recall_lower": {
+        "speech": 1.0,
+        "music": 1.0,
+        "sfx": 0.3333333333333333
+      },
+      "nonasr_recall_lower": 0.5,
+      "total_recall_lower": 0.45454545454545453,
+      "total_recall_upper": 0.5454545454545454,
+      "balanced_recall_lower": 0.4222222222222222,
+      "localization": "correct",
+      "pending_count": 1,
+      "events": [
+        {
+          "event_id": "CAP01-V04",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖控制室男子操作控制台的核心动作。",
+          "candidate_quote": "他低头靠近面板，伸手拨弄面前的小型控制件",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP01-V05",
+          "category": "visual",
+          "hit": 0,
+          "reason": "提起听筒和举至耳边已覆盖，但未描述拨号。",
+          "candidate_quote": "男子抓起黑色听筒，从底座上提起并举到耳边",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP01-V07",
+          "category": "visual",
+          "hit": 0,
+          "reason": "描述的是包含圆屏的操作台空镜，未覆盖圆屏特写及稳定绿点。",
+          "candidate_quote": "画面继续停在已经空出的操作台、电话底座和绿色圆屏上",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP01-A01",
+          "category": "audio",
+          "hit": 1,
+          "reason": "明确描述持续的高音色氛围配乐。",
+          "candidate_quote": "低而绵长、带高音弦乐感的配乐铺在背景",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP01-A03",
+          "category": "audio",
+          "hit": 1,
+          "reason": "明确描述操作期间可听的机械点击。",
+          "candidate_quote": "轻小的机械点击与他的手部动作相伴",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP01-A04",
+          "category": "audio",
+          "hit": 0,
+          "reason": "未描述拨号期间的电子按键音。",
+          "candidate_quote": "电话铃样的短促提示声与细碎碰触声",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP01-A05",
+          "category": "audio",
+          "hit": 1,
+          "reason": "覆盖电话语音的主要内容。",
+          "candidate_quote": "先叫对方的名字，再报告一个返回舱／飞行舱正在回来，并连续作简短肯定应答",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP01-A06",
+          "category": "audio",
+          "hit": 0,
+          "reason": "未描述通话后较重的机械放置声。",
+          "candidate_quote": "简短应答之后话音停下……配乐与很轻的室内低底噪留下",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP01-S01",
+          "category": "synergy",
+          "hit": 1,
+          "reason": "明确将机械点击与控制台手部操作相联系。",
+          "candidate_quote": "轻小的机械点击与他的手部动作相伴",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP01-S02",
+          "category": "synergy",
+          "hit": 0,
+          "reason": "未描述电话拨键动作及其与电子按键音的对应。",
+          "candidate_quote": "男子抓起黑色听筒，从底座上提起并举到耳边",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP01-S03",
+          "category": "synergy",
+          "hit": null,
+          "reason": "候选明确绑定画外通话与含圆屏的空镜，但其画面范围与参考所称完全停留在圆屏特写存在来源冲突，需回看。",
+          "candidate_quote": "画面继续停在已经空出的操作台、电话底座和绿色圆屏上，男子的英语男声从画外延续",
+          "source_review": true
+        }
+      ]
+    },
+    {
+      "target_id": "CAP02",
+      "event_count": 28,
+      "counts": {
+        "visual": [
+          7,
+          9
+        ],
+        "audio": [
+          5,
+          10
+        ],
+        "synergy": [
+          6,
+          9
+        ]
+      },
+      "audio_counts": {
+        "speech": [
+          3,
+          6
+        ],
+        "music": [
+          0,
+          0
+        ],
+        "sfx": [
+          2,
+          4
+        ]
+      },
+      "recall_lower": {
+        "visual": 0.7777777777777778,
+        "audio": 0.5,
+        "synergy": 0.6666666666666666
+      },
+      "audio_recall_lower": {
+        "speech": 0.5,
+        "music": null,
+        "sfx": 0.5
+      },
+      "nonasr_recall_lower": 0.5,
+      "total_recall_lower": 0.6428571428571429,
+      "total_recall_upper": 0.6785714285714286,
+      "balanced_recall_lower": 0.6481481481481481,
+      "localization": "correct",
+      "pending_count": 1,
+      "events": [
+        {
+          "event_id": "CAP02-V01",
+          "category": "visual",
+          "hit": 0,
+          "reason": "未描述举瓶相碰或干杯。",
+          "candidate_quote": "白衬衫、松领带的深色卷发男子与绿色衬衫、松领带的浅发男子各拿啤酒瓶，隔着吧台交谈",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-V02",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖男子俯身取冰桶的核心动作。",
+          "candidate_quote": "绿衬衫男子示意稍等，俯身到吧台下面翻找，取出一只银色金属冰桶放到台面",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-V03",
+          "category": "visual",
+          "hit": 0,
+          "reason": "未描述男子横穿画面及镜头跟随。",
+          "candidate_quote": "一个秃头、穿浅色衬衫的中年男子在吧台后看着他们，镜头给他严肃的侧脸",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-V04",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖两人桌边相对、冰桶和酒瓶的核心场景。",
+          "candidate_quote": "两名年轻男子隔桌坐下，冰桶被放在两人之间，桌上有啤酒瓶",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-V05",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖手伸入冰桶的特写。",
+          "candidate_quote": "切到冰桶俯拍，透明冰块密密挤在水里，一只手拨开冰块伸入",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-V06",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖切回双人场景及绿衬衫男子微笑。",
+          "candidate_quote": "切回双人镜头……绿衬衫男子先咧嘴笑出声",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-V07",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖指针钟和日期窗特写。",
+          "candidate_quote": "镜头突然插入窗台方钟的大特写：左边是指针钟面，右边的日期窗显示数字3",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-V08",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖白衬衫男子凝重近景及绿衬衫男子饮酒。",
+          "candidate_quote": "切回白衬衫男子的面部……再切绿衬衫男子，他用留在桶外的手举瓶喝酒",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-V09",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖两人严肃对谈及面部近景交替。",
+          "candidate_quote": "两人的表情近景来回交替……绿衬衫男子先开口，提出一项保持沉默的约定",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-A01",
+          "category": "audio",
+          "hit": 1,
+          "reason": "明确描述瓶物碰响与人声。",
+          "candidate_quote": "有瓶子、桶和台面相碰的轻响……人声在近处继续",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-A02",
+          "category": "audio",
+          "hit": 0,
+          "reason": "仅描述示意动作，未明确说出可听的话语。",
+          "candidate_quote": "绿衬衫男子示意稍等",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-A03",
+          "category": "audio",
+          "hit": 0,
+          "reason": "未描述持续窸窣摩擦声及沉闷落地或放置声。",
+          "candidate_quote": "有瓶子、桶和台面相碰的轻响",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-A04",
+          "category": "audio",
+          "hit": 0,
+          "reason": "未描述相互道歉和有关取冰的具体话语。",
+          "candidate_quote": "椅子、桶和瓶子落位时有短促磕碰与挪动声，人声在近处继续",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-A05",
+          "category": "audio",
+          "hit": 1,
+          "reason": "覆盖挑战规则及赌注对话。",
+          "candidate_quote": "谁先把手拿出来谁就输……白衬衫男子问输掉什么，对方把赌注说到一个女子身上",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-A06",
+          "category": "audio",
+          "hit": 1,
+          "reason": "明确描述时钟特写起的持续规律滴答。",
+          "candidate_quote": "规则而清楚的滴答声在这个特写中突出起来……画面随后离开钟，滴答仍继续",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-A07",
+          "category": "audio",
+          "hit": 0,
+          "reason": "未描述低声的犹豫和确认话语。",
+          "candidate_quote": "",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-A08",
+          "category": "audio",
+          "hit": 1,
+          "reason": "覆盖沉默契约及双方确认。",
+          "candidate_quote": "提出一项保持沉默的约定：以后两人都不要再彼此谈论那个女子，并强调永远不谈……两人简短确认成交",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-A09",
+          "category": "audio",
+          "hit": 1,
+          "reason": "明确描述可听的倒数。",
+          "candidate_quote": "两人开始仿照发射程序倒数，英语数字一声接一声",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-A10",
+          "category": "audio",
+          "hit": null,
+          "reason": "候选描述倒数后的小碰响和短喊，参考为巨响后惊叫；冲击强度及时间存在来源冲突，需回看。",
+          "candidate_quote": "倒数结束，两人几乎同时猛地从冰桶里抽出手……带出冰水搅动和碰桶的小响，随即张口发出较响的短喊",
+          "source_review": true
+        },
+        {
+          "event_id": "CAP02-S01",
+          "category": "synergy",
+          "hit": 0,
+          "reason": "既未明确可听的等待话语，也未绑定碰瓶动作。",
+          "candidate_quote": "绿衬衫男子示意稍等",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-S02",
+          "category": "synergy",
+          "hit": 0,
+          "reason": "未描述参考中的窸窣摩擦与沉闷落地声。",
+          "candidate_quote": "取出一只银色金属冰桶放到台面……有瓶子、桶和台面相碰的轻响",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-S03",
+          "category": "synergy",
+          "hit": 0,
+          "reason": "未描述道歉话语跨越男子经过及镜头切换。",
+          "candidate_quote": "一个秃头、穿浅色衬衫的中年男子在吧台后看着他们",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-S04",
+          "category": "synergy",
+          "hit": 1,
+          "reason": "明确将挑战规则话音与手伸入冰桶的特写绑定。",
+          "candidate_quote": "切到冰桶俯拍……一只手拨开冰块伸入……规则的话音越过这个特写",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-S05",
+          "category": "synergy",
+          "hit": 1,
+          "reason": "明确绑定男子笑容与可听笑声。",
+          "candidate_quote": "绿衬衫男子先咧嘴笑出声……他的短笑、呼气和嘴里的小声音与这些表情同步",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-S06",
+          "category": "synergy",
+          "hit": 1,
+          "reason": "明确绑定时钟特写与跨切持续的滴答。",
+          "candidate_quote": "窗台方钟的大特写……规则而清楚的滴答声在这个特写中突出起来……画面随后离开钟，滴答仍继续",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-S07",
+          "category": "synergy",
+          "hit": 1,
+          "reason": "明确将持续滴答与两人的近景联系起来。",
+          "candidate_quote": "切回白衬衫男子的面部……再切绿衬衫男子，他用留在桶外的手举瓶喝酒……夹在持续滴答声中",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-S08",
+          "category": "synergy",
+          "hit": 1,
+          "reason": "将契约对白绑定两人交替对视的近景。",
+          "candidate_quote": "提出一项保持沉默的约定……对白和视线来回对应，表情仍然绷紧",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP02-S09",
+          "category": "synergy",
+          "hit": 1,
+          "reason": "明确将倒数绑定两人的紧绷面部近景。",
+          "candidate_quote": "英语数字一声接一声，镜头在他们忍冷的脸之间切换",
+          "source_review": false
+        }
+      ]
+    },
+    {
+      "target_id": "CAP03",
+      "event_count": 9,
+      "counts": {
+        "visual": [
+          3,
+          4
+        ],
+        "audio": [
+          1,
+          3
+        ],
+        "synergy": [
+          1,
+          2
+        ]
+      },
+      "audio_counts": {
+        "speech": [
+          0,
+          1
+        ],
+        "music": [
+          1,
+          1
+        ],
+        "sfx": [
+          0,
+          1
+        ]
+      },
+      "recall_lower": {
+        "visual": 0.75,
+        "audio": 0.3333333333333333,
+        "synergy": 0.5
+      },
+      "audio_recall_lower": {
+        "speech": 0.0,
+        "music": 1.0,
+        "sfx": 0.0
+      },
+      "nonasr_recall_lower": 0.5,
+      "total_recall_lower": 0.5555555555555556,
+      "total_recall_upper": 0.5555555555555556,
+      "balanced_recall_lower": 0.5277777777777778,
+      "localization": "correct",
+      "pending_count": 0,
+      "events": [
+        {
+          "event_id": "CAP03-V05",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖绿色便携唱机、放唱片和落唱臂。",
+          "candidate_quote": "手把一张中央为黄色标签的黑胶唱片套上轴心……手抬起右边唱臂，把唱针移到已经转动的黑胶外缘并放下",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP03-V06",
+          "category": "visual",
+          "hit": 0,
+          "reason": "描述亲近动作，但未覆盖强光窗边柔和身影的画面。",
+          "candidate_quote": "她抬起头与凑近的男子短暂亲吻",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP03-V07",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖废弃长空间、碎屑和橙色人影前行。",
+          "candidate_quote": "昏暗、废弃的长厂房……满地碎屑……穿橙色航天服的男子在远处缓缓前行",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP03-V08",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖倒牛奶与随后餐桌及女子微笑。",
+          "candidate_quote": "瓶口向透明玻璃杯倒入浅色牛奶……用餐镜头连续切换……女子微笑",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP03-A08",
+          "category": "audio",
+          "hit": 0,
+          "reason": "唱机操作时段未明确描述餐具与盘子的碰撞声。",
+          "candidate_quote": "细小机械触碰声夹在继续的说话声中",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP03-A09",
+          "category": "audio",
+          "hit": 1,
+          "reason": "明确描述后半程歌剧式人声音乐；演唱者性别不作要求。",
+          "candidate_quote": "带拉长人声旋律的古典／歌剧式音乐……古典歌声仍在背景延续",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP03-A10",
+          "category": "audio",
+          "hit": 0,
+          "reason": "厂房时段未描述穿插的居家对白。",
+          "candidate_quote": "厂房中的轻踏步、碎屑受踩的干响在歌声下方",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP03-S04",
+          "category": "synergy",
+          "hit": 1,
+          "reason": "明确描述歌声作为跨切声桥覆盖废弃空间。",
+          "candidate_quote": "音乐中的延长歌声跨越从温暖厨房到冷暗厂房的切镜",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP03-S05",
+          "category": "synergy",
+          "hit": 0,
+          "reason": "未将居家对白绑定厂房画面。",
+          "candidate_quote": "音乐中的延长歌声跨越从温暖厨房到冷暗厂房的切镜",
+          "source_review": false
+        }
+      ]
+    },
+    {
+      "target_id": "CAP04",
+      "event_count": 14,
+      "counts": {
+        "visual": [
+          10,
+          10
+        ],
+        "audio": [
+          3,
+          3
+        ],
+        "synergy": [
+          0,
+          1
+        ]
+      },
+      "audio_counts": {
+        "speech": [
+          0,
+          0
+        ],
+        "music": [
+          0,
+          0
+        ],
+        "sfx": [
+          3,
+          3
+        ]
+      },
+      "recall_lower": {
+        "visual": 1.0,
+        "audio": 1.0,
+        "synergy": 0.0
+      },
+      "audio_recall_lower": {
+        "speech": null,
+        "music": null,
+        "sfx": 1.0
+      },
+      "nonasr_recall_lower": 1.0,
+      "total_recall_lower": 0.9285714285714286,
+      "total_recall_upper": 0.9285714285714286,
+      "balanced_recall_lower": 0.6666666666666666,
+      "localization": "correct",
+      "pending_count": 0,
+      "events": [
+        {
+          "event_id": "CAP04-V01",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖墙面资料聚焦及虚焦女子。",
+          "candidate_quote": "墙上贴着技术线图、文件和两人合影……穿浅色竖纹上衣的长发女子从后方经过，人物比墙上的照片虚一些",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP04-V02",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖触纸并提起黑册的动作。",
+          "candidate_quote": "女子手指轻轻滑过纸面，移向黑色封面的册子，把它拿起",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP04-V03",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖女子侧面翻看黑册。",
+          "candidate_quote": "侧面近景中，她打开黑色相册，逐页抬起厚纸页",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP04-V04",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖厂房男子抬头和抬手整理头发。",
+          "candidate_quote": "一名穿蓝灰色衬衫和领带的男子……抬头查看高处，走动中用手从额前抹过头发",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP04-V05",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖切回女子继续翻册。",
+          "candidate_quote": "切回暖光中的女子，她翻到另一张照片",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP04-V06",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖厂房男子及其回望动作。",
+          "candidate_quote": "切回厂房男子的侧后方近景，背景有散焦的亮点。他停下来向一侧看",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP04-V07",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖压力表和周围蒸汽特写。",
+          "candidate_quote": "管道和圆形压力表特写中……周围有灰白雾气／蒸汽",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP04-V08",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖男子神情凝重的近景。",
+          "candidate_quote": "中间插入男子转脸望向声源方向的近景，他皱眉、警觉地盯着前方",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP04-V09",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖压力表再次出现及指针位置变化。",
+          "candidate_quote": "再切回压力表……压力表指针已靠近右侧高位",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP04-V10",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖树林中建筑冒烟及叠化至窗边女子。",
+          "candidate_quote": "建筑右侧附近出现小股灰黑烟……远景的黑烟通过叠化与女子在明亮窗前的侧脸、后脑轮廓重叠",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP04-A01",
+          "category": "audio",
+          "hit": 1,
+          "reason": "明确描述该段近乎安静的声音状态。",
+          "candidate_quote": "随后退下，室内变得很安静；没有清晰对白",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP04-A03",
+          "category": "audio",
+          "hit": 1,
+          "reason": "覆盖机械性尖声与逐渐增强的轰鸣。",
+          "candidate_quote": "细而尖的吱声、震动般的喀啦与低机械嗡隆开始突出……机械震颤、嗡鸣与嘶嘶气流声逐渐变响",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP04-A04",
+          "category": "audio",
+          "hit": 1,
+          "reason": "覆盖渐强轰鸣后的爆响与余音。",
+          "candidate_quote": "低频轰鸣与振动继续增大……出现一下明显、厚重的爆响及滚动余声",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP04-S02",
+          "category": "synergy",
+          "hit": 0,
+          "reason": "未将机械啸叫的出现与提起黑册的画面绑定。",
+          "candidate_quote": "女子手指轻轻滑过纸面，移向黑色封面的册子，把它拿起",
+          "source_review": false
+        }
+      ]
+    },
+    {
+      "target_id": "CAP05",
+      "event_count": 12,
+      "counts": {
+        "visual": [
+          4,
+          5
+        ],
+        "audio": [
+          4,
+          4
+        ],
+        "synergy": [
+          3,
+          3
+        ]
+      },
+      "audio_counts": {
+        "speech": [
+          2,
+          2
+        ],
+        "music": [
+          0,
+          0
+        ],
+        "sfx": [
+          2,
+          2
+        ]
+      },
+      "recall_lower": {
+        "visual": 0.8,
+        "audio": 1.0,
+        "synergy": 1.0
+      },
+      "audio_recall_lower": {
+        "speech": 1.0,
+        "music": null,
+        "sfx": 1.0
+      },
+      "nonasr_recall_lower": 1.0,
+      "total_recall_lower": 0.9166666666666666,
+      "total_recall_upper": 0.9166666666666666,
+      "balanced_recall_lower": 0.9333333333333332,
+      "localization": "correct",
+      "pending_count": 0,
+      "events": [
+        {
+          "event_id": "CAP05-V01",
+          "category": "visual",
+          "hit": 1,
+          "reason": "结合前文头巾描述，覆盖女子抬眼警觉近景。",
+          "candidate_quote": "女子突然抬眼、转头看向身后，切到她较低角度的近景",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP05-V02",
+          "category": "visual",
+          "hit": 1,
+          "reason": "结合前文深色短袖男子在门边，覆盖门边男子镜头。",
+          "candidate_quote": "反打门边男子的脸，他回答没有多久",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP05-V03",
+          "category": "visual",
+          "hit": 0,
+          "reason": "未描述快速模糊摇移转场。",
+          "candidate_quote": "回到三面镜子的构图",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP05-V04",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖镜前两人、头巾触碰及镜中对视。",
+          "candidate_quote": "女子仍坐着，男子站到她身后……他时而抬手轻碰头巾、发侧……仍从镜中看他",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP05-V05",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖女子离开及男子独自摆弄物件。",
+          "candidate_quote": "女子起身从镜前移走，镜中只剩男子拿着小容器和浆果……低头动手",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP05-A01",
+          "category": "audio",
+          "hit": 1,
+          "reason": "明确描述女子惊讶的可听话语，与修正后的画内说话相符。",
+          "candidate_quote": "她开口说对方吓到自己",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP05-A02",
+          "category": "audio",
+          "hit": 1,
+          "reason": "覆盖连续对话的主要内容。",
+          "candidate_quote": "问他已经站了多久……他回答没有多久。女子抱怨他本可以敲门，男子说给她带了浆果",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP05-A03",
+          "category": "audio",
+          "hit": 1,
+          "reason": "明确描述镜前时段的窸窣摩擦声。",
+          "candidate_quote": "近距离细碎咀嚼、衣料／包装摩擦和零星干脆小响比背景更突出",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP05-A04",
+          "category": "audio",
+          "hit": 1,
+          "reason": "明确描述老式电话铃声重复响起。",
+          "candidate_quote": "画外电话开始分组响铃，尖亮的老式铃声……铃声间歇再响",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP05-S01",
+          "category": "synergy",
+          "hit": 1,
+          "reason": "明确绑定女子近景与其惊讶话语，符合来源修正。",
+          "candidate_quote": "她开口说对方吓到自己……转头、目光上抬和带惊讶的近处女声同步",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP05-S02",
+          "category": "synergy",
+          "hit": 1,
+          "reason": "在同一动作描述中明确关联头巾附近动作与摩擦声。",
+          "candidate_quote": "他时而抬手轻碰头巾、发侧……近距离细碎咀嚼、衣料／包装摩擦和零星干脆小响比背景更突出",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP05-S03",
+          "category": "synergy",
+          "hit": 1,
+          "reason": "明确将铃声与镜前离开动作及随后电话场景切换联系起来。",
+          "candidate_quote": "女子起身从镜前移走……铃声的后一组与这段移动相接……硬切到另一处暖色公共室内",
+          "source_review": false
+        }
+      ]
+    },
+    {
+      "target_id": "CAP06",
+      "event_count": 14,
+      "counts": {
+        "visual": [
+          4,
+          4
+        ],
+        "audio": [
+          6,
+          6
+        ],
+        "synergy": [
+          4,
+          4
+        ]
+      },
+      "audio_counts": {
+        "speech": [
+          1,
+          1
+        ],
+        "music": [
+          0,
+          0
+        ],
+        "sfx": [
+          5,
+          5
+        ]
+      },
+      "recall_lower": {
+        "visual": 1.0,
+        "audio": 1.0,
+        "synergy": 1.0
+      },
+      "audio_recall_lower": {
+        "speech": 1.0,
+        "music": null,
+        "sfx": 1.0
+      },
+      "nonasr_recall_lower": 1.0,
+      "total_recall_lower": 1.0,
+      "total_recall_upper": 1.0,
+      "balanced_recall_lower": 1.0,
+      "localization": "correct",
+      "pending_count": 0,
+      "events": [
+        {
+          "event_id": "CAP06-V02",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖雨中车内两人、雨刷和紧绷状态。",
+          "candidate_quote": "挂满雨水的挡风玻璃……男子握着方向盘……女子坐在旁边，神情安静而紧绷。雨刷来回扫过",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP06-V03",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖林间公路行车及驶离道路。",
+          "candidate_quote": "树林夹着的笔直公路远景……轿车突然离开公路，冲上长草和起伏地面",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP06-V04",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖冲入林地、扬尘及车辆歪停。",
+          "candidate_quote": "在树干之间剧烈颠簸，扬起灰尘／水雾……轿车歪停在树间",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP06-V05",
+          "category": "visual",
+          "hit": 1,
+          "reason": "覆盖仪表台、排挡杆、肩背和闪烁红灯。",
+          "candidate_quote": "前景被男子绿色上身挡住一部分，能见方向盘下方的面板、排挡杆和一枚间歇明灭的圆形红灯",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP06-A02",
+          "category": "audio",
+          "hit": 1,
+          "reason": "明确描述行车低鸣与规律雨刷声。",
+          "candidate_quote": "连续的行车低隆、雨水沙沙和有规律的刷擦声",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP06-A03",
+          "category": "audio",
+          "hit": 1,
+          "reason": "覆盖事故阶段的撞击及刮擦声。",
+          "candidate_quote": "连续几下沉重的撞击、震动与刮擦声",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP06-A04",
+          "category": "audio",
+          "hit": 1,
+          "reason": "明确描述事故阶段的短促男性呼喊。",
+          "candidate_quote": "一声短促而急的男声喊叫",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP06-A05",
+          "category": "audio",
+          "hit": 1,
+          "reason": "覆盖撞击衰退后转静及滴答突出。",
+          "candidate_quote": "刚才的大响过后，声场突然很空，出现规则、细而清楚的哒、哒／咔哒声",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP06-A06",
+          "category": "audio",
+          "hit": 1,
+          "reason": "明确描述事故后持续规律的机械滴答。",
+          "candidate_quote": "出现规则、细而清楚的哒、哒／咔哒声……规律滴答声在这个长近景中继续",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP06-A07",
+          "category": "audio",
+          "hit": 1,
+          "reason": "覆盖咳声与吸气。",
+          "candidate_quote": "响起一阵粗重清喉／咳声和吸气",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP06-S02",
+          "category": "synergy",
+          "hit": 1,
+          "reason": "明确绑定雨刷动作与规律刷擦声。",
+          "candidate_quote": "雨刷来回扫过两人的脸前……连续的行车低隆、雨水沙沙和有规律的刷擦声与这一动作对应",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP06-S03",
+          "category": "synergy",
+          "hit": 1,
+          "reason": "明确绑定林中颠簸画面与撞击刮擦声。",
+          "candidate_quote": "在树干之间剧烈颠簸，扬起灰尘／水雾……连续几下沉重的撞击、震动与刮擦声跟着车身跳动",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP06-S05",
+          "category": "synergy",
+          "hit": 1,
+          "reason": "明确将车辆停稳的事故后画面与撞击消退、滴答声联系起来。",
+          "candidate_quote": "轿车歪停在树间……刚才的大响过后，声场突然很空，出现规则、细而清楚的哒、哒／咔哒声",
+          "source_review": false
+        },
+        {
+          "event_id": "CAP06-S06",
+          "category": "synergy",
+          "hit": 1,
+          "reason": "明确绑定仪表台近景、持续滴答以及其间的咳声和吸气。",
+          "candidate_quote": "能见方向盘下方的面板、排挡杆和一枚间歇明灭的圆形红灯。规律滴答声在这个长近景中继续……响起一阵粗重清喉／咳声和吸气",
+          "source_review": false
+        }
+      ]
+    }
+  ],
+  "unsupported_claim_rate": null,
+  "unsupported_claim_note": "Requires separate source-grounded candidate-claim audit; absent reference facts are not automatically false",
+  "graded_at": "2026-11-11T09:16:22.428454+00:00",
+  "model": "gpt-6.1-sol",
+  "actual_effort": "xhigh",
+  "judge": "gpt-6.1-terra high",
+  "human_gold_verified": false,
+  "submission_sha256": "cbe80a7d83144e94bea090b0382668429180873828dbe686b330da0bf210635b",
+  "judge_prompt_sha256": "152c509da618c8bcea3c85e8a5c23e871379b478bdd4f9bffb133631148ef62c",
+  "quote_checks_needing_review": [
+    {
+      "event_id": "CAP02-V06",
+      "candidate_quote": "切回双人镜头……绿衬衫男子先咧嘴笑出声",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP02-V08",
+      "candidate_quote": "切回白衬衫男子的面部……再切绿衬衫男子，他用留在桶外的手举瓶喝酒",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP02-V09",
+      "candidate_quote": "两人的表情近景来回交替……绿衬衫男子先开口，提出一项保持沉默的约定",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP02-A01",
+      "candidate_quote": "有瓶子、桶和台面相碰的轻响……人声在近处继续",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP02-A05",
+      "candidate_quote": "谁先把手拿出来谁就输……白衬衫男子问输掉什么，对方把赌注说到一个女子身上",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP02-A06",
+      "candidate_quote": "规则而清楚的滴答声在这个特写中突出起来……画面随后离开钟，滴答仍继续",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP02-A08",
+      "candidate_quote": "提出一项保持沉默的约定：以后两人都不要再彼此谈论那个女子，并强调永远不谈……两人简短确认成交",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP02-S04",
+      "candidate_quote": "切到冰桶俯拍……一只手拨开冰块伸入……规则的话音越过这个特写",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP02-S05",
+      "candidate_quote": "绿衬衫男子先咧嘴笑出声……他的短笑、呼气和嘴里的小声音与这些表情同步",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP02-S06",
+      "candidate_quote": "窗台方钟的大特写……规则而清楚的滴答声在这个特写中突出起来……画面随后离开钟，滴答仍继续",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP02-S07",
+      "candidate_quote": "切回白衬衫男子的面部……再切绿衬衫男子，他用留在桶外的手举瓶喝酒……夹在持续滴答声中",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP02-S08",
+      "candidate_quote": "提出一项保持沉默的约定……对白和视线来回对应，表情仍然绷紧",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP03-V05",
+      "candidate_quote": "手把一张中央为黄色标签的黑胶唱片套上轴心……手抬起右边唱臂，把唱针移到已经转动的黑胶外缘并放下",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP03-V07",
+      "candidate_quote": "昏暗、废弃的长厂房……满地碎屑……穿橙色航天服的男子在远处缓缓前行",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP03-V08",
+      "candidate_quote": "瓶口向透明玻璃杯倒入浅色牛奶……用餐镜头连续切换……女子微笑",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP03-A09",
+      "candidate_quote": "带拉长人声旋律的古典／歌剧式音乐……古典歌声仍在背景延续",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP04-V01",
+      "candidate_quote": "墙上贴着技术线图、文件和两人合影……穿浅色竖纹上衣的长发女子从后方经过，人物比墙上的照片虚一些",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP04-V04",
+      "candidate_quote": "一名穿蓝灰色衬衫和领带的男子……抬头查看高处，走动中用手从额前抹过头发",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP04-V07",
+      "candidate_quote": "管道和圆形压力表特写中……周围有灰白雾气／蒸汽",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP04-V09",
+      "candidate_quote": "再切回压力表……压力表指针已靠近右侧高位",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP04-V10",
+      "candidate_quote": "建筑右侧附近出现小股灰黑烟……远景的黑烟通过叠化与女子在明亮窗前的侧脸、后脑轮廓重叠",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP04-A03",
+      "candidate_quote": "细而尖的吱声、震动般的喀啦与低机械嗡隆开始突出……机械震颤、嗡鸣与嘶嘶气流声逐渐变响",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP04-A04",
+      "candidate_quote": "低频轰鸣与振动继续增大……出现一下明显、厚重的爆响及滚动余声",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP05-V04",
+      "candidate_quote": "女子仍坐着，男子站到她身后……他时而抬手轻碰头巾、发侧……仍从镜中看他",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP05-V05",
+      "candidate_quote": "女子起身从镜前移走，镜中只剩男子拿着小容器和浆果……低头动手",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP05-A02",
+      "candidate_quote": "问他已经站了多久……他回答没有多久。女子抱怨他本可以敲门，男子说给她带了浆果",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP05-A04",
+      "candidate_quote": "画外电话开始分组响铃，尖亮的老式铃声……铃声间歇再响",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP05-S01",
+      "candidate_quote": "她开口说对方吓到自己……转头、目光上抬和带惊讶的近处女声同步",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP05-S02",
+      "candidate_quote": "他时而抬手轻碰头巾、发侧……近距离细碎咀嚼、衣料／包装摩擦和零星干脆小响比背景更突出",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP05-S03",
+      "candidate_quote": "女子起身从镜前移走……铃声的后一组与这段移动相接……硬切到另一处暖色公共室内",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP06-V02",
+      "candidate_quote": "挂满雨水的挡风玻璃……男子握着方向盘……女子坐在旁边，神情安静而紧绷。雨刷来回扫过",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP06-V03",
+      "candidate_quote": "树林夹着的笔直公路远景……轿车突然离开公路，冲上长草和起伏地面",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP06-V04",
+      "candidate_quote": "在树干之间剧烈颠簸，扬起灰尘／水雾……轿车歪停在树间",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP06-A06",
+      "candidate_quote": "出现规则、细而清楚的哒、哒／咔哒声……规律滴答声在这个长近景中继续",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP06-S02",
+      "candidate_quote": "雨刷来回扫过两人的脸前……连续的行车低隆、雨水沙沙和有规律的刷擦声与这一动作对应",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP06-S03",
+      "candidate_quote": "在树干之间剧烈颠簸，扬起灰尘／水雾……连续几下沉重的撞击、震动与刮擦声跟着车身跳动",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP06-S05",
+      "candidate_quote": "轿车歪停在树间……刚才的大响过后，声场突然很空，出现规则、细而清楚的哒、哒／咔哒声",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    },
+    {
+      "event_id": "CAP06-S06",
+      "candidate_quote": "能见方向盘下方的面板、排挡杆和一枚间歇明灭的圆形红灯。规律滴答声在这个长近景中继续……响起一阵粗重清喉／咳声和吸气",
+      "note": "Exact-string quote check failed; inspect semantic paraphrase before accepting/rejecting hit."
+    }
+  ],
+  "source_audit_complete": false,
+  "score_status": "Initial fixed-pool semantic diagnostic; source audit required before adopted score"
+}

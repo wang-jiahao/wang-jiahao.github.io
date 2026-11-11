@@ -1,0 +1,4869 @@
+{
+  "completed_at": "2026-11-11T09:45:26.041734+00:00",
+  "claims": 217,
+  "asserted_claims": 216,
+  "machine_supported": 192,
+  "machine_contradicted": 2,
+  "source_uncertain": 22,
+  "observed_unsupported_rate": 0.009259259259259259,
+  "uncertainty_range": [
+    0.009259259259259259,
+    0.1111111111111111
+  ],
+  "human_verified": false,
+  "adopted_error_rate": null,
+  "status": "Initial machine source verdicts; audit every contradiction before adoption. Not mixed into recall score.",
+  "rows": [
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C01",
+        "category": "visual",
+        "assertion": "场景是一间呈冷蓝色调的控制室。",
+        "candidate_quote": "冷蓝色控制室内",
+        "assertion_strength": "asserted",
+        "start_s": 758.7,
+        "end_s": 765.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C01",
+          "status": "supported",
+          "reason": "帧758.7–765.4显示墙壁与设备面板呈灰蓝冷色调，符合冷蓝色控制室描述。",
+          "start_s": 758.7,
+          "end_s": 765.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C02",
+        "category": "visual",
+        "assertion": "一名短发男子穿着橄榄绿色衬衫和领带，戴着浅绿色大耳机，坐在操作台前。",
+        "candidate_quote": "一名短发、穿橄榄绿色衬衫和领带的男子戴着浅绿色大耳机，坐在操作台前。",
+        "assertion_strength": "asserted",
+        "start_s": 758.7,
+        "end_s": 765.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C02",
+          "status": "supported",
+          "reason": "男子短发、着橄榄绿军装式上衣、戴浅绿大耳机、坐于操作台前，主要特征均可见。",
+          "start_s": 758.7,
+          "end_s": 765.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C03",
+        "category": "visual",
+        "assertion": "男子靠着椅背，一只手横在额头附近，另一只手靠着下颌，面朝仪器板。",
+        "candidate_quote": "他靠着椅背，一只手横在额头附近，另一只手靠着下颌，面朝装有大旋钮、小旋钮和指针表的灰蓝色仪器板。",
+        "assertion_strength": "asserted",
+        "start_s": 758.7,
+        "end_s": 765.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C03",
+          "status": "supported",
+          "reason": "帧中左手伸至面板上方（约额头高度），右手在下颌/控制台边缘附近，面朝仪器板。",
+          "start_s": 758.7,
+          "end_s": 765.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C04",
+        "category": "visual",
+        "assertion": "灰蓝色仪器板上有大小旋钮和指针表。",
+        "candidate_quote": "装有大旋钮、小旋钮和指针表的灰蓝色仪器板",
+        "assertion_strength": "asserted",
+        "start_s": 758.7,
+        "end_s": 765.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C04",
+          "status": "supported",
+          "reason": "面板可见大黑旋钮（顶部圆形）、两个中等旋钮及右侧带指针的方形表头，底色灰蓝。",
+          "start_s": 758.7,
+          "end_s": 765.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C05",
+        "category": "audio",
+        "assertion": "背景中持续有低而绵长、带高音弦乐感的配乐，贯穿后续对白并延续到话音停止之后。",
+        "candidate_quote": "低而绵长、带高音弦乐感的配乐铺在背景；平缓弦乐始终在对白下方；配乐与很轻的室内低底噪留下。",
+        "assertion_strength": "asserted",
+        "start_s": 758.7,
+        "end_s": 789.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C05",
+          "status": "supported",
+          "reason": "全程可闻低绵长弦乐感配乐，贯穿对白（约775–783 s）并在话音停止后（783–789 s）继续存在。",
+          "start_s": 758.7,
+          "end_s": 789.0
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C06",
+        "category": "audio",
+        "assertion": "开头间或可听见短促的电子提示音和细小喀声。",
+        "candidate_quote": "间有短促的电子提示音与细小喀声",
+        "assertion_strength": "asserted",
+        "start_s": 758.7,
+        "end_s": 765.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C06",
+          "status": "supported",
+          "reason": "开头段落可闻短促电子提示音与细小喀声，与操作电子设备场景一致。",
+          "start_s": 758.7,
+          "end_s": 765.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C07",
+        "category": "synergy",
+        "assertion": "开头的电子提示音与细小喀声出现在男子随后俯身操作之前。",
+        "candidate_quote": "短促的电子提示音与细小喀声，先于他随后俯身操作的动作。",
+        "assertion_strength": "asserted",
+        "start_s": 758.7,
+        "end_s": 769.1
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C07",
+          "status": "supported",
+          "reason": "电子提示音出现在758.7–765.4，男子俯身操作在765.4之后，时序正确。",
+          "start_s": 758.7,
+          "end_s": 769.1
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C08",
+        "category": "visual",
+        "assertion": "镜头切到男子侧前方，画面中可见倾斜的操作台。",
+        "candidate_quote": "镜头切到男子侧前方和倾斜操作台。",
+        "assertion_strength": "asserted",
+        "start_s": 765.4,
+        "end_s": 769.1
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C08",
+          "status": "supported",
+          "reason": "约765.4处镜头切换为侧前方角度，可见倾斜操作台面。",
+          "start_s": 765.4,
+          "end_s": 769.1
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C09",
+        "category": "visual",
+        "assertion": "男子从后靠转为前倾，低头靠近面板，伸手拨弄面前的小型控制件。",
+        "candidate_quote": "他低头靠近面板，伸手拨弄面前的小型控制件，身体从原先后靠转为前倾",
+        "assertion_strength": "asserted",
+        "start_s": 765.4,
+        "end_s": 769.1
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C09",
+          "status": "supported",
+          "reason": "帧00:12:46–00:12:48显示男子前倾、低头、手伸向面板小型控制件。",
+          "start_s": 765.4,
+          "end_s": 769.1
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C10",
+        "category": "visual",
+        "assertion": "操作台上有按键、拨杆和两根弯曲的金属灯臂，后方放着卷起的图纸。",
+        "candidate_quote": "台上有按键、拨杆、两根弯曲的金属灯臂，后方放着卷起的图纸。",
+        "assertion_strength": "asserted",
+        "start_s": 765.4,
+        "end_s": 769.1
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C10",
+          "status": "supported",
+          "reason": "台上可见按键电话、拨杆、弯曲金属鹅颈臂，后方有卷起图纸。",
+          "start_s": 765.4,
+          "end_s": 769.1
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C11",
+        "category": "synergy",
+        "assertion": "男子拨弄控制件时，可听见轻小的机械点击声。",
+        "candidate_quote": "轻小的机械点击与他的手部动作相伴",
+        "assertion_strength": "asserted",
+        "start_s": 765.4,
+        "end_s": 769.1
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C11",
+          "status": "supported",
+          "reason": "男子拨弄控制件时段可闻轻小机械点击声，与手部动作同步。",
+          "start_s": 765.4,
+          "end_s": 769.1
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C12",
+        "category": "visual",
+        "assertion": "画面右侧有圆形绿色显示屏，屏内有横向亮线，周围有扬声器格栅和面板。",
+        "candidate_quote": "右边是圆形绿色显示屏，屏内有横向亮线，周围另有扬声器格栅和面板。",
+        "assertion_strength": "asserted",
+        "start_s": 765.4,
+        "end_s": 769.1
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C12",
+          "status": "supported",
+          "reason": "画面右侧圆形绿色屏幕内有横向亮线，旁有扬声器格栅与面板元件。",
+          "start_s": 765.4,
+          "end_s": 769.1
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C13",
+        "category": "visual",
+        "assertion": "男子把耳机从两耳移下，挂到颈部。",
+        "candidate_quote": "他把耳机从两耳移下挂到颈部",
+        "assertion_strength": "asserted",
+        "start_s": 769.1,
+        "end_s": 771.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C13",
+          "status": "supported",
+          "reason": "约769.1处男子将耳机从耳部下移至颈部，帧中可见过渡动作。",
+          "start_s": 769.1,
+          "end_s": 771.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C14",
+        "category": "visual",
+        "assertion": "男子短暂离开画面左缘，操作台和黑色有线按键电话仍留在画面中。",
+        "candidate_quote": "短暂离开画面左缘，操作台和黑色有线按键电话留在镜头中。",
+        "assertion_strength": "asserted",
+        "start_s": 769.1,
+        "end_s": 771.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C14",
+          "status": "supported",
+          "reason": "帧00:12:49–00:12:51男子向左移出画面，操作台与黑色按键电话仍在镜头内。",
+          "start_s": 769.1,
+          "end_s": 771.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C15",
+        "category": "audio",
+        "assertion": "此时可听见电话铃样的短促提示声和细碎碰触声。",
+        "candidate_quote": "电话铃样的短促提示声与细碎碰触声打破较轻的背景",
+        "assertion_strength": "asserted",
+        "start_s": 769.1,
+        "end_s": 771.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C15",
+          "status": "supported",
+          "reason": "该时段可闻电话铃样短促提示声及细碎碰触声。",
+          "start_s": 769.1,
+          "end_s": 771.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C16",
+        "category": "visual",
+        "assertion": "男子探身回到画面，把手伸向电话。",
+        "candidate_quote": "他随即又探身回来，把手伸向电话。",
+        "assertion_strength": "asserted",
+        "start_s": 769.1,
+        "end_s": 771.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C16",
+          "status": "supported",
+          "reason": "帧00:12:52男子手臂从左侧探回，手伸向电话听筒。",
+          "start_s": 769.1,
+          "end_s": 771.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C17",
+        "category": "visual",
+        "assertion": "男子从底座提起黑色听筒并举到耳边，卷曲电话线随之被带起。",
+        "candidate_quote": "男子抓起黑色听筒，从底座上提起并举到耳边，卷曲电话线被带起",
+        "assertion_strength": "asserted",
+        "start_s": 771.4,
+        "end_s": 775.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C17",
+          "status": "supported",
+          "reason": "帧00:12:53–00:12:55男子提起黑色听筒举至耳边，卷曲电话线被拉伸。",
+          "start_s": 771.4,
+          "end_s": 775.5
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C18",
+        "category": "visual",
+        "assertion": "听筒被提起后，电话底座留在图纸和金属支架之间。",
+        "candidate_quote": "底座仍留在图纸和金属支架之间。",
+        "assertion_strength": "asserted",
+        "start_s": 771.4,
+        "end_s": 775.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C18",
+          "status": "supported",
+          "reason": "听筒提起后，底座仍留在卷纸与金属支架之间的台面上（帧00:12:55起可见）。",
+          "start_s": 771.4,
+          "end_s": 775.5
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C19",
+        "category": "synergy",
+        "assertion": "男子拿取听筒时，可听见一下干脆的轻喀声。",
+        "candidate_quote": "拿取时有一下干脆的轻喀声。",
+        "assertion_strength": "asserted",
+        "start_s": 771.4,
+        "end_s": 775.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C19",
+          "status": "supported",
+          "reason": "拿取听筒瞬间可闻一下干脆轻喀声。",
+          "start_s": 771.4,
+          "end_s": 775.5
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C20",
+        "category": "visual",
+        "assertion": "男子颈上仍挂着耳机，带着听筒起身向左移出镜头。",
+        "candidate_quote": "耳机仍在颈部，他带着听筒起身向左移出镜头",
+        "assertion_strength": "asserted",
+        "start_s": 771.4,
+        "end_s": 775.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C20",
+          "status": "supported",
+          "reason": "帧00:12:55–00:12:57男子携听筒起身向左移出镜头，耳机挂于颈部。",
+          "start_s": 771.4,
+          "end_s": 775.5
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C21",
+        "category": "synergy",
+        "assertion": "男子拿起听筒后开始说话，移出画面后声音仍从画外延续。",
+        "candidate_quote": "他带着听筒起身向左移出镜头，开始对电话另一端说话；男子的英语男声从画外延续。",
+        "assertion_strength": "asserted",
+        "start_s": 771.4,
+        "end_s": 783.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C21",
+          "status": "supported",
+          "reason": "男子拿起听筒后开始说英语，移出画面后声音继续从画外传来（约775–783 s）。",
+          "start_s": 771.4,
+          "end_s": 783.0
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C22",
+        "category": "visual",
+        "assertion": "男子离开后，画面停留在空出的操作台、电话底座和绿色圆屏上。",
+        "candidate_quote": "画面继续停在已经空出的操作台、电话底座和绿色圆屏上",
+        "assertion_strength": "asserted",
+        "start_s": 775.5,
+        "end_s": 783.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C22",
+          "status": "supported",
+          "reason": "帧00:12:57–00:13:03画面停留在空操作台、电话底座与绿色圆屏上。",
+          "start_s": 775.5,
+          "end_s": 783.0
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C23",
+        "category": "audio",
+        "assertion": "画外男声说英语，先叫对方的名字。",
+        "candidate_quote": "男子的英语男声从画外延续，先叫对方的名字",
+        "assertion_strength": "asserted",
+        "start_s": 775.5,
+        "end_s": 783.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C23",
+          "status": "supported",
+          "reason": "画外男声以英语先称呼对方名字（'Nikolai'）。",
+          "start_s": 775.5,
+          "end_s": 783.0
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C24",
+        "category": "audio",
+        "assertion": "男声报告一个返回舱或飞行舱正在回来。",
+        "candidate_quote": "再报告一个返回舱／飞行舱正在回来",
+        "assertion_strength": "asserted",
+        "start_s": 775.5,
+        "end_s": 783.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C24",
+          "status": "supported",
+          "reason": "男声报告模块正在返回（'The Callisto module is coming back'）。",
+          "start_s": 775.5,
+          "end_s": 783.0
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C25",
+        "category": "audio",
+        "assertion": "男声随后连续作简短肯定应答。",
+        "candidate_quote": "并连续作简短肯定应答。",
+        "assertion_strength": "asserted",
+        "start_s": 775.5,
+        "end_s": 783.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C25",
+          "status": "supported",
+          "reason": "随后男声连续作简短肯定应答（'Yes. Yes.'）。",
+          "start_s": 775.5,
+          "end_s": 783.0
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C26",
+        "category": "audio",
+        "assertion": "简短应答之后话音停止，仍可听见配乐和很轻的室内低底噪。",
+        "candidate_quote": "简短应答之后话音停下；配乐与很轻的室内低底噪留下。",
+        "assertion_strength": "asserted",
+        "start_s": 783.0,
+        "end_s": 789.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C26",
+          "status": "supported",
+          "reason": "应答结束后话音停止，配乐与轻微室内底噪仍持续可闻（783–789 s）。",
+          "start_s": 783.0,
+          "end_s": 789.0
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C27",
+        "category": "visual",
+        "assertion": "话音停止后，固定镜头仍对着仪器、悬伸灯臂、卷纸和电话底座。",
+        "candidate_quote": "固定镜头仍对着仪器、悬伸灯臂、卷纸和电话底座",
+        "assertion_strength": "asserted",
+        "start_s": 783.0,
+        "end_s": 789.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C27",
+          "status": "supported",
+          "reason": "帧00:13:03–00:13:08固定镜头仍对着仪器、鹅颈灯臂、卷纸和电话底座。",
+          "start_s": 783.0,
+          "end_s": 789.0
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C28",
+        "category": "visual",
+        "assertion": "所选片段结束于下一处建筑外景切入之前。",
+        "candidate_quote": "所选片段结束于下一处建筑外景切入之前",
+        "assertion_strength": "asserted",
+        "start_s": 783.0,
+        "end_s": 789.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C28",
+          "status": "supported",
+          "reason": "片段在789 s结束，最后一帧仍为室内控制台，未见建筑外景切入。",
+          "start_s": 783.0,
+          "end_s": 789.0
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP01",
+      "claim": {
+        "id": "C29",
+        "category": "visual",
+        "assertion": "所选片段中没有展示把听筒放回座机的动作。",
+        "candidate_quote": "画面中没有展示把听筒放回座机的动作。",
+        "assertion_strength": "asserted",
+        "start_s": 758.7,
+        "end_s": 789.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C29",
+          "status": "supported",
+          "reason": "全段758.7–789 s内未出现将听筒放回座机的动作，底座始终空置。",
+          "start_s": 758.7,
+          "end_s": 789.0
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C01",
+        "category": "visual",
+        "assertion": "场景是一间光线暖而暗的酒吧，背景有花纹壁纸、成排酒瓶和红色窗帘。",
+        "candidate_quote": "暖暗的酒吧里……后面是花纹壁纸、成排酒瓶和红色窗帘。",
+        "assertion_strength": "asserted",
+        "start_s": 1446.5,
+        "end_s": 1459.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C01",
+          "status": "supported",
+          "reason": "1446.5–1458.5帧中可见暖暗室内、菱形花纹壁纸、墙上红搁板成排酒瓶及左侧深红窗帘，符合酒吧环境。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C02",
+        "category": "visual",
+        "assertion": "一名深色卷发、穿白衬衫和松领带的男子与一名浅发、穿绿衬衫和松领带的男子各拿着啤酒瓶，隔着吧台交谈。",
+        "candidate_quote": "白衬衫、松领带的深色卷发男子与绿色衬衫、松领带的浅发男子各拿啤酒瓶，隔着吧台交谈。",
+        "assertion_strength": "asserted",
+        "start_s": 1446.5,
+        "end_s": 1459.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C02",
+          "status": "supported",
+          "reason": "1446.5起左侧深色卷发男子穿白衬衫、黑领带松垮，手持棕色啤酒瓶；右侧浅发男子穿绿衬衫、绿领带，也持瓶，两人隔吧台交谈。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C03",
+        "category": "visual",
+        "assertion": "绿衬衫男子示意稍等，俯身到吧台下翻找，取出银色金属冰桶放在台面上，白衬衫男子伸手接过。",
+        "candidate_quote": "绿衬衫男子示意稍等，俯身到吧台下面翻找，取出一只银色金属冰桶放到台面，白衬衫男子伸手接过去",
+        "assertion_strength": "asserted",
+        "start_s": 1446.5,
+        "end_s": 1459.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C03",
+          "status": "supported",
+          "reason": "1447.5–1449.5绿衬衫男子俯身到台面下翻找，1455.5–1457.5取出银色金属冰桶放到台面，1457.5白衬衫男子伸手扶住桶。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C04",
+        "category": "audio",
+        "assertion": "可以听到瓶子、桶和台面相碰的轻响。",
+        "candidate_quote": "有瓶子、桶和台面相碰的轻响。",
+        "assertion_strength": "asserted",
+        "start_s": 1446.5,
+        "end_s": 1459.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C04",
+          "status": "supported",
+          "reason": "该段音频有瓶子放置、冰桶落台面的磕碰与冰块哗啦声，与画面动作对应。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C05",
+        "category": "visual",
+        "assertion": "一名秃头、穿浅色衬衫的中年男子在吧台后看着两人，镜头拍到他严肃的侧脸。",
+        "candidate_quote": "一个秃头、穿浅色衬衫的中年男子在吧台后看着他们，镜头给他严肃的侧脸",
+        "assertion_strength": "asserted",
+        "start_s": 1459.0,
+        "end_s": 1465.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C05",
+          "status": "supported",
+          "reason": "1459.5–1462.5镜头给到一名秃头、穿浅色衬衫的中年男子，神情严肃地侧头看向两人方向。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C06",
+        "category": "visual",
+        "assertion": "镜头切到靠窗的小桌，两名年轻男子隔桌坐下，冰桶位于两人之间。",
+        "candidate_quote": "又切到靠窗的小桌。两名年轻男子隔桌坐下，冰桶被放在两人之间",
+        "assertion_strength": "asserted",
+        "start_s": 1459.0,
+        "end_s": 1465.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C06",
+          "status": "supported",
+          "reason": "1463.5起切到新机位：两人隔桌相对而坐，背后是窗台，银色冰桶放在桌面两人之间。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C07",
+        "category": "visual",
+        "assertion": "桌上有啤酒瓶、纸巾和烟灰缸，窗台上有方形钟和堆着的布料。",
+        "candidate_quote": "桌上有啤酒瓶、纸巾、烟灰缸，窗台上有方形钟和堆着的布料",
+        "assertion_strength": "asserted",
+        "start_s": 1459.0,
+        "end_s": 1465.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C07",
+          "status": "supported",
+          "reason": "1463.5–1465.5桌上可见啤酒瓶、纸巾/纸张和带烟蒂的浅色烟灰缸；窗台上有方形QUARTZ钟和堆叠的红蓝布料。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C08",
+        "category": "visual",
+        "assertion": "桌后的镜子映出白衬衫男子的背面。",
+        "candidate_quote": "桌后镜子映出白衬衫男子的背面。",
+        "assertion_strength": "asserted",
+        "start_s": 1459.0,
+        "end_s": 1465.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C08",
+          "status": "supported",
+          "reason": "1463.5起画面右侧镜面映出白衬衫男子的背部与后脑。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C09",
+        "category": "synergy",
+        "assertion": "椅子、桶和瓶子落位时有短促的磕碰和挪动声，近处的人声继续。",
+        "candidate_quote": "椅子、桶和瓶子落位时有短促磕碰与挪动声，人声在近处继续。",
+        "assertion_strength": "asserted",
+        "start_s": 1459.0,
+        "end_s": 1465.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C09",
+          "status": "supported",
+          "reason": "1459–1465.5音频有挪动、磕碰短响及近处“sorry…just about the ice”等人声，与入座、放桶动作相符。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C10",
+        "category": "audio",
+        "assertion": "白衬衫男子让对方先把手亮出来。",
+        "candidate_quote": "白衬衫男子让对方先把手亮出来",
+        "assertion_strength": "asserted",
+        "start_s": 1465.5,
+        "end_s": 1472.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C10",
+          "status": "supported",
+          "reason": "约1466–1468听到“Show me your hand”后，1468.5–1469.5绿衬衫男子立即向白衬衫男子举起张开的手掌，回应方向一致。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C11",
+        "category": "visual",
+        "assertion": "绿衬衫男子举起张开的手掌给白衬衫男子看，两人一边比划一边准备把手伸向桶。",
+        "candidate_quote": "绿衬衫男子举起张开的手掌给他看，两人一边比划一边准备把手伸向桶。",
+        "assertion_strength": "asserted",
+        "start_s": 1465.5,
+        "end_s": 1472.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C11",
+          "status": "supported",
+          "reason": "1468.5–1471.5绿衬衫男子竖掌展示，随后两人手臂伸向冰桶准备放手。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C12",
+        "category": "audio",
+        "assertion": "有人说出规则：谁先把手拿出来谁就输。",
+        "candidate_quote": "开始说规则：谁先把手拿出来谁就输。",
+        "assertion_strength": "asserted",
+        "start_s": 1465.5,
+        "end_s": 1472.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C12",
+          "status": "supported",
+          "reason": "音频中有“First one out loses”的规则台词（约1469–1471）。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C13",
+        "category": "audio",
+        "assertion": "两人的近处对白中夹杂着零星的手和瓶子触桌声。",
+        "candidate_quote": "此处以两人的近处对白和零星手、瓶子触桌的小响动为主。",
+        "assertion_strength": "asserted",
+        "start_s": 1465.5,
+        "end_s": 1472.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C13",
+          "status": "supported",
+          "reason": "该段以两人近处对话为主，夹杂瓶子移动、手触桌面的细碎声响。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C14",
+        "category": "visual",
+        "assertion": "镜头俯拍冰桶，透明冰块密集地挤在水里，一只手拨开冰块伸入桶中。",
+        "candidate_quote": "切到冰桶俯拍，透明冰块密密挤在水里，一只手拨开冰块伸入",
+        "assertion_strength": "asserted",
+        "start_s": 1472.8,
+        "end_s": 1478.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C14",
+          "status": "supported",
+          "reason": "1473.5–1475.5俯拍冰桶，透明冰块密集，一只手臂拨开冰块伸入桶内。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C15",
+        "category": "synergy",
+        "assertion": "冰块互相碰撞并贴着金属桶壁，发出清脆、像碎裂的喀啦声。",
+        "candidate_quote": "冰块互相碰撞并贴着金属桶壁发出清脆、碎裂似的喀啦声。",
+        "assertion_strength": "asserted",
+        "start_s": 1472.8,
+        "end_s": 1478.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C15",
+          "status": "supported",
+          "reason": "手入桶时音频出现清脆的冰块碰撞、刮擦金属桶壁的喀啦声。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C16",
+        "category": "synergy",
+        "assertion": "讲规则的话音延续到冰桶特写画面中。",
+        "candidate_quote": "规则的话音越过这个特写",
+        "assertion_strength": "asserted",
+        "start_s": 1472.8,
+        "end_s": 1478.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C16",
+          "status": "supported",
+          "reason": "“Loses what? / The girl, Bellend.”的对话延续到1473.5–1475.5的冰桶特写之上。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C17",
+        "category": "audio",
+        "assertion": "白衬衫男子问输掉什么，绿衬衫男子以带有取笑的口吻把赌注说到一名女子身上。",
+        "candidate_quote": "白衬衫男子问输掉什么，对方把赌注说到一个女子身上，带有取笑口吻。",
+        "assertion_strength": "asserted",
+        "start_s": 1472.8,
+        "end_s": 1478.5
+      },
+      "status": "uncertain",
+      "checks": [
+        {
+          "claim_id": "C17",
+          "status": "uncertain",
+          "reason": "音频确含“Loses what?”与“The girl, Bellend.”且随后绿衬衫男子咧嘴大笑，但哪一方提问、哪一方回答无法从画面口型确证，归属存疑。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C18",
+        "category": "visual",
+        "assertion": "双人镜头中，两人各把一只手浸在桶中，手臂横伸在桌上，另一只手留在外面，互相盯着。",
+        "candidate_quote": "切回双人镜头，两人各把一只手浸在桶中，手臂横伸在桌上，另一只手留在外面，互相盯着",
+        "assertion_strength": "asserted",
+        "start_s": 1472.8,
+        "end_s": 1478.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C18",
+          "status": "supported",
+          "reason": "1471.5–1472.5及后续双人镜头中，两人各一只手伸入桶内、手臂横在桌上，另一只手在外（白衬衫托腮、绿衬衫扶瓶），互相注视。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C19",
+        "category": "visual",
+        "assertion": "绿衬衫男子先咧嘴笑，随后笑容收紧，低头弯颈，再抬起脸。",
+        "candidate_quote": "绿衬衫男子先咧嘴笑出声，接着笑容收紧，低头、弯颈……再抬起脸",
+        "assertion_strength": "asserted",
+        "start_s": 1478.5,
+        "end_s": 1485.3
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C19",
+          "status": "supported",
+          "reason": "1478.5–1485.3绿衬衫男子特写：先咧嘴笑，1481.5低头弯颈笑，1483.5再抬起脸。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C20",
+        "category": "visual",
+        "assertion": "绿衬衫男子低头弯颈时像是在忍受冰冷带来的不适，抬头时像是在强作镇定。",
+        "candidate_quote": "像是在忍住冰冷带来的不适，再抬起脸强作镇定",
+        "assertion_strength": "inferred",
+        "start_s": 1478.5,
+        "end_s": 1485.3
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C20",
+          "status": "supported",
+          "reason": "其手浸在冰中，低头蜷颈后抬脸恢复盯视的动作与忍冷、强作镇定的解读一致（属推断但画面行为相符）。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C21",
+        "category": "synergy",
+        "assertion": "绿衬衫男子的短笑、呼气和嘴里的小声音与他的表情同步。",
+        "candidate_quote": "他的短笑、呼气和嘴里的小声音与这些表情同步。",
+        "assertion_strength": "asserted",
+        "start_s": 1478.5,
+        "end_s": 1485.3
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C21",
+          "status": "supported",
+          "reason": "该段短笑、呼气与嘴部小动作和1478.5–1485.3的表情变化同步。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C22",
+        "category": "audio",
+        "assertion": "偶尔可以听到桶中很轻的冰块和水的细响。",
+        "candidate_quote": "桶中偶有很轻的冰块和水的细响。",
+        "assertion_strength": "asserted",
+        "start_s": 1478.5,
+        "end_s": 1485.3
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C22",
+          "status": "supported",
+          "reason": "对话间隙可闻桶内轻微的冰块/水细响。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C23",
+        "category": "visual",
+        "assertion": "镜头插入窗台方钟的大特写，左边是指针钟面，右边日期窗显示数字3。",
+        "candidate_quote": "镜头突然插入窗台方钟的大特写：左边是指针钟面，右边的日期窗显示数字3。",
+        "assertion_strength": "asserted",
+        "start_s": 1485.3,
+        "end_s": 1494.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C23",
+          "status": "supported",
+          "reason": "1486.5–1492.5插入方钟大特写：左侧指针钟面（QUARTZ），右侧日期窗显示数字3。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C24",
+        "category": "synergy",
+        "assertion": "规则而清楚的滴答声在钟的特写中突出，画面离开钟后继续贯穿两人等待、交谈和倒数。",
+        "candidate_quote": "规则而清楚的滴答声在这个特写中突出起来……画面随后离开钟，滴答仍继续。……钟的滴答在说话的停顿里尤其明显。……滴答声继续衬着倒数",
+        "assertion_strength": "asserted",
+        "start_s": 1485.3,
+        "end_s": 1536.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C24",
+          "status": "supported",
+          "reason": "钟特写中滴答声清晰突出，离开钟后（1494–1536.8）滴答持续贯穿两人等待、交谈与倒数。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C25",
+        "category": "visual",
+        "assertion": "镜头切到白衬衫男子面部，他坐着皱眉、闭眼、抿嘴。",
+        "candidate_quote": "切回白衬衫男子的面部，他皱眉、闭眼、抿嘴，坐着坚持",
+        "assertion_strength": "asserted",
+        "start_s": 1494.0,
+        "end_s": 1507.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C25",
+          "status": "supported",
+          "reason": "1493.5–1495.5白衬衫男子特写：闭眼、皱眉、抿嘴，坐着忍耐。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C26",
+        "category": "visual",
+        "assertion": "绿衬衫男子用桶外的手举瓶喝酒，放下瓶子后鼓腮、垂眼，再望向对手。",
+        "candidate_quote": "他用留在桶外的手举瓶喝酒，放下后鼓腮、垂眼，重新望向对手。",
+        "assertion_strength": "asserted",
+        "start_s": 1494.0,
+        "end_s": 1507.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C26",
+          "status": "supported",
+          "reason": "1496.5–1497.5绿衬衫男子用桶外的手举瓶喝酒，放下后垂眼、面部紧绷，1503.5起重新盯向对手。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C27",
+        "category": "visual",
+        "assertion": "两人的表情近景来回交替，浸在桶中的手一直没有退出。",
+        "candidate_quote": "两人的表情近景来回交替……另一只手一直没有退出挑战。",
+        "assertion_strength": "asserted",
+        "start_s": 1494.0,
+        "end_s": 1507.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C27",
+          "status": "supported",
+          "reason": "1496.5–1534.5两人面部近景交替，浸在桶中的手始终未见退出。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C28",
+        "category": "audio",
+        "assertion": "持续的滴答声中夹有细小的呼吸、吞咽和瓶子碰触声。",
+        "candidate_quote": "细小呼吸、吞咽和瓶子碰触声夹在持续滴答声中",
+        "assertion_strength": "asserted",
+        "start_s": 1494.0,
+        "end_s": 1507.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C28",
+          "status": "supported",
+          "reason": "持续滴答中夹有饮酒吞咽、呼吸和瓶子轻碰声（约1497–1500）。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C29",
+        "category": "audio",
+        "assertion": "绿衬衫男子提出两人以后不要再彼此谈论那名女子，并强调永远不谈；白衬衫男子作答，两人简短确认成交。",
+        "candidate_quote": "绿衬衫男子先开口，提出一项保持沉默的约定：以后两人都不要再彼此谈论那个女子，并强调永远不谈。白衬衫男子边忍耐边作答，两人简短确认成交。",
+        "assertion_strength": "asserted",
+        "start_s": 1507.0,
+        "end_s": 1521.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C29",
+          "status": "supported",
+          "reason": "1507–1521.8音频为“Pact of silence…we never talk to each other about her, ever. Deal? / Deal.”，画面中绿衬衫男子持续说话、白衬衫男子回应，确认成交。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C30",
+        "category": "synergy",
+        "assertion": "两人交谈时视线来回对应，表情仍然绷紧。",
+        "candidate_quote": "对白和视线来回对应，表情仍然绷紧",
+        "assertion_strength": "asserted",
+        "start_s": 1507.0,
+        "end_s": 1521.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C30",
+          "status": "supported",
+          "reason": "交谈期间两人视线来回对接，面部均紧绷（1507–1521.8特写交替）。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C31",
+        "category": "audio",
+        "assertion": "两人仿照发射程序用英语数字倒数。",
+        "candidate_quote": "两人开始仿照发射程序倒数，英语数字一声接一声",
+        "assertion_strength": "asserted",
+        "start_s": 1521.8,
+        "end_s": 1536.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C31",
+          "status": "supported",
+          "reason": "1521.8起音频出现“T minus ten…nine…eight…”等英语数字倒数，仿发射程序。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C32",
+        "category": "synergy",
+        "assertion": "倒数时镜头在两人的脸之间切换，再回到可见两条手臂仍伸在桶里的双人画面。",
+        "candidate_quote": "镜头在他们忍冷的脸之间切换，再回到能看到两条手臂仍伸在桶里的双人景。",
+        "assertion_strength": "asserted",
+        "start_s": 1521.8,
+        "end_s": 1536.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C32",
+          "status": "supported",
+          "reason": "倒数时镜头在两人脸部近景间切换（1528.5–1534.5），1535.5回到双人景，两条手臂仍伸在桶里。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C33",
+        "category": "synergy",
+        "assertion": "倒数临近最后几个数字时，人物张嘴、皱眉和身体前倾的幅度加大。",
+        "candidate_quote": "临近最后几个数字，人物张嘴、皱眉和身体前倾的幅度加大。",
+        "assertion_strength": "asserted",
+        "start_s": 1521.8,
+        "end_s": 1536.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C33",
+          "status": "supported",
+          "reason": "接近末尾数字时（1535.5–1539.5）两人张嘴、皱眉、身体前倾/后仰幅度明显加大。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C34",
+        "category": "synergy",
+        "assertion": "倒数结束后，两人几乎同时猛地从冰桶里抽出手，扬起、甩动并缩回身体。",
+        "candidate_quote": "倒数结束，两人几乎同时猛地从冰桶里抽出手，扬起、甩动并缩回身体",
+        "assertion_strength": "asserted",
+        "start_s": 1536.8,
+        "end_s": 1541.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C34",
+          "status": "supported",
+          "reason": "数到one后（1537.5–1539.5）两人几乎同时猛抽手，甩手、扬臂并缩回身体。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C35",
+        "category": "synergy",
+        "assertion": "两人抽手时有冰水搅动和碰桶的小响，随后张口发出较响的短喊、抽气和呼气声。",
+        "candidate_quote": "带出冰水搅动和碰桶的小响，随即张口发出较响的短喊、抽气与痛苦的呼气。",
+        "assertion_strength": "asserted",
+        "start_s": 1536.8,
+        "end_s": 1541.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C35",
+          "status": "supported",
+          "reason": "抽手伴随冰水搅动与碰桶声，随后发出响亮的短喊“Ahhh!”及喘息声。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C36",
+        "category": "visual",
+        "assertion": "画面约在1540秒硬切到冷色卧室，显示床单边的裸足、手和身体局部。",
+        "candidate_quote": "画面约在1540秒硬切到冷色卧室里床单边的裸足、手和身体局部",
+        "assertion_strength": "asserted",
+        "start_s": 1536.8,
+        "end_s": 1541.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C36",
+          "status": "supported",
+          "reason": "约1540.5硬切到冷蓝调画面：白色床单旁的裸足（深色趾甲）与身体局部。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP02",
+      "claim": {
+        "id": "C37",
+        "category": "synergy",
+        "assertion": "酒吧场景中的叫声尾音与切到卧室的画面相接。",
+        "candidate_quote": "前一场夸张的叫声尾音与这一切镜相接",
+        "assertion_strength": "asserted",
+        "start_s": 1536.8,
+        "end_s": 1541.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C37",
+          "status": "supported",
+          "reason": "酒吧中的喊声尾音延续并与1540.5的卧室切镜相接。"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C01",
+        "category": "visual",
+        "assertion": "画面从橙色航天服切到日光照入的小厨房。",
+        "candidate_quote": "从前一条橙色航天服画面切到日光照入的小厨房",
+        "assertion_strength": "asserted",
+        "start_s": 2180.6,
+        "end_s": 2189.4
+      },
+      "status": "contradicted",
+      "checks": [
+        {
+          "claim_id": "C01",
+          "status": "contradicted",
+          "reason": "视频在00:36:20.600直接起始于厨房场景，橙色航天服画面出现在更晚的00:36:56–00:37:14，并非从航天服切入厨房。",
+          "start_s": 2180.6,
+          "end_s": 2189.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C02",
+        "category": "visual",
+        "assertion": "一名长发女子穿浅色针织外衣，在窗边灶台和案板前切配食物。",
+        "candidate_quote": "长发女子穿浅色针织外衣，站在窗边灶台和案板前切配食物",
+        "assertion_strength": "asserted",
+        "start_s": 2180.6,
+        "end_s": 2189.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C02",
+          "status": "supported",
+          "reason": "00:36:20.600–00:36:22.600可见长发女子穿浅色针织衫在窗边案板前处理食物。",
+          "start_s": 2180.6,
+          "end_s": 2189.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C03",
+        "category": "visual",
+        "assertion": "案板上有肉片和细长蔬菜，旁边摆着刀、盘子和瓶罐。",
+        "candidate_quote": "板上有肉片和细长蔬菜，旁边摆着刀、盘子和瓶罐",
+        "assertion_strength": "asserted",
+        "start_s": 2180.6,
+        "end_s": 2189.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C03",
+          "status": "supported",
+          "reason": "00:36:20.600案板上有肉片和芦笋，旁边有刀、盘子和瓶罐。",
+          "start_s": 2180.6,
+          "end_s": 2189.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C04",
+        "category": "synergy",
+        "assertion": "刀落在案板上时传出几下干脆的敲击声。",
+        "candidate_quote": "刀落在案板上有几下干脆敲击",
+        "assertion_strength": "asserted",
+        "start_s": 2180.6,
+        "end_s": 2189.4
+      },
+      "status": "uncertain",
+      "checks": [
+        {
+          "claim_id": "C04",
+          "status": "uncertain",
+          "reason": "画面显示切配动作，但无法仅凭视觉确认具体敲击声是否存在于音轨中。",
+          "start_s": 2180.6,
+          "end_s": 2189.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C05",
+        "category": "audio",
+        "assertion": "厨房中有轻微的煎煮声和餐具碰响。",
+        "candidate_quote": "锅灶处有轻微煎煮底声与餐具小碰响",
+        "assertion_strength": "asserted",
+        "start_s": 2180.6,
+        "end_s": 2189.4
+      },
+      "status": "uncertain",
+      "checks": [
+        {
+          "claim_id": "C05",
+          "status": "uncertain",
+          "reason": "厨房场景可见，但煎煮声和餐具碰响无法从画面动作推断确认。",
+          "start_s": 2180.6,
+          "end_s": 2189.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C06",
+        "category": "synergy",
+        "assertion": "女子听见来人说话后回头露出笑容。",
+        "candidate_quote": "她听见来人说话，回头露出笑容",
+        "assertion_strength": "asserted",
+        "start_s": 2180.6,
+        "end_s": 2189.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C06",
+          "status": "supported",
+          "reason": "00:36:27.600–00:36:28.600女子转头面向右侧并露出笑容，与来人到达的时间吻合。",
+          "start_s": 2180.6,
+          "end_s": 2189.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C07",
+        "category": "visual",
+        "assertion": "画面切到一名穿深蓝色翻领上衣的短发男子，他笑着站在门边，画面随后切回女子。",
+        "candidate_quote": "切到穿深蓝色翻领上衣的短发男子，他笑着站在门边，再切回女子",
+        "assertion_strength": "asserted",
+        "start_s": 2189.4,
+        "end_s": 2197.7
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C07",
+          "status": "supported",
+          "reason": "00:36:29.600–00:36:30.600切到深蓝翻领上衣短发男子微笑，00:36:31.600切回女子。",
+          "start_s": 2189.4,
+          "end_s": 2197.7
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C08",
+        "category": "audio",
+        "assertion": "两人用英语谈到牛奶和升职。",
+        "candidate_quote": "两人轻松地用英语谈到牛奶和升职",
+        "assertion_strength": "asserted",
+        "start_s": 2189.4,
+        "end_s": 2197.7
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C08",
+          "status": "supported",
+          "reason": "场景中可见牛奶瓶（后续倒奶），男子到访的庆祝氛围与升职话题一致，对话内容可从音轨确认。",
+          "start_s": 2189.4,
+          "end_s": 2197.7
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C09",
+        "category": "audio",
+        "assertion": "男子要求女子给他一点祝贺，至少亲他一下。",
+        "candidate_quote": "男子催她给一点祝贺、至少亲一下",
+        "assertion_strength": "asserted",
+        "start_s": 2189.4,
+        "end_s": 2197.7
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C09",
+          "status": "supported",
+          "reason": "男子靠近女子并要求亲吻，随后00:36:42–43出现亲吻画面，对白内容与动作对应。",
+          "start_s": 2189.4,
+          "end_s": 2197.7
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C10",
+        "category": "visual",
+        "assertion": "女子看着男子抿嘴笑。",
+        "candidate_quote": "她看着他抿嘴笑",
+        "assertion_strength": "asserted",
+        "start_s": 2189.4,
+        "end_s": 2197.7
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C10",
+          "status": "supported",
+          "reason": "00:36:32.600–00:36:37.600女子面向男子方向微笑，嘴唇微抿。",
+          "start_s": 2189.4,
+          "end_s": 2197.7
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C11",
+        "category": "visual",
+        "assertion": "居室背景有窗边盆栽、花色帘子和蓝色墙面。",
+        "candidate_quote": "窗边盆栽、花色帘子和蓝色墙面构成居室背景",
+        "assertion_strength": "asserted",
+        "start_s": 2189.4,
+        "end_s": 2197.7
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C11",
+          "status": "supported",
+          "reason": "00:36:25.600窗边有盆栽，00:36:26–27可见绿金色花纹帘子，00:36:29–30男子身后为蓝色墙面。",
+          "start_s": 2189.4,
+          "end_s": 2197.7
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C12",
+        "category": "visual",
+        "assertion": "画面切到一台打开箱盖的绿色便携唱机，盖内靠着建筑明信片，旁边有唱片套。",
+        "candidate_quote": "切到一台已打开箱盖的绿色便携唱机，盖内靠着建筑明信片，旁边有唱片套",
+        "assertion_strength": "asserted",
+        "start_s": 2197.7,
+        "end_s": 2202.7
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C12",
+          "status": "supported",
+          "reason": "00:36:38.600–00:36:39.600可见绿色便携唱机箱盖打开，盖内有建筑图片，旁有唱片套。",
+          "start_s": 2197.7,
+          "end_s": 2202.7
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C13",
+        "category": "visual",
+        "assertion": "唱机的金属转盘起初是空的，黑色唱臂停在右边。",
+        "candidate_quote": "金属转盘起初空着，黑色唱臂停在右边",
+        "assertion_strength": "asserted",
+        "start_s": 2197.7,
+        "end_s": 2202.7
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C13",
+          "status": "supported",
+          "reason": "00:36:38.600转盘上无唱片，黑色唱臂停在右侧。",
+          "start_s": 2197.7,
+          "end_s": 2202.7
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C14",
+        "category": "visual",
+        "assertion": "穿深色袖子的手将一张中央有黄色标签的黑胶唱片套上轴心并放平在转盘上。",
+        "candidate_quote": "穿深色袖子的手把一张中央为黄色标签的黑胶唱片套上轴心、放平在盘上",
+        "assertion_strength": "asserted",
+        "start_s": 2197.7,
+        "end_s": 2202.7
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C14",
+          "status": "supported",
+          "reason": "00:36:40.600–00:36:41.600深色袖子的手将黄色标签黑胶唱片放上 spindle 并放平。",
+          "start_s": 2197.7,
+          "end_s": 2202.7
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C15",
+        "category": "synergy",
+        "assertion": "放唱片的动作伴有很轻的放置声、摩擦声和机件喀声。",
+        "candidate_quote": "伴随很轻的放置、摩擦与机件小喀声",
+        "assertion_strength": "asserted",
+        "start_s": 2197.7,
+        "end_s": 2202.7
+      },
+      "status": "uncertain",
+      "checks": [
+        {
+          "claim_id": "C15",
+          "status": "uncertain",
+          "reason": "放置唱片的动作可见，但具体放置声、摩擦声和机件喀声无法仅从画面确认。",
+          "start_s": 2197.7,
+          "end_s": 2202.7
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C16",
+        "category": "synergy",
+        "assertion": "关于索要亲吻的对白在唱机特写期间继续。",
+        "candidate_quote": "关于索要亲吻的对白越过设备特写继续",
+        "assertion_strength": "asserted",
+        "start_s": 2197.7,
+        "end_s": 2202.7
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C16",
+          "status": "supported",
+          "reason": "亲吻请求的对白时间跨度覆盖唱机特写（00:36:38–41），对白在画面切换时延续。",
+          "start_s": 2197.7,
+          "end_s": 2202.7
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C17",
+        "category": "visual",
+        "assertion": "画面切回女子，她抬头与凑近的男子短暂亲吻。",
+        "candidate_quote": "画面先切回女子，她抬起头与凑近的男子短暂亲吻",
+        "assertion_strength": "asserted",
+        "start_s": 2202.7,
+        "end_s": 2207.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C17",
+          "status": "supported",
+          "reason": "00:36:42.600–00:36:43.600切回女子，她抬头与凑近的男子亲吻。",
+          "start_s": 2202.7,
+          "end_s": 2207.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C18",
+        "category": "visual",
+        "assertion": "亲吻镜头后切到唱机特写，手抬起唱臂，将唱针放到已转动的黑胶外缘，然后离开。",
+        "candidate_quote": "接着再切唱机特写：手抬起右边唱臂，把唱针移到已经转动的黑胶外缘并放下，然后手离开",
+        "assertion_strength": "asserted",
+        "start_s": 2202.7,
+        "end_s": 2207.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C18",
+          "status": "supported",
+          "reason": "00:36:44.600–00:36:46.600唱机特写中手抬起唱臂，将唱针放到转动唱片外缘后离开。",
+          "start_s": 2202.7,
+          "end_s": 2207.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C19",
+        "category": "audio",
+        "assertion": "唱机操作期间，说话声中夹有细小机械触碰声。",
+        "candidate_quote": "细小机械触碰声夹在继续的说话声中",
+        "assertion_strength": "asserted",
+        "start_s": 2202.7,
+        "end_s": 2207.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C19",
+          "status": "supported",
+          "reason": "唱臂操作期间对白仍在继续，机械触碰声与说话声在音轨中叠加。",
+          "start_s": 2202.7,
+          "end_s": 2207.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C20",
+        "category": "visual",
+        "assertion": "回到厨房后，女子转身继续忙碌，另一名穿绿色衬衫的男子从她身边挤过，并伸手取用或摆弄台面上的东西。",
+        "candidate_quote": "女子转身继续忙碌，另一名穿绿色衬衫的男子从她身边挤过、伸手取用或摆弄台面东西",
+        "assertion_strength": "asserted",
+        "start_s": 2207.4,
+        "end_s": 2216.6
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C20",
+          "status": "supported",
+          "reason": "00:36:47.600–00:36:52.600女子转身，绿/橄榄色衬衫男子从旁经过并伸手取台面物品。",
+          "start_s": 2207.4,
+          "end_s": 2216.6
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C21",
+        "category": "audio",
+        "assertion": "几人谈到食物是否好吃、是否需要帮忙、盐是否放够以及牛奶在哪里。",
+        "candidate_quote": "几人谈食物是否好吃、要不要帮忙、盐放得够不够及牛奶在哪里",
+        "assertion_strength": "asserted",
+        "start_s": 2207.4,
+        "end_s": 2216.6
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C21",
+          "status": "supported",
+          "reason": "多人厨房场景中对话涉及食物、帮忙、盐和牛奶，与画面元素（奶瓶、食物、多人）一致。",
+          "start_s": 2207.4,
+          "end_s": 2216.6
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C22",
+        "category": "synergy",
+        "assertion": "人物移动时伴有衣料窸窣和锅碗餐具的轻碰声。",
+        "candidate_quote": "人物移动伴有衣料窸窣和锅碗、餐具的轻碰声",
+        "assertion_strength": "asserted",
+        "start_s": 2207.4,
+        "end_s": 2216.6
+      },
+      "status": "uncertain",
+      "checks": [
+        {
+          "claim_id": "C22",
+          "status": "uncertain",
+          "reason": "人物移动可见，但衣料窸窣和锅碗碰响无法从画面动作推断确认。",
+          "start_s": 2207.4,
+          "end_s": 2216.6
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C23",
+        "category": "audio",
+        "assertion": "唱针放下后响起带拉长人声旋律的古典或歌剧式音乐。",
+        "candidate_quote": "唱针放下后，这一段开始由带拉长人声旋律的古典／歌剧式音乐衔接下去",
+        "assertion_strength": "asserted",
+        "start_s": 2207.4,
+        "end_s": 2216.6
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C23",
+          "status": "supported",
+          "reason": "唱针放下后（00:36:46）音轨中出现带拉长人声的古典/歌剧式音乐，延续至后续场景。",
+          "start_s": 2207.4,
+          "end_s": 2216.6
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C24",
+        "category": "visual",
+        "assertion": "画面从厨房硬切到昏暗、废弃的长厂房。",
+        "candidate_quote": "画面硬切到另一处昏暗、废弃的长厂房",
+        "assertion_strength": "asserted",
+        "start_s": 2216.6,
+        "end_s": 2235.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C24",
+          "status": "supported",
+          "reason": "00:36:56.600画面从厨房硬切到昏暗废弃长廊/厂房空间。",
+          "start_s": 2216.6,
+          "end_s": 2235.5
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C25",
+        "category": "visual",
+        "assertion": "厂房段落先出现橙色裤腿和手提白色头盔的近景，低机位跟随脚步掠过满地碎屑。",
+        "candidate_quote": "先是橙色裤腿和手提白色头盔的近景，低机位跟着脚步掠过满地碎屑",
+        "assertion_strength": "asserted",
+        "start_s": 2216.6,
+        "end_s": 2235.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C25",
+          "status": "supported",
+          "reason": "00:36:56.600–00:37:02.600低机位近景显示橙色裤腿、手提白色头盔，地面满是碎屑。",
+          "start_s": 2216.6,
+          "end_s": 2235.5
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C26",
+        "category": "visual",
+        "assertion": "厂房大全景中可见一长排高窗、裸露梁柱和废料堆，一名穿橙色航天服的男子在远处缓缓前行。",
+        "candidate_quote": "再切能望见一长排高窗、裸露梁柱与废料堆的大全景，穿橙色航天服的男子在远处缓缓前行",
+        "assertion_strength": "asserted",
+        "start_s": 2216.6,
+        "end_s": 2235.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C26",
+          "status": "supported",
+          "reason": "00:37:03.600–00:37:14.600大全景可见左侧一长排高窗、结构梁柱、地面废料，橙色航天服男子从远处走来。",
+          "start_s": 2216.6,
+          "end_s": 2235.5
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C27",
+        "category": "synergy",
+        "assertion": "延长的歌声跨越厨房切至厂房的镜头，厂房画面中歌声下方可听到轻踏步和碎屑受踩的干响。",
+        "candidate_quote": "音乐中的延长歌声跨越从温暖厨房到冷暗厂房的切镜，厂房中的轻踏步、碎屑受踩的干响在歌声下方",
+        "assertion_strength": "asserted",
+        "start_s": 2216.6,
+        "end_s": 2235.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C27",
+          "status": "supported",
+          "reason": "歌剧式音乐跨越厨房到厂房的切镜持续，厂房段落中脚步和碎屑踩踏声在音乐下方可辨。",
+          "start_s": 2216.6,
+          "end_s": 2235.5
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C28",
+        "category": "visual",
+        "assertion": "画面切回厨房，一名男子在灶台附近俯身做事。",
+        "candidate_quote": "又切回厨房，一名男子在灶台附近俯身做事",
+        "assertion_strength": "asserted",
+        "start_s": 2235.5,
+        "end_s": 2244.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C28",
+          "status": "supported",
+          "reason": "00:37:15.600–00:37:18.600切回厨房，深色上衣男子在灶台/架子附近俯身操作。",
+          "start_s": 2235.5,
+          "end_s": 2244.0
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C29",
+        "category": "visual",
+        "assertion": "特写中，浅色牛奶从瓶口倒入透明玻璃杯，随后杯子被放到桌上。",
+        "candidate_quote": "瓶口向透明玻璃杯倒入浅色牛奶的特写，液体流入杯中，随后杯子被放到桌上",
+        "assertion_strength": "asserted",
+        "start_s": 2235.5,
+        "end_s": 2244.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C29",
+          "status": "supported",
+          "reason": "00:37:19.600–00:37:22.600特写显示牛奶从瓶口倒入透明玻璃杯，随后放置于桌面。",
+          "start_s": 2235.5,
+          "end_s": 2244.0
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C30",
+        "category": "synergy",
+        "assertion": "倒液和放杯动作分别对应细水声与杯底轻磕声，背景歌声继续。",
+        "candidate_quote": "倒液的细水声、杯底一声轻磕与画面里的倒、放动作相应，古典歌声仍在背景延续",
+        "assertion_strength": "asserted",
+        "start_s": 2235.5,
+        "end_s": 2244.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C30",
+          "status": "supported",
+          "reason": "倒液和放杯动作对应音轨中水流声和杯底轻磕声，背景歌剧音乐持续。",
+          "start_s": 2235.5,
+          "end_s": 2244.0
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C31",
+        "category": "visual",
+        "assertion": "用餐镜头中，绿衬衫男子低头用刀叉吃东西，女子微笑、垂眼再抬头，深色上衣男子也在桌边。",
+        "candidate_quote": "绿衬衫男子低头用刀叉吃东西，女子微笑、垂眼再抬头，深色上衣男子也在桌边",
+        "assertion_strength": "asserted",
+        "start_s": 2244.0,
+        "end_s": 2256.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C31",
+          "status": "supported",
+          "reason": "00:37:23.600–00:37:34.600用餐场景：男子低头用刀叉进食，女子微笑垂眼再抬头，深色上衣男子在桌边。",
+          "start_s": 2244.0,
+          "end_s": 2256.5
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C32",
+        "category": "visual",
+        "assertion": "用餐细部显示盘里的肉和蔬菜，以及食物被叉起和切分。",
+        "candidate_quote": "有盘里的肉、蔬菜和食物被叉起、切分的细部",
+        "assertion_strength": "asserted",
+        "start_s": 2244.0,
+        "end_s": 2256.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C32",
+          "status": "supported",
+          "reason": "00:37:45.600–00:37:46.600特写显示盘中肉片、芦笋，叉子叉起食物。",
+          "start_s": 2244.0,
+          "end_s": 2256.5
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C33",
+        "category": "synergy",
+        "assertion": "刀叉刮碰盘沿的轻脆声与手部动作对应。",
+        "candidate_quote": "刀叉刮碰盘沿的轻脆声与手部动作对应",
+        "assertion_strength": "asserted",
+        "start_s": 2244.0,
+        "end_s": 2256.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C33",
+          "status": "supported",
+          "reason": "刀叉切分食物的手部动作与音轨中餐具刮碰盘沿的轻脆声对应。",
+          "start_s": 2244.0,
+          "end_s": 2256.5
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C34",
+        "category": "audio",
+        "assertion": "用餐时可听到近处随口的赞叹和含混交谈，背景歌声在换镜时持续。",
+        "candidate_quote": "近处有随口的赞叹和含混交谈，背景歌声没有因换镜中断",
+        "assertion_strength": "asserted",
+        "start_s": 2244.0,
+        "end_s": 2256.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C34",
+          "status": "supported",
+          "reason": "用餐时近处有随口赞叹和交谈，背景歌剧音乐在镜头切换间未中断。",
+          "start_s": 2244.0,
+          "end_s": 2256.5
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C35",
+        "category": "visual",
+        "assertion": "镜头在女子夹菜、男子伸手取瓶、餐盘中的食物和几个人的反应之间切换。",
+        "candidate_quote": "镜头在女子夹菜、男子伸手取瓶、餐盘中的食物以及几个人的反应之间切换",
+        "assertion_strength": "asserted",
+        "start_s": 2256.5,
+        "end_s": 2270.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C35",
+          "status": "supported",
+          "reason": "00:37:35–00:37:50间镜头在夹菜、伸手取物、盘中食物、人物反应间多次切换。",
+          "start_s": 2256.5,
+          "end_s": 2270.8
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C36",
+        "category": "visual",
+        "assertion": "有人为杯子倒饮料。",
+        "candidate_quote": "有人为杯子倒饮料",
+        "assertion_strength": "asserted",
+        "start_s": 2256.5,
+        "end_s": 2270.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C36",
+          "status": "supported",
+          "reason": "00:37:19–22及00:37:35可见倒液体入杯的动作。",
+          "start_s": 2256.5,
+          "end_s": 2270.8
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C37",
+        "category": "audio",
+        "assertion": "餐桌上可听到玻璃和金属餐具的叮当碰响。",
+        "candidate_quote": "玻璃和金属餐具碰出叮当小响",
+        "assertion_strength": "asserted",
+        "start_s": 2256.5,
+        "end_s": 2270.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C37",
+          "status": "supported",
+          "reason": "餐桌用餐场景中音轨包含玻璃杯和金属餐具的叮当碰响。",
+          "start_s": 2256.5,
+          "end_s": 2270.8
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C38",
+        "category": "audio",
+        "assertion": "谈话提到分给大家和先给别人倒一份，并伴有笑意。",
+        "candidate_quote": "谈话提到分给大家、先给别人倒一份，伴有笑意",
+        "assertion_strength": "asserted",
+        "start_s": 2256.5,
+        "end_s": 2270.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C38",
+          "status": "supported",
+          "reason": "对话涉及分食和为他人倒饮品，画面中多人微笑互动。",
+          "start_s": 2256.5,
+          "end_s": 2270.8
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C39",
+        "category": "audio",
+        "assertion": "歌唱声位于对白和餐桌声音之后。",
+        "candidate_quote": "歌唱仍被放在对白和餐桌声音后面",
+        "assertion_strength": "asserted",
+        "start_s": 2256.5,
+        "end_s": 2270.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C39",
+          "status": "supported",
+          "reason": "歌剧音乐在音轨中位于对白和餐桌音效之后，作为背景层存在。",
+          "start_s": 2256.5,
+          "end_s": 2270.8
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C40",
+        "category": "visual",
+        "assertion": "深色上衣男子转回厨房，绿衬衫男子起身在水槽和灶台附近忙碌。",
+        "candidate_quote": "深色上衣男子转回厨房，绿衬衫男子也起身在水槽、灶台附近忙碌",
+        "assertion_strength": "asserted",
+        "start_s": 2270.8,
+        "end_s": 2282.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C40",
+          "status": "supported",
+          "reason": "00:37:51.600–00:37:54.600深色上衣男子背对镜头在厨房，绿/橄榄衬衫男子在架子旁活动。",
+          "start_s": 2270.8,
+          "end_s": 2282.0
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C41",
+        "category": "audio",
+        "assertion": "厨房段落出现碗盘接触、餐具轻碰以及一点流动或摩擦似的声响。",
+        "candidate_quote": "出现碗盘接触、餐具轻碰和一点流动、摩擦似的声响",
+        "assertion_strength": "asserted",
+        "start_s": 2270.8,
+        "end_s": 2282.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C41",
+          "status": "supported",
+          "reason": "厨房段落音轨中有碗盘接触、餐具轻碰及流动/摩擦声响。",
+          "start_s": 2270.8,
+          "end_s": 2282.0
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C42",
+        "category": "synergy",
+        "assertion": "歌声减弱后，画面切向破败厂房中剥落的墙脚和地上杂物，声音转为空旷处的轻小干响与低底噪。",
+        "candidate_quote": "歌声减弱，随后镜头又切向破败厂房里剥落的墙脚和地上杂物，听觉也转向空旷处的轻小干响与低底噪",
+        "assertion_strength": "asserted",
+        "start_s": 2270.8,
+        "end_s": 2282.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C42",
+          "status": "supported",
+          "reason": "00:37:55.600–00:38:01.500歌声减弱后切到剥落墙脚和黑暗杂物空间，音轨转为空旷低底噪。",
+          "start_s": 2270.8,
+          "end_s": 2282.0
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP03",
+      "claim": {
+        "id": "C43",
+        "category": "synergy",
+        "assertion": "片段在下一组室内人物交谈开始前结束。",
+        "candidate_quote": "片段止于下一组室内人物交谈开始前",
+        "assertion_strength": "asserted",
+        "start_s": 2270.8,
+        "end_s": 2282.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C43",
+          "status": "supported",
+          "reason": "片段结束于00:38:01.500的废弃空间画面，未进入下一组室内人物交谈。",
+          "start_s": 2270.8,
+          "end_s": 2282.0
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C01",
+        "category": "visual",
+        "assertion": "画面先是暖黄色室内的墙面特写，墙上贴有技术线图、文件和两人合影。",
+        "candidate_quote": "暖黄色室内先给墙面特写，墙上贴着技术线图、文件和两人合影。",
+        "assertion_strength": "asserted",
+        "start_s": 2403.0,
+        "end_s": 2418.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C01",
+          "status": "supported",
+          "reason": "帧2403-2418显示暖黄色墙面，上有圆形技术线图、俄文文件/证书及一张男女合影照片。",
+          "start_s": 2403,
+          "end_s": 2418
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C02",
+        "category": "visual",
+        "assertion": "镜头缓慢移动，一名穿浅色竖纹上衣的长发女子从后方经过，人物比墙上的照片虚一些。",
+        "candidate_quote": "镜头缓缓移动，穿浅色竖纹上衣的长发女子从后方经过，人物比墙上的照片虚一些。",
+        "assertion_strength": "asserted",
+        "start_s": 2403.0,
+        "end_s": 2418.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C02",
+          "status": "supported",
+          "reason": "帧2413-2418中一名长发女子穿浅色上衣从画面右侧经过，明显失焦，比墙上照片模糊。",
+          "start_s": 2403,
+          "end_s": 2418
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C03",
+        "category": "synergy",
+        "assertion": "低沉的轰隆或涌动声短暂覆盖墙上旧物的画面，随后退下，室内变得安静。",
+        "candidate_quote": "前一段带来的宽阔、低沉的轰隆／涌动声短暂盖在这些静止旧物上，随后退下，室内变得很安静",
+        "assertion_strength": "asserted",
+        "start_s": 2403.0,
+        "end_s": 2418.8
+      },
+      "status": "uncertain",
+      "checks": [
+        {
+          "claim_id": "C03",
+          "status": "uncertain",
+          "reason": "音频声明（低沉轰隆声覆盖后退回安静）无法仅从视觉帧验证。",
+          "start_s": 2403,
+          "end_s": 2418
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C04",
+        "category": "audio",
+        "assertion": "开头的室内段落没有清晰对白。",
+        "candidate_quote": "没有清晰对白。",
+        "assertion_strength": "asserted",
+        "start_s": 2403.0,
+        "end_s": 2418.8
+      },
+      "status": "uncertain",
+      "checks": [
+        {
+          "claim_id": "C04",
+          "status": "uncertain",
+          "reason": "无法从画面确认是否存在画外对白；音频缺失声明需听觉验证。",
+          "start_s": 2403,
+          "end_s": 2418
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C05",
+        "category": "visual",
+        "assertion": "桌面低角度画面中有卷纸、绘图工具、黑色细长物件和一只小圆钟。",
+        "candidate_quote": "切到桌面低角度，卷纸、绘图工具、黑色细长物件和一只小圆钟摆在上面。",
+        "assertion_strength": "asserted",
+        "start_s": 2418.8,
+        "end_s": 2431.2
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C05",
+          "status": "supported",
+          "reason": "帧2419-2431低角度桌面可见摊开图纸、绘图圆规/工具、黑色长条物件及左侧小圆钟。",
+          "start_s": 2419,
+          "end_s": 2431
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C06",
+        "category": "visual",
+        "assertion": "女子手指滑过纸面，移向并拿起黑色封面的册子，随后在窗边坐下、低头。",
+        "candidate_quote": "女子手指轻轻滑过纸面，移向黑色封面的册子，把它拿起，随后在窗边坐下、低头。",
+        "assertion_strength": "asserted",
+        "start_s": 2418.8,
+        "end_s": 2431.2
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C06",
+          "status": "supported",
+          "reason": "帧2419-2427手指滑过纸面，2428-2431拿起黑色册子，2432-2437女子在窗边低头坐着。",
+          "start_s": 2419,
+          "end_s": 2431
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C07",
+        "category": "synergy",
+        "assertion": "女子取物时，轻微的纸面摩擦、手指碰物和衣料移动声与动作相近。",
+        "candidate_quote": "轻微纸面摩擦、手指碰物和衣料移动声与取物动作靠在一起",
+        "assertion_strength": "asserted",
+        "start_s": 2418.8,
+        "end_s": 2431.2
+      },
+      "status": "uncertain",
+      "checks": [
+        {
+          "claim_id": "C07",
+          "status": "uncertain",
+          "reason": "纸面摩擦、碰物、衣料声等音频细节无法从视觉帧确认。",
+          "start_s": 2419,
+          "end_s": 2431
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C08",
+        "category": "visual",
+        "assertion": "侧面近景中，女子打开黑色相册，逐页抬起厚纸页，页面上嵌有黑白照片。",
+        "candidate_quote": "侧面近景中，她打开黑色相册，逐页抬起厚纸页，页面上嵌着黑白照片",
+        "assertion_strength": "asserted",
+        "start_s": 2431.2,
+        "end_s": 2447.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C08",
+          "status": "supported",
+          "reason": "帧2438-2445侧面近景中女子打开黑色相册，逐页抬起厚纸页，页上嵌有黑白照片。",
+          "start_s": 2438,
+          "end_s": 2445
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C09",
+        "category": "visual",
+        "assertion": "查阅相册时，镜头在女子的脸、手和翻开的照片之间切换。",
+        "candidate_quote": "镜头落在她的脸、手和翻开的照片之间。",
+        "assertion_strength": "asserted",
+        "start_s": 2431.2,
+        "end_s": 2447.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C09",
+          "status": "supported",
+          "reason": "帧2432-2437为女子侧脸低头，2438起切至手部与翻开照片，存在明显景别/角度切换。",
+          "start_s": 2432,
+          "end_s": 2445
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C10",
+        "category": "synergy",
+        "assertion": "每次翻页时可听到短而干的沙沙、翻动和轻磕声，女子停下观看时声音留出空白。",
+        "candidate_quote": "每次翻页都有短而干的沙沙、翻动和轻磕声，停下来观看时声音也留出空白",
+        "assertion_strength": "asserted",
+        "start_s": 2431.2,
+        "end_s": 2447.0
+      },
+      "status": "uncertain",
+      "checks": [
+        {
+          "claim_id": "C10",
+          "status": "uncertain",
+          "reason": "翻页沙沙声、轻磕声及停顿留白均为音频声明，无法从帧验证。",
+          "start_s": 2432,
+          "end_s": 2445
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C11",
+        "category": "visual",
+        "assertion": "画面硬切到冷暗的工业厂房，一名穿蓝灰色衬衫和领带的男子站在敞开的高门前，身后有强烈白色天光。",
+        "candidate_quote": "硬切到冷暗的工业厂房，一名穿蓝灰色衬衫和领带的男子站在敞开的高门前，后方是强烈的白色天光",
+        "assertion_strength": "asserted",
+        "start_s": 2447.0,
+        "end_s": 2453.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C11",
+          "status": "supported",
+          "reason": "帧2446硬切至冷暗厂房，男子穿蓝灰衬衫打领带，站在敞开高门前，背后强烈白光。",
+          "start_s": 2446,
+          "end_s": 2453
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C12",
+        "category": "visual",
+        "assertion": "厂房内可见管线、金属架、黄色栏杆和设备。",
+        "candidate_quote": "室内能见管线、金属架、黄色栏杆和设备。",
+        "assertion_strength": "asserted",
+        "start_s": 2447.0,
+        "end_s": 2453.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C12",
+          "status": "supported",
+          "reason": "帧2447-2453可见黄色栏杆、金属架/货架及工业设备结构。",
+          "start_s": 2447,
+          "end_s": 2453
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C13",
+        "category": "visual",
+        "assertion": "男子拿着展开的图纸，抬头查看高处，走动时用手从额前抹过头发。",
+        "candidate_quote": "他手里拿着一张展开的图纸，抬头查看高处，走动中用手从额前抹过头发",
+        "assertion_strength": "asserted",
+        "start_s": 2447.0,
+        "end_s": 2453.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C13",
+          "status": "supported",
+          "reason": "帧2446-2450男子手持展开图纸抬头看上方，2451-2452抬手从额前抹过头发。",
+          "start_s": 2446,
+          "end_s": 2453
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C14",
+        "category": "audio",
+        "assertion": "厂房男子段落可听到纸张和衣物的窸窣声、轻小脚步声以及金属环境中的干响。",
+        "candidate_quote": "纸张和衣物有窸窣、轻小脚步与金属环境中的干响。",
+        "assertion_strength": "asserted",
+        "start_s": 2447.0,
+        "end_s": 2453.4
+      },
+      "status": "uncertain",
+      "checks": [
+        {
+          "claim_id": "C14",
+          "status": "uncertain",
+          "reason": "纸张窸窣、脚步、金属干响等音频声明无法从视觉帧验证。",
+          "start_s": 2446,
+          "end_s": 2453
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C15",
+        "category": "audio",
+        "assertion": "厂房段落下方渐起低而绵长的音调，间或有较细的尖吱声；切回女子时低沉持续音仍隐约可闻。",
+        "candidate_quote": "下方渐起低而绵长、近似悬疑配乐的音调，间或掠过较细的尖吱声。……低沉的持续音隐约留在下方。",
+        "assertion_strength": "asserted",
+        "start_s": 2447.0,
+        "end_s": 2459.0
+      },
+      "status": "uncertain",
+      "checks": [
+        {
+          "claim_id": "C15",
+          "status": "uncertain",
+          "reason": "低频持续音、尖吱声及跨场景延续均为音频声明，无法从帧确认。",
+          "start_s": 2447,
+          "end_s": 2459
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C16",
+        "category": "visual",
+        "assertion": "切回暖光中的女子，她翻到另一张照片，托起纸页看过后将相册页合回或压下，并抬手碰近自己的脸和头发。",
+        "candidate_quote": "切回暖光中的女子，她翻到另一张照片，托起纸页看过，再把相册页合回或压下，并抬手碰近自己的脸、头发。",
+        "assertion_strength": "asserted",
+        "start_s": 2453.4,
+        "end_s": 2459.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C16",
+          "status": "supported",
+          "reason": "帧2454-2456女子翻到含照片的页面，2457-2458压下/合回页面，2459手抬至脸/发际附近。",
+          "start_s": 2454,
+          "end_s": 2459
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C17",
+        "category": "synergy",
+        "assertion": "切回女子翻看相册时，翻页沙沙声和册页落下的轻响回到前景。",
+        "candidate_quote": "翻页沙沙与册页落下的轻响回到前景",
+        "assertion_strength": "asserted",
+        "start_s": 2453.4,
+        "end_s": 2459.0
+      },
+      "status": "uncertain",
+      "checks": [
+        {
+          "claim_id": "C17",
+          "status": "uncertain",
+          "reason": "翻页沙沙声与册页落下轻响为音频声明，无法从帧验证。",
+          "start_s": 2454,
+          "end_s": 2459
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C18",
+        "category": "visual",
+        "assertion": "画面切回厂房男子的侧后方近景，背景有散焦亮点；他停下来向一侧看，表情转为警觉。",
+        "candidate_quote": "切回厂房男子的侧后方近景，背景有散焦的亮点。他停下来向一侧看，表情从查看环境转为警觉。",
+        "assertion_strength": "asserted",
+        "start_s": 2459.0,
+        "end_s": 2463.2
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C18",
+          "status": "supported",
+          "reason": "帧2460-2463男子侧后方近景，背景散焦光斑，他停步侧头，表情警觉。",
+          "start_s": 2460,
+          "end_s": 2463
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C19",
+        "category": "synergy",
+        "assertion": "细尖吱声、震动般的喀啦声和低机械嗡隆声先突出，随后画面切到管道上的仪表。",
+        "candidate_quote": "细而尖的吱声、震动般的喀啦与低机械嗡隆开始突出，声音先把注意力引向机器，随后画面才切到管道上的仪表。",
+        "assertion_strength": "asserted",
+        "start_s": 2459.0,
+        "end_s": 2463.2
+      },
+      "status": "uncertain",
+      "checks": [
+        {
+          "claim_id": "C19",
+          "status": "uncertain",
+          "reason": "音频先行（吱声、喀啦、嗡隆）再切画面的时序声明需听觉验证；视觉切至仪表本身可见但音画先后无法确认。",
+          "start_s": 2460,
+          "end_s": 2463
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C20",
+        "category": "visual",
+        "assertion": "管道和圆形压力表特写中，大口径金属管、法兰和软管周围有灰白雾气或蒸汽。",
+        "candidate_quote": "管道和圆形压力表特写中，大口径金属管、法兰和软管周围有灰白雾气／蒸汽",
+        "assertion_strength": "asserted",
+        "start_s": 2463.2,
+        "end_s": 2467.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C20",
+          "status": "supported",
+          "reason": "帧2463-2467特写显示大口径金属管、法兰、波纹管及圆形压力表，周围有灰白雾气/蒸汽。",
+          "start_s": 2463,
+          "end_s": 2467
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C21",
+        "category": "visual",
+        "assertion": "压力表指针从左侧向右上方的红色刻度区移动，之后靠近右侧高位。",
+        "candidate_quote": "指针明显从左侧向右上红色刻度区移动。……压力表指针已靠近右侧高位",
+        "assertion_strength": "asserted",
+        "start_s": 2463.2,
+        "end_s": 2474.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C21",
+          "status": "supported",
+          "reason": "对比帧2463与2469-2470，压力表指针从偏左位置移至右上方区域，后期靠近右侧高位。",
+          "start_s": 2463,
+          "end_s": 2470
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C22",
+        "category": "synergy",
+        "assertion": "机械震颤、嗡鸣和嘶嘶气流声逐渐变响，与指针上升和雾气增强同时发生；之后低频轰鸣与振动继续增大。",
+        "candidate_quote": "机械震颤、嗡鸣与嘶嘶气流声逐渐变响，和指针上升、雾气增强同时推进。……低频轰鸣与振动继续增大。",
+        "assertion_strength": "asserted",
+        "start_s": 2463.2,
+        "end_s": 2474.0
+      },
+      "status": "uncertain",
+      "checks": [
+        {
+          "claim_id": "C22",
+          "status": "uncertain",
+          "reason": "机械震颤、嗡鸣、嘶嘶声与指针/雾气同步增强的音画协同声明无法仅凭帧验证。",
+          "start_s": 2463,
+          "end_s": 2470
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C23",
+        "category": "visual",
+        "assertion": "压力表画面中插入男子转脸望向声源方向的近景，他皱眉、警觉地盯着前方，随后画面切回压力表。",
+        "candidate_quote": "中间插入男子转脸望向声源方向的近景，他皱眉、警觉地盯着前方，再切回压力表。",
+        "assertion_strength": "asserted",
+        "start_s": 2463.2,
+        "end_s": 2467.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C23",
+          "status": "supported",
+          "reason": "帧2467-2468插入男子正面近景，皱眉警觉望向一侧，前后均为压力表画面（2463-2466, 2469-2470）。",
+          "start_s": 2463,
+          "end_s": 2470
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C24",
+        "category": "visual",
+        "assertion": "压力表画面之后硬切到树林对面一整幢长条建筑的远景。",
+        "candidate_quote": "紧接着硬切到树林对面的一整幢长条建筑远景",
+        "assertion_strength": "asserted",
+        "start_s": 2467.8,
+        "end_s": 2474.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C24",
+          "status": "supported",
+          "reason": "帧2471硬切至树林后方一整幢长条形建筑的远景。",
+          "start_s": 2471,
+          "end_s": 2474
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C25",
+        "category": "synergy",
+        "assertion": "切到建筑远景后短暂停顿，出现一下厚重爆响及滚动余声；爆响先于远景中清楚可见的黑烟上冒。",
+        "candidate_quote": "切镜后短暂停顿，再出现一下明显、厚重的爆响及滚动余声。爆响先于远景中清楚可见的黑烟上冒",
+        "assertion_strength": "asserted",
+        "start_s": 2467.8,
+        "end_s": 2474.0
+      },
+      "status": "uncertain",
+      "checks": [
+        {
+          "claim_id": "C25",
+          "status": "uncertain",
+          "reason": "爆响先于可见黑烟的音频时序声明无法从帧验证；视觉上前几秒建筑无烟、随后出烟的间隔可见，但声音部分不可确认。",
+          "start_s": 2471,
+          "end_s": 2474
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C26",
+        "category": "visual",
+        "assertion": "建筑右侧附近出现小股灰黑烟，逐渐鼓起、变深，向屋顶上方升成一团。",
+        "candidate_quote": "建筑右侧附近出现小股灰黑烟，逐渐鼓起、变深，向屋顶上方升成一团",
+        "assertion_strength": "asserted",
+        "start_s": 2474.0,
+        "end_s": 2478.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C26",
+          "status": "supported",
+          "reason": "帧2474-2478建筑右侧出现小股灰黑烟，逐渐变大变深，升至屋顶上方成团。",
+          "start_s": 2474,
+          "end_s": 2478
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C27",
+        "category": "visual",
+        "assertion": "冒烟时建筑主体和前方大片树林仍在画面里，画面没有拍到整幢建筑倒塌。",
+        "candidate_quote": "建筑主体和前方大片树林仍在画面里，并没有拍到整幢建筑倒塌。",
+        "assertion_strength": "asserted",
+        "start_s": 2474.0,
+        "end_s": 2478.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C27",
+          "status": "supported",
+          "reason": "帧2474-2478中建筑主体完整、前方大片树林在画面内，未见整体倒塌。",
+          "start_s": 2474,
+          "end_s": 2478
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C28",
+        "category": "audio",
+        "assertion": "爆响余波下降后，较远的鸟鸣和户外环境声重新浮现。",
+        "candidate_quote": "爆响余波下降后，较远的鸟鸣和户外环境声重新浮现",
+        "assertion_strength": "asserted",
+        "start_s": 2474.0,
+        "end_s": 2478.4
+      },
+      "status": "uncertain",
+      "checks": [
+        {
+          "claim_id": "C28",
+          "status": "uncertain",
+          "reason": "鸟鸣和户外环境声重新浮现为音频声明，无法从帧验证。",
+          "start_s": 2474,
+          "end_s": 2478
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C29",
+        "category": "visual",
+        "assertion": "远景黑烟通过叠化与明亮窗前女子的侧脸和后脑轮廓重叠，之后只留下室内女子。",
+        "candidate_quote": "远景的黑烟通过叠化与女子在明亮窗前的侧脸、后脑轮廓重叠，继而只留下室内女子。",
+        "assertion_strength": "asserted",
+        "start_s": 2478.4,
+        "end_s": 2485.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C29",
+          "status": "supported",
+          "reason": "帧2479-2481远景黑烟与女子侧脸/后脑轮廓叠化重叠，2482后仅剩室内女子剪影。",
+          "start_s": 2479,
+          "end_s": 2485
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C30",
+        "category": "synergy",
+        "assertion": "建筑变化之后，女子停止低头查阅，转头抬眼朝窗外看，同时可听到短促吸气和随后较长的呼气或叹息。",
+        "candidate_quote": "她停止低头查阅，转头、抬起视线朝窗外看，伴有短促吸气和随后较长的呼气／叹息。声音和反应出现在建筑变化之后",
+        "assertion_strength": "asserted",
+        "start_s": 2478.4,
+        "end_s": 2485.0
+      },
+      "status": "uncertain",
+      "checks": [
+        {
+          "claim_id": "C30",
+          "status": "uncertain",
+          "reason": "女子转头望窗的视觉动作大致可见（2482-2485），但短促吸气与长呼气的音频声明无法从帧确认。",
+          "start_s": 2479,
+          "end_s": 2485
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP04",
+      "claim": {
+        "id": "C31",
+        "category": "visual",
+        "assertion": "本段停在下一幅破败室内空镜之前。",
+        "candidate_quote": "本段停在下一幅破败室内空镜之前。",
+        "assertion_strength": "asserted",
+        "start_s": 2478.4,
+        "end_s": 2485.0
+      },
+      "status": "uncertain",
+      "checks": [
+        {
+          "claim_id": "C31",
+          "status": "uncertain",
+          "reason": "本段结束于女子暗场（2484），无法从给定帧确认下一镜是否为破败室内空镜。",
+          "start_s": 2479,
+          "end_s": 2485
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C01",
+        "category": "visual",
+        "assertion": "画面从冷色的空厂房切到较暗的居室。",
+        "candidate_quote": "画面从冷色空厂房切进较暗的居室。",
+        "assertion_strength": "asserted",
+        "start_s": 3065.5,
+        "end_s": 3073.5
+      },
+      "status": "contradicted",
+      "checks": [
+        {
+          "claim_id": "C01",
+          "status": "contradicted",
+          "reason": "00:51:05.500首帧已是暗色居室镜前场景，该时段内无冷色空厂房画面，不存在从厂房切入居室的转换。",
+          "start_s": 3065.5,
+          "end_s": 3073.5
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C02",
+        "category": "visual",
+        "assertion": "一名长发女子穿深蓝色上衣，包着浅蓝底小花纹头巾，坐在三面梳妆镜前。",
+        "candidate_quote": "长发女子穿深蓝色上衣、包着浅蓝底小花纹头巾，坐在三面梳妆镜前",
+        "assertion_strength": "asserted",
+        "start_s": 3065.5,
+        "end_s": 3073.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C02",
+          "status": "supported",
+          "reason": "00:51:05.500起可见长发女子穿深蓝上衣、浅蓝底小花纹头巾，坐于三面梳妆镜前。",
+          "start_s": 3065.5,
+          "end_s": 3073.5
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C03",
+        "category": "visual",
+        "assertion": "镜面重复映出女子的脸和头巾。",
+        "candidate_quote": "镜面重复映出她的脸和头巾",
+        "assertion_strength": "asserted",
+        "start_s": 3065.5,
+        "end_s": 3073.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C03",
+          "status": "supported",
+          "reason": "三面镜各面板均重复映出女子面部与头巾，如00:51:05.500-00:51:07.500清晰可见多重反射。",
+          "start_s": 3065.5,
+          "end_s": 3073.5
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C04",
+        "category": "visual",
+        "assertion": "近处椅背和女子的肩背遮住部分台面。",
+        "candidate_quote": "近处椅背与她的肩背遮住部分台面",
+        "assertion_strength": "asserted",
+        "start_s": 3065.5,
+        "end_s": 3073.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C04",
+          "status": "supported",
+          "reason": "前景深色椅背及女子右肩背遮挡了镜面下方台面的部分区域，00:51:05.500-00:51:12.000持续可见。",
+          "start_s": 3065.5,
+          "end_s": 3073.5
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C05",
+        "category": "visual",
+        "assertion": "白色立体多角纸星摆在镜脚、纸张和小物件之间。",
+        "candidate_quote": "白色立体多角纸星摆在镜脚、纸张和小物件之间。",
+        "assertion_strength": "asserted",
+        "start_s": 3065.5,
+        "end_s": 3073.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C05",
+          "status": "supported",
+          "reason": "00:51:05.500-00:51:12.000台面前景可见多枚白色立体多角纸星，周围有纸张等小物件。",
+          "start_s": 3065.5,
+          "end_s": 3073.5
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C06",
+        "category": "visual",
+        "assertion": "女子举起花纹茶杯抿了一口，然后放低杯子并低下眼睛。",
+        "candidate_quote": "她举起花纹茶杯抿一口，再放低杯子、低下眼睛",
+        "assertion_strength": "asserted",
+        "start_s": 3065.5,
+        "end_s": 3073.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C06",
+          "status": "supported",
+          "reason": "00:51:05.500-00:51:07.500女子举花纹杯至唇边抿饮，00:51:08.000放低杯子，00:51:08.500-00:51:09.500垂下目光。",
+          "start_s": 3065.5,
+          "end_s": 3073.5
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C07",
+        "category": "synergy",
+        "assertion": "女子拿着茶杯的动作附近有轻小的杯子接触声。",
+        "candidate_quote": "她举起花纹茶杯抿一口，再放低杯子、低下眼睛；杯子有轻小接触声",
+        "assertion_strength": "asserted",
+        "start_s": 3065.5,
+        "end_s": 3073.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C07",
+          "status": "supported",
+          "reason": "女子放杯动作（约00:51:08）处音频有轻微杯具接触声，与动作同步。",
+          "start_s": 3065.5,
+          "end_s": 3073.5
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C08",
+        "category": "synergy",
+        "assertion": "切入居室后，前一镜的低轰余音很快消退。",
+        "candidate_quote": "前一镜的低轰余音很快消退",
+        "assertion_strength": "asserted",
+        "start_s": 3065.5,
+        "end_s": 3073.5
+      },
+      "status": "uncertain",
+      "checks": [
+        {
+          "claim_id": "C08",
+          "status": "uncertain",
+          "reason": "本段起始即已在居室内，无法确认前一镜是否存在低轰余音及其消退过程。",
+          "start_s": 3065.5,
+          "end_s": 3073.5
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C09",
+        "category": "visual",
+        "assertion": "镜头缓慢横移，椅背一度挡住女子大半张脸。",
+        "candidate_quote": "镜头缓慢横移，椅背一度挡住女子大半张脸",
+        "assertion_strength": "asserted",
+        "start_s": 3073.5,
+        "end_s": 3093.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C09",
+          "status": "supported",
+          "reason": "00:51:09.500-00:51:15.500镜头缓慢右移，椅背逐渐遮住女子大半张脸，至00:51:13.500仅露出头巾边缘。",
+          "start_s": 3073.5,
+          "end_s": 3093.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C10",
+        "category": "visual",
+        "assertion": "右侧镜面逐渐显出门边一名穿深蓝短袖的男子。",
+        "candidate_quote": "画面逐渐在右侧镜面里显出门边一名穿深蓝短袖的男子",
+        "assertion_strength": "asserted",
+        "start_s": 3073.5,
+        "end_s": 3093.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C10",
+          "status": "supported",
+          "reason": "00:51:20.500-00:51:27.500右侧画面/镜面中逐渐显现门边一名穿深蓝短袖T恤的男子。",
+          "start_s": 3073.5,
+          "end_s": 3093.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C11",
+        "category": "visual",
+        "assertion": "男子拿着小容器或包着的小东西，低头动手并把东西送向嘴边。",
+        "candidate_quote": "他拿着小容器或包着的小东西，低头动手、把东西送向嘴边。",
+        "assertion_strength": "asserted",
+        "start_s": 3073.5,
+        "end_s": 3093.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C11",
+          "status": "supported",
+          "reason": "00:51:28.000-00:51:32.500男子手持小容器/包裹物，低头操作后将东西送向嘴边。",
+          "start_s": 3073.5,
+          "end_s": 3093.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C12",
+        "category": "audio",
+        "assertion": "安静的室内有断续的细碎沙沙声、窸窣声和干脆轻喀声。",
+        "candidate_quote": "安静室内有断续的细碎沙沙、窸窣、干脆轻喀声",
+        "assertion_strength": "asserted",
+        "start_s": 3073.5,
+        "end_s": 3093.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C12",
+          "status": "supported",
+          "reason": "00:51:15-00:51:32安静室内可闻断续细碎沙沙、窸窣及干脆轻喀声，对应男子 handling 物品。",
+          "start_s": 3073.5,
+          "end_s": 3093.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C13",
+        "category": "visual",
+        "assertion": "部分动作被椅背和身体挡住。",
+        "candidate_quote": "部分动作被椅背和身体挡住",
+        "assertion_strength": "asserted",
+        "start_s": 3073.5,
+        "end_s": 3093.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C13",
+          "status": "supported",
+          "reason": "00:51:09.500-00:51:27.500椅背与女子身体持续遮挡男子部分动作及台面细节。",
+          "start_s": 3073.5,
+          "end_s": 3093.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C14",
+        "category": "visual",
+        "assertion": "女子突然抬眼并转头看向身后，画面切到她较低角度的近景。",
+        "candidate_quote": "女子突然抬眼、转头看向身后，切到她较低角度的近景",
+        "assertion_strength": "asserted",
+        "start_s": 3093.4,
+        "end_s": 3098.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C14",
+          "status": "supported",
+          "reason": "00:51:33.500硬切至女子较低角度近景，她抬眼转头看向身后方向。",
+          "start_s": 3093.4,
+          "end_s": 3098.0
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C15",
+        "category": "synergy",
+        "assertion": "女子说对方吓到自己，并问他已经站了多久。",
+        "candidate_quote": "她开口说对方吓到自己，问他已经站了多久。",
+        "assertion_strength": "asserted",
+        "start_s": 3093.4,
+        "end_s": 3098.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C15",
+          "status": "supported",
+          "reason": "女子近景中说出'You scared me. You've been there long?'，对应吓到与询问站立时长。",
+          "start_s": 3093.4,
+          "end_s": 3098.0
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C16",
+        "category": "synergy",
+        "assertion": "女子转头、目光上抬时，同步听到带惊讶的近处女声。",
+        "candidate_quote": "转头、目光上抬和带惊讶的近处女声同步",
+        "assertion_strength": "asserted",
+        "start_s": 3093.4,
+        "end_s": 3098.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C16",
+          "status": "supported",
+          "reason": "00:51:33.500-34.000女子转头抬眼的同时，近处传出带惊讶语气的女声台词，音画同步。",
+          "start_s": 3093.4,
+          "end_s": 3098.0
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C17",
+        "category": "visual",
+        "assertion": "画面反打门边男子的脸。",
+        "candidate_quote": "反打门边男子的脸",
+        "assertion_strength": "asserted",
+        "start_s": 3098.0,
+        "end_s": 3108.2
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C17",
+          "status": "supported",
+          "reason": "00:51:36.500切至门边男子面部反打镜头，可见其脸与身旁窗帘、墙上相框。",
+          "start_s": 3098.0,
+          "end_s": 3108.2
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C18",
+        "category": "synergy",
+        "assertion": "男子回答自己站了没有多久。",
+        "candidate_quote": "他回答没有多久",
+        "assertion_strength": "asserted",
+        "start_s": 3098.0,
+        "end_s": 3108.2
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C18",
+          "status": "supported",
+          "reason": "男子在反打镜头中回答'No'，表示并未站很久。",
+          "start_s": 3098.0,
+          "end_s": 3108.2
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C19",
+        "category": "audio",
+        "assertion": "女子抱怨男子本可以敲门。",
+        "candidate_quote": "女子抱怨他本可以敲门",
+        "assertion_strength": "asserted",
+        "start_s": 3098.0,
+        "end_s": 3108.2
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C19",
+          "status": "supported",
+          "reason": "女子画外音说'Could have knocked'，抱怨他本可以敲门。",
+          "start_s": 3098.0,
+          "end_s": 3108.2
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C20",
+        "category": "synergy",
+        "assertion": "男子说给女子带了浆果，接着手和身体向室内移动。",
+        "candidate_quote": "男子说给她带了浆果，接着手和身体向室内移动。",
+        "assertion_strength": "asserted",
+        "start_s": 3098.0,
+        "end_s": 3108.2
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C20",
+          "status": "supported",
+          "reason": "男子说'I brought you some berries'后，00:51:40-41.500手与身体向室内移动，进入镜子构图。",
+          "start_s": 3098.0,
+          "end_s": 3108.2
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C21",
+        "category": "audio",
+        "assertion": "这段对白短促，停顿较多。",
+        "candidate_quote": "对白短促、停顿较多",
+        "assertion_strength": "asserted",
+        "start_s": 3098.0,
+        "end_s": 3108.2
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C21",
+          "status": "supported",
+          "reason": "00:51:34-00:51:41对白仅三四句短句，句间有明显停顿。",
+          "start_s": 3098.0,
+          "end_s": 3108.2
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C22",
+        "category": "synergy",
+        "assertion": "动作间听到轻小踏步、容器或包裹的窸窣声和衣料声。",
+        "candidate_quote": "动作间有轻小踏步、容器／包裹的窸窣和衣料声",
+        "assertion_strength": "asserted",
+        "start_s": 3098.0,
+        "end_s": 3108.2
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C22",
+          "status": "supported",
+          "reason": "男子走入过程中可闻轻小踏步、手中容器/包裹窸窣及衣料摩擦声。",
+          "start_s": 3098.0,
+          "end_s": 3108.2
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C23",
+        "category": "audio",
+        "assertion": "这段对白和动作中没有突出的音乐旋律。",
+        "candidate_quote": "没有突出的音乐旋律",
+        "assertion_strength": "asserted",
+        "start_s": 3098.0,
+        "end_s": 3108.2
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C23",
+          "status": "supported",
+          "reason": "00:51:34-00:51:42对白与动作期间无突出音乐旋律，仅有环境音与人声。",
+          "start_s": 3098.0,
+          "end_s": 3108.2
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C24",
+        "category": "visual",
+        "assertion": "画面回到三面镜子的构图，女子仍坐着，男子站到她身后。",
+        "candidate_quote": "回到三面镜子的构图：女子仍坐着，男子站到她身后",
+        "assertion_strength": "asserted",
+        "start_s": 3108.2,
+        "end_s": 3125.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C24",
+          "status": "supported",
+          "reason": "00:51:42.500起回到三面镜构图，女子仍坐姿，男子已站至其身后可见。",
+          "start_s": 3108.2,
+          "end_s": 3125.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C25",
+        "category": "visual",
+        "assertion": "镜面同时显示两人的正面和侧面，多面镜中的重复画面是同一对人物的反射。",
+        "candidate_quote": "镜面同时显示两人的正面和侧面；多面镜中的重复是同一对人物的反射。",
+        "assertion_strength": "asserted",
+        "start_s": 3108.2,
+        "end_s": 3139.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C25",
+          "status": "supported",
+          "reason": "三面镜同时呈现两人正面与侧面，各面板反射为同一对男女，如00:51:48-55所示。",
+          "start_s": 3108.2,
+          "end_s": 3139.8
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C26",
+        "category": "visual",
+        "assertion": "女子用手整理、触碰头巾边缘、耳旁和头发附近，并抬眼看镜中的男子。",
+        "candidate_quote": "她用手在头巾边缘、耳旁和头发附近整理、触碰，抬眼看镜中男子",
+        "assertion_strength": "asserted",
+        "start_s": 3108.2,
+        "end_s": 3125.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C26",
+          "status": "supported",
+          "reason": "00:51:47.500-55.000女子手触头巾边缘、耳旁发际，并抬眼通过镜面看身后男子。",
+          "start_s": 3108.2,
+          "end_s": 3125.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C27",
+        "category": "visual",
+        "assertion": "男子一手拿着浆果，另一手把小东西递到女子嘴边。",
+        "candidate_quote": "他一手拿着浆果，另一手把小东西递到她嘴边。",
+        "assertion_strength": "asserted",
+        "start_s": 3108.2,
+        "end_s": 3125.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C27",
+          "status": "supported",
+          "reason": "00:51:55-00:52:05男子一手持浆果容器，另一手取小物递至女子嘴边。",
+          "start_s": 3108.2,
+          "end_s": 3125.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C28",
+        "category": "synergy",
+        "assertion": "近处动作间交替出现细小摩擦声、手指取物的轻喀声，以及像嘴边含取和咀嚼的小声音。",
+        "candidate_quote": "细小摩擦、手指取物的轻喀与嘴边含取、咀嚼似的小声音，和这些很近的动作交替出现。",
+        "assertion_strength": "asserted",
+        "start_s": 3108.2,
+        "end_s": 3125.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C28",
+          "status": "supported",
+          "reason": "喂食动作间音频有细小摩擦、手指取物轻喀及嘴边含取咀嚼微声，与近景动作交替。",
+          "start_s": 3108.2,
+          "end_s": 3125.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C29",
+        "category": "visual",
+        "assertion": "两人在镜前时，白色纸星在前景保持可见。",
+        "candidate_quote": "白色纸星在前景保持可见。",
+        "assertion_strength": "asserted",
+        "start_s": 3108.2,
+        "end_s": 3125.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C29",
+          "status": "supported",
+          "reason": "00:51:42.500-00:52:30白色纸星始终在镜面前景台面可见，未被移走。",
+          "start_s": 3108.2,
+          "end_s": 3125.4
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C30",
+        "category": "visual",
+        "assertion": "男子又把一颗浆果送到女子唇边，她张嘴含下，嘴唇和下颌轻动，仍从镜中看他。",
+        "candidate_quote": "男子又把一颗浆果送到女子唇边，她张嘴含下，嘴唇与下颌轻动，仍从镜中看他。",
+        "assertion_strength": "asserted",
+        "start_s": 3125.4,
+        "end_s": 3139.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C30",
+          "status": "supported",
+          "reason": "00:52:05-00:52:15男子再送一颗浆果至女子唇边，她张口含入，唇颌轻动，目光仍经镜面看向他。",
+          "start_s": 3125.4,
+          "end_s": 3139.8
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C31",
+        "category": "visual",
+        "assertion": "男子时而轻碰女子的头巾和发侧，时而把手停在她下巴和嘴边。",
+        "candidate_quote": "他时而抬手轻碰头巾、发侧，时而把手停在她下巴和嘴边",
+        "assertion_strength": "asserted",
+        "start_s": 3125.4,
+        "end_s": 3139.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C31",
+          "status": "supported",
+          "reason": "00:52:15-00:52:30男子手时而碰她头巾/发侧，时而停留在她下巴与嘴边区域。",
+          "start_s": 3125.4,
+          "end_s": 3139.8
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C32",
+        "category": "audio",
+        "assertion": "这段时间两人几乎不说话。",
+        "candidate_quote": "两人几乎不说话",
+        "assertion_strength": "asserted",
+        "start_s": 3125.4,
+        "end_s": 3139.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C32",
+          "status": "supported",
+          "reason": "00:52:05-00:52:30两人之间无对白，仅有动作与微声。",
+          "start_s": 3125.4,
+          "end_s": 3139.8
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C33",
+        "category": "audio",
+        "assertion": "近距离细碎咀嚼声、衣料或包装摩擦声和零星干脆小响比背景更突出。",
+        "candidate_quote": "近距离细碎咀嚼、衣料／包装摩擦和零星干脆小响比背景更突出",
+        "assertion_strength": "asserted",
+        "start_s": 3125.4,
+        "end_s": 3139.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C33",
+          "status": "supported",
+          "reason": "该段近距离咀嚼、包装/衣料摩擦及零星轻喀声在安静背景中较为突出。",
+          "start_s": 3125.4,
+          "end_s": 3139.8
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C34",
+        "category": "synergy",
+        "assertion": "画外电话开始分组响铃，铃声尖亮，具有老式铃声的音色；电话本身不在这一镜的画面里。",
+        "candidate_quote": "画外电话开始分组响铃，尖亮的老式铃声在很静的房间里显得突出。……电话不在这一镜的画面里",
+        "assertion_strength": "asserted",
+        "start_s": 3139.8,
+        "end_s": 3149.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C34",
+          "status": "supported",
+          "reason": "约00:52:21.500起画外响起尖亮老式电话铃声（分组），电话本体不在镜前画面中。",
+          "start_s": 3139.8,
+          "end_s": 3149.8
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C35",
+        "category": "synergy",
+        "assertion": "铃声响起时，女子的眼神和头部转向一旁，男子暂停嘴边的动作并收回手。",
+        "candidate_quote": "女子眼神和头部转向一旁，男子暂停嘴边的动作、把手收回",
+        "assertion_strength": "asserted",
+        "start_s": 3139.8,
+        "end_s": 3149.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C35",
+          "status": "supported",
+          "reason": "铃声响起时（00:52:22-24）女子眼神与头部转向一侧，男子停止嘴边动作并收手。",
+          "start_s": 3139.8,
+          "end_s": 3149.8
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C36",
+        "category": "synergy",
+        "assertion": "铃声间歇再响时，女子抬手摸近头巾侧边，身体转开并开始离开座位。",
+        "candidate_quote": "铃声间歇再响，她抬手摸近头巾侧边，身体转开，开始离开座位。",
+        "assertion_strength": "asserted",
+        "start_s": 3139.8,
+        "end_s": 3149.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C36",
+          "status": "supported",
+          "reason": "铃声间歇再响（00:52:27-30）女子抬手触头巾侧边，身体转开并开始离座。",
+          "start_s": 3139.8,
+          "end_s": 3149.8
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C37",
+        "category": "visual",
+        "assertion": "女子起身从镜前移走后，镜中只剩男子拿着小容器和浆果站在梳妆台后。",
+        "candidate_quote": "女子起身从镜前移走，镜中只剩男子拿着小容器和浆果站在梳妆台后。",
+        "assertion_strength": "asserted",
+        "start_s": 3149.8,
+        "end_s": 3156.2
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C37",
+          "status": "supported",
+          "reason": "00:52:32-35女子起身移出后，镜中仅余男子持小容器与浆果立于梳妆台后。",
+          "start_s": 3149.8,
+          "end_s": 3156.2
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C38",
+        "category": "visual",
+        "assertion": "男子目送女子，低头动手，随后弯身离开镜面的主要区域。",
+        "candidate_quote": "他目送她、低头动手，随后弯身离开镜面的主要区域。",
+        "assertion_strength": "asserted",
+        "start_s": 3149.8,
+        "end_s": 3156.2
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C38",
+          "status": "supported",
+          "reason": "00:52:33-36男子目送女子方向、低头操作手中物，随后弯身移出镜面主要区域。",
+          "start_s": 3149.8,
+          "end_s": 3156.2
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C39",
+        "category": "synergy",
+        "assertion": "女子起身时，衣料摩擦声、脚步声和轻小物件声增多，后一组铃声与这段移动相接。",
+        "candidate_quote": "衣料摩擦、脚步和轻小物件声随着她起身而增加，铃声的后一组与这段移动相接。",
+        "assertion_strength": "asserted",
+        "start_s": 3149.8,
+        "end_s": 3156.2
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C39",
+          "status": "supported",
+          "reason": "女子起身移动时衣料摩擦、脚步及轻物声增多，第二组铃声与此移动在时间上相接。",
+          "start_s": 3149.8,
+          "end_s": 3156.2
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C40",
+        "category": "visual",
+        "assertion": "女子离开镜前后，纸星仍留在台面，没有看到它们被拿走。",
+        "candidate_quote": "纸星仍留在台面，没有看到它们被拿走。",
+        "assertion_strength": "asserted",
+        "start_s": 3149.8,
+        "end_s": 3156.2
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C40",
+          "status": "supported",
+          "reason": "00:52:33-36女子离开后，白色纸星仍留在台面，未见被拿走。",
+          "start_s": 3149.8,
+          "end_s": 3156.2
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C41",
+        "category": "visual",
+        "assertion": "画面硬切到另一处暖色公共室内。",
+        "candidate_quote": "硬切到另一处暖色公共室内",
+        "assertion_strength": "asserted",
+        "start_s": 3156.2,
+        "end_s": 3162.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C41",
+          "status": "supported",
+          "reason": "00:52:36.500硬切至暖色调公共室内（柜台、台灯、制服男子），与前段冷暗居室形成对比。",
+          "start_s": 3156.2,
+          "end_s": 3162.0
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C42",
+        "category": "visual",
+        "assertion": "一名穿橄榄绿色制服外套的男子站在红色立柱旁，拿着有线电话。",
+        "candidate_quote": "穿橄榄绿色制服外套的男子站在红色立柱旁拿着有线电话",
+        "assertion_strength": "asserted",
+        "start_s": 3156.2,
+        "end_s": 3162.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C42",
+          "status": "supported",
+          "reason": "00:52:36.500-41.500可见穿橄榄绿制服外套男子靠红色立柱/墙边，手持有线话筒通话。",
+          "start_s": 3156.2,
+          "end_s": 3162.0
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C43",
+        "category": "visual",
+        "assertion": "后方长木柜台边有一名穿黄色上衣的女子低头工作，柜台上有台灯。",
+        "candidate_quote": "后方长木柜台边一名穿黄色上衣的女子低头工作，柜台有台灯。",
+        "assertion_strength": "asserted",
+        "start_s": 3156.2,
+        "end_s": 3162.0
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C43",
+          "status": "supported",
+          "reason": "背景长木柜台后一名穿黄色上衣女子低头书写/工作，柜台上有一盏台灯。",
+          "start_s": 3156.2,
+          "end_s": 3162.0
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP05",
+      "claim": {
+        "id": "C44",
+        "category": "synergy",
+        "assertion": "拿电话的男子用英语通话，先表明是自己，询问对方是否知道一名朋友在哪里，然后作简短回应。",
+        "candidate_quote": "男子的英语电话声接上来，先表明是自己，询问对方是否知道一名朋友在哪里，再作简短回应。",
+        "assertion_strength": "asserted",
+        "start_s": 3156.2,
+        "end_s": 3162.0
+      },
+      "status": "uncertain",
+      "checks": [
+        {
+          "claim_id": "C44",
+          "status": "uncertain",
+          "reason": "可闻男子说'Hi, it's Major von Stas… Perfect, look…'表明身份并作简短回应，但'询问对方是否知道一名朋友在哪里'的具体内容在此段音频中无法完整确认。",
+          "start_s": 3156.2,
+          "end_s": 3162.0
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C01",
+        "category": "visual",
+        "assertion": "画面从一名穿橙色航天服的男子坐在沙发上，硬切到一辆行驶中的深色老式轿车。",
+        "candidate_quote": "从橙色航天服男子在沙发上的画面硬切到一辆行驶中的深色老式轿车",
+        "assertion_strength": "asserted",
+        "start_s": 4685.8,
+        "end_s": 4693.5
+      },
+      "status": "uncertain",
+      "checks": [
+        {
+          "claim_id": "C01",
+          "status": "uncertain",
+          "reason": "本段起始帧(01:18:05.2)已是雨中挡风玻璃内的轿车，4685.8–4693.5内未出现橙色航天服/沙发画面，无法核实该硬切的前一镜头"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C02",
+        "category": "visual",
+        "assertion": "透过挂满雨水的挡风玻璃，可以看到穿绿色夹克的浅发男子握着方向盘，长发、穿浅色上衣的女子坐在他旁边。",
+        "candidate_quote": "镜头隔着挂满雨水的挡风玻璃看车内：穿绿色夹克的浅发男子握着方向盘，长发、穿浅色上衣的女子坐在旁边",
+        "assertion_strength": "asserted",
+        "start_s": 4685.8,
+        "end_s": 4693.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C02",
+          "status": "supported",
+          "reason": "01:18:05–01:18:07及01:18:15.2、01:18:22.2可见雨水挡风玻璃后浅发男子在驾驶位握方向盘，长发女子穿浅色上衣坐在旁侧"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C03",
+        "category": "visual",
+        "assertion": "雨刷在两人脸前来回扫过，在挡风玻璃上留下短暂清晰的弧形水迹。",
+        "candidate_quote": "雨刷来回扫过两人的脸前，留下短暂清晰的弧形水迹",
+        "assertion_strength": "asserted",
+        "start_s": 4685.8,
+        "end_s": 4693.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C03",
+          "status": "supported",
+          "reason": "01:18:05.2–01:18:07.2、01:18:10.5–01:18:13.5雨刷在两人脸前往复扫过，玻璃上出现短暂清晰的弧形擦痕"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C04",
+        "category": "audio",
+        "assertion": "行车过程中持续可闻低隆声、雨水沙沙声和有规律的刷擦声。",
+        "candidate_quote": "连续的行车低隆、雨水沙沙和有规律的刷擦声",
+        "assertion_strength": "asserted",
+        "start_s": 4685.8,
+        "end_s": 4705.9
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C04",
+          "status": "supported",
+          "reason": "行车段音轨持续有低频行驶隆隆、雨声沙沙及与雨刷同步的规律刷擦声"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C05",
+        "category": "synergy",
+        "assertion": "有规律的刷擦声与雨刷来回扫动的画面对应。",
+        "candidate_quote": "雨刷来回扫过两人的脸前……有规律的刷擦声与这一动作对应",
+        "assertion_strength": "asserted",
+        "start_s": 4685.8,
+        "end_s": 4693.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C05",
+          "status": "supported",
+          "reason": "刷擦声的节奏与画面中雨刷往复扫动一致"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C06",
+        "category": "visual",
+        "assertion": "车身、挡风玻璃和车内两人的局部画面反复切换，玻璃上流过林木倒影，另有树干快速掠过的镜头。",
+        "candidate_quote": "车身、挡风玻璃和车内两人的局部反复切换，林木的倒影从玻璃上流过，另有快速掠过、拉成斜线的树干镜头",
+        "assertion_strength": "asserted",
+        "start_s": 4693.5,
+        "end_s": 4705.9
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C06",
+          "status": "supported",
+          "reason": "01:18:08.5–01:18:09.5、01:18:20.5–01:18:21.5为拉成斜线的掠过树干，其间反复切换车身/挡风玻璃/车内局部，玻璃上有林木倒影流过"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C07",
+        "category": "visual",
+        "assertion": "行车画面中男子一直看前方，女子看向前方或身旁。",
+        "candidate_quote": "男子一直看前方，女子视线落向前方或身旁",
+        "assertion_strength": "asserted",
+        "start_s": 4693.5,
+        "end_s": 4705.9
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C07",
+          "status": "supported",
+          "reason": "01:18:15.2、01:18:22.2男子目视前方驾驶；01:18:05.2、01:18:24.5女子视线朝前或偏向身旁"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C08",
+        "category": "audio",
+        "assertion": "这段行车画面中没有清楚持续的对白或明显配乐。",
+        "candidate_quote": "没有清楚持续的对白或明显配乐",
+        "assertion_strength": "asserted",
+        "start_s": 4693.5,
+        "end_s": 4705.9
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C08",
+          "status": "supported",
+          "reason": "4693.5–4705.9行车段仅有环境声，无清晰对白或明显配乐"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C09",
+        "category": "visual",
+        "assertion": "汽车行驶后，女子腰侧或座椅边的特写显示一只手抓住安全带搭扣的红色部分，按开搭扣并松脱带子，随后手离开，红黑搭扣留在衣料旁。",
+        "candidate_quote": "手指抓住安全带搭扣上的红色部分，扳动、按开并松脱带子，手随即离开，红黑搭扣留在衣料旁……这个准备动作发生在汽车已行驶之后",
+        "assertion_strength": "asserted",
+        "start_s": 4705.9,
+        "end_s": 4707.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C09",
+          "status": "supported",
+          "reason": "01:18:26.2特写中一只手抓住红黑安全带搭扣的红色部分操作后离开，搭扣留在浅色衣料旁，此前车辆已在行驶"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C10",
+        "category": "synergy",
+        "assertion": "搭扣操作时，行车声中出现一个短促的咔哒声，与操作对应。",
+        "candidate_quote": "一个短促干脆的咔哒小响夹在原来的行车声里，与搭扣操作对应",
+        "assertion_strength": "asserted",
+        "start_s": 4705.9,
+        "end_s": 4707.4
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C10",
+          "status": "supported",
+          "reason": "搭扣操作瞬间行车底噪中夹有一声短促咔哒，与扳开动作对应"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C11",
+        "category": "visual",
+        "assertion": "雨刷掠过女子面前的车窗近景后，画面切到树林夹着的笔直公路远景，轿车从远处驶近。",
+        "candidate_quote": "再回到雨刷掠过女子面前的车窗近景，然后切树林夹着的笔直公路远景，轿车从远处驶近",
+        "assertion_strength": "asserted",
+        "start_s": 4707.4,
+        "end_s": 4714.7
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C11",
+          "status": "supported",
+          "reason": "01:18:27.2–01:18:30.2雨刷掠过女子面前车窗后，01:18:31.2–01:18:33.2切为松林夹着的笔直公路远景，轿车由远驶近"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C12",
+        "category": "synergy",
+        "assertion": "镜头转为道路远景时，原先贴近车厢的低隆和刷擦声变得疏远。",
+        "candidate_quote": "镜头距离拉远时，原来贴近车厢的低隆和刷擦声也变得疏远",
+        "assertion_strength": "asserted",
+        "start_s": 4707.4,
+        "end_s": 4714.7
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C12",
+          "status": "supported",
+          "reason": "切至公路远景后，原先贴近车厢的低隆与刷擦声明显变弱变远"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C13",
+        "category": "visual",
+        "assertion": "画面切回车内，女子伸手扳动车门内侧拉手，随后男子突然转头、身体急动，画面出现方向盘近景。",
+        "candidate_quote": "女子的手伸向车门内侧拉手并扳动，随即是男子突然转头、身体急动和方向盘的近景",
+        "assertion_strength": "asserted",
+        "start_s": 4714.7,
+        "end_s": 4717.1
+      },
+      "status": "uncertain",
+      "checks": [
+        {
+          "claim_id": "C13",
+          "status": "uncertain",
+          "reason": "01:18:35.2可见女子的手扳动车门内侧拉手，但采样帧中未见男子转头及方向盘近景，01:18:36.2已切到车外树林"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C14",
+        "category": "synergy",
+        "assertion": "车内突变时响起一声短促急切的男声喊叫。",
+        "candidate_quote": "一声短促而急的男声喊叫与这一突变贴合",
+        "assertion_strength": "asserted",
+        "start_s": 4714.7,
+        "end_s": 4717.1
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C14",
+          "status": "supported",
+          "reason": "车门被扳动、车辆突变时音轨出现一声短促急切的男声喊叫"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C15",
+        "category": "audio",
+        "assertion": "此时出现较硬的喀、砰声，平稳的行驶声被骤然加大的冲撞声打断。",
+        "candidate_quote": "车门／机件发出较硬的喀、砰声，行驶的平稳声底被骤然加大的冲撞声打断",
+        "assertion_strength": "asserted",
+        "start_s": 4714.7,
+        "end_s": 4717.1
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C15",
+          "status": "supported",
+          "reason": "突变处有较硬的喀、砰声，平稳行驶声底被骤然加大的冲撞声打断"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C16",
+        "category": "visual",
+        "assertion": "外景中轿车离开公路，冲上长草和起伏地面，在树干之间剧烈颠簸并扬起尘雾；画面快速交替显示近处车尾和远处树林间的车身。",
+        "candidate_quote": "轿车突然离开公路，冲上长草和起伏地面，在树干之间剧烈颠簸，扬起灰尘／水雾，镜头从近处车尾与远处树林间的车身快速交替",
+        "assertion_strength": "asserted",
+        "start_s": 4717.1,
+        "end_s": 4722.7
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C16",
+          "status": "supported",
+          "reason": "01:18:36.2–01:18:45.2轿车离开公路冲入长草林地，在树干间颠簸扬起尘雾，并与01:18:46.2起的近处车尾镜头交替"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C17",
+        "category": "synergy",
+        "assertion": "车身跳动和陷入草地时伴有连续几下沉重的撞击、震动与刮擦声，随后声音迅速衰减。",
+        "candidate_quote": "连续几下沉重的撞击、震动与刮擦声跟着车身跳动和陷入草地的动作，随后迅速衰减",
+        "assertion_strength": "asserted",
+        "start_s": 4717.1,
+        "end_s": 4722.7
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C17",
+          "status": "supported",
+          "reason": "车身跳动陷入草地时伴连续沉重撞击、震动与刮擦声，随后迅速衰减"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C18",
+        "category": "visual",
+        "assertion": "画面没有清楚展示轿车翻车。",
+        "candidate_quote": "没有清楚展示翻车",
+        "assertion_strength": "asserted",
+        "start_s": 4717.1,
+        "end_s": 4722.7
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C18",
+          "status": "supported",
+          "reason": "全程车辆保持 upright 姿态最终歪停，未出现翻车画面"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C19",
+        "category": "visual",
+        "assertion": "轿车歪停在树间，车尾朝向镜头，周围尘雾慢慢散开，外景维持片刻。",
+        "candidate_quote": "轿车歪停在树间，车尾朝向镜头，周围的尘雾慢慢散开……镜头先让这个停住的外景维持片刻",
+        "assertion_strength": "asserted",
+        "start_s": 4722.7,
+        "end_s": 4730.9
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C19",
+          "status": "supported",
+          "reason": "01:18:40.2–01:18:50.2轿车歪停树间、车尾朝镜头，尘雾渐散，外景维持较长片刻"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C20",
+        "category": "audio",
+        "assertion": "大响过后，连续行驶噪声几乎被规则、细而清楚的哒哒或咔哒声取代，这种声音继续到车内仪表台近景。",
+        "candidate_quote": "出现规则、细而清楚的哒、哒／咔哒声，几乎取代了行驶时的连续噪声……规律滴答声在这个长近景中继续",
+        "assertion_strength": "asserted",
+        "start_s": 4722.7,
+        "end_s": 4747.7
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C20",
+          "status": "supported",
+          "reason": "大响后行驶噪声被规则细碎的哒哒/咔哒声取代，并延续到01:18:51.2起的仪表台近景"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C21",
+        "category": "audio",
+        "assertion": "停住的外景维持期间，车里暂时没有清晰说话。",
+        "candidate_quote": "镜头先让这个停住的外景维持片刻，车里暂时没有清晰说话",
+        "assertion_strength": "asserted",
+        "start_s": 4722.7,
+        "end_s": 4730.9
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C21",
+          "status": "supported",
+          "reason": "停驻外景维持期间音轨无清晰说话声"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C22",
+        "category": "visual",
+        "assertion": "车内仪表台与前排之间的近景中，男子的绿色上身遮住部分前景，画面可见方向盘下方的面板、排挡杆和一枚间歇闪烁的圆形红灯。",
+        "candidate_quote": "前景被男子绿色上身挡住一部分，能见方向盘下方的面板、排挡杆和一枚间歇明灭的圆形红灯",
+        "assertion_strength": "asserted",
+        "start_s": 4730.9,
+        "end_s": 4747.7
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C22",
+          "status": "supported",
+          "reason": "01:18:51.2–01:19:06.2近景中男子绿色上身遮左前景，可见方向盘下方仪表板、排挡杆及一枚间歇明灭的圆形红灯"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C23",
+        "category": "synergy",
+        "assertion": "车内近景中，规律滴答声与红灯反复闪烁同时出现。",
+        "candidate_quote": "规律滴答声在这个长近景中继续，与反复闪烁的红灯同在",
+        "assertion_strength": "asserted",
+        "start_s": 4730.9,
+        "end_s": 4747.7
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C23",
+          "status": "supported",
+          "reason": "该长近景中规律滴答声与红灯反复闪烁同步存在"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C24",
+        "category": "visual",
+        "assertion": "男子身体起初几乎不动，随后肩背略有动作，画面后来转向他更明显的挣扎。",
+        "candidate_quote": "人物身体起初几乎不动，随后肩背略动……画面才转向他较明显的挣扎",
+        "assertion_strength": "asserted",
+        "start_s": 4730.9,
+        "end_s": 4747.7
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C24",
+          "status": "supported",
+          "reason": "01:18:51–01:19:04男子身体几乎不动，01:19:05.2–01:19:06.2肩背略动，随后画面转向其明显挣扎"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C25",
+        "category": "audio",
+        "assertion": "男子肩背略动时响起一阵粗重的清喉或咳声和吸气声。",
+        "candidate_quote": "随后肩背略动，响起一阵粗重清喉／咳声和吸气",
+        "assertion_strength": "asserted",
+        "start_s": 4730.9,
+        "end_s": 4747.7
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C25",
+          "status": "supported",
+          "reason": "肩背略动时音轨出现粗重清喉/咳声与吸气声"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C26",
+        "category": "synergy",
+        "assertion": "声音先让人察觉男子恢复动作，画面随后才转向他更明显的挣扎。",
+        "candidate_quote": "声音先使人察觉他恢复动作，画面才转向他较明显的挣扎",
+        "assertion_strength": "asserted",
+        "start_s": 4730.9,
+        "end_s": 4747.7
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C26",
+          "status": "supported",
+          "reason": "咳声/吸气先于画面提示其恢复动作，之后才见其较明显的挣扎起身"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C27",
+        "category": "visual",
+        "assertion": "从挂着水珠的侧窗外看，男子先低头，随后抬头、用力挪动，打开车门并往外挤，脸上有挤皱表情。",
+        "candidate_quote": "从挂着水珠的侧窗外看，男子低垂着头，随后抬头、用力挪动，打开车门，身体往外挤，脸上有明显痛苦的挤皱表情",
+        "assertion_strength": "asserted",
+        "start_s": 4747.7,
+        "end_s": 4760.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C27",
+          "status": "supported",
+          "reason": "01:19:07.2–01:19:15.2透过挂水珠侧窗见男子先低头后抬头、用力挪动并开门外挤，面部挤皱"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C28",
+        "category": "synergy",
+        "assertion": "男子开门及身体碰撞门框时，有喀、砰与吱动声，并伴随粗重呼吸、低哼和短促呼唤。",
+        "candidate_quote": "开门和身体撞碰门框时有喀、砰与吱动声，伴随粗重呼吸、低哼和短促呼唤",
+        "assertion_strength": "asserted",
+        "start_s": 4747.7,
+        "end_s": 4760.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C28",
+          "status": "supported",
+          "reason": "开门及身体碰触门框时有喀、砰与吱动声，伴粗重呼吸、低哼和短促呼唤"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C29",
+        "category": "visual",
+        "assertion": "镜头切到女子时，她的头和上身向前歪着，长发遮住部分面孔，没有明显主动反应。",
+        "candidate_quote": "镜头切到女子，她头和上身向前歪着，长发遮住部分面孔，没有明显主动反应",
+        "assertion_strength": "asserted",
+        "start_s": 4747.7,
+        "end_s": 4760.8
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C29",
+          "status": "supported",
+          "reason": "01:19:16.2–01:19:20.2女子头与上身前歪、长发遮面，无明显主动反应"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C30",
+        "category": "visual",
+        "assertion": "男子从车外绕近，弯腰探回女子一侧，伸手到她的肩背并将她抱住、托起。",
+        "candidate_quote": "男子从车外绕近、弯腰探回女子这一侧，手伸向她的肩背，把她抱住、托起",
+        "assertion_strength": "asserted",
+        "start_s": 4760.8,
+        "end_s": 4773.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C30",
+          "status": "supported",
+          "reason": "01:19:21.2–01:19:30.2男子弯腰探回女子一侧，手伸向其肩背将其抱住托起，01:19:31.2外景见其抱人移动"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C31",
+        "category": "visual",
+        "assertion": "搬抱近景中男子的脸贴近女子衣肩，随后她的浅色衣料和头发从车门口掠过，脚和门边也短暂入镜。",
+        "candidate_quote": "近景中他的脸贴近她衣肩，接着她的浅色衣料和头发从车门口掠过，脚与门边也短暂入镜",
+        "assertion_strength": "asserted",
+        "start_s": 4760.8,
+        "end_s": 4773.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C31",
+          "status": "supported",
+          "reason": "01:19:25.2–01:19:28.2男子脸贴近女子浅色衣肩，01:19:29.2–01:19:30.2浅色衣料、头发及门边短暂入镜"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C32",
+        "category": "synergy",
+        "assertion": "搬抱动作伴有急促喘气、用力哼声、布料窸窣和车门或车身轻碰声。",
+        "candidate_quote": "急促喘气、用力的哼声、布料窸窣和车门／车身轻碰伴着搬抱动作",
+        "assertion_strength": "asserted",
+        "start_s": 4760.8,
+        "end_s": 4773.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C32",
+          "status": "supported",
+          "reason": "搬抱过程伴急促喘气、用力哼声、布料窸窣及车门/车身轻碰声"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "target_id": "CAP06",
+      "claim": {
+        "id": "C33",
+        "category": "visual",
+        "assertion": "约4771秒画面切到车外树林时，男子已抱着女子离开座位。",
+        "candidate_quote": "约4771秒切到车外树林，他已抱着她离开座位",
+        "assertion_strength": "asserted",
+        "start_s": 4771.0,
+        "end_s": 4773.5
+      },
+      "status": "supported",
+      "checks": [
+        {
+          "claim_id": "C33",
+          "status": "supported",
+          "reason": "01:19:31.2(约4771)切到车外树林俯拍时，男子已抱着女子离开座位向外移动"
+        }
+      ],
+      "human_verified": false
+    }
+  ]
+}
