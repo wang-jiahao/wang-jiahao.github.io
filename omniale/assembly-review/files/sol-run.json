@@ -1,0 +1,37 @@
+{
+  "case": "assembly_av_handover",
+  "material_version": "v4",
+  "rubric_version": "assembly-av-v4-fields-macro-1",
+  "tag": "sol_xhigh_p04_20261111",
+  "model": "gpt-6.1-sol",
+  "requested_effort": "xhigh",
+  "network": "enabled; normal proxy inherited; API direct; web_search live",
+  "started_at": "2026-11-11T10:41:09.855211+00:00",
+  "finished_at": "2026-11-11T12:11:10.754223+00:00",
+  "elapsed_seconds": 5400.89,
+  "exit_code": 1,
+  "timed_out": true,
+  "turn_completed": false,
+  "codex_version": "codex-cli 0.166.0-alpha.5.1",
+  "state": "api_or_execution_failure",
+  "network_checks": [
+    {
+      "url": "https://pypi.org/simple/numpy/",
+      "status": 200
+    },
+    {
+      "url": "https://huggingface.co/api/models?limit=1",
+      "status": 200
+    }
+  ],
+  "freeze_sha256": "f69e995b53cfec6f2b40cee7f88458a6c531ca14ac083b1d6f55af810356e783",
+  "timeout_seconds": 5400,
+  "actual_effort": "xhigh",
+  "actual_turn_settings": [
+    {
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh"
+    }
+  ],
+  "same_material_run_count": 1
+}

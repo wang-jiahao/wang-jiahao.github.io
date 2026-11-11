@@ -1,0 +1,110 @@
+---
+layout: null
+sitemap: false
+permalink: /omniale/assembly-review/
+---
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>OmniALE · 角磨机装配动作台账</title><style>
+:root{--bg:#f4f3ee;--paper:#fffefa;--ink:#172c32;--muted:#647374;--line:#d9deda;--accent:#166f68;--soft:#e4efea;--warm:#b97131}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;font-size:15px;line-height:1.65}
+main{max-width:1180px;margin:auto;padding:36px 40px 90px}
+h1{font-size:33px;line-height:1.3;letter-spacing:-.02em;margin:0 0 10px;font-weight:650}
+h2{font-size:21px;margin:38px 0 12px;font-weight:600;border-top:1px solid var(--line);padding-top:26px}
+h3{font-size:16px;margin:22px 0 8px;font-weight:600}
+.eyebrow{color:var(--accent);font-size:12px;letter-spacing:.12em;font-weight:650;margin-bottom:10px}
+.lead{color:#52686c;font-size:16.5px;max-width:900px}
+.tag{display:inline-block;font-size:12px;color:var(--accent);background:var(--soft);padding:2px 9px;border-radius:4px;margin:0 6px 6px 0}
+.tag.gray{background:#e9ece6;color:#52666b}
+table{border-collapse:collapse;width:100%;font-size:13.5px;background:var(--paper);margin:6px 0 4px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:12px;white-space:nowrap}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+pre{white-space:pre-wrap;font-size:12.5px;background:var(--paper);border:1px solid var(--line);padding:14px;border-radius:6px;max-height:420px;overflow:auto}
+img{max-width:100%;border:1px solid var(--line);background:#fff;border-radius:4px}
+audio,video{width:100%}
+details>summary{cursor:pointer;color:var(--accent);font-size:14px}
+.ok{color:#166f68;font-weight:650}.no{color:var(--warm);font-weight:650}
+.note{color:var(--muted);font-size:13px}
+.pill{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:10px;background:#e9ece6;color:#52666b;margin-left:6px}
+.major{background:#f5e3d7;color:#9a4f17}
+</style><link rel="stylesheet" href="assembly.css"></head><body><main>
+<a class="back" href="../">← OmniALE 案例</a><div class="eyebrow">OMNIALE · 企业协作与数字业务 / 装配记录交接</div>
+<h1>角磨机装配录像 → 双手动作证据台账</h1><p class="lead">根据口头交接最后确认的归档范围，逐次识别真实装配过程中的取起、转交、对位、贴合、旋拧和翻面，为左右手建立可以回到原片核查的动作记录。</p>
+<span class="tag">真实工业装配 · 双视角</span><span class="tag">原片 2分53.8秒</span><span class="tag">交接语音 3分18.7秒</span><span class="tag">7类动作 · 9类对象</span><span class="tag gray">后期合成交接</span>
+<nav class="toolbar toc"><a href="#task">任务定义</a><a href="#results">运行结果</a><a href="#trajectory">轨迹</a><a href="#analysis">失败分析</a></nav>
+<h2 id="task">一、任务定义</h2>
+<p>委托场景：培训资料负责人要将一段角磨机装配记录整理成可复查的动作证据。音频中的负责人明确更正操作员建议，确定最终归档口径；Agent需要把这套口径落实到实际画面，而不是只输出几个装配大步骤。</p>
+<div class="card"><h3>先听最终归档口径</h3><audio controls preload="metadata" src="media/handover.wav"></audio><p class="note">完整输入语音。两种声音分别由负责人、操作员在首次发言中自报角色；只有负责人明确确认／采纳才生效。此录音为后期合成委托，非现场原声。<a href="media/handover.wav" download>下载WAV</a>。</p></div>
+<div class="grid"><figure class="card"><h3>front · 计分主时钟</h3><video id="front" controls preload="metadata" poster="assets/front.jpg" src="media/front.mp4"></video><figcaption class="note">1280×720、30fps、173.8秒；与正式输入逐字节相同。正面图像左右与操作者解剖左右相反。<a href="media/front.mp4" download>下载MP4</a>。</figcaption></figure><figure class="card"><h3>top · 辅助证据</h3><video id="top" controls preload="metadata" poster="assets/top.jpg" src="media/top.mp4"></video><figcaption class="note">同一次操作的完整俯视录像，保留名义原时钟。所有交付时间以front为准；不要求求解亚秒跨视角同步。<a href="media/top.mp4" download>下载MP4</a>。</figcaption></figure></div><p id="seek-note" class="note" aria-live="polite"></p>
+<div class="grid"><article class="card"><h3>需要辨认的动作</h3><p>取起、放下／归还、手间转交、翻面、对位调整、插入／贴合、旋拧。区分同一手先后改变的动作，同时保留两手确实参与的并行记录；连续旋拧不按每一圈拆分。</p></article><article class="card"><h3>需要交付的文件</h3><p><code>actions.json</code>动作台账，<code>policy.json</code>最终口径，<code>report.html</code>可搜索筛选与回放的网页，及说明方法、未知项和来源的<code>README.md</code>。</p></article></div>
+<p>对象采用九个可观察的上位类别。细小紧固件、弹簧和拨件统一接受“小附件”，不要求猜螺钉规格或工具尖端。左手111–118秒、146–150秒的工具尖端协作存在细分歧义，候选和参考均提前排除；不把合理未知或另一种描述当成失败。</p>
+<details class="card"><summary>展开验收与部分分规则</summary><div class="table-wrap"><table><tr><th>分项</th><th>满分</th><th>判定方式</th></tr><tr><td>动作类型</td><td>35</td><td>7类分别计算时间相符的F1，再等权平均</td></tr><tr><td>对象</td><td>20</td><td>9类独立计算F1；不要求动作与手别同时正确</td></tr><tr><td>手别</td><td>15</td><td>左右手独立字段F1</td></tr><tr><td>定位覆盖</td><td>5</td><td>只看时间区间的一对一匹配F1</td></tr><tr><td>口头最终口径</td><td>10</td><td>两段范围、手轨、动作集合及排除项，按字段给分</td></tr><tr><td>网页交付</td><td>10</td><td>完整可读，可搜索筛选，音频与原片区间可回放</td></tr><tr><td>说明与来源</td><td>5</td><td>方法、未知项、许可、可靠打开方法</td></tr></table></div><p>各分项加权相加。时间相符接受区间IoU≥0.25，或开始差≤1.2秒且结束差≤2秒。动作、对象、手别分别匹配，不采用整行必须全对的严格口径；另报微平均F1。类别等权可防止高频旋拧覆盖少量但必要的转交和翻面。</p><p class="note">题面、材料与评分在试跑前冻结。源研究标签仅作候选参考，normal／anomaly不用于判断故障或责任；自动失分须结合实际画面保守复核，合理合并、遮挡与标签分歧只向上修正。</p></details>
+<details class="card"><summary>任务原文与完整输入下载</summary><pre># 角磨机装配动作证据交接
+
+培训资料负责人给出一份有后续更正的口头交接。请依据其最终确认的归档范围，检查真实装配录像，为操作者左右手分别建立可回放的动作台账。任务关注实际可见动作，不要求判断产品是否合格，不从遮挡推断扭矩、安装成功或运行安全。
+
+## 材料
+
+- `input/front.mp4`：完整正面录像，1280×720、30fps、173.8秒，是唯一报告时钟。
+- `input/top.mp4`：同次操作的完整俯视辅助录像，名义时钟相同；不要求恢复亚秒跨视角同步。所有最终时间以front为准，不能因为俯视遮挡而忽略可回查的正面过程。
+- `input/handover.wav`：两位角色的后期合成中文交接，明确属于拟制任务要求，不是现场录音。负责人有最终权限；操作员建议须明确获采纳才生效。音频决定最终时间范围、动作范围、手轨与排除项，请恢复为`policy.json`。不要把任务原文当作完整交接口径。
+- 本地`local_asr.py`是通用转写工具，没有内置交接逐字稿或答案。允许联网、安装工具、脚本、逐帧查看和本地模型；保留正常网络与代理。不得检索原数据集标注、现成答案或读取本机其他实验目录、作者评分／参考文件。
+
+原始同一次视频的不同视角是辅助证据，不是另一遍操作。输入没有镜像；左右手指操作者自己的解剖左右，正面图像左右会相反。单次物理动作若两手都执行对应工作动作，可在各自手轨各记一条；单纯扶持的手不因此产生工作动作。
+
+## 动作与对象
+
+动作使用七类，不需要猜原始研究的细粒度标签或异常类型：
+
+| action | 含义 |
+|---|---|
+| pick_up | 从料盒或桌面取起一个对象；伸手尚未取持不独立算一次 |
+| put_down | 把对象放回桌面、料盒或归还工具 |
+| transfer | 对象由一手转交另一手，该手明确参加转交 |
+| flip | 主体或部件明显翻面、改变朝向；普通细微抖动不算 |
+| adjust | 对位、调整、摆正或找孔；不能仅凭接近断言接合 |
+| fit | 插入、贴合、压入、就位或将部件装到一起；只指可见动作，不证明最终成功 |
+| fasten | 手指起扣、手拧或工具旋拧的可见动作；不把每次往复或每转一圈拆成新事件 |
+
+`object`用以下九类：`body`黑色机体／含已插轴的机体，`shaft`长金属轴／转子，`gear`轴周围较小的齿轮状圆件，`adapter_plate`较早取用的平板／环状适配件，`bearing_plate`后续从料盒取出的较大圆盘总成，`small_attachment`细小紧固件／弹簧／拨件，`handle`末段取用的黑色长柄，`screwdriver`各类柄式螺丝刀，`wrench`开口／组合扳手。不需要在遮挡下区分M4／M6、螺钉／垫圈，或猜十字／Torx尖端。可用上位概念小附件；更细名字可在说明写，不因此加减分。
+
+分别沿两只手观察，不要用“安装转子0–32秒”一条大阶段替代其中可区分的取起、转交、对位、插入等事件。反之，同一手、同类动作、同一对象的连续操作不要按手抖、工具往复或原始异常标签切碎；短于0.8秒且未转为其他归档动作的中断可合并。换动作、换对象或明显结束后重新开始应分开。跨口头政策时间界限的事件按开始时所属口径处理并保留完整区间。
+
+看不清动作、对象或手别可将该字段写null，并说明可见事实和未知边界。不要为了凑条数编造。视频没有展示的内部接合结果不在本题要求中。
+
+试跑前已明确的审查排除区间见`input/evaluation_exclusions.json`：左手111–118秒、146–150秒的工具尖端协作准备存在动作细分歧义，不计入各项动作指标；这些区间内的左手候选与参考均排除，不罚合理未知或另一种动作描述。区间用front时钟，事件中点落入时排除，其他手与时间照常。仍可在报告中记录这些观察。
+
+## 交付
+
+写入`output/`：
+
+1. `actions.json`：`{&quot;events&quot;:[{&quot;id&quot;:&quot;E001&quot;,&quot;hand&quot;:&quot;left&quot;,&quot;start_s&quot;:12.3,&quot;end_s&quot;:14.2,&quot;action&quot;:&quot;adjust&quot;,&quot;object&quot;:&quot;shaft&quot;,&quot;evidence&quot;:[{&quot;file&quot;:&quot;front.mp4&quot;,&quot;start_s&quot;:11.5,&quot;end_s&quot;:15.0}],&quot;note&quot;:&quot;可见事实与不确定性&quot;}]}`。上述时间是格式示例，不是答案。hand仅为left或right，每条属于一条手轨，可自由安排ID。
+2. `policy.json`：包含`first`和`second`两段口头最终范围，各有`start_s`、`end_s`、`hands`数组、`actions`数组；另有`record_holds`布尔、`clock`字符串、`bilateral_as_two_tracks`布尔。这些值从交接音频恢复，不从示例推测。
+3. `report.html`：默认展示全部归档动作，可按手、动作、对象和文本筛选；每条能回放front中的对应区间，并能查看top辅助证据。两手可并行，不能把合法同时事件去重掉。保留音频政策回听入口。
+4. `README.md`：方法、主要发现、未知项、来源许可及可靠打开方法。无需另导出所有视频短片；可直接用原片时间段跳转，必要时附图。
+
+## 公开评分：独立字段部分分
+
+总分100：动作类型35、对象20、手别15、定位覆盖5、音频最终口径10、网页可用10、说明与来源5。**动作、对象、手别分别计算F1，不以整条所有字段同时正确才算成功。** 一个动作类型正确、对象错的事件仍可得动作分；手别与定位也独立。
+
+每个字段先在时间相符的候选与参考事件间做最大一对一匹配，再在该字段的类别间等权平均F1（动作7类、对象9类、手2类），最后按上述权重相加。如此不会让高频“旋拧／小附件”掩盖少量但必要的取起、转交、翻面等。另报微平均F1作为诊断，主分不使用全记录严格命中率。
+
+时间相符接受区间交并比IoU≥0.25，或开始差≤1.2秒且结束差≤2秒，两者满足其一即可；不苛求逐帧边界。若合理边界、连续合并、遮挡或源标签与实际画面存在分歧，须保守复查，只向上修正／排除争议，不将研究标注当作不可质疑的现场事实。细小对象按以上上位类别评分。
+
+口头政策按字段给部分分，口径时间误差容差0.2秒；这针对清楚读出的范围数字，不是实际动作边界。未知字段不连带取消该事件的其他正确字段。未列出、重复或幻觉事件会影响对应类别的精确率，不能靠大量猜测提升分数。
+
+解题预算90分钟，允许联网。请优先提交可用部分结果，不因少数不确定项不交付。API或作者中断单独记录，不能当模型零分。
+</pre><p>完整正式输入（128.0 MiB，无作者答案）：<a href="files/materials.zip.part01" download>分片1（80.0 MiB）</a> · <a href="files/materials.zip.part02" download>分片2（48.0 MiB）</a>。将全部分片、<a href="files/material-parts.json" download>校验清单</a>及<a href="files/join-materials.ps1" download>PowerShell合并脚本</a>保存到同一目录后运行脚本，逐片校验并生成ZIP。</p><p class="note">ZIP SHA256：<code>ddec7d4704385d2f744065357a20578acb839d4ed601717d6d94f1e7d68ac89f</code>。网页两个MP4和WAV均与正式输入逐字节一致，可分别直接下载。</p><p><a href="files/TASK.md">任务原文</a> · <a href="files/evaluation_exclusions.json">公开排除区间</a> · <a href="files/material-manifest.json">冻结清单</a> · <a href="files/SOURCE_CREDIT.md">来源与修改</a></p></details>
+<h2 id="results">二、运行结果</h2>
+<div class="find"><span class="score">现有产物诊断下界 ≥61.23 / 100</span><p>现有产物的保守诊断下界为61.23。运行被原设90分钟上限中止，不能计作完整正式模型成绩；对象定义与分段等价尚未穷尽审计。该版本未达到低综合分难例的筛选目标。</p></div><div class="table-wrap"><table><tr><th>模型</th><th>实际强度</th><th>耗时</th><th>产物诊断下界</th><th>状态</th></tr><tr><td>gpt-6.1-sol</td><td>xhigh</td><td>90分0.9秒</td><td><b>≥61.23</b></td><td>exit 1 · 90分钟中断</td></tr></table></div><p class="note">真实Codex CLI，NJU Link直连，联网；冻结v4／assembly-av-v4-fields-macro-1。本次原设90分钟截止；运行未正常结束。数字只评价已交付产物，完整语义审计仍待完成，不计作完整正式模型成绩。 <a href="files/sol-run.json">设置与耗时</a> · <a href="files/sol-score.json">诊断下界</a> · <a href="files/sol-raw-score.json">原始诊断</a> · <a href="files/audit.json">审计说明</a>。</p><details class="card"><summary>分项成绩与宏／微平均诊断</summary><table><tr><th>分项</th><th>成绩</th></tr><tr><td>动作类型</td><td>18.362 / 35</td></tr><tr><td>对象</td><td>12.771 / 20</td></tr><tr><td>手别</td><td>9.762 / 15</td></tr><tr><td>定位覆盖</td><td>3.333 / 5</td></tr><tr><td>音频口径</td><td>10.000 / 10</td></tr><tr><td>网页</td><td>2 / 10</td></tr><tr><td>说明与来源</td><td>5 / 5</td></tr></table><table><tr><th>字段</th><th>类别等权F1</th><th>微平均F1</th></tr><tr><td>动作</td><td>52.46%</td><td>55.17%</td></tr><tr><td>对象</td><td>63.86%</td><td>59.77%</td></tr><tr><td>手别</td><td>65.08%</td><td>65.52%</td></tr></table><p>原口径产物诊断 60.319700，已确认保守下界 61.228791。网页按原HTML在Chrome中的实际状态计2/10，说明5/5。只将front.mp4与front视为同一主时钟，恢复0.909091分。工具／受影响零件的对象解释及合理分段仍可能上调；当前下界不是最终校准分。</p></details><p class="note"><a href="files/evaluator-reference.zip">评审参考与复算脚本（非解题输入）</a> · <a href="files/original-browser-evidence.json">原HTML的Chrome取证</a> · <a href="files/preview-validation.json">发布兼容预览验收</a>。</p>
+<h3>实际交付</h3><div class="toolbar"><a href="preview/output/report.html">可用回放预览（发布者兼容修复）</a><a href="submission.html">结构化记录阅读器</a><a href="files/sol-output.zip">原始完整交付ZIP</a><a href="files/sol-original-report.html" download>原始HTML</a><a href="files/sol-actions.json">原始动作JSON</a><a href="files/sol-policy.json">原始口径JSON</a><a href="files/sol-README.md">原始README</a></div><p>已保留actions.json、policy.json、report.html、README.md及核查图和验证记录。原HTML因顶层top声明报错，默认表格0行；发布兼容预览恢复115行和全部交互，未改模型答案，修复未回填模型得分。</p><p class="note">兼容修复预览将脚本放入独立作用域，并适配媒体路径；模型JSON和答案保持原样，修复不计入模型交付得分。原始HTML及附图保留在完整交付包。<a href="files/preview-patch.json">修复与哈希记录</a> · <a href="files/sol-submission-manifest.json">原交付清单</a>。</p>
+<h2 id="trajectory">三、轨迹</h2>
+<p>逐段抽帧建立115条动作记录，再用DOM模拟核验报告交互。</p><div class="toolbar"><a href="traces.html?run=sol">过程总结</a><a href="traces.html?run=sol&amp;view=key">关键步骤</a><a href="traces.html?run=sol&amp;view=all">全部记录</a><a href="files/sol-visible-trace.json.gz">下载可见轨迹</a></div><p class="note">默认先读总结；全部可见命令、输出和回复可展开。保留失败与恢复，脱敏个人路径和凭据；不展示隐藏推理。</p>
+<h2 id="analysis">四、失败分析</h2>
+<div class="find">原报告的Chrome空表是已复现的交付故障；对象语义和分段则含评分口径分歧。语音最终口径已完整恢复。当前产物诊断不能直接解释为事实正确率，也不足以将v4认定为低分视听难例。</div><article class="finding"><h3>1. 原HTML在真实浏览器中无法执行，DOM模拟没有覆盖该错误</h3><p>Chrome打开原报告即报“Identifier &#x27;top&#x27; has already been declared”，表格显示0条。脚本把视频元素命名为顶层const top，碰到浏览器已有的Window.top；这阻止了数据渲染、筛选及事件按钮初始化。内嵌JSON本身与115条原始记录一致，原生音视频控件仍可播放，因此网页保守计2/10。</p><p>运行中的Node语法与20项jsdom交互模拟均通过，README也明确真实浏览器实测未完成。发布者将交互脚本封入独立函数作用域，Chrome即恢复115条；双视角首尾跳转、筛选、音频回听与手机布局实测通过。预览清楚标注这项兼容修复，原始HTML和分数继续保留。</p><pre><code>const $=id=&gt;document.getElementById(id),front=$(&#x27;front&#x27;),top=$(&#x27;top&#x27;),audio=$(&#x27;audio&#x27;);
+
+// 原HTML的Chrome实测错误
+SyntaxError: Identifier &#x27;top&#x27; has already been declared</code></pre><div class="grid"><figure><img loading="lazy" src="assets/sol-original-empty.png" alt="原HTML：Chrome脚本报错，表格0条。"><figcaption class="note">原HTML：Chrome脚本报错，表格0条。</figcaption></figure><figure><img loading="lazy" src="assets/sol-preview-working.png" alt="发布者兼容预览：数据仍为原始115条；修复未计入模型成绩。"><figcaption class="note">发布者兼容预览：数据仍为原始115条；修复未计入模型成绩。</figcaption></figure></div><p class="evidence-links"><a href="traces.html?run=sol&amp;view=all&amp;event=41#event-41">操作 #41</a> · <a href="traces.html?run=sol&amp;view=all&amp;event=47#event-47">操作 #47</a> · <a href="traces.html?run=sol&amp;view=all&amp;event=57#event-57">操作 #57</a> · <a href="traces.html?run=sol&amp;view=all&amp;event=60#event-60">操作 #60</a></p></article><article class="finding"><h3>2. 旋拧的“对象”存在工具与受影响零件两种合理解释</h3><p>例如E065将94.4–106.7秒右手旋拧记为fasten／screwdriver，说明中写明绿色柄螺丝刀持续转动。当前来源参考对应时段按被紧固的小附件归类。题面列出了工具与零件，却没有充分规定object必须取施事工具还是受影响零件；两者不能直接判成同一种识别错误。</p><p>这一歧义尚未完成统一等价复算。对象12.77/20属于当前脚本口径，不能读成部件事实正确率；当前61.23仅为已确认的保守下界。完整产物与评审参考可下载复核。</p><p class="evidence-links"><a href="traces.html?run=sol&amp;view=all&amp;event=24#event-24">操作 #24</a> · <a href="traces.html?run=sol&amp;view=all&amp;event=35#event-35">操作 #35</a> · <a href="traces.html?run=sol&amp;view=all&amp;event=60#event-60">操作 #60</a> · <a href="#task" data-clip="front,94.4,106.7">原片94.4–106.7秒</a></p></article><article class="finding"><h3>3. 115条观察与61条参考的分段粒度影响F1</h3><p>候选含115条，排除2条公开歧义观察后计分113条；参考为61条。只看时间区间时，最大匹配覆盖参考中的58条：召回95.1%、精确率51.3%，F1为66.7%。这只说明时间覆盖，不代表58条的动作类型与对象都正确。</p><p>来源参考会将某些连续旋拧合成长段，并合并细标签及normal/anomaly边界；候选则区分取持、对位、贴合、换指和再次操作。部分拆分可能有画面依据，部分也可能过细，需要逐段审查。当前不能将多出的记录一概称为幻觉，完整语义等价审计仍待完成。</p><p class="evidence-links"><a href="traces.html?run=sol&amp;view=all&amp;event=18#event-18">操作 #18</a> · <a href="traces.html?run=sol&amp;view=all&amp;event=25#event-25">操作 #25</a> · <a href="traces.html?run=sol&amp;view=all&amp;event=35#event-35">操作 #35</a> · <a href="traces.html?run=sol&amp;view=all&amp;event=38#event-38">操作 #38</a> · <a href="#task" data-clip="front,52.8,82.8">原片52.8–82.8秒</a></p></article><article class="finding"><h3>4. 交接语音的最终要求已恢复，时钟字符串差异已接受</h3><p>large-v3-turbo全段转写与medium局部复核均恢复83秒和173.8秒。两手、前半六类动作、后半增加放下／归还、单纯扶持排除，以及操作员建议被否决的结论均正确。</p><p>原policy.json使用clock=front.mp4，而脚本参考写front；这是同一主视频的无歧义表达。恢复该单元后，音频口径为10/10，总诊断增加0.909091分。这一轮的低项不能归因为最终交接口径没有听懂。</p><p class="evidence-links"><a href="traces.html?run=sol&amp;view=all&amp;event=11#event-11">操作 #11</a> · <a href="traces.html?run=sol&amp;view=all&amp;event=15#event-15">操作 #15</a> · <a href="traces.html?run=sol&amp;view=all&amp;event=27#event-27">操作 #27</a> · <a href="traces.html?run=sol&amp;view=all&amp;event=28#event-28">操作 #28</a> · <a href="traces.html?run=sol&amp;view=all&amp;event=30#event-30">操作 #30</a></p></article><article class="finding"><h3>5. 90分钟中断使本轮缺少正常完成记录</h3><p>台账、口径、HTML和说明均已落盘，最后可见命令再次检查四项文件与DOM验证结果；运行器在5400.89秒时按原设上限终止进程，exit1，未收到turn.completed。</p><p>因此本页评价的是已有产物，并保留真实中断状态；不计模型零分，也不将诊断下界当作正常完成的正式成绩。原设90分钟是作者本轮运行配置，未形成可跨条件直接比较的完成成绩。</p><p class="evidence-links"><a href="traces.html?run=sol&amp;view=all&amp;event=59#event-59">操作 #59</a> · <a href="traces.html?run=sol&amp;view=all&amp;event=60#event-60">操作 #60</a></p></article>
+<footer><p class="note">真实视频：IMPACT v1.1，Di Wen等，<a href="files/CITATION.cff">完整作者</a>。媒体与派生材料为CC BY-NC-SA 4.0，限非商业研究／教育并保留署名与相同许可。<a href="files/LICENSE-DATA.txt">来源许可</a> · <a href="files/SOURCE_CREDIT.md">修改说明</a>。辅助审查不等于独立人类认证。</p></footer>
+</main><script src="assembly-v4.js"></script></body></html>

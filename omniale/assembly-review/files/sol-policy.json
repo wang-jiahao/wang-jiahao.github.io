@@ -1,0 +1,26 @@
+{
+  "first": {
+    "start_s": 0,
+    "end_s": 83,
+    "hands": ["left", "right"],
+    "actions": ["pick_up", "transfer", "adjust", "fit", "fasten", "flip"]
+  },
+  "second": {
+    "start_s": 83,
+    "end_s": 173.8,
+    "hands": ["left", "right"],
+    "actions": ["pick_up", "transfer", "adjust", "fit", "fasten", "flip", "put_down"]
+  },
+  "record_holds": false,
+  "clock": "front.mp4",
+  "bilateral_as_two_tracks": true,
+  "boundary_rule": "事件按开始时间选择口径；跨83秒保留完整区间，不拆成两次。前段为[0,83)，后段为[83,173.8]。",
+  "authority": "培训资料负责人最终确认；操作员建议不因提出或沉默而生效。",
+  "audio_source": "handover.wav",
+  "audio_evidence": [
+    {"start_s": 8.74, "end_s": 28.8, "supports": "解剖左右、两条手轨、排除单纯扶持，逐次定位"},
+    {"start_s": 39.86, "end_s": 83.08, "supports": "否决初稿，确认0至83秒之前六类；83至173.8秒七类；跨界按开始时间"},
+    {"start_s": 93.3, "end_s": 120.16, "supports": "双手分别记录，合法同时动作保留；手指起扣、手拧、工具旋拧均保留；对位与结合区分"},
+    {"start_s": 178.14, "end_s": 197.86, "supports": "最后再否决省略取起的建议，维持两段范围与两条手轨"}
+  ]
+}

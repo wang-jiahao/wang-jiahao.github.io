@@ -1,0 +1,232 @@
+{
+  "material_version": "v4",
+  "rubric_version": "assembly-av-v4-fields-macro-1",
+  "automatic_points_out_of_85": 53.319700060462615,
+  "breakdown": {
+    "action": 18.36205122781378,
+    "object": 12.771043771043772,
+    "hand": 9.762362637362637,
+    "localization": 3.333333333333333,
+    "audio_policy": 9.090909090909092
+  },
+  "field_metrics": {
+    "action": {
+      "macro_f1": 0.5246300350803937,
+      "micro_f1": 0.5517241379310345,
+      "classes": [
+        {
+          "label": "pick_up",
+          "true_positives": 16,
+          "predicted": 22,
+          "expected": 18,
+          "f1": 0.8
+        },
+        {
+          "label": "put_down",
+          "true_positives": 1,
+          "predicted": 6,
+          "expected": 2,
+          "f1": 0.25
+        },
+        {
+          "label": "transfer",
+          "true_positives": 7,
+          "predicted": 10,
+          "expected": 9,
+          "f1": 0.7368421052631579
+        },
+        {
+          "label": "flip",
+          "true_positives": 3,
+          "predicted": 10,
+          "expected": 4,
+          "f1": 0.42857142857142855
+        },
+        {
+          "label": "adjust",
+          "true_positives": 2,
+          "predicted": 31,
+          "expected": 4,
+          "f1": 0.11428571428571428
+        },
+        {
+          "label": "fit",
+          "true_positives": 11,
+          "predicted": 19,
+          "expected": 15,
+          "f1": 0.6470588235294118
+        },
+        {
+          "label": "fasten",
+          "true_positives": 8,
+          "predicted": 14,
+          "expected": 9,
+          "f1": 0.6956521739130435
+        }
+      ],
+      "invalid_labels": 1
+    },
+    "object": {
+      "macro_f1": 0.6385521885521885,
+      "micro_f1": 0.5977011494252874,
+      "classes": [
+        {
+          "label": "body",
+          "true_positives": 5,
+          "predicted": 16,
+          "expected": 5,
+          "f1": 0.47619047619047616
+        },
+        {
+          "label": "shaft",
+          "true_positives": 4,
+          "predicted": 7,
+          "expected": 7,
+          "f1": 0.5714285714285714
+        },
+        {
+          "label": "gear",
+          "true_positives": 2,
+          "predicted": 3,
+          "expected": 2,
+          "f1": 0.8
+        },
+        {
+          "label": "adapter_plate",
+          "true_positives": 3,
+          "predicted": 5,
+          "expected": 3,
+          "f1": 0.75
+        },
+        {
+          "label": "bearing_plate",
+          "true_positives": 5,
+          "predicted": 5,
+          "expected": 5,
+          "f1": 1.0
+        },
+        {
+          "label": "small_attachment",
+          "true_positives": 26,
+          "predicted": 52,
+          "expected": 32,
+          "f1": 0.6190476190476191
+        },
+        {
+          "label": "handle",
+          "true_positives": 2,
+          "predicted": 4,
+          "expected": 2,
+          "f1": 0.6666666666666666
+        },
+        {
+          "label": "screwdriver",
+          "true_positives": 4,
+          "predicted": 18,
+          "expected": 4,
+          "f1": 0.36363636363636365
+        },
+        {
+          "label": "wrench",
+          "true_positives": 1,
+          "predicted": 3,
+          "expected": 1,
+          "f1": 0.5
+        }
+      ],
+      "invalid_labels": 0
+    },
+    "hand": {
+      "macro_f1": 0.6508241758241758,
+      "micro_f1": 0.6551724137931034,
+      "classes": [
+        {
+          "label": "left",
+          "true_positives": 22,
+          "predicted": 44,
+          "expected": 26,
+          "f1": 0.6285714285714286
+        },
+        {
+          "label": "right",
+          "true_positives": 35,
+          "predicted": 69,
+          "expected": 35,
+          "f1": 0.6730769230769231
+        }
+      ],
+      "invalid_labels": 0
+    }
+  },
+  "localization": {
+    "f1": 0.6666666666666666,
+    "matched": 58,
+    "predicted": 113,
+    "expected": 61
+  },
+  "excluded_predictions": 2,
+  "excluded_references": 2,
+  "audio_policy": {
+    "points": 9.090909090909092,
+    "units": [
+      {
+        "unit": "first_start",
+        "ok": true
+      },
+      {
+        "unit": "first_end",
+        "ok": true
+      },
+      {
+        "unit": "first_hands",
+        "ok": true
+      },
+      {
+        "unit": "first_actions",
+        "partial": 1.0
+      },
+      {
+        "unit": "second_start",
+        "ok": true
+      },
+      {
+        "unit": "second_end",
+        "ok": true
+      },
+      {
+        "unit": "second_hands",
+        "ok": true
+      },
+      {
+        "unit": "second_actions",
+        "partial": 1.0
+      },
+      {
+        "unit": "record_holds",
+        "ok": true
+      },
+      {
+        "unit": "clock",
+        "ok": false
+      },
+      {
+        "unit": "bilateral_as_two_tracks",
+        "ok": true
+      }
+    ]
+  },
+  "total": 60.319700060462615,
+  "manual_points_out_of_15": 7,
+  "status": "artifact diagnostic only; interrupted run is not a formal model score",
+  "manual_review": {
+    "report": 2,
+    "documentation": 5,
+    "evidence": [
+      "Original Chrome runtime: top-level const top collides with the existing browser global; SyntaxError, default table0 rows, filter/event/audio buttons inactive. See delivery-qa.json and original-report-empty.png.",
+      "Native front/top video controls decode and seek the provided media, awarded2/10 for this remaining usable portion; report data/search/filter/evidence interactions fail.",
+      "README documents methods, uncertainty, sources/licence and opening procedure; correctly states that browser UI verification was not completed. Award5/5.",
+      "This is an artifact-only diagnostic of a90-minute interrupted run, not a completed formal model score. Object semantics and segmentation equivalences remain under review."
+    ]
+  },
+  "score_eligible": false
+}
