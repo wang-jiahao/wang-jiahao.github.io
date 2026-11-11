@@ -1,0 +1,31 @@
+---
+layout: null
+sitemap: false
+permalink: /omniale/paused-cases/
+---
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>暂时放弃的案例 · OmniALE</title><style>
+:root{--bg:#f4f3ee;--paper:#fffefa;--ink:#172c32;--muted:#647374;--line:#d9deda;--accent:#166f68;--soft:#e4efea;--warm:#b97131}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;font-size:15px;line-height:1.65}
+main{max-width:1180px;margin:auto;padding:36px 40px 90px}
+h1{font-size:33px;line-height:1.3;letter-spacing:-.02em;margin:0 0 10px;font-weight:650}
+h2{font-size:21px;margin:38px 0 12px;font-weight:600;border-top:1px solid var(--line);padding-top:26px}
+h3{font-size:16px;margin:22px 0 8px;font-weight:600}
+.eyebrow{color:var(--accent);font-size:12px;letter-spacing:.12em;font-weight:650;margin-bottom:10px}
+.lead{color:#52686c;font-size:16.5px;max-width:900px}
+.tag{display:inline-block;font-size:12px;color:var(--accent);background:var(--soft);padding:2px 9px;border-radius:4px;margin:0 6px 6px 0}
+.tag.gray{background:#e9ece6;color:#52666b}
+table{border-collapse:collapse;width:100%;font-size:13.5px;background:var(--paper);margin:6px 0 4px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:12px;white-space:nowrap}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+pre{white-space:pre-wrap;font-size:12.5px;background:var(--paper);border:1px solid var(--line);padding:14px;border-radius:6px;max-height:420px;overflow:auto}
+img{max-width:100%;border:1px solid var(--line);background:#fff;border-radius:4px}
+audio,video{width:100%}
+details>summary{cursor:pointer;color:var(--accent);font-size:14px}
+.ok{color:#166f68;font-weight:650}.no{color:var(--warm);font-weight:650}
+.note{color:var(--muted);font-size:13px}
+.pill{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:10px;background:#e9ece6;color:#52666b;margin-left:6px}
+.major{background:#f5e3d7;color:#9a4f17}
+main{max-width:1180px}a{color:var(--accent);text-underline-offset:3px}.brand{font-size:12px;letter-spacing:.15em;color:var(--accent);font-weight:650;margin:12px 0}header{margin-bottom:30px}header p{max-width:850px}.cards{display:grid;grid-template-columns:1fr 1fr;gap:24px}.case{background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden}.case>a{display:block;height:235px;background:#e5e9e5}.case img{width:100%;height:100%;object-fit:cover;object-position:top;border:0;border-radius:0}.case-body{padding:22px}.meta{font-size:11px;color:var(--muted);display:flex;gap:12px;align-items:center;justify-content:space-between}.meta span{white-space:nowrap;background:#eee7db;color:#95663b;padding:2px 7px;border-radius:4px}.case h2{border:0;margin:16px 0 12px;padding:0;font-size:23px;line-height:1.35}.case h2 a{text-decoration:none}.case p{font-size:14px}.score{font-size:17px;margin:16px 0}.score b{font-size:25px}.reason{border-top:1px solid var(--line);padding-top:16px;font-size:13px}.reason p{margin:5px 0 16px}.case details{font-size:12px;color:var(--muted);margin:12px 0}.more{font-size:13px}footer{margin-top:35px;border-top:1px solid var(--line);padding-top:16px;font-size:12px;color:var(--muted)}@media(max-width:700px){main{padding:22px 18px 60px}.cards{grid-template-columns:1fr}.case>a{height:210px}h1{font-size:30px}.case-body{padding:18px}.meta{font-size:10px}}</style></head><body><main><div class="brand">OmniALE · Omni-modal Agent Evaluation</div><header><h1>暂时放弃的案例</h1><p class="lead">保留已完成构造和模型测试、但未达到预期难度的案例。目前收录 Linear 与 Google Fonts 两道音视频网页复刻题。</p><a href="../">查看正式案例汇总 →</a></header><div class="cards"><article class="case" id="linear"><a href="../linear/"><img src="assets/linear.webp" alt="从讲解录屏复刻 Linear 整页的页面预览"></a><div class="case-body"><div class="meta">企业协作与数字业务 / 视频演示复刻网页<span>暂时放弃</span></div><h2><a href="../linear/">从讲解录屏复刻 Linear 整页</a></h2><p>根据约7分钟中文讲解录屏，从空目录还原完整产品官网。需要恢复九个主要段落、长页结构、页面文案、交互与手机布局。</p><div class="score">Sol <b>86.2</b></div><div class="reason"><b>搁置原因</b><p>有效联网成绩86.16，高于当时低于80分的难度目标。结构、交互及大部分参数可恢复，主要失分集中在文案覆盖，尚未形成足够难的音视频复刻题。</p></div><details><summary>运行与评分口径</summary><p>gpt-6.1-sol · xhigh · v2 · 27.7分钟。含视觉裁判；联网。不将历史受限条件冒充当前联网结果。</p></details><a class="more" href="../linear/">任务、交付与轨迹 →</a></div></article><article class="case" id="fontbrowser"><a href="../fontbrowser/"><img src="assets/google-fonts.png" alt="从讲解录屏复刻 Google Fonts的页面预览"></a><div class="case-body"><div class="meta">企业协作与数字业务 / 视频演示复刻网页<span>暂时放弃</span></div><h2><a href="../fontbrowser/">从讲解录屏复刻 Google Fonts</a></h2><p>根据中文讲解录屏实现字体浏览器，恢复预览文字、字号滑块、Row／Grid、搜索、排序以及响应式布局。</p><div class="score">Sol <b>83.7</b></div><div class="reason"><b>搁置原因</b><p>有效成绩83.72，高于当时低于80分的目标。模型主要漏了部分文案、滑块下限和移动端细节；现有行为中仍有可由画面或产品先验恢复的部分。</p></div><details><summary>运行与评分口径</summary><p>gpt-6.1-sol · xhigh · v1 · 46.2分钟。含视觉裁判；另存确定性口径同分；历史受限网络条件。不将历史受限条件冒充当前联网结果。</p></details><a class="more" href="../fontbrowser/">任务、交付与轨迹 →</a></div></article></div><footer>本页独立于正式案例汇总；各题材料、评分与运行条件见详情。<a href="files/cases.json">成绩与来源记录</a> · 更新：2026-11-11。</footer></main></body></html>
