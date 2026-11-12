@@ -1,14 +1,15 @@
 {
-  "updated_at": "2026-11-12T14:34:00.943166+00:00",
+  "updated_at": "2026-11-12T16:12:08.055550+00:00",
   "definition": "Cross-platform marks actual transitions between browser, CLI or desktop environments; cross-software alone is not marked.",
   "order": [
     "charge-foley",
     "video-crosscheck",
     "longfilm-caption",
-    "musp",
     "film-dubbing",
+    "card-audio-description",
+    "musp",
     "assembly-review",
-    "card-audio-description"
+    "sprite-dialogue"
   ],
   "cases": [
     {
@@ -97,6 +98,68 @@
       }
     },
     {
+      "id": "film-dubbing",
+      "title": "电影译制 · 双版本中文配音",
+      "cover": "film-dubbing.jpg",
+      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/assets/task-13-8.jpg",
+      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-13/results",
+      "desc": "把8分45秒英语电影译制成普通话，区分角色身份与跨段声音变化，安排真实配音并保留音乐音效；交付影院立体声、手机单声道、角色分轨、双语字幕和离线重建脚本。",
+      "scores": {
+        "gpt-6.1-sol": 63.4766,
+        "gpt-6-luna": 9.6468,
+        "gpt-6-astra": 45.4968
+      },
+      "max_model_score": 63.4766,
+      "score": "gpt-6.1-sol 63.4766 · gpt-6-astra 45.4968 · gpt-6-luna 9.6468",
+      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/case13-v31-report/summary.js?v=content-audio-20261112",
+      "score_detail_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/case13-v31-report/data.js?v=content-audio-20261112",
+      "score_version": "final-content-times-audio",
+      "score_note": "来源最终公式(E20+T10)×(A70/70)×画面系数×(100/30)；三模型high、最多60分钟。Qwen已确定逐项判票，非专家金标准；无效判票计零的政策影响保留在来源报告中。",
+      "classification": {
+        "week": "4",
+        "domain": 5,
+        "scenario": "跨语译制与多版本配音",
+        "show_in_summary": true,
+        "cross_platform": {
+          "confirmed": false,
+          "environments": [],
+          "basis": "当前来源公开材料证实CLI媒体处理和TTS兼容接口；未据此推定真实浏览器或桌面环境切换。",
+          "evidence_url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-13/results",
+          "definition": "Actual switch between execution interfaces; cross-software or TTS compatibility alone is not sufficient."
+        }
+      }
+    },
+    {
+      "id": "card-audio-description",
+      "title": "消失的纸牌 · 中文口述影像",
+      "cover": "card-audio-description.jpg",
+      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-14/results",
+      "desc": "给一段148秒纸牌片段，在保持原画面与时间轴的前提下补充中文口述：追踪持牌人和转移关系，在对白间隙安排真实配音、保护原声，交付可关闭旁白的播放器、分轨和离线重建脚本。",
+      "scores": {
+        "gpt-6-astra": 68.1875,
+        "gpt-6-luna": 22.9274
+      },
+      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/case46-report/data.js",
+      "score_version": "case46-final-20261112",
+      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/case46-report/poster.jpg",
+      "score_note": "来源页视觉理解分乘有效交付系数；Astra50分钟试跑，Luna60分钟补跑，非严格等条件。",
+      "max_model_score": 68.1875,
+      "score": "gpt-6-astra 68.1875 · gpt-6-luna 22.9274",
+      "classification": {
+        "week": "4",
+        "domain": 5,
+        "scenario": "中文口述影像与无障碍交付",
+        "show_in_summary": true,
+        "cross_platform": {
+          "confirmed": false,
+          "environments": [],
+          "basis": "Astra README明确环境未安装浏览器、播放器仅做V8模拟验证；Luna公开说明未提供真实浏览器操作证据。TTS兼容接口不据此推定跨平台。",
+          "evidence_url": "https://nanxiang-git.github.io/OmniALE_v2/runs_case46_astra_high_50m/run_20261109_184134/sealed/case14/submission/README.md",
+          "definition": "Actual switch between execution interfaces such as a browser and CLI; multiple desktop software packages alone are not sufficient."
+        }
+      }
+    },
+    {
       "id": "musp",
       "cover": "musp.jpg",
       "cover_source": "https://huayuankou333.github.io/omniale/musp/media/A/score-preview.jpg",
@@ -127,38 +190,6 @@
           "basis": "来源页五、运行轨迹列出Luna1次、Sol2次、DeepSeek7次浏览器自检请求，与Python分析同属被测过程。",
           "evidence_url": "https://huayuankou333.github.io/omniale/musp/#trajectory",
           "definition": "Actual switch between execution interfaces such as a browser and CLI; multiple desktop software packages alone are not sufficient."
-        }
-      }
-    },
-    {
-      "id": "film-dubbing",
-      "title": "电影译制 · 双版本中文配音",
-      "cover": "film-dubbing.jpg",
-      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/assets/task-13-8.jpg",
-      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-13/results",
-      "desc": "把8分45秒英语电影译制成普通话，区分角色身份与跨段声音变化，安排真实配音并保留音乐音效；交付影院立体声、手机单声道、角色分轨、双语字幕和离线重建脚本。",
-      "scores": {
-        "gpt-6.1-sol": 63.4766,
-        "gpt-6-luna": 9.6468,
-        "gpt-6-astra": 45.4968
-      },
-      "max_model_score": 63.4766,
-      "score": "gpt-6.1-sol 63.4766 · gpt-6-astra 45.4968 · gpt-6-luna 9.6468",
-      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/case13-v31-report/summary.js?v=content-audio-20261112",
-      "score_detail_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/case13-v31-report/data.js?v=content-audio-20261112",
-      "score_version": "final-content-times-audio",
-      "score_note": "来源最终公式(E20+T10)×(A70/70)×画面系数×(100/30)；三模型high、最多60分钟。Qwen已确定逐项判票，非专家金标准；无效判票计零的政策影响保留在来源报告中。",
-      "classification": {
-        "week": "4",
-        "domain": 5,
-        "scenario": "跨语译制与多版本配音",
-        "show_in_summary": true,
-        "cross_platform": {
-          "confirmed": false,
-          "environments": [],
-          "basis": "当前来源公开材料证实CLI媒体处理和TTS兼容接口；未据此推定真实浏览器或桌面环境切换。",
-          "evidence_url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-13/results",
-          "definition": "Actual switch between execution interfaces; cross-software or TTS compatibility alone is not sufficient."
         }
       }
     },
@@ -196,34 +227,41 @@
       }
     },
     {
-      "id": "card-audio-description",
-      "title": "消失的纸牌 · 中文口述影像",
-      "cover": "card-audio-description.jpg",
-      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-14/results",
-      "desc": "给一段148秒纸牌片段，在保持原画面与时间轴的前提下补充中文口述：追踪持牌人和转移关系，在对白间隙安排真实配音、保护原声，交付可关闭旁白的播放器、分轨和离线重建脚本。",
+      "id": "sprite-dialogue",
+      "title": "基于视听素材的三维对白重建",
+      "cover": "sprite-dialogue.jpg",
+      "cover_source": "https://starivers152.github.io/OmniALE/sprite-dialogue/assets/media/reference.jpg",
+      "url": "https://starivers152.github.io/OmniALE/sprite-dialogue/index.html",
+      "desc": "给一段10.54秒静音参考、长录音和五名角色资产，在 Blender 重建连续表演并检索对齐原声，再用 Shotcut 制作可编辑字幕，交付双工程与有声成片。",
       "scores": {
-        "gpt-6-astra": 68.1875,
-        "gpt-6-luna": 22.9274
+        "gpt-6.1-sol": 19.370553359683793
       },
-      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/case46-report/data.js",
-      "score_version": "case46-final-20261112",
-      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/case46-report/poster.jpg",
-      "score_note": "来源页视觉理解分乘有效交付系数；Astra50分钟试跑，Luna60分钟补跑，非严格等条件。",
-      "max_model_score": 68.1875,
-      "score": "gpt-6-astra 68.1875 · gpt-6-luna 22.9274",
+      "max_model_score": 19.370553359683793,
+      "score": "gpt-6.1-sol 19.370553359683793",
+      "score_source": "https://starivers152.github.io/OmniALE/sprite-dialogue/assets/results.json",
+      "score_version": "sprite-dialogue-v0.11",
+      "score_status": "one_completed_trial",
+      "score_note": "来源页保留一次有效求解：Sol xhigh，7225.607秒。视觉70/原声同步10/字幕15/工程5；评分重试作用于同一原始交付，不是多次求解平均。network_mode=public，来源标注network_verified=false。",
+      "actual_effort": "xhigh",
+      "solver_runs": 1,
       "classification": {
         "week": "4",
-        "domain": 5,
-        "scenario": "中文口述影像与无障碍交付",
+        "domain": 2,
+        "scenario": "三维表演重建与音画字幕交付",
+        "software": [
+          "Blender",
+          "Shotcut"
+        ],
         "show_in_summary": true,
         "cross_platform": {
           "confirmed": false,
           "environments": [],
-          "basis": "Astra README明确环境未安装浏览器、播放器仅做V8模拟验证；Luna公开说明未提供真实浏览器操作证据。TTS兼容接口不据此推定跨平台。",
-          "evidence_url": "https://nanxiang-git.github.io/OmniALE_v2/runs_case46_astra_high_50m/run_20261109_184134/sealed/case14/submission/README.md",
-          "definition": "Actual switch between execution interfaces such as a browser and CLI; multiple desktop software packages alone are not sufficient."
+          "basis": "来源页说明Blender/Shotcut原生工程协作；跨软件本身不作为跨平台标记依据。",
+          "evidence_url": "https://starivers152.github.io/OmniALE/sprite-dialogue/index.html",
+          "definition": "Actual switch between execution interfaces; multiple software packages alone are not sufficient."
         }
       }
     }
-  ]
+  ],
+  "order_policy": "Explicit user order: retain preceding cases, then MuSP, assembly review, and Sprite Dialogue."
 }
