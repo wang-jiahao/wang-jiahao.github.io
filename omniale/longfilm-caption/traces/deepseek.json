@@ -4,7 +4,7 @@
   "elapsed_sec": 1959.594,
   "note": "公开命令、可见回复和文件修改；凭据、本机路径及内联媒体已脱敏。",
   "summary": {
-    "headline": "检索完整长片；运行状态见结果记录。",
+    "headline": "已执行的感知工具与服务中断记录",
     "outcome": "服务中断，尚无可评分交付。",
     "stages": [
       {
@@ -224,7 +224,8 @@
       "body": "\r\nLines Words Characters Property\r\n----- ----- ---------- --------\r\n  331                  \r\n 4563.2- 4563.7  She doesn't...\r\n 4563.7- 4568.3  She doesn't eat.\r\n 4568.5- 4569.1  She doesn't sleep.\r\n 4569.3- 4569.6  She doesn't...\r\n 4569.6- 4585.8  I can't focus on her.\r\n 4586.0- 4586.4  I don't want to...\r\n 4586.4- 4590.3  I don't want to go to that place.\r\n 4590.3- 4610.2  I had this I had this crazy crazy dream I was talking to Staz and I asked him\r\n 4612.9- 4623.7  was it worth it Staz was it worth losing her to leave a footprint on the moon he\r\n 4625.8- 4650.2  said of course oh yeah of course\r\n\r\n",
       "exit_code": 0,
       "index": 26,
-      "key": false
+      "key": true,
+      "key_title": "faster-whisper · 实际工具记录"
     },
     {
       "kind": "command",
@@ -392,7 +393,8 @@
       "body": "631\r\ndone 22\r\n\r\nName         Length\r\n----         ------\r\nshots_01.jpg 282012\r\nshots_02.jpg 290582\r\nshots_03.jpg 254377\r\nshots_04.jpg 289511\r\nshots_05.jpg 212955\r\nshots_06.jpg 269179\r\nshots_07.jpg 274403\r\nshots_08.jpg 275000\r\nshots_09.jpg 239913\r\nshots_10.jpg 250381\r\nshots_11.jpg 242887\r\nshots_12.jpg 211853\r\nshots_13.jpg 287559\r\nshots_14.jpg 281091\r\nshots_15.jpg 239755\r\nshots_16.jpg 247376\r\nshots_17.jpg 250163\r\nshots_18.jpg 225603\r\nshots_19.jpg 190690\r\nshots_20.jpg 271904\r\nshots_21.jpg 241487\r\nshots_22.jpg  26020\r\n\r\n",
       "exit_code": 0,
       "index": 47,
-      "key": false
+      "key": true,
+      "key_title": "PySceneDetect · 实际工具记录"
     },
     {
       "kind": "command",
@@ -400,8 +402,46 @@
       "body": "work\\cap06a_01.jpg 15\r\nwork\\cap06a_02.jpg 15\r\nwork\\cap06a_03.jpg 15\r\nwork\\cap06a_04.jpg 15\r\nwork\\cap06a_05.jpg 15\r\nwork\\cap06a_06.jpg 15\r\nwork\\cap06a_07.jpg 15\r\nwork\\cap06a_08.jpg 15\r\nwork\\cap06a_09.jpg 15\r\nwork\\cap06a_10.jpg 15\r\nwork\\cap06a_11.jpg 15\r\nwork\\cap06a_12.jpg 15\r\nwork\\cap06a_13.jpg 15\r\nwork\\cap06a_14.jpg 5\r\nwork\\cap06b_01.jpg 15\r\nwork\\cap06b_02.jpg 15\r\nwork\\cap06b_03.jpg 15\r\nwork\\cap06b_04.jpg 15\r\nwork\\cap06b_05.jpg 15\r\nwork\\cap06b_06.jpg 15\r\nwork\\cap06b_07.jpg 15\r\nwork\\cap06b_08.jpg 15\r\nwork\\cap06b_09.jpg 5\r\nwork\\cap04b_01.jpg 15\r\nwork\\cap04b_02.jpg 15\r\nwork\\cap04b_03.jpg 15\r\nwork\\cap04b_04.jpg 15\r\nwork\\cap04b_05.jpg 15\r\nwork\\cap04b_06.jpg 15\r\nwork\\cap04b_07.jpg 15\r\nwork\\cap04b_08.jpg 15\r\nwork\\cap04b_09.jpg 15\r\nwork\\cap04b_10.jpg 15\r\nwork\\cap04b_11.jpg 15\r\nwork\\cap04b_12.jpg 15\r\n",
       "exit_code": 0,
       "index": 48,
-      "key": false
+      "key": true,
+      "key_title": "FFmpeg／OpenCV · 实际工具记录"
     }
   ],
-  "elapsed_note": "Sum of measured active attempts"
+  "elapsed_note": "Sum of measured active attempts",
+  "perception_tools": [
+    {
+      "name": "FFmpeg／OpenCV",
+      "purpose": "提取音轨、画面与候选场景",
+      "state": "已运行",
+      "result": "从完整原片生成索引和局部帧，再由主模型查看图像。",
+      "events": [
+        48
+      ]
+    },
+    {
+      "name": "faster-whisper",
+      "purpose": "对白与时间线索转写",
+      "state": "已运行",
+      "result": "读取原片音轨并返回带时间码的对白；不是音乐、音效的主要识别工具。",
+      "events": [
+        26
+      ]
+    },
+    {
+      "name": "PySceneDetect",
+      "purpose": "镜头切分与检索",
+      "state": "已运行",
+      "result": "实际生成631个镜头区间，再结合局部抽帧检索；未形成最终交付。",
+      "events": [
+        47
+      ]
+    },
+    {
+      "name": "非语音专用模型",
+      "purpose": "音乐或音效识别",
+      "state": "未见成功记录",
+      "result": "公开命令中未发现AST、CLAP或本地音频描述模型的成功输出。服务中断不计能力分。",
+      "events": []
+    }
+  ],
+  "perception_note": "主模型通过工具读取原始媒体，再接收转写、声音标签、描述或图片。工具运行成功不等于识别正确；最终分数衡量交付对标准事件的覆盖，不能单独证明模型听到了该声音。"
 }

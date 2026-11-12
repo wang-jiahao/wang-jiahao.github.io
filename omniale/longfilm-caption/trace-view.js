@@ -11,6 +11,16 @@ function draw(){
  const mode=$('view').value;$('filters').hidden=mode==='summary';$('events').replaceChildren();$('overview').replaceChildren();
  if(mode==='summary'){
   const c=data.summary,box=element('div',null,'find');box.append(element('h2',c.headline),element('p',c.outcome));$('overview').append(box);
+
+  if(data.perception_tools){
+    const panel=element('div',null,'perception');panel.append(element('h3','使用的感知工具'));
+    const wrap=element('div',null,'perception-table');const table=element('table');const head=element('tr');for(const name of ['工具','用途','运行结果','证据'])head.append(element('th',name));table.append(head);
+    for(const tool of data.perception_tools){const row=element('tr');row.append(element('td',tool.name),element('td',tool.purpose),element('td',tool.state+'：'+tool.result));const refs=element('td');
+      for(const index of tool.events){const a=element('a','#'+index+' ');a.href=`?run=${$('run').value}&view=all&event=${index}#event-${index}`;a.addEventListener('click',e=>{e.preventDefault();showEvent(index)});refs.append(a)}
+      if(!tool.events.length)refs.textContent='—';row.append(refs);table.append(row)}
+    wrap.append(table);panel.append(wrap,element('p',data.perception_note,'note'));$('overview').append(panel);
+  }
+
   const stages=element('ol',null,'stages');for(const stage of c.stages){const li=element('li');li.append(element('h3',stage.title),element('p',stage.text));const links=element('div',null,'stage-links');for(const index of stage.events){const a=element('a',`查看 #${index} `);a.href=`?run=${$('run').value}&view=all&event=${index}#event-${index}`;a.addEventListener('click',e=>{e.preventDefault();showEvent(index);});links.append(a);}li.append(links);stages.append(li);}
   $('overview').append(stages,element('p',c.editorial_note,'note'));return;
  }
