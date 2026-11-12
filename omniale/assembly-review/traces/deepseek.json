@@ -4,39 +4,48 @@
   "elapsed_sec": 4694.282,
   "note": "dashscope模型API直连，正常联网；可见记录已脱敏。",
   "summary": {
-    "headline": "输出61条动作记录；已落盘交付：actions.json、policy.json、report.html、README.md。",
+    "headline": "逐段裁图形成61条记录，修复Windows写文件问题后补齐真实浏览器验证。",
     "outcome": "脚本总分56.06/100；自动字段42.058350/85，自动交付14/15。真实耗时4694.3秒，exit0、turn.completed；不作事后语义或时钟修正。",
     "stages": [
       {
-        "title": "读取委托与输入",
-        "text": "可见记录中有41项相关操作；展开查看具体命令、输出与退出状态。",
+        "title": "从总览进入关键片段",
+        "text": "重读交接转写，结合正面与俯视总览定位操作段；早期小件使用0.25秒间隔，工具段另取原始帧放大。",
         "events": [
-          2,
-          180
+          46,
+          49,
+          58,
+          74
         ]
       },
       {
-        "title": "处理交接音频",
-        "text": "可见记录中有2项相关操作；展开查看具体命令、输出与退出状态。",
-        "events": [
-          4,
-          7
-        ]
-      },
-      {
-        "title": "建立动作与口径记录",
-        "text": "可见记录中有27项相关操作；展开查看具体命令、输出与退出状态。",
+        "title": "写出61条事件",
+        "text": "台账从同一数据表生成；写政策补丁和生成HTML时先后遇到补丁格式及Windows命令长度问题，随后调整写入方式。",
         "events": [
           95,
-          179
+          100,
+          101,
+          103,
+          109
         ]
       },
       {
-        "title": "制作和验证报告",
-        "text": "可见记录中有29项相关操作；展开查看具体命令、输出与退出状态。",
+        "title": "区分结构检查与浏览器检查",
+        "text": "先通过JSON、时间和内嵌数据一致性检查，再测试筛选、跳转、视角切换与音频加载。",
         "events": [
-          103,
-          179
+          136,
+          141,
+          142,
+          150
+        ]
+      },
+      {
+        "title": "提供可靠打开方式",
+        "text": "发现普通HTTP服务会使跳转回零，增加serve.py支持Range；最终回归输出了top视频路径、约91秒播放位置与无页面错误。",
+        "events": [
+          151,
+          173,
+          174,
+          181
         ]
       },
       {
@@ -47,7 +56,7 @@
         ]
       }
     ],
-    "editorial_note": "按可见操作分类整理；关键步骤只是阅读索引，不是动作正确性的人工复核。完整记录保留失败和恢复，隐藏推理不公开。"
+    "editorial_note": "过程总结依据可见转写、抽帧、生成与浏览器命令以及模型回复。叙述自测时明确归属模型验证记录，不将其等同于评分结论。没有重判逐条装配动作；完整记录保留失败和恢复，隐藏推理不公开。"
   },
   "events": [
     {
@@ -63,8 +72,7 @@
       "body": "# 角磨机装配动作证据交接\n\n请根据培训资料负责人的口头交接，检查同一次角磨机装配的两段录像，建立可逐条回放的动作台账。交接有草稿、建议和后续更正，需要先判断最终生效的要求，再按要求归档实际可见动作。无需判断产品是否合格，不从遮挡推断内部接合、扭矩或运行安全。\n\n## 材料\n\n- `input/front.mp4`：完整正面录像，1280×720、30fps，约174秒。\n- `input/top.mp4`：同次操作的完整俯视录像，名义时间同步，供互相核查。\n- `input/handover.wav`：两位角色的后期合成中文交接，属于拟制委托，不是现场录音。角色在录音中自报身份；负责人有最终权限，操作员建议须明确获采纳才生效。\n- `local_asr.py`：通用本地转写工具，不含逐字稿、事件索引或答案。\n\n最终记录哪些时间、哪些动作、哪些手，是否记录扶持，以及同时动作如何列行、使用哪个主时钟，均从录音恢复。本说明不代替交接内容。两段录像是同一次物理过程，不是两遍装配。输入没有镜像；描述手别时使用操作者的解剖左右。\n\n允许联网、安装工具、脚本、逐帧查看和本地模型，保留正常网络与代理。可使用FFmpeg、OpenCV和本地语音模型；已有Whisper缓存可复用。不得检索原数据集标注、现成答案，或读取其他运行、作者参考文件与已发布案例答案。只操作本题工作目录内对应的材料和网页。\n\n## 数据编码\n\n以下是可用编码词汇，不表示这些动作都应归档；最终范围以交接为准。\n\n| action | 含义 |\n|---|---|\n| pick_up | 从料盒或桌面取起对象 |\n| put_down | 放到桌面、放回料盒或归还工具 |\n| transfer | 手间转交对象 |\n| flip | 明显翻面、改变朝向 |\n| adjust | 对位、调整、摆正或找孔 |\n| fit | 插入、贴合、压入、就位或装到一起 |\n| fasten | 手指起扣、手拧或工具旋拧 |\n| hold | 持住、扶住或稳定对象 |\n\n`object`使用上位类别：`body`黑色机体（含已插轴的机体）、`shaft`长金属轴／转子、`gear`齿轮状圆件、`adapter_plate`平板／环状适配件、`bearing_plate`较大圆盘总成、`small_attachment`细小紧固件／弹簧／拨件、`handle`黑色长柄、`screwdriver`柄式螺丝刀、`wrench`开口／组合扳手。不要求猜遮挡中的规格或工具尖端。\n\n每条记录应有可回查的起止时间。区分换动作、换对象或明显结束后重新开始；同一手、同类动作、同一对象的连续操作不要按手抖或工具往复切碎，短于0.8秒且未转为其他归档动作的中断可合并。跨交接口径边界时如何处理，从录音确定。未知字段写`null`并说明可见事实，不编造被遮挡的结果。\n\n## 交付\n\n写入`output/`，提交：\n\n1. `actions.json`：顶层为`{\"events\":[]}`。每条事件包含`id`、`hand`、`start_s`、`end_s`、`action`、`object`、`evidence`数组和`note`。`evidence`每项包含`file`、`start_s`、`end_s`。`hand`可表示`left`、`right`或`both`；最终应采用哪些手别、如何表示同时动作，以录音为准。ID自行安排。\n2. `policy.json`：恢复最终口头口径。`first`与`second`分别包含`start_s`、`end_s`、`hands`数组和`actions`数组；另有`record_holds`布尔、`clock`字符串、`bilateral_as_two_tracks`布尔。填写录音要求的值，不根据格式字段猜答案。\n3. `report.html`：默认展示全部归档记录，可按手、动作、对象和文本筛选；每条能回放所选主时钟对应的片段，并能查看另一视角。提供交接音频回听入口；网页与JSON内容一致。可直接使用原片时间跳转，无需导出所有短片。\n4. `README.md`：方法、主要发现、未知项、来源许可及可靠打开方法。\n\n没有固定运行时长截止。完成后说明交付位置和实际验证情况；有未知项仍应交付其余可确认结果。\n\r\n",
       "exit_code": 0,
       "index": 2,
-      "key": true,
-      "key_title": "读取委托与输入"
+      "key": false
     },
     {
       "kind": "command",
@@ -80,8 +88,7 @@
       "body": "\"\"\"General local ASR helper. No authored transcripts or expected answers.\"\"\"\nfrom pathlib import Path\nimport argparse,json,subprocess\nimport numpy as np\nfrom faster_whisper import WhisperModel\n\ndef main():\n    p=argparse.ArgumentParser();p.add_argument('audio',type=Path);p.add_argument('--model',default='small');p.add_argument('--output',type=Path);n=p.parse_args()\n    # FFmpeg decoding avoids a PyAV version mismatch in the host environment.\n    raw=subprocess.check_output(['ffmpeg','-v','error','-i',str(n.audio),'-f','f32le','-ac','1','-ar','16000','pipe:1'])\n    data=np.frombuffer(raw,np.float32)\n    m=WhisperModel(n.model,device='cpu',compute_type='int8',cpu_threads=4)\n    segments,info=m.transcribe(data,language='zh',beam_size=5,vad_filter=False)\n    result=dict(file=n.audio.name,segments=[dict(start_s=s.start,end_s=s.end,text=s.text) for s in segments])\n    text=json.dumps(result,ensure_ascii=False,indent=2)\n    if n.output:n.output.write_text(text,encoding='utf-8')\n    else:print(text)\n\nif __name__=='__main__':main()\n\r\n# 来源与修改\r\nIMPACT v1.1，Di Wen等，完整作者见CITATION.cff。官方项目https://kratos-wen.github.io/IMPACT/；数据https://huggingface.co/datasets/KratosWen/IMPACT；媒体与派生材料CC BY-NC-SA 4.0，保留署名和相同许可，限非商业研究／教育。\r\n同一次AL07EJ17_Reassembly_A_002的front/top真实录像，1280×720、30fps、5214帧、173.8秒。只转为浏览器兼容H.264 CRF18、移除音轨；无裁剪、变速、重排或生成动作。两固定视角记录同一次操作，保持原片名义时序；具体归档约定以交接录音为准。\r\n口头交接为Windows System.Speech Huihui／Kangkang后期语音合成，明确属于拟制委托，非现场录音，不证明真实工具声音。源细粒度标注仅用于作者索引和候选评分参考，原normal/anomaly标签不用于定责或判断机械故障。不从图像遮挡推断内部结构。\r\n此版本从用户提供的A3_equipment_evidence.zip复用真实媒体与来源研究；重做动作台账任务和口头口径，不沿用六题或旧得分。\r\n\r\n本次修订调整文字委托，并在合成交接中补充主时钟字段的拼写说明；真实装配录像未改动。\r\n\r\ncff-version: 1.2.0\r\nmessage: \"If you use IMPACT, please cite the dataset and benchmark using this metadata.\"\r\ntype: dataset\r\ntitle: \"IMPACT: A Dataset for Multi-Granularity Human Procedural Action Understanding in Industrial Assembly\"\r\nversion: \"1.1\"\r\ndate-released: 2026-07-16\r\nurl: \"https://kratos-wen.github.io/IMPACT/\"\r\nrepository-code: \"https://github.com/Kratos-Wen/IMPACT\"\r\nlicense: CC-BY-NC-SA-4.0\r\nauthors:\r\n  - given-names: Di\r\n    family-names: Wen\r\n    affiliation: Karlsruhe Institute of Technology\r\n  - given-names: Zeyun\r\n    family-names: Zhong\r\n    affiliation: Karlsruhe Institute of Technology\r\n  - given-names: David\r\n    family-names: Schneider\r\n    affiliation: Karlsruhe Institute of Technology\r\n  - given-names: Manuel\r\n    family-names: Zaremski\r\n    affiliation: Karlsruhe Institute of Technology\r\n  - given-names: Linus\r\n    family-names: Kunzmann\r\n    affiliation: Karlsruhe Institute of Technology\r\n  - given-names: Yitian\r\n    family-names: Shi\r\n    affiliation: Karlsruhe Institute of Technology\r\n  - given-names: Ruiping\r\n    family-names: Liu\r\n    affiliation: Karlsruhe Institute of Technology\r\n  - given-names: Yufan\r\n    family-names: Chen\r\n    affiliation: Karlsruhe Institute of Technology\r\n  - given-names: Junwei\r\n    family-names: Zheng\r\n    affiliation: Karlsruhe Institute of Technology; ETH Zurich\r\n  - given-names: Jiahang\r\n    family-names: Li\r\n    affiliation: Karlsruhe Institute of Technology\r\n  - given-names: Jonas\r\n    family-names: Hemmerich\r\n    affiliation: Karlsruhe Institute of Technology\r\n  - given-names: Qiyi\r\n    family-names: Tong\r\n    affiliation: Italian Institute of Technology\r\n  - given-names: Patric\r\n    family-names: Grauberger\r\n    affiliation: Karlsruhe Institute of Technology\r\n  - given-names: Arash\r\n    family-names: Ajoudani\r\n    affiliation: Italian Institute of Technology\r\n  - given-names: Danda Pani\r\n    family-names: Paudel\r\n    affiliation: INSAIT, Sofia University\r\n  - given-names: Sven\r\n    family-names: Matthiesen\r\n    affiliation: Karlsruhe Institute of Technology\r\n  - given-names: Barbara\r\n    family-names: Deml\r\n    affiliation: Karlsruhe Institute of Technology\r\n  - given-names: Jürgen\r\n    family-names: Beyerer\r\n    affiliation: Karlsruhe Institute of Technology\r\n  - given-names: Luc\r\n    family-names: Van Gool\r\n    affiliation: INSAIT, Sofia University\r\n  - given-names: Rainer\r\n    family-names: Stiefelhagen\r\n    affiliation: Karlsruhe Institute of Technology\r\n  - given-names: Kunyu\r\n    family-names: Peng\r\n    affiliation: Karlsruhe Institute of Technology; INSAIT, Sofia University\r\n    email: kunyu.peng@kit.edu\r\n\r\nCreative Commons Attribution-NonCommercial-ShareAlike 4.0 International\n\nAll dataset assets and release documentation within the IMPACT-v1.1 distribution are licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0), unless a file provides a more specific notice.\n\nCovered materials include annotations, RGB and depth recordings, audio, eye-tracking traces, released features, metadata, split definitions, and release documentation.\n\nYou must provide appropriate attribution, indicate whether changes were made, use the materials only for non-commercial purposes, and distribute adaptations under the same license.\n\nLicense deed and legal code:\nhttps://creativecommons.org/licenses/by-nc-sa/4.0/\n\nRecommended attribution:\nIMPACT: A Dataset for Multi-Granularity Human Procedural Action Understanding in Industrial Assembly, version 1.1, https://kratos-wen.github.io/IMPACT/\n\r\n",
       "exit_code": 0,
       "index": 4,
-      "key": true,
-      "key_title": "处理交接音频"
+      "key": false
     },
     {
       "kind": "command",
@@ -105,8 +112,7 @@
       "body": "{\r\n  \"file\": \"handover.wav\",\r\n  \"segments\": [\r\n    {\r\n      \"start_s\": 0.0,\r\n      \"end_s\": 2.14,\r\n      \"text\": \"我是培训资料负责人\"\r\n    },\r\n    {\r\n      \"start_s\": 2.14,\r\n      \"end_s\": 6.640000000000001,\r\n      \"text\": \"这是一份后期制作的动作证据归档交接\"\r\n    },\r\n    {\r\n      \"start_s\": 6.640000000000001,\r\n      \"end_s\": 8.74,\r\n      \"text\": \"不是原现场录音\"\r\n    },\r\n    {\r\n      \"start_s\": 8.74,\r\n      \"end_s\": 14.5,\r\n      \"text\": \"需要对同一次搅磨机装配建立左右手两条动作轨\"\r\n    },\r\n    {\r\n      \"start_s\": 14.5,\r\n      \"end_s\": 17.66,\r\n      \"text\": \"左右指操作者自己的左右\"\r\n    },\r\n    {\r\n      \"start_s\": 17.66,\r\n      \"end_s\": 19.46,\r\n      \"text\": \"不是画面左右\"\r\n    },\r\n    {\r\n      \"start_s\": 19.46,\r\n      \"end_s\": 21.62,\r\n      \"text\": \"紧扶住不归档\"\r\n    },\r\n    {\r\n      \"start_s\": 21.62,\r\n      \"end_s\": 24.060000000000002,\r\n      \"text\": \"工作动作要逐次定位\"\r\n    },\r\n    {\r\n      \"start_s\": 24.060000000000002,\r\n      \"end_s\": 26.34,\r\n      \"text\": \"不能只写安装转子\"\r\n    },\r\n    {\r\n      \"start_s\": 26.34,\r\n      \"end_s\": 28.8,\r\n      \"text\": \"安装手柄这样的大步骤\"\r\n    },\r\n    {\r\n      \"start_s\": 28.8,\r\n      \"end_s\": 33.6,\r\n      \"text\": \"所有事件用正面录像front.mp4的时钟\"\r\n    },\r\n    {\r\n      \"start_s\": 33.6,\r\n      \"end_s\": 37.86,\r\n      \"text\": \"口径JSON中的clock字段写front\"\r\n    },\r\n    {\r\n      \"start_s\": 37.86,\r\n      \"end_s\": 39.6,\r\n      \"text\": \"字母依次是F\"\r\n    },\r\n    {\r\n      \"start_s\": 39.6,\r\n      \"end_s\": 40.32,\r\n      \"text\": \"A\"\r\n    },\r\n    {\r\n      \"start_s\": 40.32,\r\n      \"end_s\": 41.02,\r\n      \"text\": \"O\"\r\n    },\r\n    {\r\n      \"start_s\": 41.02,\r\n      \"end_s\": 41.74,\r\n      \"text\": \"N\"\r\n    },\r\n    {\r\n      \"start_s\": 41.74,\r\n      \"end_s\": 42.44,\r\n      \"text\": \"T\"\r\n    },\r\n    {\r\n      \"start_s\": 42.44,\r\n      \"end_s\": 43.84,\r\n      \"text\": \"全部小写\"\r\n    },\r\n    {\r\n      \"start_s\": 43.84,\r\n      \"end_s\": 45.42,\r\n      \"text\": \"不带扩展名\"\r\n    },\r\n    {\r\n      \"start_s\": 45.42,\r\n      \"end_s\": 47.46,\r\n      \"text\": \"我是操作员\"\r\n    },\r\n    {\r\n      \"start_s\": 47.46,\r\n      \"end_s\": 50.8,\r\n      \"text\": \"我的初稿是整段只记录右手\"\r\n    },\r\n    {\r\n      \"start_s\": 50.8,\r\n      \"end_s\": 52.38,\r\n      \"text\": \"并且不记录对位\"\r\n    },\r\n    {\r\n      \"start_s\": 52.900000000000006,\r\n      \"end_s\": 56.38,\r\n      \"text\": \"前半段和后半段都省略放下动作\"\r\n    },\r\n    {\r\n      \"start_s\": 56.38,\r\n      \"end_s\": 58.760000000000005,\r\n      \"text\": \"这份初稿不采用\"\r\n    },\r\n    {\r\n      \"start_s\": 58.76,\r\n      \"end_s\": 61.059999999999995,\r\n      \"text\": \"最终口径如下\"\r\n    },\r\n    {\r\n      \"start_s\": 61.059999999999995,\r\n      \"end_s\": 63.86,\r\n      \"text\": \"原篇0秒到83秒之前\"\r\n    },\r\n    {\r\n      \"start_s\": 63.86,\r\n      \"end_s\": 66.42,\r\n      \"text\": \"左右两手都记录取起\"\r\n    },\r\n    {\r\n      \"start_s\": 66.42,\r\n      \"end_s\": 67.32,\r\n      \"text\": \"转交\"\r\n    },\r\n    {\r\n      \"start_s\": 67.32,\r\n      \"end_s\": 68.66,\r\n      \"text\": \"对位调整\"\r\n    },\r\n    {\r\n      \"start_s\": 68.66,\r\n      \"end_s\": 70.32,\r\n      \"text\": \"插入或贴合\"\r\n    },\r\n    {\r\n      \"start_s\": 70.32,\r\n      \"end_s\": 71.28,\r\n      \"text\": \"眩拧\"\r\n    },\r\n    {\r\n      \"start_s\": 71.28,\r\n      \"end_s\": 72.6,\r\n      \"text\": \"以及翻面\"\r\n    },\r\n    {\r\n      \"start_s\": 72.6,\r\n      \"end_s\": 76.53999999999999,\r\n      \"text\": \"这个前半段只排除放下或归环\"\r\n    },\r\n    {\r\n      \"start_s\": 76.53999999999999,\r\n      \"end_s\": 78.4,\r\n      \"text\": \"以及单纯扶持\"\r\n    },\r\n    {\r\n      \"start_s\": 78.4,\r\n      \"end_s\": 84.10000000000001,\r\n      \"text\": \"从原篇83秒起到173.8秒结束\"\r\n    },\r\n    {\r\n      \"start_s\": 84.10000000000001,\r\n      \"end_s\": 87.56,\r\n      \"text\": \"两手同样都记录刚才6类动作\"\r\n    },\r\n    {\r\n      \"start_s\": 87.56,\r\n      \"end_s\": 90.64,\r\n      \"text\": \"另外增加放下或归环这一类\"\r\n    },\r\n    {\r\n      \"start_s\": 90.64,\r\n      \"end_s\": 92.4,\r\n      \"text\": \"已经开始\"\r\n    },\r\n    {\r\n      \"start_s\": 92.4,\r\n      \"end_s\": 98.10000000000001,\r\n      \"text\": \"横跨83秒的动作案开始时所在的前半段口径处理\"\r\n    },\r\n    {\r\n      \"start_s\": 98.10000000000001,\r\n      \"end_s\": 100.4,\r\n      \"text\": \"不切成两次\"\r\n    },\r\n    {\r\n      \"start_s\": 100.4,\r\n      \"end_s\": 103.2,\r\n      \"text\": \"那我把双方一起处理的动作合在意形\"\r\n    },\r\n    {\r\n      \"start_s\": 103.2,\r\n      \"end_s\": 105.10000000000001,\r\n      \"text\": \"手别写双手\"\r\n    },\r\n    {\r\n      \"start_s\": 105.10000000000001,\r\n      \"end_s\": 106.76,\r\n      \"text\": \"只保留工具绚拧\"\r\n    },\r\n    {\r\n      \"start_s\": 106.76,\r\n      \"end_s\": 109.00000000000001,\r\n      \"text\": \"把手指绚入螺纹删掉\"\r\n    },\r\n    {\r\n      \"start_s\": 109.00000000000001,\r\n      \"end_s\": 109.9,\r\n      \"text\": \"可以吗\"\r\n    },\r\n    {\r\n      \"start_s\": 109.9,\r\n      \"end_s\": 111.2,\r\n      \"text\": \"不可以\"\r\n    },\r\n    {\r\n      \"start_s\": 111.2,\r\n      \"end_s\": 114.08,\r\n      \"text\": \"两条手轨分别交付\"\r\n    },\r\n    {\r\n      \"start_s\": 114.08,\r\n      \"end_s\": 118.64,\r\n      \"text\": \"双方确实在同一时段执行同一类动作时\"\r\n    },\r\n    {\r\n      \"start_s\": 118.64,\r\n      \"end_s\": 119.94,\r\n      \"text\": \"左手一条\"\r\n    },\r\n    {\r\n      \"start_s\": 119.94,\r\n      \"end_s\": 122.16,\r\n      \"text\": \"右手一条是合法的\"\r\n    },\r\n    {\r\n      \"start_s\": 122.16,\r\n      \"end_s\": 124.26,\r\n      \"text\": \"不是两次物理装配\"\r\n    },\r\n    {\r\n      \"start_s\": 124.26,\r\n      \"end_s\": 127.64,\r\n      \"text\": \"只是扶住的那只手仍然不露\"\r\n    },\r\n    {\r\n      \"start_s\": 127.64,\r\n      \"end_s\": 129.44,\r\n      \"text\": \"手指绚入\"\r\n    },\r\n    {\r\n      \"start_s\": 129.44,\r\n      \"end_s\": 132.82,\r\n      \"text\": \"手拧与工具绚拧都属于绚拧\"\r\n    },\r\n    {\r\n      \"start_s\": 132.82,\r\n      \"end_s\": 133.96,\r\n      \"text\": \"要保留\"\r\n    },\r\n    {\r\n      \"start_s\": 133.96,\r\n      \"end_s\": 136.72,\r\n      \"text\": \"对位和实际结合要分开\"\r\n    },\r\n    {\r\n      \"start_s\": 136.72,\r\n      \"end_s\": 138.5,\r\n      \"text\": \"统一名称\"\r\n    },\r\n    {\r\n      \"start_s\": 138.5,\r\n      \"end_s\": 139.4,\r\n      \"text\": \"取起\"\r\n    },\r\n    {\r\n      \"start_s\": 139.4,\r\n      \"end_s\": 141.1,\r\n      \"text\": \"放下或归环\"\r\n    },\r\n    {\r\n      \"start_s\": 141.1,\r\n      \"end_s\": 142.54,\r\n      \"text\": \"手肩转交\"\r\n    },\r\n    {\r\n      \"start_s\": 142.54,\r\n      \"end_s\": 143.48,\r\n      \"text\": \"翻面\"\r\n    },\r\n    {\r\n      \"start_s\": 143.48,\r\n      \"end_s\": 144.78,\r\n      \"text\": \"对位调整\"\r\n    },\r\n    {\r\n      \"start_s\": 144.78,\r\n      \"end_s\": 146.44,\r\n      \"text\": \"插入或贴合\"\r\n    },\r\n    {\r\n      \"start_s\": 146.44,\r\n      \"end_s\": 147.38,\r\n      \"text\": \"眩拧\"\r\n    },\r\n    {\r\n      \"start_s\": 147.38,\r\n      \"end_s\": 148.82,\r\n      \"text\": \"插入\"\r\n    },\r\n    {\r\n      \"start_s\": 148.82,\r\n      \"end_s\": 149.7,\r\n      \"text\": \"压入\"\r\n    },\r\n    {\r\n      \"start_s\": 149.7,\r\n      \"end_s\": 150.5,\r\n      \"text\": \"就位\"\r\n    },\r\n    {\r\n      \"start_s\": 150.5,\r\n      \"end_s\": 153.01999999999998,\r\n      \"text\": \"装到一起可归入贴合\"\r\n    },\r\n    {\r\n      \"start_s\": 153.01999999999998,\r\n      \"end_s\": 153.9,\r\n      \"text\": \"着孔\"\r\n    },\r\n    {\r\n      \"start_s\": 153.9,\r\n      \"end_s\": 154.84,\r\n      \"text\": \"摆正\"\r\n    },\r\n    {\r\n      \"start_s\": 154.84,\r\n      \"end_s\": 157.24,\r\n      \"text\": \"是对位置用对位调整\"\r\n    },\r\n    {\r\n      \"start_s\": 157.24,\r\n      \"end_s\": 159.82,\r\n      \"text\": \"尚不能断言完成结合\"\r\n    },\r\n    {\r\n      \"start_s\": 159.82,\r\n      \"end_s\": 161.79999999999998,\r\n      \"text\": \"细小紧固件\"\r\n    },\r\n    {\r\n      \"start_s\": 161.79999999999998,\r\n      \"end_s\": 165.24,\r\n      \"text\": \"看不清具体规格时可统一写紧固件\"\r\n    },\r\n    {\r\n      \"start_s\": 165.24,\r\n      \"end_s\": 169.78,\r\n      \"text\": \"看不清弹簧还是小拨件时可以写小副件\"\r\n    },\r\n    {\r\n      \"start_s\": 169.78,\r\n      \"end_s\": 172.1,\r\n      \"text\": \"不要凭折挡猜\"\r\n    },\r\n    {\r\n      \"start_s\": 172.1,\r\n      \"end_s\": 172.5,\r\n      \"text\": \"罗钉\"\r\n    },\r\n    {\r\n      \"start_s\": 172.5,\r\n      \"end_s\": 173.1,\r\n      \"text\": \"投行\"\r\n    },\r\n    {\r\n      \"start_s\": 173.1,\r\n      \"end_s\": 174.84,\r\n      \"text\": \"动作旗指\"\r\n    },\r\n    {\r\n      \"start_s\": 174.84,\r\n      \"end_s\": 177.8,\r\n      \"text\": \"对象和执行手别分别记录\"\r\n    },\r\n    {\r\n      \"start_s\": 177.8,\r\n      \"end_s\": 180.1,\r\n      \"text\": \"有不确定向照实标注\"\r\n    },\r\n    {\r\n      \"start_s\": 180.1,\r\n      \"end_s\": 182.64,\r\n      \"text\": \"我们只核查可见动作\"\r\n    },\r\n    {\r\n      \"start_s\": 182.64,\r\n      \"end_s\": 185.78,\r\n      \"text\": \"不具此证明扭矩或运行安全\"\r\n    },\r\n    {\r\n      \"start_s\": 185.78,\r\n      \"end_s\": 189.9,\r\n      \"text\": \"我建议最后仍把所有取起动作省掉\"\r\n    },\r\n    {\r\n      \"start_s\": 189.9,\r\n      \"end_s\": 191.6,\r\n      \"text\": \"只保留装配动作\"\r\n    },\r\n    {\r\n      \"start_s\": 191.6,\r\n      \"end_s\": 194.72,\r\n      \"text\": \"如果负责人不再说话就这样提交\"\r\n    },\r\n    {\r\n      \"start_s\": 194.72,\r\n      \"end_s\": 196.18,\r\n      \"text\": \"不采纳\"\r\n    },\r\n    {\r\n      \"start_s\": 196.18,\r\n      \"end_s\": 201.7,\r\n      \"text\": \"仍按刚才确认的两段时间范围和两条手轨记录\"\r\n    },\r\n    {\r\n      \"start_s\": 201.7,\r\n      \"end_s\": 203.5,\r\n      \"text\": \"取起动作保留\"\r\n    },\r\n    {\r\n      \"start_s\": 203.5,\r\n      \"end_s\": 205.98,\r\n      \"text\": \"请提交动作台帐\"\r\n    },\r\n    {\r\n      \"start_s\": 205.98,\r\n      \"end_s\": 209.84,\r\n      \"text\": \"口径JSON和可逐断回看的网页\"\r\n    },\r\n    {\r\n      \"start_s\": 209.84,\r\n      \"end_s\": 214.46,\r\n      \"text\": \"不能用一个三分钟总片段代替每次动作定位\"\r\n    },\r\n    {\r\n      \"start_s\": 214.46,\r\n      \"end_s\": 244.44,\r\n      \"text\": \"请不吝点赞订阅\"\r\n    }\r\n  ]\r\n}\r\n",
       "exit_code": 0,
       "index": 7,
-      "key": true,
-      "key_title": "处理交接音频"
+      "key": false
     },
     {
       "kind": "command",
@@ -438,7 +444,8 @@
       "title": "模型可见回复",
       "body": "交接口径已确认。现在进入逐帧台账阶段，先看总览拼图定位各段动作。",
       "index": 49,
-      "key": false
+      "key": true,
+      "key_title": "开始逐帧核对台账"
     },
     {
       "kind": "command",
@@ -508,7 +515,8 @@
       "title": "模型可见回复",
       "body": "早期取件与转交已定位。继续用 0.25 秒俯视拼图核对 10–20 秒的装配细节。",
       "index": 58,
-      "key": false
+      "key": true,
+      "key_title": "0.25秒俯视细查"
     },
     {
       "kind": "command",
@@ -634,7 +642,8 @@
       "title": "模型可见回复",
       "body": "接下来核对 52–90 秒的螺丝刀取用、使用与归还，这是前半段工具动作最密集的部分。",
       "index": 74,
-      "key": false
+      "key": true,
+      "key_title": "检查52–90秒工具取用"
     },
     {
       "kind": "command",
@@ -802,7 +811,7 @@
       "exit_code": 1,
       "index": 95,
       "key": true,
-      "key_title": "建立动作与口径记录"
+      "key_title": "首次政策补丁格式失败"
     },
     {
       "kind": "command",
@@ -849,7 +858,8 @@
       "body": "0\r\nSuccess. Updated the following files:\r\nA output/actions.json\r\n\r\n\r\n",
       "exit_code": 0,
       "index": 101,
-      "key": false
+      "key": true,
+      "key_title": "动作JSON成功落盘"
     },
     {
       "kind": "command",
@@ -866,7 +876,7 @@
       "exit_code": 1,
       "index": 103,
       "key": true,
-      "key_title": "制作和验证报告"
+      "key_title": "报告生成遇Windows命令长度限制"
     },
     {
       "kind": "error",
@@ -1167,7 +1177,8 @@
       "body": "0\r\nSuccess. Updated the following files:\r\nM work/validate_output.py\r\n\r\n\r\nevents: 61\r\nhands: left=29 right=32 both=0\r\nactions: adjust=8, fasten=19, fit=7, flip=9, pick_up=14, put_down=3, transfer=1\r\nWARN: short same-hand transition overlap e002 -> e003 (0.050s)\r\nWARN: short same-hand transition overlap e046 -> e047 (0.200s)\r\nPASS: actions.json, policy.json, report.html and README.md passed structural validation\r\n",
       "exit_code": 0,
       "index": 141,
-      "key": false
+      "key": true,
+      "key_title": "61条结构校验通过"
     },
     {
       "kind": "message",
@@ -1245,7 +1256,8 @@
       "title": "模型可见回复",
       "body": "浏览器实测发现一个关键细节：Windows 自带的 `python -m http.server` 不支持 HTTP Range，视频会退回到 0 秒而无法按事件跳转。直接以 `file://` 打开时跳转正常。为保证网页方式也可靠，我会附一个带 Range 支持的本地静态服务器并实测。",
       "index": 151,
-      "key": false
+      "key": true,
+      "key_title": "定位HTTP Range问题"
     },
     {
       "kind": "command",
@@ -1428,7 +1440,8 @@
       "body": "events: 61\r\nhands: left=29 right=32 both=0\r\nactions: adjust=8, fasten=19, fit=7, flip=9, pick_up=14, put_down=3, transfer=1\r\nPASS: actions.json, policy.json, report.html and README.md passed structural validation\r\ntitle: 角磨机装配动作证据交接\r\ncount: 显示 61 / 61 条\r\nverify: 校验通过：页面内嵌 61 条事件，与 actions.json 条数一致。\r\nrows: 61\r\ninitial media: {\"video_src\": \"http://127.0.0.1:8000/input/front.mp4\", \"video_ready\": 4, \"video_w\": 1280, \"video_h\": 720, \"video_duration\": 173.8, \"audio_src\": \"http://127.0.0.1:8000/input/handover.wav\", \"audio_ready\": 4, \"audio_duration\": 215.264036}\r\nleft rows: 29 hands: ['左手 left']\r\nput_down ids: ['e043', 'e049', 'e056']\r\nbearing_plate rows: 4\r\nhandle rows: 4\r\nreset rows: 61\r\nfirst id: e001 playing: {\"src\": \"http://127.0.0.1:8000/input/front.mp4\", \"t\": 1.1952, \"paused\": false, \"ready\": 4, \"title\": \"e001 · 右手 right · pick_up · 轴/转子 shaft\", \"meta\": \"00:00.8–00:02.4（front）\"}\r\nsegment end: {\"t\": 2.35, \"paused\": true, \"meta\": \"00:00.8–00:02.4（已到片段终点）\"}\r\ntop view: {\"src\": \"http://127.0.0.1:8000/input/top.mp4\", \"t\": 2.35, \"paused\": true, \"ready\": 4, \"cam\": \"当前视角：top（主时钟仍为 front）\", \"meta\": \"00:00.8–00:02.4（top）\"}\r\nlong event: {\"src\": \"http://127.0.0.1:8000/input/top.mp4\", \"t\": 91.2604, \"paused\": false, \"ready\": 4, \"title\": \"e042 · 右手 right · fasten · 螺丝刀 screwdriver\"}\r\nerrors: []\r\n",
       "exit_code": 0,
       "index": 174,
-      "key": false
+      "key": true,
+      "key_title": "Range服务下回归筛选与双视角"
     },
     {
       "kind": "command",
@@ -1468,8 +1481,7 @@
       "body": "\r\nLength LastWriteTime       Name\r\n------ -------------       ----\r\n       2026/11/12 14:37:14 __pycache__\r\n29018  2026/11/12 14:40:32 actions.json\r\n424    2026/11/12 14:26:13 policy.json\r\n6625   2026/11/12 14:37:58 README.md\r\n43980  2026/11/12 14:40:32 report.html\r\n4541   2026/11/12 14:42:06 serve.py\r\n\r\n---SHA---\r\n\r\nHash                                                             Path\r\n----                                                             ----\r\n81C8B8EE24067010E81285A2B273E98A93B84EFE86625DB8C4FC0185C7DA1E9A [run]\\…\r\nCDE5DB4DAB28B832F77DFD8A8C12CD38353741A9D602A40EA94047840F396CA7 [run]\\…\r\n01FAE45D9947C27B1AB19564EF68ABF199FA2694F9A389C7A38B14B852EA2EED [run]\\…\r\nE162889B55BFB27C2DF48403708B9909C5508CE1B4F907A5C849BA16A1EAD246 [run]\\…\r\n339BB170B65295611C610FE8A353193E5C9CC521C0B1E275FD83C9C6B091F4A3 [run]\\…\r\n\r\n",
       "exit_code": 0,
       "index": 179,
-      "key": true,
-      "key_title": "制作和验证报告"
+      "key": false
     },
     {
       "kind": "command",
@@ -1477,8 +1489,7 @@
       "body": "removed [run]\\output\\__pycache__\r\n\r\nLength Name\r\n------ ----\r\n 29018 actions.json\r\n   424 policy.json\r\n  6625 README.md\r\n 43980 report.html\r\n  4541 serve.py\r\n\r\n",
       "exit_code": 0,
       "index": 180,
-      "key": true,
-      "key_title": "读取委托与输入"
+      "key": false
     },
     {
       "kind": "message",
@@ -1486,7 +1497,7 @@
       "body": "**交付**\n已完成并写入 `output/`：\n\n- `output/actions.json`：61 条动作事件，左手 29 条、右手 32 条；含 `pick_up` 14、`transfer` 1、`adjust` 8、`fit` 7、`fasten` 19、`flip` 9、`put_down` 3，无 `hold`、无 `both`。\n- `output/policy.json`：第一段 `0.0–83.0 s`，第二段 `83.0–173.8 s`；`record_holds=false`，`clock=\"front\"`，`bilateral_as_two_tracks=true`。\n- `output/report.html`：默认展示全部 61 条，支持手别、动作、对象、文本筛选、逐条片段回放及 front/top 切换。\n- `output/README.md`：方法、主要发现、未知项、来源与 CC BY-NC-SA 4.0 许可、可靠打开方法。\n- `output/serve.py`：带 HTTP Range 的本地服务器，保证视频跳转可靠。\n\n**验证**\n- 结构校验通过：字段、ID、时间区间、双视角证据文件、半段动作约束、页面内嵌 JSON 与 `actions.json`/`policy.json` 完全一致。\n- Chrome + Playwright 实测通过：61 条记录、左手筛选 29 条、`put_down` 3 条、片段自动停在终点、front/top 切换、`e042` 跳转至约 91 秒、音频加载正常，无页面或控制台错误。\n- Windows 自带的 `python -m http.server` 不支持 Range，视频可能无法按事件跳转；请使用 `python output/serve.py` 后打开 `http://127.0.0.1:8000/output/report.html`，或直接双击 `output/report.html`。",
       "index": 181,
       "key": true,
-      "key_title": "模型最终可见总结"
+      "key_title": "最终交付与验证总结"
     }
   ]
 }

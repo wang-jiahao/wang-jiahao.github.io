@@ -1,0 +1,165 @@
+{
+  "checked_at": "2026-11-12",
+  "structural_checks": {
+    "passed": true,
+    "event_count": 119,
+    "hands": {
+      "right": 72,
+      "left": 47
+    },
+    "actions": {
+      "pick_up": 23,
+      "transfer": 12,
+      "flip": 12,
+      "adjust": 35,
+      "fit": 18,
+      "fasten": 12,
+      "put_down": 7
+    },
+    "policy_by_event_start": true,
+    "two_hand_tracks_without_same_hand_overlap": true,
+    "json_html_content_identical": true,
+    "all_evidence_files_and_times_valid": true,
+    "unknown_object_events": [
+      "E043"
+    ],
+    "boundary_crossing_events": [
+      "E057",
+      "E058"
+    ],
+    "put_down_before_boundary": 0,
+    "hold_or_both_rows": 0
+  },
+  "browser_checks": {
+    "media": {
+      "front": {
+        "duration": 173.8,
+        "readyState": 4,
+        "error": null
+      },
+      "top": {
+        "duration": 173.8,
+        "readyState": 4,
+        "error": null
+      },
+      "handover": {
+        "duration": 215.264036,
+        "readyState": 4,
+        "error": null
+      }
+    },
+    "filter_counts": {
+      "hand": 47,
+      "action": 12,
+      "object": 50,
+      "combined": 4
+    },
+    "reset_and_empty_results": true,
+    "all_event_evidence_seeks_note": "沿用刚完成的714次完整跳转核验；媒体、事件时间、口径和字节范围服务未变。本次仅修改播放取消提示，重新执行代表片段及快速切换检查。",
+    "all_event_evidence_seeks": [
+      {
+        "view": "front",
+        "events": 119,
+        "seeks": 357,
+        "passed": true
+      },
+      {
+        "view": "top",
+        "events": 119,
+        "seeks": 357,
+        "passed": true
+      }
+    ],
+    "segment_playback_auto_stop": [
+      {
+        "id": "E002",
+        "view": "front",
+        "requested_end_s": 2.8,
+        "paused_at_s": 2.822
+      },
+      {
+        "id": "E002",
+        "view": "top",
+        "requested_end_s": 2.8,
+        "paused_at_s": 2.812
+      },
+      {
+        "id": "E057",
+        "view": "front",
+        "requested_end_s": 83.6,
+        "paused_at_s": 83.627
+      },
+      {
+        "id": "E057",
+        "view": "top",
+        "requested_end_s": 83.6,
+        "paused_at_s": 83.612
+      },
+      {
+        "id": "E066",
+        "view": "front",
+        "requested_end_s": 89.2,
+        "paused_at_s": 89.232
+      },
+      {
+        "id": "E066",
+        "view": "top",
+        "requested_end_s": 89.2,
+        "paused_at_s": 89.223
+      },
+      {
+        "id": "E119",
+        "view": "front",
+        "requested_end_s": 173.5,
+        "paused_at_s": 173.508
+      },
+      {
+        "id": "E119",
+        "view": "top",
+        "requested_end_s": 173.5,
+        "paused_at_s": 173.509
+      }
+    ],
+    "speed_and_frame_step": true,
+    "handover_audio_seek_and_play": true,
+    "rapid_switch_and_pause_no_spurious_error": true,
+    "javascript_errors": [],
+    "file_url_all_records_display": true,
+    "passed": true
+  },
+  "limitations": [
+    "这是独立人工视觉归档；无原标注、参考答案或外部真值比较。",
+    "动作边界为人工秒级定位，不证明内部接合、扭矩或安全。",
+    "两视角按输入名义同步回查，未实测逐帧时间偏移。"
+  ],
+  "files": {
+    "actions.json": {
+      "sha256": "415ed461b7d1fe5cb6c9c46085c99954f7cc22c3897008aa5a13efffac25eda8",
+      "bytes": 62599
+    },
+    "policy.json": {
+      "sha256": "129de7180b18887c17412fed449637b187b3a81f566378d9945bb2812274bfc2",
+      "bytes": 582
+    },
+    "report.html": {
+      "sha256": "0a9ce1f2d94e373808ed7af7f53c79032457e497d680212a0482baf0a92bce38",
+      "bytes": 55530
+    },
+    "README.md": {
+      "sha256": "2d5fa4a6fb2ff0adb8889e2140bd2543c6ce4fb0816aa3a1f6a7d6269b24c5d2",
+      "bytes": 8306
+    },
+    "serve.py": {
+      "sha256": "1deed4806abd03b79cb27afb3e163195649b1219b77811eb5fea5fff0697cd3f",
+      "bytes": 3247
+    },
+    "CITATION.cff": {
+      "sha256": "43677af0a4c3cc0607d9d4ea376ac625c12bb835c31a4b63f6db0f069efd9c3b",
+      "bytes": 2623
+    },
+    "LICENSE-DATA.txt": {
+      "sha256": "528e832654d56de93410a3da0c6cea8b0ba2d3538cfa36b1a7fc1f337385b115",
+      "bytes": 933
+    }
+  }
+}

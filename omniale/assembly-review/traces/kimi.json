@@ -4,39 +4,51 @@
   "elapsed_sec": 7493.437,
   "note": "dashscope模型API直连，正常联网；可见记录已脱敏。",
   "summary": {
-    "headline": "输出81条动作记录；已落盘交付：actions.json、policy.json、report.html、README.md。",
+    "headline": "多轮加密抽帧、修正裁剪遗漏，收敛到81条，再排查HTTP回放逻辑。",
     "outcome": "脚本总分61.44/100；自动字段49.436005/85，自动交付12/15。真实耗时7493.4秒，exit0、turn.completed；不作事后语义或时钟修正。",
     "stages": [
       {
-        "title": "读取委托与输入",
-        "text": "可见记录中有22项相关操作；展开查看具体命令、输出与退出状态。",
+        "title": "先恢复政策，再建立双视角索引",
+        "text": "用large-v3-turbo和medium核对交接，逐秒浏览后加密重点片段；跨83秒的放下按开始时口径处理。",
         "events": [
-          3,
-          332
+          21,
+          70,
+          93,
+          135
         ]
       },
       {
-        "title": "处理交接音频",
-        "text": "可见记录中有3项相关操作；展开查看具体命令、输出与退出状态。",
+        "title": "修正观察范围与对象假设",
+        "text": "中途发现裁剪漏掉右侧料盒，补全全局；多次回查小件、圆件与转交，最后把85–86秒转交按两手分轨记录。",
         "events": [
-          9,
-          37
+          163,
+          190,
+          248,
+          269,
+          273
         ]
       },
       {
-        "title": "建立动作与口径记录",
-        "text": "可见记录中有5项相关操作；展开查看具体命令、输出与退出状态。",
+        "title": "把候选收敛到81条",
+        "text": "完成动作边界与未知项说明后，统一生成actions.json、policy.json、HTML和README，先进行结构校验。",
         "events": [
+          277,
+          282,
           283,
-          291
+          288,
+          290
         ]
       },
       {
-        "title": "制作和验证报告",
-        "text": "可见记录中有7项相关操作；展开查看具体命令、输出与退出状态。",
+        "title": "排查回放模式差异",
+        "text": "本地文件模式通过，但HTTP播放超时；定位到停止后的二次seek会重置播放头，修正后通过file与HTTP回归。",
         "events": [
-          283,
-          303
+          296,
+          302,
+          328,
+          329,
+          330,
+          333
         ]
       },
       {
@@ -47,7 +59,7 @@
         ]
       }
     ],
-    "editorial_note": "按可见操作分类整理；关键步骤只是阅读索引，不是动作正确性的人工复核。完整记录保留失败和恢复，隐藏推理不公开。"
+    "editorial_note": "过程总结依据可见转写、抽帧、生成与浏览器命令以及模型回复。叙述自测时明确归属模型验证记录，不将其等同于评分结论。没有重判逐条装配动作；完整记录保留失败和恢复，隐藏推理不公开。"
   },
   "events": [
     {
@@ -70,8 +82,7 @@
       "body": "\r\nMode  Length LastWriteTime       Name\r\n----  ------ -------------       ----\r\nd----        2026/11/12 0:30:10  input\r\n-a--- 2623   2026/11/11 18:23:32 CITATION.cff\r\n-a--- 0      2026/11/12 14:43:19 final-message.txt\r\n-a--- 933    2026/11/11 18:23:32 LICENSE-DATA.txt\r\n-a--- 1039   2026/11/11 15:19:02 local_asr.py\r\n-a--- 1199   2026/11/12 0:30:08  SOURCE_CREDIT.md\r\n-a--- 4036   2026/11/12 0:29:36  TASK.md\r\n--- TASK.md ---\r\n# 角磨机装配动作证据交接\n\n请根据培训资料负责人的口头交接，检查同一次角磨机装配的两段录像，建立可逐条回放的动作台账。交接有草稿、建议和后续更正，需要先判断最终生效的要求，再按要求归档实际可见动作。无需判断产品是否合格，不从遮挡推断内部接合、扭矩或运行安全。\n\n## 材料\n\n- `input/front.mp4`：完整正面录像，1280×720、30fps，约174秒。\n- `input/top.mp4`：同次操作的完整俯视录像，名义时间同步，供互相核查。\n- `input/handover.wav`：两位角色的后期合成中文交接，属于拟制委托，不是现场录音。角色在录音中自报身份；负责人有最终权限，操作员建议须明确获采纳才生效。\n- `local_asr.py`：通用本地转写工具，不含逐字稿、事件索引或答案。\n\n最终记录哪些时间、哪些动作、哪些手，是否记录扶持，以及同时动作如何列行、使用哪个主时钟，均从录音恢复。本说明不代替交接内容。两段录像是同一次物理过程，不是两遍装配。输入没有镜像；描述手别时使用操作者的解剖左右。\n\n允许联网、安装工具、脚本、逐帧查看和本地模型，保留正常网络与代理。可使用FFmpeg、OpenCV和本地语音模型；已有Whisper缓存可复用。不得检索原数据集标注、现成答案，或读取其他运行、作者参考文件与已发布案例答案。只操作本题工作目录内对应的材料和网页。\n\n## 数据编码\n\n以下是可用编码词汇，不表示这些动作都应归档；最终范围以交接为准。\n\n| action | 含义 |\n|---|---|\n| pick_up | 从料盒或桌面取起对象 |\n| put_down | 放到桌面、放回料盒或归还工具 |\n| transfer | 手间转交对象 |\n| flip | 明显翻面、改变朝向 |\n| adjust | 对位、调整、摆正或找孔 |\n| fit | 插入、贴合、压入、就位或装到一起 |\n| fasten | 手指起扣、手拧或工具旋拧 |\n| hold | 持住、扶住或稳定对象 |\n\n`object`使用上位类别：`body`黑色机体（含已插轴的机体）、`shaft`长金属轴／转子、`gear`齿轮状圆件、`adapter_plate`平板／环状适配件、`bearing_plate`较大圆盘总成、`small_attachment`细小紧固件／弹簧／拨件、`handle`黑色长柄、`screwdriver`柄式螺丝刀、`wrench`开口／组合扳手。不要求猜遮挡中的规格或工具尖端。\n\n每条记录应有可回查的起止时间。区分换动作、换对象或明显结束后重新开始；同一手、同类动作、同一对象的连续操作不要按手抖或工具往复切碎，短于0.8秒且未转为其他归档动作的中断可合并。跨交接口径边界时如何处理，从录音确定。未知字段写`null`并说明可见事实，不编造被遮挡的结果。\n\n## 交付\n\n写入`output/`，提交：\n\n1. `actions.json`：顶层为`{\"events\":[]}`。每条事件包含`id`、`hand`、`start_s`、`end_s`、`action`、`object`、`evidence`数组和`note`。`evidence`每项包含`file`、`start_s`、`end_s`。`hand`可表示`left`、`right`或`both`；最终应采用哪些手别、如何表示同时动作，以录音为准。ID自行安排。\n2. `policy.json`：恢复最终口头口径。`first`与`second`分别包含`start_s`、`end_s`、`hands`数组和`actions`数组；另有`record_holds`布尔、`clock`字符串、`bilateral_as_two_tracks`布尔。填写录音要求的值，不根据格式字段猜答案。\n3. `report.html`：默认展示全部归档记录，可按手、动作、对象和文本筛选；每条能回放所选主时钟对应的片段，并能查看另一视角。提供交接音频回听入口；网页与JSON内容一致。可直接使用原片时间跳转，无需导出所有短片。\n4. `README.md`：方法、主要发现、未知项、来源许可及可靠打开方法。\n\n没有固定运行时长截止。完成后说明交付位置和实际验证情况；有未知项仍应交付其余可确认结果。\n\r\n\r\n",
       "exit_code": 0,
       "index": 3,
-      "key": true,
-      "key_title": "读取委托与输入"
+      "key": false
     },
     {
       "kind": "error",
@@ -114,8 +125,7 @@
       "body": "\r\n{\r\n    \"programs\": [\r\n\r\n    ],\r\n    \"streams\": [\r\n        {\r\n            \"index\": 0,\r\n            \"codec_name\": \"pcm_s16le\",\r\n            \"codec_type\": \"audio\",\r\n            \"sample_rate\": \"22050\",\r\n            \"channels\": 1,\r\n            \"r_frame_rate\": \"0/0\"\r\n        }\r\n    ],\r\n    \"format\": {\r\n        \"filename\": \"input/handover.wav\",\r\n        \"duration\": \"215.264036\",\r\n        \"size\": \"9493222\"\r\n    }\r\n}\r\n{\r\n    \"programs\": [\r\n\r\n    ],\r\n    \"streams\": [\r\n        {\r\n            \"index\": 0,\r\n            \"codec_name\": \"h264\",\r\n            \"codec_type\": \"video\",\r\n            \"width\": 1280,\r\n            \"height\": 720,\r\n            \"r_frame_rate\": \"30/1\"\r\n        }\r\n    ],\r\n    \"format\": {\r\n        \"filename\": \"input/front.mp4\",\r\n        \"duration\": \"173.800000\",\r\n        \"size\": \"73874019\"\r\n    }\r\n}\r\n{\r\n    \"programs\": [\r\n\r\n    ],\r\n    \"streams\": [\r\n        {\r\n            \"index\": 0,\r\n            \"codec_name\": \"h264\",\r\n            \"codec_type\": \"video\",\r\n            \"width\": 1280,\r\n            \"height\": 720,\r\n            \"r_frame_rate\": \"30/1\"\r\n        }\r\n    ],\r\n    \"format\": {\r\n        \"filename\": \"input/top.mp4\",\r\n        \"duration\": \"173.800000\",\r\n        \"size\": \"54301490\"\r\n    }\r\n}\r\nName           Length LastWriteTime\r\n----           ------ -------------\r\nfront.mp4    73874019 2026/11/11 18:33:38\r\nhandover.wav  9493222 2026/11/12 0:30:10\r\ntop.mp4      54301490 2026/11/11 18:35:59\r\n--- local_asr.py ---\r\n\"\"\"General local ASR helper. No authored transcripts or expected answers.\"\"\"\nfrom pathlib import Path\nimport argparse,json,subprocess\nimport numpy as np\nfrom faster_whisper import WhisperModel\n\ndef main():\n    p=argparse.ArgumentParser();p.add_argument('audio',type=Path);p.add_argument('--model',default='small');p.add_argument('--output',type=Path);n=p.parse_args()\n    # FFmpeg decoding avoids a PyAV version mismatch in the host environment.\n    raw=subprocess.check_output(['ffmpeg','-v','error','-i',str(n.audio),'-f','f32le','-ac','1','-ar','16000','pipe:1'])\n    data=np.frombuffer(raw,np.float32)\n    m=WhisperModel(n.model,device='cpu',compute_type='int8',cpu_threads=4)\n    segments,info=m.transcribe(data,language='zh',beam_size=5,vad_filter=False)\n    result=dict(file=n.audio.name,segments=[dict(start_s=s.start,end_s=s.end,text=s.text) for s in segments])\n    text=json.dumps(result,ensure_ascii=False,indent=2)\n    if n.output:n.output.write_text(text,encoding='utf-8')\n    else:print(text)\n\nif __name__=='__main__':main()\n\r\n--- SOURCE_CREDIT.md ---\r\n# 来源与修改\r\nIMPACT v1.1，Di Wen等，完整作者见CITATION.cff。官方项目https://kratos-wen.github.io/IMPACT/；数据https://huggingface.co/datasets/KratosWen/IMPACT；媒体与派生材料CC BY-NC-SA 4.0，保留署名和相同许可，限非商业研究／教育。\r\n同一次AL07EJ17_Reassembly_A_002的front/top真实录像，1280×720、30fps、5214帧、173.8秒。只转为浏览器兼容H.264 CRF18、移除音轨；无裁剪、变速、重排或生成动作。两固定视角记录同一次操作，保持原片名义时序；具体归档约定以交接录音为准。\r\n口头交接为Windows System.Speech Huihui／Kangkang后期语音合成，明确属于拟制委托，非现场录音，不证明真实工具声音。源细粒度标注仅用于作者索引和候选评分参考，原normal/anomaly标签不用于定责或判断机械故障。不从图像遮挡推断内部结构。\r\n此版本从用户提供的A3_equipment_evidence.zip复用真实媒体与来源研究；重做动作台账任务和口头口径，不沿用六题或旧得分。\r\n\r\n本次修订调整文字委托，并在合成交接中补充主时钟字段的拼写说明；真实装配录像未改动。\r\n\r\n--- media metadata ---\r\n--- hashes ---\r\n                    1 \r\n                    1 \r\n                    1 \r\n\r\n",
       "exit_code": 0,
       "index": 9,
-      "key": true,
-      "key_title": "处理交接音频"
+      "key": false
     },
     {
       "kind": "error",
@@ -202,7 +212,8 @@
       "title": "模型可见回复",
       "body": "交接的关键规则已明确：双手分轨、83秒处分段，前段排除放下与扶持。现在生成双视角时间索引，随后逐段精确定位。",
       "index": 21,
-      "key": false
+      "key": true,
+      "key_title": "锁定交接口径"
     },
     {
       "kind": "command",
@@ -319,8 +330,7 @@
       "body": "",
       "exit_code": 0,
       "index": 37,
-      "key": true,
-      "key_title": "处理交接音频"
+      "key": false
     },
     {
       "kind": "command",
@@ -556,7 +566,8 @@
       "title": "模型可见回复",
       "body": "全片概览已完成。接下来按一秒间隔放大工作区，先建立候选台账，再回查临界帧。",
       "index": 70,
-      "key": false
+      "key": true,
+      "key_title": "一秒工作区索引"
     },
     {
       "kind": "file",
@@ -1230,7 +1241,8 @@
       "title": "模型可见回复",
       "body": "现有放大裁剪漏掉了右侧料盒；我先补齐全局与关键局部。",
       "index": 163,
-      "key": false
+      "key": true,
+      "key_title": "发现裁剪遗漏右侧料盒"
     },
     {
       "kind": "command",
@@ -1426,7 +1438,8 @@
       "title": "模型可见回复",
       "body": "已确认 9 秒和 19 秒取的是小紧固件，不是齿轮；继续核准掉落后的再取。",
       "index": 190,
-      "key": false
+      "key": true,
+      "key_title": "重新区分早段小件类别"
     },
     {
       "kind": "command",
@@ -1854,7 +1867,8 @@
       "title": "模型可见回复",
       "body": "加密帧显示 66–69 秒主要是机体调整与灰垫环件拾取；我正据此修正候选事件。",
       "index": 248,
-      "key": false
+      "key": true,
+      "key_title": "加密复查66–69秒"
     },
     {
       "kind": "error",
@@ -2004,7 +2018,8 @@
       "title": "模型可见回复",
       "body": "发现 85–86 秒可能有手间转交；我加密复核这一小段。",
       "index": 269,
-      "key": false
+      "key": true,
+      "key_title": "加密复核85–86秒转交"
     },
     {
       "kind": "command",
@@ -2063,7 +2078,8 @@
       "title": "模型可见回复",
       "body": "事件口径已收敛为 81 条；接下来生成四项正式交付。",
       "index": 277,
-      "key": false
+      "key": true,
+      "key_title": "收敛为81条记录"
     },
     {
       "kind": "command",
@@ -2109,8 +2125,7 @@
       "body": "Success. Updated the following files:\nA work/build_delivery.py\n",
       "exit_code": 0,
       "index": 283,
-      "key": true,
-      "key_title": "制作和验证报告"
+      "key": false
     },
     {
       "kind": "message",
@@ -2170,8 +2185,7 @@
       "body": "Success. Updated the following files:\nA work/test_report.py\nTraceback (most recent call last):\r\n  File \"[run]\\work\\test_report.py\", line 66, in <module>\r\n    browser = playwright.chromium.launch(headless=True)\r\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\site-packages\\playwright\\sync_api\\_generated.py\", line 4103, in launch\r\n    self._sync(\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\site-packages\\playwright\\_impl\\_sync_base.py\", line 111, in _sync\r\n    return task.result()\r\n           ^^^^^^^^^^^^^\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\site-packages\\playwright\\_impl\\_browser_type.py\", line 101, in launch\r\n    await self._channel.send(\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\site-packages\\playwright\\_impl\\_connection.py\", line 78, in send\r\n    return await self._connection.wrap_api_call(\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\site-packages\\playwright\\_impl\\_connection.py\", line 636, in wrap_api_call\r\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\r\nplaywright._impl._errors.Error: BrowserType.launch: Executable doesn't exist at [user]\\AppData\\Local\\Packages\\sandbox.{cb8db42f-d114-4d5e-be21-727d9669be01}\\AC\\ms-playwright\\chromium_headless_shell-1248\\chrome-headless-shell-win64\\chrome-headless-shell.exe\r\n╔════════════════════════════════════════════════════════════╗\r\n║ Looks like Playwright was just installed or updated.       ║\r\n║ Please run the following command to download new browsers: ║\r\n║                                                            ║\r\n║     playwright install                                     ║\r\n║                                                            ║\r\n║ <3 Playwright Team                                         ║\r\n╚════════════════════════════════════════════════════════════╝\r\n",
       "exit_code": 1,
       "index": 291,
-      "key": true,
-      "key_title": "建立动作与口径记录"
+      "key": false
     },
     {
       "kind": "message",
@@ -2209,7 +2223,8 @@
       "title": "模型可见回复",
       "body": "本地文件模式已通过；HTTP模式媒体进度异常，我正在定位。",
       "index": 296,
-      "key": false
+      "key": true,
+      "key_title": "发现file与HTTP表现不同"
     },
     {
       "kind": "error",
@@ -2260,8 +2275,7 @@
       "body": "import json\r\nimport threading\r\nfrom http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer\r\nfrom pathlib import Path\r\nfrom urllib.parse import unquote\r\n\r\nfrom playwright.sync_api import sync_playwright\r\n\r\n\r\nroot = Path(__file__).resolve().parent.parent\r\nevents = json.loads((root / \"output\" / \"actions.json\").read_text(encoding=\"utf-8\"))[\"events\"]\r\n\r\n\r\nclass QuietHandler(SimpleHTTPRequestHandler):\r\n    def __init__(self, *args, **kwargs):\r\n        super().__init__(*args, directory=str(root), **kwargs)\r\n\r\n    def log_message(self, format, *args):\r\n        pass\r\n\r\n\r\ndef check_page(page, url, screenshot=False):\r\n    errors = []\r\n    page.on(\"pageerror\", lambda error: errors.append(str(error)))\r\n    page.goto(url, wait_until=\"load\")\r\n    page.wait_for_selector(\"#event-rows tr\")\r\n    assert page.locator(\"#event-rows tr\").count() == len(events)\r\n    assert page.locator(\"#visible-count\").inner_text() == f\"显示 {len(events)} / {len(events)} 条\"\r\n\r\n    page.select_option(\"#hand-filter\", \"left\")\r\n    expected_left = sum(event[\"hand\"] == \"left\" for event in events)\r\n    assert page.locator(\"#event-rows tr\").count() == expected_left\r\n    page.click(\"#reset-button\")\r\n    page.select_option(\"#action-filter\", \"pick_up\")\r\n    expected_pickups = sum(event[\"action\"] == \"pick_up\" for event in events)\r\n    assert page.locator(\"#event-rows tr\").count() == expected_pickups\r\n    page.click(\"#reset-button\")\r\n    page.select_option(\"#object-filter\", \"gear\")\r\n    expected_gear = sum(event[\"object\"] == \"gear\" for event in events)\r\n    assert page.locator(\"#event-rows tr\").count() == expected_gear\r\n    page.click(\"#reset-button\")\r\n    page.fill(\"#text-filter\", \"E001\")\r\n    assert page.locator(\"#event-rows tr\").count() == 1\r\n    page.click(\"#reset-button\")\r\n    assert page.locator(\"#event-rows tr\").count() == len(events)\r\n\r\n    for view in (\"front\", \"top\"):\r\n        page.locator(f'button[data-play=\"E001\"][data-view=\"{view}\"]').click()\r\n        page.wait_for_function(\"document.querySelector('#player').currentTime >= 0.89 && !document.querySelector('#player').paused\", timeout=15000)\r\n        assert page.locator(\"#player\").get_attribute(\"src\") == f\"../input/{view}.mp4\"\r\n        page.wait_for_function(\"document.querySelector('#player').paused && document.querySelector('#player').currentTime >= 2.35\", timeout=15000)\r\n        current_time = page.evaluate(\"document.querySelector('#player').currentTime\")\r\n        assert 2.35 <= current_time <= 2.65, current_time\r\n        assert \"2.40\" in page.locator(\"#now\").inner_text()\r\n\r\n    assert page.locator(\"#handover-audio\").get_attribute(\"src\") == \"../input/handover.wav\"\r\n    assert page.locator('a[href=\"../input/handover.wav\"]').count() == 1\r\n    assert not errors, errors\r\n    if screenshot:\r\n        page.locator(\"#hand-filter\").select_option(\"all\")\r\n        page.evaluate(\"window.scrollTo(0, 0)\")\r\n        page.screenshot(path=str(root / \"work\" / \"report_screenshot.png\"), full_page=False)\r\n\r\n\r\nwith sync_playwright() as playwright:\r\n    browser = playwright.chromium.launch(headless=True, executable_path=r\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\")\r\n    page = browser.new_page(viewport={\"width\": 1440, \"height\": 1000})\r\n    check_page(page, (root / \"output\" / \"report.html\").as_uri(), screenshot=True)\r\n    page.close()\r\n\r\n    server = ThreadingHTTPServer((\"127.0.0.1\", 0), QuietHandler)\r\n    thread = threading.Thread(target=server.serve_forever, daemon=True)\r\n    thread.start()\r\n    try:\r\n        page = browser.new_page(viewport={\"width\": 1280, \"height\": 900})\r\n        port = server.server_address[1]\r\n        check_page(page, f\"http://127.0.0.1:{port}/output/report.html\")\r\n        response = page.request.get(f\"http://127.0.0.1:{port}/input/handover.wav\")\r\n        assert response.ok and int(response.headers[\"content-length\"]) == (root / \"input\" / \"handover.wav\").stat().st_size\r\n        page.close()\r\n    finally:\r\n        server.shutdown()\r\n        server.server_close()\r\n        thread.join(timeout=5)\r\n    browser.close()\r\n\r\nprint(\"Playwright file:// and HTTP checks passed: 81 default rows, all four filters, reset, front/top bounded playback, audio entry, and no page errors.\")\r\nwork/report_template.html-25-    header { background: #10253f; color: white; padding: 28px 24px; }\nwork/report_template.html-26-    header > div, main { max-width: 1680px; margin: 0 auto; }\nwork/report_template.html-27-    h1 { margin: 0 0 8px; font-size: clamp(24px, 3vw, 38px); line-height: 1.2; }\nwork/report_template.html-28-    header p { margin: 0; color: #d8e5f5; max-width: 1050px; }\nwork/report_template.html-29-    main { padding: 20px 24px 42px; }\nwork/report_template.html-30-    .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px; margin-bottom: 18px; box-shadow: 0 2px 8px #17212b0a; }\nwork/report_template.html-31-    .stats { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }\nwork/report_template.html-32-    .stat { background: #ffffff16; border: 1px solid #ffffff2e; border-radius: 999px; padding: 5px 12px; color: white; }\nwork/report_template.html:33:    .player-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr); gap: 18px; }\nwork/report_template.html-34-    video { display: block; width: 100%; min-height: 260px; background: #05080c; border-radius: 8px; }\nwork/report_template.html-35-    audio { width: 100%; margin-top: 10px; }\nwork/report_template.html:36:    .now { min-height: 72px; margin-bottom: 10px; padding: 10px 12px; border-radius: 8px; background: var(--accent-soft); }\nwork/report_template.html:37:    .now strong { display: block; margin-bottom: 3px; }\nwork/report_template.html-38-    .button-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }\nwork/report_template.html-39-    .button, .play-button { border: 1px solid var(--line); border-radius: 7px; background: white; color: var(--ink); padding: 6px 10px; }\nwork/report_template.html-40-    .button:hover, .play-button:hover { border-color: var(--accent); color: var(--accent); }\nwork/report_template.html-41-    .button.primary { background: var(--accent); border-color: var(--accent); color: white; }\nwork/report_template.html-42-    .links { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px 16px; }\nwork/report_template.html-43-    .filters { display: grid; grid-template-columns: repeat(3, minmax(140px, 1fr)) minmax(240px, 2fr) auto; gap: 12px; align-items: end; }\nwork/report_template.html-44-    .field label { display: block; color: var(--muted); font-size: 12px; margin-bottom: 4px; }\nwork/report_template.html-45-    .field input, .field select { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 7px; background: white; color: var(--ink); }\nwork/report_template.html-46-    .result-line { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin: 16px 0 8px; color: var(--muted); }\nwork/report_template.html-47-    .table-wrap { overflow: auto; border: 1px solid var(--line); border-radius: 9px; max-height: 72vh; background: white; }\nwork/report_template.html-48-    table { width: 100%; min-width: 1260px; border-collapse: collapse; }\nwork/report_template.html-49-    th, td { text-align: left; vertical-align: top; padding: 10px; border-bottom: 1px solid var(--line); }\nwork/report_template.html:50:    th { position: sticky; top: 0; z-index: 2; background: #eef2f6; font-size: 12px; color: #455160; white-space: nowrap; }\nwork/report_template.html-51-    tbody tr:hover { background: #f7faff; }\nwork/report_template.html-52-    tbody tr.active { background: #edf4ff; }\nwork/report_template.html-53-    tbody tr:last-child td { border-bottom: 0; }\nwork/report_template.html:54:    .mono { font-family: Consolas, \"SFMono-Regular\", monospace; font-size: 12px; white-space: nowrap; }\nwork/report_template.html-55-    .hand { display: inline-block; border-radius: 999px; padding: 2px 8px; font-size: 12px; font-weight: 600; }\nwork/report_template.html-56-    .hand.left { color: var(--left); background: #f1eaff; }\nwork/report_template.html-57-    .hand.right { color: var(--right); background: #e4f7f2; }\nwork/report_template.html:58:    .action { font-weight: 600; white-space: nowrap; }\nwork/report_template.html-59-    .note { min-width: 330px; max-width: 560px; }\nwork/report_template.html-60-    .evidence { display: grid; gap: 3px; margin-bottom: 7px; color: var(--muted); font-size: 12px; }\nwork/report_template.html-61-    .play-buttons { display: flex; flex-wrap: wrap; gap: 5px; min-width: 150px; }\nwork/report_template.html-62-    .play-button { padding: 4px 7px; font-size: 12px; }\nwork/report_template.html-63-    details summary { cursor: pointer; font-weight: 600; }\nwork/report_template.html-64-    .policy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 12px; }\nwork/report_template.html-65-    .policy-grid div { background: #f6f8fa; border-radius: 8px; padding: 12px; }\nwork/report_template.html-66-    .caution { margin: 12px 0 0; color: var(--muted); }\nwork/report_template.html-67-    .empty { padding: 24px; text-align: center; color: var(--muted); }\nwork/report_template.html-68-    @media (max-width: 980px) {\nwork/report_template.html:69:      .player-grid, .policy-grid { grid-template-columns: 1fr; }\nwork/report_template.html-70-      .filters { grid-template-columns: 1fr 1fr; }\nwork/report_template.html-71-      .filters .field:nth-child(4) { grid-column: 1 / -1; }\nwork/report_template.html-72-    }\nwork/report_template.html-73-    @media (max-width: 560px) {\nwork/report_template.html-74-      header { padding: 22px 16px; }\nwork/report_template.html-75-      main { padding: 14px 12px 30px; }\nwork/report_template.html-76-      .card { padding: 13px; }\nwork/report_template.html-77-      .filters { grid-template-columns: 1fr; }\n--\nwork/report_template.html-91-        <span class=\"stat\">后段 83–173.8 秒</span>\nwork/report_template.html-92-        <span class=\"stat\">双手分轨 · 不记单纯扶持</span>\nwork/report_template.html-93-      </div>\nwork/report_template.html-94-    </div>\nwork/report_template.html-95-  </header>\nwork/report_template.html-96-  <main>\nwork/report_template.html-97-    <section class=\"card\" aria-labelledby=\"playback-title\">\nwork/report_template.html-98-      <h2 id=\"playback-title\">逐段回放</h2>\nwork/report_template.html:99:      <div class=\"player-grid\">\nwork/report_template.html-100-        <div>\nwork/report_template.html:101:          <video id=\"player\" controls playsinline preload=\"metadata\" src=\"../input/front.mp4\">浏览器不支持视频播放。</video>\nwork/report_template.html-102-          <div class=\"button-row\">\nwork/report_template.html-103-            <button id=\"stop-button\" class=\"button\" type=\"button\">停止</button>\nwork/report_template.html-104-            <a class=\"button\" href=\"../input/front.mp4\" target=\"_blank\" rel=\"noopener\">正面原片</a>\nwork/report_template.html-105-            <a class=\"button\" href=\"../input/top.mp4\" target=\"_blank\" rel=\"noopener\">俯视原片</a>\nwork/report_template.html-106-          </div>\nwork/report_template.html-107-        </div>\nwork/report_template.html-108-        <aside>\nwork/report_template.html:109:          <div id=\"now\" class=\"now\" aria-live=\"polite\">\nwork/report_template.html-110-            <strong>尚未选择事件</strong>\nwork/report_template.html-111-            <span>在任一记录末尾选择“正面”或“俯视”，将跳转至该事件起点并停止于终点。</span>\nwork/report_template.html-112-          </div>\nwork/report_template.html-113-          <h3>交接录音</h3>\nwork/report_template.html-114-          <audio id=\"handover-audio\" controls preload=\"none\" src=\"../input/handover.wav\">浏览器不支持音频播放。</audio>\nwork/report_template.html-115-          <div class=\"links\">\nwork/report_template.html-116-            <a href=\"../input/handover.wav\" target=\"_blank\" rel=\"noopener\">回听／下载交接音频</a>\nwork/report_template.html-117-            <a href=\"actions.json\" target=\"_blank\" rel=\"noopener\">actions.json</a>\n--\nwork/report_template.html-208-    const handNames = { left: \"左手\", right: \"右手\" };\nwork/report_template.html-209-    const handFilter = document.getElementById(\"hand-filter\");\nwork/report_template.html-210-    const actionFilter = document.getElementById(\"action-filter\");\nwork/report_template.html-211-    const objectFilter = document.getElementById(\"object-filter\");\nwork/report_template.html-212-    const textFilter = document.getElementById(\"text-filter\");\nwork/report_template.html-213-    const rows = document.getElementById(\"event-rows\");\nwork/report_template.html-214-    const visibleCount = document.getElementById(\"visible-count\");\nwork/report_template.html-215-    const emptyState = document.getElementById(\"empty-state\");\nwork/report_template.html:216:    const player = document.getElementById(\"player\");\nwork/report_template.html:217:    const now = document.getElementById(\"now\");\nwork/report_template.html-218-    let activeEvent = null;\nwork/report_template.html-219-    let activeView = \"front\";\nwork/report_template.html-220-    let activeRequest = 0;\nwork/report_template.html-221-    let animationRequest = 0;\nwork/report_template.html-222-\nwork/report_template.html-223-    function escapeHtml(value) {\nwork/report_template.html-224-      return String(value).replace(/[&<>\"']/g, character => ({\nwork/report_template.html-225-        \"&\": \"&amp;\", \"<\": \"&lt;\", \">\": \"&gt;\", '\"': \"&quot;\", \"'\": \"&#39;\"\n--\nwork/report_template.html-293-        if (row) row.classList.add(\"active\");\nwork/report_template.html-294-      }\nwork/report_template.html-295-    }\nwork/report_template.html-296-\nwork/report_template.html-297-    function monitorEnd() {\nwork/report_template.html-298-      cancelAnimationFrame(animationRequest);\nwork/report_template.html-299-      if (!activeEvent) return;\nwork/report_template.html-300-      const check = () => {\nwork/report_template.html:301:        if (!activeEvent || player.paused) return;\nwork/report_template.html:302:        if (player.currentTime >= activeEvent.end_s - 0.02 || player.ended) {\nwork/report_template.html:303:          player.pause();\nwork/report_template.html:304:          player.currentTime = Math.min(activeEvent.end_s, player.duration || activeEvent.end_s);\nwork/report_template.html:305:          now.querySelector(\"span\").textContent = `${activeView === \"front\" ? \"正面\" : \"俯视\"}片段已停止于 ${formatTime(activeEvent.end_s)} 秒。`;\nwork/report_template.html-306-          return;\nwork/report_template.html-307-        }\nwork/report_template.html-308-        animationRequest = requestAnimationFrame(check);\nwork/report_template.html-309-      };\nwork/report_template.html-310-      animationRequest = requestAnimationFrame(check);\nwork/report_template.html-311-    }\nwork/report_template.html-312-\nwork/report_template.html-313-    async function waitForMetadata() {\nwork/report_template.html:314:      if (player.readyState >= 1) return;\nwork/report_template.html-315-      await new Promise((resolve, reject) => {\nwork/report_template.html:316:        player.addEventListener(\"loadedmetadata\", resolve, { once: true });\nwork/report_template.html:317:        player.addEventListener(\"error\", () => reject(new Error(\"媒体加载失败\")), { once: true });\nwork/report_template.html-318-      });\nwork/report_template.html-319-    }\nwork/report_template.html-320-\nwork/report_template.html-321-    async function playEvent(id, view) {\nwork/report_template.html-322-      const event = events.find(item => item.id === id);\nwork/report_template.html-323-      if (!event) return;\nwork/report_template.html-324-      const request = ++activeRequest;\nwork/report_template.html-325-      activeEvent = event;\nwork/report_template.html-326-      activeView = view;\nwork/report_template.html-327-      cancelAnimationFrame(animationRequest);\nwork/report_template.html:328:      player.pause();\nwork/report_template.html:329:      now.innerHTML = `<strong>${event.id} · ${event.hand} · ${event.action} · ${event.object}</strong><span>正在载入${view === \"front\" ? \"正面主时钟\" : \"俯视另一视角\"} ${formatTime(event.start_s)}–${formatTime(event.end_s)} 秒…</span>`;\nwork/report_template.html-330-      updateActiveRows();\nwork/report_template.html-331-      try {\nwork/report_template.html:332:        if (player.getAttribute(\"src\") !== media[view]) {\nwork/report_template.html:333:          player.src = media[view];\nwork/report_template.html:334:          player.load();\nwork/report_template.html-335-        }\nwork/report_template.html-336-        await waitForMetadata();\nwork/report_template.html-337-        if (request !== activeRequest) return;\nwork/report_template.html:338:        player.currentTime = event.start_s;\nwork/report_template.html:339:        await player.play();\nwork/report_template.html-340-        if (request !== activeRequest) return;\nwork/report_template.html:341:        now.querySelector(\"span\").textContent = `${view === \"front\" ? \"正面\" : \"俯视\"}回放 ${formatTime(event.start_s)}–${formatTime(event.end_s)} 秒；可暂停、拖动或切换另一视角。`;\nwork/report_template.html-342-        monitorEnd();\nwork/report_template.html-343-      } catch (error) {\nwork/report_template.html-344-        if (request !== activeRequest) return;\nwork/report_template.html:345:        now.querySelector(\"span\").textContent = `无法自动回放：${error.message}。请使用原片链接并手动跳转至 ${formatTime(event.start_s)} 秒。`;\nwork/report_template.html-346-      }\nwork/report_template.html-347-    }\nwork/report_template.html-348-\nwork/report_template.html-349-    document.getElementById(\"stop-button\").addEventListener(\"click\", () => {\nwork/report_template.html-350-      ++activeRequest;\nwork/report_template.html-351-      cancelAnimationFrame(animationRequest);\nwork/report_template.html:352:      player.pause();\nwork/report_template.html:353:      if (activeEvent) now.querySelector(\"span\").textContent = `已停止 ${activeEvent.id} 的回放。`;\nwork/report_template.html-354-    });\nwork/report_template.html:355:    player.addEventListener(\"play\", monitorEnd);\nwork/report_template.html-356-    [handFilter, actionFilter, objectFilter].forEach(select => select.addEventListener(\"change\", render));\nwork/report_template.html-357-    textFilter.addEventListener(\"input\", render);\nwork/report_template.html-358-    document.getElementById(\"reset-button\").addEventListener(\"click\", () => {\nwork/report_template.html-359-      handFilter.value = \"all\";\nwork/report_template.html-360-      actionFilter.value = \"all\";\nwork/report_template.html-361-      objectFilter.value = \"all\";\nwork/report_template.html-362-      textFilter.value = \"\";\nwork/report_template.html-363-      render();\n--\noutput/report.html-25-    header { background: #10253f; color: white; padding: 28px 24px; }\r\noutput/report.html-26-    header > div, main { max-width: 1680px; margin: 0 auto; }\r\noutput/report.html-27-    h1 { margin: 0 0 8px; font-size: clamp(24px, 3vw, 38px); line-height: 1.2; }\r\noutput/report.html-28-    header p { margin: 0; color: #d8e5f5; max-width: 1050px; }\r\noutput/report.html-29-    main { padding: 20px 24px 42px; }\r\noutput/report.html-30-    .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px; margin-bottom: 18px; box-shadow: 0 2px 8px #17212b0a; }\r\noutput/report.html-31-    .stats { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }\r\noutput/report.html-32-    .stat { background: #ffffff16; border: 1px solid #ffffff2e; border-radius: 999px; padding: 5px 12px; color: white; }\r\noutput/report.html:33:    .player-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr); gap: 18px; }\r\noutput/report.html-34-    video { display: block; width: 100%; min-height: 260px; background: #05080c; border-radius: 8px; }\r\noutput/report.html-35-    audio { width: 100%; margin-top: 10px; }\r\noutput/report.html:36:    .now { min-height: 72px; margin-bottom: 10px; padding: 10px 12px; border-radius: 8px; background: var(--accent-soft); }\r\noutput/report.html:37:    .now strong { display: block; margin-bottom: 3px; }\r\noutput/report.html-38-    .button-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }\r\noutput/report.html-39-    .button, .play-button { border: 1px solid var(--line); border-radius: 7px; background: white; color: var(--ink); padding: 6px 10px; }\r\noutput/report.html-40-    .button:hover, .play-button:hover { border-color: var(--accent); color: var(--accent); }\r\noutput/report.html-41-    .button.primary { background: var(--accent); border-color: var(--accent); color: white; }\r\noutput/report.html-42-    .links { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px 16px; }\r\noutput/report.html-43-    .filters { display: grid; grid-template-columns: repeat(3, minmax(140px, 1fr)) minmax(240px, 2fr) auto; gap: 12px; align-items: end; }\r\noutput/report.html-44-    .field label { display: block; color: var(--muted); font-size: 12px; margin-bottom: 4px; }\r\noutput/report.html-45-    .field input, .field select { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 7px; background: white; color: var(--ink); }\r\noutput/report.html-46-    .result-line { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin: 16px 0 8px; color: var(--muted); }\r\noutput/report.html-47-    .table-wrap { overflow: auto; border: 1px solid var(--line); border-radius: 9px; max-height: 72vh; background: white; }\r\noutput/report.html-48-    table { width: 100%; min-width: 1260px; border-collapse: collapse; }\r\noutput/report.html-49-    th, td { text-align: left; vertical-align: top; padding: 10px; border-bottom: 1px solid var(--line); }\r\noutput/report.html:50:    th { position: sticky; top: 0; z-index: 2; background: #eef2f6; font-size: 12px; color: #455160; white-space: nowrap; }\r\noutput/report.html-51-    tbody tr:hover { background: #f7faff; }\r\noutput/report.html-52-    tbody tr.active { background: #edf4ff; }\r\noutput/report.html-53-    tbody tr:last-child td { border-bottom: 0; }\r\noutput/report.html:54:    .mono { font-family: Consolas, \"SFMono-Regular\", monospace; font-size: 12px; white-space: nowrap; }\r\noutput/report.html-55-    .hand { display: inline-block; border-radius: 999px; padding: 2px 8px; font-size: 12px; font-weight: 600; }\r\noutput/report.html-56-    .hand.left { color: var(--left); background: #f1eaff; }\r\noutput/report.html-57-    .hand.right { color: var(--right); background: #e4f7f2; }\r\noutput/report.html:58:    .action { font-weight: 600; white-space: nowrap; }\r\noutput/report.html-59-    .note { min-width: 330px; max-width: 560px; }\r\noutput/report.html-60-    .evidence { display: grid; gap: 3px; margin-bottom: 7px; color: var(--muted); font-size: 12px; }\r\noutput/report.html-61-    .play-buttons { display: flex; flex-wrap: wrap; gap: 5px; min-width: 150px; }\r\noutput/report.html-62-    .play-button { padding: 4px 7px; font-size: 12px; }\r\noutput/report.html-63-    details summary { cursor: pointer; font-weight: 600; }\r\noutput/report.html-64-    .policy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 12px; }\r\noutput/report.html-65-    .policy-grid div { background: #f6f8fa; border-radius: 8px; padding: 12px; }\r\noutput/report.html-66-    .caution { margin: 12px 0 0; color: var(--muted); }\r\noutput/report.html-67-    .empty { padding: 24px; text-align: center; color: var(--muted); }\r\noutput/report.html-68-    @media (max-width: 980px) {\r\noutput/report.html:69:      .player-grid, .policy-grid { grid-template-columns: 1fr; }\r\noutput/report.html-70-      .filters { grid-template-columns: 1fr 1fr; }\r\noutput/report.html-71-      .filters .field:nth-child(4) { grid-column: 1 / -1; }\r\noutput/report.html-72-    }\r\noutput/report.html-73-    @media (max-width: 560px) {\r\noutput/report.html-74-      header { padding: 22px 16px; }\r\noutput/report.html-75-      main { padding: 14px 12px 30px; }\r\noutput/report.html-76-      .card { padding: 13px; }\r\noutput/report.html-77-      .filters { grid-template-columns: 1fr; }\r\n--\noutput/report.html-91-        <span class=\"stat\">后段 83–173.8 秒</span>\r\noutput/report.html-92-        <span class=\"stat\">双手分轨 · 不记单纯扶持</span>\r\noutput/report.html-93-      </div>\r\noutput/report.html-94-    </div>\r\noutput/report.html-95-  </header>\r\noutput/report.html-96-  <main>\r\noutput/report.html-97-    <section class=\"card\" aria-labelledby=\"playback-title\">\r\noutput/report.html-98-      <h2 id=\"playback-title\">逐段回放</h2>\r\noutput/report.html:99:      <div class=\"player-grid\">\r\noutput/report.html-100-        <div>\r\noutput/report.html:101:          <video id=\"player\" controls playsinline preload=\"metadata\" src=\"../input/front.mp4\">浏览器不支持视频播放。</video>\r\noutput/report.html-102-          <div class=\"button-row\">\r\noutput/report.html-103-            <button id=\"stop-button\" class=\"button\" type=\"button\">停止</button>\r\noutput/report.html-104-            <a class=\"button\" href=\"../input/front.mp4\" target=\"_blank\" rel=\"noopener\">正面原片</a>\r\noutput/report.html-105-            <a class=\"button\" href=\"../input/top.mp4\" target=\"_blank\" rel=\"noopener\">俯视原片</a>\r\noutput/report.html-106-          </div>\r\noutput/report.html-107-        </div>\r\noutput/report.html-108-        <aside>\r\noutput/report.html:109:          <div id=\"now\" class=\"now\" aria-live=\"polite\">\r\noutput/report.html-110-            <strong>尚未选择事件</strong>\r\noutput/report.html-111-            <span>在任一记录末尾选择“正面”或“俯视”，将跳转至该事件起点并停止于终点。</span>\r\noutput/report.html-112-          </div>\r\noutput/report.html-113-          <h3>交接录音</h3>\r\noutput/report.html-114-          <audio id=\"handover-audio\" controls preload=\"none\" src=\"../input/handover.wav\">浏览器不支持音频播放。</audio>\r\noutput/report.html-115-          <div class=\"links\">\r\noutput/report.html-116-            <a href=\"../input/handover.wav\" target=\"_blank\" rel=\"noopener\">回听／下载交接音频</a>\r\noutput/report.html-117-            <a href=\"actions.json\" target=\"_blank\" rel=\"noopener\">actions.json</a>\r\n--\noutput/report.html-208-    const handNames = { left: \"左手\", right: \"右手\" };\r\noutput/report.html-209-    const handFilter = document.getElementById(\"hand-filter\");\r\noutput/report.html-210-    const actionFilter = document.getElementById(\"action-filter\");\r\noutput/report.html-211-    const objectFilter = document.getElementById(\"object-filter\");\r\noutput/report.html-212-    const textFilter = document.getElementById(\"text-filter\");\r\noutput/report.html-213-    const rows = document.getElementById(\"event-rows\");\r\noutput/report.html-214-    const visibleCount = document.getElementById(\"visible-count\");\r\noutput/report.html-215-    const emptyState = document.getElementById(\"empty-state\");\r\noutput/report.html:216:    const player = document.getElementById(\"player\");\r\noutput/report.html:217:    const now = document.getElementById(\"now\");\r\noutput/report.html-218-    let activeEvent = null;\r\noutput/report.html-219-    let activeView = \"front\";\r\noutput/report.html-220-    let activeRequest = 0;\r\noutput/report.html-221-    let animationRequest = 0;\r\noutput/report.html-222-\r\noutput/report.html-223-    function escapeHtml(value) {\r\noutput/report.html-224-      return String(value).replace(/[&<>\"']/g, character => ({\r\noutput/report.html-225-        \"&\": \"&amp;\", \"<\": \"&lt;\", \">\": \"&gt;\", '\"': \"&quot;\", \"'\": \"&#39;\"\r\n--\noutput/report.html-293-        if (row) row.classList.add(\"active\");\r\noutput/report.html-294-      }\r\noutput/report.html-295-    }\r\noutput/report.html-296-\r\noutput/report.html-297-    function monitorEnd() {\r\noutput/report.html-298-      cancelAnimationFrame(animationRequest);\r\noutput/report.html-299-      if (!activeEvent) return;\r\noutput/report.html-300-      const check = () => {\r\noutput/report.html:301:        if (!activeEvent || player.paused) return;\r\noutput/report.html:302:        if (player.currentTime >= activeEvent.end_s - 0.02 || player.ended) {\r\noutput/report.html:303:          player.pause();\r\noutput/report.html:304:          player.currentTime = Math.min(activeEvent.end_s, player.duration || activeEvent.end_s);\r\noutput/report.html:305:          now.querySelector(\"span\").textContent = `${activeView === \"front\" ? \"正面\" : \"俯视\"}片段已停止于 ${formatTime(activeEvent.end_s)} 秒。`;\r\noutput/report.html-306-          return;\r\noutput/report.html-307-        }\r\noutput/report.html-308-        animationRequest = requestAnimationFrame(check);\r\noutput/report.html-309-      };\r\noutput/report.html-310-      animationRequest = requestAnimationFrame(check);\r\noutput/report.html-311-    }\r\noutput/report.html-312-\r\noutput/report.html-313-    async function waitForMetadata() {\r\noutput/report.html:314:      if (player.readyState >= 1) return;\r\noutput/report.html-315-      await new Promise((resolve, reject) => {\r\noutput/report.html:316:        player.addEventListener(\"loadedmetadata\", resolve, { once: true });\r\noutput/report.html:317:        player.addEventListener(\"error\", () => reject(new Error(\"媒体加载失败\")), { once: true });\r\noutput/report.html-318-      });\r\noutput/report.html-319-    }\r\noutput/report.html-320-\r\noutput/report.html-321-    async function playEvent(id, view) {\r\noutput/report.html-322-      const event = events.find(item => item.id === id);\r\noutput/report.html-323-      if (!event) return;\r\noutput/report.html-324-      const request = ++activeRequest;\r\noutput/report.html-325-      activeEvent = event;\r\noutput/report.html-326-      activeView = view;\r\noutput/report.html-327-      cancelAnimationFrame(animationRequest);\r\noutput/report.html:328:      player.pause();\r\noutput/report.html:329:      now.innerHTML = `<strong>${event.id} · ${event.hand} · ${event.action} · ${event.object}</strong><span>正在载入${view === \"front\" ? \"正面主时钟\" : \"俯视另一视角\"} ${formatTime(event.start_s)}–${formatTime(event.end_s)} 秒…</span>`;\r\noutput/report.html-330-      updateActiveRows();\r\noutput/report.html-331-      try {\r\noutput/report.html:332:        if (player.getAttribute(\"src\") !== media[view]) {\r\noutput/report.html:333:          player.src = media[view];\r\noutput/report.html:334:          player.load();\r\noutput/report.html-335-        }\r\noutput/report.html-336-        await waitForMetadata();\r\noutput/report.html-337-        if (request !== activeRequest) return;\r\noutput/report.html:338:        player.currentTime = event.start_s;\r\noutput/report.html:339:        await player.play();\r\noutput/report.html-340-        if (request !== activeRequest) return;\r\noutput/report.html:341:        now.querySelector(\"span\").textContent = `${view === \"front\" ? \"正面\" : \"俯视\"}回放 ${formatTime(event.start_s)}–${formatTime(event.end_s)} 秒；可暂停、拖动或切换另一视角。`;\r\noutput/report.html-342-        monitorEnd();\r\noutput/report.html-343-      } catch (error) {\r\noutput/report.html-344-        if (request !== activeRequest) return;\r\noutput/report.html:345:        now.querySelector(\"span\").textContent = `无法自动回放：${error.message}。请使用原片链接并手动跳转至 ${formatTime(event.start_s)} 秒。`;\r\noutput/report.html-346-      }\r\noutput/report.html-347-    }\r\noutput/report.html-348-\r\noutput/report.html-349-    document.getElementById(\"stop-button\").addEventListener(\"click\", () => {\r\noutput/report.html-350-      ++activeRequest;\r\noutput/report.html-351-      cancelAnimationFrame(animationRequest);\r\noutput/report.html:352:      player.pause();\r\noutput/report.html:353:      if (activeEvent) now.querySelector(\"span\").textContent = `已停止 ${activeEvent.id} 的回放。`;\r\noutput/report.html-354-    });\r\noutput/report.html:355:    player.addEventListener(\"play\", monitorEnd);\r\noutput/report.html-356-    [handFilter, actionFilter, objectFilter].forEach(select => select.addEventListener(\"change\", render));\r\noutput/report.html-357-    textFilter.addEventListener(\"input\", render);\r\noutput/report.html-358-    document.getElementById(\"reset-button\").addEventListener(\"click\", () => {\r\noutput/report.html-359-      handFilter.value = \"all\";\r\noutput/report.html-360-      actionFilter.value = \"all\";\r\noutput/report.html-361-      objectFilter.value = \"all\";\r\noutput/report.html-362-      textFilter.value = \"\";\r\noutput/report.html-363-      render();\r\n",
       "exit_code": 0,
       "index": 303,
-      "key": true,
-      "key_title": "制作和验证报告"
+      "key": false
     },
     {
       "kind": "error",
@@ -2441,7 +2455,8 @@
       "title": "模型可见回复",
       "body": "已定位：HTTP 下停止后的二次seek 将播放头重置为零。我会移除这次多余跳转并回归验证。",
       "index": 328,
-      "key": false
+      "key": true,
+      "key_title": "定位停止后的二次seek"
     },
     {
       "kind": "command",
@@ -2457,7 +2472,8 @@
       "body": "----------------------------------------\r\nException occurred during processing of request from ('127.0.0.1', 54160)\r\nTraceback (most recent call last):\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\socketserver.py\", line 692, in process_request_thread\r\n    self.finish_request(request, client_address)\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\socketserver.py\", line 362, in finish_request\r\n    self.RequestHandlerClass(request, client_address, self)\r\n  File \"[run]\\work\\test_report.py\", line 16, in __init__\r\n    super().__init__(*args, directory=str(root), **kwargs)\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\http\\server.py\", line 672, in __init__\r\n    super().__init__(*args, **kwargs)\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\socketserver.py\", line 761, in __init__\r\n    self.handle()\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\http\\server.py\", line 436, in handle\r\n    self.handle_one_request()\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\http\\server.py\", line 424, in handle_one_request\r\n    method()\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\http\\server.py\", line 679, in do_GET\r\n    self.copyfile(f, self.wfile)\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\http\\server.py\", line 878, in copyfile\r\n    shutil.copyfileobj(source, outputfile)\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\shutil.py\", line 204, in copyfileobj\r\n    fdst_write(buf)\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\socketserver.py\", line 840, in write\r\n    self._sock.sendall(b)\r\nConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。\r\n----------------------------------------\r\n----------------------------------------\r\nException occurred during processing of request from ('127.0.0.1', 61280)\r\nTraceback (most recent call last):\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\socketserver.py\", line 692, in process_request_thread\r\n    self.finish_request(request, client_address)\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\socketserver.py\", line 362, in finish_request\r\n    self.RequestHandlerClass(request, client_address, self)\r\n  File \"[run]\\work\\test_report.py\", line 16, in __init__\r\n    super().__init__(*args, directory=str(root), **kwargs)\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\http\\server.py\", line 672, in __init__\r\n    super().__init__(*args, **kwargs)\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\socketserver.py\", line 761, in __init__\r\n    self.handle()\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\http\\server.py\", line 436, in handle\r\n    self.handle_one_request()\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\http\\server.py\", line 424, in handle_one_request\r\n    method()\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\http\\server.py\", line 679, in do_GET\r\n    self.copyfile(f, self.wfile)\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\http\\server.py\", line 878, in copyfile\r\n    shutil.copyfileobj(source, outputfile)\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\shutil.py\", line 204, in copyfileobj\r\n    fdst_write(buf)\r\n  File \"D:\\SoftWare\\Anaconda3\\Lib\\socketserver.py\", line 840, in write\r\n    self._sock.sendall(b)\r\nConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。\r\n----------------------------------------\r\nPlaywright file:// and HTTP checks passed: 81 default rows, all four filters, reset, front/top bounded playback, audio entry, and no page errors.\r\n",
       "exit_code": 0,
       "index": 330,
-      "key": false
+      "key": true,
+      "key_title": "双模式回归通过"
     },
     {
       "kind": "message",
@@ -2472,8 +2488,7 @@
       "body": "Validated 81 events; hands={'right': 51, 'left': 30}\r\nActions={'pick_up': 20, 'transfer': 6, 'flip': 5, 'adjust': 15, 'fit': 16, 'fasten': 12, 'put_down': 7}\r\nPolicy, intervals, evidence, ordering, embedded report data, links, license notes, and deliverable set: OK\r\n\r\nFullName                                                                   Length LastWriteTime\r\n--------                                                                   ------ -------------\r\n[run]\\output\\actions.json  40064 2026/11/12 16:47:13\r\n[run]\\output\\policy.json     582 2026/11/12 16:47:13\r\n[run]\\output\\README.md      4636 2026/11/12 16:47:13\r\n[run]\\output\\report.html   41824 2026/11/12 16:47:13\r\nFormal file count: 4\r\n\r\n",
       "exit_code": 0,
       "index": 332,
-      "key": true,
-      "key_title": "读取委托与输入"
+      "key": false
     },
     {
       "kind": "message",
@@ -2481,7 +2496,7 @@
       "body": "已完成装配动作证据交接，正式交付位于 `output/`：\n\n- `output/actions.json:1`：81 条动作事件，右手 51 条、左手 30 条。\n- `output/policy.json:1`：标注口径与判定规则。\n- `output/report.html:1`：可筛选、双视角跳转及边界停止的证据报告。\n- `output/README.md:1`：交付说明、统计与来源许可。\n\n验证已通过：JSON 结构、时间边界、网页数据一致性、媒体链接，以及 Playwright 的 `file://` 和 HTTP 模式播放与交互检查。`output/` 仅含上述四个正式文件。",
       "index": 333,
       "key": true,
-      "key_title": "模型最终可见总结"
+      "key_title": "提交最终四文件"
     }
   ]
 }

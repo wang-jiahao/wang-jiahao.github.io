@@ -4,39 +4,45 @@
   "elapsed_sec": 2782.219,
   "note": "nju模型API直连，正常联网；可见记录已脱敏。",
   "summary": {
-    "headline": "输出119条动作记录；已落盘交付：actions.json、policy.json、report.html、README.md。",
+    "headline": "两次转写确认口径，细分119条动作，再集中验证双视角回放。",
     "outcome": "脚本总分66.95/100；自动字段52.950954/85，自动交付14/15。真实耗时2782.2秒，exit0、turn.completed；不作事后语义或时钟修正。",
     "stages": [
       {
-        "title": "读取委托与输入",
-        "text": "可见记录中有13项相关操作；展开查看具体命令、输出与退出状态。",
+        "title": "听清更正与最终政策",
+        "text": "先完整转写，再用medium复核范围数字；明确双手分轨、83秒边界和跨界动作不拆分。",
         "events": [
-          2,
-          58
+          23,
+          25,
+          31
         ]
       },
       {
-        "title": "处理交接音频",
-        "text": "可见记录中有4项相关操作；展开查看具体命令、输出与退出状态。",
+        "title": "细查小件与工具转换",
+        "text": "总览后针对38–49秒取持、94–109秒工具和127.5–137秒小附件加密抽帧，最终输出119条记录。",
         "events": [
-          3,
-          23
+          17,
+          32,
+          38
         ]
       },
       {
-        "title": "建立动作与口径记录",
-        "text": "可见记录中有3项相关操作；展开查看具体命令、输出与退出状态。",
+        "title": "从可打开做到可定位",
+        "text": "浏览器实测暴露普通HTTP服务的跳转问题，加入Range服务器；模型验证记录报告714次双视角起点／中点／终点跳转。",
         "events": [
-          42,
-          62
+          54,
+          55,
+          58,
+          59
         ]
       },
       {
-        "title": "制作和验证报告",
-        "text": "可见记录中有5项相关操作；展开查看具体命令、输出与退出状态。",
+        "title": "修正提示并提交",
+        "text": "最后处理快速暂停引发的多余提示，重建报告、复用已完成的跳转检查并核验文件哈希后结束。",
         "events": [
-          38,
-          62
+          60,
+          61,
+          62,
+          63
         ]
       },
       {
@@ -47,7 +53,7 @@
         ]
       }
     ],
-    "editorial_note": "按可见操作分类整理；关键步骤只是阅读索引，不是动作正确性的人工复核。完整记录保留失败和恢复，隐藏推理不公开。"
+    "editorial_note": "过程总结依据可见转写、抽帧、生成与浏览器命令以及模型回复。叙述自测时明确归属模型验证记录，不将其等同于评分结论。没有重判逐条装配动作；完整记录保留失败和恢复，隐藏推理不公开。"
   },
   "events": [
     {
@@ -63,8 +69,7 @@
       "body": "# 角磨机装配动作证据交接\n\n请根据培训资料负责人的口头交接，检查同一次角磨机装配的两段录像，建立可逐条回放的动作台账。交接有草稿、建议和后续更正，需要先判断最终生效的要求，再按要求归档实际可见动作。无需判断产品是否合格，不从遮挡推断内部接合、扭矩或运行安全。\n\n## 材料\n\n- `input/front.mp4`：完整正面录像，1280×720、30fps，约174秒。\n- `input/top.mp4`：同次操作的完整俯视录像，名义时间同步，供互相核查。\n- `input/handover.wav`：两位角色的后期合成中文交接，属于拟制委托，不是现场录音。角色在录音中自报身份；负责人有最终权限，操作员建议须明确获采纳才生效。\n- `local_asr.py`：通用本地转写工具，不含逐字稿、事件索引或答案。\n\n最终记录哪些时间、哪些动作、哪些手，是否记录扶持，以及同时动作如何列行、使用哪个主时钟，均从录音恢复。本说明不代替交接内容。两段录像是同一次物理过程，不是两遍装配。输入没有镜像；描述手别时使用操作者的解剖左右。\n\n允许联网、安装工具、脚本、逐帧查看和本地模型，保留正常网络与代理。可使用FFmpeg、OpenCV和本地语音模型；已有Whisper缓存可复用。不得检索原数据集标注、现成答案，或读取其他运行、作者参考文件与已发布案例答案。只操作本题工作目录内对应的材料和网页。\n\n## 数据编码\n\n以下是可用编码词汇，不表示这些动作都应归档；最终范围以交接为准。\n\n| action | 含义 |\n|---|---|\n| pick_up | 从料盒或桌面取起对象 |\n| put_down | 放到桌面、放回料盒或归还工具 |\n| transfer | 手间转交对象 |\n| flip | 明显翻面、改变朝向 |\n| adjust | 对位、调整、摆正或找孔 |\n| fit | 插入、贴合、压入、就位或装到一起 |\n| fasten | 手指起扣、手拧或工具旋拧 |\n| hold | 持住、扶住或稳定对象 |\n\n`object`使用上位类别：`body`黑色机体（含已插轴的机体）、`shaft`长金属轴／转子、`gear`齿轮状圆件、`adapter_plate`平板／环状适配件、`bearing_plate`较大圆盘总成、`small_attachment`细小紧固件／弹簧／拨件、`handle`黑色长柄、`screwdriver`柄式螺丝刀、`wrench`开口／组合扳手。不要求猜遮挡中的规格或工具尖端。\n\n每条记录应有可回查的起止时间。区分换动作、换对象或明显结束后重新开始；同一手、同类动作、同一对象的连续操作不要按手抖或工具往复切碎，短于0.8秒且未转为其他归档动作的中断可合并。跨交接口径边界时如何处理，从录音确定。未知字段写`null`并说明可见事实，不编造被遮挡的结果。\n\n## 交付\n\n写入`output/`，提交：\n\n1. `actions.json`：顶层为`{\"events\":[]}`。每条事件包含`id`、`hand`、`start_s`、`end_s`、`action`、`object`、`evidence`数组和`note`。`evidence`每项包含`file`、`start_s`、`end_s`。`hand`可表示`left`、`right`或`both`；最终应采用哪些手别、如何表示同时动作，以录音为准。ID自行安排。\n2. `policy.json`：恢复最终口头口径。`first`与`second`分别包含`start_s`、`end_s`、`hands`数组和`actions`数组；另有`record_holds`布尔、`clock`字符串、`bilateral_as_two_tracks`布尔。填写录音要求的值，不根据格式字段猜答案。\n3. `report.html`：默认展示全部归档记录，可按手、动作、对象和文本筛选；每条能回放所选主时钟对应的片段，并能查看另一视角。提供交接音频回听入口；网页与JSON内容一致。可直接使用原片时间跳转，无需导出所有短片。\n4. `README.md`：方法、主要发现、未知项、来源许可及可靠打开方法。\n\n没有固定运行时长截止。完成后说明交付位置和实际验证情况；有未知项仍应交付其余可确认结果。\n\r\n\r\nMode  Length Name\r\n----  ------ ----\r\nd----        input\r\n-a--- 2623   CITATION.cff\r\n-a--- 0      final-message.txt\r\n-a--- 933    LICENSE-DATA.txt\r\n-a--- 1039   local_asr.py\r\n-a--- 1199   SOURCE_CREDIT.md\r\n-a--- 4036   TASK.md\r\n\r\n",
       "exit_code": 0,
       "index": 2,
-      "key": true,
-      "key_title": "读取委托与输入"
+      "key": false
     },
     {
       "kind": "command",
@@ -72,8 +77,7 @@
       "body": "\"\"\"General local ASR helper. No authored transcripts or expected answers.\"\"\"\nfrom pathlib import Path\nimport argparse,json,subprocess\nimport numpy as np\nfrom faster_whisper import WhisperModel\n\ndef main():\n    p=argparse.ArgumentParser();p.add_argument('audio',type=Path);p.add_argument('--model',default='small');p.add_argument('--output',type=Path);n=p.parse_args()\n    # FFmpeg decoding avoids a PyAV version mismatch in the host environment.\n    raw=subprocess.check_output(['ffmpeg','-v','error','-i',str(n.audio),'-f','f32le','-ac','1','-ar','16000','pipe:1'])\n    data=np.frombuffer(raw,np.float32)\n    m=WhisperModel(n.model,device='cpu',compute_type='int8',cpu_threads=4)\n    segments,info=m.transcribe(data,language='zh',beam_size=5,vad_filter=False)\n    result=dict(file=n.audio.name,segments=[dict(start_s=s.start,end_s=s.end,text=s.text) for s in segments])\n    text=json.dumps(result,ensure_ascii=False,indent=2)\n    if n.output:n.output.write_text(text,encoding='utf-8')\n    else:print(text)\n\nif __name__=='__main__':main()\n\r\n# 来源与修改\r\nIMPACT v1.1，Di Wen等，完整作者见CITATION.cff。官方项目https://kratos-wen.github.io/IMPACT/；数据https://huggingface.co/datasets/KratosWen/IMPACT；媒体与派生材料CC BY-NC-SA 4.0，保留署名和相同许可，限非商业研究／教育。\r\n同一次AL07EJ17_Reassembly_A_002的front/top真实录像，1280×720、30fps、5214帧、173.8秒。只转为浏览器兼容H.264 CRF18、移除音轨；无裁剪、变速、重排或生成动作。两固定视角记录同一次操作，保持原片名义时序；具体归档约定以交接录音为准。\r\n口头交接为Windows System.Speech Huihui／Kangkang后期语音合成，明确属于拟制委托，非现场录音，不证明真实工具声音。源细粒度标注仅用于作者索引和候选评分参考，原normal/anomaly标签不用于定责或判断机械故障。不从图像遮挡推断内部结构。\r\n此版本从用户提供的A3_equipment_evidence.zip复用真实媒体与来源研究；重做动作台账任务和口头口径，不沿用六题或旧得分。\r\n\r\n本次修订调整文字委托，并在合成交接中补充主时钟字段的拼写说明；真实装配录像未改动。\r\n\r\nCreative Commons Attribution-NonCommercial-ShareAlike 4.0 International\n\nAll dataset assets and release documentation within the IMPACT-v1.1 distribution are licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0), unless a file provides a more specific notice.\n\nCovered materials include annotations, RGB and depth recordings, audio, eye-tracking traces, released features, metadata, split definitions, and release documentation.\n\nYou must provide appropriate attribution, indicate whether changes were made, use the materials only for non-commercial purposes, and distribute adaptations under the same license.\n\nLicense deed and legal code:\nhttps://creativecommons.org/licenses/by-nc-sa/4.0/\n\nRecommended attribution:\nIMPACT: A Dataset for Multi-Granularity Human Procedural Action Understanding in Industrial Assembly, version 1.1, https://kratos-wen.github.io/IMPACT/\n\r\n\r\nName           Length\r\n----           ------\r\nfront.mp4    73874019\r\nhandover.wav  9493222\r\ntop.mp4      54301490\r\n\r\n",
       "exit_code": 1,
       "index": 3,
-      "key": true,
-      "key_title": "处理交接音频"
+      "key": false
     },
     {
       "kind": "command",
@@ -182,7 +186,8 @@
       "title": "模型可见回复",
       "body": "已浏览完整装配过程，正在细看取件、对位、旋拧和翻面的转换点。小件在部分画面中被手指遮挡，我会结合两个视角记录可见动作，并注明无法确认的细节。\n",
       "index": 17,
-      "key": false
+      "key": true,
+      "key_title": "完整浏览后加密看动作转换"
     },
     {
       "kind": "file",
@@ -230,7 +235,7 @@
       "exit_code": 0,
       "index": 23,
       "key": true,
-      "key_title": "处理交接音频"
+      "key_title": "medium复核交接录音"
     },
     {
       "kind": "command",
@@ -291,7 +296,8 @@
       "title": "模型可见回复",
       "body": "最终口径已确认：以 front 时钟为准，0–83 秒记录双手的六类动作；83–173.8 秒增加放下或归还，均不记录单纯扶持。跨越 83 秒的动作按开始时的口径处理，不拆行。另用 medium 模型复核了这些关键要求，结果一致。\n",
       "index": 31,
-      "key": false
+      "key": true,
+      "key_title": "确认83秒分界及最终口径"
     },
     {
       "kind": "command",
@@ -299,7 +305,8 @@
       "body": "work\\repeat_top_38.00.jpg\r\nwork\\repeat_top_41.00.jpg\r\nwork\\repeat_top_44.00.jpg\r\nwork\\repeat_top_47.00.jpg\r\nwork\\driver_top_94.00.jpg\r\nwork\\driver_top_100.00.jpg\r\nwork\\driver_top_106.00.jpg\r\nwork\\small_top_127.50.jpg\r\nwork\\small_top_133.50.jpg\r\n",
       "exit_code": 0,
       "index": 32,
-      "key": false
+      "key": true,
+      "key_title": "小件与工具区间加密抽帧"
     },
     {
       "kind": "message",
@@ -344,7 +351,7 @@
       "exit_code": 0,
       "index": 38,
       "key": true,
-      "key_title": "制作和验证报告"
+      "key_title": "导出119条记录与报告"
     },
     {
       "kind": "file",
@@ -374,8 +381,7 @@
       "body": "True\r\nTrue\r\nTrue\r\n200\r\n{\r\r\n  \"first\": {\r\r\n    \"start_s\": 0,\r\r\n    \"end_s\": 83,\r\r\n    \"hands\": [\r\r\n      \"left\",\r\r\n      \"right\"\r\r\n    ],\r\r\n    \"actions\": [\r\r\n      \"pick_up\",\r\r\n      \"transfer\",\r\r\n      \"adjust\",\r\r\n      \"fit\",\r\r\n      \"fasten\",\r\r\n      \"flip\"\r\r\n    ]\r\r\n  },\r\r\n  \"second\": {\r\r\n    \"start_s\": 83,\r\r\n    \"end_s\": 173.8,\r\r\n    \"hands\": [\r\r\n      \"left\",\r\r\n      \"right\"\r\r\n    ],\r\r\n    \"actions\": [\r\r\n      \"pick_up\",\r\r\n      \"transfer\",\r\r\n      \"adjust\",\r\r\n      \"fit\",\r\r\n      \"fasten\",\r\r\n      \"flip\",\r\r\n      \"put_down\"\r\r\n    ]\r\r\n  },\r\r\n  \"record_holds\": false,\r\r\n  \"clock\": \"front\",\r\r\n  \"bilateral_as_two_tracks\": true\r\r\n}\r\r\n\r\n",
       "exit_code": 0,
       "index": 42,
-      "key": true,
-      "key_title": "建立动作与口径记录"
+      "key": false
     },
     {
       "kind": "file",
@@ -465,14 +471,16 @@
       "title": "文件修改",
       "body": "{\n  \"id\": \"item_54\",\n  \"type\": \"file_change\",\n  \"changes\": [\n    {\n      \"path\": \"[run]\\\\output\\\\README.md\",\n      \"kind\": \"update\"\n    },\n    {\n      \"path\": \"[run]\\\\output\\\\serve.py\",\n      \"kind\": \"add\"\n    },\n    {\n      \"path\": \"[run]\\\\work\\\\validate_delivery.py\",\n      \"kind\": \"update\"\n    }\n  ],\n  \"status\": \"completed\"\n}",
       "index": 54,
-      "key": false
+      "key": true,
+      "key_title": "补充Range服务器"
     },
     {
       "kind": "message",
       "title": "模型可见回复",
       "body": "浏览器检查发现了一个打开方式问题：普通 Python HTTP 服务会使原片跳转回到 0 秒。我已补充支持视频字节范围请求的本地启动脚本，并更新 README，正在据此重新核验回放。\n",
       "index": 55,
-      "key": false
+      "key": true,
+      "key_title": "解释跳转回零问题"
     },
     {
       "kind": "command",
@@ -495,15 +503,15 @@
       "body": "\r\nFinal file checks and checksums: OK\r\nName             Length\r\n----             ------\r\nactions.json      62599\r\nCITATION.cff       2623\r\nLICENSE-DATA.txt    933\r\npolicy.json         582\r\nREADME.md          8306\r\nreport.html       55043\r\nserve.py           3247\r\nvalidation.json    4044\r\n\r\n",
       "exit_code": 0,
       "index": 58,
-      "key": true,
-      "key_title": "读取委托与输入"
+      "key": false
     },
     {
       "kind": "message",
       "title": "模型可见回复",
       "body": "全部 119 条记录在两个视角的起点、中点和终点跳转均已通过，代表片段也能在终点自动暂停。最后的界面复核发现，快速暂停会显示一条多余的播放中断提示；我正在修正提示处理，并补测快速切换回放。\n",
       "index": 59,
-      "key": false
+      "key": true,
+      "key_title": "714次跳转后处理快速暂停提示"
     },
     {
       "kind": "file",
@@ -518,7 +526,8 @@
       "body": "Events: 119\r\nHands: {'right': 72, 'left': 47}\r\nActions: {'pick_up': 23, 'transfer': 12, 'flip': 12, 'adjust': 35, 'fit': 18, 'fasten': 12, 'put_down': 7}\r\n{\r\n  \"checked_at\": \"2026-11-12\",\r\n  \"structural_checks\": {\r\n    \"passed\": true,\r\n    \"event_count\": 119,\r\n    \"hands\": {\r\n      \"right\": 72,\r\n      \"left\": 47\r\n    },\r\n    \"actions\": {\r\n      \"pick_up\": 23,\r\n      \"transfer\": 12,\r\n      \"flip\": 12,\r\n      \"adjust\": 35,\r\n      \"fit\": 18,\r\n      \"fasten\": 12,\r\n      \"put_down\": 7\r\n    },\r\n    \"policy_by_event_start\": true,\r\n    \"two_hand_tracks_without_same_hand_overlap\": true,\r\n    \"json_html_content_identical\": true,\r\n    \"all_evidence_files_and_times_valid\": true,\r\n    \"unknown_object_events\": [\r\n      \"E043\"\r\n    ],\r\n    \"boundary_crossing_events\": [\r\n      \"E057\",\r\n      \"E058\"\r\n    ],\r\n    \"put_down_before_boundary\": 0,\r\n    \"hold_or_both_rows\": 0\r\n  },\r\n  \"browser_checks\": {\r\n    \"media\": {\r\n      \"front\": {\r\n        \"duration\": 173.8,\r\n        \"readyState\": 4,\r\n        \"error\": null\r\n      },\r\n      \"top\": {\r\n        \"duration\": 173.8,\r\n        \"readyState\": 4,\r\n        \"error\": null\r\n      },\r\n      \"handover\": {\r\n        \"duration\": 215.264036,\r\n        \"readyState\": 4,\r\n        \"error\": null\r\n      }\r\n    },\r\n    \"filter_counts\": {\r\n      \"hand\": 47,\r\n      \"action\": 12,\r\n      \"object\": 50,\r\n      \"combined\": 4\r\n    },\r\n    \"reset_and_empty_results\": true,\r\n    \"all_event_evidence_seeks_note\": \"沿用刚完成的714次完整跳转核验；媒体、事件时间、口径和字节范围服务未变。本次仅修改播放取消提示，重新执行代表片段及快速切换检查。\",\r\n    \"all_event_evidence_seeks\": [\r\n      {\r\n        \"view\": \"front\",\r\n        \"events\": 119,\r\n        \"seeks\": 357,\r\n        \"passed\": true\r\n      },\r\n      {\r\n        \"view\": \"top\",\r\n        \"events\": 119,\r\n        \"seeks\": 357,\r\n        \"passed\": true\r\n      }\r\n    ],\r\n    \"segment_playback_auto_stop\": [\r\n      {\r\n        \"id\": \"E002\",\r\n        \"view\": \"front\",\r\n        \"requested_end_s\": 2.8,\r\n        \"paused_at_s\": 2.822\r\n      },\r\n      {\r\n        \"id\": \"E002\",\r\n        \"view\": \"top\",\r\n        \"requested_end_s\": 2.8,\r\n        \"paused_at_s\": 2.812\r\n      },\r\n      {\r\n        \"id\": \"E057\",\r\n        \"view\": \"front\",\r\n        \"requested_end_s\": 83.6,\r\n        \"paused_at_s\": 83.627\r\n      },\r\n      {\r\n        \"id\": \"E057\",\r\n        \"view\": \"top\",\r\n        \"requested_end_s\": 83.6,\r\n        \"paused_at_s\": 83.612\r\n      },\r\n      {\r\n        \"id\": \"E066\",\r\n        \"view\": \"front\",\r\n        \"requested_end_s\": 89.2,\r\n        \"paused_at_s\": 89.232\r\n      },\r\n      {\r\n        \"id\": \"E066\",\r\n        \"view\": \"top\",\r\n        \"requested_end_s\": 89.2,\r\n        \"paused_at_s\": 89.223\r\n      },\r\n      {\r\n        \"id\": \"E119\",\r\n        \"view\": \"front\",\r\n        \"requested_end_s\": 173.5,\r\n        \"paused_at_s\": 173.508\r\n      },\r\n      {\r\n        \"id\": \"E119\",\r\n        \"view\": \"top\",\r\n        \"requested_end_s\": 173.5,\r\n        \"paused_at_s\": 173.509\r\n      }\r\n    ],\r\n    \"speed_and_frame_step\": true,\r\n    \"handover_audio_seek_and_play\": true,\r\n    \"rapid_switch_and_pause_no_spurious_error\": true,\r\n    \"javascript_errors\": [],\r\n    \"file_url_all_records_display\": true,\r\n    \"passed\": true\r\n  },\r\n  \"limitations\": [\r\n    \"这是独立人工视觉归档；无原标注、参考答案或外部真值比较。\",\r\n    \"动作边界为人工秒级定位，不证明内部接合、扭矩或安全。\",\r\n    \"两视角按输入名义同步回查，未实测逐帧时间偏移。\"\r\n  ],\r\n  \"files\": {\r\n    \"actions.json\": {\r\n      \"sha256\": \"415ed461b7d1fe5cb6c9c46085c99954f7cc22c3897008aa5a13efffac25eda8\",\r\n      \"bytes\": 62599\r\n    },\r\n    \"policy.json\": {\r\n      \"sha256\": \"129de7180b18887c17412fed449637b187b3a81f566378d9945bb2812274bfc2\",\r\n      \"bytes\": 582\r\n    },\r\n    \"report.html\": {\r\n      \"sha256\": \"0a9ce1f2d94e373808ed7af7f53c79032457e497d680212a0482baf0a92bce38\",\r\n      \"bytes\": 55530\r\n    },\r\n    \"README.md\": {\r\n      \"sha256\": \"2d5fa4a6fb2ff0adb8889e2140bd2543c6ce4fb0816aa3a1f6a7d6269b24c5d2\",\r\n      \"bytes\": 8306\r\n    },\r\n    \"serve.py\": {\r\n      \"sha256\": \"1deed4806abd03b79cb27afb3e163195649b1219b77811eb5fea5fff0697cd3f\",\r\n      \"bytes\": 3247\r\n    },\r\n    \"CITATION.cff\": {\r\n      \"sha256\": \"43677af0a4c3cc0607d9d4ea376ac625c12bb835c31a4b63f6db0f069efd9c3b\",\r\n      \"bytes\": 2623\r\n    },\r\n    \"LICENSE-DATA.txt\": {\r\n      \"sha256\": \"528e832654d56de93410a3da0c6cea8b0ba2d3538cfa36b1a7fc1f337385b115\",\r\n      \"bytes\": 933\r\n    }\r\n  }\r\n}\r\n",
       "exit_code": 0,
       "index": 61,
-      "key": false
+      "key": true,
+      "key_title": "重建并回归验证"
     },
     {
       "kind": "command",
@@ -526,8 +535,7 @@
       "body": "Delivery verified: 119 events, 714 evidence seeks, browser checks passed; file checksums OK.\r\n",
       "exit_code": 0,
       "index": 62,
-      "key": true,
-      "key_title": "制作和验证报告"
+      "key": false
     },
     {
       "kind": "message",
@@ -535,7 +543,7 @@
       "body": "已完成，交付位于 [output/](/[run]/output)，含四项要求文件，共 119 条动作记录（左手 47、右手 72），未知项已注明。\n\n已验证 JSON 与网页一致、双视角 714 次跳转、筛选及代表片段自动暂停。可靠打开方法见 [README.md](/[run]/output/README.md)。",
       "index": 63,
       "key": true,
-      "key_title": "模型最终可见总结"
+      "key_title": "提交最终四项交付"
     }
   ]
 }

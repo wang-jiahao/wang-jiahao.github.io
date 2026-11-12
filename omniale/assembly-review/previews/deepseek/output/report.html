@@ -1,0 +1,1696 @@
+---
+layout: null
+sitemap: false
+permalink: /omniale/assembly-review/previews/deepseek/output/report.html
+---
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>角磨机装配动作证据交接</title>
+<link rel="icon" href="data:,">
+<style>
+  :root{
+    --bg:#f5f6f8; --panel:#ffffff; --ink:#1f2933; --muted:#5b6770;
+    --line:#d8dee5; --accent:#0b6bcb; --accent-soft:#e8f1fb; --warn:#9a5b00;
+    --left:#0b6bcb; --right:#b24a00; --shadow:0 1px 3px rgba(20,35,50,.08);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 "Segoe UI","Microsoft YaHei",system-ui,sans-serif}
+  header{background:var(--panel);border-bottom:1px solid var(--line);padding:18px 22px 14px}
+  header h1{margin:0 0 4px;font-size:22px;letter-spacing:.2px}
+  .sub{margin:0;color:var(--muted)}
+  .audio{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;padding:8px 10px;background:#f8fafc;border:1px solid var(--line);border-radius:8px}
+  .audio span{font-weight:600;color:var(--muted)}
+  .audio audio{height:32px;max-width:100%}
+  main{max-width:1500px;margin:0 auto;padding:18px 22px 40px}
+  section{background:var(--panel);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);margin-bottom:16px}
+  .policy{padding:14px 16px}
+  .policy h2,.player-wrap h2{margin:0 0 8px;font-size:16px}
+  .policy-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+  .policy-card{border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fbfcfd}
+  .policy-card b{display:block;margin-bottom:4px}
+  .kv{color:var(--muted)}
+  .pill{display:inline-block;padding:1px 7px;margin:1px 3px 1px 0;border-radius:999px;background:var(--accent-soft);color:#084b91;font-size:12px}
+  .pill.warn{background:#fff3df;color:var(--warn)}
+  .player-wrap{padding:14px 16px}
+  .player-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+  #player-title{font-size:15px}
+  #player-meta{color:var(--muted);font-variant-numeric:tabular-nums}
+  video{display:block;width:100%;max-height:62vh;background:#000;border-radius:8px;outline:none}
+  .player-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+  button{font:inherit;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:7px;padding:7px 11px;cursor:pointer}
+  button:hover{border-color:#9fb3c8;background:#f7fbff}
+  button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  button.primary:hover{background:#095aa8}
+  button.ghost{background:transparent}
+  button.small{padding:4px 8px;font-size:12px}
+  #cam-label{color:var(--muted)}
+  .filters{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;padding:14px 16px}
+  .filters label{display:flex;flex-direction:column;gap:4px;color:var(--muted);font-size:12px}
+  .filters select,.filters input{font:inherit;color:var(--ink);border:1px solid var(--line);border-radius:7px;padding:7px 9px;background:#fff;min-width:150px}
+  .filters input{min-width:260px}
+  .filters .count{margin-left:auto;color:var(--muted);font-variant-numeric:tabular-nums}
+  .table-wrap{overflow:auto;padding:0}
+  table{border-collapse:collapse;width:100%;min-width:1100px}
+  th,td{border-bottom:1px solid var(--line);padding:9px 10px;vertical-align:top;text-align:left}
+  th{position:sticky;top:0;background:#f4f7fa;color:#3a4b5c;font-size:12px;letter-spacing:.3px;z-index:1}
+  tr.event{cursor:pointer}
+  tr.event:hover{background:#f7fbff}
+  tr.event.selected{background:var(--accent-soft);box-shadow:inset 3px 0 0 var(--accent)}
+  .id{font-family:Consolas,monospace;color:var(--muted);white-space:nowrap}
+  .time{font-family:Consolas,monospace;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .hand{font-weight:600;white-space:nowrap}
+  .hand.left{color:var(--left)}
+  .hand.right{color:var(--right)}
+  .action{font-weight:600;white-space:nowrap}
+  .obj{white-space:nowrap}
+  .evidence{color:var(--muted);font-size:12px;white-space:nowrap}
+  .note{min-width:320px;color:#33414e}
+  .ops{white-space:nowrap}
+  .ops button{margin:1px 2px 1px 0}
+  .empty{padding:26px;text-align:center;color:var(--muted)}
+  footer{padding:10px 4px;color:var(--muted);font-size:12px}
+  .status-ok{color:#176b2c}
+  .status-bad{color:#a11616}
+  @media (max-width:720px){
+    header{padding:14px}
+    main{padding:12px}
+    .filters input{min-width:100%}
+    .filters .count{margin-left:0}
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>角磨机装配动作证据交接</h1>
+  <p class="sub">同一次物理装配 · front / top 双视角 · 主时钟 front · 页面默认展示全部归档记录</p>
+  <div class="audio">
+    <span>交接录音</span>
+    <audio controls preload="metadata" src="../../../media/handover.wav"></audio>
+    <span class="kv">后期合成委托，不是现场录音</span>
+  </div>
+</header>
+<main>
+  <section class="policy">
+    <h2>最终口头口径</h2>
+    <div class="policy-grid" id="policyGrid"></div>
+    <p class="kv" style="margin:10px 0 0">说明：前半段不记录 put_down 与 hold；第二段才增加 put_down。双手同时做同类动作时，按左手一条、右手一条分别归档，不使用 both。跨 83 秒的动作按开始所在半段处理，不切开。</p>
+  </section>
+
+  <section class="player-wrap">
+    <h2>片段回放</h2>
+    <div class="player-head">
+      <strong id="player-title">未选择片段</strong>
+      <span id="player-meta">点击表格中的“播放”或整行选择事件</span>
+    </div>
+    <video id="player" controls preload="metadata" src="../../../media/front.mp4"></video>
+    <div class="player-actions">
+      <button id="play-seg" class="primary">播放当前片段</button>
+      <button id="switch-cam">切换视角：top</button>
+      <button id="clear-seg" class="ghost">清除片段</button>
+      <span id="cam-label">主时钟：front</span>
+    </div>
+  </section>
+
+  <section class="filters">
+    <label>手别
+      <select id="f-hand">
+        <option value="all">全部</option>
+        <option value="left">左手 left</option>
+        <option value="right">右手 right</option>
+      </select>
+    </label>
+    <label>动作
+      <select id="f-action"><option value="all">全部</option></select>
+    </label>
+    <label>对象
+      <select id="f-object"><option value="all">全部</option></select>
+    </label>
+    <label>文本
+      <input id="f-text" type="search" placeholder="搜索 ID、说明、对象、时间…">
+    </label>
+    <span class="count" id="count"></span>
+  </section>
+
+  <section class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th><th>手别</th><th>起止</th><th>动作</th><th>对象</th><th>证据</th><th>说明</th><th>操作</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <div class="empty" id="empty" style="display:none">没有符合筛选条件的记录。</div>
+  </section>
+
+  <footer>
+    <div id="verify">正在校验…</div>
+    <div>来源：IMPACT v1.1，同一次 AL07EJ17_Reassembly_A_002 的 front/top 录像；媒体与派生材料 CC BY-NC-SA 4.0。页面只使用本题 input/ 材料，不判断产品合格、扭矩或运行安全。</div>
+  </footer>
+</main>
+
+<script>
+const EVENTS = [
+  {
+    "id": "e001",
+    "hand": "right",
+    "start_s": 0.75,
+    "end_s": 2.35,
+    "action": "pick_up",
+    "object": "shaft",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 0.75,
+        "end_s": 2.35
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 0.75,
+        "end_s": 2.35
+      }
+    ],
+    "note": "右手从蓝色料盒取出带圆盘的长金属轴。"
+  },
+  {
+    "id": "e002",
+    "hand": "right",
+    "start_s": 2.35,
+    "end_s": 3.05,
+    "action": "transfer",
+    "object": "shaft",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 2.35,
+        "end_s": 3.05
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 2.35,
+        "end_s": 3.05
+      }
+    ],
+    "note": "右手把轴送到工作区，左手接住；右手随后返回蓝色料盒。"
+  },
+  {
+    "id": "e003",
+    "hand": "right",
+      "start_s": 3.05,
+    "end_s": 4.1,
+    "action": "pick_up",
+    "object": "body",
+    "evidence": [
+      {
+        "file": "front.mp4",
+          "start_s": 3.05,
+        "end_s": 4.1
+      },
+      {
+        "file": "top.mp4",
+          "start_s": 3.05,
+        "end_s": 4.1
+      }
+    ],
+    "note": "右手从蓝色料盒取出黑色机体／齿轮壳；蓝盒随后空出。"
+  },
+  {
+    "id": "e004",
+    "hand": "right",
+    "start_s": 4.1,
+    "end_s": 5.3,
+    "action": "flip",
+    "object": "body",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 4.1,
+        "end_s": 5.3
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 4.1,
+        "end_s": 5.3
+      }
+    ],
+    "note": "右手把机体转成开口朝上，便于插轴；未推断内部结构。"
+  },
+  {
+    "id": "e005",
+    "hand": "left",
+    "start_s": 5.65,
+    "end_s": 7.4,
+    "action": "fit",
+    "object": "shaft",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 5.65,
+        "end_s": 7.4
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 5.65,
+        "end_s": 7.4
+      }
+    ],
+    "note": "左手把轴端对准机体孔并推入；右手扶持机体（纯扶持不另记）。"
+  },
+  {
+    "id": "e006",
+    "hand": "left",
+    "start_s": 7.4,
+    "end_s": 8.6,
+    "action": "fasten",
+    "object": "shaft",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 7.4,
+        "end_s": 8.6
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 7.4,
+        "end_s": 8.6
+      }
+    ],
+    "note": "左手手指转动／压紧轴端圆盘；可见手拧，扭矩未知。"
+  },
+  {
+    "id": "e007",
+    "hand": "right",
+    "start_s": 8.65,
+    "end_s": 9.8,
+    "action": "pick_up",
+    "object": "small_attachment",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 8.65,
+        "end_s": 9.8
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 8.65,
+        "end_s": 9.8
+      }
+    ],
+    "note": "右手从红色1号料盒上缘取小黑色件；大环仍留在盒内。"
+  },
+  {
+    "id": "e008",
+    "hand": "right",
+    "start_s": 9.8,
+    "end_s": 10.45,
+    "action": "adjust",
+    "object": "small_attachment",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 9.8,
+        "end_s": 10.45
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 9.8,
+        "end_s": 10.45
+      }
+    ],
+    "note": "右手把小黑色件对到机体左侧开口。"
+  },
+  {
+    "id": "e009",
+    "hand": "right",
+    "start_s": 10.45,
+    "end_s": 11.25,
+    "action": "fit",
+    "object": "small_attachment",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 10.45,
+        "end_s": 11.25
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 10.45,
+        "end_s": 11.25
+      }
+    ],
+    "note": "右手把小件压入／贴到机体左端。"
+  },
+  {
+    "id": "e010",
+    "hand": "right",
+    "start_s": 11.25,
+    "end_s": 12.3,
+    "action": "fasten",
+    "object": "small_attachment",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 11.25,
+        "end_s": 12.3
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 11.25,
+        "end_s": 12.3
+      }
+    ],
+    "note": "右手手指旋入/拧紧小件；螺纹是否完全到位不可见。"
+  },
+  {
+    "id": "e011",
+    "hand": "left",
+    "start_s": 12.75,
+    "end_s": 13.6,
+    "action": "flip",
+    "object": "body",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 12.75,
+        "end_s": 13.6
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 12.75,
+        "end_s": 13.6
+      }
+    ],
+    "note": "左手与右手一起把机体竖起；左手轨记录同一翻面。"
+  },
+  {
+    "id": "e012",
+    "hand": "right",
+    "start_s": 12.75,
+    "end_s": 13.6,
+    "action": "flip",
+    "object": "body",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 12.75,
+        "end_s": 13.6
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 12.75,
+        "end_s": 13.6
+      }
+    ],
+    "note": "右手同时参与把机体竖起；左右手各一条，不是两次装配。"
+  },
+  {
+    "id": "e013",
+    "hand": "left",
+    "start_s": 13.6,
+    "end_s": 18.5,
+    "action": "fasten",
+    "object": "shaft",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 13.6,
+        "end_s": 18.5
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 13.6,
+        "end_s": 18.5
+      }
+    ],
+    "note": "机体竖立后左手在轴／盘端持续手拧或调整；右手扶持。"
+  },
+  {
+    "id": "e014",
+    "hand": "right",
+    "start_s": 18.7,
+    "end_s": 19.8,
+    "action": "pick_up",
+    "object": "small_attachment",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 18.7,
+        "end_s": 19.8
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 18.7,
+        "end_s": 19.8
+      }
+    ],
+    "note": "右手从红色1号料盒上缘取另一个小黑色件；大环仍在盒内。"
+  },
+  {
+    "id": "e015",
+    "hand": "right",
+    "start_s": 19.8,
+    "end_s": 20.45,
+    "action": "adjust",
+    "object": "small_attachment",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 19.8,
+        "end_s": 20.45
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 19.8,
+        "end_s": 20.45
+      }
+    ],
+    "note": "右手把小件对到机体开口。"
+  },
+  {
+    "id": "e016",
+    "hand": "right",
+    "start_s": 20.45,
+    "end_s": 21.25,
+    "action": "fit",
+    "object": "small_attachment",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 20.45,
+        "end_s": 21.25
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 20.45,
+        "end_s": 21.25
+      }
+    ],
+    "note": "右手把小件压入机体开口。"
+  },
+  {
+    "id": "e017",
+    "hand": "right",
+    "start_s": 21.25,
+    "end_s": 26.9,
+    "action": "fasten",
+    "object": "small_attachment",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 21.25,
+        "end_s": 26.9
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 21.25,
+        "end_s": 26.9
+      }
+    ],
+    "note": "右手在机体开口处持续手指旋拧小件；机体随操作换向。"
+  },
+  {
+    "id": "e018",
+    "hand": "left",
+    "start_s": 26.95,
+    "end_s": 28.65,
+    "action": "flip",
+    "object": "body",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 26.95,
+        "end_s": 28.65
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 26.95,
+        "end_s": 28.65
+      }
+    ],
+    "note": "两手把机体放倒／翻面，准备工具操作；左手轨记录。"
+  },
+  {
+    "id": "e019",
+    "hand": "right",
+    "start_s": 26.95,
+    "end_s": 28.65,
+    "action": "flip",
+    "object": "body",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 26.95,
+        "end_s": 28.65
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 26.95,
+        "end_s": 28.65
+      }
+    ],
+    "note": "右手同时参与放倒／翻面，随后去工具区；左右手各一条。"
+  },
+  {
+    "id": "e020",
+    "hand": "right",
+    "start_s": 28.7,
+    "end_s": 29.45,
+    "action": "pick_up",
+    "object": "wrench",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 28.7,
+        "end_s": 29.45
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 28.7,
+        "end_s": 29.45
+      }
+    ],
+    "note": "右手从工具区取开口／组合扳手。"
+  },
+  {
+    "id": "e021",
+    "hand": "right",
+    "start_s": 29.45,
+    "end_s": 32.55,
+    "action": "fasten",
+    "object": "wrench",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 29.45,
+        "end_s": 32.55
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 29.45,
+        "end_s": 32.55
+      }
+    ],
+    "note": "右手用扳手在轴／盘端旋拧；左手扶持机体，扳手规格不推断。"
+  },
+  {
+    "id": "e022",
+    "hand": "left",
+    "start_s": 33.2,
+    "end_s": 34.1,
+    "action": "pick_up",
+    "object": "adapter_plate",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 33.2,
+        "end_s": 34.1
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 33.2,
+        "end_s": 34.1
+      }
+    ],
+    "note": "左手从红色1号料盒取出黑色大环（红色中心）；此前大环一直留在盒内。"
+  },
+  {
+    "id": "e023",
+    "hand": "left",
+    "start_s": 34.1,
+    "end_s": 34.9,
+    "action": "adjust",
+    "object": "adapter_plate",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 34.1,
+        "end_s": 34.9
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 34.1,
+        "end_s": 34.9
+      }
+    ],
+    "note": "左手把环对到机体右侧的轴／盘端。"
+  },
+  {
+    "id": "e024",
+    "hand": "left",
+    "start_s": 34.9,
+    "end_s": 36.3,
+    "action": "fit",
+    "object": "adapter_plate",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 34.9,
+        "end_s": 36.3
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 34.9,
+        "end_s": 36.3
+      }
+    ],
+    "note": "左手把环套入／贴合到机体；右手扶持。"
+  },
+  {
+    "id": "e025",
+    "hand": "left",
+    "start_s": 36.3,
+    "end_s": 37.8,
+    "action": "fasten",
+    "object": "adapter_plate",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 36.3,
+        "end_s": 37.8
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 36.3,
+        "end_s": 37.8
+      }
+    ],
+    "note": "左手手指转动环件；可见手拧，内部接合不可见。"
+  },
+  {
+    "id": "e026",
+    "hand": "left",
+    "start_s": 41.0,
+    "end_s": 45.8,
+    "action": "pick_up",
+    "object": "small_attachment",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 41.0,
+        "end_s": 45.8
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 41.0,
+        "end_s": 45.8
+      }
+    ],
+    "note": "左手在红色1号料盒内反复捏取细小银色件；38.8秒曾触碰但未取出，料盒随后变空。"
+  },
+  {
+    "id": "e027",
+    "hand": "left",
+    "start_s": 45.8,
+    "end_s": 46.6,
+    "action": "adjust",
+    "object": "small_attachment",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 45.8,
+        "end_s": 46.6
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 45.8,
+        "end_s": 46.6
+      }
+    ],
+    "note": "左手把细小件对到机体上的孔／开口。"
+  },
+  {
+    "id": "e028",
+    "hand": "left",
+    "start_s": 46.6,
+    "end_s": 47.6,
+    "action": "fit",
+    "object": "small_attachment",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 46.6,
+        "end_s": 47.6
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 46.6,
+        "end_s": 47.6
+      }
+    ],
+    "note": "左手把细小件插入／贴入；可见长黑色件从机体右侧伸出。"
+  },
+  {
+    "id": "e029",
+    "hand": "left",
+    "start_s": 47.6,
+    "end_s": 51.7,
+    "action": "fasten",
+    "object": "small_attachment",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 47.6,
+        "end_s": 51.7
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 47.6,
+        "end_s": 51.7
+      }
+    ],
+    "note": "左手手指旋入细小件，右手扶持；是否完全到位不可见。"
+  },
+  {
+    "id": "e030",
+    "hand": "right",
+    "start_s": 51.9,
+    "end_s": 53.1,
+    "action": "pick_up",
+    "object": "screwdriver",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 51.9,
+        "end_s": 53.1
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 51.9,
+        "end_s": 53.1
+      }
+    ],
+    "note": "右手从工具区取红橙柄螺丝刀。"
+  },
+  {
+    "id": "e031",
+    "hand": "right",
+    "start_s": 53.1,
+    "end_s": 63.5,
+    "action": "fasten",
+    "object": "screwdriver",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 53.1,
+        "end_s": 63.5
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 53.1,
+        "end_s": 63.5
+      }
+    ],
+    "note": "右手用红橙柄螺丝刀旋拧机体上的螺钉；左手扶持，工具往复不切碎。"
+  },
+  {
+    "id": "e032",
+    "hand": "left",
+    "start_s": 63.5,
+    "end_s": 64.8,
+    "action": "flip",
+    "object": "body",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 63.5,
+        "end_s": 64.8
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 63.5,
+        "end_s": 64.8
+      }
+    ],
+    "note": "左手把机体翻转，右手仍持红橙柄螺丝刀；换面后继续旋拧。"
+  },
+  {
+    "id": "e033",
+    "hand": "right",
+    "start_s": 64.8,
+    "end_s": 77.4,
+    "action": "fasten",
+    "object": "screwdriver",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 64.8,
+        "end_s": 77.4
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 64.8,
+        "end_s": 77.4
+      }
+    ],
+    "note": "右手继续用红橙柄螺丝刀旋拧；期间机体被重新定位。"
+  },
+  {
+    "id": "e034",
+    "hand": "left",
+    "start_s": 77.4,
+    "end_s": 78.55,
+    "action": "flip",
+    "object": "body",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 77.4,
+        "end_s": 78.55
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 77.4,
+        "end_s": 78.55
+      }
+    ],
+    "note": "左手再次翻转机体；右手持红橙柄螺丝刀。"
+  },
+  {
+    "id": "e035",
+    "hand": "right",
+    "start_s": 78.55,
+    "end_s": 82.35,
+    "action": "fasten",
+    "object": "screwdriver",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 78.55,
+        "end_s": 82.35
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 78.55,
+        "end_s": 82.35
+      }
+    ],
+    "note": "右手继续旋拧；约82.5秒工具离开工作区，前半段不记放下。"
+  },
+  {
+    "id": "e036",
+    "hand": "left",
+    "start_s": 84.15,
+    "end_s": 85.45,
+    "action": "pick_up",
+    "object": "bearing_plate",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 84.15,
+        "end_s": 85.45
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 84.15,
+        "end_s": 85.45
+      }
+    ],
+    "note": "左手从红色2号料盒取出较大圆盘总成；此后该盒为空。"
+  },
+  {
+    "id": "e037",
+    "hand": "left",
+    "start_s": 85.45,
+    "end_s": 86.4,
+    "action": "adjust",
+    "object": "bearing_plate",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 85.45,
+        "end_s": 86.4
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 85.45,
+        "end_s": 86.4
+      }
+    ],
+    "note": "左手把圆盘总成对到机体左端。"
+  },
+  {
+    "id": "e038",
+    "hand": "left",
+    "start_s": 86.4,
+    "end_s": 87.25,
+    "action": "fit",
+    "object": "bearing_plate",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 86.4,
+        "end_s": 87.25
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 86.4,
+        "end_s": 87.25
+      }
+    ],
+    "note": "左手把圆盘总成贴合／压入机体。"
+  },
+  {
+    "id": "e039",
+    "hand": "left",
+    "start_s": 87.25,
+    "end_s": 88.2,
+    "action": "fasten",
+    "object": "bearing_plate",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 87.25,
+        "end_s": 88.2
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 87.25,
+        "end_s": 88.2
+      }
+    ],
+    "note": "左手手指压紧／转动圆盘边缘；右手扶持。"
+  },
+  {
+    "id": "e040",
+    "hand": "right",
+    "start_s": 89.15,
+    "end_s": 90.15,
+    "action": "pick_up",
+    "object": "screwdriver",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 89.15,
+        "end_s": 90.15
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 89.15,
+        "end_s": 90.15
+      }
+    ],
+    "note": "右手从工具区取青绿柄螺丝刀；红橙柄螺丝刀仍在桌面。"
+  },
+  {
+    "id": "e041",
+    "hand": "right",
+    "start_s": 90.15,
+    "end_s": 91.0,
+    "action": "adjust",
+    "object": "screwdriver",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 90.15,
+        "end_s": 91.0
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 90.15,
+        "end_s": 91.0
+      }
+    ],
+    "note": "右手把螺丝刀尖端对到机体上的螺钉。"
+  },
+  {
+    "id": "e042",
+    "hand": "right",
+    "start_s": 91.0,
+    "end_s": 106.3,
+    "action": "fasten",
+    "object": "screwdriver",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 91.0,
+        "end_s": 106.3
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 91.0,
+        "end_s": 106.3
+      }
+    ],
+    "note": "右手用青绿柄螺丝刀持续旋拧；左手扶持并协助换位，工具往复合并为一条。"
+  },
+  {
+    "id": "e043",
+    "hand": "right",
+    "start_s": 106.3,
+    "end_s": 107.2,
+    "action": "put_down",
+    "object": "screwdriver",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 106.3,
+        "end_s": 107.2
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 106.3,
+        "end_s": 107.2
+      }
+    ],
+    "note": "右手把青绿柄螺丝刀放到工作区左侧桌面；83秒后允许记录放下。"
+  },
+  {
+    "id": "e044",
+    "hand": "right",
+    "start_s": 107.2,
+    "end_s": 112.0,
+    "action": "fasten",
+    "object": "small_attachment",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 107.2,
+        "end_s": 112.0
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 107.2,
+        "end_s": 112.0
+      }
+    ],
+    "note": "右手放下工具后改用手指在机体顶部旋入／调整小件；左手扶持。"
+  },
+  {
+    "id": "e045",
+    "hand": "left",
+    "start_s": 112.0,
+    "end_s": 114.8,
+    "action": "flip",
+    "object": "body",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 112.0,
+        "end_s": 114.8
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 112.0,
+        "end_s": 114.8
+      }
+    ],
+    "note": "两手同时把机体翻转；左手轨记录。"
+  },
+  {
+    "id": "e046",
+    "hand": "right",
+    "start_s": 112.0,
+    "end_s": 114.8,
+    "action": "flip",
+    "object": "body",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 112.0,
+        "end_s": 114.8
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 112.0,
+        "end_s": 114.8
+      }
+    ],
+    "note": "右手同时参与翻面；左右手各一条，不是两次装配。"
+  },
+  {
+    "id": "e047",
+    "hand": "right",
+      "start_s": 114.8,
+    "end_s": 115.1,
+    "action": "pick_up",
+    "object": "screwdriver",
+    "evidence": [
+      {
+        "file": "front.mp4",
+          "start_s": 114.8,
+        "end_s": 115.1
+      },
+      {
+        "file": "top.mp4",
+          "start_s": 114.8,
+        "end_s": 115.1
+      }
+    ],
+    "note": "右手从桌面重新取起青绿柄螺丝刀。"
+  },
+  {
+    "id": "e048",
+    "hand": "right",
+    "start_s": 115.1,
+    "end_s": 117.4,
+    "action": "fasten",
+    "object": "screwdriver",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 115.1,
+        "end_s": 117.4
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 115.1,
+        "end_s": 117.4
+      }
+    ],
+    "note": "右手用青绿柄螺丝刀再旋拧一处；左手扶持。"
+  },
+  {
+    "id": "e049",
+    "hand": "right",
+    "start_s": 117.4,
+    "end_s": 118.25,
+    "action": "put_down",
+    "object": "screwdriver",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 117.4,
+        "end_s": 118.25
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 117.4,
+        "end_s": 118.25
+      }
+    ],
+    "note": "右手把青绿柄螺丝刀放回桌面。"
+  },
+  {
+    "id": "e050",
+    "hand": "right",
+    "start_s": 118.25,
+    "end_s": 128.4,
+    "action": "fasten",
+    "object": "small_attachment",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 118.25,
+        "end_s": 128.4
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 118.25,
+        "end_s": 128.4
+      }
+    ],
+    "note": "右手用细长黑色件／手指在机体上旋入；121.7-127.3秒左手离开去红色3号料盒，右手继续。"
+  },
+  {
+    "id": "e051",
+    "hand": "left",
+    "start_s": 121.7,
+    "end_s": 127.3,
+    "action": "pick_up",
+    "object": "small_attachment",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 121.7,
+        "end_s": 127.3
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 121.7,
+        "end_s": 127.3
+      }
+    ],
+    "note": "左手在红色3号料盒内反复捏取细小银色件；128.4秒该盒已空。"
+  },
+  {
+    "id": "e052",
+    "hand": "left",
+    "start_s": 127.3,
+    "end_s": 128.4,
+    "action": "adjust",
+    "object": "small_attachment",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 127.3,
+        "end_s": 128.4
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 127.3,
+        "end_s": 128.4
+      }
+    ],
+    "note": "左手把取出的细小件对到机体；右手仍在旋入细长件。"
+  },
+  {
+    "id": "e053",
+    "hand": "right",
+    "start_s": 128.4,
+    "end_s": 145.0,
+    "action": "fasten",
+    "object": "small_attachment",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 128.4,
+        "end_s": 145.0
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 128.4,
+        "end_s": 145.0
+      }
+    ],
+    "note": "右手持续手指旋拧细小件；左手同时协助，是否完全到位不可见。"
+  },
+  {
+    "id": "e054",
+    "hand": "left",
+    "start_s": 145.0,
+    "end_s": 145.8,
+    "action": "pick_up",
+    "object": "screwdriver",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 145.0,
+        "end_s": 145.8
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 145.0,
+        "end_s": 145.8
+      }
+    ],
+    "note": "左手从桌面取起青绿柄螺丝刀。"
+  },
+  {
+    "id": "e055",
+    "hand": "left",
+    "start_s": 145.8,
+    "end_s": 149.9,
+    "action": "fasten",
+    "object": "screwdriver",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 145.8,
+        "end_s": 149.9
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 145.8,
+        "end_s": 149.9
+      }
+    ],
+    "note": "左手用青绿柄螺丝刀旋拧；右手扶持。"
+  },
+  {
+    "id": "e056",
+    "hand": "left",
+    "start_s": 149.9,
+    "end_s": 150.65,
+    "action": "put_down",
+    "object": "screwdriver",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 149.9,
+        "end_s": 150.65
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 149.9,
+        "end_s": 150.65
+      }
+    ],
+    "note": "左手把青绿柄螺丝刀放回桌面。"
+  },
+  {
+    "id": "e057",
+    "hand": "left",
+    "start_s": 150.65,
+    "end_s": 159.2,
+    "action": "fasten",
+    "object": "small_attachment",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 150.65,
+        "end_s": 159.2
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 150.65,
+        "end_s": 159.2
+      }
+    ],
+    "note": "左手继续在机体上手指旋拧／压紧小件；右手扶持。"
+  },
+  {
+    "id": "e058",
+    "hand": "left",
+    "start_s": 159.25,
+    "end_s": 161.0,
+    "action": "pick_up",
+    "object": "handle",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 159.25,
+        "end_s": 161.0
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 159.25,
+        "end_s": 161.0
+      }
+    ],
+    "note": "左手从红色4号料盒取出黑色长柄；盒内清空。"
+  },
+  {
+    "id": "e059",
+    "hand": "left",
+    "start_s": 161.0,
+    "end_s": 162.35,
+    "action": "adjust",
+    "object": "handle",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 161.0,
+        "end_s": 162.35
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 161.0,
+        "end_s": 162.35
+      }
+    ],
+    "note": "左手把长柄对到机体侧面的安装孔。"
+  },
+  {
+    "id": "e060",
+    "hand": "left",
+    "start_s": 162.35,
+    "end_s": 164.9,
+    "action": "fit",
+    "object": "handle",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 162.35,
+        "end_s": 164.9
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 162.35,
+        "end_s": 164.9
+      }
+    ],
+    "note": "左手把长柄插入／贴合到机体侧面；右手扶持。"
+  },
+  {
+    "id": "e061",
+    "hand": "right",
+    "start_s": 164.9,
+    "end_s": 173.8,
+    "action": "fasten",
+    "object": "handle",
+    "evidence": [
+      {
+        "file": "front.mp4",
+        "start_s": 164.9,
+        "end_s": 173.8
+      },
+      {
+        "file": "top.mp4",
+        "start_s": 164.9,
+        "end_s": 173.8
+      }
+    ],
+    "note": "右手持续转动长柄将其旋入；左手扶持机体，至录像结束。"
+  }
+];
+const POLICY = {
+  "first": {
+    "start_s": 0.0,
+    "end_s": 83.0,
+    "hands": [
+      "left",
+      "right"
+    ],
+    "actions": [
+      "pick_up",
+      "transfer",
+      "adjust",
+      "fit",
+      "fasten",
+      "flip"
+    ]
+  },
+  "second": {
+    "start_s": 83.0,
+    "end_s": 173.8,
+    "hands": [
+      "left",
+      "right"
+    ],
+    "actions": [
+      "pick_up",
+      "transfer",
+      "adjust",
+      "fit",
+      "fasten",
+      "flip",
+      "put_down"
+    ]
+  },
+  "record_holds": false,
+  "clock": "front",
+  "bilateral_as_two_tracks": true
+};
+
+const HAND_LABEL = {left:"左手", right:"右手", both:"双手"};
+const ACTION_LABEL = {
+  pick_up:"取起 pick_up", transfer:"转交 transfer", adjust:"对位调整 adjust",
+  fit:"插入/贴合 fit", fasten:"旋拧 fasten", flip:"翻面 flip", put_down:"放下 put_down", hold:"扶持 hold"
+};
+const OBJECT_LABEL = {
+  body:"机体 body", shaft:"轴/转子 shaft", gear:"齿轮件 gear",
+  adapter_plate:"适配件/环 adapter_plate", bearing_plate:"圆盘总成 bearing_plate",
+  small_attachment:"小件 small_attachment", handle:"长柄 handle",
+  screwdriver:"螺丝刀 screwdriver", wrench:"扳手 wrench", "null":"未知/未记录"
+};
+const ACTION_ORDER = ["pick_up","transfer","adjust","fit","fasten","flip","put_down","hold"];
+const OBJECT_ORDER = ["body","shaft","gear","adapter_plate","bearing_plate","small_attachment","handle","screwdriver","wrench"];
+
+function fmt(t){
+  const m = Math.floor(t/60), s = t - m*60;
+  return String(m).padStart(2,"0") + ":" + s.toFixed(1).padStart(4,"0");
+}
+function labelHand(h){ return HAND_LABEL[h] ? HAND_LABEL[h] + " " + h : h; }
+function labelAction(a){ return ACTION_LABEL[a] || a; }
+function labelObject(o){ const k = (o===null) ? "null" : o; return OBJECT_LABEL[k] || k; }
+
+// Policy panel
+(function(){
+  const g = document.getElementById("policyGrid");
+  function card(title, seg, extra){
+    const hands = seg.hands.map(h=>`<span class="pill">${labelHand(h)}</span>`).join("");
+    const acts = seg.actions.map(a=>`<span class="pill">${a}</span>`).join("");
+    return `<div class="policy-card"><b>${title} · ${seg.start_s.toFixed(1)}–${seg.end_s.toFixed(1)} s</b>
+      <div class="kv">手别：${hands}</div>
+      <div class="kv" style="margin-top:4px">动作：${acts}</div>
+      ${extra ? `<div class="kv" style="margin-top:6px">${extra}</div>` : ""}</div>`;
+  }
+  g.innerHTML =
+    card("第一段 first", POLICY.first, "不记录 put_down / hold；双侧同时同类动作分成左右两条。") +
+    card("第二段 second", POLICY.second, "在六类动作之外增加 put_down；hold 仍不记录。") +
+    `<div class="policy-card"><b>全局字段</b>
+      <div class="kv">record_holds：<span class="pill warn">${POLICY.record_holds}</span></div>
+      <div class="kv" style="margin-top:4px">clock：<span class="pill">${POLICY.clock}</span></div>
+      <div class="kv" style="margin-top:4px">bilateral_as_two_tracks：<span class="pill">${POLICY.bilateral_as_two_tracks}</span></div>
+      <div class="kv" style="margin-top:6px">跨 83 秒动作按开始所在半段处理，不切成两次。</div>
+    </div>`;
+})();
+
+// Populate filters
+(function(){
+  const fa = document.getElementById("f-action");
+  ACTION_ORDER.forEach(a=>{
+    if(EVENTS.some(e=>e.action===a)){
+      const o=document.createElement("option"); o.value=a; o.textContent=labelAction(a); fa.appendChild(o);
+    }
+  });
+  const fo = document.getElementById("f-object");
+  OBJECT_ORDER.forEach(k=>{
+    if(EVENTS.some(e=>(e.object===null?"null":e.object)===k)){
+      const o=document.createElement("option"); o.value=k; o.textContent=labelObject(k==="null"?null:k); fo.appendChild(o);
+    }
+  });
+  if(EVENTS.some(e=>e.object===null) && !fo.querySelector('option[value="null"]')){
+    const o=document.createElement("option"); o.value="null"; o.textContent=labelObject(null); fo.appendChild(o);
+  }
+})();
+
+const tbody = document.getElementById("tbody");
+const empty = document.getElementById("empty");
+const countEl = document.getElementById("count");
+const fHand = document.getElementById("f-hand");
+const fAction = document.getElementById("f-action");
+const fObject = document.getElementById("f-object");
+const fText = document.getElementById("f-text");
+
+function matches(e){
+  if(fHand.value !== "all" && e.hand !== fHand.value) return false;
+  if(fAction.value !== "all" && e.action !== fAction.value) return false;
+  if(fObject.value !== "all"){
+    const k = (e.object===null) ? "null" : e.object;
+    if(k !== fObject.value) return false;
+  }
+  const q = fText.value.trim().toLowerCase();
+  if(q){
+    const hay = [e.id,e.hand,e.action,e.object===null?"":e.object,e.note,fmt(e.start_s),fmt(e.end_s)].join(" ").toLowerCase();
+    if(!hay.includes(q)) return false;
+  }
+  return true;
+}
+
+function rowFor(e){
+  const tr = document.createElement("tr");
+  tr.className = "event";
+  tr.dataset.id = e.id;
+  tr.innerHTML = `
+    <td class="id">${e.id}</td>
+    <td class="hand ${e.hand}">${labelHand(e.hand)}</td>
+    <td class="time">${fmt(e.start_s)}–${fmt(e.end_s)}</td>
+    <td class="action">${e.action}</td>
+    <td class="obj">${labelObject(e.object)}</td>
+    <td class="evidence">front + top</td>
+    <td class="note">${e.note}</td>
+    <td class="ops">
+      <button class="small primary" data-act="play">播放</button>
+      <button class="small" data-act="other">另一视角</button>
+    </td>`;
+  tr.addEventListener("click", ()=>selectEvent(e,true));
+  tr.querySelector('[data-act="play"]').addEventListener("click", ev=>{ev.stopPropagation(); selectEvent(e,true);});
+  tr.querySelector('[data-act="other"]').addEventListener("click", ev=>{ev.stopPropagation(); selectEvent(e,true); toggleCam();});
+  return tr;
+}
+
+function render(){
+  const list = EVENTS.filter(matches).sort((a,b)=>a.start_s-b.start_s || a.id.localeCompare(b.id));
+  tbody.innerHTML = "";
+  const frag = document.createDocumentFragment();
+  list.forEach(e=>frag.appendChild(rowFor(e)));
+  tbody.appendChild(frag);
+  empty.style.display = list.length ? "none" : "block";
+  countEl.textContent = `显示 ${list.length} / ${EVENTS.length} 条`;
+  if(current && list.some(e=>e.id===current.id)){
+    const tr = tbody.querySelector(`tr[data-id="${current.id}"]`);
+    if(tr) tr.classList.add("selected");
+  }
+}
+[fHand,fAction,fObject].forEach(el=>el.addEventListener("change",render));
+fText.addEventListener("input",render);
+
+const player = document.getElementById("player");
+const playerTitle = document.getElementById("player-title");
+const playerMeta = document.getElementById("player-meta");
+const camLabel = document.getElementById("cam-label");
+const switchBtn = document.getElementById("switch-cam");
+const CAM_SRC = {front:"../../../media/front.mp4", top:"../../../media/top.mp4"};
+let current = null;
+let currentCam = "front";
+let segmentActive = false;
+
+function setSrc(cam){
+  if(player.dataset.src === CAM_SRC[cam]) return;
+  player.dataset.src = CAM_SRC[cam];
+  player.src = CAM_SRC[cam];
+  player.load();
+}
+function whenReady(fn){
+  if(player.readyState >= 1) fn();
+  else player.addEventListener("loadedmetadata", fn, {once:true});
+}
+function updateCamUI(){
+  camLabel.textContent = currentCam === "front" ? "主时钟：front" : "当前视角：top（主时钟仍为 front）";
+  switchBtn.textContent = currentCam === "front" ? "切换视角：top" : "切换视角：front";
+}
+function selectEvent(e, autoplay){
+  current = e;
+  segmentActive = true;
+  document.querySelectorAll("tr.event").forEach(r=>r.classList.toggle("selected", r.dataset.id===e.id));
+  playerTitle.textContent = `${e.id} · ${labelHand(e.hand)} · ${e.action} · ${labelObject(e.object)}`;
+  playerMeta.textContent = `${fmt(e.start_s)}–${fmt(e.end_s)}（${currentCam}）`;
+  const playNow = ()=>{
+    player.currentTime = e.start_s;
+    if(autoplay) player.play().catch(()=>{});
+  };
+  setSrc(currentCam);
+  whenReady(playNow);
+}
+function playSegment(){
+  if(!current) return;
+  segmentActive = true;
+  setSrc(currentCam);
+  whenReady(()=>{
+    player.currentTime = current.start_s;
+    player.play().catch(()=>{});
+  });
+}
+function toggleCam(){
+  if(!current) return;
+  const t = player.currentTime;
+  const wasPlaying = !player.paused;
+  currentCam = currentCam === "front" ? "top" : "front";
+  setSrc(currentCam);
+  updateCamUI();
+  playerMeta.textContent = `${fmt(current.start_s)}–${fmt(current.end_s)}（${currentCam}）`;
+  whenReady(()=>{
+    const lo = current.start_s, hi = current.end_s;
+    player.currentTime = Math.min(Math.max(t || lo, lo), hi);
+    if(wasPlaying) player.play().catch(()=>{});
+  });
+}
+document.getElementById("play-seg").addEventListener("click", playSegment);
+switchBtn.addEventListener("click", toggleCam);
+document.getElementById("clear-seg").addEventListener("click", ()=>{
+  current = null; segmentActive = false;
+  player.pause();
+  playerTitle.textContent = "未选择片段";
+  playerMeta.textContent = "点击表格中的“播放”或整行选择事件";
+  document.querySelectorAll("tr.event").forEach(r=>r.classList.remove("selected"));
+});
+player.addEventListener("timeupdate", ()=>{
+  if(segmentActive && current && !player.paused && player.currentTime >= current.end_s - 0.03){
+    player.pause();
+    player.currentTime = current.end_s;
+    segmentActive = false;
+    playerMeta.textContent = `${fmt(current.start_s)}–${fmt(current.end_s)}（已到片段终点）`;
+  }
+});
+
+updateCamUI();
+render();
+
+// Consistency check against actions.json when the page is served over HTTP.
+fetch("actions.json").then(r=>r.ok?r.json():Promise.reject()).then(d=>{
+  const el = document.getElementById("verify");
+  if(Array.isArray(d.events) && d.events.length === EVENTS.length){
+    el.innerHTML = `<span class="status-ok">校验通过：页面内嵌 ${EVENTS.length} 条事件，与 actions.json 条数一致。</span>`;
+  }else{
+    el.innerHTML = `<span class="status-bad">校验失败：页面 ${EVENTS.length} 条，actions.json ${d.events ? d.events.length : "?"} 条。</span>`;
+  }
+}).catch(()=>{
+  document.getElementById("verify").textContent = `页面内嵌 ${EVENTS.length} 条事件；离线打开时浏览器禁止实时读取 actions.json，构建时已校验一致。如需实时复核，可用 output/serve.py 启动本地服务器。`;
+});
+</script>
+</body>
+</html>
