@@ -1,11 +1,12 @@
 {
-  "updated_at": "2026-11-12T13:15:27.432127+00:00",
+  "updated_at": "2026-11-12T14:34:00.943166+00:00",
   "definition": "Cross-platform marks actual transitions between browser, CLI or desktop environments; cross-software alone is not marked.",
   "order": [
     "charge-foley",
     "video-crosscheck",
     "longfilm-caption",
     "musp",
+    "film-dubbing",
     "assembly-review",
     "card-audio-description"
   ],
@@ -126,6 +127,38 @@
           "basis": "来源页五、运行轨迹列出Luna1次、Sol2次、DeepSeek7次浏览器自检请求，与Python分析同属被测过程。",
           "evidence_url": "https://huayuankou333.github.io/omniale/musp/#trajectory",
           "definition": "Actual switch between execution interfaces such as a browser and CLI; multiple desktop software packages alone are not sufficient."
+        }
+      }
+    },
+    {
+      "id": "film-dubbing",
+      "title": "电影译制 · 双版本中文配音",
+      "cover": "film-dubbing.jpg",
+      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/assets/task-13-8.jpg",
+      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-13/results",
+      "desc": "把8分45秒英语电影译制成普通话，区分角色身份与跨段声音变化，安排真实配音并保留音乐音效；交付影院立体声、手机单声道、角色分轨、双语字幕和离线重建脚本。",
+      "scores": {
+        "gpt-6.1-sol": 63.4766,
+        "gpt-6-luna": 9.6468,
+        "gpt-6-astra": 45.4968
+      },
+      "max_model_score": 63.4766,
+      "score": "gpt-6.1-sol 63.4766 · gpt-6-astra 45.4968 · gpt-6-luna 9.6468",
+      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/case13-v31-report/summary.js?v=content-audio-20261112",
+      "score_detail_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/case13-v31-report/data.js?v=content-audio-20261112",
+      "score_version": "final-content-times-audio",
+      "score_note": "来源最终公式(E20+T10)×(A70/70)×画面系数×(100/30)；三模型high、最多60分钟。Qwen已确定逐项判票，非专家金标准；无效判票计零的政策影响保留在来源报告中。",
+      "classification": {
+        "week": "4",
+        "domain": 5,
+        "scenario": "跨语译制与多版本配音",
+        "show_in_summary": true,
+        "cross_platform": {
+          "confirmed": false,
+          "environments": [],
+          "basis": "当前来源公开材料证实CLI媒体处理和TTS兼容接口；未据此推定真实浏览器或桌面环境切换。",
+          "evidence_url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-13/results",
+          "definition": "Actual switch between execution interfaces; cross-software or TTS compatibility alone is not sufficient."
         }
       }
     },
