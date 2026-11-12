@@ -1,0 +1,376 @@
+{
+  "material_version": "v4.1",
+  "rubric_version": "assembly-av-v4-fields-macro-1+delivery-auto1",
+  "automatic_points_out_of_85": 42.05835005448171,
+  "breakdown": {
+    "action": 10.60122053872054,
+    "object": 11.003008610851747,
+    "hand": 7.037454238242749,
+    "localization": 3.416666666666667,
+    "audio_policy": 10.0
+  },
+  "field_metrics": {
+    "action": {
+      "macro_f1": 0.30289201539201543,
+      "micro_f1": 0.43333333333333335,
+      "classes": [
+        {
+          "label": "pick_up",
+          "true_positives": 13,
+          "predicted": 14,
+          "expected": 18,
+          "f1": 0.8125
+        },
+        {
+          "label": "put_down",
+          "true_positives": 0,
+          "predicted": 3,
+          "expected": 2,
+          "f1": 0.0
+        },
+        {
+          "label": "transfer",
+          "true_positives": 1,
+          "predicted": 1,
+          "expected": 9,
+          "f1": 0.2
+        },
+        {
+          "label": "flip",
+          "true_positives": 1,
+          "predicted": 8,
+          "expected": 4,
+          "f1": 0.16666666666666666
+        },
+        {
+          "label": "adjust",
+          "true_positives": 1,
+          "predicted": 8,
+          "expected": 4,
+          "f1": 0.16666666666666666
+        },
+        {
+          "label": "fit",
+          "true_positives": 2,
+          "predicted": 7,
+          "expected": 15,
+          "f1": 0.18181818181818182
+        },
+        {
+          "label": "fasten",
+          "true_positives": 8,
+          "predicted": 18,
+          "expected": 9,
+          "f1": 0.5925925925925926
+        }
+      ],
+      "invalid_labels": 0
+    },
+    "object": {
+      "macro_f1": 0.5501504305425874,
+      "micro_f1": 0.5,
+      "classes": [
+        {
+          "label": "body",
+          "true_positives": 2,
+          "predicted": 9,
+          "expected": 5,
+          "f1": 0.2857142857142857
+        },
+        {
+          "label": "shaft",
+          "true_positives": 5,
+          "predicted": 5,
+          "expected": 7,
+          "f1": 0.8333333333333334
+        },
+        {
+          "label": "gear",
+          "true_positives": 0,
+          "predicted": 0,
+          "expected": 2,
+          "f1": 0.0
+        },
+        {
+          "label": "adapter_plate",
+          "true_positives": 3,
+          "predicted": 4,
+          "expected": 3,
+          "f1": 0.8571428571428571
+        },
+        {
+          "label": "bearing_plate",
+          "true_positives": 4,
+          "predicted": 4,
+          "expected": 5,
+          "f1": 0.8888888888888888
+        },
+        {
+          "label": "small_attachment",
+          "true_positives": 10,
+          "predicted": 18,
+          "expected": 32,
+          "f1": 0.4
+        },
+        {
+          "label": "handle",
+          "true_positives": 2,
+          "predicted": 4,
+          "expected": 2,
+          "f1": 0.6666666666666666
+        },
+        {
+          "label": "screwdriver",
+          "true_positives": 3,
+          "predicted": 13,
+          "expected": 4,
+          "f1": 0.35294117647058826
+        },
+        {
+          "label": "wrench",
+          "true_positives": 1,
+          "predicted": 2,
+          "expected": 1,
+          "f1": 0.6666666666666666
+        }
+      ],
+      "invalid_labels": 0
+    },
+    "hand": {
+      "macro_f1": 0.46916361588284994,
+      "micro_f1": 0.4666666666666667,
+      "classes": [
+        {
+          "label": "left",
+          "true_positives": 13,
+          "predicted": 27,
+          "expected": 26,
+          "f1": 0.49056603773584906
+        },
+        {
+          "label": "right",
+          "true_positives": 15,
+          "predicted": 32,
+          "expected": 35,
+          "f1": 0.44776119402985076
+        }
+      ],
+      "invalid_labels": 0
+    }
+  },
+  "localization": {
+    "f1": 0.6833333333333333,
+    "matched": 41,
+    "predicted": 59,
+    "expected": 61
+  },
+  "excluded_predictions": 2,
+  "excluded_references": 2,
+  "audio_policy": {
+    "points": 10.0,
+    "units": [
+      {
+        "unit": "first_start",
+        "ok": true
+      },
+      {
+        "unit": "first_end",
+        "ok": true
+      },
+      {
+        "unit": "first_hands",
+        "ok": true
+      },
+      {
+        "unit": "first_actions",
+        "partial": 1.0
+      },
+      {
+        "unit": "second_start",
+        "ok": true
+      },
+      {
+        "unit": "second_end",
+        "ok": true
+      },
+      {
+        "unit": "second_hands",
+        "ok": true
+      },
+      {
+        "unit": "second_actions",
+        "partial": 1.0
+      },
+      {
+        "unit": "record_holds",
+        "ok": true
+      },
+      {
+        "unit": "clock",
+        "ok": true
+      },
+      {
+        "unit": "bilateral_as_two_tracks",
+        "ok": true
+      }
+    ]
+  },
+  "total": 56.05835005448171,
+  "manual_points_out_of_15": 14,
+  "status": "script result; no semantic adjudication or clock normalization",
+  "manual_review": {
+    "report": 9,
+    "documentation": 5,
+    "evidence": [
+      "Fixed automated delivery probes; see checks and documentation_checks. No event-semantic adjudication."
+    ],
+    "checks": [
+      {
+        "unit": "report_document",
+        "points": 1,
+        "evidence": {
+          "bytes": 43980
+        }
+      },
+      {
+        "unit": "browser_execution",
+        "points": 1,
+        "evidence": {
+          "page_errors": []
+        }
+      },
+      {
+        "unit": "default_all_records",
+        "points": 1,
+        "evidence": {
+          "visible": 61,
+          "expected": 61
+        }
+      },
+      {
+        "unit": "front_video",
+        "points": 1,
+        "evidence": [
+          {
+            "src": "http://127.0.0.1:57833/input/front.mp4",
+            "ready": 4,
+            "duration": 173.8
+          }
+        ]
+      },
+      {
+        "unit": "top_video",
+        "points": 0,
+        "evidence": [
+          {
+            "src": "http://127.0.0.1:57833/input/front.mp4",
+            "ready": 4,
+            "duration": 173.8
+          }
+        ]
+      },
+      {
+        "unit": "handover_audio",
+        "points": 1,
+        "evidence": [
+          {
+            "src": "http://127.0.0.1:57833/input/handover.wav",
+            "ready": 4,
+            "duration": 215.264036
+          }
+        ]
+      },
+      {
+        "unit": "hand_filter",
+        "points": 1,
+        "evidence": [
+          {
+            "control": 0,
+            "value": "left",
+            "visible": 29
+          }
+        ]
+      },
+      {
+        "unit": "action_filter",
+        "points": 1,
+        "evidence": [
+          {
+            "control": 1,
+            "value": "pick_up",
+            "visible": 14
+          }
+        ]
+      },
+      {
+        "unit": "text_search",
+        "points": 1,
+        "evidence": [
+          {
+            "control": 0,
+            "remaining": 0,
+            "restored": 61
+          }
+        ]
+      },
+      {
+        "unit": "event_seek",
+        "points": 1,
+        "evidence": {
+          "id": "e003",
+          "start_s": 3.05,
+          "videos": [
+            {
+              "time": 3.5095,
+              "src": "http://127.0.0.1:57833/input/front.mp4"
+            }
+          ]
+        }
+      }
+    ],
+    "documentation_checks": [
+      {
+        "unit": "substantive_readme",
+        "points": 1
+      },
+      {
+        "unit": "method",
+        "points": 1
+      },
+      {
+        "unit": "uncertainty",
+        "points": 1
+      },
+      {
+        "unit": "attribution_licence",
+        "points": 1
+      },
+      {
+        "unit": "opening_instructions",
+        "points": 1
+      }
+    ],
+    "evaluator": "delivery-auto1",
+    "implementation_limits": "Generic HTML/ID/control probes may miss equivalent interfaces; no post-run correction applied"
+  },
+  "semantic_adjustments_applied": false,
+  "score_kind": "original_field_scorer_plus_automatic_delivery",
+  "score_eligible": true,
+  "model": "deepseek-v4.1-flash-1017",
+  "actual_turn_settings": [
+    {
+      "model": "deepseek-v4.1-flash-1017",
+      "effort": "max"
+    },
+    {
+      "model": "deepseek-v4.1-flash-1017",
+      "effort": "max"
+    },
+    {
+      "model": "deepseek-v4.1-flash-1017",
+      "effort": "max"
+    }
+  ],
+  "elapsed_seconds": 4694.282,
+  "exit_code": 0
+}

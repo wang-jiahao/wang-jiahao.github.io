@@ -1,0 +1,135 @@
+{
+  "report": 9,
+  "documentation": 5,
+  "evidence": [
+    "Fixed automated delivery probes; see checks and documentation_checks. No event-semantic adjudication."
+  ],
+  "checks": [
+    {
+      "unit": "report_document",
+      "points": 1,
+      "evidence": {
+        "bytes": 43980
+      }
+    },
+    {
+      "unit": "browser_execution",
+      "points": 1,
+      "evidence": {
+        "page_errors": []
+      }
+    },
+    {
+      "unit": "default_all_records",
+      "points": 1,
+      "evidence": {
+        "visible": 61,
+        "expected": 61
+      }
+    },
+    {
+      "unit": "front_video",
+      "points": 1,
+      "evidence": [
+        {
+          "src": "http://127.0.0.1:57833/input/front.mp4",
+          "ready": 4,
+          "duration": 173.8
+        }
+      ]
+    },
+    {
+      "unit": "top_video",
+      "points": 0,
+      "evidence": [
+        {
+          "src": "http://127.0.0.1:57833/input/front.mp4",
+          "ready": 4,
+          "duration": 173.8
+        }
+      ]
+    },
+    {
+      "unit": "handover_audio",
+      "points": 1,
+      "evidence": [
+        {
+          "src": "http://127.0.0.1:57833/input/handover.wav",
+          "ready": 4,
+          "duration": 215.264036
+        }
+      ]
+    },
+    {
+      "unit": "hand_filter",
+      "points": 1,
+      "evidence": [
+        {
+          "control": 0,
+          "value": "left",
+          "visible": 29
+        }
+      ]
+    },
+    {
+      "unit": "action_filter",
+      "points": 1,
+      "evidence": [
+        {
+          "control": 1,
+          "value": "pick_up",
+          "visible": 14
+        }
+      ]
+    },
+    {
+      "unit": "text_search",
+      "points": 1,
+      "evidence": [
+        {
+          "control": 0,
+          "remaining": 0,
+          "restored": 61
+        }
+      ]
+    },
+    {
+      "unit": "event_seek",
+      "points": 1,
+      "evidence": {
+        "id": "e003",
+        "start_s": 3.05,
+        "videos": [
+          {
+            "time": 3.5095,
+            "src": "http://127.0.0.1:57833/input/front.mp4"
+          }
+        ]
+      }
+    }
+  ],
+  "documentation_checks": [
+    {
+      "unit": "substantive_readme",
+      "points": 1
+    },
+    {
+      "unit": "method",
+      "points": 1
+    },
+    {
+      "unit": "uncertainty",
+      "points": 1
+    },
+    {
+      "unit": "attribution_licence",
+      "points": 1
+    },
+    {
+      "unit": "opening_instructions",
+      "points": 1
+    }
+  ],
+  "evaluator": "delivery-auto1",
+  "implementation_limits": "Generic HTML/ID/control probes may miss equivalent interfaces; no post-run correction applied"
+}

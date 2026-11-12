@@ -1,16 +1,16 @@
 {
-  "material_version": "v4",
+  "material_version": "v4.1",
+  "directory": "v4_1",
   "rubric_version": "assembly-av-v4-fields-macro-1",
   "task_hashes": {
     "CITATION.cff": "43677af0a4c3cc0607d9d4ea376ac625c12bb835c31a4b63f6db0f069efd9c3b",
-    "input/evaluation_exclusions.json": "f7a2e60ea272c715c45ae9f78b06c02d85475aca5ca592eff766cb54400f9953",
-    "input/front.mp4": "520563318afd44d371485018834d5fb35def97a367d80e3586f862028819608a",
-    "input/handover.wav": "6cd8618d25124750c3b82f9f7ecce45ce6504091e5c99854203385f7d59b4a1f",
-    "input/top.mp4": "420bc6f9d0f665d5640bd4f06ed12398aa28687cc90de2b98940eb445af095e4",
     "LICENSE-DATA.txt": "528e832654d56de93410a3da0c6cea8b0ba2d3538cfa36b1a7fc1f337385b115",
     "local_asr.py": "f7691ae9032a5ae5ade2ab77d31cde991ce4769167a2b0bc1bfe01ac3781de15",
-    "SOURCE_CREDIT.md": "fd806031eb3cbe79b4a7d9819fda788038550d4dde2328cee5a98ea8d444cb73",
-    "TASK.md": "17f793425f4a8e5114cbd8281cec6ecd5221b42a6cc6384dcb6000b27bbafd72"
+    "SOURCE_CREDIT.md": "71a32cbe167555ef99f53937e6e6d3900f5f17d747ba342f934272998a7238e0",
+    "TASK.md": "60193845945287c13b5443ce5c1eb7c64d109772596517fee3e9bfd5011b8ef3",
+    "input/front.mp4": "520563318afd44d371485018834d5fb35def97a367d80e3586f862028819608a",
+    "input/handover.wav": "e7f73d6a3483a1e2fa5b3a6d9214c6c0e246f2f2c2e7fd6a15764a56e6b5ad1d",
+    "input/top.mp4": "420bc6f9d0f665d5640bd4f06ed12398aa28687cc90de2b98940eb445af095e4"
   },
   "evaluator_hashes": {
     "rubric.json": "4926a4f02fd7467670f244b1825315b6f3ef46576ceef809d647eeef5c3e494c",
@@ -19,6 +19,19 @@
   "scorer_file": "score_v4.py",
   "scorer_sha256": "cd1a574f896b577fe6bd2efc4bb7ae5af2bd07295f82617404c4fa617b5ac30d",
   "asr_helper_sha256": "f7691ae9032a5ae5ade2ab77d31cde991ce4769167a2b0bc1bfe01ac3781de15",
-  "stage": "frozen pilot; source labels are conservative-audit candidates; independent human certification pending",
-  "primary_selection_threshold": 50
+  "changes": [
+    "Remove scoring rules and policy values from written task and credits",
+    "Spoken lead now specifies clock front, including spelling",
+    "No fixed runtime cutoff",
+    "Original videos, source truth, weights, scorer and predefined evaluator exclusions unchanged"
+  ],
+  "policy_answers_in_written_task": false,
+  "scoring_rules_in_written_task": false,
+  "unchanged_videos": {
+    "front.mp4": true,
+    "top.mp4": true
+  },
+  "audio_duration_seconds": 215.26403500000004,
+  "primary_selection_threshold": 50,
+  "scoring_policy": "original script; no post-run clock or semantic adjustments"
 }

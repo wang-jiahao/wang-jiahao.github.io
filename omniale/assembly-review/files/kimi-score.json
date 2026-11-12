@@ -1,0 +1,392 @@
+{
+  "material_version": "v4.1",
+  "rubric_version": "assembly-av-v4-fields-macro-1+delivery-auto1",
+  "automatic_points_out_of_85": 49.43600503321828,
+  "breakdown": {
+    "action": 18.228824750047163,
+    "object": 8.026936026936028,
+    "hand": 9.51827242524917,
+    "localization": 3.6619718309859155,
+    "audio_policy": 10.0
+  },
+  "field_metrics": {
+    "action": {
+      "macro_f1": 0.5208235642870618,
+      "micro_f1": 0.5774647887323944,
+      "classes": [
+        {
+          "label": "pick_up",
+          "true_positives": 17,
+          "predicted": 20,
+          "expected": 18,
+          "f1": 0.8947368421052632
+        },
+        {
+          "label": "put_down",
+          "true_positives": 1,
+          "predicted": 7,
+          "expected": 2,
+          "f1": 0.2222222222222222
+        },
+        {
+          "label": "transfer",
+          "true_positives": 4,
+          "predicted": 6,
+          "expected": 9,
+          "f1": 0.5333333333333333
+        },
+        {
+          "label": "flip",
+          "true_positives": 3,
+          "predicted": 5,
+          "expected": 4,
+          "f1": 0.6666666666666666
+        },
+        {
+          "label": "adjust",
+          "true_positives": 2,
+          "predicted": 15,
+          "expected": 4,
+          "f1": 0.21052631578947367
+        },
+        {
+          "label": "fit",
+          "true_positives": 7,
+          "predicted": 16,
+          "expected": 15,
+          "f1": 0.45161290322580644
+        },
+        {
+          "label": "fasten",
+          "true_positives": 7,
+          "predicted": 12,
+          "expected": 9,
+          "f1": 0.6666666666666666
+        }
+      ],
+      "invalid_labels": 0
+    },
+    "object": {
+      "macro_f1": 0.40134680134680134,
+      "micro_f1": 0.4647887323943662,
+      "classes": [
+        {
+          "label": "body",
+          "true_positives": 4,
+          "predicted": 10,
+          "expected": 5,
+          "f1": 0.5333333333333333
+        },
+        {
+          "label": "shaft",
+          "true_positives": 4,
+          "predicted": 5,
+          "expected": 7,
+          "f1": 0.6666666666666666
+        },
+        {
+          "label": "gear",
+          "true_positives": 0,
+          "predicted": 8,
+          "expected": 2,
+          "f1": 0.0
+        },
+        {
+          "label": "adapter_plate",
+          "true_positives": 0,
+          "predicted": 2,
+          "expected": 3,
+          "f1": 0.0
+        },
+        {
+          "label": "bearing_plate",
+          "true_positives": 0,
+          "predicted": 5,
+          "expected": 5,
+          "f1": 0.0
+        },
+        {
+          "label": "small_attachment",
+          "true_positives": 18,
+          "predicted": 34,
+          "expected": 32,
+          "f1": 0.5454545454545454
+        },
+        {
+          "label": "handle",
+          "true_positives": 2,
+          "predicted": 4,
+          "expected": 2,
+          "f1": 0.6666666666666666
+        },
+        {
+          "label": "screwdriver",
+          "true_positives": 4,
+          "predicted": 11,
+          "expected": 4,
+          "f1": 0.5333333333333333
+        },
+        {
+          "label": "wrench",
+          "true_positives": 1,
+          "predicted": 2,
+          "expected": 1,
+          "f1": 0.6666666666666666
+        }
+      ],
+      "invalid_labels": 0
+    },
+    "hand": {
+      "macro_f1": 0.6345514950166113,
+      "micro_f1": 0.647887323943662,
+      "classes": [
+        {
+          "label": "left",
+          "true_positives": 16,
+          "predicted": 30,
+          "expected": 26,
+          "f1": 0.5714285714285714
+        },
+        {
+          "label": "right",
+          "true_positives": 30,
+          "predicted": 51,
+          "expected": 35,
+          "f1": 0.6976744186046512
+        }
+      ],
+      "invalid_labels": 0
+    }
+  },
+  "localization": {
+    "f1": 0.7323943661971831,
+    "matched": 52,
+    "predicted": 81,
+    "expected": 61
+  },
+  "excluded_predictions": 0,
+  "excluded_references": 2,
+  "audio_policy": {
+    "points": 10.0,
+    "units": [
+      {
+        "unit": "first_start",
+        "ok": true
+      },
+      {
+        "unit": "first_end",
+        "ok": true
+      },
+      {
+        "unit": "first_hands",
+        "ok": true
+      },
+      {
+        "unit": "first_actions",
+        "partial": 1.0
+      },
+      {
+        "unit": "second_start",
+        "ok": true
+      },
+      {
+        "unit": "second_end",
+        "ok": true
+      },
+      {
+        "unit": "second_hands",
+        "ok": true
+      },
+      {
+        "unit": "second_actions",
+        "partial": 1.0
+      },
+      {
+        "unit": "record_holds",
+        "ok": true
+      },
+      {
+        "unit": "clock",
+        "ok": true
+      },
+      {
+        "unit": "bilateral_as_two_tracks",
+        "ok": true
+      }
+    ]
+  },
+  "total": 61.43600503321828,
+  "manual_points_out_of_15": 12,
+  "status": "script result; no semantic adjudication or clock normalization",
+  "manual_review": {
+    "report": 7,
+    "documentation": 5,
+    "evidence": [
+      "Fixed automated delivery probes; see checks and documentation_checks. No event-semantic adjudication."
+    ],
+    "checks": [
+      {
+        "unit": "report_document",
+        "points": 1,
+        "evidence": {
+          "bytes": 41454
+        }
+      },
+      {
+        "unit": "browser_execution",
+        "points": 1,
+        "evidence": {
+          "page_errors": []
+        }
+      },
+      {
+        "unit": "default_all_records",
+        "points": 1,
+        "evidence": {
+          "visible": 81,
+          "expected": 81
+        }
+      },
+      {
+        "unit": "front_video",
+        "points": 1,
+        "evidence": [
+          {
+            "src": "http://127.0.0.1:56386/input/front.mp4",
+            "ready": 4,
+            "duration": 173.8
+          }
+        ]
+      },
+      {
+        "unit": "top_video",
+        "points": 0,
+        "evidence": [
+          {
+            "src": "http://127.0.0.1:56386/input/front.mp4",
+            "ready": 4,
+            "duration": 173.8
+          }
+        ]
+      },
+      {
+        "unit": "handover_audio",
+        "points": 0,
+        "evidence": [
+          {
+            "src": "http://127.0.0.1:56386/input/handover.wav",
+            "ready": 0,
+            "duration": null
+          }
+        ]
+      },
+      {
+        "unit": "hand_filter",
+        "points": 1,
+        "evidence": [
+          {
+            "control": 0,
+            "value": "left",
+            "visible": 30
+          }
+        ]
+      },
+      {
+        "unit": "action_filter",
+        "points": 1,
+        "evidence": [
+          {
+            "control": 1,
+            "value": "pick_up",
+            "visible": 20
+          }
+        ]
+      },
+      {
+        "unit": "text_search",
+        "points": 1,
+        "evidence": [
+          {
+            "control": 0,
+            "remaining": 0,
+            "restored": 81
+          }
+        ]
+      },
+      {
+        "unit": "event_seek",
+        "points": 0,
+        "evidence": {
+          "id": "E005",
+          "start_s": 3.9,
+          "videos": [
+            {
+              "time": 0,
+              "src": "http://127.0.0.1:56386/input/front.mp4"
+            }
+          ]
+        }
+      }
+    ],
+    "documentation_checks": [
+      {
+        "unit": "substantive_readme",
+        "points": 1
+      },
+      {
+        "unit": "method",
+        "points": 1
+      },
+      {
+        "unit": "uncertainty",
+        "points": 1
+      },
+      {
+        "unit": "attribution_licence",
+        "points": 1
+      },
+      {
+        "unit": "opening_instructions",
+        "points": 1
+      }
+    ],
+    "evaluator": "delivery-auto1",
+    "implementation_limits": "Generic HTML/ID/control probes may miss equivalent interfaces; no post-run correction applied"
+  },
+  "semantic_adjustments_applied": false,
+  "score_kind": "original_field_scorer_plus_automatic_delivery",
+  "score_eligible": true,
+  "model": "kimi-k3.1-pro",
+  "actual_turn_settings": [
+    {
+      "model": "kimi-k3.1-pro",
+      "effort": "max"
+    },
+    {
+      "model": "kimi-k3.1-pro",
+      "effort": "max"
+    },
+    {
+      "model": "kimi-k3.1-pro",
+      "effort": "max"
+    },
+    {
+      "model": "kimi-k3.1-pro",
+      "effort": "max"
+    },
+    {
+      "model": "kimi-k3.1-pro",
+      "effort": "max"
+    },
+    {
+      "model": "kimi-k3.1-pro",
+      "effort": "max"
+    },
+    {
+      "model": "kimi-k3.1-pro",
+      "effort": "max"
+    }
+  ],
+  "elapsed_seconds": 7493.437,
+  "exit_code": 0
+}

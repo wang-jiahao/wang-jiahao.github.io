@@ -1,0 +1,77 @@
+{
+  "case": "assembly_av_handover",
+  "material_version": "v4.1",
+  "tag": "kimi_max_r01_20261112",
+  "model": "kimi-k3.1-pro",
+  "requested_effort": "max",
+  "provider": "dashscope",
+  "endpoint": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+  "network": "enabled; API direct, normal download proxy inherited; web_search live",
+  "created_at": "2026-11-11T16:35:08.451949+00:00",
+  "started_at": "2026-11-12T06:43:19.067558+00:00",
+  "finished_at": "2026-11-12T08:48:12.428341+00:00",
+  "elapsed_seconds": 7493.437,
+  "exit_code": 0,
+  "timed_out": false,
+  "turn_completed": true,
+  "actual_turn_settings": [
+    {
+      "model": "kimi-k3.1-pro",
+      "effort": "max"
+    },
+    {
+      "model": "kimi-k3.1-pro",
+      "effort": "max"
+    },
+    {
+      "model": "kimi-k3.1-pro",
+      "effort": "max"
+    },
+    {
+      "model": "kimi-k3.1-pro",
+      "effort": "max"
+    },
+    {
+      "model": "kimi-k3.1-pro",
+      "effort": "max"
+    },
+    {
+      "model": "kimi-k3.1-pro",
+      "effort": "max"
+    },
+    {
+      "model": "kimi-k3.1-pro",
+      "effort": "max"
+    }
+  ],
+  "codex_version": "codex-cli 0.167.0-alpha.4.1",
+  "state": "completed",
+  "task_hashes": {
+    "CITATION.cff": "43677af0a4c3cc0607d9d4ea376ac625c12bb835c31a4b63f6db0f069efd9c3b",
+    "LICENSE-DATA.txt": "528e832654d56de93410a3da0c6cea8b0ba2d3538cfa36b1a7fc1f337385b115",
+    "local_asr.py": "f7691ae9032a5ae5ade2ab77d31cde991ce4769167a2b0bc1bfe01ac3781de15",
+    "SOURCE_CREDIT.md": "71a32cbe167555ef99f53937e6e6d3900f5f17d747ba342f934272998a7238e0",
+    "TASK.md": "60193845945287c13b5443ce5c1eb7c64d109772596517fee3e9bfd5011b8ef3",
+    "input/front.mp4": "520563318afd44d371485018834d5fb35def97a367d80e3586f862028819608a",
+    "input/handover.wav": "e7f73d6a3483a1e2fa5b3a6d9214c6c0e246f2f2c2e7fd6a15764a56e6b5ad1d",
+    "input/top.mp4": "420bc6f9d0f665d5640bd4f06ed12398aa28687cc90de2b98940eb445af095e4"
+  },
+  "freeze_sha256": "2854e4d3a8bc0832bfd44c74ebaa001d628b2a29d39ab581833f0f05c36f3c49",
+  "execution_budget": "no fixed cutoff",
+  "timeout_seconds": null,
+  "network_checks": [
+    {
+      "url": "https://pypi.org/simple/numpy/",
+      "status": 200
+    },
+    {
+      "url": "https://huggingface.co/api/models?limit=1",
+      "status": 200
+    }
+  ],
+  "isolation_preflight": {
+    "exit_code": 0,
+    "stdout": "{\"denied\": [true, true, true], \"network_status\": 200, \"task_readable\": true, \"workspace_writable\": true, \"keys_filtered\": true}\n",
+    "stderr": ""
+  }
+}

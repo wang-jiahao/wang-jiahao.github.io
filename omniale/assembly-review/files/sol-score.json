@@ -1,95 +1,95 @@
 {
-  "material_version": "v4",
-  "rubric_version": "assembly-av-v4-fields-macro-1",
-  "automatic_points_out_of_85": 53.319700060462615,
+  "material_version": "v4.1",
+  "rubric_version": "assembly-av-v4-fields-macro-1+delivery-auto1",
+  "automatic_points_out_of_85": 52.95095373236515,
   "breakdown": {
-    "action": 18.36205122781378,
-    "object": 12.771043771043772,
-    "hand": 9.762362637362637,
-    "localization": 3.333333333333333,
-    "audio_policy": 9.090909090909092
+    "action": 17.948303390376562,
+    "object": 12.232490026763623,
+    "hand": 9.49238253744719,
+    "localization": 3.2777777777777777,
+    "audio_policy": 10.0
   },
   "field_metrics": {
     "action": {
-      "macro_f1": 0.5246300350803937,
-      "micro_f1": 0.5517241379310345,
+      "macro_f1": 0.5128086682964732,
+      "micro_f1": 0.5444444444444444,
       "classes": [
         {
           "label": "pick_up",
-          "true_positives": 16,
-          "predicted": 22,
+          "true_positives": 17,
+          "predicted": 23,
           "expected": 18,
-          "f1": 0.8
+          "f1": 0.8292682926829268
         },
         {
           "label": "put_down",
           "true_positives": 1,
-          "predicted": 6,
+          "predicted": 7,
           "expected": 2,
-          "f1": 0.25
+          "f1": 0.2222222222222222
         },
         {
           "label": "transfer",
-          "true_positives": 7,
-          "predicted": 10,
+          "true_positives": 6,
+          "predicted": 12,
           "expected": 9,
-          "f1": 0.7368421052631579
+          "f1": 0.5714285714285714
         },
         {
           "label": "flip",
           "true_positives": 3,
-          "predicted": 10,
+          "predicted": 12,
           "expected": 4,
-          "f1": 0.42857142857142855
+          "f1": 0.375
         },
         {
           "label": "adjust",
           "true_positives": 2,
-          "predicted": 31,
+          "predicted": 35,
           "expected": 4,
-          "f1": 0.11428571428571428
+          "f1": 0.10256410256410256
         },
         {
           "label": "fit",
-          "true_positives": 11,
-          "predicted": 19,
+          "true_positives": 12,
+          "predicted": 18,
           "expected": 15,
-          "f1": 0.6470588235294118
+          "f1": 0.7272727272727273
         },
         {
           "label": "fasten",
           "true_positives": 8,
-          "predicted": 14,
+          "predicted": 12,
           "expected": 9,
-          "f1": 0.6956521739130435
+          "f1": 0.7619047619047619
         }
       ],
-      "invalid_labels": 1
+      "invalid_labels": 0
     },
     "object": {
-      "macro_f1": 0.6385521885521885,
-      "micro_f1": 0.5977011494252874,
+      "macro_f1": 0.6116245013381811,
+      "micro_f1": 0.5666666666666667,
       "classes": [
         {
           "label": "body",
           "true_positives": 5,
-          "predicted": 16,
+          "predicted": 19,
           "expected": 5,
-          "f1": 0.47619047619047616
+          "f1": 0.4166666666666667
         },
         {
           "label": "shaft",
-          "true_positives": 4,
-          "predicted": 7,
+          "true_positives": 5,
+          "predicted": 8,
           "expected": 7,
-          "f1": 0.5714285714285714
+          "f1": 0.6666666666666666
         },
         {
           "label": "gear",
           "true_positives": 2,
-          "predicted": 3,
+          "predicted": 5,
           "expected": 2,
-          "f1": 0.8
+          "f1": 0.5714285714285714
         },
         {
           "label": "adapter_plate",
@@ -107,10 +107,10 @@
         },
         {
           "label": "small_attachment",
-          "true_positives": 26,
-          "predicted": 52,
+          "true_positives": 24,
+          "predicted": 50,
           "expected": 32,
-          "f1": 0.6190476190476191
+          "f1": 0.5853658536585366
         },
         {
           "label": "handle",
@@ -122,9 +122,9 @@
         {
           "label": "screwdriver",
           "true_positives": 4,
-          "predicted": 18,
+          "predicted": 19,
           "expected": 4,
-          "f1": 0.36363636363636365
+          "f1": 0.34782608695652173
         },
         {
           "label": "wrench",
@@ -134,40 +134,40 @@
           "f1": 0.5
         }
       ],
-      "invalid_labels": 0
+      "invalid_labels": 1
     },
     "hand": {
-      "macro_f1": 0.6508241758241758,
-      "micro_f1": 0.6551724137931034,
+      "macro_f1": 0.6328255024964793,
+      "micro_f1": 0.6333333333333333,
       "classes": [
         {
           "label": "left",
-          "true_positives": 22,
-          "predicted": 44,
+          "true_positives": 23,
+          "predicted": 47,
           "expected": 26,
-          "f1": 0.6285714285714286
+          "f1": 0.6301369863013698
         },
         {
           "label": "right",
-          "true_positives": 35,
-          "predicted": 69,
+          "true_positives": 34,
+          "predicted": 72,
           "expected": 35,
-          "f1": 0.6730769230769231
+          "f1": 0.6355140186915887
         }
       ],
       "invalid_labels": 0
     }
   },
   "localization": {
-    "f1": 0.6666666666666666,
-    "matched": 58,
-    "predicted": 113,
+    "f1": 0.6555555555555556,
+    "matched": 59,
+    "predicted": 119,
     "expected": 61
   },
-  "excluded_predictions": 2,
+  "excluded_predictions": 0,
   "excluded_references": 2,
   "audio_policy": {
-    "points": 9.090909090909092,
+    "points": 10.0,
     "units": [
       {
         "unit": "first_start",
@@ -207,7 +207,7 @@
       },
       {
         "unit": "clock",
-        "ok": false
+        "ok": true
       },
       {
         "unit": "bilateral_as_two_tracks",
@@ -215,26 +215,168 @@
       }
     ]
   },
-  "total": 60.319700060462615,
-  "manual_points_out_of_15": 7,
-  "status": "unchanged frozen scorer + existing delivery points; interrupted-run artifact result",
+  "total": 66.95095373236515,
+  "manual_points_out_of_15": 14,
+  "status": "script result; no semantic adjudication or clock normalization",
   "manual_review": {
-    "report": 2,
+    "report": 9,
     "documentation": 5,
     "evidence": [
-      "Original Chrome runtime: top-level const top collides with the existing browser global; SyntaxError, default table0 rows, filter/event/audio buttons inactive. See delivery-qa.json and original-report-empty.png.",
-      "Native front/top video controls decode and seek the provided media, awarded2/10 for this remaining usable portion; report data/search/filter/evidence interactions fail.",
-      "README documents methods, uncertainty, sources/licence and opening procedure; correctly states that browser UI verification was not completed. Award5/5.",
-      "This is an artifact-only diagnostic of a90-minute interrupted run, not a completed formal model score. Object semantics and segmentation equivalences remain under review."
-    ]
+      "Fixed automated delivery probes; see checks and documentation_checks. No event-semantic adjudication."
+    ],
+    "checks": [
+      {
+        "unit": "report_document",
+        "points": 1,
+        "evidence": {
+          "bytes": 55412
+        }
+      },
+      {
+        "unit": "browser_execution",
+        "points": 1,
+        "evidence": {
+          "page_errors": []
+        }
+      },
+      {
+        "unit": "default_all_records",
+        "points": 1,
+        "evidence": {
+          "visible": 119,
+          "expected": 119
+        }
+      },
+      {
+        "unit": "front_video",
+        "points": 1,
+        "evidence": [
+          {
+            "src": "http://127.0.0.1:62129/input/front.mp4",
+            "ready": 4,
+            "duration": 173.8
+          },
+          {
+            "src": "http://127.0.0.1:62129/input/top.mp4",
+            "ready": 4,
+            "duration": 173.8
+          }
+        ]
+      },
+      {
+        "unit": "top_video",
+        "points": 1,
+        "evidence": [
+          {
+            "src": "http://127.0.0.1:62129/input/front.mp4",
+            "ready": 4,
+            "duration": 173.8
+          },
+          {
+            "src": "http://127.0.0.1:62129/input/top.mp4",
+            "ready": 4,
+            "duration": 173.8
+          }
+        ]
+      },
+      {
+        "unit": "handover_audio",
+        "points": 1,
+        "evidence": [
+          {
+            "src": "http://127.0.0.1:62129/input/handover.wav",
+            "ready": 4,
+            "duration": 215.264036
+          }
+        ]
+      },
+      {
+        "unit": "hand_filter",
+        "points": 1,
+        "evidence": [
+          {
+            "control": 1,
+            "value": "left",
+            "visible": 48
+          }
+        ]
+      },
+      {
+        "unit": "action_filter",
+        "points": 1,
+        "evidence": [
+          {
+            "control": 2,
+            "value": "adjust",
+            "visible": 36
+          }
+        ]
+      },
+      {
+        "unit": "text_search",
+        "points": 0,
+        "evidence": [
+          {
+            "control": 0,
+            "remaining": 1,
+            "restored": 119
+          }
+        ]
+      },
+      {
+        "unit": "event_seek",
+        "points": 1,
+        "evidence": {
+          "id": "E005",
+          "start_s": 4.1,
+          "videos": [
+            {
+              "time": 4.6381,
+              "src": "http://127.0.0.1:62129/input/front.mp4"
+            },
+            {
+              "time": 4.099999,
+              "src": "http://127.0.0.1:62129/input/top.mp4"
+            }
+          ]
+        }
+      }
+    ],
+    "documentation_checks": [
+      {
+        "unit": "substantive_readme",
+        "points": 1
+      },
+      {
+        "unit": "method",
+        "points": 1
+      },
+      {
+        "unit": "uncertainty",
+        "points": 1
+      },
+      {
+        "unit": "attribution_licence",
+        "points": 1
+      },
+      {
+        "unit": "opening_instructions",
+        "points": 1
+      }
+    ],
+    "evaluator": "delivery-auto1",
+    "implementation_limits": "Generic HTML/ID/control probes may miss equivalent interfaces; no post-run correction applied"
   },
-  "score_eligible": false,
-  "score_kind": "frozen_scorer_with_fixed_delivery_points",
   "semantic_adjustments_applied": false,
-  "source_scorer_sha256": "cd1a574f896b577fe6bd2efc4bb7ae5af2bd07295f82617404c4fa617b5ac30d",
-  "score_provenance": {
-    "automatic": "score_v4.py, unchanged frozen truth and original model JSON",
-    "delivery": "Existing delivery-review.json: report 2/10, documentation 5/5; not re-reviewed",
-    "policy": "No clock normalization or post-run semantic adjudication applied"
-  }
+  "score_kind": "original_field_scorer_plus_automatic_delivery",
+  "score_eligible": true,
+  "model": "gpt-6.1-sol",
+  "actual_turn_settings": [
+    {
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh"
+    }
+  ],
+  "elapsed_seconds": 2782.219,
+  "exit_code": 0
 }

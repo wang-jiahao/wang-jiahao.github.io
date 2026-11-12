@@ -1,0 +1,375 @@
+---
+layout: null
+sitemap: false
+permalink: /omniale/assembly-review/files/kimi-report.html
+---
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>角磨机装配动作证据交接</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17212b;
+      --muted: #5c6875;
+      --line: #d8dee6;
+      --paper: #f4f6f8;
+      --card: #ffffff;
+      --accent: #155eef;
+      --accent-soft: #eaf1ff;
+      --left: #6d3fc0;
+      --right: #087a68;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 14px/1.55 "Segoe UI", "Microsoft YaHei", sans-serif; }
+    a { color: var(--accent); }
+    button, input, select { font: inherit; }
+    button { cursor: pointer; }
+    header { background: #10253f; color: white; padding: 28px 24px; }
+    header > div, main { max-width: 1680px; margin: 0 auto; }
+    h1 { margin: 0 0 8px; font-size: clamp(24px, 3vw, 38px); line-height: 1.2; }
+    header p { margin: 0; color: #d8e5f5; max-width: 1050px; }
+    main { padding: 20px 24px 42px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px; margin-bottom: 18px; box-shadow: 0 2px 8px #17212b0a; }
+    .stats { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .stat { background: #ffffff16; border: 1px solid #ffffff2e; border-radius: 999px; padding: 5px 12px; color: white; }
+    .player-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr); gap: 18px; }
+    video { display: block; width: 100%; min-height: 260px; background: #05080c; border-radius: 8px; }
+    audio { width: 100%; margin-top: 10px; }
+    .now { min-height: 72px; margin-bottom: 10px; padding: 10px 12px; border-radius: 8px; background: var(--accent-soft); }
+    .now strong { display: block; margin-bottom: 3px; }
+    .button-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .button, .play-button { border: 1px solid var(--line); border-radius: 7px; background: white; color: var(--ink); padding: 6px 10px; }
+    .button:hover, .play-button:hover { border-color: var(--accent); color: var(--accent); }
+    .button.primary { background: var(--accent); border-color: var(--accent); color: white; }
+    .links { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px 16px; }
+    .filters { display: grid; grid-template-columns: repeat(3, minmax(140px, 1fr)) minmax(240px, 2fr) auto; gap: 12px; align-items: end; }
+    .field label { display: block; color: var(--muted); font-size: 12px; margin-bottom: 4px; }
+    .field input, .field select { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 7px; background: white; color: var(--ink); }
+    .result-line { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin: 16px 0 8px; color: var(--muted); }
+    .table-wrap { overflow: auto; border: 1px solid var(--line); border-radius: 9px; max-height: 72vh; background: white; }
+    table { width: 100%; min-width: 1260px; border-collapse: collapse; }
+    th, td { text-align: left; vertical-align: top; padding: 10px; border-bottom: 1px solid var(--line); }
+    th { position: sticky; top: 0; z-index: 2; background: #eef2f6; font-size: 12px; color: #455160; white-space: nowrap; }
+    tbody tr:hover { background: #f7faff; }
+    tbody tr.active { background: #edf4ff; }
+    tbody tr:last-child td { border-bottom: 0; }
+    .mono { font-family: Consolas, "SFMono-Regular", monospace; font-size: 12px; white-space: nowrap; }
+    .hand { display: inline-block; border-radius: 999px; padding: 2px 8px; font-size: 12px; font-weight: 600; }
+    .hand.left { color: var(--left); background: #f1eaff; }
+    .hand.right { color: var(--right); background: #e4f7f2; }
+    .action { font-weight: 600; white-space: nowrap; }
+    .note { min-width: 330px; max-width: 560px; }
+    .evidence { display: grid; gap: 3px; margin-bottom: 7px; color: var(--muted); font-size: 12px; }
+    .play-buttons { display: flex; flex-wrap: wrap; gap: 5px; min-width: 150px; }
+    .play-button { padding: 4px 7px; font-size: 12px; }
+    details summary { cursor: pointer; font-weight: 600; }
+    .policy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 12px; }
+    .policy-grid div { background: #f6f8fa; border-radius: 8px; padding: 12px; }
+    .caution { margin: 12px 0 0; color: var(--muted); }
+    .empty { padding: 24px; text-align: center; color: var(--muted); }
+    @media (max-width: 980px) {
+      .player-grid, .policy-grid { grid-template-columns: 1fr; }
+      .filters { grid-template-columns: 1fr 1fr; }
+      .filters .field:nth-child(4) { grid-column: 1 / -1; }
+    }
+    @media (max-width: 560px) {
+      header { padding: 22px 16px; }
+      main { padding: 14px 12px 30px; }
+      .card { padding: 13px; }
+      .filters { grid-template-columns: 1fr; }
+      .filters .field:nth-child(4) { grid-column: auto; }
+      video { min-height: 180px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>角磨机装配动作证据交接</h1>
+      <p>同一次装配的正面与俯视双视角台账。主时钟为front，手别按操作者解剖左右；仅记录可见工作动作，不以遮挡推断完成接合、扭矩或运行安全。</p>
+      <div class="stats">
+        <span class="stat">81 条事件</span>
+        <span class="stat">前段 0–83 秒</span>
+        <span class="stat">后段 83–173.8 秒</span>
+        <span class="stat">双手分轨 · 不记单纯扶持</span>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="card" aria-labelledby="playback-title">
+      <h2 id="playback-title">逐段回放</h2>
+      <div class="player-grid">
+        <div>
+          <video id="player" controls playsinline preload="metadata" src="../input/front.mp4">浏览器不支持视频播放。</video>
+          <div class="button-row">
+            <button id="stop-button" class="button" type="button">停止</button>
+            <a class="button" href="../input/front.mp4" target="_blank" rel="noopener">正面原片</a>
+            <a class="button" href="../input/top.mp4" target="_blank" rel="noopener">俯视原片</a>
+          </div>
+        </div>
+        <aside>
+          <div id="now" class="now" aria-live="polite">
+            <strong>尚未选择事件</strong>
+            <span>在任一记录末尾选择“正面”或“俯视”，将跳转至该事件起点并停止于终点。</span>
+          </div>
+          <h3>交接录音</h3>
+          <audio id="handover-audio" controls preload="none" src="../input/handover.wav">浏览器不支持音频播放。</audio>
+          <div class="links">
+            <a href="../input/handover.wav" target="_blank" rel="noopener">回听／下载交接音频</a>
+            <a href="actions.json" target="_blank" rel="noopener">actions.json</a>
+            <a href="policy.json" target="_blank" rel="noopener">policy.json</a>
+            <a href="README.md" target="_blank" rel="noopener">README.md</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="events-title">
+      <h2 id="events-title">动作台账</h2>
+      <div class="filters">
+        <div class="field">
+          <label for="hand-filter">手别</label>
+          <select id="hand-filter">
+            <option value="all">全部手别</option>
+            <option value="left">left · 左手</option>
+            <option value="right">right · 右手</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="action-filter">动作</label>
+          <select id="action-filter"><option value="all">全部动作</option></select>
+        </div>
+        <div class="field">
+          <label for="object-filter">对象</label>
+          <select id="object-filter"><option value="all">全部对象</option></select>
+        </div>
+        <div class="field">
+          <label for="text-filter">文本筛选</label>
+          <input id="text-filter" type="search" placeholder="搜索ID、时间、备注、动作或对象">
+        </div>
+        <button id="reset-button" class="button" type="button">重置筛选</button>
+      </div>
+      <div class="result-line">
+        <span id="visible-count" aria-live="polite">显示全部 81 条</span>
+        <span>每条证据均给出front.mp4与top.mp4同区间</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>手别</th>
+              <th>开始(s)</th>
+              <th>结束(s)</th>
+              <th>时长(s)</th>
+              <th>动作</th>
+              <th>对象</th>
+              <th>可见事实／限制</th>
+              <th>证据与回放</th>
+            </tr>
+          </thead>
+          <tbody id="event-rows"></tbody>
+        </table>
+        <div id="empty-state" class="empty" hidden>没有符合筛选条件的事件。</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <details>
+        <summary>最终交接口径与保守处理</summary>
+        <div class="policy-grid">
+          <div>
+            <h3>前段 [0, 83)</h3>
+            <p id="first-policy"></p>
+          </div>
+          <div>
+            <h3>后段 [83, 173.8]</h3>
+            <p id="second-policy"></p>
+          </div>
+        </div>
+        <p class="caution">跨83秒的事件按开始时刻所属段处理，不拆分；前段放下不归档。双手主动执行同类动作时左右各一条。白色环件意外掉落、红盒边缘接触及被手指遮挡的小副件接合状态均按可见事实保守记录，详见README。</p>
+      </details>
+    </section>
+  </main>
+
+  <script id="event-data" type="application/json">[{"id":"E001","hand":"right","start_s":0.9,"end_s":2.4,"action":"pick_up","object":"shaft","evidence":[{"file":"front.mp4","start_s":0.9,"end_s":2.4},{"file":"top.mp4","start_s":0.9,"end_s":2.4}],"note":"右手从蓝盒取长金属轴并抬离；终点接手间转交。"},{"id":"E002","hand":"right","start_s":2.4,"end_s":2.9,"action":"transfer","object":"shaft","evidence":[{"file":"front.mp4","start_s":2.4,"end_s":2.9},{"file":"top.mp4","start_s":2.4,"end_s":2.9}],"note":"右手将轴递到左手；与左手转交轨是同一次物理交接。"},{"id":"E003","hand":"left","start_s":2.4,"end_s":2.9,"action":"transfer","object":"shaft","evidence":[{"file":"front.mp4","start_s":2.4,"end_s":2.9},{"file":"top.mp4","start_s":2.4,"end_s":2.9}],"note":"左手接应右手递来的轴；不是第二次装配。"},{"id":"E004","hand":"right","start_s":3.0,"end_s":3.9,"action":"pick_up","object":"body","evidence":[{"file":"front.mp4","start_s":3.0,"end_s":3.9},{"file":"top.mp4","start_s":3.0,"end_s":3.9}],"note":"右手从蓝盒取黑色机体。"},{"id":"E005","hand":"right","start_s":3.9,"end_s":6.3,"action":"flip","object":"body","evidence":[{"file":"front.mp4","start_s":3.9,"end_s":6.3},{"file":"top.mp4","start_s":3.9,"end_s":6.3}],"note":"右手转动机体并明显改变朝向；左手持轴，不另记扶持。"},{"id":"E006","hand":"left","start_s":5.9,"end_s":7.3,"action":"adjust","object":"shaft","evidence":[{"file":"front.mp4","start_s":5.9,"end_s":7.3},{"file":"top.mp4","start_s":5.9,"end_s":7.3}],"note":"左手调整轴端方向并对准机体孔位。"},{"id":"E007","hand":"left","start_s":7.3,"end_s":8.4,"action":"fit","object":"shaft","evidence":[{"file":"front.mp4","start_s":7.3,"end_s":8.4},{"file":"top.mp4","start_s":7.3,"end_s":8.4}],"note":"左手将轴送入机体；遮挡处不推断内部到位状态。"},{"id":"E008","hand":"right","start_s":8.6,"end_s":9.6,"action":"pick_up","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":8.6,"end_s":9.6},{"file":"top.mp4","start_s":8.6,"end_s":9.6}],"note":"右手从第一红盒取细小件。"},{"id":"E009","hand":"right","start_s":9.6,"end_s":10.0,"action":"fit","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":9.6,"end_s":10.0},{"file":"top.mp4","start_s":9.6,"end_s":10.0}],"note":"右手将细小件送至机体孔位并贴合。"},{"id":"E010","hand":"right","start_s":10.0,"end_s":18.45,"action":"fasten","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":10.0,"end_s":18.45},{"file":"top.mp4","start_s":10.0,"end_s":18.45}],"note":"右手指连续起扣、手拧同一细小件，合并换握和往复。"},{"id":"E011","hand":"right","start_s":18.6,"end_s":19.7,"action":"pick_up","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":18.6,"end_s":19.7},{"file":"top.mp4","start_s":18.6,"end_s":19.7}],"note":"右手再从第一红盒取另一细小件。"},{"id":"E012","hand":"right","start_s":19.75,"end_s":20.1,"action":"fit","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":19.75,"end_s":20.1},{"file":"top.mp4","start_s":19.75,"end_s":20.1}],"note":"右手将第二个细小件送至可见孔位并贴合。"},{"id":"E013","hand":"right","start_s":20.1,"end_s":28.7,"action":"fasten","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":20.1,"end_s":28.7},{"file":"top.mp4","start_s":20.1,"end_s":28.7}],"note":"右手指连续手拧第二个细小件，不因手指往复切碎。"},{"id":"E014","hand":"right","start_s":28.9,"end_s":29.4,"action":"pick_up","object":"wrench","evidence":[{"file":"front.mp4","start_s":28.9,"end_s":29.4},{"file":"top.mp4","start_s":28.9,"end_s":29.4}],"note":"右手从工具区取开口／组合扳手。"},{"id":"E015","hand":"right","start_s":29.4,"end_s":32.2,"action":"fasten","object":"wrench","evidence":[{"file":"front.mp4","start_s":29.4,"end_s":32.2},{"file":"top.mp4","start_s":29.4,"end_s":32.2}],"note":"右手用扳手连续旋拧；其后的前段放下按口径不记。"},{"id":"E016","hand":"right","start_s":33.35,"end_s":34.1,"action":"pick_up","object":"bearing_plate","evidence":[{"file":"front.mp4","start_s":33.35,"end_s":34.1},{"file":"top.mp4","start_s":33.35,"end_s":34.1}],"note":"右手从第一红盒取较大圆盘总成。"},{"id":"E017","hand":"right","start_s":34.15,"end_s":34.65,"action":"transfer","object":"bearing_plate","evidence":[{"file":"front.mp4","start_s":34.15,"end_s":34.65},{"file":"top.mp4","start_s":34.15,"end_s":34.65}],"note":"右手将圆盘总成递到左手；与左手轨为同一次交接。"},{"id":"E018","hand":"left","start_s":34.15,"end_s":34.65,"action":"transfer","object":"bearing_plate","evidence":[{"file":"front.mp4","start_s":34.15,"end_s":34.65},{"file":"top.mp4","start_s":34.15,"end_s":34.65}],"note":"左手接应右手递来的圆盘总成。"},{"id":"E019","hand":"left","start_s":34.65,"end_s":35.75,"action":"adjust","object":"bearing_plate","evidence":[{"file":"front.mp4","start_s":34.65,"end_s":35.75},{"file":"top.mp4","start_s":34.65,"end_s":35.75}],"note":"左手调整圆盘总成方向并对准机体／轴根。"},{"id":"E020","hand":"left","start_s":35.75,"end_s":37.3,"action":"fit","object":"bearing_plate","evidence":[{"file":"front.mp4","start_s":35.75,"end_s":37.3},{"file":"top.mp4","start_s":35.75,"end_s":37.3}],"note":"左手将圆盘总成贴到机体／轴根；不据此断定内部接合。"},{"id":"E021","hand":"right","start_s":38.5,"end_s":39.2,"action":"pick_up","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":38.5,"end_s":39.2},{"file":"top.mp4","start_s":38.5,"end_s":39.2}],"note":"右手从第一红盒取另一细小件。"},{"id":"E022","hand":"right","start_s":39.35,"end_s":39.65,"action":"fit","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":39.35,"end_s":39.65},{"file":"top.mp4","start_s":39.35,"end_s":39.65}],"note":"右手将细小件靠到圆盘总成上的可见位置。"},{"id":"E023","hand":"right","start_s":39.65,"end_s":40.85,"action":"fasten","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":39.65,"end_s":40.85},{"file":"top.mp4","start_s":39.65,"end_s":40.85}],"note":"右手指连续起扣、手拧该细小件。"},{"id":"E024","hand":"right","start_s":45.05,"end_s":45.35,"action":"pick_up","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":45.05,"end_s":45.35},{"file":"top.mp4","start_s":45.05,"end_s":45.35}],"note":"右手从第一红盒取出细小件；随后白色环件落在灰垫上，意外掉落不记为put_down。"},{"id":"E025","hand":"right","start_s":45.35,"end_s":45.65,"action":"fit","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":45.35,"end_s":45.65},{"file":"top.mp4","start_s":45.35,"end_s":45.65}],"note":"右手将仍捏持的小件靠向机体；白环已落垫，不声称白环被装到机体。"},{"id":"E026","hand":"right","start_s":45.65,"end_s":46.45,"action":"fasten","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":45.65,"end_s":46.45},{"file":"top.mp4","start_s":45.65,"end_s":46.45}],"note":"右手指在机体前侧连续捏转小件；细节受遮挡，类别保持small_attachment。"},{"id":"E027","hand":"right","start_s":46.5,"end_s":47.3,"action":"adjust","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":46.5,"end_s":47.3},{"file":"top.mp4","start_s":46.5,"end_s":47.3}],"note":"右手与左手共同捏持并转动调整细长小件。"},{"id":"E028","hand":"left","start_s":46.5,"end_s":47.3,"action":"adjust","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":46.5,"end_s":47.3},{"file":"top.mp4","start_s":46.5,"end_s":47.3}],"note":"左手主动配合调整细长小件，不是单纯扶持机体。"},{"id":"E029","hand":"right","start_s":48.15,"end_s":51.45,"action":"fasten","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":48.15,"end_s":51.45},{"file":"top.mp4","start_s":48.15,"end_s":51.45}],"note":"右手指在机体中心孔位持续手拧；47.6–48.0秒灰垫接触未见清楚抬离，故不另记pick_up。"},{"id":"E030","hand":"right","start_s":51.8,"end_s":52.4,"action":"pick_up","object":"screwdriver","evidence":[{"file":"front.mp4","start_s":51.8,"end_s":52.4},{"file":"top.mp4","start_s":51.8,"end_s":52.4}],"note":"右手从工具区拾起橙色柄螺丝刀。"},{"id":"E031","hand":"right","start_s":52.9,"end_s":63.35,"action":"fasten","object":"screwdriver","evidence":[{"file":"front.mp4","start_s":52.9,"end_s":63.35},{"file":"top.mp4","start_s":52.9,"end_s":63.35}],"note":"右手用橙色柄螺丝刀连续旋拧，合并工具往复。"},{"id":"E032","hand":"left","start_s":63.55,"end_s":64.65,"action":"flip","object":"body","evidence":[{"file":"front.mp4","start_s":63.55,"end_s":64.65},{"file":"top.mp4","start_s":63.55,"end_s":64.65}],"note":"左手主动翻转机体；右手持工具，不重复记右手flip。"},{"id":"E033","hand":"right","start_s":64.75,"end_s":82.05,"action":"fasten","object":"screwdriver","evidence":[{"file":"front.mp4","start_s":64.75,"end_s":82.05},{"file":"top.mp4","start_s":64.75,"end_s":82.05}],"note":"翻面后右手继续用橙色柄螺丝刀旋拧；跨多个接触位置保持同类连续操作。"},{"id":"E034","hand":"left","start_s":67.1,"end_s":67.6,"action":"adjust","object":"body","evidence":[{"file":"front.mp4","start_s":67.1,"end_s":67.6},{"file":"top.mp4","start_s":67.1,"end_s":67.6}],"note":"左手主动转动、摆正机体；右手持螺丝刀，不重复记右手adjust。"},{"id":"E035","hand":"left","start_s":67.8,"end_s":68.1,"action":"pick_up","object":"adapter_plate","evidence":[{"file":"front.mp4","start_s":67.8,"end_s":68.1},{"file":"top.mp4","start_s":67.8,"end_s":68.1}],"note":"左手从灰垫拾起白色环状适配件；不是从红盒取件。"},{"id":"E036","hand":"left","start_s":68.4,"end_s":68.8,"action":"fit","object":"adapter_plate","evidence":[{"file":"front.mp4","start_s":68.4,"end_s":68.8},{"file":"top.mp4","start_s":68.4,"end_s":68.8}],"note":"左手将环件送到轴根／机体处并贴合；保持捏持，不额外推断手拧或完成。"},{"id":"E037","hand":"right","start_s":83.0,"end_s":83.7,"action":"flip","object":"body","evidence":[{"file":"front.mp4","start_s":83.0,"end_s":83.7},{"file":"top.mp4","start_s":83.0,"end_s":83.7}],"note":"右手主动翻转机体；左手主要稳定轴／机体，按口径不记扶持。"},{"id":"E038","hand":"left","start_s":84.0,"end_s":84.8,"action":"pick_up","object":"gear","evidence":[{"file":"front.mp4","start_s":84.0,"end_s":84.8},{"file":"top.mp4","start_s":84.0,"end_s":84.8}],"note":"左手从第二红盒取齿轮状圆件。"},{"id":"E039","hand":"left","start_s":84.8,"end_s":85.15,"action":"adjust","object":"gear","evidence":[{"file":"front.mp4","start_s":84.8,"end_s":85.15},{"file":"top.mp4","start_s":84.8,"end_s":85.15}],"note":"左手将圆件转向机体并对位。"},{"id":"E040","hand":"left","start_s":85.15,"end_s":85.75,"action":"fit","object":"gear","evidence":[{"file":"front.mp4","start_s":85.15,"end_s":85.75},{"file":"top.mp4","start_s":85.15,"end_s":85.75}],"note":"左手把圆件贴到机体前侧作就位尝试；不据此断言完成。"},{"id":"E041","hand":"left","start_s":85.75,"end_s":86.0,"action":"transfer","object":"gear","evidence":[{"file":"front.mp4","start_s":85.75,"end_s":86.0},{"file":"top.mp4","start_s":85.75,"end_s":86.0}],"note":"左手将圆件交给右手；与右手轨为同一次交接。"},{"id":"E042","hand":"right","start_s":85.75,"end_s":86.0,"action":"transfer","object":"gear","evidence":[{"file":"front.mp4","start_s":85.75,"end_s":86.0},{"file":"top.mp4","start_s":85.75,"end_s":86.0}],"note":"右手从左手接过圆件；不是第二次装配。"},{"id":"E043","hand":"right","start_s":86.0,"end_s":86.55,"action":"adjust","object":"gear","evidence":[{"file":"front.mp4","start_s":86.0,"end_s":86.55},{"file":"top.mp4","start_s":86.0,"end_s":86.55}],"note":"右手接过圆件后继续调整方向和对位。"},{"id":"E044","hand":"left","start_s":86.05,"end_s":86.45,"action":"adjust","object":"body","evidence":[{"file":"front.mp4","start_s":86.05,"end_s":86.45},{"file":"top.mp4","start_s":86.05,"end_s":86.45}],"note":"左手主动转动机体以暴露装配位置；右手持圆件。"},{"id":"E045","hand":"right","start_s":86.55,"end_s":88.0,"action":"fit","object":"gear","evidence":[{"file":"front.mp4","start_s":86.55,"end_s":88.0},{"file":"top.mp4","start_s":86.55,"end_s":88.0}],"note":"右手将圆件贴合到机体前侧；左手稳定机体不另记。"},{"id":"E046","hand":"right","start_s":88.05,"end_s":88.35,"action":"pick_up","object":"screwdriver","evidence":[{"file":"front.mp4","start_s":88.05,"end_s":88.35},{"file":"top.mp4","start_s":88.05,"end_s":88.35}],"note":"右手拾起橙色柄螺丝刀。"},{"id":"E047","hand":"right","start_s":88.45,"end_s":88.85,"action":"put_down","object":"screwdriver","evidence":[{"file":"front.mp4","start_s":88.45,"end_s":88.85},{"file":"top.mp4","start_s":88.45,"end_s":88.85}],"note":"右手将橙色柄螺丝刀移到工具区并放下。"},{"id":"E048","hand":"right","start_s":89.0,"end_s":89.6,"action":"pick_up","object":"screwdriver","evidence":[{"file":"front.mp4","start_s":89.0,"end_s":89.6},{"file":"top.mp4","start_s":89.0,"end_s":89.6}],"note":"右手拾起绿色柄螺丝刀。"},{"id":"E049","hand":"left","start_s":89.75,"end_s":91.4,"action":"pick_up","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":89.75,"end_s":91.4},{"file":"top.mp4","start_s":89.75,"end_s":91.4}],"note":"左手在第三红盒挑拣后取出细小件；可见挑拣至抬离合并为一次取起。"},{"id":"E050","hand":"right","start_s":91.55,"end_s":120.2,"action":"fasten","object":"screwdriver","evidence":[{"file":"front.mp4","start_s":91.55,"end_s":120.2},{"file":"top.mp4","start_s":91.55,"end_s":120.2}],"note":"右手用绿色柄螺丝刀连续旋拧多个可见孔位；合并换孔和往复，不推断扭矩。"},{"id":"E051","hand":"left","start_s":91.65,"end_s":91.95,"action":"fit","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":91.65,"end_s":91.95},{"file":"top.mp4","start_s":91.65,"end_s":91.95}],"note":"左手将细小件送至圆件上的可见孔位并贴合。"},{"id":"E052","hand":"left","start_s":91.95,"end_s":93.7,"action":"fasten","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":91.95,"end_s":93.7},{"file":"top.mp4","start_s":91.95,"end_s":93.7}],"note":"左手指捏住细小件连续起扣、手拧。"},{"id":"E053","hand":"left","start_s":108.25,"end_s":109.25,"action":"adjust","object":"gear","evidence":[{"file":"front.mp4","start_s":108.25,"end_s":109.25},{"file":"top.mp4","start_s":108.25,"end_s":109.25}],"note":"左手指在圆件／机体前侧主动调整对位；107秒张掌接件的可能性未据此记pick_up或fasten。"},{"id":"E054","hand":"right","start_s":120.3,"end_s":121.4,"action":"put_down","object":"screwdriver","evidence":[{"file":"front.mp4","start_s":120.3,"end_s":121.4},{"file":"top.mp4","start_s":120.3,"end_s":121.4}],"note":"右手将绿色柄螺丝刀放到工具区。"},{"id":"E055","hand":"right","start_s":121.75,"end_s":123.0,"action":"pick_up","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":121.75,"end_s":123.0},{"file":"top.mp4","start_s":121.75,"end_s":123.0}],"note":"右手从第三红盒取细小件。"},{"id":"E056","hand":"left","start_s":122.2,"end_s":123.25,"action":"pick_up","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":122.2,"end_s":123.25},{"file":"top.mp4","start_s":122.2,"end_s":123.25}],"note":"左手从最右手柄盒旁取另一黑色小副件。"},{"id":"E057","hand":"right","start_s":123.25,"end_s":123.75,"action":"adjust","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":123.25,"end_s":123.75},{"file":"top.mp4","start_s":123.25,"end_s":123.75}],"note":"右手将所持小件与左手小副件相互对位。"},{"id":"E058","hand":"left","start_s":123.25,"end_s":123.75,"action":"adjust","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":123.25,"end_s":123.75},{"file":"top.mp4","start_s":123.25,"end_s":123.75}],"note":"左手主动转动所持小副件配合对位，不是单纯扶持。"},{"id":"E059","hand":"right","start_s":123.75,"end_s":124.7,"action":"fit","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":123.75,"end_s":124.7},{"file":"top.mp4","start_s":123.75,"end_s":124.7}],"note":"右手将两小件相互贴合并尝试装到一起；手指遮挡，不断言完成接合。"},{"id":"E060","hand":"left","start_s":123.75,"end_s":124.7,"action":"fit","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":123.75,"end_s":124.7},{"file":"top.mp4","start_s":123.75,"end_s":124.7}],"note":"左手主动配合两小件贴合；与右手轨为同一次物理操作。"},{"id":"E061","hand":"right","start_s":124.8,"end_s":125.1,"action":"put_down","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":124.8,"end_s":125.1},{"file":"top.mp4","start_s":124.8,"end_s":125.1}],"note":"右手将其中一个小件退回第三红盒；左手保留黑色小副件。"},{"id":"E062","hand":"right","start_s":126.85,"end_s":127.25,"action":"pick_up","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":126.85,"end_s":127.25},{"file":"top.mp4","start_s":126.85,"end_s":127.25}],"note":"右手挑拣后从第三红盒取另一细小件。"},{"id":"E063","hand":"right","start_s":127.3,"end_s":128.0,"action":"adjust","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":127.3,"end_s":128.0},{"file":"top.mp4","start_s":127.3,"end_s":128.0}],"note":"右手将新取小件与左手保留的小副件对位。"},{"id":"E064","hand":"left","start_s":127.3,"end_s":128.0,"action":"adjust","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":127.3,"end_s":128.0},{"file":"top.mp4","start_s":127.3,"end_s":128.0}],"note":"左手主动调整保留的小副件以配合对位。"},{"id":"E065","hand":"right","start_s":128.0,"end_s":136.6,"action":"fit","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":128.0,"end_s":136.6},{"file":"top.mp4","start_s":128.0,"end_s":136.6}],"note":"右手持续将两小件相互贴合并作就位尝试；往复不切碎，不推断遮挡中的完成状态。"},{"id":"E066","hand":"left","start_s":128.0,"end_s":136.6,"action":"fit","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":128.0,"end_s":136.6},{"file":"top.mp4","start_s":128.0,"end_s":136.6}],"note":"左手主动配合持续贴合两小件；不是两次独立装配。"},{"id":"E067","hand":"right","start_s":136.8,"end_s":137.1,"action":"put_down","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":136.8,"end_s":137.1},{"file":"top.mp4","start_s":136.8,"end_s":137.1}],"note":"右手将小副件短暂放到图纸。"},{"id":"E068","hand":"right","start_s":137.15,"end_s":137.35,"action":"pick_up","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":137.15,"end_s":137.35},{"file":"top.mp4","start_s":137.15,"end_s":137.35}],"note":"右手随即从图纸重新取起同一小副件。"},{"id":"E069","hand":"right","start_s":137.35,"end_s":142.75,"action":"adjust","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":137.35,"end_s":142.75},{"file":"top.mp4","start_s":137.35,"end_s":142.75}],"note":"右手持续调整小副件方向；左手偶有接触，主动作用不足连续，未单列。"},{"id":"E070","hand":"right","start_s":142.8,"end_s":144.5,"action":"fit","object":"small_attachment","evidence":[{"file":"front.mp4","start_s":142.8,"end_s":144.5},{"file":"top.mp4","start_s":142.8,"end_s":144.5}],"note":"右手将小副件贴到机体可见位置；左手主要扶持不另记，完成接合未知。"},{"id":"E071","hand":"right","start_s":144.85,"end_s":145.45,"action":"pick_up","object":"screwdriver","evidence":[{"file":"front.mp4","start_s":144.85,"end_s":145.45},{"file":"top.mp4","start_s":144.85,"end_s":145.45}],"note":"右手再次拾起绿色柄螺丝刀。"},{"id":"E072","hand":"right","start_s":145.9,"end_s":159.0,"action":"fasten","object":"screwdriver","evidence":[{"file":"front.mp4","start_s":145.9,"end_s":159.0},{"file":"top.mp4","start_s":145.9,"end_s":159.0}],"note":"右手用绿色柄螺丝刀连续旋拧，左手扶持不记。"},{"id":"E073","hand":"right","start_s":159.05,"end_s":159.65,"action":"put_down","object":"screwdriver","evidence":[{"file":"front.mp4","start_s":159.05,"end_s":159.65},{"file":"top.mp4","start_s":159.05,"end_s":159.65}],"note":"右手将绿色柄螺丝刀放回工具区。"},{"id":"E074","hand":"left","start_s":159.7,"end_s":160.4,"action":"pick_up","object":"handle","evidence":[{"file":"front.mp4","start_s":159.7,"end_s":160.4},{"file":"top.mp4","start_s":159.7,"end_s":160.4}],"note":"左手从最右盒取黑色长柄。"},{"id":"E075","hand":"left","start_s":160.5,"end_s":164.0,"action":"adjust","object":"handle","evidence":[{"file":"front.mp4","start_s":160.5,"end_s":164.0},{"file":"top.mp4","start_s":160.5,"end_s":164.0}],"note":"左手转向并移动长柄，寻找机体侧孔／连接位置。"},{"id":"E076","hand":"right","start_s":161.2,"end_s":162.2,"action":"flip","object":"body","evidence":[{"file":"front.mp4","start_s":161.2,"end_s":162.2},{"file":"top.mp4","start_s":161.2,"end_s":162.2}],"note":"右手明显翻转机体；左手持长柄，不把持物记为flip。"},{"id":"E077","hand":"left","start_s":164.0,"end_s":164.8,"action":"fit","object":"handle","evidence":[{"file":"front.mp4","start_s":164.0,"end_s":164.8},{"file":"top.mp4","start_s":164.0,"end_s":164.8}],"note":"左手将长柄根部贴到机体侧面就位。"},{"id":"E078","hand":"left","start_s":164.8,"end_s":171.1,"action":"fasten","object":"handle","evidence":[{"file":"front.mp4","start_s":164.8,"end_s":171.1},{"file":"top.mp4","start_s":164.8,"end_s":171.1}],"note":"左手连续手拧长柄，合并换握；不推断扭矩。"},{"id":"E079","hand":"right","start_s":171.15,"end_s":172.2,"action":"flip","object":"body","evidence":[{"file":"front.mp4","start_s":171.15,"end_s":172.2},{"file":"top.mp4","start_s":171.15,"end_s":172.2}],"note":"右手再次翻转整机；左手持长柄。"},{"id":"E080","hand":"right","start_s":172.25,"end_s":173.4,"action":"put_down","object":"body","evidence":[{"file":"front.mp4","start_s":172.25,"end_s":173.4},{"file":"top.mp4","start_s":172.25,"end_s":173.4}],"note":"右手主动降低整机并释放；与左手轨为同一次放下。"},{"id":"E081","hand":"left","start_s":172.25,"end_s":173.4,"action":"put_down","object":"body","evidence":[{"file":"front.mp4","start_s":172.25,"end_s":173.4},{"file":"top.mp4","start_s":172.25,"end_s":173.4}],"note":"左手主动配合降低整机并释放；不是第二次放下。"}]</script>
+  <script id="policy-data" type="application/json">{"first":{"start_s":0,"end_s":83,"hands":["left","right"],"actions":["pick_up","transfer","adjust","fit","fasten","flip"]},"second":{"start_s":83,"end_s":173.8,"hands":["left","right"],"actions":["pick_up","transfer","adjust","fit","fasten","flip","put_down"]},"record_holds":false,"clock":"front","bilateral_as_two_tracks":true}</script>
+  <script>
+    const events = JSON.parse(document.getElementById("event-data").textContent);
+    const policy = JSON.parse(document.getElementById("policy-data").textContent);
+    const media = { front: "../input/front.mp4", top: "../input/top.mp4" };
+    const actionNames = {
+      pick_up: "取起",
+      put_down: "放下／归还",
+      transfer: "手间转交",
+      flip: "翻面",
+      adjust: "对位调整",
+      fit: "插入／贴合",
+      fasten: "旋拧"
+    };
+    const handNames = { left: "左手", right: "右手" };
+    const handFilter = document.getElementById("hand-filter");
+    const actionFilter = document.getElementById("action-filter");
+    const objectFilter = document.getElementById("object-filter");
+    const textFilter = document.getElementById("text-filter");
+    const rows = document.getElementById("event-rows");
+    const visibleCount = document.getElementById("visible-count");
+    const emptyState = document.getElementById("empty-state");
+    const player = document.getElementById("player");
+    const now = document.getElementById("now");
+    let activeEvent = null;
+    let activeView = "front";
+    let activeRequest = 0;
+    let animationRequest = 0;
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, character => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      })[character]);
+    }
+
+    function formatTime(value) {
+      return Number(value).toFixed(2);
+    }
+
+    function populateFilter(select, values, names) {
+      values.forEach(value => {
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = names ? `${value} · ${names[value]}` : value;
+        select.appendChild(option);
+      });
+    }
+
+    populateFilter(actionFilter, [...new Set(events.map(event => event.action))], actionNames);
+    populateFilter(objectFilter, [...new Set(events.map(event => event.object))].sort());
+
+    function matches(event) {
+      const query = textFilter.value.trim().toLocaleLowerCase();
+      const searchable = [
+        event.id, event.hand, handNames[event.hand], event.start_s, event.end_s,
+        event.action, actionNames[event.action], event.object, event.note,
+        ...event.evidence.map(item => item.file)
+      ].join(" ").toLocaleLowerCase();
+      return (handFilter.value === "all" || event.hand === handFilter.value) &&
+        (actionFilter.value === "all" || event.action === actionFilter.value) &&
+        (objectFilter.value === "all" || event.object === objectFilter.value) &&
+        (!query || searchable.includes(query));
+    }
+
+    function eventRow(event) {
+      const evidence = event.evidence.map(item =>
+        `<span><a href="../input/${escapeHtml(item.file)}" target="_blank" rel="noopener">${escapeHtml(item.file)}</a> ${formatTime(item.start_s)}–${formatTime(item.end_s)}</span>`
+      ).join("");
+      const activeClass = activeEvent && activeEvent.id === event.id ? " active" : "";
+      return `<tr id="row-${event.id}" class="event-row${activeClass}" data-event-id="${event.id}" data-hand="${event.hand}" data-action="${event.action}" data-object="${event.object}">
+        <td class="mono">${event.id}</td>
+        <td><span class="hand ${event.hand}">${event.hand} · ${handNames[event.hand]}</span></td>
+        <td class="mono">${formatTime(event.start_s)}</td>
+        <td class="mono">${formatTime(event.end_s)}</td>
+        <td class="mono">${formatTime(event.end_s - event.start_s)}</td>
+        <td class="action"><span class="mono">${event.action}</span><br>${actionNames[event.action]}</td>
+        <td class="mono">${event.object}</td>
+        <td class="note">${escapeHtml(event.note)}</td>
+        <td><div class="evidence">${evidence}</div><div class="play-buttons">
+          <button class="play-button" type="button" data-play="${event.id}" data-view="front" aria-label="正面回放${event.id}">▶ 正面</button>
+          <button class="play-button" type="button" data-play="${event.id}" data-view="top" aria-label="俯视回放${event.id}">▶ 俯视</button>
+        </div></td>
+      </tr>`;
+    }
+
+    function render() {
+      const filtered = events.filter(matches);
+      rows.innerHTML = filtered.map(eventRow).join("");
+      visibleCount.textContent = `显示 ${filtered.length} / ${events.length} 条`;
+      emptyState.hidden = filtered.length > 0;
+      rows.querySelectorAll("button[data-play]").forEach(button => {
+        button.addEventListener("click", () => playEvent(button.dataset.play, button.dataset.view));
+      });
+    }
+
+    function updateActiveRows() {
+      document.querySelectorAll(".event-row.active").forEach(row => row.classList.remove("active"));
+      if (activeEvent) {
+        const row = document.getElementById(`row-${activeEvent.id}`);
+        if (row) row.classList.add("active");
+      }
+    }
+
+    function monitorEnd() {
+      cancelAnimationFrame(animationRequest);
+      if (!activeEvent) return;
+      const check = () => {
+        if (!activeEvent || player.paused) return;
+        if (player.currentTime >= activeEvent.end_s - 0.02 || player.ended) {
+          player.pause();
+          now.querySelector("span").textContent = `${activeView === "front" ? "正面" : "俯视"}片段已停止于 ${formatTime(activeEvent.end_s)} 秒。`;
+          return;
+        }
+        animationRequest = requestAnimationFrame(check);
+      };
+      animationRequest = requestAnimationFrame(check);
+    }
+
+    async function waitForMetadata() {
+      if (player.readyState >= 1) return;
+      await new Promise((resolve, reject) => {
+        player.addEventListener("loadedmetadata", resolve, { once: true });
+        player.addEventListener("error", () => reject(new Error("媒体加载失败")), { once: true });
+      });
+    }
+
+    async function playEvent(id, view) {
+      const event = events.find(item => item.id === id);
+      if (!event) return;
+      const request = ++activeRequest;
+      activeEvent = event;
+      activeView = view;
+      cancelAnimationFrame(animationRequest);
+      player.pause();
+      now.innerHTML = `<strong>${event.id} · ${event.hand} · ${event.action} · ${event.object}</strong><span>正在载入${view === "front" ? "正面主时钟" : "俯视另一视角"} ${formatTime(event.start_s)}–${formatTime(event.end_s)} 秒…</span>`;
+      updateActiveRows();
+      try {
+        if (player.getAttribute("src") !== media[view]) {
+          player.src = media[view];
+          player.load();
+        }
+        await waitForMetadata();
+        if (request !== activeRequest) return;
+        player.currentTime = event.start_s;
+        await player.play();
+        if (request !== activeRequest) return;
+        now.querySelector("span").textContent = `${view === "front" ? "正面" : "俯视"}回放 ${formatTime(event.start_s)}–${formatTime(event.end_s)} 秒；可暂停、拖动或切换另一视角。`;
+        monitorEnd();
+      } catch (error) {
+        if (request !== activeRequest) return;
+        now.querySelector("span").textContent = `无法自动回放：${error.message}。请使用原片链接并手动跳转至 ${formatTime(event.start_s)} 秒。`;
+      }
+    }
+
+    document.getElementById("stop-button").addEventListener("click", () => {
+      ++activeRequest;
+      cancelAnimationFrame(animationRequest);
+      player.pause();
+      if (activeEvent) now.querySelector("span").textContent = `已停止 ${activeEvent.id} 的回放。`;
+    });
+    player.addEventListener("play", monitorEnd);
+    [handFilter, actionFilter, objectFilter].forEach(select => select.addEventListener("change", render));
+    textFilter.addEventListener("input", render);
+    document.getElementById("reset-button").addEventListener("click", () => {
+      handFilter.value = "all";
+      actionFilter.value = "all";
+      objectFilter.value = "all";
+      textFilter.value = "";
+      render();
+    });
+
+    document.getElementById("first-policy").textContent = `${policy.first.actions.join("、")}；双手分轨；不记put_down与hold。`;
+    document.getElementById("second-policy").textContent = `${policy.second.actions.join("、")}；双手分轨；不记hold。clock=${policy.clock}。`;
+    render();
+  </script>
+</body>
+</html>

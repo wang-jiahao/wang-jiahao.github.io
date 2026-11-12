@@ -1,0 +1,149 @@
+{
+  "report": 9,
+  "documentation": 5,
+  "evidence": [
+    "Fixed automated delivery probes; see checks and documentation_checks. No event-semantic adjudication."
+  ],
+  "checks": [
+    {
+      "unit": "report_document",
+      "points": 1,
+      "evidence": {
+        "bytes": 55412
+      }
+    },
+    {
+      "unit": "browser_execution",
+      "points": 1,
+      "evidence": {
+        "page_errors": []
+      }
+    },
+    {
+      "unit": "default_all_records",
+      "points": 1,
+      "evidence": {
+        "visible": 119,
+        "expected": 119
+      }
+    },
+    {
+      "unit": "front_video",
+      "points": 1,
+      "evidence": [
+        {
+          "src": "http://127.0.0.1:62129/input/front.mp4",
+          "ready": 4,
+          "duration": 173.8
+        },
+        {
+          "src": "http://127.0.0.1:62129/input/top.mp4",
+          "ready": 4,
+          "duration": 173.8
+        }
+      ]
+    },
+    {
+      "unit": "top_video",
+      "points": 1,
+      "evidence": [
+        {
+          "src": "http://127.0.0.1:62129/input/front.mp4",
+          "ready": 4,
+          "duration": 173.8
+        },
+        {
+          "src": "http://127.0.0.1:62129/input/top.mp4",
+          "ready": 4,
+          "duration": 173.8
+        }
+      ]
+    },
+    {
+      "unit": "handover_audio",
+      "points": 1,
+      "evidence": [
+        {
+          "src": "http://127.0.0.1:62129/input/handover.wav",
+          "ready": 4,
+          "duration": 215.264036
+        }
+      ]
+    },
+    {
+      "unit": "hand_filter",
+      "points": 1,
+      "evidence": [
+        {
+          "control": 1,
+          "value": "left",
+          "visible": 48
+        }
+      ]
+    },
+    {
+      "unit": "action_filter",
+      "points": 1,
+      "evidence": [
+        {
+          "control": 2,
+          "value": "adjust",
+          "visible": 36
+        }
+      ]
+    },
+    {
+      "unit": "text_search",
+      "points": 0,
+      "evidence": [
+        {
+          "control": 0,
+          "remaining": 1,
+          "restored": 119
+        }
+      ]
+    },
+    {
+      "unit": "event_seek",
+      "points": 1,
+      "evidence": {
+        "id": "E005",
+        "start_s": 4.1,
+        "videos": [
+          {
+            "time": 4.6381,
+            "src": "http://127.0.0.1:62129/input/front.mp4"
+          },
+          {
+            "time": 4.099999,
+            "src": "http://127.0.0.1:62129/input/top.mp4"
+          }
+        ]
+      }
+    }
+  ],
+  "documentation_checks": [
+    {
+      "unit": "substantive_readme",
+      "points": 1
+    },
+    {
+      "unit": "method",
+      "points": 1
+    },
+    {
+      "unit": "uncertainty",
+      "points": 1
+    },
+    {
+      "unit": "attribution_licence",
+      "points": 1
+    },
+    {
+      "unit": "opening_instructions",
+      "points": 1
+    }
+  ],
+  "evaluator": "delivery-auto1",
+  "implementation_limits": "Generic HTML/ID/control probes may miss equivalent interfaces; no post-run correction applied"
+}
