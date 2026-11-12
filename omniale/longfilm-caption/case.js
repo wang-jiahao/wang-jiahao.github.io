@@ -1,10 +1,11 @@
+const ranges={"sol":{"CAP01":{"start_s":758.6,"end_s":788.4},"CAP02":{"start_s":1458.4,"end_s":1539.5},"CAP03":{"start_s":2181.0,"end_s":2271.7},"CAP04":{"start_s":2401.0,"end_s":2485.2},"CAP05":{"start_s":3066.5,"end_s":3160.1},"CAP06":{"start_s":4685.8,"end_s":4748.0}},"kimi":{"CAP01":{"start_s":755.0,"end_s":803.0},"CAP02":{"start_s":1451.0,"end_s":1539.8},"CAP03":{"start_s":2985.0,"end_s":3042.0},"CAP04":{"start_s":2402.0,"end_s":2485.0},"CAP05":{"start_s":3065.0,"end_s":3162.5},"CAP06":{"start_s":4685.0,"end_s":4777.5}}};
 const movie=document.getElementById('full-film');
 const fmt=t=>`${Math.floor(t/3600)?String(Math.floor(t/3600)).padStart(2,'0')+':':''}${String(Math.floor(t/60)%60).padStart(2,'0')}:${(t%60).toFixed(1).padStart(4,'0')}`;
 if(movie)movie.addEventListener('timeupdate',()=>document.getElementById('full-clock').textContent=fmt(movie.currentTime));
 function seekFilm(seconds){if(!movie)return;const go=()=>{movie.currentTime=Math.max(0,Math.min(seconds,movie.duration||seconds));movie.scrollIntoView({behavior:'smooth',block:'center'});movie.focus()};if(movie.readyState>=1)go();else movie.addEventListener('loadedmetadata',go,{once:true})}
-document.querySelectorAll('[data-film-seek]').forEach(x=>x.addEventListener('click',e=>{e.preventDefault();seekFilm(Number(x.dataset.filmSeek))}));
-function selectModel(id){document.querySelectorAll('[data-model-button]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.modelButton===id)));document.querySelectorAll('[data-model-panel]').forEach(x=>x.hidden=x.dataset.modelPanel!==id)}
-document.querySelectorAll('[data-model-button]').forEach(x=>x.addEventListener('click',()=>selectModel(x.dataset.modelButton)));
-document.querySelectorAll('[data-open-report]').forEach(x=>x.addEventListener('click',e=>{e.preventDefault();selectModel(x.dataset.model);const d=document.getElementById(x.dataset.openReport);if(d){d.open=true;d.scrollIntoView({block:'start',behavior:'smooth'})}}));
+document.querySelectorAll('[data-film-seek]').forEach(x=>x.addEventListener('click',()=>seekFilm(Number(x.dataset.filmSeek))));
+const choice=document.getElementById('preview-choice'),scene=document.getElementById('delivery-scene'),frame=document.getElementById('preview');
+function updateDelivery(){const ident=choice.value,tid=scene.value,u=`previews/${ident}/index.html?scene=${tid}`;frame.src=u;document.getElementById('preview-open').href=u;document.getElementById('delivery-source').dataset.filmSeek=ranges[ident][tid].start_s}
+if(choice){choice.addEventListener('change',updateDelivery);scene.addEventListener('change',updateDelivery)}
+document.querySelectorAll('[data-delivery-model]').forEach(x=>x.addEventListener('click',()=>{choice.value=x.dataset.deliveryModel;scene.value=x.dataset.deliveryScene;updateDelivery()}));
 document.querySelectorAll('video[data-offset]').forEach(v=>{const clock=v.closest('.player')?.querySelector('.clock');if(clock)v.addEventListener('timeupdate',()=>clock.textContent='原片 '+fmt(Number(v.dataset.offset)+v.currentTime))});
-document.querySelectorAll('a[data-seek]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const v=document.getElementById(a.dataset.player);if(v){v.currentTime=Number(a.dataset.seek)-Number(v.dataset.offset);v.scrollIntoView({block:'center',behavior:'smooth'});v.focus()}}));
