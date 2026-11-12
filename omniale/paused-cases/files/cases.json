@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-11T16:13:05.094033+00:00",
+  "updated_at": "2026-11-12T11:27:20.522466+00:00",
   "scope": "Only Linear and Google Fonts among web recreations; other completed tested task types and the explicitly requested current QA are included.",
   "inclusion": "Completed construction and valid model test; absent from current formal summary",
   "cases": [
@@ -137,6 +137,28 @@
       "reason": "v7最高模型得分80.6。七模型的放行／退回结论均满分，该维度未提供区分度；保留已完成测试，暂缓纳入正式集。",
       "score_mode": "确定性部分分；Sol检出严重问题16/20、一般问题11/13，严格通过门槛未满足",
       "source_sha256": "74c46d1509a2f95dd3021df7c4fdb0f35ed40a04dde6930ab733b2c29f21df5e"
+    },
+    {
+      "id": "sampling",
+      "title": "采样之后再滤波，还来得及吗？",
+      "model": "gpt-6-astra",
+      "score": 85,
+      "score_label": "Astra",
+      "effort": "来源页未公布",
+      "version": "实测v6.5 · 当前题面v6.5.1",
+      "duration_s": null,
+      "network": "来源页未公布运行网络条件",
+      "detail": "https://vibrant700.github.io/omniale/sampling/",
+      "source": "_build/paused_cases/external-sampling/result.json",
+      "image": "assets/sampling.svg",
+      "classification": "教育、训练与学习应用 / 数字音频教学短片",
+      "kind": "other",
+      "description": "把采样与混叠问题做成115.5秒中文教学短片，自行设计动画、配音、字幕与试听，交付成片和可重建工程。",
+      "reason": "按用户要求暂缓收录。来源页严格AI复评85分，知识与视觉部分60/60，音频25/40；主要不足是中文旁白的断句、重音和清晰度。",
+      "score_mode": "外部来源页严格AI复评，未经过教师人工复核；保留原分项与版本差异",
+      "source_url": "https://vibrant700.github.io/omniale/sampling/",
+      "source_result_url": "https://vibrant700.github.io/omniale/sampling/results/astra-v65/result.json",
+      "source_sha256": "122fa93faa838040b1918e6144780df1a35c076377603564a66abccc40323d42"
     }
   ]
 }
