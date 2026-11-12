@@ -1,15 +1,51 @@
 {
-  "updated_at": "2026-11-12T12:36:40.678505+00:00",
+  "updated_at": "2026-11-12T13:15:27.432127+00:00",
   "definition": "Cross-platform marks actual transitions between browser, CLI or desktop environments; cross-software alone is not marked.",
   "order": [
+    "charge-foley",
     "video-crosscheck",
     "longfilm-caption",
     "musp",
     "assembly-review",
-    "card-audio-description",
-    "charge-foley"
+    "card-audio-description"
   ],
   "cases": [
+    {
+      "id": "charge-foley",
+      "cover": "charge-foley.jpg",
+      "cover_source": "https://huayuankou333.github.io/omniale/charge-foley/media/input-v1.jpg",
+      "url": "https://huayuankou333.github.io/omniale/charge-foley/",
+      "title": "跨软件电影拟音与返修",
+      "desc": "给 Agent 一段90秒无声动作片，自行检索开放录音，在 REAPER 制作拟音和五条分轨，通过 Shotcut 回填并导出。首版封存后，再按删镜与环境降音要求交付88秒返修版，保留可编辑工程和未要求修改的声音。",
+      "scores": {
+        "gpt-6-luna": 26.772619000000002,
+        "gpt-6.1-sol": 49.099999999999994,
+        "deepseek-v4.1-flash-1017": 35.926306000000004
+      },
+      "max_model_score": 49.099999999999994,
+      "score": "gpt-6.1-sol 49.099999999999994 · deepseek-v4.1-flash-1017 35.926306000000004 · gpt-6-luna 26.772619000000002",
+      "score_source": "https://huayuankou333.github.io/omniale/charge-foley/results.json",
+      "score_version": "charge-v4-gates-C50-T30-M20-20261112",
+      "score_status": "uncalibrated_automatic_initial",
+      "score_note": "来源页v4自动初评分；内容50＋同步30＋混音20，工程不加分、作为上限门槛。certified=false/calibration_passed=false，沿用来源页当前确定total，不改写为已校准正式分。",
+      "classification": {
+        "week": "4",
+        "domain": 3,
+        "scenario": "电影拟音与跨软件交付",
+        "software": [
+          "REAPER",
+          "Shotcut"
+        ],
+        "show_in_summary": true,
+        "cross_platform": {
+          "confirmed": false,
+          "environments": [],
+          "basis": "已证实REAPER与Shotcut跨软件交付；公开调用统计为search_audio/render_reaper/render_shotcut等工具，未证实浏览器环境操作，不因跨软件本身加跨平台标记。",
+          "evidence_url": "https://huayuankou333.github.io/omniale/charge-foley/data/traces.json",
+          "definition": "Actual switch between execution interfaces such as a browser and CLI; multiple desktop software packages alone are not sufficient."
+        }
+      }
+    },
     {
       "id": "video-crosscheck",
       "max_model_score": 53.12,
@@ -152,42 +188,6 @@
           "environments": [],
           "basis": "Astra README明确环境未安装浏览器、播放器仅做V8模拟验证；Luna公开说明未提供真实浏览器操作证据。TTS兼容接口不据此推定跨平台。",
           "evidence_url": "https://nanxiang-git.github.io/OmniALE_v2/runs_case46_astra_high_50m/run_20261109_184134/sealed/case14/submission/README.md",
-          "definition": "Actual switch between execution interfaces such as a browser and CLI; multiple desktop software packages alone are not sufficient."
-        }
-      }
-    },
-    {
-      "id": "charge-foley",
-      "cover": "charge-foley.jpg",
-      "cover_source": "https://huayuankou333.github.io/omniale/charge-foley/media/input-v1.jpg",
-      "url": "https://huayuankou333.github.io/omniale/charge-foley/",
-      "title": "Charge：跨软件电影拟音与返修",
-      "desc": "给 Agent 一段90秒无声动作片，自行检索开放录音，在 REAPER 制作拟音和五条分轨，通过 Shotcut 回填并导出。首版封存后，再按删镜与环境降音要求交付88秒返修版，保留可编辑工程和未要求修改的声音。",
-      "scores": {
-        "gpt-6.1-sol": 69.16000165,
-        "deepseek-v4.1-flash-1017": 52.752021883333335,
-        "gpt-6-luna": 39.410626683333334
-      },
-      "max_model_score": 69.16000165,
-      "score": "gpt-6.1-sol 69.16 · deepseek-v4.1-flash-1017 52.75 · gpt-6-luna 39.41",
-      "score_source": "https://huayuankou333.github.io/omniale/charge-foley/results.json",
-      "score_version": "charge-qwen-human-review-v3-P10-C50-T30-M10",
-      "score_status": "uncalibrated_automatic_trial",
-      "score_note": "来源页当前自动试评分：Qwen感知校准未通过，待逐项人工复核；回溯权重P10/C50/T30/M10，不描述为已校准正式分。",
-      "classification": {
-        "week": "4",
-        "domain": 3,
-        "scenario": "电影拟音与跨软件交付",
-        "software": [
-          "REAPER",
-          "Shotcut"
-        ],
-        "show_in_summary": true,
-        "cross_platform": {
-          "confirmed": false,
-          "environments": [],
-          "basis": "已证实REAPER与Shotcut跨软件交付；公开调用统计为search_audio/render_reaper/render_shotcut等工具，未证实浏览器环境操作，不因跨软件本身加跨平台标记。",
-          "evidence_url": "https://huayuankou333.github.io/omniale/charge-foley/data/traces.json",
           "definition": "Actual switch between execution interfaces such as a browser and CLI; multiple desktop software packages alone are not sufficient."
         }
       }
