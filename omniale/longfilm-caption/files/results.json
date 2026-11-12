@@ -18,6 +18,8 @@
       "score": 55.67066948223509,
       "actual_effort": "xhigh",
       "elapsed_seconds": 3275.078,
+      "elapsed_seconds_lower_bound": null,
+      "elapsed_note": null,
       "exit_code": 0,
       "material_version": "caption-v2-testset",
       "judge_rounds": 1,
@@ -49,25 +51,58 @@
       "id": "deepseek",
       "model": "deepseek-v4.1-flash-1017",
       "label": "DeepSeek V4.1 Flash",
-      "state": "运行中",
+      "state": "服务中断 · 不评分",
       "score": null,
       "actual_effort": "max",
-      "elapsed_seconds": null,
-      "exit_code": null,
+      "elapsed_seconds": 1959.594,
+      "elapsed_seconds_lower_bound": 1959.594,
+      "elapsed_note": "Sum of measured active attempts",
+      "exit_code": 1,
       "material_version": "caption-v2-singlejudge",
-      "judge_rounds": 1
+      "judge_rounds": 1,
+      "interruption": {
+        "exit_code": 1,
+        "failure_reason": "provider_content_filter",
+        "resume_count": 1,
+        "scored": false
+      }
     },
     {
       "id": "kimi",
       "model": "kimi-k3.1-pro",
       "label": "Kimi K3.1",
-      "state": "等待运行",
-      "score": null,
+      "state": "已完成",
+      "score": 41.295914077131826,
       "actual_effort": "max",
       "elapsed_seconds": null,
-      "exit_code": null,
-      "material_version": null,
-      "judge_rounds": 1
+      "elapsed_seconds_lower_bound": 2267.911,
+      "elapsed_note": "Initial process vanished without final timing; only a known lower bound plus measured recovery is available.",
+      "exit_code": 0,
+      "material_version": "caption-v2-singlejudge",
+      "judge_rounds": 1,
+      "audio_subtype_hits": {
+        "speech": {
+          "hits": 15,
+          "total": 56,
+          "rate": 26.785714285714285
+        },
+        "music": {
+          "hits": 0,
+          "total": 2,
+          "rate": 0.0
+        },
+        "sfx": {
+          "hits": 24,
+          "total": 52,
+          "rate": 46.15384615384615
+        }
+      },
+      "category_recall": {
+        "visual": 42.17684707552063,
+        "audio": 49.705581157194054,
+        "synergy": 35.47771672771673
+      },
+      "solver_runs": 1
     }
   ],
   "show_in_summary": false,
