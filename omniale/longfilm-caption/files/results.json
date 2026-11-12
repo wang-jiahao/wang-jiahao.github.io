@@ -1,6 +1,6 @@
 {
   "case": "longfilm-caption",
-  "title": "长片检索与详尽音画描述",
+  "title": "文生音视频参考片段检索与描述",
   "model": "gpt-6.1-sol",
   "actual_effort": "xhigh",
   "score": 55.67066948223509,
@@ -85,6 +85,10 @@
       "solver_runs": 1
     }
   ],
-  "show_in_summary": false,
-  "score_rule": "One complete semantic evaluation per delivery; fixed binary event recall within each target then equal six-target mean."
+  "show_in_summary": true,
+  "score_rule": "One complete semantic evaluation per delivery; fixed binary event recall within each target then equal six-target mean.",
+  "domain": "影视、节目与视觉后期",
+  "scenario": "文生音视频参考素材整理",
+  "application_context": "Reference retrieval and audiovisual description for text-to-audiovisual creation",
+  "evaluated_stage": "reference retrieval and description; generated audiovisual output is not evaluated"
 }

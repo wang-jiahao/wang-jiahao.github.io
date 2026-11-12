@@ -1,0 +1,196 @@
+{
+  "updated_at": "2026-11-12T12:36:40.678505+00:00",
+  "definition": "Cross-platform marks actual transitions between browser, CLI or desktop environments; cross-software alone is not marked.",
+  "order": [
+    "video-crosscheck",
+    "longfilm-caption",
+    "musp",
+    "assembly-review",
+    "card-audio-description",
+    "charge-foley"
+  ],
+  "cases": [
+    {
+      "id": "video-crosscheck",
+      "max_model_score": 53.12,
+      "classification": {
+        "week": "4",
+        "domain": 7,
+        "scenario": "视频论断核查与外部研究",
+        "show_in_summary": true,
+        "cross_platform": {
+          "confirmed": true,
+          "environments": [
+            "命令行",
+            "浏览器"
+          ],
+          "basis": "当前Sol公开轨迹实际运行Playwright/Chrome检查报告；其余当前模型也有浏览器过程。",
+          "evidence_url": "https://wang-jiahao.github.io/omniale/video-crosscheck/traces.html?run=sol&view=all",
+          "definition": "Actual switch between execution interfaces such as a browser and CLI; multiple desktop software packages alone are not sufficient."
+        }
+      }
+    },
+    {
+      "id": "longfilm-caption",
+      "title": "文生音视频参考片段检索与描述",
+      "cover": "longfilm-caption.jpg",
+      "url": "longfilm-caption/",
+      "desc": "为文生音视频创作整理参考：从约102分钟完整电影中找到六组没有时间码的目标场景，记录人物与动作、对白、音乐、音效和音画时序关系，交付可回看原片的详尽描述。",
+      "scores": {
+        "gpt-6.1-sol": 55.67066948223509,
+        "kimi-k3.1-pro": 41.295914077131826
+      },
+      "score_source": "https://wang-jiahao.github.io/omniale/longfilm-caption/files/results.json",
+      "score_version": "caption-v2-singlejudge",
+      "cover_source": "https://wang-jiahao.github.io/omniale/longfilm-caption/assets/film-poster.jpg",
+      "max_model_score": 55.67066948223509,
+      "score": "gpt-6.1-sol 55.67066948223509 · kimi-k3.1-pro 41.295914077131826",
+      "classification": {
+        "week": "4",
+        "domain": 1,
+        "scenario": "文生音视频参考素材整理",
+        "show_in_summary": true,
+        "cross_platform": {
+          "confirmed": false,
+          "environments": [],
+          "basis": "当前Sol/Kimi公开轨迹未记录浏览器操作，主要使用Python、FFmpeg、ASR与声音模型。",
+          "evidence_url": "https://wang-jiahao.github.io/omniale/longfilm-caption/traces.html",
+          "definition": "Actual switch between execution interfaces such as a browser and CLI; multiple desktop software packages alone are not sufficient."
+        }
+      }
+    },
+    {
+      "id": "musp",
+      "cover": "musp.jpg",
+      "cover_source": "https://huayuankou333.github.io/omniale/musp/media/A/score-preview.jpg",
+      "url": "https://huayuankou333.github.io/omniale/musp/",
+      "title": "乐谱与钢琴演奏联合研习",
+      "desc": "给 Agent 三首钢琴作品、约25分钟演奏与52页乐谱，完成20项音乐分析。每题提供可回听的原音片段，配合谱面标注与前后对照，交付支持逐题跳转、重复收听和倍速切换的中文研习网页。",
+      "scores": {
+        "gpt-6.1-sol": 63.0,
+        "deepseek-v4.1-flash-1017": 25.0,
+        "gpt-6-luna": 19.0
+      },
+      "max_model_score": 63.0,
+      "score": "gpt-6.1-sol 63.00 · deepseek-v4.1-flash-1017 25.00 · gpt-6-luna 19.00",
+      "score_source": "https://huayuankou333.github.io/omniale/musp/scoring/website/results.json",
+      "score_version": "musp-composite-v1",
+      "score_note": "来源页当前综合分：音乐内容80%＋网站20%，专家音乐证据语义复核未完成。",
+      "classification": {
+        "week": "4",
+        "domain": 6,
+        "scenario": "谱面与演奏联合研习",
+        "show_in_summary": true,
+        "cross_platform": {
+          "confirmed": true,
+          "environments": [
+            "命令行",
+            "浏览器"
+          ],
+          "basis": "来源页五、运行轨迹列出Luna1次、Sol2次、DeepSeek7次浏览器自检请求，与Python分析同属被测过程。",
+          "evidence_url": "https://huayuankou333.github.io/omniale/musp/#trajectory",
+          "definition": "Actual switch between execution interfaces such as a browser and CLI; multiple desktop software packages alone are not sufficient."
+        }
+      }
+    },
+    {
+      "id": "assembly-review",
+      "title": "听交接、看装配，建立可回放的动作台账",
+      "cover": "assembly-review.jpg",
+      "url": "assembly-review/",
+      "desc": "先从中文口头交接中恢复最终归档要求，再对照同一次角磨机装配的正面与俯视录像，记录动作、对象、手别和时间，交付可搜索、筛选及逐条回放的网页台账。",
+      "scores": {
+        "gpt-6.1-sol": 66.95095373236515,
+        "kimi-k3.1-pro": 61.43600503321828,
+        "deepseek-v4.1-flash-1017": 56.05835005448171
+      },
+      "score_source": "https://wang-jiahao.github.io/omniale/assembly-review/files/results.json",
+      "score_version": "assembly-av-v4-fields-macro-1+delivery-auto1",
+      "cover_source": "https://wang-jiahao.github.io/omniale/assembly-review/assets/front.jpg",
+      "max_model_score": 66.95095373236515,
+      "score": "gpt-6.1-sol 66.95095373236515 · kimi-k3.1-pro 61.43600503321828 · deepseek-v4.1-flash-1017 56.05835005448171",
+      "classification": {
+        "week": "4",
+        "domain": 8,
+        "scenario": "装配动作台账与口头交接",
+        "show_in_summary": true,
+        "cross_platform": {
+          "confirmed": true,
+          "environments": [
+            "命令行",
+            "浏览器"
+          ],
+          "basis": "v4.1 Sol轨迹#47启动Chrome，#58/#62记录浏览器检查与714次证据定位；不是组织者评分器的浏览器。",
+          "evidence_url": "https://wang-jiahao.github.io/omniale/assembly-review/traces.html?run=sol&view=all",
+          "definition": "Actual switch between execution interfaces such as a browser and CLI; multiple desktop software packages alone are not sufficient."
+        }
+      }
+    },
+    {
+      "id": "card-audio-description",
+      "title": "消失的纸牌 · 中文口述影像",
+      "cover": "card-audio-description.jpg",
+      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-14/results",
+      "desc": "给一段148秒纸牌片段，在保持原画面与时间轴的前提下补充中文口述：追踪持牌人和转移关系，在对白间隙安排真实配音、保护原声，交付可关闭旁白的播放器、分轨和离线重建脚本。",
+      "scores": {
+        "gpt-6-astra": 68.1875,
+        "gpt-6-luna": 22.9274
+      },
+      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/case46-report/data.js",
+      "score_version": "case46-final-20261112",
+      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/case46-report/poster.jpg",
+      "score_note": "来源页视觉理解分乘有效交付系数；Astra50分钟试跑，Luna60分钟补跑，非严格等条件。",
+      "max_model_score": 68.1875,
+      "score": "gpt-6-astra 68.1875 · gpt-6-luna 22.9274",
+      "classification": {
+        "week": "4",
+        "domain": 5,
+        "scenario": "中文口述影像与无障碍交付",
+        "show_in_summary": true,
+        "cross_platform": {
+          "confirmed": false,
+          "environments": [],
+          "basis": "Astra README明确环境未安装浏览器、播放器仅做V8模拟验证；Luna公开说明未提供真实浏览器操作证据。TTS兼容接口不据此推定跨平台。",
+          "evidence_url": "https://nanxiang-git.github.io/OmniALE_v2/runs_case46_astra_high_50m/run_20261109_184134/sealed/case14/submission/README.md",
+          "definition": "Actual switch between execution interfaces such as a browser and CLI; multiple desktop software packages alone are not sufficient."
+        }
+      }
+    },
+    {
+      "id": "charge-foley",
+      "cover": "charge-foley.jpg",
+      "cover_source": "https://huayuankou333.github.io/omniale/charge-foley/media/input-v1.jpg",
+      "url": "https://huayuankou333.github.io/omniale/charge-foley/",
+      "title": "Charge：跨软件电影拟音与返修",
+      "desc": "给 Agent 一段90秒无声动作片，自行检索开放录音，在 REAPER 制作拟音和五条分轨，通过 Shotcut 回填并导出。首版封存后，再按删镜与环境降音要求交付88秒返修版，保留可编辑工程和未要求修改的声音。",
+      "scores": {
+        "gpt-6.1-sol": 69.16000165,
+        "deepseek-v4.1-flash-1017": 52.752021883333335,
+        "gpt-6-luna": 39.410626683333334
+      },
+      "max_model_score": 69.16000165,
+      "score": "gpt-6.1-sol 69.16 · deepseek-v4.1-flash-1017 52.75 · gpt-6-luna 39.41",
+      "score_source": "https://huayuankou333.github.io/omniale/charge-foley/results.json",
+      "score_version": "charge-qwen-human-review-v3-P10-C50-T30-M10",
+      "score_status": "uncalibrated_automatic_trial",
+      "score_note": "来源页当前自动试评分：Qwen感知校准未通过，待逐项人工复核；回溯权重P10/C50/T30/M10，不描述为已校准正式分。",
+      "classification": {
+        "week": "4",
+        "domain": 3,
+        "scenario": "电影拟音与跨软件交付",
+        "software": [
+          "REAPER",
+          "Shotcut"
+        ],
+        "show_in_summary": true,
+        "cross_platform": {
+          "confirmed": false,
+          "environments": [],
+          "basis": "已证实REAPER与Shotcut跨软件交付；公开调用统计为search_audio/render_reaper/render_shotcut等工具，未证实浏览器环境操作，不因跨软件本身加跨平台标记。",
+          "evidence_url": "https://huayuankou333.github.io/omniale/charge-foley/data/traces.json",
+          "definition": "Actual switch between execution interfaces such as a browser and CLI; multiple desktop software packages alone are not sufficient."
+        }
+      }
+    }
+  ]
+}
