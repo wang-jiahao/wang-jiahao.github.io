@@ -1,0 +1,32 @@
+---
+layout: null
+sitemap: false
+permalink: /omniale/dialect-subtitles/
+---
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>多方言视频的普通话字幕制作 · OmniALE</title><link rel="stylesheet" href="case.css"></head>
+<body><main>
+<div class="eyebrow">译制、无障碍与发布适配 / 方言视频字幕本地化</div>
+<h1>多方言视频的普通话字幕制作</h1>
+<p class="lead">为不懂方言的观众制作普通话字幕：听清真人短片里的完整意思，保留人物、否定、数量和时间关系，并交付保留原声、可切换字幕的成片。</p>
+<span class="tag" id="material-tag">真人方言视频</span><span class="tag">普通话字幕 + MKV</span><span class="tag gray">CLI · 联网</span>
+<nav class="navline"><a href="#task">一、任务定义</a><a href="#results">二、运行结果</a><a href="#traces">三、运行轨迹</a><a href="#analysis">四、失败分析</a></nav>
+
+<section><h2 id="task">一、任务定义</h2>
+<p>输入有声视频、片段边界和方言标签。每段都是独立表达，可能是一句话或由同一人朗读的一问一答。Agent需要把方言表达转换为自然的简体普通话，不把这些短片拼成连续故事。</p>
+<div class="card media-card"><div class="toolbar"><label for="input-clip">原片</label><select id="input-clip"></select><a id="input-link" target="_blank" rel="noopener">源站视频 ↗</a></div><video id="input-video" controls playsinline preload="metadata"></video><p class="note">中国语言资源保护工程真人采录；画面保留口型和表情，没有内嵌译文。此版侧重方言理解与字幕交付，尚不单独测量视觉带来的增益。</p></div>
+<div class="grid"><div class="card"><h3>输入</h3><p id="input-description"></p><p>不提供方言原文、普通话译文、语料编号或参考字幕。</p></div><div class="card"><h3>交付</h3><p>zh-CN.srt、subtitled.mkv、segments.json。字幕应落在对应片段，原音视频流不变，成片中的字幕与SRT一致；无法确认的局部可以明确标出。</p></div></div>
+<details class="card"><summary>任务要求与评分</summary><p>语义90分、片段归属与可读性5分、成片与交付5分。六种方言等权，每种方言内各片段等权。</p><p>语义按关系命题匹配，接受等价普通话改写。每项得0、0.5或1分；独立的错误或无据新增断言计入误报，重复错误只计一次。片段语义F1 = 2TP / (G + TP + FP)，再按方言等权换算为90分。空答不获内容分，格式正确不能补偿误译。</p><p>真值依据原有方言原文与普通话译文；来源字段有差异时接受来源支持的不同表述。裁判只核对文本含义，不凭另一模型听写来创造真值。</p><p>字幕每条最多2行，每行22个非空白字符，阅读速度不超过每秒9字；边界容差0.25秒。程序检查SRT、映射、MKV、原音视频流和内嵌字幕一致性。</p><p>正常联网，允许安装工具、下载本地感知模型及查询通用语言知识；不反查本题原片对应答案，不用其他通用对话或Omni云端API代答。</p><div class="toolbar"><a href="files/TASK.txt">完整题面</a><a href="files/rubric.json">评分规则</a></div></details>
+</section>
+
+<section><h2 id="results">二、运行结果</h2><div class="table-wrap"><table><thead><tr><th>模型</th><th>推理强度</th><th>总分</th><th>语义 /90</th><th>组织 /5</th><th>交付 /5</th><th>耗时</th></tr></thead><tbody id="scores"></tbody></table></div><p class="note" id="run-note"></p>
+<details class="card"><summary>各方言表现与逐句判定</summary><div class="table-wrap"><table><thead><tr><th>方言</th><th>片段数</th><th>语义F1</th></tr></thead><tbody id="dialect-scores"></tbody></table></div><p class="note">这里的F1衡量句意命题的保留程度，不是逐字识别准确率。每句的来源译文、模型字幕和裁判理由可在下方预览中查看。</p></details>
+<h3>实际字幕预览</h3><div class="toolbar"><label for="output-clip">片段</label><select id="output-clip"></select><label class="check"><input id="caption-switch" type="checkbox" checked> 显示模型字幕</label><a href="zh-CN.srt" download>下载SRT</a></div>
+<div class="compare"><div class="card media-card"><div class="video-frame" id="video-frame"><video id="output-video" controls playsinline preload="metadata"></video><div id="subtitle-overlay" class="subtitle-overlay" aria-label="模型字幕" hidden></div><button id="close-expanded" type="button" hidden>关闭放大</button></div><div class="toolbar"><button id="preview-enlarge" type="button">放大预览</button></div><p class="note">预览在源站原片上叠加模型提交的字幕，文字不改写；按片段起点换算时间。MKV原交付的完整性见<a href="files/delivery-receipt.json">文件与校验记录</a>。</p></div><div class="card"><h3 id="clip-title"></h3><div id="candidate-text" class="quote"></div><div id="cue-links" class="toolbar"></div><p id="clip-score" class="note"></p><details id="reference"><summary>对照来源与逐命题评分</summary><p id="reference-text"></p><div id="atom-votes"></div><p id="uncertainty" class="note"></p><p><a id="source-page" target="_blank" rel="noopener">来源调查点 ↗</a></p></details></div></div>
+</section>
+
+<section><h2 id="traces">三、运行轨迹</h2><div class="card"><p id="trace-overview"></p><p id="trace-tools" class="note"></p><div class="toolbar"><a href="traces.html">过程总结</a><a href="traces.html?view=key">关键步骤</a><a href="traces.html?view=all">全部记录</a></div></div><p class="note">这是Agent使用本地感知工具的端到端结果，不能当作Sol原生音频识别成绩。轨迹保留可见操作与工具反馈，不包含隐藏推理。</p></section>
+
+<section><h2 id="analysis">四、失败分析</h2><div id="analysis-items"></div><details class="card"><summary>全部片段的模型字幕与来源译文</summary><div class="table-wrap"><table><thead><tr><th>片段</th><th>模型字幕</th><th>来源译文</th><th>语义F1</th></tr></thead><tbody id="all-segments"></tbody></table></div></details></section>
+<footer><h3>文件与来源</h3><div class="toolbar"><a href="files/subtitle-delivery.zip">字幕、映射与校验包</a><a href="files/score.json">完整评分</a><a href="files/scoring-controls.json">评分校验</a><a href="files/technical.json">技术检查</a><a href="files/case.json">案例数据</a><a href="files/NOTICE.txt">来源与权利说明</a></div><p class="note">原音视频：中国语言资源保护工程采录展示平台。公开元数据与研究：<a href="https://github.com/kalvinchang/yubao">YuBao</a>、<a href="https://arxiv.org/abs/2601.07274">Towards Comprehensive Semantic Speech Embeddings for Chinese Dialects</a>。原音视频权利归原权利人，本页引用源站媒体。</p></footer>
+</main><script src="case.js"></script></body></html>

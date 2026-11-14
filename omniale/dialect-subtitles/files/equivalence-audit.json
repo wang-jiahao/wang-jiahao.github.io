@@ -1,0 +1,61 @@
+{
+  "type": "Source/equivalence review of the original text judgment; no new judge call, no audiovisual relabeling.",
+  "judge_calls_added": 0,
+  "changes": [
+    {
+      "segment_id": "S006",
+      "atom_id": "A01",
+      "before": {
+        "atom_id": "A01",
+        "credit": 0.5,
+        "candidate_quote": "和小强一起去电影院\n看《刘三姐》。",
+        "reason": "保留了一起去电影院看《刘三姐》，但没有表达叫小强一起去。"
+      },
+      "after": {
+        "atom_id": "A01",
+        "credit": 1,
+        "candidate_quote": "和小强一起去电影院\n看《刘三姐》。",
+        "reason": "自然祈使表达“和小强一起去电影院看《刘三姐》”已保留同行提议、人物、地点和片名；按接受自然改写的既有规则，不要求额外出现“叫”字。"
+      },
+      "direction": "upward_only"
+    },
+    {
+      "segment_id": "S008",
+      "atom_id": "A01",
+      "before": {
+        "atom_id": "A01",
+        "credit": 0.5,
+        "candidate_quote": "他们的教室装了空调。",
+        "reason": "表达了教室已经装空调，但没有说明安装者是他们。"
+      },
+      "after": {
+        "atom_id": "A01",
+        "credit": 1,
+        "candidate_quote": "他们的教室装了空调。",
+        "reason": "来源方言原文为“渠啲教室装哂空调呃窝”，支持“他们的教室”这一领属读法；原字段与规范译文的施事/领属差异不能用来扣分。候选保留他们、教室和装好空调的状态，按来源歧义从宽接受。"
+      },
+      "direction": "upward_only"
+    },
+    {
+      "segment_id": "S018",
+      "atom_id": "A02",
+      "before": {
+        "atom_id": "A02",
+        "credit": 0,
+        "candidate_quote": "",
+        "reason": "只说还要继续，没有可确认的继续写作内容。"
+      },
+      "after": {
+        "atom_id": "A02",
+        "credit": 0.5,
+        "candidate_quote": "还要继续。",
+        "reason": "候选“还要继续”保留继续此前行为的必要性，但未确认具体是写作；按实质内容正确而缺失论元可得0.5的既有规则给部分分，不判为完全未表达。"
+      },
+      "direction": "upward_only"
+    }
+  ],
+  "original_result_sha256": "62f205f71d0d0413e0e4d3fb6c0b4aa5e54ae49d420ca0b00c5d07d5dd3fda8d",
+  "adopted_at": "2026-11-15T04:21:42.732720+08:00",
+  "rubric_weights_and_formula_unchanged": true,
+  "no_downward_corrections": true
+}
