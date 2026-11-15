@@ -1,0 +1,129 @@
+{
+  "music_reviews": [
+    {
+      "source_id": "clip_01",
+      "decision": "pass",
+      "intervals": [
+        {"start_s": 0.0, "end_s": 5.0}
+      ],
+      "finding": "可见主唱/吉他手在0–2.68s对麦克风口播，约2.6–2.8s俯身进入低电平吉他段；口型、身体转换和拨弦动作与声音起停对应，按同步质量放行。",
+      "audio_evidence": "0.00–2.68s男声清晰说 'And we love you very much, and thank you, Lollapalooza.'；约2.68s后电吉他进入，电平明显降低但音色和节奏连续。",
+      "visual_evidence": "固定机位。0–2.6s吉他手面向麦克风，嘴部持续开合；约2.6–2.8s俯身，右手继续拨弦、左手换和弦；2.7–5.0s保持演奏。",
+      "reason": "讲话有可见口型对应；语音到吉他的切换与画面俯身/起奏同时发生，低电平是动态/混音变化而非同步断裂。2.7–3.8s弦区/手部ROI运动与音频起音通量的近零延迟相关约r=0.48（+42ms），支持该段仍是同一可见演奏，而不是仅凭同类乐器默认通过。"
+    },
+    {
+      "source_id": "clip_02",
+      "decision": "pass",
+      "intervals": [
+        {"start_s": 0.0, "end_s": 5.08}
+      ],
+      "finding": "0–5.08s连续爵士铜管合奏；前景小号手持续贴唇吹奏、手指在阀键上起落，后景萨克斯/小号保持合奏姿态，主声音与可见合奏一致。",
+      "audio_evidence": "0.00–5.08s连续爵士铜管合奏，无口播；小号和萨克斯声部持续。",
+      "visual_evidence": "固定机位中景。前景小号手全程嘴贴号嘴、手指在阀键上起落；后景其他小号手和萨克斯手保持合奏姿态。",
+      "reason": "前景小号是主要可见表演，嘴部接触和阀键动作持续；合奏中的其他声部可在画外/后景，不要求每个音符对应一次可见大动作。"
+    },
+    {
+      "source_id": "clip_03",
+      "decision": "pass",
+      "intervals": [
+        {"start_s": 1.06, "end_s": 4.44}
+      ],
+      "finding": "1.06–4.44s男声口播 'Are you ready for this? First sound.' 与可见口型对应；琴弓持续运动，语音结束后进入示范性演奏，整体同步可放行。",
+      "audio_evidence": "1.06–1.86 'Are'；1.86–2.12 'you'；2.12–2.34 'ready'；2.34–2.64 'for'；2.64–3.04 'this?'；3.36–3.84 'First'；3.84–4.44 'sound.'；背景有持续弦乐。",
+      "visual_evidence": "固定中景。1.3–2.7s和3.3–4.0s嘴部明显张开；琴弓在琴弦上持续小幅运动，未见停弓。",
+      "reason": "两个语句的开合窗口与口型对应，琴弓持续动作可解释为示范；材料允许音乐表演中的简短讲话，关键是可见发声已核对。"
+    },
+    {
+      "source_id": "clip_04",
+      "decision": "pass",
+      "intervals": [
+        {"start_s": 0.0, "end_s": 6.11}
+      ],
+      "finding": "0–6.11s连续小号独奏；嘴始终贴号嘴，右手三指在阀键上反复起落；音频为连续小号，音高/起停与阀键运动总体对应。",
+      "audio_evidence": "0.00–6.11s连续小号演奏，无口播；基频约391–600Hz，音符起停清晰。",
+      "visual_evidence": "固定近景。嘴部全程贴号嘴；右手三指在阀键上持续抬落，约0.5s、1.0s、2.5s、3.0s、4.0s、5.0s可见指位变化。",
+      "reason": "阀键/手部ROI运动与音频RMS最佳相关约-83ms（r≈0.53）；手指变化与音高变化的导数相关在+83ms附近约r≈0.44，处于视觉/编码容差内。持续贴唇和阀键运动支持真实小号演奏，不是仅凭同类乐器放行。"
+    },
+    {
+      "source_id": "clip_05",
+      "decision": "pass",
+      "intervals": [
+        {"start_s": 0.0, "end_s": 5.08}
+      ],
+      "finding": "0–2.52s男声口播，2.52–3.05s近静，3.05–5.08s钢琴乐句；画面从面向镜头说话转为转身落手键盘，时序对应。",
+      "audio_evidence": "0.00–0.72 'I don't know why.'；0.94–2.52 'There's like this openness to it.'；2.52–3.05近静；3.05–5.08钢琴乐句。",
+      "visual_evidence": "固定中景。0–2.0s面向镜头、嘴部随词句开合；约2.2s转身，双手落到键盘；3.0s后持续按键。",
+      "reason": "静默段正好对应转身准备，钢琴声只在手落到键盘后进入；讲话和演奏两个阶段都有可见对应，未发现停手后声音继续的冲突。"
+    },
+    {
+      "source_id": "clip_06",
+      "decision": "revise",
+      "intervals": [
+        {"start_s": 0.0, "end_s": 5.04}
+      ],
+      "finding": "0–5.04s实际主声音是连续男声旁白 'leading to the enviable death of such a loving character.'，画面却是固定广角音乐会观众席与远景钢琴家；无讲话者出镜，钢琴家仅十余像素高，无法核对手指/琴键接触。",
+      "audio_evidence": "0.00–5.00s连续男声旁白；Qwen audio-only与Whisper large均转写为 'leading to the enviable death of such a loving character.'，Whisper medium仅冠词略有差异（an/the）；背景有钢琴/低电平音乐。",
+      "visual_evidence": "0–5.04s固定广角。观众席剪影占前景，舞台中央钢琴家侧坐，人物仅约十余像素高；全段无讲话者出镜，钢琴家持续微动但无法辨认手指/琴键接触。",
+      "reason": "主声音是连续旁白且没有可见发声者；可见钢琴家过小，无法验证为钢琴声源。即使按纪录片式旁白+B-roll解释，也缺少画面提示，未建立实际声音与可见表演的清晰对应，因此判revise而非pass。"
+    },
+    {
+      "source_id": "clip_07",
+      "decision": "pass",
+      "intervals": [
+        {"start_s": 0.0, "end_s": 5.08}
+      ],
+      "finding": "0–1.84s男声教学口播 'Three blow, three on the four blow.'；3.3–3.7s短促口琴/吹吸声；画面从口琴横持胸前说话转为贴唇吹奏，时序对应。",
+      "audio_evidence": "0.00–1.84s男声说 'Three blow, three on the four blow.'；1.84–3.30s近静；3.30–3.70s短促口琴/气声。",
+      "visual_evidence": "固定近景。0–1.8s口琴横持胸前，嘴部说话；约2.2–2.8s抬手，2.8s后口琴贴唇；3.3–3.7s有吹吸/口琴动作。",
+      "reason": "讲解段口型与语句对应且口琴不在嘴前；短句在口琴贴唇后出现；末尾安静只是保持姿势，不是持续演奏却无声。"
+    },
+    {
+      "source_id": "clip_08",
+      "decision": "pass",
+      "intervals": [
+        {"start_s": 0.0, "end_s": 5.04}
+      ],
+      "finding": "0–5.04s女声连续演唱 'Incense, gold and myrrh...'；画面固定中景，女歌手持续张口/换口型；竖琴在侧，手部被琴体/画框遮挡，但主声部是演唱，不是必须可见的竖琴独奏。",
+      "audio_evidence": "0.00–5.04s女声连续演唱；可辨 'Incense, gold and myrrh come peasant and king to own him'（Whisper medium），无口播。",
+      "visual_evidence": "固定中景。女歌手全程面向镜头，嘴部明显开合，约1.4–2.2s、3.2–4.0s、4.4–4.6s开口较大；左侧竖琴可见，手部大部分被琴体/画框遮挡。",
+      "reason": "主声音是女声独唱，歌手口型持续活动；竖琴是次要伴奏，手部遮挡不构成同步冲突，也未出现可见停唱而声音继续。"
+    }
+  ],
+  "checks": [
+    {
+      "id": "G01",
+      "source_id": "mv_apt",
+      "dimension": "subtitle",
+      "decision": "revise",
+      "intervals": [
+        {"start_s": 0.5, "end_s": 4.0},
+        {"start_s": 45.5, "end_s": 52.0},
+        {"start_s": 61.0, "end_s": 66.0},
+        {"start_s": 142.0, "end_s": 150.0},
+        {"start_s": 156.0, "end_s": 167.0}
+      ],
+      "finding": "烧录英文字幕/歌词多处误转写、漏词、错误词和语言跳变：同一字幕轨在0.5–4.0s把实际开场唱词写成 'tenya Joan lindum game' / 'lindum game game start'；45.5–52.0s把 'apateu' 写成 'AAPACA'；61–66s把 'apateu' 写成 'appetite' 并漏掉 'dance'；142s给 'meet me at the' 加上 'top'；156–167s连续显示 'I'm upset...' 并出现中文字幕 '啊啊哈哈'。",
+      "audio_evidence": "0.00–6.68s实际开场为 'Random game, random game, game start!'（Whisper medium）；62.5–65.5s实际歌词为 'Turn this apateu into a club' 和 'I'm talking drink, dance, smoke, freak, party all night'；142.14s前实际乐句为 'all you gotta do is just meet me at the'，随后进入短hook，无 'top'；154.9–166.1s实际为重复的 'Ah, that's it' / 'apateu' hook，不是 'I'm upset'。",
+      "visual_evidence": "0.5s字幕 'tenya Joan lindum game'，2.0s仍为同句，4.0s字幕 'lindum game game start'；50.0s字幕连续 'AAPACA AAPACA ...'；62.5–63.5s字幕 'turn this appetite into a club'；65.5s字幕 'i'm talking drink then smoke freak party all night'；142.0s字幕 'all you gotta do is just meet me at the top'；156.0s字幕连续 'i'm upset i'm upset ...'；162–166s画面出现朝鲜文样式霓虹字，166.0s字幕为 '啊啊哈哈'。",
+      "reason": "字幕是观众阅读的主要文本，不是装饰；这些错误改变词义、漏掉歌词并在后半切换到中文，已超出个别错字。它们来自同一字幕轨的ASR/歌词映射根因，按同根缺陷合并为一项，不拆成逐行问题；显示时间大致跟随歌曲，主要问题是文本内容而非整轨时间错位。",
+      "priority": "major",
+      "suggestion": "用实际音轨重新转写并人工校对全片歌词，保留现有时间轴；统一语言和字体，重新烧录字幕。不要逐行打补丁，先修正整条字幕轨的转写/映射。"
+    },
+    {
+      "id": "G02",
+      "source_id": "mv_rickroll",
+      "dimension": "visual_text",
+      "decision": "revise",
+      "intervals": [
+        {"start_s": 54.8, "end_s": 56.0}
+      ],
+      "finding": "54.8–56.0s近景信件的正文是无词形伪文字/乱码：镜头在女主人公手持信纸的情绪近景上停留，但信纸上的连笔字无法读出任何英文单词。",
+      "audio_evidence": "",
+      "visual_evidence": "54.8s与55.2s连续帧中，信纸占据画面下三分之一，正文为连笔但不可读的伪文字；55.8s仍为同类乱码，镜头未切走。",
+      "reason": "信件是这段情绪戏的核心道具，观众会自然尝试阅读；不可读的伪文字破坏道具可信度，也没有提供任何可理解的信息。它是局部生成文字问题，不影响整段剪辑，因此定为minor。",
+      "priority": "minor",
+      "suggestion": "把信件正文替换为可读的英文手写短句，或改成空白纸/刻意抽象化的纸张纹理；保留现有机位、表演和时长。"
+    }
+  ],
+  "uncertain_observations": []
+}

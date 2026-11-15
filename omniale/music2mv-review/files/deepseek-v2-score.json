@@ -1,0 +1,579 @@
+{
+  "score": 56.71511994949496,
+  "policy": "grounded-review-v2; 35 expert decision Macro-F1 + 15 grounded music evidence + 50 common-inventory general quality F1; median of three independent ballots",
+  "decision": {
+    "gold_count": 8,
+    "matched_count": 5,
+    "precision": 0.7857142857142857,
+    "recall": 0.625,
+    "f1": 0.5636363636363637,
+    "score_out_of_50": 28.181818181818187,
+    "classes": {
+      "pass": {
+        "tp": 4,
+        "fp": 3,
+        "fn": 0,
+        "precision": 0.5714285714285714,
+        "recall": 1.0,
+        "f1": 0.7272727272727273
+      },
+      "revise": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 3,
+        "precision": 1.0,
+        "recall": 0.25,
+        "f1": 0.4
+      }
+    },
+    "items": [
+      {
+        "source_id": "clip_05",
+        "prediction": "pass",
+        "reference": "pass",
+        "correct": true,
+        "expert_mean": 2.0,
+        "n_labels": 3
+      },
+      {
+        "source_id": "clip_03",
+        "prediction": "pass",
+        "reference": "pass",
+        "correct": true,
+        "expert_mean": 1.6666666666666667,
+        "n_labels": 3
+      },
+      {
+        "source_id": "clip_08",
+        "prediction": "pass",
+        "reference": "pass",
+        "correct": true,
+        "expert_mean": 1.6666666666666667,
+        "n_labels": 3
+      },
+      {
+        "source_id": "clip_02",
+        "prediction": "pass",
+        "reference": "revise",
+        "correct": false,
+        "expert_mean": 0.6666666666666666,
+        "n_labels": 3
+      },
+      {
+        "source_id": "clip_06",
+        "prediction": "revise",
+        "reference": "revise",
+        "correct": true,
+        "expert_mean": 0.3333333333333333,
+        "n_labels": 3
+      },
+      {
+        "source_id": "clip_07",
+        "prediction": "pass",
+        "reference": "pass",
+        "correct": true,
+        "expert_mean": 1.6666666666666667,
+        "n_labels": 3
+      },
+      {
+        "source_id": "clip_04",
+        "prediction": "pass",
+        "reference": "revise",
+        "correct": false,
+        "expert_mean": 0.3333333333333333,
+        "n_labels": 3
+      },
+      {
+        "source_id": "clip_01",
+        "prediction": "pass",
+        "reference": "revise",
+        "correct": false,
+        "expert_mean": 0.6666666666666666,
+        "n_labels": 3
+      }
+    ],
+    "conflicting_duplicate_ids": [],
+    "policy": "Macro-F1 of expert-supported pass/revise decisions; abstention counts as an incomplete decision"
+  },
+  "breakdown": {
+    "decision_out_of_35": 19.72727272727273,
+    "music_evidence": {
+      "score_out_of_15": 14.765625,
+      "candidate_count": 8,
+      "items": [
+        {
+          "source_id": "clip_01",
+          "grades": {
+            "audio": 1,
+            "visual": 1,
+            "localization": 1,
+            "relation": 1
+          },
+          "quality": 1.0,
+          "reason": "Video 20 confirms male vocalist/guitarist speaking 'And we love you very much, and thank you, Lollapalooza' into mic (0–2.68s) with visible lip movement, then transitioning to low-level guitar strumming (~2.7s onward) with right-hand picking and left-hand chord changes visible. The ROI correlation (+42ms, r≈0.48) supports that the guitar segment is genuinely the same visible performance, not a mismatched audio bed. All stages (speech→posture shift→playing) are accounted for."
+        },
+        {
+          "source_id": "clip_02",
+          "grades": {
+            "audio": 1,
+            "visual": 1,
+            "localization": 1,
+            "relation": 1
+          },
+          "quality": 1.0,
+          "reason": "Video 16 shows a jazz brass ensemble: foreground trumpet player maintains lip contact on mouthpiece with valve-finger articulation throughout 0–5.08s; background saxophone and trumpet players hold ensemble posture. Audio is continuous brass ensemble with no speech. The visible primary performer's embouchure and valve work directly produce the dominant trumpet line; other voices may be partially off-frame, which is acceptable for ensemble."
+        },
+        {
+          "source_id": "clip_03",
+          "grades": {
+            "audio": 1,
+            "visual": 1,
+            "localization": 1,
+            "relation": 1
+          },
+          "quality": 1.0,
+          "reason": "Video 14 shows violinist speaking 'Are you ready for this? First sound.' (1.06–4.44s) with clear mouth opening/closing windows matching word boundaries, while bow continues small oscillations on strings. After speech ends, he transitions into demonstrative playing. The interval 1.06–4.44s precisely captures the lip-sync-critical speech; the surrounding violin audio is continuous and visually supported by ongoing bow motion. No conflict between visible action and sound."
+        },
+        {
+          "source_id": "clip_04",
+          "grades": {
+            "audio": 1,
+            "visual": 1,
+            "localization": 1,
+            "relation": 1
+          },
+          "quality": 1.0,
+          "reason": "Video 19 shows a solo trumpeter in black suit under spotlight, lips sealed on mouthpiece for entire 0–6.11s, right-hand three fingers repeatedly depressing/releasing valves at ~0.5s, 1.0s, 2.5s, 3.0s, 4.0s, 5.0s intervals. Audio is continuous trumpet with clear note onsets/offsets. The ROI correlation (-83ms, r≈0.53) and pitch-derivative correlation (+83ms, r≈0.44) confirm valve movements drive the audible pitch changes within encoding tolerance. Full clip covered."
+        },
+        {
+          "source_id": "clip_05",
+          "grades": {
+            "audio": 1,
+            "visual": 1,
+            "localization": 1,
+            "relation": 1
+          },
+          "quality": 1.0,
+          "reason": "Video 13 shows man in grey shirt at upright piano: speaks 'I don't know why. There's like this openness to it.' (0–2.52s) facing camera with visible lip movement, then turns (~2.2s) in near-silence (2.52–3.05s), places hands on keys, and piano phrase begins (3.05–5.08s). The silence gap exactly corresponds to the physical turn/preparation; piano audio only enters after hands contact keys. Both speech and playing stages have verified visual anchors."
+        },
+        {
+          "source_id": "clip_06",
+          "grades": {
+            "audio": 1,
+            "visual": 1,
+            "localization": 1,
+            "relation": 0.5
+          },
+          "quality": 0.875,
+          "reason": "Video 17 is a fixed wide-angle concert hall shot: audience silhouettes fill foreground, a pianist sits on distant stage (~10-15 pixels tall). Audio is continuous male voiceover ('leading to the enviable death of such a loving character') with low-level piano beneath. The voiceover has NO visible speaker anywhere in frame. The pianist, while present, is too small to verify individual finger-key contacts or confirm as the piano sound source. Partial correspondence exists (pianist is visible and presumably playing), but the dominant audio event (voiceover) lacks any visual anchor, preventing full relation verification."
+        },
+        {
+          "source_id": "clip_07",
+          "grades": {
+            "audio": 1,
+            "visual": 1,
+            "localization": 1,
+            "relation": 1
+          },
+          "quality": 1.0,
+          "reason": "Video 18 shows man in flat cap: holds harmonica at chest level while speaking 'Three blow, three on the four blow.' (0–1.84s) with visible lip movement and harmonica clearly away from mouth; raises hand (~2.2–2.8s); harmonica contacts lips (~2.8s); short blow/breath sound occurs (3.3–3.7s) only after contact. The temporal sequence (speak→raise→contact→sound) is unambiguous. Silence after 3.7s corresponds to held posture without active blowing. Full clip 0–5.08s covered."
+        },
+        {
+          "source_id": "clip_08",
+          "grades": {
+            "audio": 1,
+            "visual": 1,
+            "localization": 1,
+            "relation": 1
+          },
+          "quality": 1.0,
+          "reason": "Video 15 shows blonde woman in purple top singing 'Incense, gold and myrrh, come peasant and king to own him' continuously 0–5.04s with clear mouth opening/closing patterns (larger openings at ~1.4–2.2s, 3.2–4.0s, 4.4–4.6s matching vowel/consonant transitions). Harp is visible to her left but hands are occluded by harp body/frame. The primary audio is vocal, fully verifiable via lip sync; harp is secondary accompaniment whose occlusion does not create a sync conflict. No instance of visible singing cessation with continuing audio."
+        }
+      ],
+      "policy": "Four grounded evidence criteria averaged per candidate; no automatic penalty for expert-decision disagreement"
+    },
+    "general": {
+      "gold_count": 7,
+      "matched_count": 2,
+      "matched_quality": 2.0,
+      "novel_count": 0,
+      "novel_quality": 0.0,
+      "unsupported_count": 0,
+      "uncertain_count": 0,
+      "duplicate_count": 0,
+      "precision": 1.0,
+      "recall": 0.2857142857142857,
+      "f1": 0.4444444444444445,
+      "score_out_of_50": 22.222222222222225,
+      "policy": "All source-verified valid discoveries enter the same fixed public recall inventory; independent false claims reduce precision"
+    },
+    "music_total_out_of_50": 34.492897727272734
+  },
+  "adopted_voter_id": "C",
+  "individual_judge_results": [
+    {
+      "voter_id": "A",
+      "score": 56.48074494949496,
+      "breakdown": {
+        "decision_out_of_35": 19.72727272727273,
+        "music_evidence": {
+          "score_out_of_15": 14.53125,
+          "candidate_count": 8,
+          "items": [
+            {
+              "source_id": "clip_01",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "帧证据支持：开头数帧吉他手面向麦克风、嘴部持续开合对应男声口播，随后俯身、右手拨弦左手换和弦对应低电平吉他进入；口播到演奏的切换与身体转换同窗，未出现停手后声音继续的反证。0–5.0s落在源段内。"
+            },
+            {
+              "source_id": "clip_02",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "前景小号手全程唇贴号嘴、手指在阀键起落，与连续爵士铜管合奏一致；后景萨克斯/小号保持合奏姿态，合奏声部不必逐音出镜。0–5.08s在源段5.084s内。"
+            },
+            {
+              "source_id": "clip_03",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "两句话语窗口内嘴部明显张开，琴弓在弦上持续小幅运动可解释为示范演奏；语音结束转入弦乐，未见停弓后声音继续。1.06–4.44s在源段内。"
+            },
+            {
+              "source_id": "clip_04",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "近景中嘴始终贴号嘴、右手三指在阀键反复抬落，与连续小号独奏的音符起停总体对应，非仅凭同类乐器放行。0–6.11s在源段6.114s内。"
+            },
+            {
+              "source_id": "clip_05",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "面向镜头说话时嘴部随词句开合，约2.2s转身落手键盘，静默窗正好对应转身准备，钢琴声仅在手上键盘后进入；讲话与演奏两阶段均有可见对应。0–5.08s在源段内。"
+            },
+            {
+              "source_id": "clip_06",
+              "grades": {
+                "audio": 1,
+                "visual": 0.5,
+                "localization": 1,
+                "relation": 0.5
+              },
+              "quality": 0.75,
+              "reason": "主声音为连续男声旁白，但全段无讲话者出镜；舞台钢琴家仅十余像素高，无法核对指/键接触以验证其为声源，故视觉仅部分支撑。旁白与可见表演未建立清晰对应，缺决定性发声者阶段。0–5.04s在源段内。"
+            },
+            {
+              "source_id": "clip_07",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "讲解段口琴横持胸前、嘴部说话对应男声口播；约2.8s后口琴贴唇才出现短促吹吸声，末尾安静仅保持姿势而非持续演奏无声。0–5.08s在源段内。"
+            },
+            {
+              "source_id": "clip_08",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "主声音为女声连续演唱，歌手全程面向镜头、嘴部明显开合换口型；竖琴为次要伴奏且手部被琴体/画框遮挡，不构成同步冲突，未见停唱后声音继续。0–5.04s在源段内。"
+            }
+          ],
+          "policy": "Four grounded evidence criteria averaged per candidate; no automatic penalty for expert-decision disagreement"
+        },
+        "general": {
+          "gold_count": 7,
+          "matched_count": 2,
+          "matched_quality": 2.0,
+          "novel_count": 0,
+          "novel_quality": 0.0,
+          "unsupported_count": 0,
+          "uncertain_count": 0,
+          "duplicate_count": 0,
+          "precision": 1.0,
+          "recall": 0.2857142857142857,
+          "f1": 0.4444444444444445,
+          "score_out_of_50": 22.222222222222225,
+          "policy": "All source-verified valid discoveries enter the same fixed public recall inventory; independent false claims reduce precision"
+        },
+        "music_total_out_of_50": 34.258522727272734
+      }
+    },
+    {
+      "voter_id": "B",
+      "score": 56.94949494949496,
+      "breakdown": {
+        "decision_out_of_35": 19.72727272727273,
+        "music_evidence": {
+          "score_out_of_15": 15.0,
+          "candidate_count": 8,
+          "items": [
+            {
+              "source_id": "clip_01",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频具体引用了口播内容'And we love you very much, and thank you, Lollapalooza.'及2.68s后电吉他进入；画面逐帧记录嘴部开合(0-2.6s)、俯身转换(2.6-2.8s)、右手拨弦左手换和弦(2.7-5.0s)；区间0-5.0s覆盖全片；语音→口型、吉他→拨弦动作两阶段均有具体对应，低电平变化被正确解释为混音而非同步断裂。"
+            },
+            {
+              "source_id": "clip_02",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频为0-5.08s连续爵士铜管合奏，无口播；画面前景小号手全程嘴贴号嘴、手指在阀键起落，后景萨克斯/小号保持合奏姿态；区间覆盖全片；合奏声与多人可见演奏动作一致，不要求每音符对应单独大动作，证据充分。"
+            },
+            {
+              "source_id": "clip_03",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频逐词标注'Are'(1.06-1.86s)至'sound'(3.84-4.44s)及背景弦乐；画面1.3-2.7s与3.3-4.0s嘴部明显张开对应两句话，琴弓持续小幅运动；区间1.06-4.44s精准覆盖口播段；讲话口型与示范性演奏两个阶段均有可见对应。"
+            },
+            {
+              "source_id": "clip_04",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频为0-6.11s连续小号独奏，标注基频391-600Hz及音符起停；画面嘴部全程贴号嘴，右手三指在0.5/1.0/2.5/3.0/4.0/5.0s可见阀键抬落；区间覆盖全片；提供ROI运动与音频RMS相关系数(r≈0.53)及手指-音高导数相关(+83ms,r≈0.44)，具体联结持续。"
+            },
+            {
+              "source_id": "clip_05",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频分段标注口播(0-2.52s)、近静(2.52-3.05s)、钢琴(3.05-5.08s)；画面0-2s面向镜头嘴部开合、2.2s转身、3s后双手按键；区间覆盖全片；静默对应转身准备、钢琴仅在落手后进入，三阶段时序完全吻合。"
+            },
+            {
+              "source_id": "clip_06",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频具体引用旁白内容'leading to the enviable death of such a loving character.'并标注多模型转写一致性；画面准确描述固定广角、观众席剪影、钢琴家仅十余像素高、无讲话者出镜；区间0-5.04s覆盖全片；关系分析具体论证了为何无法建立声音与可见表演的对应（旁白无源、钢琴家不可验证），证据质量完整支撑revise判定。"
+            },
+            {
+              "source_id": "clip_07",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频标注口播(0-1.84s)、近静(1.84-3.30s)、短促口琴气声(3.30-3.70s)；画面0-1.8s口琴横持胸前嘴部说话、2.2-2.8s抬手、2.8s后贴唇、3.3-3.7s吹吸动作；区间覆盖全片；讲解时口琴离嘴、演奏时贴唇，时序对应明确。"
+            },
+            {
+              "source_id": "clip_08",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频为0-5.04s女声连续演唱，引用可辨歌词'Incense, gold and myrrh come peasant and king to own him'；画面女歌手全程面向镜头、嘴部在1.4-2.2s/3.2-4.0s/4.4-4.6s明显开合；区间覆盖全片；主声部为演唱且口型持续活动，竖琴手部遮挡被合理处理为次要伴奏不构成冲突。"
+            }
+          ],
+          "policy": "Four grounded evidence criteria averaged per candidate; no automatic penalty for expert-decision disagreement"
+        },
+        "general": {
+          "gold_count": 7,
+          "matched_count": 2,
+          "matched_quality": 2.0,
+          "novel_count": 0,
+          "novel_quality": 0.0,
+          "unsupported_count": 0,
+          "uncertain_count": 0,
+          "duplicate_count": 0,
+          "precision": 1.0,
+          "recall": 0.2857142857142857,
+          "f1": 0.4444444444444445,
+          "score_out_of_50": 22.222222222222225,
+          "policy": "All source-verified valid discoveries enter the same fixed public recall inventory; independent false claims reduce precision"
+        },
+        "music_total_out_of_50": 34.727272727272734
+      }
+    },
+    {
+      "voter_id": "C",
+      "score": 56.71511994949496,
+      "breakdown": {
+        "decision_out_of_35": 19.72727272727273,
+        "music_evidence": {
+          "score_out_of_15": 14.765625,
+          "candidate_count": 8,
+          "items": [
+            {
+              "source_id": "clip_01",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "Video 20 confirms male vocalist/guitarist speaking 'And we love you very much, and thank you, Lollapalooza' into mic (0–2.68s) with visible lip movement, then transitioning to low-level guitar strumming (~2.7s onward) with right-hand picking and left-hand chord changes visible. The ROI correlation (+42ms, r≈0.48) supports that the guitar segment is genuinely the same visible performance, not a mismatched audio bed. All stages (speech→posture shift→playing) are accounted for."
+            },
+            {
+              "source_id": "clip_02",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "Video 16 shows a jazz brass ensemble: foreground trumpet player maintains lip contact on mouthpiece with valve-finger articulation throughout 0–5.08s; background saxophone and trumpet players hold ensemble posture. Audio is continuous brass ensemble with no speech. The visible primary performer's embouchure and valve work directly produce the dominant trumpet line; other voices may be partially off-frame, which is acceptable for ensemble."
+            },
+            {
+              "source_id": "clip_03",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "Video 14 shows violinist speaking 'Are you ready for this? First sound.' (1.06–4.44s) with clear mouth opening/closing windows matching word boundaries, while bow continues small oscillations on strings. After speech ends, he transitions into demonstrative playing. The interval 1.06–4.44s precisely captures the lip-sync-critical speech; the surrounding violin audio is continuous and visually supported by ongoing bow motion. No conflict between visible action and sound."
+            },
+            {
+              "source_id": "clip_04",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "Video 19 shows a solo trumpeter in black suit under spotlight, lips sealed on mouthpiece for entire 0–6.11s, right-hand three fingers repeatedly depressing/releasing valves at ~0.5s, 1.0s, 2.5s, 3.0s, 4.0s, 5.0s intervals. Audio is continuous trumpet with clear note onsets/offsets. The ROI correlation (-83ms, r≈0.53) and pitch-derivative correlation (+83ms, r≈0.44) confirm valve movements drive the audible pitch changes within encoding tolerance. Full clip covered."
+            },
+            {
+              "source_id": "clip_05",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "Video 13 shows man in grey shirt at upright piano: speaks 'I don't know why. There's like this openness to it.' (0–2.52s) facing camera with visible lip movement, then turns (~2.2s) in near-silence (2.52–3.05s), places hands on keys, and piano phrase begins (3.05–5.08s). The silence gap exactly corresponds to the physical turn/preparation; piano audio only enters after hands contact keys. Both speech and playing stages have verified visual anchors."
+            },
+            {
+              "source_id": "clip_06",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 0.5
+              },
+              "quality": 0.875,
+              "reason": "Video 17 is a fixed wide-angle concert hall shot: audience silhouettes fill foreground, a pianist sits on distant stage (~10-15 pixels tall). Audio is continuous male voiceover ('leading to the enviable death of such a loving character') with low-level piano beneath. The voiceover has NO visible speaker anywhere in frame. The pianist, while present, is too small to verify individual finger-key contacts or confirm as the piano sound source. Partial correspondence exists (pianist is visible and presumably playing), but the dominant audio event (voiceover) lacks any visual anchor, preventing full relation verification."
+            },
+            {
+              "source_id": "clip_07",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "Video 18 shows man in flat cap: holds harmonica at chest level while speaking 'Three blow, three on the four blow.' (0–1.84s) with visible lip movement and harmonica clearly away from mouth; raises hand (~2.2–2.8s); harmonica contacts lips (~2.8s); short blow/breath sound occurs (3.3–3.7s) only after contact. The temporal sequence (speak→raise→contact→sound) is unambiguous. Silence after 3.7s corresponds to held posture without active blowing. Full clip 0–5.08s covered."
+            },
+            {
+              "source_id": "clip_08",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "Video 15 shows blonde woman in purple top singing 'Incense, gold and myrrh, come peasant and king to own him' continuously 0–5.04s with clear mouth opening/closing patterns (larger openings at ~1.4–2.2s, 3.2–4.0s, 4.4–4.6s matching vowel/consonant transitions). Harp is visible to her left but hands are occluded by harp body/frame. The primary audio is vocal, fully verifiable via lip sync; harp is secondary accompaniment whose occlusion does not create a sync conflict. No instance of visible singing cessation with continuing audio."
+            }
+          ],
+          "policy": "Four grounded evidence criteria averaged per candidate; no automatic penalty for expert-decision disagreement"
+        },
+        "general": {
+          "gold_count": 7,
+          "matched_count": 2,
+          "matched_quality": 2.0,
+          "novel_count": 0,
+          "novel_quality": 0.0,
+          "unsupported_count": 0,
+          "uncertain_count": 0,
+          "duplicate_count": 0,
+          "precision": 1.0,
+          "recall": 0.2857142857142857,
+          "f1": 0.4444444444444445,
+          "score_out_of_50": 22.222222222222225,
+          "policy": "All source-verified valid discoveries enter the same fixed public recall inventory; independent false claims reduce precision"
+        },
+        "music_total_out_of_50": 34.492897727272734
+      }
+    }
+  ],
+  "valid_solver_runs": 1,
+  "posthoc_rubric_revision": true,
+  "model": "deepseek-v4.1-flash-1017",
+  "requested_effort": "max",
+  "actual_model": "deepseek-v4.1-flash-1017",
+  "actual_effort": "max",
+  "material_version": "pilot-v5-music",
+  "run_tag": "deepseek_max_r01_20261115",
+  "elapsed_seconds": 6368.719,
+  "reference_count": 7
+}

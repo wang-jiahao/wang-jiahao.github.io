@@ -1,463 +1,461 @@
 {
-  "score": 65.0,
-  "policy": "expert-release-v1; 50 expert music Macro-F1 + 50 grounded general quality F1; median of three general-review totals",
-  "adopted_voter_id": "A",
-  "breakdown": {
-    "music": {
-      "gold_count": 8,
-      "matched_count": 4,
-      "precision": 0.5,
-      "recall": 0.5,
-      "f1": 0.5,
-      "score_out_of_50": 25.0,
-      "classes": {
-        "pass": {
-          "tp": 2,
-          "fp": 2,
-          "fn": 2,
-          "precision": 0.5,
-          "recall": 0.5,
-          "f1": 0.5
+  "score": 77.48197115384616,
+  "policy": "grounded-review-v2",
+  "models": [
+    {
+      "id": "sol",
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "score": 77.48197115384616,
+      "old_score": 65.0,
+      "elapsed_seconds": 2308.797,
+      "exit_code": 0,
+      "review_url": "deliveries/sol/review.json",
+      "report_url": "deliveries/sol/report.html",
+      "zip_url": "files/sol-output.zip",
+      "result_url": "files/sol-v2-score.json",
+      "trace_url": "traces.html?model=sol",
+      "breakdown": {
+        "decision_out_of_35": 17.5,
+        "music_evidence": {
+          "score_out_of_15": 13.828125,
+          "candidate_count": 8,
+          "items": [
+            {
+              "source_id": "clip_01",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频正确识别男性讲话'and we love you very much and thank you Lollapalooza'及起止时间；画面帧0.5-2.5s可见嘴部随语句开合、2.6s后闭口低头，与收句动作一致；区间0-2.9s覆盖完整发声段；口型-语音对应关系明确，话筒遮挡不影响下颌与句末动作判断。"
+            },
+            {
+              "source_id": "clip_02",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频正确描述明亮管乐旋律、长短音交替及约4s后密集短音变化；画面前景银色小号演奏者持续含住吹嘴，0-0.7s/1.7-2.6s/4-5s可见手指分组抬落与乐句密度对应；区间覆盖主要发声段；合奏中混合声部不要求逐一分配，未见停吹而声部继续的反证。"
+            },
+            {
+              "source_id": "clip_03",
+              "grades": {
+                "audio": 1,
+                "visual": 0,
+                "localization": 1,
+                "relation": 0
+              },
+              "quality": 0.5,
+              "reason": "音频正确识别'Are you ready for this?'和'First sound'两句讲话；但画面帧1.5s/2.5s/3.5s清楚显示男子嘴部张开、呈说话构音状态，交付称'嘴唇基本合拢、面部没有两句讲话的构音'与连续帧矛盾，主要视觉事实被反证；区间时间正确但关系论证建立在错误的视觉前提上。"
+            },
+            {
+              "source_id": "clip_04",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 0.5
+              },
+              "quality": 0.875,
+              "reason": "音频正确描述单线管乐旋律、1.24s起音后长音延续及2.73/3.60/4.12/4.76/5.19s新起音；画面持续贴嘴吹奏、阀上方手指反复活动均有据；但长音期间小幅换指可能是半阀或姿态调整等正常技法，交付未充分排除这一解释即判定不同步，关系论证有局部对应但漏决定性阶段。"
+            },
+            {
+              "source_id": "clip_05",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频正确定位讲话0-2.03s、静默段、首琴音约3.04s及3.49s强起音；画面帧2.5s双手已落键呈按压姿态、3.5s仍在键上但首音尚未发出，提前触键与延迟发声的时间差可核查；区间覆盖讲话与钢琴转换关键节点；关系论证具体指出落键先于发声的错位。"
+            },
+            {
+              "source_id": "clip_06",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频正确识别男性英语讲话'Leading to the enviable death of such a loving character'为主要声部；画面为观众席远景，钢琴手嘴部与琴键细节不可辨，右侧站立者未见对应发声；交付如实说明远景限制并指出主要音轨与画面演奏无可见同步关系；区间覆盖全段；关系判断基于音画内容不匹配而非单纯分辨率不足。"
+            },
+            {
+              "source_id": "clip_07",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频正确定位讲话0-1.8s、静默1.8-3.3s、口琴音3.34-3.79s；画面帧0.5-1.5s嘴型随词语开合、2.5s举琴至嘴边、3.5s琴体贴口吹奏，事件链'讲话→准备→发声'清晰；区间覆盖三个阶段；举琴早于起音属正常准备，不构成不同步反证。"
+            },
+            {
+              "source_id": "clip_08",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频正确识别女声唱'incense, gold and myrrh / come peasant and king to own him'及gold/myrrh/own等长元音；画面帧0.5-4.5s口形随元音变化（圆唇、横展），无不合时长闭口；区间覆盖完整乐句；旁边竖琴未演奏不要求伴奏触弦，主要句法与元音时序对应充分。"
+            }
+          ],
+          "policy": "Four grounded evidence criteria averaged per candidate; no automatic penalty for expert-decision disagreement"
         },
-        "revise": {
-          "tp": 2,
-          "fp": 2,
-          "fn": 2,
-          "precision": 0.5,
-          "recall": 0.5,
-          "f1": 0.5
-        }
+        "general": {
+          "gold_count": 7,
+          "matched_count": 6,
+          "matched_quality": 6.0,
+          "novel_count": 0,
+          "novel_quality": 0.0,
+          "unsupported_count": 0,
+          "uncertain_count": 0,
+          "duplicate_count": 0,
+          "precision": 1.0,
+          "recall": 0.8571428571428571,
+          "f1": 0.923076923076923,
+          "score_out_of_50": 46.15384615384615,
+          "policy": "All source-verified valid discoveries enter the same fixed public recall inventory; independent false claims reduce precision"
+        },
+        "music_total_out_of_50": 31.328125
       },
-      "items": [
-        {
-          "source_id": "clip_05",
-          "prediction": "revise",
-          "reference": "pass",
-          "correct": false,
-          "expert_mean": 2.0,
-          "n_labels": 3
-        },
-        {
-          "source_id": "clip_03",
-          "prediction": "revise",
-          "reference": "pass",
-          "correct": false,
-          "expert_mean": 1.6666666666666667,
-          "n_labels": 3
-        },
-        {
-          "source_id": "clip_08",
-          "prediction": "pass",
-          "reference": "pass",
-          "correct": true,
-          "expert_mean": 1.6666666666666667,
-          "n_labels": 3
-        },
-        {
-          "source_id": "clip_02",
-          "prediction": "pass",
-          "reference": "revise",
-          "correct": false,
-          "expert_mean": 0.6666666666666666,
-          "n_labels": 3
-        },
-        {
-          "source_id": "clip_06",
-          "prediction": "revise",
-          "reference": "revise",
-          "correct": true,
-          "expert_mean": 0.3333333333333333,
-          "n_labels": 3
-        },
-        {
-          "source_id": "clip_07",
-          "prediction": "pass",
-          "reference": "pass",
-          "correct": true,
-          "expert_mean": 1.6666666666666667,
-          "n_labels": 3
-        },
-        {
-          "source_id": "clip_04",
-          "prediction": "revise",
-          "reference": "revise",
-          "correct": true,
-          "expert_mean": 0.3333333333333333,
-          "n_labels": 3
-        },
-        {
-          "source_id": "clip_01",
-          "prediction": "pass",
-          "reference": "revise",
-          "correct": false,
-          "expert_mean": 0.6666666666666666,
-          "n_labels": 3
-        }
-      ],
-      "conflicting_duplicate_ids": [],
-      "policy": "Macro-F1 of expert-supported pass/revise decisions; abstention counts as an incomplete decision"
-    },
-    "general": {
-      "gold_count": 3,
-      "matched_count": 2,
-      "matched_quality": 2.0,
-      "novel_count": 4,
-      "novel_quality": 4.0,
-      "unsupported_count": 0,
-      "uncertain_count": 0,
-      "duplicate_count": 0,
-      "precision": 1.0,
-      "recall": 0.6666666666666666,
-      "f1": 0.8,
-      "score_out_of_50": 40.0
-    }
-  },
-  "individual_judge_results": [
-    {
-      "voter_id": "A",
-      "score": 65.0,
-      "breakdown": {
-        "music": {
-          "gold_count": 8,
-          "matched_count": 4,
-          "precision": 0.5,
-          "recall": 0.5,
-          "f1": 0.5,
-          "score_out_of_50": 25.0,
-          "classes": {
-            "pass": {
-              "tp": 2,
-              "fp": 2,
-              "fn": 2,
-              "precision": 0.5,
-              "recall": 0.5,
-              "f1": 0.5
-            },
-            "revise": {
-              "tp": 2,
-              "fp": 2,
-              "fn": 2,
-              "precision": 0.5,
-              "recall": 0.5,
-              "f1": 0.5
-            }
+      "decision": {
+        "gold_count": 8,
+        "matched_count": 4,
+        "precision": 0.5,
+        "recall": 0.5,
+        "f1": 0.5,
+        "score_out_of_50": 25.0,
+        "classes": {
+          "pass": {
+            "tp": 2,
+            "fp": 2,
+            "fn": 2,
+            "precision": 0.5,
+            "recall": 0.5,
+            "f1": 0.5
           },
+          "revise": {
+            "tp": 2,
+            "fp": 2,
+            "fn": 2,
+            "precision": 0.5,
+            "recall": 0.5,
+            "f1": 0.5
+          }
+        },
+        "items": [
+          {
+            "source_id": "clip_05",
+            "prediction": "revise",
+            "reference": "pass",
+            "correct": false,
+            "expert_mean": 2.0,
+            "n_labels": 3
+          },
+          {
+            "source_id": "clip_03",
+            "prediction": "revise",
+            "reference": "pass",
+            "correct": false,
+            "expert_mean": 1.6666666666666667,
+            "n_labels": 3
+          },
+          {
+            "source_id": "clip_08",
+            "prediction": "pass",
+            "reference": "pass",
+            "correct": true,
+            "expert_mean": 1.6666666666666667,
+            "n_labels": 3
+          },
+          {
+            "source_id": "clip_02",
+            "prediction": "pass",
+            "reference": "revise",
+            "correct": false,
+            "expert_mean": 0.6666666666666666,
+            "n_labels": 3
+          },
+          {
+            "source_id": "clip_06",
+            "prediction": "revise",
+            "reference": "revise",
+            "correct": true,
+            "expert_mean": 0.3333333333333333,
+            "n_labels": 3
+          },
+          {
+            "source_id": "clip_07",
+            "prediction": "pass",
+            "reference": "pass",
+            "correct": true,
+            "expert_mean": 1.6666666666666667,
+            "n_labels": 3
+          },
+          {
+            "source_id": "clip_04",
+            "prediction": "revise",
+            "reference": "revise",
+            "correct": true,
+            "expert_mean": 0.3333333333333333,
+            "n_labels": 3
+          },
+          {
+            "source_id": "clip_01",
+            "prediction": "pass",
+            "reference": "revise",
+            "correct": false,
+            "expert_mean": 0.6666666666666666,
+            "n_labels": 3
+          }
+        ],
+        "conflicting_duplicate_ids": [],
+        "policy": "Macro-F1 of expert-supported pass/revise decisions; abstention counts as an incomplete decision"
+      },
+      "judge_scores": [
+        78.65384615384616,
+        77.24759615384616,
+        77.48197115384616
+      ]
+    },
+    {
+      "id": "deepseek",
+      "model": "deepseek-v4.1-flash-1017",
+      "effort": "max",
+      "score": 56.71511994949496,
+      "old_score": 53.18181818181819,
+      "elapsed_seconds": 6368.719,
+      "exit_code": 0,
+      "review_url": "deliveries/deepseek/review.json",
+      "report_url": "deliveries/deepseek/report.html",
+      "zip_url": "files/deepseek-output.zip",
+      "result_url": "files/deepseek-v2-score.json",
+      "trace_url": "traces.html?model=deepseek",
+      "breakdown": {
+        "decision_out_of_35": 19.72727272727273,
+        "music_evidence": {
+          "score_out_of_15": 14.765625,
+          "candidate_count": 8,
           "items": [
             {
-              "source_id": "clip_05",
-              "prediction": "revise",
-              "reference": "pass",
-              "correct": false,
-              "expert_mean": 2.0,
-              "n_labels": 3
-            },
-            {
-              "source_id": "clip_03",
-              "prediction": "revise",
-              "reference": "pass",
-              "correct": false,
-              "expert_mean": 1.6666666666666667,
-              "n_labels": 3
-            },
-            {
-              "source_id": "clip_08",
-              "prediction": "pass",
-              "reference": "pass",
-              "correct": true,
-              "expert_mean": 1.6666666666666667,
-              "n_labels": 3
+              "source_id": "clip_01",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "Video 20 confirms male vocalist/guitarist speaking 'And we love you very much, and thank you, Lollapalooza' into mic (0–2.68s) with visible lip movement, then transitioning to low-level guitar strumming (~2.7s onward) with right-hand picking and left-hand chord changes visible. The ROI correlation (+42ms, r≈0.48) supports that the guitar segment is genuinely the same visible performance, not a mismatched audio bed. All stages (speech→posture shift→playing) are accounted for."
             },
             {
               "source_id": "clip_02",
-              "prediction": "pass",
-              "reference": "revise",
-              "correct": false,
-              "expert_mean": 0.6666666666666666,
-              "n_labels": 3
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "Video 16 shows a jazz brass ensemble: foreground trumpet player maintains lip contact on mouthpiece with valve-finger articulation throughout 0–5.08s; background saxophone and trumpet players hold ensemble posture. Audio is continuous brass ensemble with no speech. The visible primary performer's embouchure and valve work directly produce the dominant trumpet line; other voices may be partially off-frame, which is acceptable for ensemble."
             },
             {
-              "source_id": "clip_06",
-              "prediction": "revise",
-              "reference": "revise",
-              "correct": true,
-              "expert_mean": 0.3333333333333333,
-              "n_labels": 3
-            },
-            {
-              "source_id": "clip_07",
-              "prediction": "pass",
-              "reference": "pass",
-              "correct": true,
-              "expert_mean": 1.6666666666666667,
-              "n_labels": 3
+              "source_id": "clip_03",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "Video 14 shows violinist speaking 'Are you ready for this? First sound.' (1.06–4.44s) with clear mouth opening/closing windows matching word boundaries, while bow continues small oscillations on strings. After speech ends, he transitions into demonstrative playing. The interval 1.06–4.44s precisely captures the lip-sync-critical speech; the surrounding violin audio is continuous and visually supported by ongoing bow motion. No conflict between visible action and sound."
             },
             {
               "source_id": "clip_04",
-              "prediction": "revise",
-              "reference": "revise",
-              "correct": true,
-              "expert_mean": 0.3333333333333333,
-              "n_labels": 3
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "Video 19 shows a solo trumpeter in black suit under spotlight, lips sealed on mouthpiece for entire 0–6.11s, right-hand three fingers repeatedly depressing/releasing valves at ~0.5s, 1.0s, 2.5s, 3.0s, 4.0s, 5.0s intervals. Audio is continuous trumpet with clear note onsets/offsets. The ROI correlation (-83ms, r≈0.53) and pitch-derivative correlation (+83ms, r≈0.44) confirm valve movements drive the audible pitch changes within encoding tolerance. Full clip covered."
             },
             {
-              "source_id": "clip_01",
-              "prediction": "pass",
-              "reference": "revise",
-              "correct": false,
-              "expert_mean": 0.6666666666666666,
-              "n_labels": 3
+              "source_id": "clip_05",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "Video 13 shows man in grey shirt at upright piano: speaks 'I don't know why. There's like this openness to it.' (0–2.52s) facing camera with visible lip movement, then turns (~2.2s) in near-silence (2.52–3.05s), places hands on keys, and piano phrase begins (3.05–5.08s). The silence gap exactly corresponds to the physical turn/preparation; piano audio only enters after hands contact keys. Both speech and playing stages have verified visual anchors."
+            },
+            {
+              "source_id": "clip_06",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 0.5
+              },
+              "quality": 0.875,
+              "reason": "Video 17 is a fixed wide-angle concert hall shot: audience silhouettes fill foreground, a pianist sits on distant stage (~10-15 pixels tall). Audio is continuous male voiceover ('leading to the enviable death of such a loving character') with low-level piano beneath. The voiceover has NO visible speaker anywhere in frame. The pianist, while present, is too small to verify individual finger-key contacts or confirm as the piano sound source. Partial correspondence exists (pianist is visible and presumably playing), but the dominant audio event (voiceover) lacks any visual anchor, preventing full relation verification."
+            },
+            {
+              "source_id": "clip_07",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "Video 18 shows man in flat cap: holds harmonica at chest level while speaking 'Three blow, three on the four blow.' (0–1.84s) with visible lip movement and harmonica clearly away from mouth; raises hand (~2.2–2.8s); harmonica contacts lips (~2.8s); short blow/breath sound occurs (3.3–3.7s) only after contact. The temporal sequence (speak→raise→contact→sound) is unambiguous. Silence after 3.7s corresponds to held posture without active blowing. Full clip 0–5.08s covered."
+            },
+            {
+              "source_id": "clip_08",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "Video 15 shows blonde woman in purple top singing 'Incense, gold and myrrh, come peasant and king to own him' continuously 0–5.04s with clear mouth opening/closing patterns (larger openings at ~1.4–2.2s, 3.2–4.0s, 4.4–4.6s matching vowel/consonant transitions). Harp is visible to her left but hands are occluded by harp body/frame. The primary audio is vocal, fully verifiable via lip sync; harp is secondary accompaniment whose occlusion does not create a sync conflict. No instance of visible singing cessation with continuing audio."
             }
           ],
-          "conflicting_duplicate_ids": [],
-          "policy": "Macro-F1 of expert-supported pass/revise decisions; abstention counts as an incomplete decision"
+          "policy": "Four grounded evidence criteria averaged per candidate; no automatic penalty for expert-decision disagreement"
         },
         "general": {
-          "gold_count": 3,
+          "gold_count": 7,
           "matched_count": 2,
           "matched_quality": 2.0,
-          "novel_count": 4,
-          "novel_quality": 4.0,
+          "novel_count": 0,
+          "novel_quality": 0.0,
           "unsupported_count": 0,
           "uncertain_count": 0,
           "duplicate_count": 0,
           "precision": 1.0,
-          "recall": 0.6666666666666666,
-          "f1": 0.8,
-          "score_out_of_50": 40.0
-        }
-      }
-    },
-    {
-      "voter_id": "B",
-      "score": 65.0,
-      "breakdown": {
-        "music": {
-          "gold_count": 8,
-          "matched_count": 4,
-          "precision": 0.5,
-          "recall": 0.5,
-          "f1": 0.5,
-          "score_out_of_50": 25.0,
-          "classes": {
-            "pass": {
-              "tp": 2,
-              "fp": 2,
-              "fn": 2,
-              "precision": 0.5,
-              "recall": 0.5,
-              "f1": 0.5
-            },
-            "revise": {
-              "tp": 2,
-              "fp": 2,
-              "fn": 2,
-              "precision": 0.5,
-              "recall": 0.5,
-              "f1": 0.5
-            }
-          },
-          "items": [
-            {
-              "source_id": "clip_05",
-              "prediction": "revise",
-              "reference": "pass",
-              "correct": false,
-              "expert_mean": 2.0,
-              "n_labels": 3
-            },
-            {
-              "source_id": "clip_03",
-              "prediction": "revise",
-              "reference": "pass",
-              "correct": false,
-              "expert_mean": 1.6666666666666667,
-              "n_labels": 3
-            },
-            {
-              "source_id": "clip_08",
-              "prediction": "pass",
-              "reference": "pass",
-              "correct": true,
-              "expert_mean": 1.6666666666666667,
-              "n_labels": 3
-            },
-            {
-              "source_id": "clip_02",
-              "prediction": "pass",
-              "reference": "revise",
-              "correct": false,
-              "expert_mean": 0.6666666666666666,
-              "n_labels": 3
-            },
-            {
-              "source_id": "clip_06",
-              "prediction": "revise",
-              "reference": "revise",
-              "correct": true,
-              "expert_mean": 0.3333333333333333,
-              "n_labels": 3
-            },
-            {
-              "source_id": "clip_07",
-              "prediction": "pass",
-              "reference": "pass",
-              "correct": true,
-              "expert_mean": 1.6666666666666667,
-              "n_labels": 3
-            },
-            {
-              "source_id": "clip_04",
-              "prediction": "revise",
-              "reference": "revise",
-              "correct": true,
-              "expert_mean": 0.3333333333333333,
-              "n_labels": 3
-            },
-            {
-              "source_id": "clip_01",
-              "prediction": "pass",
-              "reference": "revise",
-              "correct": false,
-              "expert_mean": 0.6666666666666666,
-              "n_labels": 3
-            }
-          ],
-          "conflicting_duplicate_ids": [],
-          "policy": "Macro-F1 of expert-supported pass/revise decisions; abstention counts as an incomplete decision"
+          "recall": 0.2857142857142857,
+          "f1": 0.4444444444444445,
+          "score_out_of_50": 22.222222222222225,
+          "policy": "All source-verified valid discoveries enter the same fixed public recall inventory; independent false claims reduce precision"
         },
-        "general": {
-          "gold_count": 3,
-          "matched_count": 2,
-          "matched_quality": 2.0,
-          "novel_count": 3,
-          "novel_quality": 3.0,
-          "unsupported_count": 0,
-          "uncertain_count": 1,
-          "duplicate_count": 0,
-          "precision": 1.0,
-          "recall": 0.6666666666666666,
-          "f1": 0.8,
-          "score_out_of_50": 40.0
-        }
-      }
-    },
-    {
-      "voter_id": "C",
-      "score": 64.66244725738396,
-      "breakdown": {
-        "music": {
-          "gold_count": 8,
-          "matched_count": 4,
-          "precision": 0.5,
-          "recall": 0.5,
-          "f1": 0.5,
-          "score_out_of_50": 25.0,
-          "classes": {
-            "pass": {
-              "tp": 2,
-              "fp": 2,
-              "fn": 2,
-              "precision": 0.5,
-              "recall": 0.5,
-              "f1": 0.5
-            },
-            "revise": {
-              "tp": 2,
-              "fp": 2,
-              "fn": 2,
-              "precision": 0.5,
-              "recall": 0.5,
-              "f1": 0.5
-            }
+        "music_total_out_of_50": 34.492897727272734
+      },
+      "decision": {
+        "gold_count": 8,
+        "matched_count": 5,
+        "precision": 0.7857142857142857,
+        "recall": 0.625,
+        "f1": 0.5636363636363637,
+        "score_out_of_50": 28.181818181818187,
+        "classes": {
+          "pass": {
+            "tp": 4,
+            "fp": 3,
+            "fn": 0,
+            "precision": 0.5714285714285714,
+            "recall": 1.0,
+            "f1": 0.7272727272727273
           },
-          "items": [
-            {
-              "source_id": "clip_05",
-              "prediction": "revise",
-              "reference": "pass",
-              "correct": false,
-              "expert_mean": 2.0,
-              "n_labels": 3
-            },
-            {
-              "source_id": "clip_03",
-              "prediction": "revise",
-              "reference": "pass",
-              "correct": false,
-              "expert_mean": 1.6666666666666667,
-              "n_labels": 3
-            },
-            {
-              "source_id": "clip_08",
-              "prediction": "pass",
-              "reference": "pass",
-              "correct": true,
-              "expert_mean": 1.6666666666666667,
-              "n_labels": 3
-            },
-            {
-              "source_id": "clip_02",
-              "prediction": "pass",
-              "reference": "revise",
-              "correct": false,
-              "expert_mean": 0.6666666666666666,
-              "n_labels": 3
-            },
-            {
-              "source_id": "clip_06",
-              "prediction": "revise",
-              "reference": "revise",
-              "correct": true,
-              "expert_mean": 0.3333333333333333,
-              "n_labels": 3
-            },
-            {
-              "source_id": "clip_07",
-              "prediction": "pass",
-              "reference": "pass",
-              "correct": true,
-              "expert_mean": 1.6666666666666667,
-              "n_labels": 3
-            },
-            {
-              "source_id": "clip_04",
-              "prediction": "revise",
-              "reference": "revise",
-              "correct": true,
-              "expert_mean": 0.3333333333333333,
-              "n_labels": 3
-            },
-            {
-              "source_id": "clip_01",
-              "prediction": "pass",
-              "reference": "revise",
-              "correct": false,
-              "expert_mean": 0.6666666666666666,
-              "n_labels": 3
-            }
-          ],
-          "conflicting_duplicate_ids": [],
-          "policy": "Macro-F1 of expert-supported pass/revise decisions; abstention counts as an incomplete decision"
+          "revise": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 3,
+            "precision": 1.0,
+            "recall": 0.25,
+            "f1": 0.4
+          }
         },
-        "general": {
-          "gold_count": 3,
-          "matched_count": 2,
-          "matched_quality": 2.0,
-          "novel_count": 4,
-          "novel_quality": 3.875,
-          "unsupported_count": 0,
-          "uncertain_count": 0,
-          "duplicate_count": 0,
-          "precision": 0.9791666666666666,
-          "recall": 0.6666666666666666,
-          "f1": 0.7932489451476792,
-          "score_out_of_50": 39.66244725738396
-        }
-      }
+        "items": [
+          {
+            "source_id": "clip_05",
+            "prediction": "pass",
+            "reference": "pass",
+            "correct": true,
+            "expert_mean": 2.0,
+            "n_labels": 3
+          },
+          {
+            "source_id": "clip_03",
+            "prediction": "pass",
+            "reference": "pass",
+            "correct": true,
+            "expert_mean": 1.6666666666666667,
+            "n_labels": 3
+          },
+          {
+            "source_id": "clip_08",
+            "prediction": "pass",
+            "reference": "pass",
+            "correct": true,
+            "expert_mean": 1.6666666666666667,
+            "n_labels": 3
+          },
+          {
+            "source_id": "clip_02",
+            "prediction": "pass",
+            "reference": "revise",
+            "correct": false,
+            "expert_mean": 0.6666666666666666,
+            "n_labels": 3
+          },
+          {
+            "source_id": "clip_06",
+            "prediction": "revise",
+            "reference": "revise",
+            "correct": true,
+            "expert_mean": 0.3333333333333333,
+            "n_labels": 3
+          },
+          {
+            "source_id": "clip_07",
+            "prediction": "pass",
+            "reference": "pass",
+            "correct": true,
+            "expert_mean": 1.6666666666666667,
+            "n_labels": 3
+          },
+          {
+            "source_id": "clip_04",
+            "prediction": "pass",
+            "reference": "revise",
+            "correct": false,
+            "expert_mean": 0.3333333333333333,
+            "n_labels": 3
+          },
+          {
+            "source_id": "clip_01",
+            "prediction": "pass",
+            "reference": "revise",
+            "correct": false,
+            "expert_mean": 0.6666666666666666,
+            "n_labels": 3
+          }
+        ],
+        "conflicting_duplicate_ids": [],
+        "policy": "Macro-F1 of expert-supported pass/revise decisions; abstention counts as an incomplete decision"
+      },
+      "judge_scores": [
+        56.48074494949496,
+        56.94949494949496,
+        56.71511994949496
+      ]
     }
   ],
-  "solver_runs": 1,
-  "material_version": "pilot-v5-music",
-  "valid_solver_runs": 1,
-  "small_prototype": true
+  "posthoc_rubric_revision": true
 }

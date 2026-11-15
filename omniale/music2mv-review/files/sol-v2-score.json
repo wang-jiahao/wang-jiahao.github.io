@@ -1,0 +1,579 @@
+{
+  "score": 77.48197115384616,
+  "policy": "grounded-review-v2; 35 expert decision Macro-F1 + 15 grounded music evidence + 50 common-inventory general quality F1; median of three independent ballots",
+  "decision": {
+    "gold_count": 8,
+    "matched_count": 4,
+    "precision": 0.5,
+    "recall": 0.5,
+    "f1": 0.5,
+    "score_out_of_50": 25.0,
+    "classes": {
+      "pass": {
+        "tp": 2,
+        "fp": 2,
+        "fn": 2,
+        "precision": 0.5,
+        "recall": 0.5,
+        "f1": 0.5
+      },
+      "revise": {
+        "tp": 2,
+        "fp": 2,
+        "fn": 2,
+        "precision": 0.5,
+        "recall": 0.5,
+        "f1": 0.5
+      }
+    },
+    "items": [
+      {
+        "source_id": "clip_05",
+        "prediction": "revise",
+        "reference": "pass",
+        "correct": false,
+        "expert_mean": 2.0,
+        "n_labels": 3
+      },
+      {
+        "source_id": "clip_03",
+        "prediction": "revise",
+        "reference": "pass",
+        "correct": false,
+        "expert_mean": 1.6666666666666667,
+        "n_labels": 3
+      },
+      {
+        "source_id": "clip_08",
+        "prediction": "pass",
+        "reference": "pass",
+        "correct": true,
+        "expert_mean": 1.6666666666666667,
+        "n_labels": 3
+      },
+      {
+        "source_id": "clip_02",
+        "prediction": "pass",
+        "reference": "revise",
+        "correct": false,
+        "expert_mean": 0.6666666666666666,
+        "n_labels": 3
+      },
+      {
+        "source_id": "clip_06",
+        "prediction": "revise",
+        "reference": "revise",
+        "correct": true,
+        "expert_mean": 0.3333333333333333,
+        "n_labels": 3
+      },
+      {
+        "source_id": "clip_07",
+        "prediction": "pass",
+        "reference": "pass",
+        "correct": true,
+        "expert_mean": 1.6666666666666667,
+        "n_labels": 3
+      },
+      {
+        "source_id": "clip_04",
+        "prediction": "revise",
+        "reference": "revise",
+        "correct": true,
+        "expert_mean": 0.3333333333333333,
+        "n_labels": 3
+      },
+      {
+        "source_id": "clip_01",
+        "prediction": "pass",
+        "reference": "revise",
+        "correct": false,
+        "expert_mean": 0.6666666666666666,
+        "n_labels": 3
+      }
+    ],
+    "conflicting_duplicate_ids": [],
+    "policy": "Macro-F1 of expert-supported pass/revise decisions; abstention counts as an incomplete decision"
+  },
+  "breakdown": {
+    "decision_out_of_35": 17.5,
+    "music_evidence": {
+      "score_out_of_15": 13.828125,
+      "candidate_count": 8,
+      "items": [
+        {
+          "source_id": "clip_01",
+          "grades": {
+            "audio": 1,
+            "visual": 1,
+            "localization": 1,
+            "relation": 1
+          },
+          "quality": 1.0,
+          "reason": "音频正确识别男性讲话'and we love you very much and thank you Lollapalooza'及起止时间；画面帧0.5-2.5s可见嘴部随语句开合、2.6s后闭口低头，与收句动作一致；区间0-2.9s覆盖完整发声段；口型-语音对应关系明确，话筒遮挡不影响下颌与句末动作判断。"
+        },
+        {
+          "source_id": "clip_02",
+          "grades": {
+            "audio": 1,
+            "visual": 1,
+            "localization": 1,
+            "relation": 1
+          },
+          "quality": 1.0,
+          "reason": "音频正确描述明亮管乐旋律、长短音交替及约4s后密集短音变化；画面前景银色小号演奏者持续含住吹嘴，0-0.7s/1.7-2.6s/4-5s可见手指分组抬落与乐句密度对应；区间覆盖主要发声段；合奏中混合声部不要求逐一分配，未见停吹而声部继续的反证。"
+        },
+        {
+          "source_id": "clip_03",
+          "grades": {
+            "audio": 1,
+            "visual": 0,
+            "localization": 1,
+            "relation": 0
+          },
+          "quality": 0.5,
+          "reason": "音频正确识别'Are you ready for this?'和'First sound'两句讲话；但画面帧1.5s/2.5s/3.5s清楚显示男子嘴部张开、呈说话构音状态，交付称'嘴唇基本合拢、面部没有两句讲话的构音'与连续帧矛盾，主要视觉事实被反证；区间时间正确但关系论证建立在错误的视觉前提上。"
+        },
+        {
+          "source_id": "clip_04",
+          "grades": {
+            "audio": 1,
+            "visual": 1,
+            "localization": 1,
+            "relation": 0.5
+          },
+          "quality": 0.875,
+          "reason": "音频正确描述单线管乐旋律、1.24s起音后长音延续及2.73/3.60/4.12/4.76/5.19s新起音；画面持续贴嘴吹奏、阀上方手指反复活动均有据；但长音期间小幅换指可能是半阀或姿态调整等正常技法，交付未充分排除这一解释即判定不同步，关系论证有局部对应但漏决定性阶段。"
+        },
+        {
+          "source_id": "clip_05",
+          "grades": {
+            "audio": 1,
+            "visual": 1,
+            "localization": 1,
+            "relation": 1
+          },
+          "quality": 1.0,
+          "reason": "音频正确定位讲话0-2.03s、静默段、首琴音约3.04s及3.49s强起音；画面帧2.5s双手已落键呈按压姿态、3.5s仍在键上但首音尚未发出，提前触键与延迟发声的时间差可核查；区间覆盖讲话与钢琴转换关键节点；关系论证具体指出落键先于发声的错位。"
+        },
+        {
+          "source_id": "clip_06",
+          "grades": {
+            "audio": 1,
+            "visual": 1,
+            "localization": 1,
+            "relation": 1
+          },
+          "quality": 1.0,
+          "reason": "音频正确识别男性英语讲话'Leading to the enviable death of such a loving character'为主要声部；画面为观众席远景，钢琴手嘴部与琴键细节不可辨，右侧站立者未见对应发声；交付如实说明远景限制并指出主要音轨与画面演奏无可见同步关系；区间覆盖全段；关系判断基于音画内容不匹配而非单纯分辨率不足。"
+        },
+        {
+          "source_id": "clip_07",
+          "grades": {
+            "audio": 1,
+            "visual": 1,
+            "localization": 1,
+            "relation": 1
+          },
+          "quality": 1.0,
+          "reason": "音频正确定位讲话0-1.8s、静默1.8-3.3s、口琴音3.34-3.79s；画面帧0.5-1.5s嘴型随词语开合、2.5s举琴至嘴边、3.5s琴体贴口吹奏，事件链'讲话→准备→发声'清晰；区间覆盖三个阶段；举琴早于起音属正常准备，不构成不同步反证。"
+        },
+        {
+          "source_id": "clip_08",
+          "grades": {
+            "audio": 1,
+            "visual": 1,
+            "localization": 1,
+            "relation": 1
+          },
+          "quality": 1.0,
+          "reason": "音频正确识别女声唱'incense, gold and myrrh / come peasant and king to own him'及gold/myrrh/own等长元音；画面帧0.5-4.5s口形随元音变化（圆唇、横展），无不合时长闭口；区间覆盖完整乐句；旁边竖琴未演奏不要求伴奏触弦，主要句法与元音时序对应充分。"
+        }
+      ],
+      "policy": "Four grounded evidence criteria averaged per candidate; no automatic penalty for expert-decision disagreement"
+    },
+    "general": {
+      "gold_count": 7,
+      "matched_count": 6,
+      "matched_quality": 6.0,
+      "novel_count": 0,
+      "novel_quality": 0.0,
+      "unsupported_count": 0,
+      "uncertain_count": 0,
+      "duplicate_count": 0,
+      "precision": 1.0,
+      "recall": 0.8571428571428571,
+      "f1": 0.923076923076923,
+      "score_out_of_50": 46.15384615384615,
+      "policy": "All source-verified valid discoveries enter the same fixed public recall inventory; independent false claims reduce precision"
+    },
+    "music_total_out_of_50": 31.328125
+  },
+  "adopted_voter_id": "C",
+  "individual_judge_results": [
+    {
+      "voter_id": "A",
+      "score": 78.65384615384616,
+      "breakdown": {
+        "decision_out_of_35": 17.5,
+        "music_evidence": {
+          "score_out_of_15": 15.0,
+          "candidate_count": 8,
+          "items": [
+            {
+              "source_id": "clip_01",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "交付给出具体转写'and we love you very much and thank you Lollapalooza'并标注0–2.6s起停；画面中男子对麦克风、下颌与唇部随短语连续变化、2.6s后闭口低头，与讲话收句一致。手持吉他不构成必须连续弹奏的反证，交付已显式处理。定位0–2.9s覆盖完整语句。声-画对应为逐词口型追踪，无遗漏关键阶段。"
+            },
+            {
+              "source_id": "clip_02",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频描述为明亮管乐旋律含短音群与长音交替，无可识别人声，定位具体（0–0.7短音、1.7–2.6换指、4–5密短音）。视觉记录前景银号持续含嘴、手指分组抬落时间窗与长音期动作收小，后景萨克斯/小号口器接触合理。两段定位(0–2.6, 3.8–5.04)覆盖主要乐句。关系论证将短音变化对应换指、长音对应持续吹奏，未要求每音大动作，逻辑完整。"
+            },
+            {
+              "source_id": "clip_03",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频精确转写'Are you ready for this?'(1.1–2.85s)与'First sound'(3.4–4.2s)，为清楚男声讲话。视觉记录1.1–4.25s男子嘴唇基本合拢、无两句构音、仍夹小提琴持弓。定位两段覆盖完整问句与短语。关系明确：可听讲话与可见闭口构成直接反证，交付不编造小提琴音解释动作，论证充分。"
+            },
+            {
+              "source_id": "clip_04",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频给出波形/谐波支持的起音时间(1.24s重起、2.73/3.60/4.12/4.76/5.19s新起音)，1.3–2.6s为稳定长音。视觉逐帧记录1.25–1.92s阀上手指反复抬落换组合，覆盖长音延续段；后半段持续小幅快速活动。三段定位精确。关系论证区分正常姿态调整与问题性换指，指出反复换指动作覆盖声音稳定段而乐句重起无清晰对应，逻辑自洽且承认部分遮挡不臆算。"
+            },
+            {
+              "source_id": "clip_05",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频转写两句讲话(0–0.62s, 0.96–2.03s)、安静段、首琴音3.04s、强起音3.49s，时间具体。视觉记录前半嘴型吻合、2.3s双手下降、2.45–2.6s已落键按压、2.6–3.1s维持、3.04s无新落键。两段定位覆盖讲话与钢琴过渡。关系明确识别提前压键与首音无触键的双重错位，不将延音或预备动作误判为不同步，论证完整。"
+            },
+            {
+              "source_id": "clip_06",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频为清晰男性英语讲话'Leading to the enviable death of such a loving character'，为主要可识别声部。视觉准确描述远景：左侧钢琴手弹奏状、右侧站立者、观众剪影，承认640×352限制口型细节。定位0–4.95s覆盖全段。关系核心：主音轨为讲话而画面展示钢琴演奏，两者无可见同步建立；交付正确区分画外旁白用途与同步表演放行标准，不因看到钢琴活动而通过。"
+            },
+            {
+              "source_id": "clip_07",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频转写'Three blow, three on the four blow'(0–1.8s)、安静(1.8–3.3s)、口琴音(3.34–3.79s)。视觉追踪口琴位置：讲话时在下巴以下→2.2–2.5s举至嘴边→3.34s贴口吹奏→短音结束。两段定位覆盖讲话与演奏。关系论证事件链(讲话→停顿→举琴→吹音)完整，承认举琴早于起音为正常准备，不要求每气音大幅手部移动。"
+            },
+            {
+              "source_id": "clip_08",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频识别女声连续短句含具体元音特征(gold圆唇、myrrh/own长元音)。视觉记录0–0.7s构音、0.8–1.1s圆唇唱gold、2s后第二句、3s横向展开、4.2–4.6s圆唇，句内无不合时长闭口。两段定位覆盖完整演唱。关系将音素-口型映射逐词对应，承认低分辨率限制逐辅音测量但主要句法与元音时序充分，竖琴未演奏不要求可见触弦。"
+            }
+          ],
+          "policy": "Four grounded evidence criteria averaged per candidate; no automatic penalty for expert-decision disagreement"
+        },
+        "general": {
+          "gold_count": 7,
+          "matched_count": 6,
+          "matched_quality": 6.0,
+          "novel_count": 0,
+          "novel_quality": 0.0,
+          "unsupported_count": 0,
+          "uncertain_count": 0,
+          "duplicate_count": 0,
+          "precision": 1.0,
+          "recall": 0.8571428571428571,
+          "f1": 0.923076923076923,
+          "score_out_of_50": 46.15384615384615,
+          "policy": "All source-verified valid discoveries enter the same fixed public recall inventory; independent false claims reduce precision"
+        },
+        "music_total_out_of_50": 32.5
+      }
+    },
+    {
+      "voter_id": "B",
+      "score": 77.24759615384616,
+      "breakdown": {
+        "decision_out_of_35": 17.5,
+        "music_evidence": {
+          "score_out_of_15": 13.59375,
+          "candidate_count": 8,
+          "items": [
+            {
+              "source_id": "clip_01",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "原声确为男声致谢语（'thank you Lollapalooza'类），0–2.9s内可见对麦口型与下颌连续开合、句末闭口低头，讲话与口部动作逐段对应；手持吉他但不要求连续弹奏，主要发声同步成立。"
+            },
+            {
+              "source_id": "clip_02",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "全段明亮管乐合奏无可辨人声，前景银号持续含嘴、0–0.7/1.7–2.6/4–5s分组换指与短音变化对应、长音期动作收小，后景萨克斯/号手口器接触合理，声画同步链完整。"
+            },
+            {
+              "source_id": "clip_03",
+              "grades": {
+                "audio": 1,
+                "visual": 0.5,
+                "localization": 1,
+                "relation": 0.5
+              },
+              "quality": 0.75,
+              "reason": "原声确为男声'Are you ready for this?/First sound'，定位有效；但交付称1.1–4.25s唇基本合拢，与源帧在该区间多次张口（持琴同时口型活动）相抵触，视觉事实部分被反证，故仅以'闭口覆盖讲话'立论不足，关系判局部。"
+            },
+            {
+              "source_id": "clip_04",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 0.5
+              },
+              "quality": 0.875,
+              "reason": "原声单线管乐起停定位具体，画面持续贴嘴且阀上手指反复抬落可核；但交付指出换指活动覆盖声音稳定延续段、乐句重起无清晰动作对应，同步关系未被确立，故relation仅局部。"
+            },
+            {
+              "source_id": "clip_05",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 0.5
+              },
+              "quality": 0.875,
+              "reason": "前半讲话口型吻合、后半首音约3.04s出现而手已提前落键、缺新触键，音频与画面事实均具体；但钢琴段声画未对齐，整段同步仅部分成立。"
+            },
+            {
+              "source_id": "clip_06",
+              "grades": {
+                "audio": 1,
+                "visual": 0.5,
+                "localization": 1,
+                "relation": 0.5
+              },
+              "quality": 0.75,
+              "reason": "原声为清晰男声旁白，定位有效；画面系观众席后远景，钢琴手口型与琴键细节过小，视觉依据不足以支撑精细同步判断，仅能确认主要音轨与可见演奏未建立对应。"
+            },
+            {
+              "source_id": "clip_07",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "原声先讲'three blow…'后短暂口琴音，画面讲话时琴在下巴下、口型随词开合、句末闭口，再举琴贴口后起音，事件链与准备/延音处理一致，同步成立。"
+            },
+            {
+              "source_id": "clip_08",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "原声女声连续歌句含gold/myrrh/own等长元音，画面圆唇与横向展开口形与元音时序互释，句内无不合时长闭口；旁侧竖琴未演奏不要求触弦，主要演唱同步成立。"
+            }
+          ],
+          "policy": "Four grounded evidence criteria averaged per candidate; no automatic penalty for expert-decision disagreement"
+        },
+        "general": {
+          "gold_count": 7,
+          "matched_count": 6,
+          "matched_quality": 6.0,
+          "novel_count": 0,
+          "novel_quality": 0.0,
+          "unsupported_count": 0,
+          "uncertain_count": 0,
+          "duplicate_count": 0,
+          "precision": 1.0,
+          "recall": 0.8571428571428571,
+          "f1": 0.923076923076923,
+          "score_out_of_50": 46.15384615384615,
+          "policy": "All source-verified valid discoveries enter the same fixed public recall inventory; independent false claims reduce precision"
+        },
+        "music_total_out_of_50": 31.09375
+      }
+    },
+    {
+      "voter_id": "C",
+      "score": 77.48197115384616,
+      "breakdown": {
+        "decision_out_of_35": 17.5,
+        "music_evidence": {
+          "score_out_of_15": 13.828125,
+          "candidate_count": 8,
+          "items": [
+            {
+              "source_id": "clip_01",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频正确识别男性讲话'and we love you very much and thank you Lollapalooza'及起止时间；画面帧0.5-2.5s可见嘴部随语句开合、2.6s后闭口低头，与收句动作一致；区间0-2.9s覆盖完整发声段；口型-语音对应关系明确，话筒遮挡不影响下颌与句末动作判断。"
+            },
+            {
+              "source_id": "clip_02",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频正确描述明亮管乐旋律、长短音交替及约4s后密集短音变化；画面前景银色小号演奏者持续含住吹嘴，0-0.7s/1.7-2.6s/4-5s可见手指分组抬落与乐句密度对应；区间覆盖主要发声段；合奏中混合声部不要求逐一分配，未见停吹而声部继续的反证。"
+            },
+            {
+              "source_id": "clip_03",
+              "grades": {
+                "audio": 1,
+                "visual": 0,
+                "localization": 1,
+                "relation": 0
+              },
+              "quality": 0.5,
+              "reason": "音频正确识别'Are you ready for this?'和'First sound'两句讲话；但画面帧1.5s/2.5s/3.5s清楚显示男子嘴部张开、呈说话构音状态，交付称'嘴唇基本合拢、面部没有两句讲话的构音'与连续帧矛盾，主要视觉事实被反证；区间时间正确但关系论证建立在错误的视觉前提上。"
+            },
+            {
+              "source_id": "clip_04",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 0.5
+              },
+              "quality": 0.875,
+              "reason": "音频正确描述单线管乐旋律、1.24s起音后长音延续及2.73/3.60/4.12/4.76/5.19s新起音；画面持续贴嘴吹奏、阀上方手指反复活动均有据；但长音期间小幅换指可能是半阀或姿态调整等正常技法，交付未充分排除这一解释即判定不同步，关系论证有局部对应但漏决定性阶段。"
+            },
+            {
+              "source_id": "clip_05",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频正确定位讲话0-2.03s、静默段、首琴音约3.04s及3.49s强起音；画面帧2.5s双手已落键呈按压姿态、3.5s仍在键上但首音尚未发出，提前触键与延迟发声的时间差可核查；区间覆盖讲话与钢琴转换关键节点；关系论证具体指出落键先于发声的错位。"
+            },
+            {
+              "source_id": "clip_06",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频正确识别男性英语讲话'Leading to the enviable death of such a loving character'为主要声部；画面为观众席远景，钢琴手嘴部与琴键细节不可辨，右侧站立者未见对应发声；交付如实说明远景限制并指出主要音轨与画面演奏无可见同步关系；区间覆盖全段；关系判断基于音画内容不匹配而非单纯分辨率不足。"
+            },
+            {
+              "source_id": "clip_07",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频正确定位讲话0-1.8s、静默1.8-3.3s、口琴音3.34-3.79s；画面帧0.5-1.5s嘴型随词语开合、2.5s举琴至嘴边、3.5s琴体贴口吹奏，事件链'讲话→准备→发声'清晰；区间覆盖三个阶段；举琴早于起音属正常准备，不构成不同步反证。"
+            },
+            {
+              "source_id": "clip_08",
+              "grades": {
+                "audio": 1,
+                "visual": 1,
+                "localization": 1,
+                "relation": 1
+              },
+              "quality": 1.0,
+              "reason": "音频正确识别女声唱'incense, gold and myrrh / come peasant and king to own him'及gold/myrrh/own等长元音；画面帧0.5-4.5s口形随元音变化（圆唇、横展），无不合时长闭口；区间覆盖完整乐句；旁边竖琴未演奏不要求伴奏触弦，主要句法与元音时序对应充分。"
+            }
+          ],
+          "policy": "Four grounded evidence criteria averaged per candidate; no automatic penalty for expert-decision disagreement"
+        },
+        "general": {
+          "gold_count": 7,
+          "matched_count": 6,
+          "matched_quality": 6.0,
+          "novel_count": 0,
+          "novel_quality": 0.0,
+          "unsupported_count": 0,
+          "uncertain_count": 0,
+          "duplicate_count": 0,
+          "precision": 1.0,
+          "recall": 0.8571428571428571,
+          "f1": 0.923076923076923,
+          "score_out_of_50": 46.15384615384615,
+          "policy": "All source-verified valid discoveries enter the same fixed public recall inventory; independent false claims reduce precision"
+        },
+        "music_total_out_of_50": 31.328125
+      }
+    }
+  ],
+  "valid_solver_runs": 1,
+  "posthoc_rubric_revision": true,
+  "model": "gpt-6.1-sol",
+  "requested_effort": "xhigh",
+  "actual_model": "gpt-6.1-sol",
+  "actual_effort": "xhigh",
+  "material_version": "pilot-v5-music",
+  "run_tag": "sol_xhigh_r01_20261115_music",
+  "elapsed_seconds": 2308.797,
+  "reference_count": 7
+}
