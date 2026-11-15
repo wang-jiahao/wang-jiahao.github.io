@@ -1,0 +1,33 @@
+{
+  "case": "aerobics_audio_review",
+  "material_version": "v2-floor",
+  "rubric_version": "partial-v1",
+  "weights": {
+    "ledger_code": 40,
+    "ledger_value": 10,
+    "ledger_video_evidence": 10,
+    "request_route": 8,
+    "request_claim": 8,
+    "request_status": 8,
+    "request_actual": 12,
+    "request_video_evidence": 2,
+    "request_audio_evidence": 2
+  },
+  "target": "gpt-6.1-sol xhigh score < 70",
+  "grader_sha256": "1b23d51ec44f655d519f2747e9145dbccc7cf44696333a19ad1a2acb18f555d0",
+  "variants": {
+    "judge": {
+      "task_hashes": {
+        "local_asr.py": "f7691ae9032a5ae5ade2ab77d31cde991ce4769167a2b0bc1bfe01ac3781de15",
+        "SOURCE_CREDIT.md": "004e656db38e1082aa5d1d45fd3642810dd033511c872ad11179ea43b3654af6",
+        "TASK.md": "fa9e32996423f68ff6f19ada11c9ae95f4faf1fb5e36bd0831dd3ec205ff3c5f",
+        "input/attempt_boundaries.json": "317e8d12d85c92b9df82d3dede7c7b1913b99b621d4240fa42905fb52c0c9438",
+        "input/briefing.wav": "03c95edd4e63f872b6b320f6ee472bf69ce405c60afc26e6382ad58a96882480",
+        "input/rules.md": "cf000402e3152b4b874265d54effa4760054fa0a75fa74fdfe94579cab3b7811",
+        "input/video_A.mp4": "66bb40dc001c9014534acec5d1298940f6c59e91640b5d206a616a75c4d1d7a1",
+        "input/video_B.mp4": "9e20c4b92d6e704a0781116a9803fd4017620b6f5a054d7c6b90e1f36a8c10d2"
+      },
+      "truth_sha256": "869d2990fc972e0351c9b09a72683da621db7e93ab19a5b44b4a735634357c8b"
+    }
+  }
+}

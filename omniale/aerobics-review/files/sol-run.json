@@ -1,0 +1,45 @@
+{
+  "case": "aerobics_audio_review",
+  "variant": "judge",
+  "material_version": "v2-floor",
+  "rubric_version": "partial-v1",
+  "model": "gpt-6.1-sol",
+  "requested_effort": "xhigh",
+  "actual_turn_settings": [
+    {
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh"
+    }
+  ],
+  "provider": "nju",
+  "endpoint": "https://api-temporary.nju-link.com/v1",
+  "network": "enabled; direct model API; normal user download proxy; live web search",
+  "execution_budget": "no fixed cutoff",
+  "timeout_seconds": null,
+  "started_at": "2026-11-15T18:37:00.140568+00:00",
+  "finished_at": "2026-11-15T18:55:22.522051+00:00",
+  "elapsed_seconds": 1102.39,
+  "exit_code": 0,
+  "turn_completed": true,
+  "turn_failed": false,
+  "state": "completed",
+  "codex_version": "codex-cli 0.167.0-alpha.4.1",
+  "score": 52.75,
+  "task_hashes": {
+    "local_asr.py": "f7691ae9032a5ae5ade2ab77d31cde991ce4769167a2b0bc1bfe01ac3781de15",
+    "SOURCE_CREDIT.md": "004e656db38e1082aa5d1d45fd3642810dd033511c872ad11179ea43b3654af6",
+    "TASK.md": "fa9e32996423f68ff6f19ada11c9ae95f4faf1fb5e36bd0831dd3ec205ff3c5f",
+    "input/attempt_boundaries.json": "317e8d12d85c92b9df82d3dede7c7b1913b99b621d4240fa42905fb52c0c9438",
+    "input/briefing.wav": "03c95edd4e63f872b6b320f6ee472bf69ce405c60afc26e6382ad58a96882480",
+    "input/rules.md": "cf000402e3152b4b874265d54effa4760054fa0a75fa74fdfe94579cab3b7811",
+    "input/video_A.mp4": "66bb40dc001c9014534acec5d1298940f6c59e91640b5d206a616a75c4d1d7a1",
+    "input/video_B.mp4": "9e20c4b92d6e704a0781116a9803fd4017620b6f5a054d7c6b90e1f36a8c10d2"
+  },
+  "freeze_sha256": "ba0753d0bfb13eac2f90aa56c0eb09d935888828b7cac61a7f5642121ebbe872",
+  "driver_sha256": "14d49e6f2d6e042e1ff8f9f865f089feabc5f0e2a967e6b6ab729afaa8f9e69b",
+  "isolation_preflight": {
+    "exit_code": 0,
+    "stdout": "{\"denied\": [true, true, true, true], \"network_checks\": {\"https://pypi.org/simple/numpy/\": 200, \"https://huggingface.co/api/models?limit=1\": 200}, \"task_readable\": true, \"workspace_writable\": true, \"keys_filtered\": true}\n",
+    "stderr": ""
+  }
+}
