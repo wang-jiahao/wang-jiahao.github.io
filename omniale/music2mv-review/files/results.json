@@ -1,0 +1,463 @@
+{
+  "score": 65.0,
+  "policy": "expert-release-v1; 50 expert music Macro-F1 + 50 grounded general quality F1; median of three general-review totals",
+  "adopted_voter_id": "A",
+  "breakdown": {
+    "music": {
+      "gold_count": 8,
+      "matched_count": 4,
+      "precision": 0.5,
+      "recall": 0.5,
+      "f1": 0.5,
+      "score_out_of_50": 25.0,
+      "classes": {
+        "pass": {
+          "tp": 2,
+          "fp": 2,
+          "fn": 2,
+          "precision": 0.5,
+          "recall": 0.5,
+          "f1": 0.5
+        },
+        "revise": {
+          "tp": 2,
+          "fp": 2,
+          "fn": 2,
+          "precision": 0.5,
+          "recall": 0.5,
+          "f1": 0.5
+        }
+      },
+      "items": [
+        {
+          "source_id": "clip_05",
+          "prediction": "revise",
+          "reference": "pass",
+          "correct": false,
+          "expert_mean": 2.0,
+          "n_labels": 3
+        },
+        {
+          "source_id": "clip_03",
+          "prediction": "revise",
+          "reference": "pass",
+          "correct": false,
+          "expert_mean": 1.6666666666666667,
+          "n_labels": 3
+        },
+        {
+          "source_id": "clip_08",
+          "prediction": "pass",
+          "reference": "pass",
+          "correct": true,
+          "expert_mean": 1.6666666666666667,
+          "n_labels": 3
+        },
+        {
+          "source_id": "clip_02",
+          "prediction": "pass",
+          "reference": "revise",
+          "correct": false,
+          "expert_mean": 0.6666666666666666,
+          "n_labels": 3
+        },
+        {
+          "source_id": "clip_06",
+          "prediction": "revise",
+          "reference": "revise",
+          "correct": true,
+          "expert_mean": 0.3333333333333333,
+          "n_labels": 3
+        },
+        {
+          "source_id": "clip_07",
+          "prediction": "pass",
+          "reference": "pass",
+          "correct": true,
+          "expert_mean": 1.6666666666666667,
+          "n_labels": 3
+        },
+        {
+          "source_id": "clip_04",
+          "prediction": "revise",
+          "reference": "revise",
+          "correct": true,
+          "expert_mean": 0.3333333333333333,
+          "n_labels": 3
+        },
+        {
+          "source_id": "clip_01",
+          "prediction": "pass",
+          "reference": "revise",
+          "correct": false,
+          "expert_mean": 0.6666666666666666,
+          "n_labels": 3
+        }
+      ],
+      "conflicting_duplicate_ids": [],
+      "policy": "Macro-F1 of expert-supported pass/revise decisions; abstention counts as an incomplete decision"
+    },
+    "general": {
+      "gold_count": 3,
+      "matched_count": 2,
+      "matched_quality": 2.0,
+      "novel_count": 4,
+      "novel_quality": 4.0,
+      "unsupported_count": 0,
+      "uncertain_count": 0,
+      "duplicate_count": 0,
+      "precision": 1.0,
+      "recall": 0.6666666666666666,
+      "f1": 0.8,
+      "score_out_of_50": 40.0
+    }
+  },
+  "individual_judge_results": [
+    {
+      "voter_id": "A",
+      "score": 65.0,
+      "breakdown": {
+        "music": {
+          "gold_count": 8,
+          "matched_count": 4,
+          "precision": 0.5,
+          "recall": 0.5,
+          "f1": 0.5,
+          "score_out_of_50": 25.0,
+          "classes": {
+            "pass": {
+              "tp": 2,
+              "fp": 2,
+              "fn": 2,
+              "precision": 0.5,
+              "recall": 0.5,
+              "f1": 0.5
+            },
+            "revise": {
+              "tp": 2,
+              "fp": 2,
+              "fn": 2,
+              "precision": 0.5,
+              "recall": 0.5,
+              "f1": 0.5
+            }
+          },
+          "items": [
+            {
+              "source_id": "clip_05",
+              "prediction": "revise",
+              "reference": "pass",
+              "correct": false,
+              "expert_mean": 2.0,
+              "n_labels": 3
+            },
+            {
+              "source_id": "clip_03",
+              "prediction": "revise",
+              "reference": "pass",
+              "correct": false,
+              "expert_mean": 1.6666666666666667,
+              "n_labels": 3
+            },
+            {
+              "source_id": "clip_08",
+              "prediction": "pass",
+              "reference": "pass",
+              "correct": true,
+              "expert_mean": 1.6666666666666667,
+              "n_labels": 3
+            },
+            {
+              "source_id": "clip_02",
+              "prediction": "pass",
+              "reference": "revise",
+              "correct": false,
+              "expert_mean": 0.6666666666666666,
+              "n_labels": 3
+            },
+            {
+              "source_id": "clip_06",
+              "prediction": "revise",
+              "reference": "revise",
+              "correct": true,
+              "expert_mean": 0.3333333333333333,
+              "n_labels": 3
+            },
+            {
+              "source_id": "clip_07",
+              "prediction": "pass",
+              "reference": "pass",
+              "correct": true,
+              "expert_mean": 1.6666666666666667,
+              "n_labels": 3
+            },
+            {
+              "source_id": "clip_04",
+              "prediction": "revise",
+              "reference": "revise",
+              "correct": true,
+              "expert_mean": 0.3333333333333333,
+              "n_labels": 3
+            },
+            {
+              "source_id": "clip_01",
+              "prediction": "pass",
+              "reference": "revise",
+              "correct": false,
+              "expert_mean": 0.6666666666666666,
+              "n_labels": 3
+            }
+          ],
+          "conflicting_duplicate_ids": [],
+          "policy": "Macro-F1 of expert-supported pass/revise decisions; abstention counts as an incomplete decision"
+        },
+        "general": {
+          "gold_count": 3,
+          "matched_count": 2,
+          "matched_quality": 2.0,
+          "novel_count": 4,
+          "novel_quality": 4.0,
+          "unsupported_count": 0,
+          "uncertain_count": 0,
+          "duplicate_count": 0,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8,
+          "score_out_of_50": 40.0
+        }
+      }
+    },
+    {
+      "voter_id": "B",
+      "score": 65.0,
+      "breakdown": {
+        "music": {
+          "gold_count": 8,
+          "matched_count": 4,
+          "precision": 0.5,
+          "recall": 0.5,
+          "f1": 0.5,
+          "score_out_of_50": 25.0,
+          "classes": {
+            "pass": {
+              "tp": 2,
+              "fp": 2,
+              "fn": 2,
+              "precision": 0.5,
+              "recall": 0.5,
+              "f1": 0.5
+            },
+            "revise": {
+              "tp": 2,
+              "fp": 2,
+              "fn": 2,
+              "precision": 0.5,
+              "recall": 0.5,
+              "f1": 0.5
+            }
+          },
+          "items": [
+            {
+              "source_id": "clip_05",
+              "prediction": "revise",
+              "reference": "pass",
+              "correct": false,
+              "expert_mean": 2.0,
+              "n_labels": 3
+            },
+            {
+              "source_id": "clip_03",
+              "prediction": "revise",
+              "reference": "pass",
+              "correct": false,
+              "expert_mean": 1.6666666666666667,
+              "n_labels": 3
+            },
+            {
+              "source_id": "clip_08",
+              "prediction": "pass",
+              "reference": "pass",
+              "correct": true,
+              "expert_mean": 1.6666666666666667,
+              "n_labels": 3
+            },
+            {
+              "source_id": "clip_02",
+              "prediction": "pass",
+              "reference": "revise",
+              "correct": false,
+              "expert_mean": 0.6666666666666666,
+              "n_labels": 3
+            },
+            {
+              "source_id": "clip_06",
+              "prediction": "revise",
+              "reference": "revise",
+              "correct": true,
+              "expert_mean": 0.3333333333333333,
+              "n_labels": 3
+            },
+            {
+              "source_id": "clip_07",
+              "prediction": "pass",
+              "reference": "pass",
+              "correct": true,
+              "expert_mean": 1.6666666666666667,
+              "n_labels": 3
+            },
+            {
+              "source_id": "clip_04",
+              "prediction": "revise",
+              "reference": "revise",
+              "correct": true,
+              "expert_mean": 0.3333333333333333,
+              "n_labels": 3
+            },
+            {
+              "source_id": "clip_01",
+              "prediction": "pass",
+              "reference": "revise",
+              "correct": false,
+              "expert_mean": 0.6666666666666666,
+              "n_labels": 3
+            }
+          ],
+          "conflicting_duplicate_ids": [],
+          "policy": "Macro-F1 of expert-supported pass/revise decisions; abstention counts as an incomplete decision"
+        },
+        "general": {
+          "gold_count": 3,
+          "matched_count": 2,
+          "matched_quality": 2.0,
+          "novel_count": 3,
+          "novel_quality": 3.0,
+          "unsupported_count": 0,
+          "uncertain_count": 1,
+          "duplicate_count": 0,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8,
+          "score_out_of_50": 40.0
+        }
+      }
+    },
+    {
+      "voter_id": "C",
+      "score": 64.66244725738396,
+      "breakdown": {
+        "music": {
+          "gold_count": 8,
+          "matched_count": 4,
+          "precision": 0.5,
+          "recall": 0.5,
+          "f1": 0.5,
+          "score_out_of_50": 25.0,
+          "classes": {
+            "pass": {
+              "tp": 2,
+              "fp": 2,
+              "fn": 2,
+              "precision": 0.5,
+              "recall": 0.5,
+              "f1": 0.5
+            },
+            "revise": {
+              "tp": 2,
+              "fp": 2,
+              "fn": 2,
+              "precision": 0.5,
+              "recall": 0.5,
+              "f1": 0.5
+            }
+          },
+          "items": [
+            {
+              "source_id": "clip_05",
+              "prediction": "revise",
+              "reference": "pass",
+              "correct": false,
+              "expert_mean": 2.0,
+              "n_labels": 3
+            },
+            {
+              "source_id": "clip_03",
+              "prediction": "revise",
+              "reference": "pass",
+              "correct": false,
+              "expert_mean": 1.6666666666666667,
+              "n_labels": 3
+            },
+            {
+              "source_id": "clip_08",
+              "prediction": "pass",
+              "reference": "pass",
+              "correct": true,
+              "expert_mean": 1.6666666666666667,
+              "n_labels": 3
+            },
+            {
+              "source_id": "clip_02",
+              "prediction": "pass",
+              "reference": "revise",
+              "correct": false,
+              "expert_mean": 0.6666666666666666,
+              "n_labels": 3
+            },
+            {
+              "source_id": "clip_06",
+              "prediction": "revise",
+              "reference": "revise",
+              "correct": true,
+              "expert_mean": 0.3333333333333333,
+              "n_labels": 3
+            },
+            {
+              "source_id": "clip_07",
+              "prediction": "pass",
+              "reference": "pass",
+              "correct": true,
+              "expert_mean": 1.6666666666666667,
+              "n_labels": 3
+            },
+            {
+              "source_id": "clip_04",
+              "prediction": "revise",
+              "reference": "revise",
+              "correct": true,
+              "expert_mean": 0.3333333333333333,
+              "n_labels": 3
+            },
+            {
+              "source_id": "clip_01",
+              "prediction": "pass",
+              "reference": "revise",
+              "correct": false,
+              "expert_mean": 0.6666666666666666,
+              "n_labels": 3
+            }
+          ],
+          "conflicting_duplicate_ids": [],
+          "policy": "Macro-F1 of expert-supported pass/revise decisions; abstention counts as an incomplete decision"
+        },
+        "general": {
+          "gold_count": 3,
+          "matched_count": 2,
+          "matched_quality": 2.0,
+          "novel_count": 4,
+          "novel_quality": 3.875,
+          "unsupported_count": 0,
+          "uncertain_count": 0,
+          "duplicate_count": 0,
+          "precision": 0.9791666666666666,
+          "recall": 0.6666666666666666,
+          "f1": 0.7932489451476792,
+          "score_out_of_50": 39.66244725738396
+        }
+      }
+    }
+  ],
+  "solver_runs": 1,
+  "material_version": "pilot-v5-music",
+  "valid_solver_runs": 1,
+  "small_prototype": true
+}
