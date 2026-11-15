@@ -1,0 +1,32 @@
+{
+  "score": 66.66666666666666,
+  "matched_count": 2,
+  "gold_count": 4,
+  "matched_quality": 2.0,
+  "unsupported_count": 0,
+  "uncertain_count": 0,
+  "precision": 1.0,
+  "recall": 0.5,
+  "f1": 0.6666666666666666,
+  "matches": [
+    {
+      "root_id": "R001",
+      "check_ids": [
+        "APT-T01"
+      ],
+      "quality": 1.0,
+      "reason": "APT-T01 identifies the same root cause (systematic subtitle transcription errors where English text does not match Korean/English audio) and provides multiple supported instances across its intervals: 0.8-3.2/3.9-6.7 covers E001 ('tenya Joan lindum game'/'lindum game game start' vs Korean '랜덤 게임 게임 스타트'); 7.0-12.6 and 48.0-58.0 cover E002/E004 ('ha ha ah pata pata'/'AAPACA' vs '아파트'); 78.0-90.5 covers E008 ('opportunity' vs '아파트'); 138.0-160.5 covers E011/E012 ('I'm upset'/'top'/'four' vs '아파트'). Audio and visual facts are specific and verifiable against source."
+    },
+    {
+      "root_id": "R002",
+      "check_ids": [
+        "APT-T02"
+      ],
+      "quality": 1.0,
+      "reason": "APT-T02 pinpoints 5.8-6.7s where the button holographic text reads 'ST APIT' instead of 'START', with concurrent audio saying 'Random Game Game Start'. This matches GT example E016 (5.5-7.0s) exactly in mechanism, visual content, and audio confirmation. The check correctly distinguishes this from the subtitle issue as an independent in-scene text defect."
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [],
+  "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+}

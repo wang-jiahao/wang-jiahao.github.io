@@ -1,0 +1,630 @@
+{
+  "version": "pilot-v7-selected2",
+  "sources": [
+    {
+      "version": "pilot-v7-mv_apt",
+      "source_id": "mv_apt",
+      "general_events": [
+        {
+          "id": "R001",
+          "source_id": "mv_apt",
+          "statement": "底部字幕显示的英语近似串与同期可听韩语语音无音素对应；底部字幕显示的无意义英语音节串与同期可听韩语'아파트'节奏念唱不对应；底部字幕连续显示的'AAPACA'与可听韩语hook含/t/尾辅音的音节结构不符；底部字幕将可听'apartment'显示为语义无关的'appetite'；底部字幕将可听'dance'显示为'then'；底部字幕将可听韩语祝酒词显示为不相干英语词并多出未唱音节；底部字幕在'meet me at the'后显示'opportunity'，同期音频实为韩语'아파트'；底部字幕末尾显示重复'way way'，音频仅唱一次'way'即进入下一乐段；底部字幕将可听韩语'아파트'显示为'i'm upset'并在'meet me at the'后显示音频中不存在的'four'；底部字幕将可听韩语'아파트'显示为'top'和'four'，音频中无对应英语单音节发音；底部字幕显示五组'i say'重复，与同期可听韩语'아파트'群呼无音素对应",
+          "root_definition": "底部字幕显示的英语近似串与同期可听韩语语音无音素对应；底部字幕显示的无意义英语音节串与同期可听韩语'아파트'节奏念唱不对应；底部字幕连续显示的'AAPACA'与可听韩语hook含/t/尾辅音的音节结构不符；底部字幕将可听'apartment'显示为语义无关的'appetite'；底部字幕将可听'dance'显示为'then'；底部字幕将可听韩语祝酒词显示为不相干英语词并多出未唱音节；底部字幕在'meet me at the'后显示'opportunity'，同期音频实为韩语'아파트'；底部字幕末尾显示重复'way way'，音频仅唱一次'way'即进入下一乐段；底部字幕将可听韩语'아파트'显示为'i'm upset'并在'meet me at the'后显示音频中不存在的'four'；底部字幕将可听韩语'아파트'显示为'top'和'four'，音频中无对应英语单音节发音；底部字幕显示五组'i say'重复，与同期可听韩语'아파트'群呼无音素对应",
+          "criterion_ids": [
+            "V5"
+          ],
+          "requires_audio": true,
+          "matching_policy": "Any actual supported instance of this same independent issue mechanism may match; do not require a fixed preselected timestamp. Distinct mechanisms remain separate.",
+          "examples": [
+            {
+              "event_id": "E001",
+              "claim": "底部字幕显示的英语近似串与同期可听韩语语音无音素对应",
+              "intervals": [
+                {
+                  "start_s": 0.6,
+                  "end_s": 6.6
+                }
+              ],
+              "audio_fact": "多名幼女声韩语齐诵'…랜덤 게임, 게임 스타트'，尾音为英语'Game start!'呼喊，伴笑声",
+              "visual_fact": "底部白色字幕在0.6-3.4 s显示'tenya Joan lindum game'，3.7-6.6 s显示'lindum game game start'；6.0 s按钮上方出现'START'全息文字；此后字幕切换为歌词行'ha ha ah pata pata ah pata'"
+            },
+            {
+              "event_id": "E002",
+              "claim": "底部字幕显示的无意义英语音节串与同期可听韩语'아파트'节奏念唱不对应",
+              "intervals": [
+                {
+                  "start_s": 6,
+                  "end_s": 12
+                },
+                {
+                  "start_s": 46.5,
+                  "end_s": 56.5
+                }
+              ],
+              "audio_fact": "女声快节奏韩语念唱'아파트 아파트…'(ah pa te)，配电子鼓点与'uh huh'衬词",
+              "visual_fact": "同期底部字幕分别显示“ha ha ah pata pata ah pata”（S00-00）与“AAPACA AAPACA AAPACA AAPACA AAPACA AAPACA AAPACA”（S01-00），与所听韩语发音不对应。"
+            },
+            {
+              "event_id": "E004",
+              "claim": "底部字幕连续显示的'AAPACA'与可听韩语hook含/t/尾辅音的音节结构不符",
+              "intervals": [
+                {
+                  "start_s": 47.0,
+                  "end_s": 50.5
+                },
+                {
+                  "start_s": 50.5,
+                  "end_s": 56.0
+                }
+              ],
+              "audio_fact": "人声hook为韩语三音节'아-파-트'(a-pa-teu)，末音节含清晰/t/塞音，全程无/k/或/s/尾音",
+              "visual_fact": "S00-00约14.5s字幕由'all you gotta do is just meet me at the'切换为'AAPACA AAPACA AAPACA AAPACA AAPACA AAPACA AAPACA'（七组，无r/t/m/n字母），跨切镜持续到S00-01约5.5s后变为'uh uh huh uh huh'"
+            },
+            {
+              "event_id": "E005",
+              "claim": "底部字幕将可听'apartment'显示为语义无关的'appetite'",
+              "intervals": [
+                {
+                  "start_s": 61.0,
+                  "end_s": 64.0
+                }
+              ],
+              "audio_fact": "男声唱出'Turn this apartment into a club'，'apartment'为多音节含/pɑːrt-/",
+              "visual_fact": "底部白色描边字幕在本地约2–4秒连续多帧稳定显示“turn this appetite into a club”，前后帧分别为“it's whatever…”与“uh huh uh huh”，切换边界清晰。"
+            },
+            {
+              "event_id": "E006",
+              "claim": "底部字幕将可听'dance'显示为'then'",
+              "intervals": [
+                {
+                  "start_s": 64.5,
+                  "end_s": 67.0
+                }
+              ],
+              "audio_fact": "男声快速列举'I'm talking drink, dance, smoke, freak, party all night'，'dance'含/d/起音、/æ/元音及/ns/尾辅音",
+              "visual_fact": "底部字幕持续显示'i'm talking drink then smoke freak party all night'，将'dance'替换为'then'，该错误文本在约8.0s至10.5s期间稳定呈现"
+            },
+            {
+              "event_id": "E007",
+              "claim": "底部字幕将可听韩语祝酒词显示为不相干英语词并多出未唱音节",
+              "intervals": [
+                {
+                  "start_s": 67.0,
+                  "end_s": 71.0
+                }
+              ],
+              "audio_fact": "男声以韩语发音重复祝酒词(건배/gombe/gun back，具体拼写存疑)后接英语'what's up'，句首无'come on'两音节引入",
+              "visual_fact": "同一窗口底部白色字幕连续显示'come on come back come back come what's up'（约本地11.3–13.3 s的帧中清晰可读），其后切换为'oh oh oh don't you want me like i want you baby'。"
+            },
+            {
+              "event_id": "E008",
+              "claim": "底部字幕在'meet me at the'后显示'opportunity'，同期音频实为韩语'아파트'",
+              "intervals": [
+                {
+                  "start_s": 80.5,
+                  "end_s": 84.5
+                }
+              ],
+              "audio_fact": "'all you gotta do is just meet me at the'之后紧接韩语'아파트'群呼，全程无/ɒpərtjuːnɪti/英语辅音簇",
+              "visual_fact": "S00-00 local 12-16s底部白色字幕持续显示'all you gotta do is just meet me at the opportunity'，跨越月亮跳跃场景与霓虹阶梯场景切换；local 17s字幕才变为'uh uh huh uh huh uh huh'"
+            },
+            {
+              "event_id": "E009",
+              "claim": "底部字幕末尾显示重复'way way'，音频仅唱一次'way'即进入下一乐段",
+              "intervals": [
+                {
+                  "start_s": 116.0,
+                  "end_s": 120.5
+                }
+              ],
+              "audio_fact": "女声唱'Hold on/tight, Hold on/tight, I'm on my way'，'way'为单次持续发音后直接接'yeah yeah yeah…'，无第二个'way'起音",
+              "visual_fact": "从本地约11.5秒起，画面底部白色字幕清晰显示'hold on hold on i'm on my way way'，末尾双写'way'可读，持续到约16秒；其后16.5–17.5秒帧字幕消失，S00-01开头字幕已切换为'yeah yeah yeah yeah yeah'，故双写'way'仅出现在该区间。"
+            },
+            {
+              "event_id": "E011",
+              "claim": "底部字幕将可听韩语'아파트'显示为'i'm upset'并在'meet me at the'后显示音频中不存在的'four'",
+              "intervals": [
+                {
+                  "start_s": 143.7,
+                  "end_s": 146.5
+                },
+                {
+                  "start_s": 146.5,
+                  "end_s": 159.5
+                }
+              ],
+              "audio_fact": "'all you gotta do is just meet me at the'之后持续重复韩语'아파트(apateu)'群呼，/p/、/t/、/ɯ/辅音清晰；全程无英文'I'm upset'或'four'演唱",
+              "visual_fact": "S00-00约15.2s起底部字幕由'all you gotta do is just meet me at the top'切换为'i'm upset i'm upset i'm upset'并持续到段末；S00-01在0-1.7s显示'just meet me at four'，1.9-12.7s反复显示'i'm upset'×4-5，12.8s再次显示'just meet me at four'"
+            },
+            {
+              "event_id": "E012",
+              "claim": "底部字幕将可听韩语'아파트'显示为'top'和'four'，音频中无对应英语单音节发音",
+              "intervals": [
+                {
+                  "start_s": 138.5,
+                  "end_s": 141.5
+                },
+                {
+                  "start_s": 146.5,
+                  "end_s": 147.5
+                },
+                {
+                  "start_s": 146.5,
+                  "end_s": 148.5
+                }
+              ],
+              "audio_fact": "'all you gotta do is just meet me at the'之后紧接韩语双音节'아-파트'(a-pa-teu)，无英语单音节闭唇尾音/tɒp/或/fɔːr/",
+              "visual_fact": "S00-00约local 10-13s底部字幕显示'all you gotta do is just meet me at the top'；S00-01及S01-00约local 1-3s字幕显示'just meet me at four'；两处字幕均与音频实际演唱的韩语'apateu'不符"
+            },
+            {
+              "event_id": "E013",
+              "claim": "底部字幕显示五组'i say'重复，与同期可听韩语'아파트'群呼无音素对应",
+              "intervals": [
+                {
+                  "start_s": 162.0,
+                  "end_s": 164.5
+                }
+              ],
+              "audio_fact": "该窗口人声为韩语'아파트 아파트'outro hook重复，含'uh-huh'衬词，非英语'I'm upset'也非'i say'",
+              "visual_fact": "该窗口内画面底部字幕逐帧稳定显示'i say i say i say i say i say'（五组重复），12.0秒后切换为'啊啊哈啊哈'；此前0–6.5秒同一hook曾被正确转写为'i'm upset'。"
+            }
+          ],
+          "normal_controls": [
+            {
+              "id": "NC-subtitle-lead-in",
+              "intervals": [
+                {
+                  "start_s": 22,
+                  "end_s": 30
+                }
+              ],
+              "status": "normal_not_a_required_revision",
+              "explanation": "Source recheck found a correct lyric line displayed shortly before its vocal entrance and remaining over that line; the initial content-error example was retired.",
+              "independent_source_reasons": [
+                "替代解释成立且无法排除：字幕内容与歌曲实际歌词（uh-huh衬词+red hearts乐句）完全一致，领先量有限且该行开头部分（uh huh）在字幕出现后很快被唱出；没有证据表明这是内容错误或显示故障，故不构成需修改的问题。提案中'该乐句未在窗口内唱出'的表述与词序及后续字幕切换（9.5s进入下一句）不相符，进一步支持这是正常预显而非错写。",
+                "该解释成立并被采纳：字幕在音频唱出 'uh-huh…red hearts…' 之前约1–2s 即显示，文字与随后歌词对应，仅省略重复衬词，属可接受的缩略而非内容错误，故命题隐含的缺陷不成立。",
+                "该解释成立且为唯一合理解释：字幕文本与音频歌词逐词吻合，提前量在1–2秒范围内，停留时间覆盖整句演唱，无任何内容错误。无需修改。"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "R002",
+          "source_id": "mv_apt",
+          "statement": "按钮上方全息文字逐字符读作S-T-空格-A-P-I-T而非START，含字母替换、多余插入和错误分词；同期音频明确说出'start'确认意图词",
+          "root_definition": "按钮上方全息文字逐字符读作S-T-空格-A-P-I-T而非START，含字母替换、多余插入和错误分词；同期音频明确说出'start'确认意图词",
+          "criterion_ids": [
+            "V5"
+          ],
+          "requires_audio": true,
+          "matching_policy": "Any actual supported instance of this same independent issue mechanism may match; do not require a fixed preselected timestamp. Distinct mechanisms remain separate.",
+          "examples": [
+            {
+              "event_id": "E016",
+              "claim": "按钮上方全息文字逐字符读作S-T-空格-A-P-I-T而非START，含字母替换、多余插入和错误分词；同期音频明确说出'start'确认意图词",
+              "intervals": [
+                {
+                  "start_s": 5.5,
+                  "end_s": 7.0
+                }
+              ],
+              "audio_fact": "约5.5-7.0s画外童声念唱'랜덤 게임 게임 스타트'(random game game start)，'start'清晰可辨；随后切入电子drop与韩语hook",
+              "visual_fact": "5.0s帧仅有青色发光按钮与电路纹样、无悬浮文字；6.0s与6.5s帧中按钮上方出现带粒子闪烁的白蓝发光大写字母，逐字符读作S-T-空格-A-P-I-T，字形为干净sans-serif拉丁字符，至约7.0s切镜（坠入隧道）时消失。"
+            }
+          ]
+        },
+        {
+          "id": "R003",
+          "source_id": "mv_apt",
+          "statement": "霓虹走廊悬浮镜头中可见细金属垂直线与末端O形扣件贯穿该镜头，悬于表演者头顶上方",
+          "root_definition": "霓虹走廊悬浮镜头中可见细金属垂直线与末端O形扣件贯穿该镜头，悬于表演者头顶上方",
+          "criterion_ids": [
+            "V6"
+          ],
+          "requires_audio": false,
+          "matching_policy": "Any actual supported instance of this same independent issue mechanism may match; do not require a fixed preselected timestamp. Distinct mechanisms remain separate.",
+          "examples": [
+            {
+              "event_id": "E018",
+              "claim": "霓虹走廊悬浮镜头中可见细金属垂直线与末端O形扣件贯穿该镜头，悬于表演者头顶上方",
+              "intervals": [
+                {
+                  "start_s": 97.1,
+                  "end_s": 103.2
+                }
+              ],
+              "audio_fact": "该段为预录女声演唱（'hey so now you know the game are you ready / cause i'm coming to get ya get ya get ya'），无任何机械、绳索或吊具相关音效；声音本身与画面残留无关，仅作背景确认。",
+              "visual_fact": "自本地4.6 s切入霓虹走廊起，画面顶部中央始终可见一条笔直细线垂直下垂，线端在女子发顶上方约10–15 cm处有一个银色小金属环/钩状扣件；在4.6、5.0、5.5、6.0、6.5、7.0、7.5、8.0、8.5、9.0、9.5、10.0、10.5 s各连续帧中该线与扣件位置随人物浮动而保持连接关系，直至10.7 s镜头切至日落悬崖前均未消失。"
+            }
+          ]
+        },
+        {
+          "id": "R005",
+          "source_id": "mv_apt",
+          "statement": "雪山场景悬浮金色韩文字符使用标准Hangul音节块但不构成有效韩语词汇，且随镜头推进出现字符形变与笔画融合",
+          "root_definition": "雪山场景悬浮金色韩文字符使用标准Hangul音节块但不构成有效韩语词汇，且随镜头推进出现字符形变与笔画融合",
+          "criterion_ids": [
+            "V5"
+          ],
+          "requires_audio": false,
+          "matching_policy": "Any actual supported instance of this same independent issue mechanism may match; do not require a fixed preselected timestamp. Distinct mechanisms remain separate.",
+          "examples": [
+            {
+              "event_id": "E017",
+              "claim": "雪山场景悬浮金色韩文字符使用标准Hangul音节块但不构成有效韩语词汇，且随镜头推进出现字符形变与笔画融合",
+              "intervals": [
+                {
+                  "start_s": 161.8,
+                  "end_s": 168.0
+                }
+              ],
+              "audio_fact": "该段人声为英文'i say i say...'及中文ad-lib'啊啊哈啊哈'，无任何韩语语音对应屏幕上的韩文字符",
+              "visual_fact": "多组Hangul音节块以金色发光形式悬浮于白色雪山上方，字号大且清晰可辨；随镜头缓慢推进，部分字符轮廓发生形变、笔画融合（约local 13-15s），最终在场景切换前仍保持不可读状态"
+            }
+          ]
+        }
+      ],
+      "music_release": [],
+      "source_sha256": "3a403f6228f44ac1cc01e3eed8c03f14da215bc9b91940ea7048c57f73ed5a00",
+      "annotation": "two local discovery views per12s+full-context3views+3fresh source verifiers per event+3audio-only witnesses+3audio-consistency audits+3scope/causality/root-duplication audits; sameQwen consensus, not human certification",
+      "authoring_receipt": "authoring-v7-dense\\scope-final\\mv_apt.json",
+      "performance_premise_audit": {
+        "source_only": true,
+        "model_answers_seen": false,
+        "trigger": "Original source-verifier cited an unprovided 1-2s beauty-shot convention; applicability must follow the existing task scope",
+        "votes": {
+          "E021": {
+            "A": {
+              "event_id": "E021",
+              "applicability": "not_applicable",
+              "observable_performance_cues": "",
+              "normal_montage_explanation": "该窗口（源片143.0–150.0 s，对应Video 1本地约1.5–8.5 s）为极端面部特写beauty shot：表演者以固定露齿宽笑直视镜头，仅有轻微头部倾斜与眨眼级微动，唇部在整个区间内无任何闭合、张合或圆唇构音动作。同期音轨为韩语'아파트 아파트'群呼叠加英语领唱的多层连续人声。口部完全静止且无音节对应尝试，符合MV中有意安排的摆拍/美镜头特征——即该镜头本身不承载对口型表演功能，而非'试图演唱但失败'。",
+              "reason": "根据验收规则，'明确属于无须对口型的镜头判not_applicable'。此处口部在7秒以上连续多层人声期间保持完全锁定的静态微笑，零构音运动（非'有构音后异常停口'，也非'口型与歌词部分脱节'），排除表演意图，属于导演选择的美学摆拍镜头，无须也不应进行AV3口型同步验收。",
+              "intervals": [
+                {
+                  "segment_id": "S00-00",
+                  "local_start_s": 1.5,
+                  "local_end_s": 8.5
+                }
+              ]
+            },
+            "B": {
+              "event_id": "E021",
+              "applicability": "not_established",
+              "observable_performance_cues": "",
+              "normal_montage_explanation": "该窗口为MV中的极端面部beauty shot／微笑定格摆拍：人物直视镜头维持露齿宽笑，音轨的韩语群呼与英语领唱作为画外音乐覆盖此镜头，属正常蒙太奇／摆拍处理，本不要求该镜头承担对口型演唱。",
+              "reason": "在source 143.0–150.0（对应正常速度片段local 1.5–8.5）整段极端面部特写中，所有采样帧口部均锁定为同一露齿宽笑，未见任何辅音闭合、元音圆唇或唇部张合，仅见头部微倾与眨眼级抖动，唇形与音轨连续多层人声演唱的音节完全脱节；因此无可观察的发声／演唱表演关系，无法按AV3建立口部运动与音轨的同步，符合‘只看到人脸姿态而无法排除画外音乐与正常摆拍’的情形。",
+              "intervals": [
+                {
+                  "segment_id": "S00-00",
+                  "local_start_s": 1.5,
+                  "local_end_s": 8.5
+                }
+              ]
+            },
+            "C": {
+              "event_id": "E021",
+              "applicability": "not_established",
+              "observable_performance_cues": "",
+              "normal_montage_explanation": "该极端面部特写符合MV中常见的摆拍beauty shot用法：人物对镜保持固定露齿宽笑，仅有轻微头部倾斜与眨眼级抖动，而音轨的多层人声（韩语群呼叠加英语领唱）作为画外配乐持续播放；真正的演唱表演出现在其后的切镜（未来感花园镜头，口部随音节张合），说明本特写承担的是蒙太奇B-roll功能，而非对口型take。",
+              "reason": "在local 1.5–8.5 s（对应源片143–150 s）窗口内，所有采样帧的口型均为同一露齿宽笑：无任何辅音闭合、无张合循环、无元音圆唇变化，唇部完全静止，仅头部微倾与眨眼；与此同时音轨为连续多层人声演唱。画面不存在可将口部运动与音轨关联的可观察构音行为，歌词字幕的切换与口型无关，无法排除画外音乐+正常摆拍的替代解释，因此不足以按AV3验收为发声/演唱表演关系。",
+              "intervals": [
+                {
+                  "segment_id": "S00-00",
+                  "local_start_s": 1.5,
+                  "local_end_s": 8.5
+                }
+              ]
+            }
+          }
+        },
+        "excluded_event_ids": [
+          "E021"
+        ],
+        "initial_gold_preserved": true
+      },
+      "reference_extension": {
+        "revision": 1,
+        "initial_reference_preserved": true,
+        "proposal_origin": "Organizer GT E003 content/timing ambiguity; no solver answer or score shown",
+        "superseded_event_ids": [
+          "E003"
+        ],
+        "source_verification": "same 3fresh nativeAV + audio-only isolation + scope checks",
+        "root_mapping": [],
+        "path": "authoring-v7-dense\\mechanism-correction\\mv_apt\\reference-extension-1",
+        "score_not_used_in_adoption": true
+      },
+      "normal_control_recheck": {
+        "retired_example_ids": [
+          "E003"
+        ],
+        "source_votes_path": "authoring-v7-dense\\mechanism-correction\\mv_apt\\reference-extension-1\\source-check\\verify\\mv_apt",
+        "reason": "Fresh source check distinguishes normal subtitle lead-in from a transcription or timing fault"
+      },
+      "reference_diagnostics": []
+    },
+    {
+      "version": "pilot-v7-mv_lazy",
+      "source_id": "mv_lazy",
+      "general_events": [
+        {
+          "id": "R001",
+          "source_id": "mv_lazy",
+          "statement": "绿色数字钟特写镜头内，相邻帧间读数出现无效时间值（分钟位85、87）及小时级非单调倒退，音轨无缝延续、无时间跳转或蒙太奇标记，属场内数字渲染不稳定",
+          "root_definition": "绿色数字钟特写镜头内，相邻帧间读数出现无效时间值（分钟位85、87）及小时级非单调倒退，音轨无缝延续、无时间跳转或蒙太奇标记，属场内数字渲染不稳定",
+          "criterion_ids": [
+            "V3"
+          ],
+          "requires_audio": false,
+          "matching_policy": "Any actual supported instance of this same independent issue mechanism may match; do not require a fixed preselected timestamp. Distinct mechanisms remain separate.",
+          "examples": [
+            {
+              "event_id": "E009",
+              "claim": "绿色数字钟特写镜头内，相邻帧间读数出现无效时间值（分钟位85、87）及小时级非单调倒退，音轨无缝延续、无时间跳转或蒙太奇标记，属场内数字渲染不稳定。",
+              "intervals": [
+                {
+                  "start_s": 2.8,
+                  "end_s": 3.5
+                }
+              ],
+              "audio_fact": "原声为连续平稳的尤克里里/吉他扫弦加男声演唱'today I don't feel like doing anything'，无表示时间跳转或蒙太奇切换的音效标记，音轨在视觉切镜处无缝延续。",
+              "visual_fact": "0.0–2.7s宽景红色钟稳定显示18:09；2.8s硬切至绿色钟特写，随即2.9–3.1s显示'12:85'（分钟位85无效），3.2s显示'16:87'（同样无效），3.3s'16:27'，3.4s'16:22'，3.5s跳回'15:22'后稳定至10.5s。相邻帧（间隔≈0.1s）内出现无效读数与小时级倒退。"
+            }
+          ]
+        },
+        {
+          "id": "R002",
+          "source_id": "mv_lazy",
+          "statement": "同一连续镜头内，前景男子弯腰向左伸手够取物品时，落地镜反射始终冻结为直立站姿、双臂垂于体侧，未镜像躯干前倾与伸臂；该窗口前后（跳舞转身段、直身举遥控器段）反射均正确跟踪，排除有意艺术处理",
+          "root_definition": "同一连续镜头内，前景男子弯腰向左伸手够取物品时，落地镜反射始终冻结为直立站姿、双臂垂于体侧，未镜像躯干前倾与伸臂；该窗口前后（跳舞转身段、直身举遥控器段）反射均正确跟踪，排除有意艺术处理",
+          "criterion_ids": [
+            "V2"
+          ],
+          "requires_audio": false,
+          "matching_policy": "Any actual supported instance of this same independent issue mechanism may match; do not require a fixed preselected timestamp. Distinct mechanisms remain separate.",
+          "examples": [
+            {
+              "event_id": "E008",
+              "claim": "同一连续镜头内，前景男子弯腰向左伸手够取物品时，落地镜反射始终冻结为直立站姿、双臂垂于体侧，未镜像躯干前倾与伸臂；该窗口前后（跳舞转身段、直身举遥控器段）反射均正确跟踪，排除有意艺术处理。",
+              "intervals": [
+                {
+                  "start_s": 77.89999999999999,
+                  "end_s": 78.6
+                }
+              ],
+              "audio_fact": "该时段音频为男声重复句'nothing at all'及轻快节奏，无提示切换或特效的音效；声音本身与画面无冲突，缺陷为纯视觉。",
+              "visual_fact": "原速Video 1中约1.8s起男子明显前倾弯腰、左臂伸向画面左侧床头柜，持续至约2.4s抓取；同期慢放辅助帧（对应源77.8–78.4s）清楚显示镜中反射为直立正面站姿、双臂自然下垂、灰色上衣与敞开睡袍可见，与前景姿态完全脱节；约2.5s男子直身举起遥控器后反射才恢复一致。此前1.4–1.7s跳舞转身时反射正确跟随，此后也正确。"
+            }
+          ]
+        },
+        {
+          "id": "R003",
+          "source_id": "mv_lazy",
+          "statement": "同一烧录歌词字幕轨道的转写内容错误；不同词语及肯否错误是同类根因的不同实例。",
+          "root_definition": "同一烧录歌词字幕轨道的转写内容错误；不同词语及肯否错误是同类根因的不同实例。",
+          "criterion_ids": [
+            "V5"
+          ],
+          "requires_audio": true,
+          "matching_policy": "Any actual supported instance of this same independent issue mechanism may match; do not require a fixed preselected timestamp. Distinct mechanisms remain separate.",
+          "examples": [
+            {
+              "event_id": "E003",
+              "claim": "底部字幕转写为'cause I can't'（含/t/闭合），而实际可听人声末词收在开放鼻元音上、无塞音释放，三份纯音轨盲听一致确认为'can'；字幕文字与音轨歌词构成否定/肯定替换错误。",
+              "intervals": [
+                {
+                  "start_s": 107.0,
+                  "end_s": 110.7
+                }
+              ],
+              "audio_fact": "男声连续唱'I said it, I said it, 'cause I can'，末词收在开放鼻元音上，无/t/塞音闭合或释放；三份纯音轨盲听均清晰确认'can'而非'can't'。",
+              "visual_fact": "local约2.5s起字幕由'oh yes I said it'切换为'I said it I said it cause I can't'，该含can't的字幕持续到约6.0s，之后6.5s切为'today I don't feel like doing anything'；同期画面中男子站在沙发上举麦克风得意演唱，表情与肯定式歌词相符。"
+            },
+            {
+              "event_id": "Xa41007fe3a37-NE005",
+              "claim": "底部白色歌词字幕将动词'get'误写为'give'（'give my college degree'），而三位纯音频盲听者一致清晰辨听到演唱为'get my college degree'，构成单字转写替换错误。",
+              "intervals": [
+                {
+                  "start_s": 93.9,
+                  "end_s": 96.77000000000001
+                },
+                {
+                  "start_s": 93.9,
+                  "end_s": 96.77000000000001
+                },
+                {
+                  "start_s": 93.9,
+                  "end_s": 96.77000000000001
+                }
+              ],
+              "audio_fact": "三位纯音频盲听者一致清晰听到男声唱出'…and get my college degree'，其中'get'发音明确，无任何一位听到'give'。",
+              "visual_fact": "约1.5s起毕业场景出现，底部白色字幕持续显示'yeah I might mess around and give my college degree'，其中'give'与实际唱出的'get'不一致，字幕停留至约4.4s场景切换。"
+            }
+          ],
+          "mechanisms": [
+            "subtitle_content"
+          ]
+        },
+        {
+          "id": "R004",
+          "source_id": "mv_lazy",
+          "statement": "前景手持智能手机屏幕上所有文本字段（标题栏、联系人、消息气泡、按钮标签）均为逐字可辨但无语义的随机拉丁字母/数字拼接串，UI框架完整而内容空洞，非模糊、马赛克或占位符处理",
+          "root_definition": "前景手持智能手机屏幕上所有文本字段（标题栏、联系人、消息气泡、按钮标签）均为逐字可辨但无语义的随机拉丁字母/数字拼接串，UI框架完整而内容空洞，非模糊、马赛克或占位符处理",
+          "criterion_ids": [
+            "V5"
+          ],
+          "requires_audio": false,
+          "matching_policy": "Any actual supported instance of this same independent issue mechanism may match; do not require a fixed preselected timestamp. Distinct mechanisms remain separate.",
+          "examples": [
+            {
+              "event_id": "E007",
+              "claim": "前景手持智能手机屏幕上所有文本字段（标题栏、联系人、消息气泡、按钮标签）均为逐字可辨但无语义的随机拉丁字母/数字拼接串，UI框架完整而内容空洞，非模糊、马赛克或占位符处理。",
+              "intervals": [
+                {
+                  "start_s": 121.0,
+                  "end_s": 123.0
+                }
+              ],
+              "audio_fact": "同期演唱歌词'don't feel like picking up my phone'，声音内容与画面情境（不想接电话）一致，无语音引用屏幕文字。",
+              "visual_fact": "手机在2.0s起进入前景并逐渐对焦，2.5s–3.5s屏幕完全清晰可读。UI框架完整（顶部状态栏、消息气泡区域、绿色操作按钮、底部导航图标），但所有文本字段呈现为大小写随机混合的无意义字符串（'RENEED 6im'含数字与字母拼接、'Gecrhen Lomn'等），逐字可辨却无任何语义，非模糊、马赛克或占位符处理。"
+            }
+          ]
+        },
+        {
+          "id": "Xa41007fe3a37-R001",
+          "source_id": "mv_lazy",
+          "statement": "黑色游戏手柄在演员双手举拳过程中从手中消失（拳内无手柄体积轮廓），随后双手回落时手柄无可见转移、遮挡出框或切镜路径地重新出现在握持位，发生于同一连续毕业幻想镜头内",
+          "root_definition": "黑色游戏手柄在演员双手举拳过程中从手中消失（拳内无手柄体积轮廓），随后双手回落时手柄无可见转移、遮挡出框或切镜路径地重新出现在握持位，发生于同一连续毕业幻想镜头内",
+          "criterion_ids": [
+            "V3"
+          ],
+          "requires_audio": false,
+          "matching_policy": "Any actual supported instance of this same independent issue mechanism may match; do not require a fixed preselected timestamp. Distinct mechanisms remain separate.",
+          "examples": [
+            {
+              "event_id": "Xa41007fe3a37-NE002",
+              "claim": "黑色游戏手柄在演员双手举拳过程中从手中消失（拳内无手柄体积轮廓），随后双手回落时手柄无可见转移、遮挡出框或切镜路径地重新出现在握持位，发生于同一连续毕业幻想镜头内。",
+              "intervals": [
+                {
+                  "start_s": 93.8,
+                  "end_s": 94.3
+                },
+                {
+                  "start_s": 95.93,
+                  "end_s": 96.4
+                },
+                {
+                  "start_s": 93.8,
+                  "end_s": 96.39999999999999
+                }
+              ],
+              "audio_fact": "同期演唱\"yeah I might mess around and give my college degree\"，无提示物体消失或出现的音效；音频连续无断裂。",
+              "visual_fact": "S00-00 local 1.5s（源93.8s）：男孩双手握黑色手柄、拇指在摇杆上；local 1.7s起双手上举握拳，手柄从手中消失，拳内无手柄体积轮廓；至local 3.2s（源95.5s）仍为空拳。S01-00 local 0.0–1.5s（源94.43–95.93s）延续空拳状态；local 1.7s（源96.13s）手柄突然回到双手握持位，男孩表情由大笑转为微笑。全程背景云层、学士帽、学位袍、领带、漂浮文凭位置一致，未见硬切黑帧或明显跳帧标记，呈现为同一连续镜头。"
+            }
+          ]
+        },
+        {
+          "id": "Xa41007fe3a37-R003",
+          "source_id": "mv_lazy",
+          "statement": "薄矩形亮屏手机在飞向衣篮的同一连续室内镜头中，先经合理侧转变窄，随后不可逆地增厚、变暗并出现弯曲凹口轮廓，最终以厚实不规则鞋状黑块落入篮中，几何形态突变无法用刚体旋转或透视解释",
+          "root_definition": "薄矩形亮屏手机在飞向衣篮的同一连续室内镜头中，先经合理侧转变窄，随后不可逆地增厚、变暗并出现弯曲凹口轮廓，最终以厚实不规则鞋状黑块落入篮中，几何形态突变无法用刚体旋转或透视解释",
+          "criterion_ids": [
+            "V3"
+          ],
+          "requires_audio": false,
+          "matching_policy": "Any actual supported instance of this same independent issue mechanism may match; do not require a fixed preselected timestamp. Distinct mechanisms remain separate.",
+          "examples": [
+            {
+              "event_id": "Xa41007fe3a37-NE004",
+              "claim": "薄矩形亮屏手机在飞向衣篮的同一连续室内镜头中，先经合理侧转变窄，随后不可逆地增厚、变暗并出现弯曲凹口轮廓，最终以厚实不规则鞋状黑块落入篮中，几何形态突变无法用刚体旋转或透视解释。",
+              "intervals": [
+                {
+                  "start_s": 124.63,
+                  "end_s": 125.33
+                }
+              ],
+              "audio_fact": "同期演唱'so leave a message at the tone'，无任何提示物体变形或替换的音效。",
+              "visual_fact": "local 1.1–1.2 s 可见薄矩形、亮面朝向镜头的手机；1.3–1.4 s 转为极窄侧边线（合理翻转）；1.5 s 起物体明显增厚、变暗，轮廓出现弯曲与凹口；1.6–1.8 s 呈厚实不规则鞋状黑块；1.9 s 落入衣篮。全程天花板、窗帘、窗户背景一致，无切镜。"
+            }
+          ]
+        }
+      ],
+      "music_release": [],
+      "source_sha256": "83eb159f2b7361ed73aedfacd9b66c76d0075ba27a8fd1e3cbfaf5e341738ccc",
+      "annotation": "Source discovery: 31/32 planned AV/VIS views valid; 2/3 complete-source discovery views valid. Unavailable API views explicitly recorded; independent source verification, audio-isolation and scope checks retained. No failed API opinion fabricated.",
+      "authoring_receipt": "authoring-v7-dense\\scope-final\\mv_lazy.json",
+      "authoring_coverage": {
+        "calls": 32,
+        "valid_views": 31,
+        "unavailable_views": [
+          {
+            "window_id": "mv_lazy-007",
+            "view": "AV",
+            "valid_opinion": false,
+            "reason": "Provider inspection did not return a valid primary or benign technical-summary response; no further workaround attempted",
+            "raw_failure_preserved": true,
+            "other_source_views_retained": true
+          }
+        ],
+        "windows": 16,
+        "completed_at": "2026-11-15T18:20:45.583853+00:00",
+        "same_model": "qwen3.8-omni-flash",
+        "no_solver_outputs": true,
+        "call_unit": "planned primary discovery slots; restorations separately logged"
+      },
+      "global_authoring_coverage": {
+        "source_id": "mv_lazy",
+        "calls": 3,
+        "valid_views": 2,
+        "unavailable_views": [
+          {
+            "voter": "C",
+            "valid_opinion": false,
+            "reason": "Provider inspection returned no valid global discovery; preserve the other independent views, no workaround or fabricated opinion"
+          }
+        ],
+        "no_local_answers_seen": true
+      },
+      "performance_premise_audit": {
+        "source_only": true,
+        "model_answers_seen": false,
+        "trigger": "Original source-verifier cited an unprovided 1-2s beauty-shot convention; applicability must follow the existing task scope",
+        "votes": {},
+        "excluded_event_ids": [],
+        "initial_gold_preserved": true
+      },
+      "reference_extension": {
+        "revision": 1,
+        "initial_reference_preserved": true,
+        "proposal_origin": "first source-judge novel-valid findings",
+        "superseded_event_ids": [],
+        "source_verification": "same 3fresh nativeAV + audio-only isolation + scope checks",
+        "root_mapping": [
+          {
+            "new_root_id": "R001",
+            "adopted_root_id": "Xa41007fe3a37-R001",
+            "votes": [
+              "NEW",
+              "NEW",
+              "NEW"
+            ]
+          },
+          {
+            "new_root_id": "R002",
+            "adopted_root_id": "Xa41007fe3a37-R002",
+            "votes": [
+              "R003",
+              "NEW",
+              "NEW"
+            ]
+          },
+          {
+            "new_root_id": "R003",
+            "adopted_root_id": "Xa41007fe3a37-R003",
+            "votes": [
+              "NEW",
+              "NEW",
+              "NEW"
+            ]
+          }
+        ],
+        "path": "pilot-v7-mv_lazy\\results\\sol_xhigh_r01_20261116_dense\\reference-extension-1",
+        "score_not_used_in_adoption": true
+      },
+      "root_aliases": {
+        "Xa41007fe3a37-R002": "R003"
+      },
+      "unit_correction": {
+        "policy": "Frozen same subtitle track/content unit; word substitutions do not create separate roots",
+        "source_reference_sha256": "a8605f16d74be54ee49ed6926b4546e681e40d165b8c50f1d6c54e1fd2b66867",
+        "old_count": 7,
+        "new_count": 6,
+        "numerical_scoring_unchanged": true,
+        "no_new_perception_or_matching_votes": true
+      },
+      "reference_diagnostics": []
+    }
+  ],
+  "initial_frozen_reference": "v7-initial-gold.json"
+}

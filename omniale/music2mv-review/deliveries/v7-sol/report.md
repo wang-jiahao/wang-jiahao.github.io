@@ -1,0 +1,29 @@
+# 音乐视频审片报告
+
+审查使用两支源片的完整视频和各自提供的独立嵌入音轨，时间均从源视频 0 秒计算。全片先按 2 秒建立连续画面接触表，再对文字、演唱近景、动作/道具接触、段落转场和结尾逐秒回查；APT. 的字幕疑点另以 0.25–0.5 秒连续帧和短音频模型复核。报告只列需要修改或需要保留观察的问题。
+
+## 已确认问题
+
+### APT-T01｜歌词字幕系统性转写错误｜major
+
+时间点：0.8–3.2、3.9–6.7、7.0–12.6、18.0–31.5、48.0–58.0、78.0–90.5、138.0–160.5 秒。
+
+原声在开头依次可听到 “Random Game” 和 “Random Game Game Start”，副歌多次是 “Apateu/Apatuh”；78–90 秒可听到 “Sleep tomorrow, but tonight go crazy / All you gotta do is just meet me at the …”。138–156 秒的短段复核到的是重复的 “Just meet me at the … / I got to …” 句组。
+
+画面底部字幕却连续显示 “tenya Joan lindum game”“lindum game game start”“ha ha ah pata pata ah pata”“AAPACA AAPACA …”“…meet me at the opportunity”，后段还显示 “…meet me at the top”“I'm upset”“just meet me at four”。这是同一字幕转写根因在多段的实例，已超出正常音译、重复副歌或切镜允许的误差范围。
+
+建议用原始嵌入音轨重做歌词轨，保留正确的 Apateu/APT.、Random Game、meet me at the … 和 I got to 等词句，并逐句校对显示起止。
+
+### APT-T02｜游戏启动 UI 文字残缺｜minor
+
+时间点：5.8–6.7 秒。
+
+人物按下发光按钮，原声说/唱 “Random Game Game Start”。连续画面中的前景 UI 清晰写成 “ST APIT”，无法读作完整的 START 或 APT.；该文字承担启动提示语义，建议替换为经过校对的完整 UI 字样。它与底部歌词字幕属于不同机制，需单独修复。
+
+## 未确认项
+
+APT. 在 168.17–173.66 秒、Lazy Song 在 188.40–191.82 秒都存在音乐结束后的静音视觉尾段。两处都在干净切换后进入独立收尾画面，可能是有意的视觉后记，因此暂不列为确定断音故障。
+
+## 另一支片
+
+Lazy Song 全片的歌词字幕与原声逐段对应；卧室、电话、被褥、电视、服装和后段玩偶面具舞蹈均在切镜或明确的喜剧/幻想段落中完成转换。未确认需要返修的口型、动作接触、道具持续性、人物身份、场内文字或剪辑技术问题。

@@ -1,0 +1,32 @@
+{
+  "score": 66.66666666666666,
+  "matched_count": 2,
+  "gold_count": 4,
+  "matched_quality": 2.0,
+  "unsupported_count": 0,
+  "uncertain_count": 0,
+  "precision": 1.0,
+  "recall": 0.5,
+  "f1": 0.6666666666666666,
+  "matches": [
+    {
+      "root_id": "R001",
+      "check_ids": [
+        "APT-T01"
+      ],
+      "quality": 1.0,
+      "reason": "APT-T01 identifies the same root cause—systematic subtitle transcription errors where displayed English text bears no phonemic correspondence to the audible Korean/English vocal. Intervals 0.8–3.2 and 3.9–6.7 match E001 ('tenya Joan lindum game'/'lindum game game start' vs audible '랜덤 게임 게임 스타트'); 7.0–12.6 and 48.0–58.0 match E002/E004 ('ha ha ah pata pata'/'AAPACA' vs audible '아파트'); 78.0–90.5 matches E008 ('opportunity' vs audible '아파트'); 138.0–160.5 matches E011/E012 ('I'm upset'/'top'/'four' vs audible '아파트'). Visual and audio facts are specifically cited per interval, confirming the mismatch mechanism."
+    },
+    {
+      "root_id": "R002",
+      "check_ids": [
+        "APT-T02"
+      ],
+      "quality": 1.0,
+      "reason": "APT-T02 pinpoints 5.8–6.7 s where the holographic UI above the pressed button reads 'ST APIT' (letter substitution, extra insertion, wrong tokenization) while the concurrent audio clearly says 'start'. This matches E016 exactly in both timing and the specific character-level defect identified."
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [],
+  "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+}

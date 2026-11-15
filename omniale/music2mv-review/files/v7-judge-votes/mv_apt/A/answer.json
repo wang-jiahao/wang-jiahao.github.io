@@ -1,0 +1,42 @@
+{
+  "coverage": [
+    {
+      "root_id": "R001",
+      "covered": true,
+      "check_ids": [
+        "APT-T01"
+      ],
+      "localization": 1,
+      "evidence": 1,
+      "reason": "APT-T01 identifies the same root cause (systematic subtitle transcription errors where English text does not match Korean/English audio) and provides multiple supported instances across its intervals: 0.8-3.2/3.9-6.7 covers E001 ('tenya Joan lindum game'/'lindum game game start' vs Korean '랜덤 게임 게임 스타트'); 7.0-12.6 and 48.0-58.0 cover E002/E004 ('ha ha ah pata pata'/'AAPACA' vs '아파트'); 78.0-90.5 covers E008 ('opportunity' vs '아파트'); 138.0-160.5 covers E011/E012 ('I'm upset'/'top'/'four' vs '아파트'). Audio and visual facts are specific and verifiable against source."
+    },
+    {
+      "root_id": "R002",
+      "covered": true,
+      "check_ids": [
+        "APT-T02"
+      ],
+      "localization": 1,
+      "evidence": 1,
+      "reason": "APT-T02 pinpoints 5.8-6.7s where the button holographic text reads 'ST APIT' instead of 'START', with concurrent audio saying 'Random Game Game Start'. This matches GT example E016 (5.5-7.0s) exactly in mechanism, visual content, and audio confirmation. The check correctly distinguishes this from the subtitle issue as an independent in-scene text defect."
+    },
+    {
+      "root_id": "R003",
+      "covered": false,
+      "check_ids": [],
+      "localization": 0,
+      "evidence": 0,
+      "reason": "No submitted check addresses the visible metal wire/O-ring harness above the performer in the neon corridor floating shot (source ~97-103s). APT-T01's intervals (78-90.5) do not reach this time range, and neither check's finding text mentions any rigging or production residue."
+    },
+    {
+      "root_id": "R005",
+      "covered": false,
+      "check_ids": [],
+      "localization": 0,
+      "evidence": 0,
+      "reason": "No submitted check addresses the snow mountain scene's floating golden Hangul characters that are invalid/deformed (source ~161.8-168s). APT-T01's last interval ends at 160.5s, and no check mentions in-scene Hangul text corruption or stroke fusion."
+    }
+  ],
+  "additional_claims": [],
+  "limitations": []
+}

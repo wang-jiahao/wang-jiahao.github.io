@@ -1,0 +1,940 @@
+{
+  "results": [
+    {
+      "score": 75.0,
+      "adopted_voter_id": "A",
+      "breakdown": {
+        "voter_id": "A",
+        "score": 75.0,
+        "matched_count": 3,
+        "gold_count": 4,
+        "matched_quality": 3.0,
+        "unsupported_count": 1,
+        "uncertain_count": 0,
+        "precision": 0.75,
+        "recall": 0.75,
+        "f1": 0.75,
+        "matches": [
+          {
+            "root_id": "R001",
+            "check_ids": [
+              "G01"
+            ],
+            "quality": 1.0,
+            "reason": "G01在80.7–84.5 s指出字幕显示'opportunity'而原声仅唱'meet me at the'后接韩语'아파트'群呼，对应GT E008；在138.9–142.9 s指出字幕显示'top'而原声无对应英语单音节，对应GT E012。两处均为同一字幕轨新增无声实词的根因，音画事实与GT核验一致。"
+          },
+          {
+            "root_id": "R002",
+            "check_ids": [
+              "G03"
+            ],
+            "quality": 1.0,
+            "reason": "G03在5.9–6.5 s描述按钮上方弹出大号白色字逐字符读作'ST APIT'，同期画外童声念唱'게임 스타트'(game start)，与GT E016的5.5–7.0 s区间及音画事实完全吻合。"
+          },
+          {
+            "root_id": "R003",
+            "check_ids": [
+              "G04"
+            ],
+            "quality": 1.0,
+            "reason": "G04在96.967–103.4 s描述霓虹走廊悬浮镜头中从顶边垂下的细金属线与末端O形扣件贯穿全镜，悬于表演者头顶上方，与GT E018的97.1–103.2 s区间及连续帧证据一致。"
+          }
+        ],
+        "unsupported": [
+          {
+            "check_id": "G02",
+            "claim": "'red hearts'字幕行在23.4 s过早进入，抢占仍在唱上一句的时段",
+            "status": "unsupported",
+            "reason": "GT的NC-subtitle-lead-in已明确核验该区间：字幕内容与歌曲实际歌词(uh-huh衬词+red hearts乐句)完全一致，领先量有限且该行开头在字幕出现后很快被唱出，属正常预显而非内容错误或显示故障，不构成需修改的问题。",
+            "intervals": [
+              {
+                "start_s": 23.4,
+                "end_s": 26.1
+              }
+            ],
+            "audio_fact": "约22.74–24.88 s原声唱'I'm trying to kiss your lips for real'，red hearts约25.8 s进入",
+            "visual_fact": "23.4 s底部出现'uh huh red hearts that's what i'm on yeah'，该行文字与随后歌词逐词吻合",
+            "criterion_id": "V5"
+          }
+        ],
+        "uncertain": [],
+        "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+      },
+      "individual_judge_results": [
+        {
+          "voter_id": "A",
+          "score": 75.0,
+          "matched_count": 3,
+          "gold_count": 4,
+          "matched_quality": 3.0,
+          "unsupported_count": 1,
+          "uncertain_count": 0,
+          "precision": 0.75,
+          "recall": 0.75,
+          "f1": 0.75,
+          "matches": [
+            {
+              "root_id": "R001",
+              "check_ids": [
+                "G01"
+              ],
+              "quality": 1.0,
+              "reason": "G01在80.7–84.5 s指出字幕显示'opportunity'而原声仅唱'meet me at the'后接韩语'아파트'群呼，对应GT E008；在138.9–142.9 s指出字幕显示'top'而原声无对应英语单音节，对应GT E012。两处均为同一字幕轨新增无声实词的根因，音画事实与GT核验一致。"
+            },
+            {
+              "root_id": "R002",
+              "check_ids": [
+                "G03"
+              ],
+              "quality": 1.0,
+              "reason": "G03在5.9–6.5 s描述按钮上方弹出大号白色字逐字符读作'ST APIT'，同期画外童声念唱'게임 스타트'(game start)，与GT E016的5.5–7.0 s区间及音画事实完全吻合。"
+            },
+            {
+              "root_id": "R003",
+              "check_ids": [
+                "G04"
+              ],
+              "quality": 1.0,
+              "reason": "G04在96.967–103.4 s描述霓虹走廊悬浮镜头中从顶边垂下的细金属线与末端O形扣件贯穿全镜，悬于表演者头顶上方，与GT E018的97.1–103.2 s区间及连续帧证据一致。"
+            }
+          ],
+          "unsupported": [
+            {
+              "check_id": "G02",
+              "claim": "'red hearts'字幕行在23.4 s过早进入，抢占仍在唱上一句的时段",
+              "status": "unsupported",
+              "reason": "GT的NC-subtitle-lead-in已明确核验该区间：字幕内容与歌曲实际歌词(uh-huh衬词+red hearts乐句)完全一致，领先量有限且该行开头在字幕出现后很快被唱出，属正常预显而非内容错误或显示故障，不构成需修改的问题。",
+              "intervals": [
+                {
+                  "start_s": 23.4,
+                  "end_s": 26.1
+                }
+              ],
+              "audio_fact": "约22.74–24.88 s原声唱'I'm trying to kiss your lips for real'，red hearts约25.8 s进入",
+              "visual_fact": "23.4 s底部出现'uh huh red hearts that's what i'm on yeah'，该行文字与随后歌词逐词吻合",
+              "criterion_id": "V5"
+            }
+          ],
+          "uncertain": [],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        },
+        {
+          "voter_id": "B",
+          "score": 75.0,
+          "matched_count": 3,
+          "gold_count": 4,
+          "matched_quality": 3.0,
+          "unsupported_count": 1,
+          "uncertain_count": 0,
+          "precision": 0.75,
+          "recall": 0.75,
+          "f1": 0.75,
+          "matches": [
+            {
+              "root_id": "R001",
+              "check_ids": [
+                "G01"
+              ],
+              "quality": 1.0,
+              "reason": "G01 identifies two concrete instances of R001: at ~80.7–84.5s the subtitle displays 'meet me at the opportunity' while audio only sings 'meet me at the' followed by Korean '아파트' (matching GT E008), and at ~138.9–142.9s the subtitle shows 'meet me at the top' while audio has no English 'top' syllable (matching GT E012). Both intervals, audio facts (no opportunity/top sung), and visual facts (subtitle text clearly readable) align with GT examples. The check correctly merges them as one root cause (subtitle adding non-existent English words)."
+            },
+            {
+              "root_id": "R002",
+              "check_ids": [
+                "G03"
+              ],
+              "quality": 1.0,
+              "reason": "G03 reports the button holographic text reading 'ST APIT' at 5.9–6.5s, with audio confirming '게임 스타트' (game start) spoken simultaneously. This exactly matches GT E016 (5.5–7.0s): visual shows S-T-space-A-P-I-T characters, audio says 'start'. The check provides frame-level visual evidence (5.93, 6.10, 6.27, 6.43s) and correctly identifies it as a foreground functional prompt, not background decoration."
+            },
+            {
+              "root_id": "R003",
+              "check_ids": [
+                "G04"
+              ],
+              "quality": 1.0,
+              "reason": "G04 documents the visible wire and metal O-ring connector above the performer's head in the neon corridor floating shot from 96.967–103.4s. GT E018 specifies 97.1–103.2s with identical description: thin vertical line from top edge with silver ring/hook at performer's hairline, continuously trackable across frames. The check correctly distinguishes the fantasy floating (acceptable) from the physical rig residue (defect requiring removal), matching GT's reasoning."
+            }
+          ],
+          "unsupported": [
+            {
+              "check_id": "G02",
+              "claim": "The 'red hearts' subtitle line enters ~2.4–2.6s before its corresponding vocal, overlapping the still-sung previous line, constituting a timing defect requiring correction.",
+              "status": "unsupported",
+              "reason": "GT normal control NC-subtitle-lead-in explicitly evaluates this exact interval (22–30s) and determines it is NOT a required revision: the subtitle text content matches the actual lyrics, the lead-in is limited (~1–2s), and the line remains visible through the full vocal phrase. Three independent source rechecks confirmed this is acceptable pre-display behavior, not a content error or display fault. G02's framing as a defect contradicts the verified normal interpretation.",
+              "intervals": [
+                {
+                  "start_s": 23.4,
+                  "end_s": 26.1
+                }
+              ],
+              "audio_fact": "Audio at 22.74–24.88s sings 'I'm trying to kiss your lips for real'; 'Red hearts' vocal begins ~25.8s. The subtitle line 'uh huh red hearts that's what i'm on yeah' appears at 23.4s.",
+              "visual_fact": "Bottom subtitle switches to the red hearts line at 23.4s while previous vocal is still ongoing; the line persists through the correct vocal entry at ~25.8s.",
+              "criterion_id": "V5"
+            }
+          ],
+          "uncertain": [],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        },
+        {
+          "voter_id": "C",
+          "score": 75.0,
+          "matched_count": 3,
+          "gold_count": 4,
+          "matched_quality": 3.0,
+          "unsupported_count": 1,
+          "uncertain_count": 0,
+          "precision": 0.75,
+          "recall": 0.75,
+          "f1": 0.75,
+          "matches": [
+            {
+              "root_id": "R001",
+              "check_ids": [
+                "G01"
+              ],
+              "quality": 1.0,
+              "reason": "G01 identifies two concrete instances of the same root mechanism: at ~80.7–84.5 s the subtitle reads 'meet me at the opportunity' while audio only sings 'meet me at the' followed by Korean '아파트'; at ~138.9–142.9 s the subtitle reads 'meet me at the top' while audio again has no English 'top'. Both match GT examples E008 and E012 exactly in timing and content. Audio evidence (no opportunity/top phonemes present) and visual evidence (subtitle text clearly readable in frames) are both provided."
+            },
+            {
+              "root_id": "R002",
+              "check_ids": [
+                "G03"
+              ],
+              "quality": 1.0,
+              "reason": "G03 pinpoints the button holographic text at 5.9–6.5 s reading 'ST APIT' (S-T-space-A-P-I-T) rather than 'START', with the concurrent audio command '게임 스타트' (game start) confirming intent. This matches GT example E016 (5.5–7.0 s) in both timing and the specific character-level error (extra space, R→P substitution, missing R). Visual frames at 5.93, 6.10, 6.27, 6.43 s all show the malformed string."
+            },
+            {
+              "root_id": "R003",
+              "check_ids": [
+                "G04"
+              ],
+              "quality": 1.0,
+              "reason": "G04 identifies the visible wire and metal O-ring hanging from the top frame edge above the performer's head throughout the neon corridor floating shot (96.967–103.4 s), matching GT example E018 (97.1–103.2 s). The submission provides continuous-frame tracking of the wire across multiple timestamps (97.3, 99.4, 101, 103.3 s) and correctly distinguishes the physical rig residue from the legitimate fantasy floating effect."
+            }
+          ],
+          "unsupported": [
+            {
+              "check_id": "G02",
+              "claim": "'red hearts' subtitle line enters ~2.4–2.6 s early, overlapping the still-sung previous line 'I'm trying to kiss your lips for real'.",
+              "status": "unsupported",
+              "reason": "GT normal control NC-subtitle-lead-in explicitly retires this scenario: source recheck confirmed the subtitle text matches the upcoming lyric, the lead time is within acceptable range (1–2 s), and the line remains visible through its vocal entrance. Three independent reviewers accepted this as normal pre-display rather than a content or timing defect. G02's claim of 2.4–2.6 s overlap with a different sung line is contradicted by the verified lyric sequence where 'uh huh' belongs to the red-hearts phrase and the transition is within normal subtitle display conventions.",
+              "intervals": [
+                {
+                  "start_s": 23.4,
+                  "end_s": 26.1
+                }
+              ],
+              "audio_fact": "Audio at 22.74–24.88 s sings 'I'm trying to kiss your lips for real'; 'red hearts' vocal enters ~25.8 s. The 'uh huh' interjection is part of the red-hearts phrase structure.",
+              "visual_fact": "Subtitle 'uh huh red hearts that's what i'm on yeah' appears at 23.4 s and persists through 25.0 s, cutting to flower scene at 26.0 s.",
+              "criterion_id": "V5"
+            }
+          ],
+          "uncertain": [],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        }
+      ],
+      "solver_runs": 1,
+      "subtask": "MV-only development screening; not the8candidate+2MV combined case",
+      "same_model_judge_consensus": true,
+      "development_cpu": true,
+      "gpu_validation_pending": true,
+      "reference_revision": 0,
+      "reference_version": "pilot-v7-mv_apt-common-4cf5eb36ba6b",
+      "judge_directory_prefix": "judge-common-4cf5eb36ba6b-",
+      "performance_premise_reference_corrected": true,
+      "initial_reference_sha256": "06d0c7fea2b55f902a44e41cae96fb444c636f5a2ef70f0082298f75b7ae7d92",
+      "source_id": "mv_apt",
+      "version": "pilot-v7-mv_apt",
+      "run_tag": "sol_xhigh_r01_20261116_dense",
+      "actual_model": "gpt-6.1-sol",
+      "actual_effort": "xhigh",
+      "elapsed_seconds": 2226.141,
+      "verified_roots": 4,
+      "audio_visual_roots": 2
+    },
+    {
+      "score": 100.0,
+      "adopted_voter_id": "A",
+      "breakdown": {
+        "voter_id": "A",
+        "score": 100.0,
+        "matched_count": 1,
+        "gold_count": 1,
+        "matched_quality": 1.0,
+        "unsupported_count": 0,
+        "uncertain_count": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "matches": [
+          {
+            "root_id": "R001",
+            "check_ids": [
+              "G01",
+              "G02"
+            ],
+            "quality": 1.0,
+            "reason": "G01精确对应GT中Xadd77062cd0c-NE001：116.3-118.1s画面两行字幕均为'to all my'、中文行缺失，音频为连续演唱无重复念白，119s恢复正常'Where?/在哪里'双行格式，与GT 115.6-117.6s事件一致。G02精确对应GT中E008：249.8-290.2s结尾副歌反复出现'my soul/my soul''to me/to me''to woman/to woman''to me yeah/to me yeah'等两行相同英文残片替代中文'白色'等实际演唱词，音频持续为中文副歌人声无英文发音，292.5s恢复'gray hair/白发'正常格式，覆盖GT列出的多个子区间(249.5-290.5s)。两条提交均以具体视觉帧和音频事实支撑，定位准确。"
+          }
+        ],
+        "unsupported": [],
+        "uncertain": [],
+        "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+      },
+      "individual_judge_results": [
+        {
+          "voter_id": "A",
+          "score": 100.0,
+          "matched_count": 1,
+          "gold_count": 1,
+          "matched_quality": 1.0,
+          "unsupported_count": 0,
+          "uncertain_count": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "matches": [
+            {
+              "root_id": "R001",
+              "check_ids": [
+                "G01",
+                "G02"
+              ],
+              "quality": 1.0,
+              "reason": "G01精确对应GT中Xadd77062cd0c-NE001：116.3-118.1s画面两行字幕均为'to all my'、中文行缺失，音频为连续演唱无重复念白，119s恢复正常'Where?/在哪里'双行格式，与GT 115.6-117.6s事件一致。G02精确对应GT中E008：249.8-290.2s结尾副歌反复出现'my soul/my soul''to me/to me''to woman/to woman''to me yeah/to me yeah'等两行相同英文残片替代中文'白色'等实际演唱词，音频持续为中文副歌人声无英文发音，292.5s恢复'gray hair/白发'正常格式，覆盖GT列出的多个子区间(249.5-290.5s)。两条提交均以具体视觉帧和音频事实支撑，定位准确。"
+            }
+          ],
+          "unsupported": [],
+          "uncertain": [],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        },
+        {
+          "voter_id": "B",
+          "score": 100.0,
+          "matched_count": 1,
+          "gold_count": 1,
+          "matched_quality": 1.0,
+          "unsupported_count": 0,
+          "uncertain_count": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "matches": [
+            {
+              "root_id": "R001",
+              "check_ids": [
+                "G01",
+                "G02"
+              ],
+              "quality": 1.0,
+              "reason": "G01精确覆盖GT中Xadd77062cd0c-NE001实例（116.3–118.1s两行重复'to all my'、中文行缺失），音频事实（连续人声无对应重复念白）与视觉事实（116.5s/117.5s双行同文、119s恢复正常英中双行）均与源片一致；G02覆盖GT中E008实例（249.8–290.2s终段副歌多处'my soul/my soul''to me/to me''to woman/to woman''to me yeah/to me yeah'双行重复英文残片、无中文行），音频事实（副歌持续演唱中文'白色'等、无英文碎片发音）与视觉事实（各帧双行相同英文、前后正常字幕为英中双行）均与源片吻合。两处均为R001同一字幕机制根因的实际成立实例，定位与证据完整。"
+            }
+          ],
+          "unsupported": [],
+          "uncertain": [],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        },
+        {
+          "voter_id": "C",
+          "score": 100.0,
+          "matched_count": 1,
+          "gold_count": 1,
+          "matched_quality": 1.0,
+          "unsupported_count": 0,
+          "uncertain_count": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "matches": [
+            {
+              "root_id": "R001",
+              "check_ids": [
+                "G01",
+                "G02"
+              ],
+              "quality": 1.0,
+              "reason": "G01精确对应GT中Xadd77062cd0c-NE001实例：116.3–118.1秒画面两行均显示英文'to all my'、中文行缺失，音轨为连续演唱无对应重复念白，约119秒恢复为'Where?/在哪里'双行格式；G02精确对应GT中E008实例：249.8–290.2秒终段副歌反复出现'my soul/my soul''to me/to me''to woman/to woman''to me yeah/to me yeah'等两行相同英文残片、无中文行，音轨持续为中文'白色'等演唱，292.5秒恢复'gray hair/白发'。两条提交均以具体源时间、连续画面字幕内容与独立音轨事实完整支撑，定位准确，证据充分。"
+            }
+          ],
+          "unsupported": [],
+          "uncertain": [],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        }
+      ],
+      "solver_runs": 1,
+      "subtask": "MV-only development screening; not the8candidate+2MV combined case",
+      "same_model_judge_consensus": true,
+      "development_cpu": true,
+      "gpu_validation_pending": true,
+      "reference_revision": 1,
+      "reference_version": "pilot-v7-mv_grey-reference-r1",
+      "judge_directory_prefix": "judge-reference-1-",
+      "performance_premise_reference_corrected": false,
+      "initial_reference_sha256": "0171d615c9dc48a1fd86dfaace1277840c7943906b32468048904ef030cacca3",
+      "source_id": "mv_grey",
+      "version": "pilot-v7-mv_grey",
+      "run_tag": "sol_xhigh_r01_20261116_dense",
+      "actual_model": "gpt-6.1-sol",
+      "actual_effort": "xhigh",
+      "elapsed_seconds": 2237.953,
+      "verified_roots": 1,
+      "audio_visual_roots": 1
+    },
+    {
+      "score": 90.9090909090909,
+      "adopted_voter_id": "A",
+      "breakdown": {
+        "voter_id": "A",
+        "score": 90.9090909090909,
+        "matched_count": 5,
+        "gold_count": 6,
+        "matched_quality": 5.0,
+        "unsupported_count": 0,
+        "uncertain_count": 2,
+        "precision": 1.0,
+        "recall": 0.8333333333333334,
+        "f1": 0.9090909090909091,
+        "matches": [
+          {
+            "root_id": "R001",
+            "check_ids": [
+              "G05"
+            ],
+            "quality": 1.0,
+            "reason": "G05在2.8–4.6s定位了绿色数字钟特写，描述'12:85'等无效分钟读数及数字笔段持续变形，与GT例E009（2.8–3.5s显示12:85、16:87等非法值）为同一事件同一机制；音轨连续无跳转标记，属场内数字渲染不稳定。"
+          },
+          {
+            "root_id": "R004",
+            "check_ids": [
+              "G06"
+            ],
+            "quality": 1.0,
+            "reason": "G06在121.27–122.8s定位前景手持手机屏幕，描述'NTREI…C Dim''SEIE REN…6im'等逐字可辨但无语义的混杂字母串，UI框架完整而内容空洞，与GT例E007（121.0–123.0s同一手机屏幕乱码）为同一事件；非模糊或占位符处理，属场内文字渲染缺陷。"
+          },
+          {
+            "root_id": "Xa41007fe3a37-R001",
+            "check_ids": [
+              "G02"
+            ],
+            "quality": 1.0,
+            "reason": "G02在93.8–94.3s及95.93–96.4s精确定位毕业幻想镜头中黑色游戏手柄在双手举拳时消失（空拳无体积轮廓）、双手回落时无路径重新出现，与GT例Xa41007fe3a37-NE002完全一致；同期音频为连续演唱无断裂，排除切镜或遮挡解释。"
+          },
+          {
+            "root_id": "Xa41007fe3a37-R003",
+            "check_ids": [
+              "G04"
+            ],
+            "quality": 1.0,
+            "reason": "G04在124.83–125.87s定位抛向衣篮的手机从薄矩形亮屏经侧转后不可逆增厚、出现弯曲凹口轮廓、最终呈鞋状黑块落入篮中，与GT例Xa41007fe3a37-NE004（124.63–125.33s同一连续飞行镜头内几何突变）为同一事件；提交明确排除刚体旋转或透视解释。"
+          },
+          {
+            "root_id": "R003",
+            "check_ids": [
+              "G07"
+            ],
+            "quality": 1.0,
+            "reason": "按冻结的同轨字幕内容根因合并，沿用首份有效票中任一成立实例的最高既有档位；G07在93.9–96.77s定位字幕'give my college degree'与实际演唱'get my college degree'的单字替换，引用全轨ASR及独立截取短段均识别为get，与GT例Xa41007fe3a37-NE005（三位盲听一致确认get）为同一事件同一机制。"
+          }
+        ],
+        "unsupported": [],
+        "uncertain": [
+          {
+            "check_id": "G01",
+            "claim": "84.03–84.87s唱'wake up'及133.5–134.4s唱'comb my'时，特写镜头口型未按实际歌词完成双唇闭合辅音构音。",
+            "status": "uncertain",
+            "reason": "MV演唱口型容许风格化拉长元音与简化辅音；提交提供的逐帧图分辨率有限，在快速演唱中/m/的闭合可能仅持续1–2帧而被运动模糊掩盖，无法从给定帧序列中确定性地排除正常表演简化。无GT独立核验支持该处为确定缺陷。",
+            "intervals": [
+              {
+                "start_s": 84.03,
+                "end_s": 84.87
+              },
+              {
+                "start_s": 133.5,
+                "end_s": 134.4
+              }
+            ],
+            "audio_fact": "男声连续演唱'wake up'及'comb my hair'，/m/和/p/辅音在音轨中可辨。",
+            "visual_fact": "特写中嘴部在对应时段呈张口或圆口形态，未见明确双唇完全闭合帧。",
+            "criterion_id": "AV3"
+          },
+          {
+            "check_id": "G03",
+            "claim": "106.5–107.6s沙发演唱镜头中，有线麦克风在摔坐举空掌后短暂消失，随后在头侧手中无路径重新出现。",
+            "status": "uncertain",
+            "reason": "摔坐为高速动作，麦克风可能被手臂、身体或画框边缘短暂遮挡后恢复可见；提交承认'快速动作确有运动模糊'，在给定帧密度下无法完全排除合理遮挡出框。该机制与Xa41007fe3a37-R001（手柄）同属V3但为不同实例，需更高分辨率连续帧确认空掌期间麦克风确实不在任何遮挡物后方。",
+            "intervals": [
+              {
+                "start_s": 106.5,
+                "end_s": 107.6
+              }
+            ],
+            "audio_fact": "同期演唱'oh yes I said it'，音频连续无断裂。",
+            "visual_fact": "106.5s手握麦克风近嘴；106.9–107.3s摔坐后双手抬起呈张开空掌；107.4s麦克风出现在头侧手中。",
+            "criterion_id": "V3"
+          }
+        ],
+        "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+      },
+      "individual_judge_results": [
+        {
+          "voter_id": "A",
+          "score": 90.9090909090909,
+          "matched_count": 5,
+          "gold_count": 6,
+          "matched_quality": 5.0,
+          "unsupported_count": 0,
+          "uncertain_count": 2,
+          "precision": 1.0,
+          "recall": 0.8333333333333334,
+          "f1": 0.9090909090909091,
+          "matches": [
+            {
+              "root_id": "R001",
+              "check_ids": [
+                "G05"
+              ],
+              "quality": 1.0,
+              "reason": "G05在2.8–4.6s定位了绿色数字钟特写，描述'12:85'等无效分钟读数及数字笔段持续变形，与GT例E009（2.8–3.5s显示12:85、16:87等非法值）为同一事件同一机制；音轨连续无跳转标记，属场内数字渲染不稳定。"
+            },
+            {
+              "root_id": "R004",
+              "check_ids": [
+                "G06"
+              ],
+              "quality": 1.0,
+              "reason": "G06在121.27–122.8s定位前景手持手机屏幕，描述'NTREI…C Dim''SEIE REN…6im'等逐字可辨但无语义的混杂字母串，UI框架完整而内容空洞，与GT例E007（121.0–123.0s同一手机屏幕乱码）为同一事件；非模糊或占位符处理，属场内文字渲染缺陷。"
+            },
+            {
+              "root_id": "Xa41007fe3a37-R001",
+              "check_ids": [
+                "G02"
+              ],
+              "quality": 1.0,
+              "reason": "G02在93.8–94.3s及95.93–96.4s精确定位毕业幻想镜头中黑色游戏手柄在双手举拳时消失（空拳无体积轮廓）、双手回落时无路径重新出现，与GT例Xa41007fe3a37-NE002完全一致；同期音频为连续演唱无断裂，排除切镜或遮挡解释。"
+            },
+            {
+              "root_id": "Xa41007fe3a37-R003",
+              "check_ids": [
+                "G04"
+              ],
+              "quality": 1.0,
+              "reason": "G04在124.83–125.87s定位抛向衣篮的手机从薄矩形亮屏经侧转后不可逆增厚、出现弯曲凹口轮廓、最终呈鞋状黑块落入篮中，与GT例Xa41007fe3a37-NE004（124.63–125.33s同一连续飞行镜头内几何突变）为同一事件；提交明确排除刚体旋转或透视解释。"
+            },
+            {
+              "root_id": "R003",
+              "check_ids": [
+                "G07"
+              ],
+              "quality": 1.0,
+              "reason": "按冻结的同轨字幕内容根因合并，沿用首份有效票中任一成立实例的最高既有档位；G07在93.9–96.77s定位字幕'give my college degree'与实际演唱'get my college degree'的单字替换，引用全轨ASR及独立截取短段均识别为get，与GT例Xa41007fe3a37-NE005（三位盲听一致确认get）为同一事件同一机制。"
+            }
+          ],
+          "unsupported": [],
+          "uncertain": [
+            {
+              "check_id": "G01",
+              "claim": "84.03–84.87s唱'wake up'及133.5–134.4s唱'comb my'时，特写镜头口型未按实际歌词完成双唇闭合辅音构音。",
+              "status": "uncertain",
+              "reason": "MV演唱口型容许风格化拉长元音与简化辅音；提交提供的逐帧图分辨率有限，在快速演唱中/m/的闭合可能仅持续1–2帧而被运动模糊掩盖，无法从给定帧序列中确定性地排除正常表演简化。无GT独立核验支持该处为确定缺陷。",
+              "intervals": [
+                {
+                  "start_s": 84.03,
+                  "end_s": 84.87
+                },
+                {
+                  "start_s": 133.5,
+                  "end_s": 134.4
+                }
+              ],
+              "audio_fact": "男声连续演唱'wake up'及'comb my hair'，/m/和/p/辅音在音轨中可辨。",
+              "visual_fact": "特写中嘴部在对应时段呈张口或圆口形态，未见明确双唇完全闭合帧。",
+              "criterion_id": "AV3"
+            },
+            {
+              "check_id": "G03",
+              "claim": "106.5–107.6s沙发演唱镜头中，有线麦克风在摔坐举空掌后短暂消失，随后在头侧手中无路径重新出现。",
+              "status": "uncertain",
+              "reason": "摔坐为高速动作，麦克风可能被手臂、身体或画框边缘短暂遮挡后恢复可见；提交承认'快速动作确有运动模糊'，在给定帧密度下无法完全排除合理遮挡出框。该机制与Xa41007fe3a37-R001（手柄）同属V3但为不同实例，需更高分辨率连续帧确认空掌期间麦克风确实不在任何遮挡物后方。",
+              "intervals": [
+                {
+                  "start_s": 106.5,
+                  "end_s": 107.6
+                }
+              ],
+              "audio_fact": "同期演唱'oh yes I said it'，音频连续无断裂。",
+              "visual_fact": "106.5s手握麦克风近嘴；106.9–107.3s摔坐后双手抬起呈张开空掌；107.4s麦克风出现在头侧手中。",
+              "criterion_id": "V3"
+            }
+          ],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        },
+        {
+          "voter_id": "B",
+          "score": 88.63636363636364,
+          "matched_count": 5,
+          "gold_count": 6,
+          "matched_quality": 4.875,
+          "unsupported_count": 0,
+          "uncertain_count": 2,
+          "precision": 0.975,
+          "recall": 0.8125,
+          "f1": 0.8863636363636364,
+          "matches": [
+            {
+              "root_id": "R001",
+              "check_ids": [
+                "G05"
+              ],
+              "quality": 0.875,
+              "reason": "G05在2.8–4.6s识别出绿色钟特写内'12:85'及'13:A5'等无效读数与笔段改形，覆盖GT核心机制（相邻帧无效时间值+渲染不稳定）。但G05未明确提及GT中的分钟位87及小时级非单调倒退（16→15），也未注明音轨无缝延续无跳转标记，关键细节略有缺失。"
+            },
+            {
+              "root_id": "R004",
+              "check_ids": [
+                "G06"
+              ],
+              "quality": 1.0,
+              "reason": "G06在121.27–122.8s精确描述前景手机屏幕UI框架完整（蓝色顶栏、白色正文、绿色按钮）但所有文本字段为'NTREI…C Dim''SEIE REN…6im'等逐字可辨无语义拼接串，与GT R004的'RENEED 6im''Gecrhen Lomn'完全对应，排除模糊/马赛克/占位符解释。"
+            },
+            {
+              "root_id": "Xa41007fe3a37-R001",
+              "check_ids": [
+                "G02"
+              ],
+              "quality": 1.0,
+              "reason": "G02在93.8–94.3s及95.93–96.4s描述黑色游戏手柄在双手举拳时消失（空拳无体积轮廓）、双手回落时无转移路径地重新出现，同一连续毕业幻想镜头内完成，与GT Xa41007fe3a37-R001的事件、时间、机制完全一致。"
+            },
+            {
+              "root_id": "Xa41007fe3a37-R003",
+              "check_ids": [
+                "G04"
+              ],
+              "quality": 1.0,
+              "reason": "G04在124.83–125.87s描述薄矩形亮屏手机在空中先合理侧变窄，随后不可逆增厚、出现弯曲凹口，最终呈鞋状黑块落入衣篮，同一连续镜头无切镜，与GT Xa41007fe3a37-R003的几何突变机制、时间、排除刚体旋转解释完全一致。"
+            },
+            {
+              "root_id": "R003",
+              "check_ids": [
+                "G07"
+              ],
+              "quality": 1.0,
+              "reason": "按冻结的同轨字幕内容根因合并，沿用首份有效票中任一成立实例的最高既有档位；G07在93.9–96.77s指出字幕写'give my college degree'而原声为'get my college degree'，引用全轨ASR及独立截取base.en均识别为get，与GT Xa41007fe3a37-R002的盲听结论、时间窗口、单字替换机制完全吻合。"
+            }
+          ],
+          "unsupported": [],
+          "uncertain": [
+            {
+              "check_id": "G01",
+              "claim": "84.03–84.87s唱'wake up'时up结尾无双唇闭合；133.5–134.4s唱'comb my'时/m/音无闭唇，逐帧可见口隙。",
+              "status": "uncertain",
+              "reason": "AV3口型构音问题，提交给出具体帧号与嘴部形态描述，逻辑自洽；但GT无对应root，且我无法独立回验30fps逐帧嘴部图确认/m/闭唇确实缺失而非快速过渡帧遗漏，证据强度不足以定为novel_valid。",
+              "intervals": [
+                {
+                  "start_s": 84.03,
+                  "end_s": 84.87
+                },
+                {
+                  "start_s": 133.5,
+                  "end_s": 134.4
+                }
+              ],
+              "audio_fact": "男声连续演唱'wake up'及'comb my'，/m/为双唇鼻音需闭唇。",
+              "visual_fact": "提交称133.5–134.4s嘴由圆口直接转大张口露齿，comb→my间无可见双唇闭合帧。",
+              "criterion_id": "AV3"
+            },
+            {
+              "check_id": "G03",
+              "claim": "106.5–107.6s沙发演唱镜头中，有线麦克风在摔坐举空掌时消失，随后在头侧手中无路径地重新出现。",
+              "status": "uncertain",
+              "reason": "V3持物连续性问题，与G02（手柄）、G04（手机）为不同物体、不同事件、不同时间，非同根重复。提交给出107.2s原帧可见两只空掌的具体证据；但GT无对应root，且快速动作中运动模糊可能遮蔽短暂持有，我无法独立确认空掌帧非模糊误判，定为uncertain。",
+              "intervals": [
+                {
+                  "start_s": 106.5,
+                  "end_s": 107.6
+                }
+              ],
+              "audio_fact": "同期演唱'oh yes I said it'，男声连续无断裂。",
+              "visual_fact": "提交称106.9–107.3s双手抬起为张开空掌，107.4s麦克风重新出现在头侧手中，同一机位连续动作无拿取路径。",
+              "criterion_id": "V3"
+            }
+          ],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        },
+        {
+          "voter_id": "C",
+          "score": 90.9090909090909,
+          "matched_count": 5,
+          "gold_count": 6,
+          "matched_quality": 5.0,
+          "unsupported_count": 0,
+          "uncertain_count": 2,
+          "precision": 1.0,
+          "recall": 0.8333333333333334,
+          "f1": 0.9090909090909091,
+          "matches": [
+            {
+              "root_id": "R001",
+              "check_ids": [
+                "G05"
+              ],
+              "quality": 1.0,
+              "reason": "G05在2.8–4.6s指出绿色数字钟特写出现'12:85'等无效分钟位及字母状笔段变形，与GT例E009的2.8–3.5s窗口及'12:85''16:87'读数完全对应；音轨连续无跳转标记，属场内数字渲染不稳定。"
+            },
+            {
+              "root_id": "Xa41007fe3a37-R001",
+              "check_ids": [
+                "G02"
+              ],
+              "quality": 1.0,
+              "reason": "G02精确对应93.8–94.3s及95.93–96.4s：双手原握黑色游戏手柄，举拳时手柄消失（空拳无体积轮廓），双手回落时手柄无路径地重新出现；同一连续毕业幻想镜头内，背景云层、学士帽、漂浮卷轴一致，与GT例Xa41007fe3a37-NE002完全匹配。"
+            },
+            {
+              "root_id": "Xa41007fe3a37-R003",
+              "check_ids": [
+                "G04"
+              ],
+              "quality": 1.0,
+              "reason": "G04在124.83–125.87s描述薄矩形亮屏手机在空中先合理侧转变窄，随后不可逆增厚、变暗、出现弯曲凹口，最终以鞋状黑块落入衣篮；同一连续镜头天花板窗帘背景一致，与GT例Xa41007fe3a37-NE004的几何形态突变根因完全对应。"
+            },
+            {
+              "root_id": "R004",
+              "check_ids": [
+                "G06"
+              ],
+              "quality": 1.0,
+              "reason": "G06在121.27–122.8s指出前景手机UI框架完整（蓝色顶栏、白色正文区、绿色通话按钮）但所有文本字段为'NTREI…C Dim''SEIE REN…6im'等混杂字母数字串，逐字可辨却无语义，与GT例E007的随机拉丁/数字拼接串根因匹配。"
+            },
+            {
+              "root_id": "R003",
+              "check_ids": [
+                "G07"
+              ],
+              "quality": 1.0,
+              "reason": "按冻结的同轨字幕内容根因合并，沿用首份有效票中任一成立实例的最高既有档位；G07在93.9–96.77s指出底部字幕显示'give my college degree'而原声唱'get my college degree'，与GT例Xa41007fe3a37-NE005的字幕转写错词根因一致；提交引用了全轨ASR及独立截取短段双重确认。"
+            }
+          ],
+          "unsupported": [],
+          "uncertain": [
+            {
+              "check_id": "G01",
+              "claim": "演唱特写中闭唇辅音缺失：84.03–84.87s唱'wake up'时/p/收口未见双唇闭合；133.50–134.40s唱'comb my'时两个/m/均无闭唇，口隙持续可见。",
+              "status": "uncertain",
+              "reason": "沿用首组有效源片核验，未再次抽取源片意见。提案声称'逐帧画面中缺失'闭唇动作，但实际可用帧率仅约5fps（200ms间隔），而/p/、/m/在歌唱中的闭合时长通常为50–100ms，完全可能落在采样间隙内。此外，本片为卧室/睡衣/猴面具的喜剧即兴演唱风格，并非严格对口型音乐录影带，辅音构音的视觉精确度不在该风格的合理预期内。；镜头明确为前景演唱特写，声音与口型应可对应；在两个不同乐句、共约1.7s的辅音窗口内，采样帧一致显示张口/圆唇而无双唇接触，构成可核查的口型-辅音失配（AV3）。；命题声称/p/与/m/的双唇闭合在逐帧画面中缺失，但本次提供的抽帧密度（0.2s）远低于辅音闭合的典型时长（约50–100ms），且S00-00段1.8s帧恰恰显示唇部收拢，与'全程无闭合'矛盾；因此该缺陷断言超出证据可支持的范围。",
+              "intervals": [
+                {
+                  "start_s": 84.03,
+                  "end_s": 84.87
+                },
+                {
+                  "start_s": 133.5,
+                  "end_s": 134.4
+                }
+              ],
+              "audio_fact": "男声连续演唱'wake up'及'comb my hair'，/p/和/m/需双唇闭合。",
+              "visual_fact": "逐帧显示口部从张开到圆口再到大张口，无对应/m//p/的唇闭合瞬间。",
+              "criterion_id": "AV3",
+              "pre_source_adjudication_status": "novel_valid",
+              "source_board_path": "pilot-v7-mv_lazy\\results\\sol_xhigh_r01_20261116_dense\\reference-extension-1"
+            },
+            {
+              "check_id": "G03",
+              "claim": "沙发演唱镜头中有线麦克风在摔坐举空掌时消失，随后在头侧手中无路径地重新出现（106.5–107.6s）。",
+              "status": "uncertain",
+              "reason": "沿用首组有效源片核验，未再次抽取源片意见。麦克风是该表演的核心持握道具且连接支架，在连续镜头中约0.3s完全不可见（既不在空手中也不在身前支架上），随后未经过任何可见的抓取动作即重新出现在手中，违反物体持续性，属生成式道具丢失/复现缺陷。；若2.0–2.5s右手确为空掌且3.0s仅握立杆，则麦克风在约1秒内消失又无可见取回路径即恢复，属物体连续性断裂。；若107.2s确为双手皆空而107.4s麦克风已在手中，则0.2s内无可见拾取路径，构成物体连续性断裂。",
+              "intervals": [
+                {
+                  "start_s": 106.5,
+                  "end_s": 107.6
+                }
+              ],
+              "audio_fact": "同期演唱'oh yes I said it'，无提示物体消失的音效。",
+              "visual_fact": "106.5s手握麦克风→106.9–107.3s摔坐后双手抬起为空掌→107.4s麦克风重新出现在头侧手中。",
+              "criterion_id": "V3",
+              "pre_source_adjudication_status": "novel_valid",
+              "source_board_path": "pilot-v7-mv_lazy\\results\\sol_xhigh_r01_20261116_dense\\reference-extension-1"
+            }
+          ],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        }
+      ],
+      "solver_runs": 1,
+      "subtask": "MV-only development screening; not the8candidate+2MV combined case",
+      "same_model_judge_consensus": true,
+      "development_cpu": true,
+      "gpu_validation_pending": true,
+      "reference_revision": 1,
+      "reference_version": "pilot-v7-mv_lazy-common-unit-r2",
+      "judge_directory_prefix": "judge-unit-corrected-",
+      "source_adjudicated": true,
+      "initial_reference_sha256": "7b86617114bbcb0c26c6a64a1694864ac8e2daa041c2608a9d14a6a1f22ff3b1",
+      "subtitle_unit_correction": true,
+      "source_id": "mv_lazy",
+      "version": "pilot-v7-mv_lazy",
+      "run_tag": "sol_xhigh_r01_20261116_dense",
+      "actual_model": "gpt-6.1-sol",
+      "actual_effort": "xhigh",
+      "elapsed_seconds": 1454.5,
+      "verified_roots": 6,
+      "audio_visual_roots": 1
+    },
+    {
+      "score": 80.0,
+      "adopted_voter_id": "A",
+      "breakdown": {
+        "voter_id": "A",
+        "score": 80.0,
+        "matched_count": 2,
+        "gold_count": 3,
+        "matched_quality": 2.0,
+        "unsupported_count": 0,
+        "uncertain_count": 0,
+        "precision": 1.0,
+        "recall": 0.6666666666666666,
+        "f1": 0.8,
+        "matches": [
+          {
+            "root_id": "R002",
+            "check_ids": [
+              "G01"
+            ],
+            "quality": 1.0,
+            "reason": "G01以同一字幕转写根因合并多处实例，其中84.4–90.9秒记录字幕在'above'后附加未演唱的'all the stars'、并把下一句开头的'All'错归上行，145.7–150.3秒记录'things'被写成'days'且遗漏完整可闻的'and the flames'，与GT的E006、E011实例机制一致；并附原声与逐帧字幕画面证据，定位落在真实源时间。其余G01附加实例（漏'my sea'、'third things turn'）属同根补充，不影响覆盖判定。"
+          },
+          {
+            "root_id": "X42868fae24cf-R001",
+            "check_ids": [
+              "G02"
+            ],
+            "quality": 1.0,
+            "reason": "G02精确对应GT两个区间79.0–81.35与204.9–206.6，指出前景歌手正对镜头演唱'you made me a believer'时，可闻的/m/（made/me）与/b/（believer）双唇辅音起音时段嘴部持续开口/圆唇、齿列可见，缺少闭唇-释放动作；并以30fps逐帧嘴部画面加原声辅音起音作为证据，排除了画外配乐与长元音延展的正常解释。"
+          }
+        ],
+        "unsupported": [],
+        "uncertain": [],
+        "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+      },
+      "individual_judge_results": [
+        {
+          "voter_id": "A",
+          "score": 80.0,
+          "matched_count": 2,
+          "gold_count": 3,
+          "matched_quality": 2.0,
+          "unsupported_count": 0,
+          "uncertain_count": 0,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8,
+          "matches": [
+            {
+              "root_id": "R002",
+              "check_ids": [
+                "G01"
+              ],
+              "quality": 1.0,
+              "reason": "G01以同一字幕转写根因合并多处实例，其中84.4–90.9秒记录字幕在'above'后附加未演唱的'all the stars'、并把下一句开头的'All'错归上行，145.7–150.3秒记录'things'被写成'days'且遗漏完整可闻的'and the flames'，与GT的E006、E011实例机制一致；并附原声与逐帧字幕画面证据，定位落在真实源时间。其余G01附加实例（漏'my sea'、'third things turn'）属同根补充，不影响覆盖判定。"
+            },
+            {
+              "root_id": "X42868fae24cf-R001",
+              "check_ids": [
+                "G02"
+              ],
+              "quality": 1.0,
+              "reason": "G02精确对应GT两个区间79.0–81.35与204.9–206.6，指出前景歌手正对镜头演唱'you made me a believer'时，可闻的/m/（made/me）与/b/（believer）双唇辅音起音时段嘴部持续开口/圆唇、齿列可见，缺少闭唇-释放动作；并以30fps逐帧嘴部画面加原声辅音起音作为证据，排除了画外配乐与长元音延展的正常解释。"
+            }
+          ],
+          "unsupported": [],
+          "uncertain": [],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        },
+        {
+          "voter_id": "B",
+          "score": 80.0,
+          "matched_count": 2,
+          "gold_count": 3,
+          "matched_quality": 2.0,
+          "unsupported_count": 0,
+          "uncertain_count": 0,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8,
+          "matches": [
+            {
+              "root_id": "R002",
+              "check_ids": [
+                "G01"
+              ],
+              "quality": 1.0,
+              "reason": "G01明确识别烧录歌词转写错误为同一根因，并给出三个可回查实例：84.4–90.9秒将'third things third'写成'third things turn'且在'above'后插入未唱的'all the stars'（对应GT E006的86–88.5秒区间）；145.7–150.3秒将'things'误写为'days'且遗漏'and the flames'（对应GT E011的145.7–149.5秒区间）。音频事实（原声唱词与字幕文本逐字比对）和视觉事实（连续帧字幕内容）均具体成立，排除正常分行或装饰字解释。"
+            },
+            {
+              "root_id": "X42868fae24cf-R001",
+              "check_ids": [
+                "G02"
+              ],
+              "quality": 1.0,
+              "reason": "G02在79.0–81.35秒灰背景歌手特写和204.9–206.6秒火光背景近景中，逐帧（30fps）确认演唱'made me'的/m/及'believer'的/b/起音时段嘴部持续开口/圆唇、齿列可见，未出现闭唇—释放动作；音频确认这些是独立辅音起音而非纯元音延展。与GT示例的时间区间、机制（可见演唱构音与听觉双唇辅音不匹配）完全一致，且排除了画外配乐解释（镜头明确展示歌手正对镜头演唱）。"
+            }
+          ],
+          "unsupported": [],
+          "uncertain": [],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        },
+        {
+          "voter_id": "C",
+          "score": 80.0,
+          "matched_count": 2,
+          "gold_count": 3,
+          "matched_quality": 2.0,
+          "unsupported_count": 0,
+          "uncertain_count": 0,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8,
+          "matches": [
+            {
+              "root_id": "R002",
+              "check_ids": [
+                "G01"
+              ],
+              "quality": 1.0,
+              "reason": "G01以同一字幕转写根因合并多处实例，其中至少两处与GT独立核验实例吻合：source约86–89s（video5 local约14–16s）烧录字幕显示'send a prayer to the ones up above all the stars'，而原声此处唱的是'…up above'后接'All the hate…'，'all the stars'为无对应声音的插词并错误归入上行（对应E006）；source约146–149s（video9 local约2–5s）火焰背景近景字幕为'last days last by the Grace of the fire'，把'things'误写为'days'且整段遗漏可闻的'and the flames'（对应E011）。G01还附带'third things turn'与'my sea'等同根实例。定位区间与字幕/音频事实一致，证据充分。"
+            },
+            {
+              "root_id": "X42868fae24cf-R001",
+              "check_ids": [
+                "G02"
+              ],
+              "quality": 1.0,
+              "reason": "G02精确命中该演唱构音根因的两个实例：source 79–81.35s灰背景歌手大特写与source 204.9–206.6s火光背景近景，在副歌'you made me a…believer'的可闻/m/（made/me）与/b/（believer）起音时段，连续帧嘴部保持开口/圆唇、齿列可见，缺少双唇闭合—释放动作，构成可见演唱与听觉辅音不匹配。提交的逐帧（30fps）取证与GT示例时间、声画事实一致，并明确排除画外配乐解释（镜头为正对镜头的前景演唱）。"
+            }
+          ],
+          "unsupported": [],
+          "uncertain": [],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        }
+      ],
+      "solver_runs": 1,
+      "subtask": "MV-only development screening; not the8candidate+2MV combined case",
+      "same_model_judge_consensus": true,
+      "development_cpu": true,
+      "gpu_validation_pending": true,
+      "reference_revision": 1,
+      "reference_version": "pilot-v7-mv_believer-reference-r1",
+      "judge_directory_prefix": "judge-reference-1-",
+      "performance_premise_reference_corrected": false,
+      "initial_reference_sha256": "4638193c09b66da79e4e88fcdfcbad2ae58e2da18d801a86044017291e926916",
+      "source_adjudicated": true,
+      "source_id": "mv_believer",
+      "version": "pilot-v7-mv_believer",
+      "run_tag": "sol_xhigh_r01_20261116_dense",
+      "actual_model": "gpt-6.1-sol",
+      "actual_effort": "xhigh",
+      "elapsed_seconds": 4343.765,
+      "verified_roots": 3,
+      "audio_visual_roots": 2
+    }
+  ],
+  "all_completed": true,
+  "selection_policy": "RankSum(rootcount descending, Solscore ascending); AVeligibility; declared before solves"
+}

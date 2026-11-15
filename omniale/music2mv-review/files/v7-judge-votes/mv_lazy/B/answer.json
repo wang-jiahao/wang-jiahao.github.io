@@ -1,0 +1,57 @@
+{
+  "coverage": [
+    {
+      "root_id": "R001",
+      "covered": false,
+      "check_ids": [],
+      "localization": 0,
+      "evidence": 0,
+      "reason": "交付checks为空，报告明确声明Lazy Song'未确认需要返修的……场内文字或剪辑技术问题'，未提及绿色数字钟特写中相邻帧出现无效分钟位(85/87)及小时级非单调倒退。源片Video 1约2.8–3.5s绿色钟特写确实显示12:85→16:87→16:22→15:22等无效/倒退读数，音轨无缝延续无蒙太奇标记，属V3对象持续性缺陷，但交付完全未识别。"
+    },
+    {
+      "root_id": "R002",
+      "covered": false,
+      "check_ids": [],
+      "localization": 0,
+      "evidence": 0,
+      "reason": "交付checks为空，报告未提及镜中反射与前景动作脱节问题。源片Video 5约77.9–78.5s男子弯腰向左伸手够取物品时，落地镜反射始终冻结为直立站姿双臂垂于体侧，前后跳舞段及直身举遥控器段反射均正确跟踪，排除有意艺术处理，属V2接触/空间交互缺陷，但交付完全未识别。"
+    },
+    {
+      "root_id": "R003",
+      "covered": false,
+      "check_ids": [],
+      "localization": 0,
+      "evidence": 0,
+      "reason": "交付checks为空，报告反而声称'Lazy Song全片的歌词字幕与原声逐段对应'，明确否认存在字幕转写错误。源片实际存在两处独立实例：Video 6/7交界约107–110.7s字幕写'can't'而音轨末词收开放鼻元音无/t/塞音(实为'can')；Video 6约93.9–96.8s字幕写'give my college degree'而三位盲听一致辨听到'get'。均属V5字幕内容错误，交付未识别且主动否认。"
+    },
+    {
+      "root_id": "R004",
+      "covered": false,
+      "check_ids": [],
+      "localization": 0,
+      "evidence": 0,
+      "reason": "交付checks为空，报告未提及手机屏幕文字问题。源片Video 7约121.0–123.0s前景手持手机屏幕UI框架完整但所有文本字段(标题栏、联系人、消息气泡、按钮标签)均为逐字可辨但无语义的随机拉丁字母/数字拼接串(如'TREINENIC Dim''SEIE RENEBD 6im''Gecrhen Lomn')，非模糊或占位符处理，属V5场内文字缺陷，交付完全未识别。"
+    },
+    {
+      "root_id": "Xa41007fe3a37-R001",
+      "covered": false,
+      "check_ids": [],
+      "localization": 0,
+      "evidence": 0,
+      "reason": "交付checks为空，报告未提及毕业幻想镜头中道具消失/复现问题。源片Video 6约93.8–96.4s同一连续镜头内，男子双手举拳过程中黑色游戏手柄从手中消失(拳内无手柄体积轮廓)，随后双手回落时手柄无可见转移/遮挡出框/切镜路径地重新出现在握持位，属V3对象持续性缺陷，交付完全未识别。"
+    },
+    {
+      "root_id": "Xa41007fe3a37-R003",
+      "covered": false,
+      "check_ids": [],
+      "localization": 0,
+      "evidence": 0,
+      "reason": "交付checks为空，报告未提及手机飞行过程中几何形态突变问题。源片Video 7约124.63–125.33s同一连续室内镜头中，薄矩形亮屏手机先经合理侧转变窄，随后不可逆地增厚、变暗并出现弯曲凹口轮廓，最终以厚实不规则鞋状黑块落入衣篮，几何形态突变无法用刚体旋转或透视解释，属V3对象持续性缺陷，交付完全未识别。"
+    }
+  ],
+  "additional_claims": [],
+  "limitations": [
+    "交付checks数组为空，报告对mv_lazy给出全面否定结论('未确认需要返修的口型、动作接触、道具持续性、人物身份、场内文字或剪辑技术问题')，与GT六个已确认根因全部矛盾。",
+    "uncertain_observations中关于188.4–191.82s结尾静音的观察未被列为必改断言，按规则不纳入additional_claims评估。"
+  ]
+}

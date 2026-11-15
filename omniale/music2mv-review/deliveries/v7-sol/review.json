@@ -1,0 +1,88 @@
+{
+  "checks": [
+    {
+      "id": "APT-T01",
+      "source_id": "mv_apt",
+      "dimension": "text",
+      "decision": "revise",
+      "intervals": [
+        {
+          "start_s": 0.8,
+          "end_s": 3.2
+        },
+        {
+          "start_s": 3.9,
+          "end_s": 6.7
+        },
+        {
+          "start_s": 7.0,
+          "end_s": 12.6
+        },
+        {
+          "start_s": 18.0,
+          "end_s": 31.5
+        },
+        {
+          "start_s": 48.0,
+          "end_s": 58.0
+        },
+        {
+          "start_s": 78.0,
+          "end_s": 90.5
+        },
+        {
+          "start_s": 138.0,
+          "end_s": 160.5
+        }
+      ],
+      "finding": "底部英文歌词字幕存在同一类系统性转写/对齐错误，多个连续段把实际唱词替换成错误词串；错误不是单个字母抖动，而是整句语义与音频不符。",
+      "audio_evidence": "独立原声中 0.0–3.1 秒可辨为开头的 Chaeyoung/Random Game 句，3.1–6.3 秒为“Random Game Game Start”；7.0–12.6 秒为反复的“Apateu/Apatuh”副歌；48–58 秒仍是同一 Apateu 反复；78–90 秒为“Sleep tomorrow, but tonight go crazy / All you gotta do is just meet me at the …”及其副歌；138–156 秒短段的本地音频模型听到重复的“Just meet me at the … / I got to …”句组。",
+      "visual_evidence": "连续帧中的底部字幕分别显示“tenya Joan lindum game”“lindum game game start”“ha ha ah pata pata ah pata”“AAPACA AAPACA …”“all you gotta do is just meet me at the opportunity”，以及 138–160 秒反复显示“...at the top”“I'm upset”“just meet me at four”。这些字样在各自区间持续出现，不是单帧模糊。",
+      "reason": "MV可以采用音译、重复副歌和画外演唱，但不能解释把 Random Game 写成 lindum、把 Apateu 写成 AAPACA/ha ha、把同一“meet me at the …”句组写成 opportunity/top/four、把 I got to 写成 I'm upset。字幕会直接误导观众理解歌词，需按原声重新转写并逐句核时。",
+      "priority": "major",
+      "suggestion": "以提供的原始嵌入音轨重新做人工校对的英文/韩文歌词轨；统一 Apateu/APT. 的拼写，修正 Random Game、meet me at the …、I got to 等句子，并逐句检查入出点。"
+    },
+    {
+      "id": "APT-T02",
+      "source_id": "mv_apt",
+      "dimension": "text",
+      "decision": "revise",
+      "intervals": [
+        {
+          "start_s": 5.8,
+          "end_s": 6.7
+        }
+      ],
+      "finding": "按下发光圆形按钮后，脸前的游戏启动 UI 清晰显示为“ST APIT”，文字形状不构成可读的 START 或 APT.。",
+      "audio_evidence": "同一时段原声正在说/唱“Random Game Game Start”，画面也明确表现为开始游戏的按键动作。",
+      "visual_evidence": "5.8–6.7 秒连续帧中按钮、粒子和前景文字都清晰可见；“ST APIT”横跨人物面部，没有遮挡或快速切镜可作为解释。",
+      "reason": "这是承担游戏启动语义的场内 UI 文字，当前拼写残缺会让启动提示不可读；它与底部歌词字幕是两个独立文字机制，应分别修复。",
+      "priority": "minor",
+      "suggestion": "将 UI 文字改成清晰的 START、GAME START 或经确认的 APT. 品牌字样，并在粒子叠加与运动过程中复查字符完整性。"
+    }
+  ],
+  "uncertain_observations": [
+    {
+      "source_id": "mv_apt",
+      "intervals": [
+        {
+          "start_s": 168.17,
+          "end_s": 173.66
+        }
+      ],
+      "observation": "音轨在 168.17 秒后降至近乎静音，而视频继续播放女子在画室写画的收尾画面约 5.5 秒。",
+      "why_uncertain": "声音在整洁的场景切换后结束，画面也进入无字幕的独立尾声，可能是有意的视觉后记；未作为确定断音问题计入 checks。"
+    },
+    {
+      "source_id": "mv_lazy",
+      "intervals": [
+        {
+          "start_s": 188.4,
+          "end_s": 191.82
+        }
+      ],
+      "observation": "音轨在 188.40 秒后近乎静音，而视频继续播放凌乱房间的结尾画面约 3.4 秒。",
+      "why_uncertain": "同样是干净切入的结尾视觉段，静音可能是有意收尾；未作为确定断音问题计入 checks。"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "score": 66.66666666666666,
+  "matched_count": 2,
+  "gold_count": 4,
+  "matched_quality": 2.0,
+  "unsupported_count": 0,
+  "uncertain_count": 0,
+  "precision": 1.0,
+  "recall": 0.5,
+  "f1": 0.6666666666666666,
+  "matches": [
+    {
+      "root_id": "R001",
+      "check_ids": [
+        "APT-T01"
+      ],
+      "quality": 1.0,
+      "reason": "APT-T01 identifies the same systematic subtitle transcription mechanism across multiple intervals. Visual evidence cites specific wrong strings ('tenya Joan lindum game', 'lindum game game start', 'ha ha ah pata pata ah pata', 'AAPACA AAPACA', 'meet me at the opportunity', 'meet me at the top', \"I'm upset\", 'just meet me at four') that directly correspond to GT examples E001, E002, E004, E008, E011, E012. Audio evidence correctly notes the underlying Korean 'Apateu' hook and English phrases ('Random Game Game Start', 'meet me at the…') that the subtitles misrepresent. Intervals 0.8–3.2, 3.9–6.7, 7.0–12.6, 48.0–58.0, 78.0–90.5, 138.0–160.5 span the key GT example windows. The reason explicitly distinguishes this from acceptable transliteration or ad-lib repetition, matching the root definition."
+    },
+    {
+      "root_id": "R002",
+      "check_ids": [
+        "APT-T02"
+      ],
+      "quality": 1.0,
+      "reason": "APT-T02 pinpoints the holographic UI text at 5.8–6.7 s reading 'ST APIT' (letter substitution, extra space, wrong segmentation) while the concurrent audio clearly says 'Random Game Game Start' with 'start' intelligible. This matches GT example E016 (5.5–7.0 s) exactly in mechanism, timing, and the audio-visual contradiction. The check correctly separates this in-scene UI text error from the bottom subtitle track."
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [],
+  "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+}

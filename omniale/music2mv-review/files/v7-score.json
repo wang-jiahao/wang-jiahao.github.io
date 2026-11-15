@@ -1,0 +1,295 @@
+{
+  "version": "pilot-v7-selected2",
+  "score": 33.33333333333333,
+  "source_results": [
+    {
+      "score": 66.66666666666666,
+      "adopted_voter_id": "A",
+      "breakdown": {
+        "voter_id": "A",
+        "score": 66.66666666666666,
+        "matched_count": 2,
+        "gold_count": 4,
+        "matched_quality": 2.0,
+        "unsupported_count": 0,
+        "uncertain_count": 0,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666,
+        "matches": [
+          {
+            "root_id": "R001",
+            "check_ids": [
+              "APT-T01"
+            ],
+            "quality": 1.0,
+            "reason": "APT-T01 identifies the same root cause (systematic subtitle transcription errors where English text does not match Korean/English audio) and provides multiple supported instances across its intervals: 0.8-3.2/3.9-6.7 covers E001 ('tenya Joan lindum game'/'lindum game game start' vs Korean '랜덤 게임 게임 스타트'); 7.0-12.6 and 48.0-58.0 cover E002/E004 ('ha ha ah pata pata'/'AAPACA' vs '아파트'); 78.0-90.5 covers E008 ('opportunity' vs '아파트'); 138.0-160.5 covers E011/E012 ('I'm upset'/'top'/'four' vs '아파트'). Audio and visual facts are specific and verifiable against source."
+          },
+          {
+            "root_id": "R002",
+            "check_ids": [
+              "APT-T02"
+            ],
+            "quality": 1.0,
+            "reason": "APT-T02 pinpoints 5.8-6.7s where the button holographic text reads 'ST APIT' instead of 'START', with concurrent audio saying 'Random Game Game Start'. This matches GT example E016 (5.5-7.0s) exactly in mechanism, visual content, and audio confirmation. The check correctly distinguishes this from the subtitle issue as an independent in-scene text defect."
+          }
+        ],
+        "unsupported": [],
+        "uncertain": [],
+        "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+      },
+      "individual_judge_results": [
+        {
+          "voter_id": "A",
+          "score": 66.66666666666666,
+          "matched_count": 2,
+          "gold_count": 4,
+          "matched_quality": 2.0,
+          "unsupported_count": 0,
+          "uncertain_count": 0,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666,
+          "matches": [
+            {
+              "root_id": "R001",
+              "check_ids": [
+                "APT-T01"
+              ],
+              "quality": 1.0,
+              "reason": "APT-T01 identifies the same root cause (systematic subtitle transcription errors where English text does not match Korean/English audio) and provides multiple supported instances across its intervals: 0.8-3.2/3.9-6.7 covers E001 ('tenya Joan lindum game'/'lindum game game start' vs Korean '랜덤 게임 게임 스타트'); 7.0-12.6 and 48.0-58.0 cover E002/E004 ('ha ha ah pata pata'/'AAPACA' vs '아파트'); 78.0-90.5 covers E008 ('opportunity' vs '아파트'); 138.0-160.5 covers E011/E012 ('I'm upset'/'top'/'four' vs '아파트'). Audio and visual facts are specific and verifiable against source."
+            },
+            {
+              "root_id": "R002",
+              "check_ids": [
+                "APT-T02"
+              ],
+              "quality": 1.0,
+              "reason": "APT-T02 pinpoints 5.8-6.7s where the button holographic text reads 'ST APIT' instead of 'START', with concurrent audio saying 'Random Game Game Start'. This matches GT example E016 (5.5-7.0s) exactly in mechanism, visual content, and audio confirmation. The check correctly distinguishes this from the subtitle issue as an independent in-scene text defect."
+            }
+          ],
+          "unsupported": [],
+          "uncertain": [],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        },
+        {
+          "voter_id": "B",
+          "score": 66.66666666666666,
+          "matched_count": 2,
+          "gold_count": 4,
+          "matched_quality": 2.0,
+          "unsupported_count": 0,
+          "uncertain_count": 0,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666,
+          "matches": [
+            {
+              "root_id": "R001",
+              "check_ids": [
+                "APT-T01"
+              ],
+              "quality": 1.0,
+              "reason": "APT-T01 identifies the same systematic subtitle transcription mechanism across multiple intervals. Visual evidence cites specific wrong strings ('tenya Joan lindum game', 'lindum game game start', 'ha ha ah pata pata ah pata', 'AAPACA AAPACA', 'meet me at the opportunity', 'meet me at the top', \"I'm upset\", 'just meet me at four') that directly correspond to GT examples E001, E002, E004, E008, E011, E012. Audio evidence correctly notes the underlying Korean 'Apateu' hook and English phrases ('Random Game Game Start', 'meet me at the…') that the subtitles misrepresent. Intervals 0.8–3.2, 3.9–6.7, 7.0–12.6, 48.0–58.0, 78.0–90.5, 138.0–160.5 span the key GT example windows. The reason explicitly distinguishes this from acceptable transliteration or ad-lib repetition, matching the root definition."
+            },
+            {
+              "root_id": "R002",
+              "check_ids": [
+                "APT-T02"
+              ],
+              "quality": 1.0,
+              "reason": "APT-T02 pinpoints the holographic UI text at 5.8–6.7 s reading 'ST APIT' (letter substitution, extra space, wrong segmentation) while the concurrent audio clearly says 'Random Game Game Start' with 'start' intelligible. This matches GT example E016 (5.5–7.0 s) exactly in mechanism, timing, and the audio-visual contradiction. The check correctly separates this in-scene UI text error from the bottom subtitle track."
+            }
+          ],
+          "unsupported": [],
+          "uncertain": [],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        },
+        {
+          "voter_id": "C",
+          "score": 66.66666666666666,
+          "matched_count": 2,
+          "gold_count": 4,
+          "matched_quality": 2.0,
+          "unsupported_count": 0,
+          "uncertain_count": 0,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666,
+          "matches": [
+            {
+              "root_id": "R001",
+              "check_ids": [
+                "APT-T01"
+              ],
+              "quality": 1.0,
+              "reason": "APT-T01 identifies the same root cause—systematic subtitle transcription errors where displayed English text bears no phonemic correspondence to the audible Korean/English vocal. Intervals 0.8–3.2 and 3.9–6.7 match E001 ('tenya Joan lindum game'/'lindum game game start' vs audible '랜덤 게임 게임 스타트'); 7.0–12.6 and 48.0–58.0 match E002/E004 ('ha ha ah pata pata'/'AAPACA' vs audible '아파트'); 78.0–90.5 matches E008 ('opportunity' vs audible '아파트'); 138.0–160.5 matches E011/E012 ('I'm upset'/'top'/'four' vs audible '아파트'). Visual and audio facts are specifically cited per interval, confirming the mismatch mechanism."
+            },
+            {
+              "root_id": "R002",
+              "check_ids": [
+                "APT-T02"
+              ],
+              "quality": 1.0,
+              "reason": "APT-T02 pinpoints 5.8–6.7 s where the holographic UI above the pressed button reads 'ST APIT' (letter substitution, extra insertion, wrong tokenization) while the concurrent audio clearly says 'start'. This matches E016 exactly in both timing and the specific character-level defect identified."
+            }
+          ],
+          "unsupported": [],
+          "uncertain": [],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        }
+      ],
+      "solver_runs": 1,
+      "subtask": "independent selected-two combined solve: per-source component",
+      "same_model_judge_consensus": true,
+      "development_cpu": true,
+      "gpu_validation_pending": true,
+      "reference_revision": 0,
+      "reference_version": "pilot-v7-selected2-component-mv_apt",
+      "judge_directory_prefix": "judge-",
+      "performance_premise_reference_corrected": false,
+      "initial_reference_sha256": "c456391d8a75cd1db3dda67a34ffcade69a02358880d88e629cc6ddc5f3bb6ca",
+      "source_id": "mv_apt",
+      "source_median_score": 66.66666666666666
+    },
+    {
+      "score": 0.0,
+      "adopted_voter_id": "A",
+      "breakdown": {
+        "voter_id": "A",
+        "score": 0.0,
+        "matched_count": 0,
+        "gold_count": 6,
+        "matched_quality": 0,
+        "unsupported_count": 0,
+        "uncertain_count": 0,
+        "precision": 0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matches": [],
+        "unsupported": [],
+        "uncertain": [],
+        "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+      },
+      "individual_judge_results": [
+        {
+          "voter_id": "A",
+          "score": 0.0,
+          "matched_count": 0,
+          "gold_count": 6,
+          "matched_quality": 0,
+          "unsupported_count": 0,
+          "uncertain_count": 0,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "matches": [],
+          "unsupported": [],
+          "uncertain": [],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        },
+        {
+          "voter_id": "B",
+          "score": 0.0,
+          "matched_count": 0,
+          "gold_count": 6,
+          "matched_quality": 0,
+          "unsupported_count": 0,
+          "uncertain_count": 0,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "matches": [],
+          "unsupported": [],
+          "uncertain": [],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        },
+        {
+          "voter_id": "C",
+          "score": 0.0,
+          "matched_count": 0,
+          "gold_count": 6,
+          "matched_quality": 0,
+          "unsupported_count": 0,
+          "uncertain_count": 0,
+          "precision": 0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "matches": [],
+          "unsupported": [],
+          "uncertain": [],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        }
+      ],
+      "solver_runs": 1,
+      "subtask": "independent selected-two combined solve: per-source component",
+      "same_model_judge_consensus": true,
+      "development_cpu": true,
+      "gpu_validation_pending": true,
+      "reference_revision": 0,
+      "reference_version": "pilot-v7-selected2-component-mv_lazy",
+      "judge_directory_prefix": "judge-",
+      "performance_premise_reference_corrected": false,
+      "initial_reference_sha256": "a36db376acb79fa1ae1f5a26809cccd08dc4b5b53ce228b1f520773d62ebc1b9",
+      "source_id": "mv_lazy",
+      "source_median_score": 0.0
+    }
+  ],
+  "combined_breakdown": {
+    "voter_id": "A",
+    "score": 33.33333333333333,
+    "matched_quality": 2.0,
+    "gold_count": 10,
+    "matched_count": 2,
+    "unsupported_count": 0,
+    "precision": 1.0,
+    "recall": 0.2
+  },
+  "individual_joint_judge_results": [
+    {
+      "voter_id": "A",
+      "score": 33.33333333333333,
+      "matched_quality": 2.0,
+      "gold_count": 10,
+      "matched_count": 2,
+      "unsupported_count": 0,
+      "precision": 1.0,
+      "recall": 0.2
+    },
+    {
+      "voter_id": "B",
+      "score": 33.33333333333333,
+      "matched_quality": 2.0,
+      "gold_count": 10,
+      "matched_count": 2,
+      "unsupported_count": 0,
+      "precision": 1.0,
+      "recall": 0.2
+    },
+    {
+      "voter_id": "C",
+      "score": 33.33333333333333,
+      "matched_quality": 2.0,
+      "gold_count": 10,
+      "matched_count": 2,
+      "unsupported_count": 0,
+      "precision": 1.0,
+      "recall": 0.2
+    }
+  ],
+  "adopted_voter_id": "A",
+  "policy": "pooled independent-root dense-mv-v7 qualityF1; first three paired A-A/B-B/C-C source ballots, median total",
+  "selected": [
+    "mv_apt",
+    "mv_lazy"
+  ],
+  "solver_runs": 1,
+  "screening_solver_runs": 4,
+  "actual_model": "gpt-6.1-sol",
+  "actual_effort": "xhigh",
+  "elapsed_seconds": 2377.281,
+  "development_cpu": true,
+  "gpu_validation_pending": true,
+  "exit_code": 0,
+  "same_model_judge_consensus": true
+}
