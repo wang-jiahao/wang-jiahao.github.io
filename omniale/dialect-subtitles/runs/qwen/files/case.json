@@ -1,0 +1,1535 @@
+{
+  "case_id": "dialect-subtitles-20261115",
+  "title": "多方言视频的普通话字幕制作",
+  "domain_id": 5,
+  "domain": "译制、无障碍与发布适配",
+  "scenario": "方言视频字幕本地化",
+  "model": "qwen3.8-omni-flash",
+  "effort": "thinking",
+  "harness": "Qwen Code",
+  "harness_version": "0.26.7",
+  "recovered_in_same_session": true,
+  "provider": "DashScope",
+  "network": true,
+  "material_version": "v2",
+  "tag": "qwen_omni_code_v2_20261116_r1",
+  "score": 50.71428571428571,
+  "semantic_score": 40.71428571428571,
+  "organization_score": 5.0,
+  "delivery_score": 5,
+  "semantic_by_dialect": {
+    "吴语/温州永嘉": 0.0,
+    "粤语/广西龙州": 0.75,
+    "闽南语/汕头潮阳": 0.41666666666666663,
+    "客家话/龙岩新罗": 0.3333333333333333,
+    "湘语/冷水江": 0.7142857142857142,
+    "赣语/江西万安": 0.5
+  },
+  "elapsed_seconds": 11359.884,
+  "judge": "gpt-6.1-terra",
+  "judge_effort": "high",
+  "judge_rounds": 1,
+  "cue_count": 48,
+  "duration": 172.895,
+  "score_policy": "dialect-v2-equivalence-audit1",
+  "original_score": 50.71428571428571,
+  "audit_adjustment_count": 0,
+  "segments": [
+    {
+      "id": "S001",
+      "dialect": "吴语/温州永嘉",
+      "start": 0.0,
+      "end": 6.779,
+      "source_url": "https://video.zhongguoyuyan.cn/video/20/08969mb01yf0001.mp4",
+      "source_page": "https://zhongguoyuyan.cn/point/08969",
+      "source_utterance": "08969mb01yf0001",
+      "source_transcript": "小张昨夜有条鱼钓牢大险大我冇钓牢",
+      "reference": "小张昨天钓了一条大鱼我没有钓到鱼",
+      "atoms": [
+        {
+          "id": "A01",
+          "meaning": "小张昨天钓鱼"
+        },
+        {
+          "id": "A02",
+          "meaning": "小张钓到一条大鱼"
+        },
+        {
+          "id": "A03",
+          "meaning": "说话者没有钓到鱼"
+        }
+      ],
+      "subtitle": "有点[无法确认]，肚子疼，[无法确认]丢了。",
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有提及小张昨天钓鱼。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有提及钓到大鱼。"
+          },
+          {
+            "atom_id": "A03",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有提及说话者没钓到鱼。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "肚子疼",
+            "reason": "来源没有提到肚子疼。"
+          }
+        ]
+      },
+      "uncertainty": "永嘉吴语，全片最难。跨源可确认的只有『有点…』(FireRedASR2-AED/Fun-ASR-Nano/Qwen3-ASR)、『肚皮(痛)』(Dolphin-温州/Qwen3-ASR/本人复听)与句尾『…丢了/掉了』(FireRed/Dolphin/Qwen3/本人复听)。句首主语分歧最大：FireRed 与 Fun-ASR 读作『学建筑』，而温州区域专用的 Dolphin 读作『水姐/小姐是要』，无法裁定，故不写入正文而标[无法确认]。",
+      "cues": [
+        {
+          "id": 1,
+          "start": 1.9,
+          "end": 5.6,
+          "text": "有点[无法确认]，肚子疼，[无法确认]丢了。"
+        }
+      ]
+    },
+    {
+      "id": "S002",
+      "dialect": "粤语/广西龙州",
+      "start": 6.779,
+      "end": 11.739,
+      "source_url": "https://video.zhongguoyuyan.cn/video/20/01803mb01yf0002.mp4",
+      "source_page": "https://zhongguoyuyan.cn/point/01803",
+      "source_utterance": "01803mb01yf0002",
+      "source_transcript": "你平时烧烟冇冇我冇烧",
+      "reference": "你平时抽烟吗不我不抽烟",
+      "atoms": [
+        {
+          "id": "A01",
+          "meaning": "询问对方平时是否抽烟"
+        },
+        {
+          "id": "A02",
+          "meaning": "回答者否认自己抽烟"
+        }
+      ],
+      "subtitle": "你平时休息吗？\n不，我不休息。",
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "询问的是休息，而非抽烟。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "否认的是休息，而非抽烟。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "我不休息",
+            "reason": "来源没有说回答者不休息。"
+          }
+        ]
+      },
+      "uncertainty": "龙州粤语。问答框架与否定词『冇』六源一致；谓语取 FireRedASR2-AED(conf 0.822)与 Dolphin 的『休/休息』，本人首轮复听曾误判为『抽烟』，存在一定不确定。",
+      "cues": [
+        {
+          "id": 2,
+          "start": 1.2799999999999994,
+          "end": 2.4800000000000004,
+          "text": "你平时休息吗？"
+        },
+        {
+          "id": 3,
+          "start": 2.6899999999999995,
+          "end": 4.130000000000001,
+          "text": "不，我不休息。"
+        }
+      ]
+    },
+    {
+      "id": "S003",
+      "dialect": "闽南语/汕头潮阳",
+      "start": 11.739,
+      "end": 31.979,
+      "source_url": "https://video.zhongguoyuyan.cn/video/20/15F39mb01yf0003.mp4",
+      "source_page": "https://zhongguoyuyan.cn/point/15F39",
+      "source_utterance": "15F39mb01yf0003",
+      "source_transcript": "只件事汝佮伊呾未呾唠我佮伊呾唠只件事汝佮伊呾有无有我佮伊呾唠",
+      "reference": "你告诉他这件事了吗是我告诉他了你告诉他这件事了吗是我告诉他了",
+      "atoms": [
+        {
+          "id": "A01",
+          "meaning": "询问对方是否已将这件事告诉第三人"
+        },
+        {
+          "id": "A02",
+          "meaning": "回答者明确表示已经告诉第三人"
+        }
+      ],
+      "subtitle": "这件事，你跟他说了吗？\n说了，我跟他说了。\n这件事，你跟他说了没有？\n说了，我跟他说了。",
+      "semantic_f1": 1.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 1,
+            "candidate_quote": "这件事，你跟他说了吗？",
+            "reason": "询问对方是否已告诉他这件事。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 1,
+            "candidate_quote": "说了，我跟他说了。",
+            "reason": "明确回答已经告诉他。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "uncertainty": "潮阳闽南语，两问两答。潮语专用微调 Qwen3-ASR 三次解码(自动/Teochew/Chinese)完全一致：『衹件事，你佮伊呾𠀾／呾有无』；潮语 whisper 微调与 Dolphin-闽南同构。置信度高，未标[无法确认]。",
+      "cues": [
+        {
+          "id": 4,
+          "start": 2.5199999999999996,
+          "end": 4.849999999999998,
+          "text": "这件事，你跟他说了吗？"
+        },
+        {
+          "id": 5,
+          "start": 6.27,
+          "end": 7.890000000000001,
+          "text": "说了，我跟他说了。"
+        },
+        {
+          "id": 6,
+          "start": 11.84,
+          "end": 15.04,
+          "text": "这件事，你跟他说了没有？"
+        },
+        {
+          "id": 7,
+          "start": 16.419999999999998,
+          "end": 17.8,
+          "text": "说了，我跟他说了。"
+        }
+      ]
+    },
+    {
+      "id": "S004",
+      "dialect": "客家话/龙岩新罗",
+      "start": 31.979,
+      "end": 37.119,
+      "source_url": "https://video.zhongguoyuyan.cn/video/20/02A16mb01yf0004.mp4",
+      "source_page": "https://zhongguoyuyan.cn/point/02A16",
+      "source_utterance": "02A16mb01yf0004",
+      "source_transcript": "尔食饭还係食馒头",
+      "reference": "你吃米饭还是吃馒头",
+      "atoms": [
+        {
+          "id": "A01",
+          "meaning": "询问对方选择吃米饭还是吃馒头"
+        }
+      ],
+      "subtitle": "你吃饭还是吃[无法确认]？",
+      "semantic_f1": 0.6666666666666666,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0.5,
+            "candidate_quote": "你吃饭还是吃[无法确认]？",
+            "reason": "保留了吃饭的选择问句，但另一选项馒头无法确认。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "uncertainty": "龙岩客家。选择问框架『你食X还係食Y』六源一致(含客家微调 whisper 的『你食粄係食…』)；Y 各源读作 /maŋ-tʰiɛ/(盲天/满天/忙点/莽克)，无一致汉字写法，标[无法确认]。X 取更通行的『饭』。",
+      "cues": [
+        {
+          "id": 8,
+          "start": 1.75,
+          "end": 3.8500000000000014,
+          "text": "你吃饭还是吃[无法确认]？"
+        }
+      ]
+    },
+    {
+      "id": "S005",
+      "dialect": "湘语/冷水江",
+      "start": 37.119,
+      "end": 42.435,
+      "source_url": "https://video.zhongguoyuyan.cn/video/20/26D49mb01yf0005.mp4",
+      "source_page": "https://zhongguoyuyan.cn/point/26D49",
+      "source_utterance": "26D49mb01yf0005",
+      "source_transcript": "你到底答唔答应渠",
+      "reference": "你到底答应不答应他",
+      "atoms": [
+        {
+          "id": "A01",
+          "meaning": "追问对方到底是否答应第三人"
+        }
+      ],
+      "subtitle": "你到底答应不答应啊？",
+      "semantic_f1": 0.6666666666666666,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0.5,
+            "candidate_quote": "你到底答应不答应啊？",
+            "reason": "保留了追问是否答应，但省略了答应的对象。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "uncertainty": "冷水江湘语。『你到底…』与 V-not-V 框架跨源一致；谓语取 Dolphin 明确给出的『答不答』及本人复听，扩为普通话『答应不答应』。",
+      "cues": [
+        {
+          "id": 9,
+          "start": 1.8500000000000014,
+          "end": 3.549999999999997,
+          "text": "你到底答应不答应啊？"
+        }
+      ]
+    },
+    {
+      "id": "S006",
+      "dialect": "赣语/江西万安",
+      "start": 42.435,
+      "end": 52.395,
+      "source_url": "https://video.zhongguoyuyan.cn/video/20/18E38mb01yf0006.mp4",
+      "source_page": "https://zhongguoyuyan.cn/point/18E38",
+      "source_utterance": "18E38mb01yf0006",
+      "source_transcript": "喊小强一起去电影院看电影刘三姐介部电影渠看过哩喊小强一起去电影院看电影刘三姐渠看过哩介部电影",
+      "reference": "叫小强一起去电影院看刘三姐这部电影他看过了叫小强一起去电影院看刘三姐这部电影他看过了",
+      "atoms": [
+        {
+          "id": "A01",
+          "meaning": "提议叫小强一起去电影院看《刘三姐》"
+        },
+        {
+          "id": "A02",
+          "meaning": "回应指出小强已经看过这部电影"
+        }
+      ],
+      "subtitle": "叫小强一起去电影院看电影《刘三姐》。\n这部电影他看过的，\n他看过这部电影。",
+      "semantic_f1": 1.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 1,
+            "candidate_quote": "叫小强一起去电影院看电影《刘三姐》。",
+            "reason": "完整表达了邀请小强一起去电影院看这部电影。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 1,
+            "candidate_quote": "这部电影他看过的",
+            "reason": "结合上下文，指出小强已经看过这部电影。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "uncertainty": "万安赣语。p1『喊小强一起去电影院看电影』(FireRed conf 0.888)与 p2『刘三姐』(conf 0.929)置信高；p3–p5 各源作『个部电影／佢看过的』，译为『这部电影他看过的／他看过这部电影』。方言词『喊』按普通话作『叫』。",
+      "cues": [
+        {
+          "id": 10,
+          "start": 0.8200000000000003,
+          "end": 3.809999999999995,
+          "text": "叫小强一起去电影院看电影《刘三姐》。"
+        },
+        {
+          "id": 11,
+          "start": 4.559999999999995,
+          "end": 6.549999999999997,
+          "text": "这部电影他看过的，"
+        },
+        {
+          "id": 12,
+          "start": 7.669999999999995,
+          "end": 8.809999999999995,
+          "text": "他看过这部电影。"
+        }
+      ]
+    },
+    {
+      "id": "S007",
+      "dialect": "吴语/温州永嘉",
+      "start": 52.395,
+      "end": 65.072,
+      "source_url": "https://video.zhongguoyuyan.cn/video/20/08969mb01yf0008.mp4",
+      "source_page": "https://zhongguoyuyan.cn/point/08969",
+      "source_utterance": "08969mb01yf0008",
+      "source_transcript": "渠埭橘儿个皮啊剥爻罢就是还未吃渠埭橘儿个皮剥啊剥爻罢就是还未吃",
+      "reference": "他把橘子剥了皮但是没吃他把橘子剥了皮但是没吃",
+      "atoms": [
+        {
+          "id": "A01",
+          "meaning": "他已经给橘子剥了皮"
+        },
+        {
+          "id": "A02",
+          "meaning": "他没有吃这个橘子"
+        }
+      ],
+      "subtitle": "给[无法确认]个[无法确认]吧，又是没钱。\n给[无法确认]个[无法确认]吧，又是没钱。",
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有提及给橘子剥皮。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有提及没有吃橘子。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "又是没钱",
+            "reason": "来源没有提到没钱。"
+          }
+        ]
+      },
+      "uncertainty": "永嘉吴语，两句近乎重复。跨源可确认句首『给…』、助词『吧』、句尾『又是…没钱』(FireRed/Qwen3/Dolphin-p2/本人复听)。中间宾语各源冲突严重(建议/煎个饼/建个碑/捡的被/建个坝)，标[无法确认]。",
+      "cues": [
+        {
+          "id": 13,
+          "start": 2.0700000000000003,
+          "end": 5.939999999999998,
+          "text": "给[无法确认]个[无法确认]吧，又是没钱。"
+        },
+        {
+          "id": 14,
+          "start": 7.659999999999997,
+          "end": 11.469999999999999,
+          "text": "给[无法确认]个[无法确认]吧，又是没钱。"
+        }
+      ]
+    },
+    {
+      "id": "S008",
+      "dialect": "粤语/广西龙州",
+      "start": 65.072,
+      "end": 69.516,
+      "source_url": "https://video.zhongguoyuyan.cn/video/20/01803mb01yf0009.mp4",
+      "source_page": "https://zhongguoyuyan.cn/point/01803",
+      "source_utterance": "01803mb01yf0009",
+      "source_transcript": "渠啲教室装哂空调呃窝",
+      "reference": "他们把教室都装上了空调",
+      "atoms": [
+        {
+          "id": "A01",
+          "meaning": "他们已经给教室装上空调"
+        }
+      ],
+      "subtitle": "他们教室装了空调了哦。",
+      "semantic_f1": 1.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 1,
+            "candidate_quote": "他们教室装了空调了哦",
+            "reason": "表达了他们的教室已经装上空调。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "uncertainty": "龙州粤语。FireRedASR2-AED(conf 0.816)、Qwen3-ASR『佢啲教室装咗空调喎』与本人复听一致，译为『他们教室装了空调了哦』。",
+      "cues": [
+        {
+          "id": 15,
+          "start": 1.5,
+          "end": 3.5999999999999943,
+          "text": "他们教室装了空调了哦。"
+        }
+      ]
+    },
+    {
+      "id": "S009",
+      "dialect": "闽南语/汕头潮阳",
+      "start": 69.516,
+      "end": 79.556,
+      "source_url": "https://video.zhongguoyuyan.cn/video/20/15F39mb01yf0010.mp4",
+      "source_page": "https://zhongguoyuyan.cn/point/15F39",
+      "source_utterance": "15F39mb01yf0010",
+      "source_transcript": "顶帽乞风飞去唠顶帽乞风吹走唠",
+      "reference": "帽子被风吹走了帽子被风吹走了",
+      "atoms": [
+        {
+          "id": "A01",
+          "meaning": "帽子已被风吹走"
+        }
+      ],
+      "subtitle": "上午被人[无法确认]，\n上午被人[无法确认]。",
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有表达帽子被风吹走。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "uncertainty": "潮阳闽南语，两句平行。跨源可确认时间词『顶哺(上午)』(Dolphin 直接译作『上午』)与被动式『去互人(被人)』(Dolphin/Fun-ASR/潮语Qwen3/本人复听)。两句谓语分歧(陪课/揣查某/吹走/找扫)，标[无法确认]。",
+      "cues": [
+        {
+          "id": 16,
+          "start": 2.1199999999999903,
+          "end": 4.1499999999999915,
+          "text": "上午被人[无法确认]，"
+        },
+        {
+          "id": 17,
+          "start": 5.659999999999997,
+          "end": 7.6299999999999955,
+          "text": "上午被人[无法确认]。"
+        }
+      ]
+    },
+    {
+      "id": "S010",
+      "dialect": "客家话/龙岩新罗",
+      "start": 79.556,
+      "end": 87.716,
+      "source_url": "https://video.zhongguoyuyan.cn/video/20/02A16mb01yf0011.mp4",
+      "source_page": "https://zhongguoyuyan.cn/point/02A16",
+      "source_utterance": "02A16mb01yf0011",
+      "source_transcript": "张明分坏人抢走哩一个包人亦差滴子分𢫦伤",
+      "reference": "张明被坏人抢走了一个包人也差点儿被打伤",
+      "atoms": [
+        {
+          "id": "A01",
+          "meaning": "张明被坏人抢走一个包"
+        },
+        {
+          "id": "A02",
+          "meaning": "张明差一点被打伤，但原句没有断言真的受伤"
+        }
+      ],
+      "subtitle": "[无法确认]被坏人抢走了一个包，\n人也差点被弄伤。",
+      "semantic_f1": 0.6666666666666666,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0.5,
+            "candidate_quote": "[无法确认]被坏人抢走了一个包",
+            "reason": "保留了被坏人抢走一个包，但受害者姓名无法确认。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0.5,
+            "candidate_quote": "人也差点被弄伤",
+            "reason": "保留了差点受伤，但没有明确是被打伤。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "uncertainty": "龙岩客家。p2『人也差滴子分(被)…伤』多源一致，作『人也差点被弄伤』。p1 主语各源读作 /coŋ-miŋ/：Dolphin 作『张明/江明』、Qwen3 作『蒋明』、FireRed 作『江民』、本人复听作『昨暗(昨晚)』，无法判定是人名还是时间词，标[无法确认]。『被坏人抢走了一个包』取 Dolphin-广东/福建『被华人(≈坏人)抢走了一架把(≈一个包)』与本人复听。",
+      "cues": [
+        {
+          "id": 18,
+          "start": 1.6899999999999977,
+          "end": 4.560000000000002,
+          "text": "[无法确认]被坏人抢走了一个包，"
+        },
+        {
+          "id": 19,
+          "start": 4.810000000000002,
+          "end": 6.719999999999999,
+          "text": "人也差点被弄伤。"
+        }
+      ]
+    },
+    {
+      "id": "S011",
+      "dialect": "湘语/冷水江",
+      "start": 87.716,
+      "end": 92.359,
+      "source_url": "https://video.zhongguoyuyan.cn/video/20/26D49mb01yf0012.mp4",
+      "source_page": "https://zhongguoyuyan.cn/point/26D49",
+      "source_utterance": "26D49mb01yf0012",
+      "source_transcript": "快落雨哩你俚莫出去哩",
+      "reference": "快要下雨了你们别出去了",
+      "atoms": [
+        {
+          "id": "A01",
+          "meaning": "快要下雨了"
+        },
+        {
+          "id": "A02",
+          "meaning": "因此劝告你们不要出去"
+        }
+      ],
+      "subtitle": "快下雨了，\n你别出去了。",
+      "semantic_f1": 0.8571428571428571,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 1,
+            "candidate_quote": "快下雨了",
+            "reason": "表达了快要下雨。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0.5,
+            "candidate_quote": "你别出去了",
+            "reason": "保留了不要出去的劝告，但没有明确对象是你们。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "uncertainty": "冷水江湘语。FireRed 短语级 conf 0.73/0.837 与 Dolphin、Qwen3、本人复听完全一致：『快落雨哒，你莫出去哒』。",
+      "cues": [
+        {
+          "id": 20,
+          "start": 0.8700000000000045,
+          "end": 1.720000000000013,
+          "text": "快下雨了，"
+        },
+        {
+          "id": 21,
+          "start": 2.5600000000000023,
+          "end": 4.050000000000011,
+          "text": "你别出去了。"
+        }
+      ]
+    },
+    {
+      "id": "S012",
+      "dialect": "赣语/江西万安",
+      "start": 92.359,
+      "end": 96.909,
+      "source_url": "https://video.zhongguoyuyan.cn/video/20/18E38mb01yf0013.mp4",
+      "source_page": "https://zhongguoyuyan.cn/point/18E38",
+      "source_utterance": "18E38mb01yf0013",
+      "source_transcript": "介只手巾格就垃色個哩丢呱渠去",
+      "reference": "这毛巾很脏了扔了它吧",
+      "atoms": [
+        {
+          "id": "A01",
+          "meaning": "这条毛巾很脏了"
+        },
+        {
+          "id": "A02",
+          "meaning": "建议把这条毛巾扔掉"
+        }
+      ],
+      "subtitle": "这个手机是谁的？\n对，是我的。",
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有提及毛巾很脏。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有建议扔掉毛巾。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "是我的",
+            "reason": "候选说手机属于回答者，来源没有此内容。"
+          }
+        ]
+      },
+      "uncertainty": "万安赣语。『手机』与疑问词(哪个/谁)多源一致；p2 取南昌微调『对，我个个』＝『对，是我的』。问句限定词(这只/这个)未逐字确认。",
+      "cues": [
+        {
+          "id": 22,
+          "start": 0.9100000000000108,
+          "end": 2.1300000000000097,
+          "text": "这个手机是谁的？"
+        },
+        {
+          "id": 23,
+          "start": 2.5900000000000034,
+          "end": 3.3500000000000085,
+          "text": "对，是我的。"
+        }
+      ]
+    },
+    {
+      "id": "S013",
+      "dialect": "吴语/温州永嘉",
+      "start": 96.909,
+      "end": 105.36,
+      "source_url": "https://video.zhongguoyuyan.cn/video/20/08969mb01yf0023.mp4",
+      "source_page": "https://zhongguoyuyan.cn/point/08969",
+      "source_utterance": "08969mb01yf0023",
+      "source_transcript": "你是宕唱何嚷我冇是宕唱我是宕放录音机那",
+      "reference": "你在唱什么我没在唱我放着录音呢",
+      "atoms": [
+        {
+          "id": "A01",
+          "meaning": "询问对方正在唱什么"
+        },
+        {
+          "id": "A02",
+          "meaning": "回答者否认自己正在唱歌"
+        },
+        {
+          "id": "A03",
+          "meaning": "回答者说明自己在播放录音"
+        }
+      ],
+      "subtitle": "你是[无法确认]。\n我哪儿都不去，\n我在老院子呢。",
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有表达询问对方在唱什么。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有否认正在唱歌。"
+          },
+          {
+            "atom_id": "A03",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有提及播放录音。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "我哪儿都不去",
+            "reason": "来源没有说回答者哪儿都不去。"
+          },
+          {
+            "quote": "我在老院子呢",
+            "reason": "来源没有说回答者在老院子。"
+          }
+        ]
+      },
+      "uncertainty": "永嘉吴语，三小句。跨源可确认第二小句『我哪都不去』(FireRed 短语级/Dolphin『我哪得去』/Qwen3『我哪么到去』)与第三小句『我在/到老院子呢』(FireRed/Dolphin/Qwen3)。第一小句仅『你…』一致(欺负/去年/去干 分歧严重)，标[无法确认]。",
+      "cues": [
+        {
+          "id": 24,
+          "start": 1.25,
+          "end": 2.769999999999996,
+          "text": "你是[无法确认]。"
+        },
+        {
+          "id": 25,
+          "start": 3.0,
+          "end": 4.3999999999999915,
+          "text": "我哪儿都不去，"
+        },
+        {
+          "id": 26,
+          "start": 4.589999999999989,
+          "end": 6.299999999999997,
+          "text": "我在老院子呢。"
+        }
+      ]
+    },
+    {
+      "id": "S014",
+      "dialect": "粤语/广西龙州",
+      "start": 105.36,
+      "end": 112.822,
+      "source_url": "https://video.zhongguoyuyan.cn/video/20/01803mb01yf0024.mp4",
+      "source_page": "https://zhongguoyuyan.cn/point/01803",
+      "source_utterance": "01803mb01yf0024",
+      "source_transcript": "我食过兔肉哂哦你食过冇冇我边啲冇食过",
+      "reference": "我吃过兔子肉你吃过没有没有我没吃过",
+      "atoms": [
+        {
+          "id": "A01",
+          "meaning": "前一位发言者说自己吃过兔子肉"
+        },
+        {
+          "id": "A02",
+          "meaning": "前一位发言者询问对方是否吃过兔子肉"
+        },
+        {
+          "id": "A03",
+          "meaning": "回答者说自己没吃过兔子肉"
+        }
+      ],
+      "subtitle": "我吃过兔肉了，\n你吃过没有？\n没有，我没吃过。",
+      "semantic_f1": 1.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 1,
+            "candidate_quote": "我吃过兔肉了",
+            "reason": "表示自己吃过兔肉。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 1,
+            "candidate_quote": "你吃过没有？",
+            "reason": "结合上文，询问对方是否吃过兔肉。"
+          },
+          {
+            "atom_id": "A03",
+            "credit": 1,
+            "candidate_quote": "没有，我没吃过。",
+            "reason": "结合上下文，回答自己没吃过兔肉。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "uncertainty": "龙州粤语。框架与『食过…冇』六源一致。肉类取 FireRedASR2-AED 短语级 conf 0.891 的『兔肉』(Dolphin 作『土玉』，同音支持 /tʰu/)；本人首轮复听曾误作『猪肉』，存在一定不确定。p3 取『冇，我未食过』(FireRed/Qwen3)。",
+      "cues": [
+        {
+          "id": 27,
+          "start": 1.3200000000000074,
+          "end": 2.6200000000000045,
+          "text": "我吃过兔肉了，"
+        },
+        {
+          "id": 28,
+          "start": 3.1700000000000017,
+          "end": 4.159999999999997,
+          "text": "你吃过没有？"
+        },
+        {
+          "id": 29,
+          "start": 4.780000000000001,
+          "end": 6.489999999999995,
+          "text": "没有，我没吃过。"
+        }
+      ]
+    },
+    {
+      "id": "S015",
+      "dialect": "闽南语/汕头潮阳",
+      "start": 112.822,
+      "end": 122.142,
+      "source_url": "https://video.zhongguoyuyan.cn/video/20/15F39mb01yf0025.mp4",
+      "source_page": "https://zhongguoyuyan.cn/point/15F39",
+      "source_utterance": "15F39mb01yf0025",
+      "source_transcript": "我洗浴唠今囝日无爱拍篮球唠",
+      "reference": "我洗过澡了今天不打篮球了",
+      "atoms": [
+        {
+          "id": "A01",
+          "meaning": "说话者已经洗过澡"
+        },
+        {
+          "id": "A02",
+          "meaning": "说话者表示今天不打篮球了"
+        }
+      ],
+      "subtitle": "我小时候，\n不爱走去打篮球。",
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有提及已经洗澡。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "说的是小时候不爱打篮球，没有表达今天不打。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "我小时候，不爱走去打篮球",
+            "reason": "来源没有说小时候不爱打篮球。"
+          }
+        ]
+      },
+      "uncertainty": "潮阳闽南语。跨源可确认『我细个(我小时候)』(潮语Qwen3/Dolphin/Qwen3/本人复听)、『拍(打)篮球』(全部来源)与否定式『无爱(不爱)』(Dolphin/Fun-ASR/本人复听)；动词『行/走』亦多源出现，故译『不爱走去打篮球』，该状语细节未逐字确认。",
+      "cues": [
+        {
+          "id": 30,
+          "start": 3.480000000000004,
+          "end": 4.469999999999999,
+          "text": "我小时候，"
+        },
+        {
+          "id": 31,
+          "start": 5.060000000000002,
+          "end": 6.609999999999999,
+          "text": "不爱走去打篮球。"
+        }
+      ]
+    },
+    {
+      "id": "S016",
+      "dialect": "客家话/龙岩新罗",
+      "start": 122.142,
+      "end": 128.165,
+      "source_url": "https://video.zhongguoyuyan.cn/video/20/02A16mb01yf0026.mp4",
+      "source_page": "https://zhongguoyuyan.cn/point/02A16",
+      "source_utterance": "02A16mb01yf0026",
+      "source_transcript": "我算得特快算错哩留我再算一遍",
+      "reference": "我算得太快算错了让我重新算一遍",
+      "atoms": [
+        {
+          "id": "A01",
+          "meaning": "说话者因为算得太快而算错"
+        },
+        {
+          "id": "A02",
+          "meaning": "说话者要求让自己重新计算一遍"
+        }
+      ],
+      "subtitle": "我送的铁块送错了，\n给我再送一遍。",
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "说的是送铁块送错，没有表达算错。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "要求再送一遍，没有要求重新计算。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "我送的铁块送错了",
+            "reason": "来源没有说送错铁块。"
+          }
+        ]
+      },
+      "uncertainty": "龙岩客家。框架『我…的……错了，给/同我再…一遍』多源一致(FireRed『俺上的铁块上错了给俺再上一遍』、Dolphin『我送的…送错了』、本人复听)。宾语取三源共同的『铁块』；动词上/送在客家话同音，普通话取更自然的『送』。",
+      "cues": [
+        {
+          "id": 32,
+          "start": 1.2199999999999989,
+          "end": 3.1099999999999994,
+          "text": "我送的铁块送错了，"
+        },
+        {
+          "id": 33,
+          "start": 3.5400000000000063,
+          "end": 4.900000000000006,
+          "text": "给我再送一遍。"
+        }
+      ]
+    },
+    {
+      "id": "S017",
+      "dialect": "湘语/冷水江",
+      "start": 128.165,
+      "end": 132.715,
+      "source_url": "https://video.zhongguoyuyan.cn/video/20/26D49mb01yf0027.mp4",
+      "source_page": "https://zhongguoyuyan.cn/point/26D49",
+      "source_utterance": "26D49mb01yf0027",
+      "source_transcript": "渠一快活就唱起歌来哩",
+      "reference": "他一高兴就唱起歌来了",
+      "atoms": [
+        {
+          "id": "A01",
+          "meaning": "他一高兴就开始唱歌"
+        }
+      ],
+      "subtitle": "既快活，\n又唱起歌来了。",
+      "semantic_f1": 0.6666666666666666,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0.5,
+            "candidate_quote": "既快活，又唱起歌来了",
+            "reason": "保留了快活和唱歌，但没有表达一高兴就唱歌的关系。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "uncertainty": "冷水江湘语。『…快活』与『又唱起歌来了』六源一致。首词既/几在湘语同音，取构成『既…又…』关联式的『既』(FireRed/Qwen3/Fun-ASR/Dolphin 均作『既』)。",
+      "cues": [
+        {
+          "id": 34,
+          "start": 0.9099999999999966,
+          "end": 1.8499999999999943,
+          "text": "既快活，"
+        },
+        {
+          "id": 35,
+          "start": 2.2900000000000205,
+          "end": 3.4399999999999977,
+          "text": "又唱起歌来了。"
+        }
+      ]
+    },
+    {
+      "id": "S018",
+      "dialect": "赣语/江西万安",
+      "start": 132.715,
+      "end": 136.741,
+      "source_url": "https://video.zhongguoyuyan.cn/video/20/18E38mb01yf0029.mp4",
+      "source_page": "https://zhongguoyuyan.cn/point/18E38",
+      "source_utterance": "18E38mb01yf0029",
+      "source_transcript": "才写哩一半还要写下去",
+      "reference": "只写了一半还得写下去",
+      "atoms": [
+        {
+          "id": "A01",
+          "meaning": "只写完了一半"
+        },
+        {
+          "id": "A02",
+          "meaning": "还必须继续写下去"
+        }
+      ],
+      "subtitle": "才写了一半，\n还要写下去。",
+      "semantic_f1": 1.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 1,
+            "candidate_quote": "才写了一半",
+            "reason": "表达了只写完一半。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 1,
+            "candidate_quote": "还要写下去",
+            "reason": "表达了还得继续写。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "uncertainty": "万安赣语。动词取『写』(南昌微调短语级 p2 作『还要写下子』，与 p1『才下了一X』同音)。数量『一半／一百』六源三三分歧(FireRed/Dolphin/南昌作一百，Qwen3/Fun-ASR 作一半)，取与『还要写下去』语义自洽的『一半』，此项存在明确不确定。",
+      "cues": [
+        {
+          "id": 36,
+          "start": 0.7199999999999989,
+          "end": 1.5900000000000034,
+          "text": "才写了一半，"
+        },
+        {
+          "id": 37,
+          "start": 1.8700000000000045,
+          "end": 2.680000000000007,
+          "text": "还要写下去。"
+        }
+      ]
+    },
+    {
+      "id": "S019",
+      "dialect": "吴语/温州永嘉",
+      "start": 136.741,
+      "end": 142.823,
+      "source_url": "https://video.zhongguoyuyan.cn/video/20/08969mb01yf0046.mp4",
+      "source_page": "https://zhongguoyuyan.cn/point/08969",
+      "source_utterance": "08969mb01yf0046",
+      "source_transcript": "你比我长徕渠比你还长徕",
+      "reference": "你比我高他比你还要高",
+      "atoms": [
+        {
+          "id": "A01",
+          "meaning": "你比我高"
+        },
+        {
+          "id": "A02",
+          "meaning": "他比你还高"
+        }
+      ],
+      "subtitle": "你[无法确认]借，你孩子[无法确认]借。",
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有表达你比我高。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有表达他比你高。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "uncertainty": "永嘉吴语。跨源可确认话题『你』、动词『借』(Fun-ASR/Qwen3/本人复听)与『你娃』(FireRed/Fun-ASR/Dolphin/Qwen3 四源一致)。与格对象与前后关系(给我/比他/娃借)分歧严重，标[无法确认]。",
+      "cues": [
+        {
+          "id": 38,
+          "start": 1.299999999999983,
+          "end": 4.389999999999986,
+          "text": "你[无法确认]借，你孩子[无法确认]借。"
+        }
+      ]
+    },
+    {
+      "id": "S020",
+      "dialect": "粤语/广西龙州",
+      "start": 142.823,
+      "end": 147.164,
+      "source_url": "https://video.zhongguoyuyan.cn/video/20/01803mb01yf0047.mp4",
+      "source_page": "https://zhongguoyuyan.cn/point/01803",
+      "source_utterance": "01803mb01yf0047",
+      "source_transcript": "老王跟老张一样高",
+      "reference": "老王跟老张一样高",
+      "atoms": [
+        {
+          "id": "A01",
+          "meaning": "老王和老张一样高"
+        }
+      ],
+      "subtitle": "老王跟老张一样高。",
+      "semantic_f1": 1.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 1,
+            "candidate_quote": "老王跟老张一样高",
+            "reason": "完整表达两人一样高。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "uncertainty": "龙州粤语。FireRedASR2-AED conf 0.929 与 Dolphin、Qwen3、Fun-ASR、本人复听完全一致，全片置信最高。",
+      "cues": [
+        {
+          "id": 39,
+          "start": 1.4699999999999989,
+          "end": 3.7299999999999898,
+          "text": "老王跟老张一样高。"
+        }
+      ]
+    },
+    {
+      "id": "S021",
+      "dialect": "闽南语/汕头潮阳",
+      "start": 147.164,
+      "end": 155.124,
+      "source_url": "https://video.zhongguoyuyan.cn/video/20/15F39mb01yf0048.mp4",
+      "source_page": "https://zhongguoyuyan.cn/point/15F39",
+      "source_utterance": "15F39mb01yf0048",
+      "source_transcript": "我走了恁两侬再坐加睏囝",
+      "reference": "我走了你们俩再多坐一会儿",
+      "atoms": [
+        {
+          "id": "A01",
+          "meaning": "说话者表示自己要离开"
+        },
+        {
+          "id": "A02",
+          "meaning": "让你们两个人再多坐一会儿"
+        }
+      ],
+      "subtitle": "我走了，\n你们俩在[无法确认]。",
+      "semantic_f1": 0.6666666666666666,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 1,
+            "candidate_quote": "我走了",
+            "reason": "表示说话者离开。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有表达让两人多坐一会儿。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "uncertainty": "潮阳闽南语，两小句。跨源可确认 p1『我走(哦)』(潮语Qwen3/Dolphin/本人复听)与 p2 主语『恁两人(你们俩)』(四源一致)及其进行体『在/做』。p2 宾语分歧严重(空间/工作/空姐/一起睡)，标[无法确认]。",
+      "cues": [
+        {
+          "id": 40,
+          "start": 1.990000000000009,
+          "end": 2.690000000000026,
+          "text": "我走了，"
+        },
+        {
+          "id": 41,
+          "start": 4.130000000000024,
+          "end": 6.0800000000000125,
+          "text": "你们俩在[无法确认]。"
+        }
+      ]
+    },
+    {
+      "id": "S022",
+      "dialect": "客家话/龙岩新罗",
+      "start": 155.124,
+      "end": 160.684,
+      "source_url": "https://video.zhongguoyuyan.cn/video/20/02A16mb01yf0049.mp4",
+      "source_page": "https://zhongguoyuyan.cn/point/02A16",
+      "source_utterance": "02A16mb01yf0049",
+      "source_transcript": "我讲唔过渠这个家伙嘛人畲都讲唔过渠",
+      "reference": "我说不过他谁都说不过这个家伙",
+      "atoms": [
+        {
+          "id": "A01",
+          "meaning": "说话者在言语上说不过他"
+        },
+        {
+          "id": "A02",
+          "meaning": "谁也说不过这个人"
+        }
+      ],
+      "subtitle": "我说搞不定，\n自己还没[无法确认]，\n都说搞不定。",
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "搞不定没有表达在言语上说不过他。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有表达谁都说不过这个人。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "我说搞不定",
+            "reason": "来源没有说某事搞不定。"
+          },
+          {
+            "quote": "都说搞不定",
+            "reason": "来源没有说大家都说某事搞不定。"
+          }
+        ]
+      },
+      "uncertainty": "龙岩客家。两个客家微调模型一致给出『𠊎講毋搞得，自家…吂…講毋搞得』，即首尾重复同一谓语、中段为『自家(自己)』+『吂(还没)』；Dolphin 词级时间戳亦显示三段(1.20-2.48 / 2.48-3.76 / 3.76-4.92)。据此拆为三 cue，中段动词标[无法确认]。",
+      "cues": [
+        {
+          "id": 42,
+          "start": 1.0900000000000034,
+          "end": 2.480000000000018,
+          "text": "我说搞不定，"
+        },
+        {
+          "id": 43,
+          "start": 2.480000000000018,
+          "end": 3.8499999999999943,
+          "text": "自己还没[无法确认]，"
+        },
+        {
+          "id": 44,
+          "start": 3.8499999999999943,
+          "end": 4.8300000000000125,
+          "text": "都说搞不定。"
+        }
+      ]
+    },
+    {
+      "id": "S023",
+      "dialect": "湘语/冷水江",
+      "start": 160.684,
+      "end": 167.022,
+      "source_url": "https://video.zhongguoyuyan.cn/video/20/26D49mb01yf0050.mp4",
+      "source_page": "https://zhongguoyuyan.cn/point/26D49",
+      "source_utterance": "26D49mb01yf0050",
+      "source_transcript": "上次只买得一本书今天要多买几本哒",
+      "reference": "上次只买了一本书今天要多买几本",
+      "atoms": [
+        {
+          "id": "A01",
+          "meaning": "上次只买了一本书"
+        },
+        {
+          "id": "A02",
+          "meaning": "今天要再多买几本书"
+        }
+      ],
+      "subtitle": "上次只买了一本书，\n今天又多买了几本。",
+      "semantic_f1": 0.6666666666666666,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 1,
+            "candidate_quote": "上次只买了一本书",
+            "reason": "完整表达上次只买一本书。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0.5,
+            "candidate_quote": "今天又多买了几本",
+            "reason": "保留了今天多买几本书，但把要买说成了已经买。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "今天又多买了几本",
+            "reason": "来源说今天要多买几本，候选断言已经买了。"
+          }
+        ]
+      },
+      "uncertainty": "冷水江湘语。FireRed 短语级 conf 0.786/0.804 与 Dolphin、Qwen3、本人复听一致：『上次只买的一本书，今天又多买几本哒』。",
+      "cues": [
+        {
+          "id": 45,
+          "start": 0.8799999999999955,
+          "end": 2.5600000000000023,
+          "text": "上次只买了一本书，"
+        },
+        {
+          "id": 46,
+          "start": 3.8499999999999943,
+          "end": 5.310000000000002,
+          "text": "今天又多买了几本。"
+        }
+      ]
+    },
+    {
+      "id": "S024",
+      "dialect": "赣语/江西万安",
+      "start": 167.022,
+      "end": 172.895,
+      "source_url": "https://video.zhongguoyuyan.cn/video/20/18E38mb01yf0045.mp4",
+      "source_page": "https://zhongguoyuyan.cn/point/18E38",
+      "source_utterance": "18E38mb01yf0045",
+      "source_transcript": "我拿给你個书是我教中学個舅公写嘚個",
+      "reference": "我给你的书是我教中学的舅舅写的",
+      "atoms": [
+        {
+          "id": "A01",
+          "meaning": "说话者曾把这本书给对方"
+        },
+        {
+          "id": "A02",
+          "meaning": "这本书是说话者的舅舅（方言原文称舅公）写的；接受两种来源称谓"
+        },
+        {
+          "id": "A03",
+          "meaning": "这位舅舅教中学"
+        }
+      ],
+      "subtitle": "我拿给你的水，\n是浇花的，[无法确认]根下的。",
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "说话者给对方的是水，关系中的物体与来源不同。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有提及书是舅舅写的。"
+          },
+          {
+            "atom_id": "A03",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有提及舅舅教中学。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "我拿给你的水",
+            "reason": "候选说拿给对方的是水，来源说的是书。"
+          },
+          {
+            "quote": "是浇花的",
+            "reason": "候选说给对方的水用于浇花，来源没有此内容。"
+          }
+        ]
+      },
+      "uncertainty": "万安赣语。p1『我/人家拿给你的水』六源一致，置信高。p2 取 Qwen3『是俺浇种花个』与本人复听『是浇花的』(FireRed『加重』、Dolphin『叫怎么』为其音近误识)。p3 各源作『锄/除/铸根下的』，动词分歧，标[无法确认]。",
+      "cues": [
+        {
+          "id": 47,
+          "start": 0.8500000000000227,
+          "end": 1.950000000000017,
+          "text": "我拿给你的水，"
+        },
+        {
+          "id": 48,
+          "start": 2.4099999999999966,
+          "end": 4.6299999999999955,
+          "text": "是浇花的，[无法确认]根下的。"
+        }
+      ]
+    }
+  ],
+  "trace_summary": {
+    "overview": "先切出24段音视频，直接读取原声与部分画面，再用7套本地ASR、慢放、降噪和短语时间戳反复核对。经历一次接口中断后在原会话恢复；最终交付48条字幕，用时3小时9分20秒。另一次FireRedASR2-LLM尝试未取得有效转写。",
+    "steps": [
+      {
+        "title": "读取任务与原片，按边界切出24段",
+        "text": "读取任务和片段清单，检查源视频，生成分段MP4/WAV；随后直接读取视频与音轨。",
+        "events": [
+          4,
+          7,
+          40,
+          56,
+          59
+        ]
+      },
+      {
+        "title": "原生复听与本地转写交叉检查",
+        "text": "启动Whisper和其他ASR，并逐段读取音轨。ASR调试输出包含接口保留的音频标记，触发400；仅转义技术标记后在同一会话继续。",
+        "events": [
+          52,
+          71,
+          292
+        ]
+      },
+      {
+        "title": "分句、慢放并补充方言模型",
+        "text": "复听多种语速与降噪版本，补充潮语微调Qwen3-ASR、Dolphin、FireRed等模型及短语时间戳。实际原生读取音频126次、视频7次，涉及5段不同原视频。",
+        "events": [
+          311,
+          317,
+          1194,
+          1291
+        ]
+      },
+      {
+        "title": "制作字幕、封装并核验成片",
+        "text": "生成48条SRT与24段映射，复制原音视频流进MKV并回读字幕。更大的FireRedASR2-LLM加载/推理未完成有效转写，删除未采用的权重后以现有结果完成交付。",
+        "events": [
+          1341,
+          1513,
+          1567,
+          1588
+        ]
+      }
+    ],
+    "tools": [
+      {
+        "name": "Qwen3.8-Omni 原生文件输入",
+        "outcome": "可见记录包含126次音频读取和7次视频读取；视频来自5段不同原片，另有多种分句、慢放和降噪版本。"
+      },
+      {
+        "name": "faster-whisper / large-v3",
+        "outcome": "取得24段转写；出现与来源无关的错词和幻听，结果仅可作为候选。"
+      },
+      {
+        "name": "Qwen3-ASR-1.7B",
+        "outcome": "自动语言与强制中文各解码一次，共48项结果。"
+      },
+      {
+        "name": "Fun-ASR-Nano-2512",
+        "outcome": "取得24段转写，用于交叉检查。"
+      },
+      {
+        "name": "客家、潮语、南昌微调 Whisper",
+        "outcome": "取得分段或短语复核结果；asr_dialect保留24项，另有8项潮语结果。"
+      },
+      {
+        "name": "潮语微调 Qwen3-ASR",
+        "outcome": "四个潮阳片段做多设置复核，保留12项结果；附带训练语料未作为答案读取。"
+      },
+      {
+        "name": "FireRedASR2-AED",
+        "outcome": "24段转写与56个短语结果，提供词级时间戳。"
+      },
+      {
+        "name": "Dolphin-CN-Dialect",
+        "outcome": "不同地区参数共84项转写，另有56个短语结果。"
+      },
+      {
+        "name": "FireRedASR2-LLM",
+        "outcome": "尝试下载和加载更大模型，修复精度与依赖问题后仍未取得有效转写；没有计入已成功的7套ASR来源。"
+      }
+    ],
+    "command_count": 501,
+    "api_error_events": [
+      "[API Error: 400 <400> InternalError.Algo.InvalidParameter: The message contains unsupported special tokens: ['<|audio_start|>', '<|audio_pad|>', '<|audio_end|>']. Please remove them and retry. (request_id: 9c760724-0ac3-9b0f-9f81-139dc53a6b89)]"
+    ],
+    "operation_label": "工具操作",
+    "source_trace_sha256": "c4a7394b9894ca4c872ca5306cc998d50e4069a23c2668c690bfd8d9714c1978",
+    "redaction": "Only visible terminal actions and outputs. Private paths, credentials, long binary encodings and hidden reasoning are not published."
+  },
+  "analysis": [
+    {
+      "title": "原生听感与ASR冲突时，最终取舍有对有错",
+      "text": "运行末尾自述S002最初听作“抽烟”，最终采用FireRed的“休息”，导致该句F1为0；S014从“猪肉”改为“兔肉”则与来源一致。相同的取舍策略在两句中得到不同结果。",
+      "segments": [
+        "S002",
+        "S014"
+      ]
+    },
+    {
+      "title": "温州吴语四段均未传递正确命题",
+      "text": "S001/S007/S013/S019的语义F1均为0。反复降噪、慢放、使用温州区域参数，仍把钓鱼、剥橘子、唱歌与身高比较译成其他内容。",
+      "segments": [
+        "S001",
+        "S007",
+        "S013",
+        "S019"
+      ]
+    },
+    {
+      "title": "部分难句改善，另一些核心动作仍被改写",
+      "text": "S010保留了抢包和差点受伤，F1为66.67%；S018正确表达“才写了一半，还要写下去”，F1为100%。S016却把算得太快、重新计算写成送错铁块和再送一遍。",
+      "segments": [
+        "S010",
+        "S016",
+        "S018"
+      ]
+    },
+    {
+      "title": "局部未知没有消除其余错译",
+      "text": "12段字幕包含[无法确认]。S024仍明确写出了水、浇花等内容，来源实际是给对方的一本书及写书、教中学的舅舅；这些确定表述仍需单独核实。",
+      "segments": [
+        "S024"
+      ]
+    },
+    {
+      "title": "技术交付完整，额外大模型未成为有效证据",
+      "text": "48条字幕、24段映射、原音视频流复制和内嵌字幕一致性均通过独立验收，组织与交付共10分。运行约3小时9分，包含一次接口恢复以及未取得有效转写的FireRedASR2-LLM尝试。",
+      "segments": []
+    }
+  ],
+  "show_in_summary": false,
+  "source_input_sha256": "472bd83ebac152749d96d972f924a6494abec1ce8bd22ebc0c1ac8e7fa08166d",
+  "score_file_sha256": "e306773005826f574e1279454f62f018bbd71deacf18d790097e46594ce09765"
+}

@@ -1,0 +1,698 @@
+{
+  "material_version": "v2",
+  "score": 50.71428571428571,
+  "semantic_score": 40.71428571428571,
+  "organization_score": 5.0,
+  "delivery_score": 5,
+  "semantic_by_dialect": {
+    "吴语/温州永嘉": 0.0,
+    "粤语/广西龙州": 0.75,
+    "闽南语/汕头潮阳": 0.41666666666666663,
+    "客家话/龙岩新罗": 0.3333333333333333,
+    "湘语/冷水江": 0.7142857142857142,
+    "赣语/江西万安": 0.5
+  },
+  "rows": [
+    {
+      "segment_id": "S001",
+      "dialect": "吴语/温州永嘉",
+      "gold_count": 3,
+      "true_positive": 0,
+      "false_positive": 1,
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有提及小张昨天钓鱼。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有提及钓到大鱼。"
+          },
+          {
+            "atom_id": "A03",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有提及说话者没钓到鱼。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "肚子疼",
+            "reason": "来源没有提到肚子疼。"
+          }
+        ]
+      },
+      "candidate": "有点[无法确认]，肚子疼，[无法确认]丢了。"
+    },
+    {
+      "segment_id": "S002",
+      "dialect": "粤语/广西龙州",
+      "gold_count": 2,
+      "true_positive": 0,
+      "false_positive": 1,
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "询问的是休息，而非抽烟。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "否认的是休息，而非抽烟。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "我不休息",
+            "reason": "来源没有说回答者不休息。"
+          }
+        ]
+      },
+      "candidate": "你平时休息吗？\n不，我不休息。"
+    },
+    {
+      "segment_id": "S003",
+      "dialect": "闽南语/汕头潮阳",
+      "gold_count": 2,
+      "true_positive": 2,
+      "false_positive": 0,
+      "semantic_f1": 1.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 1,
+            "candidate_quote": "这件事，你跟他说了吗？",
+            "reason": "询问对方是否已告诉他这件事。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 1,
+            "candidate_quote": "说了，我跟他说了。",
+            "reason": "明确回答已经告诉他。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "这件事，你跟他说了吗？\n说了，我跟他说了。\n这件事，你跟他说了没有？\n说了，我跟他说了。"
+    },
+    {
+      "segment_id": "S004",
+      "dialect": "客家话/龙岩新罗",
+      "gold_count": 1,
+      "true_positive": 0.5,
+      "false_positive": 0,
+      "semantic_f1": 0.6666666666666666,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0.5,
+            "candidate_quote": "你吃饭还是吃[无法确认]？",
+            "reason": "保留了吃饭的选择问句，但另一选项馒头无法确认。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "你吃饭还是吃[无法确认]？"
+    },
+    {
+      "segment_id": "S005",
+      "dialect": "湘语/冷水江",
+      "gold_count": 1,
+      "true_positive": 0.5,
+      "false_positive": 0,
+      "semantic_f1": 0.6666666666666666,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0.5,
+            "candidate_quote": "你到底答应不答应啊？",
+            "reason": "保留了追问是否答应，但省略了答应的对象。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "你到底答应不答应啊？"
+    },
+    {
+      "segment_id": "S006",
+      "dialect": "赣语/江西万安",
+      "gold_count": 2,
+      "true_positive": 2,
+      "false_positive": 0,
+      "semantic_f1": 1.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 1,
+            "candidate_quote": "叫小强一起去电影院看电影《刘三姐》。",
+            "reason": "完整表达了邀请小强一起去电影院看这部电影。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 1,
+            "candidate_quote": "这部电影他看过的",
+            "reason": "结合上下文，指出小强已经看过这部电影。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "叫小强一起去电影院看电影《刘三姐》。\n这部电影他看过的，\n他看过这部电影。"
+    },
+    {
+      "segment_id": "S007",
+      "dialect": "吴语/温州永嘉",
+      "gold_count": 2,
+      "true_positive": 0,
+      "false_positive": 1,
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有提及给橘子剥皮。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有提及没有吃橘子。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "又是没钱",
+            "reason": "来源没有提到没钱。"
+          }
+        ]
+      },
+      "candidate": "给[无法确认]个[无法确认]吧，又是没钱。\n给[无法确认]个[无法确认]吧，又是没钱。"
+    },
+    {
+      "segment_id": "S008",
+      "dialect": "粤语/广西龙州",
+      "gold_count": 1,
+      "true_positive": 1,
+      "false_positive": 0,
+      "semantic_f1": 1.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 1,
+            "candidate_quote": "他们教室装了空调了哦",
+            "reason": "表达了他们的教室已经装上空调。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "他们教室装了空调了哦。"
+    },
+    {
+      "segment_id": "S009",
+      "dialect": "闽南语/汕头潮阳",
+      "gold_count": 1,
+      "true_positive": 0,
+      "false_positive": 0,
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有表达帽子被风吹走。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "上午被人[无法确认]，\n上午被人[无法确认]。"
+    },
+    {
+      "segment_id": "S010",
+      "dialect": "客家话/龙岩新罗",
+      "gold_count": 2,
+      "true_positive": 1.0,
+      "false_positive": 0,
+      "semantic_f1": 0.6666666666666666,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0.5,
+            "candidate_quote": "[无法确认]被坏人抢走了一个包",
+            "reason": "保留了被坏人抢走一个包，但受害者姓名无法确认。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0.5,
+            "candidate_quote": "人也差点被弄伤",
+            "reason": "保留了差点受伤，但没有明确是被打伤。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "[无法确认]被坏人抢走了一个包，\n人也差点被弄伤。"
+    },
+    {
+      "segment_id": "S011",
+      "dialect": "湘语/冷水江",
+      "gold_count": 2,
+      "true_positive": 1.5,
+      "false_positive": 0,
+      "semantic_f1": 0.8571428571428571,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 1,
+            "candidate_quote": "快下雨了",
+            "reason": "表达了快要下雨。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0.5,
+            "candidate_quote": "你别出去了",
+            "reason": "保留了不要出去的劝告，但没有明确对象是你们。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "快下雨了，\n你别出去了。"
+    },
+    {
+      "segment_id": "S012",
+      "dialect": "赣语/江西万安",
+      "gold_count": 2,
+      "true_positive": 0,
+      "false_positive": 1,
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有提及毛巾很脏。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有建议扔掉毛巾。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "是我的",
+            "reason": "候选说手机属于回答者，来源没有此内容。"
+          }
+        ]
+      },
+      "candidate": "这个手机是谁的？\n对，是我的。"
+    },
+    {
+      "segment_id": "S013",
+      "dialect": "吴语/温州永嘉",
+      "gold_count": 3,
+      "true_positive": 0,
+      "false_positive": 2,
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有表达询问对方在唱什么。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有否认正在唱歌。"
+          },
+          {
+            "atom_id": "A03",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有提及播放录音。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "我哪儿都不去",
+            "reason": "来源没有说回答者哪儿都不去。"
+          },
+          {
+            "quote": "我在老院子呢",
+            "reason": "来源没有说回答者在老院子。"
+          }
+        ]
+      },
+      "candidate": "你是[无法确认]。\n我哪儿都不去，\n我在老院子呢。"
+    },
+    {
+      "segment_id": "S014",
+      "dialect": "粤语/广西龙州",
+      "gold_count": 3,
+      "true_positive": 3,
+      "false_positive": 0,
+      "semantic_f1": 1.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 1,
+            "candidate_quote": "我吃过兔肉了",
+            "reason": "表示自己吃过兔肉。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 1,
+            "candidate_quote": "你吃过没有？",
+            "reason": "结合上文，询问对方是否吃过兔肉。"
+          },
+          {
+            "atom_id": "A03",
+            "credit": 1,
+            "candidate_quote": "没有，我没吃过。",
+            "reason": "结合上下文，回答自己没吃过兔肉。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "我吃过兔肉了，\n你吃过没有？\n没有，我没吃过。"
+    },
+    {
+      "segment_id": "S015",
+      "dialect": "闽南语/汕头潮阳",
+      "gold_count": 2,
+      "true_positive": 0,
+      "false_positive": 1,
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有提及已经洗澡。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "说的是小时候不爱打篮球，没有表达今天不打。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "我小时候，不爱走去打篮球",
+            "reason": "来源没有说小时候不爱打篮球。"
+          }
+        ]
+      },
+      "candidate": "我小时候，\n不爱走去打篮球。"
+    },
+    {
+      "segment_id": "S016",
+      "dialect": "客家话/龙岩新罗",
+      "gold_count": 2,
+      "true_positive": 0,
+      "false_positive": 1,
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "说的是送铁块送错，没有表达算错。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "要求再送一遍，没有要求重新计算。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "我送的铁块送错了",
+            "reason": "来源没有说送错铁块。"
+          }
+        ]
+      },
+      "candidate": "我送的铁块送错了，\n给我再送一遍。"
+    },
+    {
+      "segment_id": "S017",
+      "dialect": "湘语/冷水江",
+      "gold_count": 1,
+      "true_positive": 0.5,
+      "false_positive": 0,
+      "semantic_f1": 0.6666666666666666,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0.5,
+            "candidate_quote": "既快活，又唱起歌来了",
+            "reason": "保留了快活和唱歌，但没有表达一高兴就唱歌的关系。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "既快活，\n又唱起歌来了。"
+    },
+    {
+      "segment_id": "S018",
+      "dialect": "赣语/江西万安",
+      "gold_count": 2,
+      "true_positive": 2,
+      "false_positive": 0,
+      "semantic_f1": 1.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 1,
+            "candidate_quote": "才写了一半",
+            "reason": "表达了只写完一半。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 1,
+            "candidate_quote": "还要写下去",
+            "reason": "表达了还得继续写。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "才写了一半，\n还要写下去。"
+    },
+    {
+      "segment_id": "S019",
+      "dialect": "吴语/温州永嘉",
+      "gold_count": 2,
+      "true_positive": 0,
+      "false_positive": 0,
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有表达你比我高。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有表达他比你高。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "你[无法确认]借，你孩子[无法确认]借。"
+    },
+    {
+      "segment_id": "S020",
+      "dialect": "粤语/广西龙州",
+      "gold_count": 1,
+      "true_positive": 1,
+      "false_positive": 0,
+      "semantic_f1": 1.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 1,
+            "candidate_quote": "老王跟老张一样高",
+            "reason": "完整表达两人一样高。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "老王跟老张一样高。"
+    },
+    {
+      "segment_id": "S021",
+      "dialect": "闽南语/汕头潮阳",
+      "gold_count": 2,
+      "true_positive": 1,
+      "false_positive": 0,
+      "semantic_f1": 0.6666666666666666,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 1,
+            "candidate_quote": "我走了",
+            "reason": "表示说话者离开。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有表达让两人多坐一会儿。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "我走了，\n你们俩在[无法确认]。"
+    },
+    {
+      "segment_id": "S022",
+      "dialect": "客家话/龙岩新罗",
+      "gold_count": 2,
+      "true_positive": 0,
+      "false_positive": 2,
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "搞不定没有表达在言语上说不过他。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有表达谁都说不过这个人。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "我说搞不定",
+            "reason": "来源没有说某事搞不定。"
+          },
+          {
+            "quote": "都说搞不定",
+            "reason": "来源没有说大家都说某事搞不定。"
+          }
+        ]
+      },
+      "candidate": "我说搞不定，\n自己还没[无法确认]，\n都说搞不定。"
+    },
+    {
+      "segment_id": "S023",
+      "dialect": "湘语/冷水江",
+      "gold_count": 2,
+      "true_positive": 1.5,
+      "false_positive": 1,
+      "semantic_f1": 0.6666666666666666,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 1,
+            "candidate_quote": "上次只买了一本书",
+            "reason": "完整表达上次只买一本书。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0.5,
+            "candidate_quote": "今天又多买了几本",
+            "reason": "保留了今天多买几本书，但把要买说成了已经买。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "今天又多买了几本",
+            "reason": "来源说今天要多买几本，候选断言已经买了。"
+          }
+        ]
+      },
+      "candidate": "上次只买了一本书，\n今天又多买了几本。"
+    },
+    {
+      "segment_id": "S024",
+      "dialect": "赣语/江西万安",
+      "gold_count": 3,
+      "true_positive": 0,
+      "false_positive": 2,
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "说话者给对方的是水，关系中的物体与来源不同。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有提及书是舅舅写的。"
+          },
+          {
+            "atom_id": "A03",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有提及舅舅教中学。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "我拿给你的水",
+            "reason": "候选说拿给对方的是水，来源说的是书。"
+          },
+          {
+            "quote": "是浇花的",
+            "reason": "候选说给对方的水用于浇花，来源没有此内容。"
+          }
+        ]
+      },
+      "candidate": "我拿给你的水，\n是浇花的，[无法确认]根下的。"
+    }
+  ],
+  "judge": "gpt-6.1-terra",
+  "judge_effort": "high",
+  "judge_rounds": 1,
+  "truth_sha256": "12557fd3a1a4ff80c9221581b14339ac616cdd7c1448faa0e0f4e9af6a1c51de",
+  "rubric_sha256": "5b57f86f77fe9753023cd0300ecc66f214ae66bdcc0d3c5bfd79ba8d6c2f5760",
+  "grader_sha256": "a6f77994a2274fa52997dbff8caa8ae5d5d1eebdcf93185387919fe5d8400320",
+  "scored_at": "2026-11-15T20:25:52.474680+00:00"
+}

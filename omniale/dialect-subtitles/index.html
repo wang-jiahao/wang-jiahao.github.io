@@ -6,13 +6,13 @@ permalink: /omniale/dialect-subtitles/
 <!doctype html>
 <html lang="zh-CN"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>多方言视频的普通话字幕制作 · OmniALE</title><link rel="stylesheet" href="case.css?v=20261116-1">
+<title>多方言视频的普通话字幕制作 · OmniALE</title><link rel="stylesheet" href="case.css?v=20261116-2">
 </head><body><main>
 <header>
 <div class="eyebrow">译制、无障碍与发布适配 / 方言视频字幕本地化</div>
 <h1>多方言视频的普通话字幕制作</h1>
 <p class="lead">给Agent一段六种方言的真人视频，为不懂方言的观众制作普通话字幕。既要听清讲了什么，也要保留人物、否定、数量和时间关系，最终交付带可切换字幕的成片。</p>
-<span class="tag" id="material-tag">6种方言 · 24段 · 2分53秒</span><span class="tag">普通话字幕 + 成片</span><span class="tag gray">xhigh / max · 联网</span>
+<span class="tag" id="material-tag">6种方言 · 24段 · 2分53秒</span><span class="tag">普通话字幕 + 成片</span><span class="tag gray">独立运行 · 联网</span>
 <nav class="navline" aria-label="页面导航"><a href="#task">一、任务定义</a><a href="#results">二、运行结果</a><a href="#traces">三、运行轨迹</a><a href="#analysis">四、失败分析</a><a href="#files">文件与来源</a></nav>
 </header>
 <section aria-labelledby="task">
@@ -25,7 +25,7 @@ permalink: /omniale/dialect-subtitles/
 <h3>实验设置与交付</h3>
 <div class="table-wrap"><table class="settings-table"><thead><tr><th>项目</th><th>设置</th></tr></thead><tbody>
 <tr><td>方言覆盖</td><td>吴语/温州永嘉、粤语/广西龙州、闽南语/汕头潮阳、客家话/龙岩新罗、湘语/冷水江、赣语/江西万安；每地4段。</td></tr>
-<tr><td>运行环境</td><td>Windows Codex CLI；Sol / xhigh / NJU Link，DeepSeek V4.1 Flash / max / DashScope。相同CPU工具环境、独立目录与会话，正常联网，可安装依赖、下载本地感知模型和查询通用方言知识，不设执行预算。</td></tr>
+<tr><td>运行环境</td><td id="runtime-settings">Windows Codex CLI；Sol / xhigh / NJU Link，DeepSeek V4.1 Flash / max / DashScope。相同CPU工具环境、独立目录与会话，正常联网，可安装依赖、下载本地感知模型和查询通用方言知识，不设执行预算。</td></tr>
 <tr><td>运行边界</td><td>不反查本题原片对应的原文或答案，不读取其他模型交付与评测文件；不用其他通用对话或Omni云端API代答。</td></tr>
 <tr><td>实际交付</td><td><code>zh-CN.srt</code>普通话字幕、<code>subtitled.mkv</code>带字幕轨的成片、<code>segments.json</code>片段到字幕的映射。保留原音视频流，字幕可切换；无法确认的局部可明确标出。</td></tr>
 </tbody></table></div>
@@ -34,7 +34,7 @@ permalink: /omniale/dialect-subtitles/
 <section aria-labelledby="results">
 <h2 id="results">二、运行结果</h2>
 <div class="table-wrap"><table class="scores-table"><thead><tr><th>模型</th><th>推理强度</th><th>总分</th><th>语义 /90</th><th>组织 /5</th><th>交付 /5</th><th>求解耗时</th></tr></thead><tbody id="scores"></tbody></table></div><p class="note" id="run-note"></p><div id="audit-links"></div>
-<div class="find result-summary"><strong>成片交付完成，主要失分在句意。</strong><span>Sol交付43条字幕，DeepSeek交付47条；两者的24段映射、字幕与原音视频流检查均通过。</span><a href="#comparison">查看24段逐句对照 ↓</a></div>
+<div class="find result-summary"><strong>成片交付完成，主要失分在句意。</strong><span id="result-summary">Sol交付43条字幕，DeepSeek交付47条；两者的24段映射、字幕与原音视频流检查均通过。</span><a href="#comparison">查看24段逐句对照 ↓</a></div>
 <h3 id="subtitle-preview">模型交付与参考译文</h3><p class="note">选择模型回看实际提交的SRT；原片上叠加模型字幕，旁边列出语保参考译文。</p>
 <div class="toolbar model-controls"><label for="output-model">模型</label><select id="output-model"></select><span class="note" id="selected-delivery"></span></div>
 <div class="toolbar preview-controls"><label for="output-clip">片段</label><select id="output-clip"></select><div class="segment-buttons"><button id="previous-clip" type="button" aria-label="上一片段">← 上一段</button><button id="next-clip" type="button" aria-label="下一片段">下一段 →</button></div><label class="check"><input id="caption-switch" type="checkbox" checked> 显示模型字幕</label><a id="srt-download" href="zh-CN.srt" download>下载SRT</a></div>
@@ -47,12 +47,12 @@ permalink: /omniale/dialect-subtitles/
 <details id="reference"><summary>逐命题评分与方言原文</summary><p class="note">评分接受等价表达；原译与方言原文有差异时从宽判定，不要求逐字相同。</p><p id="source-transcript" class="source-transcript"></p><div id="atom-votes"></div><p id="uncertainty" class="note"></p><p><a id="source-page" target="_blank" rel="noopener">来源调查点 ↗</a></p></details></div>
 </div>
 <h3 id="comparison">24段逐句对照</h3>
-<div class="toolbar comparison-controls"><label for="dialect-filter">方言</label><select id="dialect-filter"><option value="all">全部方言</option></select><label class="check"><input id="loss-only" type="checkbox"> 只看有模型未满分</label><span id="comparison-count" class="note" aria-live="polite"></span><a href="files/two-model-comparison.csv" download>下载对照表</a></div>
-<div class="table-wrap comparison-scroll" tabindex="0" role="region" aria-label="全部片段的模型与参考译文对照"><table class="comparison-table"><thead><tr><th>片段 / 拼接时间</th><th>Sol · xhigh</th><th>DeepSeek · max</th><th>参考译文（语保）</th></tr></thead><tbody id="all-segments"></tbody></table></div>
+<div class="toolbar comparison-controls"><label for="dialect-filter">方言</label><select id="dialect-filter"><option value="all">全部方言</option></select><label class="check"><input id="loss-only" type="checkbox"> 只看有模型未满分</label><span id="comparison-count" class="note" aria-live="polite"></span><a href="files/model-comparison.csv" download>下载对照表</a></div>
+<div class="table-wrap comparison-scroll" tabindex="0" role="region" aria-label="全部片段的模型与参考译文对照"><table class="comparison-table"><thead><tr id="comparison-head"><th>片段 / 拼接时间</th></tr></thead><tbody id="all-segments"></tbody></table></div>
 <p class="note">点击片段编号回看对应视频，点击某模型的F1可切换到该模型的交付。参考译文保留来源原文，包括重复读法；评分使用关系命题并接受等价改写。F1不是逐字识别准确率。</p>
-<details class="card"><summary>各方言语义表现</summary><div class="table-wrap"><table><thead><tr><th>方言</th><th>片段数</th><th>Sol语义F1</th><th>DeepSeek语义F1</th></tr></thead><tbody id="dialect-scores"></tbody></table></div></details>
+<details class="card"><summary>各方言语义表现</summary><div class="table-wrap"><table><thead><tr id="dialect-head"><th>方言</th><th>片段数</th></tr></thead><tbody id="dialect-scores"></tbody></table></div></details>
 </section>
-<section aria-labelledby="traces"><h2 id="traces">三、运行轨迹</h2><p>两次运行都先提取音轨，再反复调用本地感知模型。Sol用时57分36秒，DeepSeek用时2小时21分59秒；耗时包含工具安装、模型下载与复核。每个模型均只展示一次完整求解。</p><div id="trace-cards" class="trace-cards"></div><details class="card"><summary id="trace-step-title">当前模型的关键过程</summary><p id="trace-overview"></p><div id="trace-steps" class="trace-step-grid"></div></details><p class="note">这是Agent使用本地感知工具的端到端结果，不能当作主模型原生音频识别成绩。轨迹依据可见命令与工具反馈整理，不包含隐藏推理。</p></section>
+<section aria-labelledby="traces"><h2 id="traces">三、运行轨迹</h2><p id="trace-intro">两次运行都先提取音轨，再反复调用本地感知模型。Sol用时57分36秒，DeepSeek用时2小时21分59秒；耗时包含工具安装、模型下载与复核。每个模型均只展示一次完整求解。</p><div id="trace-cards" class="trace-cards"></div><details class="card"><summary id="trace-step-title">当前模型的关键过程</summary><p id="trace-overview"></p><div id="trace-steps" class="trace-step-grid"></div></details><p class="note" id="perception-note">这是Agent使用本地感知工具的端到端结果，不能当作主模型原生音频识别成绩。轨迹依据可见命令与工具反馈整理，不包含隐藏推理。</p></section>
 <section aria-labelledby="analysis"><h2 id="analysis">四、失败分析</h2><p>技术交付通过后，字幕仍可能漏掉句子的核心信息，或将零散词语组成错误陈述。下面将具体误译与参考译文放在一起核对。</p><div id="analysis-items"></div><div id="model-analyses"></div></section>
-<footer id="files"><h3>文件与来源</h3><div id="run-files"></div><div class="file-links"><a href="files/two-model-comparison.csv">24段对照表</a><a href="files/comparison-results.json">两模型成绩</a><a href="files/scoring-controls.json">评分校验</a><a href="files/technical.json">技术检查</a><a href="files/case.json">案例数据</a><a href="files/NOTICE.txt">来源与权利说明</a></div><p class="note">原音视频：中国语言资源保护工程采录展示平台。公开元数据与研究：<a href="https://github.com/kalvinchang/yubao">YuBao</a>、<a href="https://arxiv.org/abs/2601.07274">Towards Comprehensive Semantic Speech Embeddings for Chinese Dialects</a>。原音视频权利归原权利人，本页引用源站媒体。</p></footer>
-</main><script src="case.js?v=20261116-1"></script></body></html>
+<footer id="files"><h3>文件与来源</h3><div id="run-files"></div><div class="file-links"><a href="files/model-comparison.csv">24段对照表</a><a href="files/comparison-results.json">模型成绩</a><a href="files/scoring-controls.json">评分校验</a><a href="files/technical.json">技术检查</a><a href="files/case.json">案例数据</a><a href="files/NOTICE.txt">来源与权利说明</a></div><p class="note">原音视频：中国语言资源保护工程采录展示平台。公开元数据与研究：<a href="https://github.com/kalvinchang/yubao">YuBao</a>、<a href="https://arxiv.org/abs/2601.07274">Towards Comprehensive Semantic Speech Embeddings for Chinese Dialects</a>。原音视频权利归原权利人，本页引用源站媒体。</p></footer>
+</main><script src="case.js?v=20261116-2"></script></body></html>
