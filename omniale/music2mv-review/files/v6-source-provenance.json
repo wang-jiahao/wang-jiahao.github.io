@@ -1,0 +1,78 @@
+{
+  "material_version": "pilot-v6b-partial",
+  "selection": {
+    "material_mapping": [
+      {
+        "source_id": "clip_01",
+        "original_id": "curated1k_0176",
+        "selection_group": "positive",
+        "source_sha256": "852afed2f83b7093e19cd34c5dc3b82d22a261d2301f03c5e48ef122369c4d5c",
+        "task_sha256": "852afed2f83b7093e19cd34c5dc3b82d22a261d2301f03c5e48ef122369c4d5c"
+      },
+      {
+        "source_id": "clip_02",
+        "original_id": "curated1k_0310",
+        "selection_group": "partial",
+        "source_sha256": "2b5db21a62de39aca42dec9d31900b06a3f6c641bd91a384bd395e9bb8849810",
+        "task_sha256": "2b5db21a62de39aca42dec9d31900b06a3f6c641bd91a384bd395e9bb8849810"
+      },
+      {
+        "source_id": "clip_03",
+        "original_id": "curated1k_0563",
+        "selection_group": "positive",
+        "source_sha256": "194f1f6265da356355bb9ef7ea25a8d023b10c559eb165d819b5eb1761ad9f25",
+        "task_sha256": "194f1f6265da356355bb9ef7ea25a8d023b10c559eb165d819b5eb1761ad9f25"
+      },
+      {
+        "source_id": "clip_04",
+        "original_id": "curated1k_0394",
+        "selection_group": "partial",
+        "source_sha256": "3591f46fd30515bd44b06c099a35e1f264974ee11959f60f3d6f67e51ed1a06a",
+        "task_sha256": "3591f46fd30515bd44b06c099a35e1f264974ee11959f60f3d6f67e51ed1a06a"
+      },
+      {
+        "source_id": "clip_05",
+        "original_id": "curated1k_0407",
+        "selection_group": "positive",
+        "source_sha256": "a4b4c5929be95dc83ce4db3613eca18f77cbe773bce6246ff8a70bee2411c2b7",
+        "task_sha256": "a4b4c5929be95dc83ce4db3613eca18f77cbe773bce6246ff8a70bee2411c2b7"
+      },
+      {
+        "source_id": "clip_06",
+        "original_id": "curated1k_0843",
+        "selection_group": "partial",
+        "source_sha256": "bdd26825c0bd0a96b3f879f6dc0312e0708b5c301a4056b7b59bf1a1dc36bb71",
+        "task_sha256": "bdd26825c0bd0a96b3f879f6dc0312e0708b5c301a4056b7b59bf1a1dc36bb71"
+      },
+      {
+        "source_id": "clip_07",
+        "original_id": "curated1k_0019",
+        "selection_group": "positive",
+        "source_sha256": "34f4666d98fdfe685eb1cf1cb9ca6294f9b4e1500aeb3e2847ae14e3108e561a",
+        "task_sha256": "34f4666d98fdfe685eb1cf1cb9ca6294f9b4e1500aeb3e2847ae14e3108e561a"
+      },
+      {
+        "source_id": "clip_08",
+        "original_id": "curated1k_0954",
+        "selection_group": "partial",
+        "source_sha256": "7c308be46af9fe2e813b4b04ef4a4b3ac282d32a22a9c2b13c423c79252f9ac0",
+        "task_sha256": "7c308be46af9fe2e813b4b04ef4a4b3ac282d32a22a9c2b13c423c79252f9ac0"
+      }
+    ],
+    "source_audio_prescreen": "research/syncreward/mean-one-audio-prescreen/summary.json",
+    "partial_rule": "Three integer0/1/2 human ratings sum3 guarantees >=2 ratings below2, hence revise majority. No microsecond defect truth inferred from means.",
+    "controls": "All4 original music-qualified pass references retained",
+    "no_solver_outputs_used_for_selection": true,
+    "original_media_unchanged": true
+  },
+  "source_label_scope": {
+    "at": "2026-11-15T12:01:04.615756+00:00",
+    "benchmark_metadata": "research/syncreward/benchmark.jsonl",
+    "benchmark_source_protocol": "SyncReward-Bench paper: three independent professional ratings0/1/2; benchmark target is valid-score mean WITHOUT annotator-bias correction (training set uses a different aggregation)",
+    "label_interpretation": "Rating1 means partially OR uncertainly synchronized, not a guaranteed measurable fixed temporal offset. Therefore binary labels evaluate readiness for sync release, not proof of a specific microsecond error.",
+    "mathematical_check": "For3 valid integer ratings with mean1, sum3 and at most one2, so strict majority are below well-synchronized. For mean5/3, exactly two2 plus one1; mean2 means three2.",
+    "qwen_source_role": "24 independent per-source AV+audio observations retained. Stable microtiming defect locations are not inferred when Qwen reports normal or uncertain.",
+    "frozen_input_and_scoring_hashes_verified": true
+  },
+  "unchanged_original_media": true
+}

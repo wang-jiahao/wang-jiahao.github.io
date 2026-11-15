@@ -1,425 +1,96 @@
 {
-  "score": 77.48197115384616,
-  "policy": "grounded-review-v2",
-  "models": [
-    {
-      "id": "sol",
-      "model": "gpt-6.1-sol",
-      "effort": "xhigh",
-      "score": 77.48197115384616,
-      "old_score": 65.0,
-      "elapsed_seconds": 2308.797,
-      "exit_code": 0,
-      "review_url": "deliveries/sol/review.json",
-      "report_url": "deliveries/sol/report.html",
-      "zip_url": "files/sol-output.zip",
-      "result_url": "files/sol-v2-score.json",
-      "trace_url": "traces.html?model=sol",
-      "breakdown": {
-        "decision_out_of_35": 17.5,
-        "music_evidence": {
-          "score_out_of_15": 13.828125,
-          "candidate_count": 8,
-          "items": [
-            {
-              "source_id": "clip_01",
-              "grades": {
-                "audio": 1,
-                "visual": 1,
-                "localization": 1,
-                "relation": 1
-              },
-              "quality": 1.0,
-              "reason": "音频正确识别男性讲话'and we love you very much and thank you Lollapalooza'及起止时间；画面帧0.5-2.5s可见嘴部随语句开合、2.6s后闭口低头，与收句动作一致；区间0-2.9s覆盖完整发声段；口型-语音对应关系明确，话筒遮挡不影响下颌与句末动作判断。"
-            },
-            {
-              "source_id": "clip_02",
-              "grades": {
-                "audio": 1,
-                "visual": 1,
-                "localization": 1,
-                "relation": 1
-              },
-              "quality": 1.0,
-              "reason": "音频正确描述明亮管乐旋律、长短音交替及约4s后密集短音变化；画面前景银色小号演奏者持续含住吹嘴，0-0.7s/1.7-2.6s/4-5s可见手指分组抬落与乐句密度对应；区间覆盖主要发声段；合奏中混合声部不要求逐一分配，未见停吹而声部继续的反证。"
-            },
-            {
-              "source_id": "clip_03",
-              "grades": {
-                "audio": 1,
-                "visual": 0,
-                "localization": 1,
-                "relation": 0
-              },
-              "quality": 0.5,
-              "reason": "音频正确识别'Are you ready for this?'和'First sound'两句讲话；但画面帧1.5s/2.5s/3.5s清楚显示男子嘴部张开、呈说话构音状态，交付称'嘴唇基本合拢、面部没有两句讲话的构音'与连续帧矛盾，主要视觉事实被反证；区间时间正确但关系论证建立在错误的视觉前提上。"
-            },
-            {
-              "source_id": "clip_04",
-              "grades": {
-                "audio": 1,
-                "visual": 1,
-                "localization": 1,
-                "relation": 0.5
-              },
-              "quality": 0.875,
-              "reason": "音频正确描述单线管乐旋律、1.24s起音后长音延续及2.73/3.60/4.12/4.76/5.19s新起音；画面持续贴嘴吹奏、阀上方手指反复活动均有据；但长音期间小幅换指可能是半阀或姿态调整等正常技法，交付未充分排除这一解释即判定不同步，关系论证有局部对应但漏决定性阶段。"
-            },
-            {
-              "source_id": "clip_05",
-              "grades": {
-                "audio": 1,
-                "visual": 1,
-                "localization": 1,
-                "relation": 1
-              },
-              "quality": 1.0,
-              "reason": "音频正确定位讲话0-2.03s、静默段、首琴音约3.04s及3.49s强起音；画面帧2.5s双手已落键呈按压姿态、3.5s仍在键上但首音尚未发出，提前触键与延迟发声的时间差可核查；区间覆盖讲话与钢琴转换关键节点；关系论证具体指出落键先于发声的错位。"
-            },
-            {
-              "source_id": "clip_06",
-              "grades": {
-                "audio": 1,
-                "visual": 1,
-                "localization": 1,
-                "relation": 1
-              },
-              "quality": 1.0,
-              "reason": "音频正确识别男性英语讲话'Leading to the enviable death of such a loving character'为主要声部；画面为观众席远景，钢琴手嘴部与琴键细节不可辨，右侧站立者未见对应发声；交付如实说明远景限制并指出主要音轨与画面演奏无可见同步关系；区间覆盖全段；关系判断基于音画内容不匹配而非单纯分辨率不足。"
-            },
-            {
-              "source_id": "clip_07",
-              "grades": {
-                "audio": 1,
-                "visual": 1,
-                "localization": 1,
-                "relation": 1
-              },
-              "quality": 1.0,
-              "reason": "音频正确定位讲话0-1.8s、静默1.8-3.3s、口琴音3.34-3.79s；画面帧0.5-1.5s嘴型随词语开合、2.5s举琴至嘴边、3.5s琴体贴口吹奏，事件链'讲话→准备→发声'清晰；区间覆盖三个阶段；举琴早于起音属正常准备，不构成不同步反证。"
-            },
-            {
-              "source_id": "clip_08",
-              "grades": {
-                "audio": 1,
-                "visual": 1,
-                "localization": 1,
-                "relation": 1
-              },
-              "quality": 1.0,
-              "reason": "音频正确识别女声唱'incense, gold and myrrh / come peasant and king to own him'及gold/myrrh/own等长元音；画面帧0.5-4.5s口形随元音变化（圆唇、横展），无不合时长闭口；区间覆盖完整乐句；旁边竖琴未演奏不要求伴奏触弦，主要句法与元音时序对应充分。"
-            }
-          ],
-          "policy": "Four grounded evidence criteria averaged per candidate; no automatic penalty for expert-decision disagreement"
+  "score": 67.06349206349206,
+  "policy": "review-v6b-joint-chain; 50 grounded expert-release Macro-F1 +50 common-reference general qualityF1",
+  "breakdown": {
+    "music": {
+      "score_out_of_50": 25.396825396825395,
+      "f1": 0.5079365079365079,
+      "classes": {
+        "pass": {
+          "predicted_count": 3,
+          "reference_count": 4,
+          "quality_true_positive": 2,
+          "f1": 0.5714285714285714
         },
-        "general": {
-          "gold_count": 7,
-          "matched_count": 6,
-          "matched_quality": 6.0,
-          "novel_count": 0,
-          "novel_quality": 0.0,
-          "unsupported_count": 0,
-          "uncertain_count": 0,
-          "duplicate_count": 0,
-          "precision": 1.0,
-          "recall": 0.8571428571428571,
-          "f1": 0.923076923076923,
-          "score_out_of_50": 46.15384615384615,
-          "policy": "All source-verified valid discoveries enter the same fixed public recall inventory; independent false claims reduce precision"
-        },
-        "music_total_out_of_50": 31.328125
-      },
-      "decision": {
-        "gold_count": 8,
-        "matched_count": 4,
-        "precision": 0.5,
-        "recall": 0.5,
-        "f1": 0.5,
-        "score_out_of_50": 25.0,
-        "classes": {
-          "pass": {
-            "tp": 2,
-            "fp": 2,
-            "fn": 2,
-            "precision": 0.5,
-            "recall": 0.5,
-            "f1": 0.5
-          },
-          "revise": {
-            "tp": 2,
-            "fp": 2,
-            "fn": 2,
-            "precision": 0.5,
-            "recall": 0.5,
-            "f1": 0.5
-          }
-        },
-        "items": [
-          {
-            "source_id": "clip_05",
-            "prediction": "revise",
-            "reference": "pass",
-            "correct": false,
-            "expert_mean": 2.0,
-            "n_labels": 3
-          },
-          {
-            "source_id": "clip_03",
-            "prediction": "revise",
-            "reference": "pass",
-            "correct": false,
-            "expert_mean": 1.6666666666666667,
-            "n_labels": 3
-          },
-          {
-            "source_id": "clip_08",
-            "prediction": "pass",
-            "reference": "pass",
-            "correct": true,
-            "expert_mean": 1.6666666666666667,
-            "n_labels": 3
-          },
-          {
-            "source_id": "clip_02",
-            "prediction": "pass",
-            "reference": "revise",
-            "correct": false,
-            "expert_mean": 0.6666666666666666,
-            "n_labels": 3
-          },
-          {
-            "source_id": "clip_06",
-            "prediction": "revise",
-            "reference": "revise",
-            "correct": true,
-            "expert_mean": 0.3333333333333333,
-            "n_labels": 3
-          },
-          {
-            "source_id": "clip_07",
-            "prediction": "pass",
-            "reference": "pass",
-            "correct": true,
-            "expert_mean": 1.6666666666666667,
-            "n_labels": 3
-          },
-          {
-            "source_id": "clip_04",
-            "prediction": "revise",
-            "reference": "revise",
-            "correct": true,
-            "expert_mean": 0.3333333333333333,
-            "n_labels": 3
-          },
-          {
-            "source_id": "clip_01",
-            "prediction": "pass",
-            "reference": "revise",
-            "correct": false,
-            "expert_mean": 0.6666666666666666,
-            "n_labels": 3
-          }
-        ],
-        "conflicting_duplicate_ids": [],
-        "policy": "Macro-F1 of expert-supported pass/revise decisions; abstention counts as an incomplete decision"
-      },
-      "judge_scores": [
-        78.65384615384616,
-        77.24759615384616,
-        77.48197115384616
-      ]
-    },
-    {
-      "id": "deepseek",
-      "model": "deepseek-v4.1-flash-1017",
-      "effort": "max",
-      "score": 56.71511994949496,
-      "old_score": 53.18181818181819,
-      "elapsed_seconds": 6368.719,
-      "exit_code": 0,
-      "review_url": "deliveries/deepseek/review.json",
-      "report_url": "deliveries/deepseek/report.html",
-      "zip_url": "files/deepseek-output.zip",
-      "result_url": "files/deepseek-v2-score.json",
-      "trace_url": "traces.html?model=deepseek",
-      "breakdown": {
-        "decision_out_of_35": 19.72727272727273,
-        "music_evidence": {
-          "score_out_of_15": 14.765625,
-          "candidate_count": 8,
-          "items": [
-            {
-              "source_id": "clip_01",
-              "grades": {
-                "audio": 1,
-                "visual": 1,
-                "localization": 1,
-                "relation": 1
-              },
-              "quality": 1.0,
-              "reason": "Video 20 confirms male vocalist/guitarist speaking 'And we love you very much, and thank you, Lollapalooza' into mic (0–2.68s) with visible lip movement, then transitioning to low-level guitar strumming (~2.7s onward) with right-hand picking and left-hand chord changes visible. The ROI correlation (+42ms, r≈0.48) supports that the guitar segment is genuinely the same visible performance, not a mismatched audio bed. All stages (speech→posture shift→playing) are accounted for."
-            },
-            {
-              "source_id": "clip_02",
-              "grades": {
-                "audio": 1,
-                "visual": 1,
-                "localization": 1,
-                "relation": 1
-              },
-              "quality": 1.0,
-              "reason": "Video 16 shows a jazz brass ensemble: foreground trumpet player maintains lip contact on mouthpiece with valve-finger articulation throughout 0–5.08s; background saxophone and trumpet players hold ensemble posture. Audio is continuous brass ensemble with no speech. The visible primary performer's embouchure and valve work directly produce the dominant trumpet line; other voices may be partially off-frame, which is acceptable for ensemble."
-            },
-            {
-              "source_id": "clip_03",
-              "grades": {
-                "audio": 1,
-                "visual": 1,
-                "localization": 1,
-                "relation": 1
-              },
-              "quality": 1.0,
-              "reason": "Video 14 shows violinist speaking 'Are you ready for this? First sound.' (1.06–4.44s) with clear mouth opening/closing windows matching word boundaries, while bow continues small oscillations on strings. After speech ends, he transitions into demonstrative playing. The interval 1.06–4.44s precisely captures the lip-sync-critical speech; the surrounding violin audio is continuous and visually supported by ongoing bow motion. No conflict between visible action and sound."
-            },
-            {
-              "source_id": "clip_04",
-              "grades": {
-                "audio": 1,
-                "visual": 1,
-                "localization": 1,
-                "relation": 1
-              },
-              "quality": 1.0,
-              "reason": "Video 19 shows a solo trumpeter in black suit under spotlight, lips sealed on mouthpiece for entire 0–6.11s, right-hand three fingers repeatedly depressing/releasing valves at ~0.5s, 1.0s, 2.5s, 3.0s, 4.0s, 5.0s intervals. Audio is continuous trumpet with clear note onsets/offsets. The ROI correlation (-83ms, r≈0.53) and pitch-derivative correlation (+83ms, r≈0.44) confirm valve movements drive the audible pitch changes within encoding tolerance. Full clip covered."
-            },
-            {
-              "source_id": "clip_05",
-              "grades": {
-                "audio": 1,
-                "visual": 1,
-                "localization": 1,
-                "relation": 1
-              },
-              "quality": 1.0,
-              "reason": "Video 13 shows man in grey shirt at upright piano: speaks 'I don't know why. There's like this openness to it.' (0–2.52s) facing camera with visible lip movement, then turns (~2.2s) in near-silence (2.52–3.05s), places hands on keys, and piano phrase begins (3.05–5.08s). The silence gap exactly corresponds to the physical turn/preparation; piano audio only enters after hands contact keys. Both speech and playing stages have verified visual anchors."
-            },
-            {
-              "source_id": "clip_06",
-              "grades": {
-                "audio": 1,
-                "visual": 1,
-                "localization": 1,
-                "relation": 0.5
-              },
-              "quality": 0.875,
-              "reason": "Video 17 is a fixed wide-angle concert hall shot: audience silhouettes fill foreground, a pianist sits on distant stage (~10-15 pixels tall). Audio is continuous male voiceover ('leading to the enviable death of such a loving character') with low-level piano beneath. The voiceover has NO visible speaker anywhere in frame. The pianist, while present, is too small to verify individual finger-key contacts or confirm as the piano sound source. Partial correspondence exists (pianist is visible and presumably playing), but the dominant audio event (voiceover) lacks any visual anchor, preventing full relation verification."
-            },
-            {
-              "source_id": "clip_07",
-              "grades": {
-                "audio": 1,
-                "visual": 1,
-                "localization": 1,
-                "relation": 1
-              },
-              "quality": 1.0,
-              "reason": "Video 18 shows man in flat cap: holds harmonica at chest level while speaking 'Three blow, three on the four blow.' (0–1.84s) with visible lip movement and harmonica clearly away from mouth; raises hand (~2.2–2.8s); harmonica contacts lips (~2.8s); short blow/breath sound occurs (3.3–3.7s) only after contact. The temporal sequence (speak→raise→contact→sound) is unambiguous. Silence after 3.7s corresponds to held posture without active blowing. Full clip 0–5.08s covered."
-            },
-            {
-              "source_id": "clip_08",
-              "grades": {
-                "audio": 1,
-                "visual": 1,
-                "localization": 1,
-                "relation": 1
-              },
-              "quality": 1.0,
-              "reason": "Video 15 shows blonde woman in purple top singing 'Incense, gold and myrrh, come peasant and king to own him' continuously 0–5.04s with clear mouth opening/closing patterns (larger openings at ~1.4–2.2s, 3.2–4.0s, 4.4–4.6s matching vowel/consonant transitions). Harp is visible to her left but hands are occluded by harp body/frame. The primary audio is vocal, fully verifiable via lip sync; harp is secondary accompaniment whose occlusion does not create a sync conflict. No instance of visible singing cessation with continuing audio."
-            }
-          ],
-          "policy": "Four grounded evidence criteria averaged per candidate; no automatic penalty for expert-decision disagreement"
-        },
-        "general": {
-          "gold_count": 7,
-          "matched_count": 2,
-          "matched_quality": 2.0,
-          "novel_count": 0,
-          "novel_quality": 0.0,
-          "unsupported_count": 0,
-          "uncertain_count": 0,
-          "duplicate_count": 0,
-          "precision": 1.0,
-          "recall": 0.2857142857142857,
-          "f1": 0.4444444444444445,
-          "score_out_of_50": 22.222222222222225,
-          "policy": "All source-verified valid discoveries enter the same fixed public recall inventory; independent false claims reduce precision"
-        },
-        "music_total_out_of_50": 34.492897727272734
+        "revise": {
+          "predicted_count": 5,
+          "reference_count": 4,
+          "quality_true_positive": 2.0,
+          "f1": 0.4444444444444444
+        }
       },
       "decision": {
         "gold_count": 8,
         "matched_count": 5,
-        "precision": 0.7857142857142857,
+        "precision": 0.6333333333333333,
         "recall": 0.625,
-        "f1": 0.5636363636363637,
-        "score_out_of_50": 28.181818181818187,
+        "f1": 0.6190476190476191,
+        "score_out_of_50": 30.952380952380953,
         "classes": {
           "pass": {
-            "tp": 4,
-            "fp": 3,
-            "fn": 0,
-            "precision": 0.5714285714285714,
-            "recall": 1.0,
-            "f1": 0.7272727272727273
+            "tp": 2,
+            "fp": 1,
+            "fn": 2,
+            "precision": 0.6666666666666666,
+            "recall": 0.5,
+            "f1": 0.5714285714285715
           },
           "revise": {
-            "tp": 1,
-            "fp": 0,
-            "fn": 3,
-            "precision": 1.0,
-            "recall": 0.25,
-            "f1": 0.4
+            "tp": 3,
+            "fp": 2,
+            "fn": 1,
+            "precision": 0.6,
+            "recall": 0.75,
+            "f1": 0.6666666666666665
           }
         },
         "items": [
           {
-            "source_id": "clip_05",
-            "prediction": "pass",
+            "source_id": "clip_01",
+            "prediction": "revise",
             "reference": "pass",
-            "correct": true,
-            "expert_mean": 2.0,
-            "n_labels": 3
-          },
-          {
-            "source_id": "clip_03",
-            "prediction": "pass",
-            "reference": "pass",
-            "correct": true,
-            "expert_mean": 1.6666666666666667,
-            "n_labels": 3
-          },
-          {
-            "source_id": "clip_08",
-            "prediction": "pass",
-            "reference": "pass",
-            "correct": true,
+            "correct": false,
             "expert_mean": 1.6666666666666667,
             "n_labels": 3
           },
           {
             "source_id": "clip_02",
-            "prediction": "pass",
+            "prediction": "revise",
             "reference": "revise",
+            "correct": true,
+            "expert_mean": 1.0,
+            "n_labels": 3
+          },
+          {
+            "source_id": "clip_03",
+            "prediction": "revise",
+            "reference": "pass",
             "correct": false,
-            "expert_mean": 0.6666666666666666,
+            "expert_mean": 2.0,
+            "n_labels": 3
+          },
+          {
+            "source_id": "clip_04",
+            "prediction": "revise",
+            "reference": "revise",
+            "correct": true,
+            "expert_mean": 1.0,
+            "n_labels": 3
+          },
+          {
+            "source_id": "clip_05",
+            "prediction": "pass",
+            "reference": "pass",
+            "correct": true,
+            "expert_mean": 1.6666666666666667,
             "n_labels": 3
           },
           {
             "source_id": "clip_06",
-            "prediction": "revise",
+            "prediction": "pass",
             "reference": "revise",
-            "correct": true,
-            "expert_mean": 0.3333333333333333,
+            "correct": false,
+            "expert_mean": 1.0,
             "n_labels": 3
           },
           {
@@ -431,31 +102,858 @@
             "n_labels": 3
           },
           {
-            "source_id": "clip_04",
-            "prediction": "pass",
+            "source_id": "clip_08",
+            "prediction": "revise",
             "reference": "revise",
-            "correct": false,
-            "expert_mean": 0.3333333333333333,
-            "n_labels": 3
-          },
-          {
-            "source_id": "clip_01",
-            "prediction": "pass",
-            "reference": "revise",
-            "correct": false,
-            "expert_mean": 0.6666666666666666,
+            "correct": true,
+            "expert_mean": 1.0,
             "n_labels": 3
           }
         ],
         "conflicting_duplicate_ids": [],
         "policy": "Macro-F1 of expert-supported pass/revise decisions; abstention counts as an incomplete decision"
       },
-      "judge_scores": [
-        56.48074494949496,
-        56.94949494949496,
-        56.71511994949496
-      ]
+      "evidence": {
+        "score_out_of_15": 10.3125,
+        "candidate_count": 8,
+        "items": [
+          {
+            "source_id": "clip_01",
+            "grades": {
+              "audio": 1,
+              "visual": 0,
+              "localization": 1,
+              "relation": 0
+            },
+            "quality": 0,
+            "reason": "音频正确识别1.7–4.2s男声讲话'Are you ready for this…sound'，与教学演示语境吻合。但视觉描述称该段'基本闭口、抿唇看镜头'，与Video 13连续帧明显矛盾：0.3s、1.3s、2.3s、3.3s、4.3s各帧口部均呈开放构音状态，下颌与唇形随语句变化，属活跃说话而非抿闭。所声称的声画错位实际不存在，关系判断建立在错误的视觉事实之上。",
+            "mean_diagnostic_quality": 0.5
+          },
+          {
+            "source_id": "clip_02",
+            "grades": {
+              "audio": 1,
+              "visual": 0.5,
+              "localization": 1,
+              "relation": 0.5
+            },
+            "quality": 0.5,
+            "reason": "音频正确识别簧片类器乐、多次起音时间点(0.75/1.3/1.95/3.1/3.7/4.3/4.7s)及2.3–2.7s能量减弱。视觉正确辨认按钮手风琴及近景手部位置，但称'指尖几乎维持同一组合、风箱未显示明显变化'有所夸大：Video 14各帧风箱压缩/伸展程度有可见差异，且手风琴演奏中持续气压下同一按钮组合产生连续音属正常技法，不必然要求每次起音对应新指位。部分具体但不足以支撑'长期无对应'的主要论断。",
+            "mean_diagnostic_quality": 0.75
+          },
+          {
+            "source_id": "clip_03",
+            "grades": {
+              "audio": 1,
+              "visual": 1,
+              "localization": 1,
+              "relation": 0.5
+            },
+            "quality": 0.5,
+            "reason": "音频正确区分0–2.05s讲话'I don't know why…openness to it'与3.04s后钢琴起音序列。视觉准确描述口部随讲话开闭、2.25s双手抬向键盘、2.375–2.5s落键、此后指端漂移有限的连续过程。关系评估合理指出后续多次攻击缺少可辨独立落键变化，但也承认准备期手先触键不算错误，属部分对应而非完全脱节。",
+            "mean_diagnostic_quality": 0.875
+          },
+          {
+            "source_id": "clip_04",
+            "grades": {
+              "audio": 1,
+              "visual": 1,
+              "localization": 1,
+              "relation": 0.5
+            },
+            "quality": 0.5,
+            "reason": "音频正确识别0–2.05s中文说明性讲话('笛子''唢呐')及3.17–4.75s笛类吹奏音、2.7–3.1s休止。视觉准确描述全程吹口贴唇、口形收束、手指置管身。关系层面指出讲话与含笛冲突合理，但delivery自己也承认'即使中文是旁白'——纪录片式画外解说与画面人物不必唇同步，这一替代解释削弱了'主要发声起止未表现'的论断力度，故为局部对应而非决定性反证。",
+            "mean_diagnostic_quality": 0.875
+          },
+          {
+            "source_id": "clip_05",
+            "grades": {
+              "audio": 1,
+              "visual": 1,
+              "localization": 1,
+              "relation": 1
+            },
+            "quality": 1,
+            "reason": "音频精确识别两段教学讲话(0.1–0.65s/0.98–1.76s 'Three blow, three on the four blow')及3.33–3.78s单枚口琴音。视觉完整追踪：讲话时口琴置于下唇下方、嘴部随短语开闭；1.8s收口、2.1s举琴、2.4s琴口接唇、3.3–3.8s保持接触。准备→接触→发声→休止的时序链完整，举琴早于出音约1s可由换气准备解释，音止后不立即放下属正常。",
+            "mean_diagnostic_quality": 1.0
+          },
+          {
+            "source_id": "clip_06",
+            "grades": {
+              "audio": 1,
+              "visual": 1,
+              "localization": 1,
+              "relation": 1
+            },
+            "quality": 1,
+            "reason": "音频正确识别'Welcome to my house/play that music too loud'两句及house(1.3–2.1s)、play(2.35s)、loud(4.05s+)的具体时长。视觉对应：歌者对麦演唱，1.0–1.6s张口延长、1.8–2.2s收窄、2.3s后重新构音、4.1–4.65s明显张口延长；右手反复经音孔扫弦、左手调整和弦位。人声构音与吉他扫弦均有连续可见对应，弱伴奏不要求画面钢琴同时发声。",
+            "mean_diagnostic_quality": 1.0
+          },
+          {
+            "source_id": "clip_07",
+            "grades": {
+              "audio": 1,
+              "visual": 1,
+              "localization": 1,
+              "relation": 1
+            },
+            "quality": 1,
+            "reason": "音频精确标注'Incense, gold and myrrh, come peasant and king to own him'中gold(0.8–1.1s)、myrrh(唇闭)、own(4.2–4.8s圆元音延长)的音素时刻。视觉逐一对应：0s横向张口→0.75–1.0s转圆口(gold)→1.3s唇闭合(myrrh)→2.4–2.5s闭唇转后句→4.3–4.5s圆形大开口(own)→收窄尾音。具体音素-唇形映射完整，竖琴在旁不强制其发声。",
+            "mean_diagnostic_quality": 1.0
+          },
+          {
+            "source_id": "clip_08",
+            "grades": {
+              "audio": 1,
+              "visual": 1,
+              "localization": 1,
+              "relation": 1
+            },
+            "quality": 1,
+            "reason": "音频识别全段簧片旋律、3.3–3.8s增强音组、3.8s短暂减弱、4.0s新攻击及4.0–5.0s持续新声部，频谱确认非尾响衰减。视觉追踪：0–3.6s双手围住吹奏物贴口→3.7s下移→3.95s嘴与吹口见间隙→4.0–4.6s嘴张开、吹口在下唇以下直至片尾未恢复接触。口部离唇期间仍有新攻击且无另一可见演奏者承接，声画断裂事实明确。",
+            "mean_diagnostic_quality": 1.0
+          }
+        ],
+        "policy": "Joint chain quality is the minimum of audio, visual, localization and relation; mean retained only as a diagnostic. No separate evidence bonus."
+      },
+      "policy": "Per-class F1 numerator credits only correctly decided candidates, weighted by grounded audio/visual/localization/relation quality; wrong verdicts receive no independent evidence bonus"
+    },
+    "general": {
+      "gold_count": 7,
+      "matched_count": 5,
+      "matched_quality": 5.0,
+      "novel_count": 0,
+      "novel_quality": 0.0,
+      "unsupported_count": 0,
+      "uncertain_count": 1,
+      "duplicate_count": 0,
+      "precision": 1.0,
+      "recall": 0.7142857142857143,
+      "f1": 0.8333333333333333,
+      "score_out_of_50": 41.666666666666664,
+      "policy": "All source-verified valid discoveries enter the same fixed public recall inventory; independent false claims reduce precision"
+    }
+  },
+  "individual_judge_results": [
+    {
+      "voter_id": "A",
+      "score": 67.06349206349206,
+      "breakdown": {
+        "music": {
+          "score_out_of_50": 25.396825396825395,
+          "f1": 0.5079365079365079,
+          "classes": {
+            "pass": {
+              "predicted_count": 3,
+              "reference_count": 4,
+              "quality_true_positive": 2,
+              "f1": 0.5714285714285714
+            },
+            "revise": {
+              "predicted_count": 5,
+              "reference_count": 4,
+              "quality_true_positive": 2.0,
+              "f1": 0.4444444444444444
+            }
+          },
+          "decision": {
+            "gold_count": 8,
+            "matched_count": 5,
+            "precision": 0.6333333333333333,
+            "recall": 0.625,
+            "f1": 0.6190476190476191,
+            "score_out_of_50": 30.952380952380953,
+            "classes": {
+              "pass": {
+                "tp": 2,
+                "fp": 1,
+                "fn": 2,
+                "precision": 0.6666666666666666,
+                "recall": 0.5,
+                "f1": 0.5714285714285715
+              },
+              "revise": {
+                "tp": 3,
+                "fp": 2,
+                "fn": 1,
+                "precision": 0.6,
+                "recall": 0.75,
+                "f1": 0.6666666666666665
+              }
+            },
+            "items": [
+              {
+                "source_id": "clip_01",
+                "prediction": "revise",
+                "reference": "pass",
+                "correct": false,
+                "expert_mean": 1.6666666666666667,
+                "n_labels": 3
+              },
+              {
+                "source_id": "clip_02",
+                "prediction": "revise",
+                "reference": "revise",
+                "correct": true,
+                "expert_mean": 1.0,
+                "n_labels": 3
+              },
+              {
+                "source_id": "clip_03",
+                "prediction": "revise",
+                "reference": "pass",
+                "correct": false,
+                "expert_mean": 2.0,
+                "n_labels": 3
+              },
+              {
+                "source_id": "clip_04",
+                "prediction": "revise",
+                "reference": "revise",
+                "correct": true,
+                "expert_mean": 1.0,
+                "n_labels": 3
+              },
+              {
+                "source_id": "clip_05",
+                "prediction": "pass",
+                "reference": "pass",
+                "correct": true,
+                "expert_mean": 1.6666666666666667,
+                "n_labels": 3
+              },
+              {
+                "source_id": "clip_06",
+                "prediction": "pass",
+                "reference": "revise",
+                "correct": false,
+                "expert_mean": 1.0,
+                "n_labels": 3
+              },
+              {
+                "source_id": "clip_07",
+                "prediction": "pass",
+                "reference": "pass",
+                "correct": true,
+                "expert_mean": 1.6666666666666667,
+                "n_labels": 3
+              },
+              {
+                "source_id": "clip_08",
+                "prediction": "revise",
+                "reference": "revise",
+                "correct": true,
+                "expert_mean": 1.0,
+                "n_labels": 3
+              }
+            ],
+            "conflicting_duplicate_ids": [],
+            "policy": "Macro-F1 of expert-supported pass/revise decisions; abstention counts as an incomplete decision"
+          },
+          "evidence": {
+            "score_out_of_15": 10.3125,
+            "candidate_count": 8,
+            "items": [
+              {
+                "source_id": "clip_01",
+                "grades": {
+                  "audio": 1,
+                  "visual": 0,
+                  "localization": 1,
+                  "relation": 0
+                },
+                "quality": 0,
+                "reason": "音频正确识别1.7–4.2s男声讲话'Are you ready for this…sound'，与教学演示语境吻合。但视觉描述称该段'基本闭口、抿唇看镜头'，与Video 13连续帧明显矛盾：0.3s、1.3s、2.3s、3.3s、4.3s各帧口部均呈开放构音状态，下颌与唇形随语句变化，属活跃说话而非抿闭。所声称的声画错位实际不存在，关系判断建立在错误的视觉事实之上。",
+                "mean_diagnostic_quality": 0.5
+              },
+              {
+                "source_id": "clip_02",
+                "grades": {
+                  "audio": 1,
+                  "visual": 0.5,
+                  "localization": 1,
+                  "relation": 0.5
+                },
+                "quality": 0.5,
+                "reason": "音频正确识别簧片类器乐、多次起音时间点(0.75/1.3/1.95/3.1/3.7/4.3/4.7s)及2.3–2.7s能量减弱。视觉正确辨认按钮手风琴及近景手部位置，但称'指尖几乎维持同一组合、风箱未显示明显变化'有所夸大：Video 14各帧风箱压缩/伸展程度有可见差异，且手风琴演奏中持续气压下同一按钮组合产生连续音属正常技法，不必然要求每次起音对应新指位。部分具体但不足以支撑'长期无对应'的主要论断。",
+                "mean_diagnostic_quality": 0.75
+              },
+              {
+                "source_id": "clip_03",
+                "grades": {
+                  "audio": 1,
+                  "visual": 1,
+                  "localization": 1,
+                  "relation": 0.5
+                },
+                "quality": 0.5,
+                "reason": "音频正确区分0–2.05s讲话'I don't know why…openness to it'与3.04s后钢琴起音序列。视觉准确描述口部随讲话开闭、2.25s双手抬向键盘、2.375–2.5s落键、此后指端漂移有限的连续过程。关系评估合理指出后续多次攻击缺少可辨独立落键变化，但也承认准备期手先触键不算错误，属部分对应而非完全脱节。",
+                "mean_diagnostic_quality": 0.875
+              },
+              {
+                "source_id": "clip_04",
+                "grades": {
+                  "audio": 1,
+                  "visual": 1,
+                  "localization": 1,
+                  "relation": 0.5
+                },
+                "quality": 0.5,
+                "reason": "音频正确识别0–2.05s中文说明性讲话('笛子''唢呐')及3.17–4.75s笛类吹奏音、2.7–3.1s休止。视觉准确描述全程吹口贴唇、口形收束、手指置管身。关系层面指出讲话与含笛冲突合理，但delivery自己也承认'即使中文是旁白'——纪录片式画外解说与画面人物不必唇同步，这一替代解释削弱了'主要发声起止未表现'的论断力度，故为局部对应而非决定性反证。",
+                "mean_diagnostic_quality": 0.875
+              },
+              {
+                "source_id": "clip_05",
+                "grades": {
+                  "audio": 1,
+                  "visual": 1,
+                  "localization": 1,
+                  "relation": 1
+                },
+                "quality": 1,
+                "reason": "音频精确识别两段教学讲话(0.1–0.65s/0.98–1.76s 'Three blow, three on the four blow')及3.33–3.78s单枚口琴音。视觉完整追踪：讲话时口琴置于下唇下方、嘴部随短语开闭；1.8s收口、2.1s举琴、2.4s琴口接唇、3.3–3.8s保持接触。准备→接触→发声→休止的时序链完整，举琴早于出音约1s可由换气准备解释，音止后不立即放下属正常。",
+                "mean_diagnostic_quality": 1.0
+              },
+              {
+                "source_id": "clip_06",
+                "grades": {
+                  "audio": 1,
+                  "visual": 1,
+                  "localization": 1,
+                  "relation": 1
+                },
+                "quality": 1,
+                "reason": "音频正确识别'Welcome to my house/play that music too loud'两句及house(1.3–2.1s)、play(2.35s)、loud(4.05s+)的具体时长。视觉对应：歌者对麦演唱，1.0–1.6s张口延长、1.8–2.2s收窄、2.3s后重新构音、4.1–4.65s明显张口延长；右手反复经音孔扫弦、左手调整和弦位。人声构音与吉他扫弦均有连续可见对应，弱伴奏不要求画面钢琴同时发声。",
+                "mean_diagnostic_quality": 1.0
+              },
+              {
+                "source_id": "clip_07",
+                "grades": {
+                  "audio": 1,
+                  "visual": 1,
+                  "localization": 1,
+                  "relation": 1
+                },
+                "quality": 1,
+                "reason": "音频精确标注'Incense, gold and myrrh, come peasant and king to own him'中gold(0.8–1.1s)、myrrh(唇闭)、own(4.2–4.8s圆元音延长)的音素时刻。视觉逐一对应：0s横向张口→0.75–1.0s转圆口(gold)→1.3s唇闭合(myrrh)→2.4–2.5s闭唇转后句→4.3–4.5s圆形大开口(own)→收窄尾音。具体音素-唇形映射完整，竖琴在旁不强制其发声。",
+                "mean_diagnostic_quality": 1.0
+              },
+              {
+                "source_id": "clip_08",
+                "grades": {
+                  "audio": 1,
+                  "visual": 1,
+                  "localization": 1,
+                  "relation": 1
+                },
+                "quality": 1,
+                "reason": "音频识别全段簧片旋律、3.3–3.8s增强音组、3.8s短暂减弱、4.0s新攻击及4.0–5.0s持续新声部，频谱确认非尾响衰减。视觉追踪：0–3.6s双手围住吹奏物贴口→3.7s下移→3.95s嘴与吹口见间隙→4.0–4.6s嘴张开、吹口在下唇以下直至片尾未恢复接触。口部离唇期间仍有新攻击且无另一可见演奏者承接，声画断裂事实明确。",
+                "mean_diagnostic_quality": 1.0
+              }
+            ],
+            "policy": "Joint chain quality is the minimum of audio, visual, localization and relation; mean retained only as a diagnostic. No separate evidence bonus."
+          },
+          "policy": "Per-class F1 numerator credits only correctly decided candidates, weighted by grounded audio/visual/localization/relation quality; wrong verdicts receive no independent evidence bonus"
+        },
+        "general": {
+          "gold_count": 7,
+          "matched_count": 5,
+          "matched_quality": 5.0,
+          "novel_count": 0,
+          "novel_quality": 0.0,
+          "unsupported_count": 0,
+          "uncertain_count": 1,
+          "duplicate_count": 0,
+          "precision": 1.0,
+          "recall": 0.7142857142857143,
+          "f1": 0.8333333333333333,
+          "score_out_of_50": 41.666666666666664,
+          "policy": "All source-verified valid discoveries enter the same fixed public recall inventory; independent false claims reduce precision"
+        }
+      }
+    },
+    {
+      "voter_id": "B",
+      "score": 67.06349206349206,
+      "breakdown": {
+        "music": {
+          "score_out_of_50": 25.396825396825395,
+          "f1": 0.5079365079365079,
+          "classes": {
+            "pass": {
+              "predicted_count": 3,
+              "reference_count": 4,
+              "quality_true_positive": 2,
+              "f1": 0.5714285714285714
+            },
+            "revise": {
+              "predicted_count": 5,
+              "reference_count": 4,
+              "quality_true_positive": 2.0,
+              "f1": 0.4444444444444444
+            }
+          },
+          "decision": {
+            "gold_count": 8,
+            "matched_count": 5,
+            "precision": 0.6333333333333333,
+            "recall": 0.625,
+            "f1": 0.6190476190476191,
+            "score_out_of_50": 30.952380952380953,
+            "classes": {
+              "pass": {
+                "tp": 2,
+                "fp": 1,
+                "fn": 2,
+                "precision": 0.6666666666666666,
+                "recall": 0.5,
+                "f1": 0.5714285714285715
+              },
+              "revise": {
+                "tp": 3,
+                "fp": 2,
+                "fn": 1,
+                "precision": 0.6,
+                "recall": 0.75,
+                "f1": 0.6666666666666665
+              }
+            },
+            "items": [
+              {
+                "source_id": "clip_01",
+                "prediction": "revise",
+                "reference": "pass",
+                "correct": false,
+                "expert_mean": 1.6666666666666667,
+                "n_labels": 3
+              },
+              {
+                "source_id": "clip_02",
+                "prediction": "revise",
+                "reference": "revise",
+                "correct": true,
+                "expert_mean": 1.0,
+                "n_labels": 3
+              },
+              {
+                "source_id": "clip_03",
+                "prediction": "revise",
+                "reference": "pass",
+                "correct": false,
+                "expert_mean": 2.0,
+                "n_labels": 3
+              },
+              {
+                "source_id": "clip_04",
+                "prediction": "revise",
+                "reference": "revise",
+                "correct": true,
+                "expert_mean": 1.0,
+                "n_labels": 3
+              },
+              {
+                "source_id": "clip_05",
+                "prediction": "pass",
+                "reference": "pass",
+                "correct": true,
+                "expert_mean": 1.6666666666666667,
+                "n_labels": 3
+              },
+              {
+                "source_id": "clip_06",
+                "prediction": "pass",
+                "reference": "revise",
+                "correct": false,
+                "expert_mean": 1.0,
+                "n_labels": 3
+              },
+              {
+                "source_id": "clip_07",
+                "prediction": "pass",
+                "reference": "pass",
+                "correct": true,
+                "expert_mean": 1.6666666666666667,
+                "n_labels": 3
+              },
+              {
+                "source_id": "clip_08",
+                "prediction": "revise",
+                "reference": "revise",
+                "correct": true,
+                "expert_mean": 1.0,
+                "n_labels": 3
+              }
+            ],
+            "conflicting_duplicate_ids": [],
+            "policy": "Macro-F1 of expert-supported pass/revise decisions; abstention counts as an incomplete decision"
+          },
+          "evidence": {
+            "score_out_of_15": 10.3125,
+            "candidate_count": 8,
+            "items": [
+              {
+                "source_id": "clip_01",
+                "grades": {
+                  "audio": 1,
+                  "visual": 0,
+                  "localization": 1,
+                  "relation": 0
+                },
+                "quality": 0,
+                "reason": "音频正确识别1.7–4.2s男声讲话'Are you ready for this…first sound'及开头短弓弦音。但视觉证据声称该段'基本闭口、抿唇'，实际帧2.4s/3.4s/4.4s清楚显示口部张开、牙齿可见、唇位随音节变化，与讲话同步。视觉前提被画面反证，导致relation论证（讲话无对应构音）不成立。",
+                "mean_diagnostic_quality": 0.5
+              },
+              {
+                "source_id": "clip_02",
+                "grades": {
+                  "audio": 1,
+                  "visual": 0.5,
+                  "localization": 1,
+                  "relation": 0.5
+                },
+                "quality": 0.5,
+                "reason": "音频正确识别簧片类器乐及多次起音/变音时间点。视觉描述手风琴近景、手指贴按钮基本准确，但'风箱未显示明显变化'的判断在1fps采样下难以确证——帧间风箱压缩/伸展有细微差异，且手风琴技法允许同一按钮组合持续发声不需逐音换指。局部对应存在但不足以支撑'整体不同步'的强结论。",
+                "mean_diagnostic_quality": 0.75
+              },
+              {
+                "source_id": "clip_03",
+                "grades": {
+                  "audio": 1,
+                  "visual": 1,
+                  "localization": 1,
+                  "relation": 0.5
+                },
+                "quality": 0.5,
+                "reason": "音频正确识别0–2.05s讲话'I don't know why…'及3.04s后钢琴起音。视觉帧0.4s/1.4s口部张开对应讲话，2.4s转向键盘，3.4s/4.4s双手在键面呈演奏姿态，构音与落键准备均有据。但delivery对3.04s后多次攻击缺少逐指落键变化的论证，在1fps采样下无法完全排除快速指法，relation仅部分成立。",
+                "mean_diagnostic_quality": 0.875
+              },
+              {
+                "source_id": "clip_04",
+                "grades": {
+                  "audio": 1,
+                  "visual": 1,
+                  "localization": 1,
+                  "relation": 0.5
+                },
+                "quality": 0.5,
+                "reason": "音频正确识别0–2.05s中文'笛子间唢呐或吉纳'及后续笛音。视觉帧全程显示吹口贴唇、手指按孔，与delivery描述一致。冲突论点（讲话时嘴被笛占用）在diegetic前提下成立，但delivery未充分考虑该段为纪录片旁白/画外音的可能——若为VO则视觉无矛盾，relation论证有遗漏。",
+                "mean_diagnostic_quality": 0.875
+              },
+              {
+                "source_id": "clip_05",
+                "grades": {
+                  "audio": 1,
+                  "visual": 1,
+                  "localization": 1,
+                  "relation": 1
+                },
+                "quality": 1,
+                "reason": "音频识别0.1–1.76s教学讲话'Three blow, three on the four blow'及3.33–3.78s短口琴音。视觉帧清楚展示：讲话时口琴在下唇下方、口部开闭；~2.1s举琴；2.4s琴口接唇；3.4s/4.4s保持吹奏接触。声画时序完全对应，准备-发声-休止链条完整。",
+                "mean_diagnostic_quality": 1.0
+              },
+              {
+                "source_id": "clip_06",
+                "grades": {
+                  "audio": 1,
+                  "visual": 1,
+                  "localization": 1,
+                  "relation": 1
+                },
+                "quality": 1,
+                "reason": "音频识别'Welcome to my house/play that music too loud'及吉他扫弦。视觉帧显示歌者对麦演唱、口型随歌词变化（house延长、loud圆口），右手反复过弦区、左手按弦。人声构音与吉他扫弦动作均有连续画面支撑，主要阶段覆盖完整。",
+                "mean_diagnostic_quality": 1.0
+              },
+              {
+                "source_id": "clip_07",
+                "grades": {
+                  "audio": 1,
+                  "visual": 1,
+                  "localization": 1,
+                  "relation": 1
+                },
+                "quality": 1,
+                "reason": "音频识别'Incense, gold and myrrh, come peasant and king to own him'。视觉帧展示具体元音口型：0.75–1.0s圆口对应gold，1.3s唇闭合对应myrrh前辅音，4.3–4.5s大圆开口对应own延长音。逐词构音与画面口型可逐一对应，relation充分。",
+                "mean_diagnostic_quality": 1.0
+              },
+              {
+                "source_id": "clip_08",
+                "grades": {
+                  "audio": 1,
+                  "visual": 1,
+                  "localization": 1,
+                  "relation": 1
+                },
+                "quality": 1,
+                "reason": "音频识别簧片旋律及~4.0s新攻击（频谱显示新谐波组合非尾响）。视觉帧0.4–3.4s双手围住吹奏物贴口，4.4s明显下移、嘴张开、吹口低于下唇。分离时点与音频新起音吻合，且无其他可见演奏者承接，sync缺陷有据。",
+                "mean_diagnostic_quality": 1.0
+              }
+            ],
+            "policy": "Joint chain quality is the minimum of audio, visual, localization and relation; mean retained only as a diagnostic. No separate evidence bonus."
+          },
+          "policy": "Per-class F1 numerator credits only correctly decided candidates, weighted by grounded audio/visual/localization/relation quality; wrong verdicts receive no independent evidence bonus"
+        },
+        "general": {
+          "gold_count": 7,
+          "matched_count": 5,
+          "matched_quality": 5.0,
+          "novel_count": 0,
+          "novel_quality": 0.0,
+          "unsupported_count": 0,
+          "uncertain_count": 1,
+          "duplicate_count": 0,
+          "precision": 1.0,
+          "recall": 0.7142857142857143,
+          "f1": 0.8333333333333333,
+          "score_out_of_50": 41.666666666666664,
+          "policy": "All source-verified valid discoveries enter the same fixed public recall inventory; independent false claims reduce precision"
+        }
+      }
+    },
+    {
+      "voter_id": "C",
+      "score": 72.61904761904762,
+      "breakdown": {
+        "music": {
+          "score_out_of_50": 30.952380952380953,
+          "f1": 0.6190476190476191,
+          "classes": {
+            "pass": {
+              "predicted_count": 3,
+              "reference_count": 4,
+              "quality_true_positive": 2,
+              "f1": 0.5714285714285714
+            },
+            "revise": {
+              "predicted_count": 5,
+              "reference_count": 4,
+              "quality_true_positive": 3,
+              "f1": 0.6666666666666666
+            }
+          },
+          "decision": {
+            "gold_count": 8,
+            "matched_count": 5,
+            "precision": 0.6333333333333333,
+            "recall": 0.625,
+            "f1": 0.6190476190476191,
+            "score_out_of_50": 30.952380952380953,
+            "classes": {
+              "pass": {
+                "tp": 2,
+                "fp": 1,
+                "fn": 2,
+                "precision": 0.6666666666666666,
+                "recall": 0.5,
+                "f1": 0.5714285714285715
+              },
+              "revise": {
+                "tp": 3,
+                "fp": 2,
+                "fn": 1,
+                "precision": 0.6,
+                "recall": 0.75,
+                "f1": 0.6666666666666665
+              }
+            },
+            "items": [
+              {
+                "source_id": "clip_01",
+                "prediction": "revise",
+                "reference": "pass",
+                "correct": false,
+                "expert_mean": 1.6666666666666667,
+                "n_labels": 3
+              },
+              {
+                "source_id": "clip_02",
+                "prediction": "revise",
+                "reference": "revise",
+                "correct": true,
+                "expert_mean": 1.0,
+                "n_labels": 3
+              },
+              {
+                "source_id": "clip_03",
+                "prediction": "revise",
+                "reference": "pass",
+                "correct": false,
+                "expert_mean": 2.0,
+                "n_labels": 3
+              },
+              {
+                "source_id": "clip_04",
+                "prediction": "revise",
+                "reference": "revise",
+                "correct": true,
+                "expert_mean": 1.0,
+                "n_labels": 3
+              },
+              {
+                "source_id": "clip_05",
+                "prediction": "pass",
+                "reference": "pass",
+                "correct": true,
+                "expert_mean": 1.6666666666666667,
+                "n_labels": 3
+              },
+              {
+                "source_id": "clip_06",
+                "prediction": "pass",
+                "reference": "revise",
+                "correct": false,
+                "expert_mean": 1.0,
+                "n_labels": 3
+              },
+              {
+                "source_id": "clip_07",
+                "prediction": "pass",
+                "reference": "pass",
+                "correct": true,
+                "expert_mean": 1.6666666666666667,
+                "n_labels": 3
+              },
+              {
+                "source_id": "clip_08",
+                "prediction": "revise",
+                "reference": "revise",
+                "correct": true,
+                "expert_mean": 1.0,
+                "n_labels": 3
+              }
+            ],
+            "conflicting_duplicate_ids": [],
+            "policy": "Macro-F1 of expert-supported pass/revise decisions; abstention counts as an incomplete decision"
+          },
+          "evidence": {
+            "score_out_of_15": 15.0,
+            "candidate_count": 8,
+            "items": [
+              {
+                "source_id": "clip_01",
+                "grades": {
+                  "audio": 1,
+                  "visual": 1,
+                  "localization": 1,
+                  "relation": 1
+                },
+                "quality": 1,
+                "reason": "音频明确区分开头弓弦短音与1.7–4.2s男声讲话（可辨'Are you ready for this…sound'），非泛泛描述；画面具体指出1.5s口部短暂张开后1.625–4.2s基本闭口抿唇、右手维持运弓小幅运动，与讲话音节无对应开闭；定位0–1.6s与1.7–4.3s覆盖5.042s片段主要段落；联合论证将前景多音节讲话与可见无构音直接对照，逻辑完整。",
+                "mean_diagnostic_quality": 1.0
+              },
+              {
+                "source_id": "clip_02",
+                "grades": {
+                  "audio": 1,
+                  "visual": 1,
+                  "localization": 1,
+                  "relation": 1
+                },
+                "quality": 1,
+                "reason": "音频列出具体重起音时刻（0.75/1.3/1.95/3.1/3.7/4.3/4.7s）及2.3–2.7s能量减弱，非笼统'有音乐'；画面描述按钮式手风琴近景、指尖维持同一组合、风箱无明显变化，具体到2.8–5s密集回查；定位0–2.2s与2.8–5.04s有效覆盖；联合论证指出多次前景新起音期间可见接触姿势长期不变，不足以建立对应，推理具体。",
+                "mean_diagnostic_quality": 1.0
+              },
+              {
+                "source_id": "clip_03",
+                "grades": {
+                  "audio": 1,
+                  "visual": 1,
+                  "localization": 1,
+                  "relation": 1
+                },
+                "quality": 1,
+                "reason": "音频区分0–2.05s讲话（可辨'I don't know why…openness to it'）与3.04s起钢琴攻击及后续4.3/4.7s新攻击；画面描述前2s口部开闭随讲话、2.25s双手抬向键盘、2.375–2.5s指尖落键形成按压姿势、此后仅少量腕部漂移，24fps回查未见独立落键序列；定位0–2.1s与2.2–5.04s合理；联合论证承认准备合理但指出持续位置无法解释多次distinct攻击，逻辑严密。",
+                "mean_diagnostic_quality": 1.0
+              },
+              {
+                "source_id": "clip_04",
+                "grades": {
+                  "audio": 1,
+                  "visual": 1,
+                  "localization": 1,
+                  "relation": 1
+                },
+                "quality": 1,
+                "reason": "音频识别0–2.05s中文讲话（可辨'笛子''唢呐'）与2.7–3.1s休止、3.17–4.75s吹奏音及音高变化；画面描述吹口始终贴唇、口形收束吹气状态、无对应中文辅音元音构音，2.5s后少量抬指；定位0–2.1s与2.1–4.85s覆盖；联合论证将中文讲话与吹口占用直接冲突，指出即使为旁白也未表现主要发声起止，推理充分。",
+                "mean_diagnostic_quality": 1.0
+              },
+              {
+                "source_id": "clip_05",
+                "grades": {
+                  "audio": 1,
+                  "visual": 1,
+                  "localization": 1,
+                  "relation": 1
+                },
+                "quality": 1,
+                "reason": "音频识别两段教学讲话（0.1–0.65s/0.98–1.76s'Three blow, three on the four blow'）、安静间隙、3.33–3.78s单枚短口琴音；画面描述讲话期间口琴在下唇下方、嘴随短语开闭、1.8s收口、2.1s举琴、2.4s接触、3.3–3.8s维持有效吹口；定位三段0–1.8/1.8–3.9/3.9–5.04s合理；联合论证将准备-接触-发声时序对应，承认举琴早于出音约一秒属正常准备，推理完整。",
+                "mean_diagnostic_quality": 1.0
+              },
+              {
+                "source_id": "clip_06",
+                "grades": {
+                  "audio": 1,
+                  "visual": 1,
+                  "localization": 1,
+                  "relation": 1
+                },
+                "quality": 1,
+                "reason": "音频识别具体歌词'Welcome to my house/play that music too loud'及house(1.3–2.1s)、play(2.35s)、loud(4.05s后延长)的时序，并确认较轻吉他扫弦攻击；画面描述1.0–1.6s张口延长、1.8–2.2s收窄、2.3s后重新构音、4.1–4.65s明显张口延长、右手反复经音孔/琴弦、左手调整和弦；定位0–2.2s与2.3–5.0s有效；联合论证将具体词进入/收尾/延长与可见口型一一对应，非泛化张嘴。",
+                "mean_diagnostic_quality": 1.0
+              },
+              {
+                "source_id": "clip_07",
+                "grades": {
+                  "audio": 1,
+                  "visual": 1,
+                  "localization": 1,
+                  "relation": 1
+                },
+                "quality": 1,
+                "reason": "音频识别'Incense, gold and myrrh, come peasant and king to own him'及gold(0.8–1.1s)、myrrh、own(4.2–4.8s圆元音延长)的具体时刻；画面描述0s横向张口、0.75–1.0s转圆口、1.3s唇闭合、2.4–2.5s闭唇转后短语、4.3–4.5s圆形大开口后收窄；定位0–2.4s与2.4–5.0s合理；联合论证将gold圆唇、myrrh闭唇、own延长与具体口型核对，并说明旁有竖琴不意味必须听见竖琴。",
+                "mean_diagnostic_quality": 1.0
+              },
+              {
+                "source_id": "clip_08",
+                "grades": {
+                  "audio": 1,
+                  "visual": 1,
+                  "localization": 1,
+                  "relation": 1
+                },
+                "quality": 1,
+                "reason": "音频识别全段簧片旋律、3.3–3.8s增强音组、3.8s后短暂减弱、4.0s重新攻击、4.0–5.0s新音高声部，频谱确认非单纯衰减尾响；画面描述0–3.6s双手围住吹奏物贴口、3.7s后下移、3.95s嘴与吹口见间隙、4.0–4.6s嘴张开吹口在下唇以下直至片尾未恢复接触；定位0–3.8s与3.85–5.04s有效；联合论证将4.0s新攻击与可见分离直接对照，排除换气/混响解释，推理具体。",
+                "mean_diagnostic_quality": 1.0
+              }
+            ],
+            "policy": "Joint chain quality is the minimum of audio, visual, localization and relation; mean retained only as a diagnostic. No separate evidence bonus."
+          },
+          "policy": "Per-class F1 numerator credits only correctly decided candidates, weighted by grounded audio/visual/localization/relation quality; wrong verdicts receive no independent evidence bonus"
+        },
+        "general": {
+          "gold_count": 7,
+          "matched_count": 5,
+          "matched_quality": 5.0,
+          "novel_count": 0,
+          "novel_quality": 0.0,
+          "unsupported_count": 0,
+          "uncertain_count": 1,
+          "duplicate_count": 0,
+          "precision": 1.0,
+          "recall": 0.7142857142857143,
+          "f1": 0.8333333333333333,
+          "score_out_of_50": 41.666666666666664,
+          "policy": "All source-verified valid discoveries enter the same fixed public recall inventory; independent false claims reduce precision"
+        }
+      }
     }
   ],
-  "posthoc_rubric_revision": true
+  "adopted_voter_id": "A",
+  "valid_solver_runs": 1,
+  "development_cpu": true,
+  "gpu_validation_pending": true,
+  "material_version": "pilot-v6b-partial",
+  "run_tag": "sol_xhigh_r01_20261115_partial_chain",
+  "model": "gpt-6.1-sol",
+  "actual_effort": "xhigh",
+  "elapsed_seconds": 5441.343
 }
