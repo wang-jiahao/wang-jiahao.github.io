@@ -1,0 +1,31 @@
+{
+  "type": "Source/equivalence review of original text judgment; no new judge call or audiovisual relabeling.",
+  "judge_calls_added": 0,
+  "reviewed_segments": 24,
+  "same_policy_as_previous_runs": true,
+  "changes": [
+    {
+      "segment_id": "S006",
+      "atom_id": "A02",
+      "before": {
+        "atom_id": "A02",
+        "credit": 0.5,
+        "candidate_quote": "这部电影都看过的",
+        "reason": "表达了已经看过这部电影，但没有明确指出是小强看过。"
+      },
+      "after": {
+        "atom_id": "A02",
+        "credit": 1,
+        "candidate_quote": "这部电影都看过的",
+        "reason": "与已采用DeepSeek S006一致，前句仅引入小强，后句省略的观看者可由上下文理解为小强。“都”在此口语句中不必引入额外多人断言；按接受自然省略的同一规则，不要求补出姓名或代词。"
+      },
+      "direction": "upward_only",
+      "precedent": "DeepSeek S006 A02 accepts the omitted viewer from context"
+    }
+  ],
+  "original_result_sha256": "9fa29cface12cf05f234b2e03e9e9a371031d3637d854e6fa82c1381ee490e43",
+  "rubric_weights_and_formula_unchanged": true,
+  "no_downward_corrections": true,
+  "adopted_at": "2026-11-16T07:22:35.685488+00:00",
+  "notes": "S008 already receives full credit for the possessive reading. S005/S011/S017 follow the same relation/argument treatment as before. Other 23 segment rows retained. S010 judgments differ between independent raw votes in treatment of generic injury; both Qwen conditions happen to have F1 2/3 after their separate TP/FP counts. Do not infer sub-point stability from one judge vote."
+}

@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "scope": "Semantic scoring controls, not additional solver runs.",
+  "checks": {
+    "perfect": true,
+    "compact_equivalent": true,
+    "abstention": true,
+    "omission_between": true,
+    "hallucination_loses_credit": true,
+    "role_reversal_loses_credit": true,
+    "negation_reversal_loses_credit": true
+  },
+  "controls": [
+    {
+      "id": "C01",
+      "label": "完整等价改写",
+      "semantic_f1": 1.0
+    },
+    {
+      "id": "C02",
+      "label": "全部弃答",
+      "semantic_f1": 0.0
+    },
+    {
+      "id": "C03",
+      "label": "遗漏部分信息",
+      "semantic_f1": 0.8
+    },
+    {
+      "id": "C04",
+      "label": "无据添编",
+      "semantic_f1": 0.8571428571428571
+    },
+    {
+      "id": "C05",
+      "label": "人物关系翻转",
+      "semantic_f1": 0.3333333333333333
+    },
+    {
+      "id": "C06",
+      "label": "否定翻转",
+      "semantic_f1": 0.6666666666666666
+    },
+    {
+      "id": "C07",
+      "label": "简练等价译文",
+      "semantic_f1": 1.0
+    }
+  ]
+}

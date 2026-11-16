@@ -57,18 +57,18 @@ function renderComparison(){
 }
 function textEvidence(sid,only){
  const s=segment(data,sid),pair=node('div',undefined,'evidence-pair');
- for(const r of only?[only]:runs){const box=node('div',undefined,'text-pair model-pair'),label=node('div',r.label,'pair-label');label.append(linkClip(sid,r.key));box.append(label,node('div',segment(r,sid).subtitle||'[未提交字幕]','subtitle-text'));pair.append(box);}
+ for(const r of only?(Array.isArray(only)?only:[only]):runs){const box=node('div',undefined,'text-pair model-pair'),label=node('div',r.label,'pair-label');label.append(linkClip(sid,r.key));box.append(label,node('div',segment(r,sid).subtitle||'[未提交字幕]','subtitle-text'));pair.append(box);}
  const box=node('div',undefined,'text-pair reference-pair');box.append(node('div','参考译文 · 语保','pair-label'),node('div',s.reference,'subtitle-text'));pair.append(box);return pair;
 }
 function showResults(){
  for(const r of runs){
-  const tr=node('tr');for(const [i,x]of [r.model,r.effort,fmt(r.score),fmt(r.semantic_score),fmt(r.organization_score),fmt(r.delivery_score),elapsed(r.elapsed_seconds)].entries())tr.append(node('td',x,i===0?'num model-name':'num'));tr.children[2].classList.add('score');$('scores').append(tr);
+  const tr=node('tr');for(const [i,x]of [r.model+(r.condition_label?' · '+r.condition_label:''),r.effort,fmt(r.score),fmt(r.semantic_score),fmt(r.organization_score),fmt(r.delivery_score),elapsed(r.elapsed_seconds)].entries())tr.append(node('td',x,i===0?'num model-name':'num'));tr.children[2].classList.add('score');$('scores').append(tr);
   const bar=node('div',undefined,'toolbar compact audit-links');bar.append(node('strong',r.label));for(const [path,label]of [['files/original-score.json',`原始判票 ${fmt(r.original_score)}`],['files/equivalence-audit.json',r.audit_adjustment_count?`${r.audit_adjustment_count}处从宽修正`:'等价表述复核'],['files/score.json','完整评分']]){const a=node('a',label);a.href=asset(r,path);bar.append(a);}$('audit-links').append(bar);
  }
- $('run-note').textContent='每模型一次完整求解，统一采用Terra / high单轮评分，并按相同规则复核等价表达。原票和复核明细如下。';
+ $('run-note').textContent='每种模型／感知条件各一次独立求解，统一采用Terra / high单轮评分，并按相同规则复核等价表达。原票和复核明细如下。';
  const conditions=node('details',undefined,'run-conditions');conditions.append(node('summary','运行条件与中断记录'));
  conditions.append(node('p','均正常联网、未设执行截止。耗时包含工具、下载与API等待；各接口的思考设置按实际记录展示。','note'));
- if(runs.some(r=>r.recovered_in_same_session))conditions.append(node('p','Qwen启用thinking，使用Qwen Code原生音视频输入及本地ASR。接口拒绝ASR调试标记后，在同一会话中恢复，计时包括恢复间隔。thinking不对应xhigh/max；本轮有其他后台任务驻留，较大ASR未取得有效转写，不作严格等资源对照。','note'));
+ if(runs.some(r=>r.recovered_in_same_session))conditions.append(node('p','Qwen混合工具轮启用thinking，使用原生音视频输入及本地ASR。接口拒绝ASR调试标记后，在同一会话中恢复，计时包括恢复间隔。thinking不对应xhigh/max；本轮有其他后台任务驻留，较大ASR未取得有效转写，不作严格等资源对照。','note'));
  $('run-note').after(conditions);
  for(const dialect of Object.keys(data.semantic_by_dialect)){const row=node('tr');row.append(node('td',dialect),node('td',data.segments.filter(s=>s.dialect===dialect).length));for(const r of runs)row.append(node('td',`${fmt(r.semantic_by_dialect[dialect]*100)}%`));$('dialect-scores').append(row);}
 }
@@ -79,14 +79,14 @@ function showTraces(){
  }
 }
 function showAnalysis(){
- for(const f of data.common_analysis){const article=node('article',undefined,'finding');article.append(node('h3',f.title),node('p',f.text),textEvidence(f.segments[0]));const bar=node('div',undefined,'toolbar compact');for(const sid of f.segments)bar.append(linkClip(sid));article.append(bar);$('analysis-items').append(article);}
+ for(const f of data.common_analysis){const article=node('article',undefined,'finding');article.append(node('h3',f.title),node('p',f.text),textEvidence(f.segments[0],f.run_keys?runs.filter(r=>f.run_keys.includes(r.key)):undefined));const bar=node('div',undefined,'toolbar compact');for(const sid of f.segments)bar.append(linkClip(sid));for(const item of f.evidence_events||[]){const a=node('a',`过程记录 #${item.event}`);a.href=traceURL(runs.find(r=>r.key===item.run),'all',item.event);bar.append(a);}article.append(bar);$('analysis-items').append(article);}
  for(const r of runs){const details=node('details',undefined,'card model-detail');details.append(node('summary',`${r.label} · 具体失败与交付`));for(const f of r.analysis){const article=node('article');article.append(node('h3',f.title),node('p',f.text));const bar=node('div',undefined,'toolbar compact');for(const sid of f.segments||[])bar.append(linkClip(sid,r.key));article.append(bar);details.append(article);}$('model-analyses').append(details);}
 }
 function showFiles(){
- for(const r of runs){const group=node('div',undefined,'run-file-group');group.append(node('strong',`${r.label} · ${r.effort}`));const links=node('div',undefined,'file-links');for(const [path,title]of [['files/subtitle-delivery.zip','字幕、映射与校验包'],['zh-CN.srt','SRT字幕'],['files/score.json','完整评分'],['files/technical.json','技术验收'],['files/trace.json','轨迹数据']]){const a=node('a',title);a.href=asset(r,path);links.append(a);}group.append(links);$('run-files').append(group);}
+ for(const r of runs){const group=node('div',undefined,'run-file-group');group.append(node('strong',`${r.label} · ${r.effort}`));const links=node('div',undefined,'file-links');for(const [path,title]of [['files/subtitle-delivery.zip','字幕、映射与校验包'],['zh-CN.srt','SRT字幕'],['files/score.json','完整评分'],['files/technical.json','技术验收'],['files/trace.json','轨迹数据']]){const a=node('a',title);a.href=asset(r,path);links.append(a);}if(r.key==='qwen-native'){const a=node('a','原生轮补充规则');a.href=asset(r,'files/RUN_CONDITION.txt');links.append(a);}group.append(links);$('run-files').append(group);}
 }
 async function start(){
- data=await(await fetch('files/case.json?v=20261116-2')).json();runs=data.runs;document.body.classList.toggle('three-models',runs.length===3);const params=new URLSearchParams(location.search);currentRun=runs.find(r=>r.key===params.get('run'))||runs[0];
+ data=await(await fetch('files/case.json?v=20261116-3')).json();runs=data.runs;document.body.classList.toggle('three-models',runs.length>=3);document.body.classList.toggle('four-conditions',runs.length===4);const params=new URLSearchParams(location.search);currentRun=runs.find(r=>r.key===params.get('run'))||runs[0];
  for(const r of runs){$('comparison-head').append(node('th',`${r.label} · ${r.effort}`));$('dialect-head').append(node('th',`${r.label}语义F1`));}
  $('comparison-head').append(node('th','参考译文（语保）'));
  $('result-summary').textContent=runs.map(r=>`${r.label}交付${r.cue_count}条字幕`).join('，')+'；各模型的技术验收见下方记录。';
@@ -94,6 +94,11 @@ async function start(){
   $('runtime-settings').textContent='Windows原生环境；Sol / xhigh / NJU Link、DeepSeek / max / DashScope使用Codex CLI；Qwen3.8-Omni / thinking启用 / DashScope使用Qwen Code。独立目录与会话，正常联网、CPU本地工具环境，不设执行预算。';
   $('trace-intro').textContent='Sol与DeepSeek调用本地ASR完成字幕；Qwen Code可直接将原片或音轨传入Qwen3.8-Omni，也可自行使用本地工具。各展示一次完整求解，轨迹保留实际工具选择。';
   $('perception-note').textContent='这是各Agent及其工具链的端到端结果。Qwen具有原生音视频输入，Sol与DeepSeek通过本地感知工具读取声音；不能将三者写成同一种感知条件。轨迹不包含隐藏推理。';
+ }
+ if(runs.some(r=>r.key==='qwen-native')){
+  $('runtime-settings').textContent+=' Qwen另测原生音视频轮：只允许普通媒体处理，不调用其他ASR或感知模型。';
+  $('trace-intro').textContent='Qwen分为原生音视频、原生＋本地ASR两种独立运行。Sol与DeepSeek使用本地ASR；各模型与条件都只展示一次求解，轨迹保留实际工具选择。';
+  $('perception-note').textContent='Qwen原生轮只用本模型读取音视频，普通媒体处理允许，未调用其他ASR；混合工具轮可使用本地ASR。两轮为独立会话，相同素材与评分，仍有单次求解和单轮裁判的波动。';
  }
  $('material-tag').textContent=`${Object.keys(data.semantic_by_dialect).length}种方言 · ${data.segments.length}段 · ${elapsed(data.duration)}`;
  $('input-description').textContent=`${data.segments.length}段真人短片按清单顺序拼接，共${elapsed(data.duration)}。`;

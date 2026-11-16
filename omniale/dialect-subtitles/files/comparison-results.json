@@ -20,11 +20,12 @@
       "score_policy": "dialect-v2-equivalence-audit1",
       "harness": "Codex CLI",
       "harness_version": "codex-cli 0.167.0-alpha.4.1",
-      "recovered_in_same_session": false
+      "recovered_in_same_session": false,
+      "perception_condition": "local_asr_tools"
     },
     {
       "key": "qwen",
-      "label": "Qwen3.8 Omni",
+      "label": "Qwen3.8 Omni · 混合工具",
       "model": "qwen3.8-omni-flash",
       "effort": "thinking",
       "provider": "DashScope",
@@ -41,7 +42,8 @@
       "score_policy": "dialect-v2-equivalence-audit1",
       "harness": "Qwen Code",
       "harness_version": "0.26.7",
-      "recovered_in_same_session": true
+      "recovered_in_same_session": true,
+      "perception_condition": "local_asr_tools"
     },
     {
       "key": "deepseek",
@@ -62,7 +64,30 @@
       "score_policy": "dialect-v2-equivalence-audit1",
       "harness": "Codex CLI",
       "harness_version": "codex-cli 0.167.0-alpha.4.1",
-      "recovered_in_same_session": false
+      "recovered_in_same_session": false,
+      "perception_condition": "local_asr_tools"
+    },
+    {
+      "key": "qwen-native",
+      "label": "Qwen3.8 Omni · 原生",
+      "model": "qwen3.8-omni-flash",
+      "effort": "thinking",
+      "provider": "DashScope",
+      "score": 35.78571428571428,
+      "semantic_score": 25.78571428571428,
+      "organization_score": 5.0,
+      "delivery_score": 5,
+      "original_score": 35.25,
+      "elapsed_seconds": 9123.781,
+      "tag": "qwen_native_code_v2_20261116_r1",
+      "judge": "gpt-6.1-terra",
+      "judge_effort": "high",
+      "judge_rounds": 1,
+      "score_policy": "dialect-v2-equivalence-audit1",
+      "harness": "Qwen Code",
+      "harness_version": "0.26.7",
+      "recovered_in_same_session": false,
+      "perception_condition": "native_audio_video_only"
     }
   ]
 }

@@ -1,0 +1,17 @@
+{
+  "version": "dialect-semantic-v0",
+  "total": 100,
+  "semantic": 90,
+  "organization": 5,
+  "delivery": 5,
+  "semantic_formula": "Per segment:2*TP/(G+TP+FP); TP=sum of atom credit 0/0.5/1, G=gold atom count, FP=count of distinct false/unsupported substantive assertions. Equal dialect weight, equal segment weight within dialect.",
+  "partial_rule": "0.5 only when a gold proposition has meaningful correct content but omits a qualifier or argument; a reversed core relation/polarity/event receives0. Matching fragments alone do not count as the full proposition.",
+  "fp_rule": "Count each distinct positive false/unsupported proposition once; repetitions do not multiply FP. Do not count explicit unknowns, harmless connective paraphrases, or rendering supplied dialect labels as invented content.",
+  "organization_rule": "5*mean of segment values:half for nonempty correctly assigned cues in the source segment, half for valid nonoverlapping timestamps,<=2 lines,<=22 nonspace chars/line and reading speed<=9chars/sec. Boundaries have0.25s tolerance; no phoneme timing gold.",
+  "delivery_rule": "SRT parses and mapping covers all segments:1; validMKV:1; matching original video elementary stream:1; matching original audio elementary stream:1; extractedMKVsubtitle matchesSRT:1.",
+  "judge_model": "gpt-6.1-terra",
+  "judge_effort": "high",
+  "main_judge_rounds": 1,
+  "caps": null,
+  "ground_truth": "Existing YuBao original transcript and Mandarin translation; explicit relational atoms derived before solver run."
+}

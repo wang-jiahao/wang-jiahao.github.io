@@ -1,9 +1,9 @@
 'use strict';
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;};
 async function show(){
- const params=new URLSearchParams(location.search),catalog=await(await fetch('files/case.json?v=20261116-2')).json();
+ const params=new URLSearchParams(location.search),catalog=await(await fetch('files/case.json?v=20261116-3')).json();
  const runs=catalog.runs,run=runs.find(r=>r.key===params.get('run'))||runs.find(r=>r.key==='sol'),key=run.key,prefix=run.asset_prefix;
- const data=await(await fetch(prefix+'files/trace.json?v=20261116-2')).json(),view=params.get('view')||'summary',content=document.getElementById('trace-content');
+ const data=await(await fetch(prefix+'files/trace.json?v=20261116-3')).json(),view=params.get('view')||'summary',content=document.getElementById('trace-content');
  const label=run.label+' · '+run.effort;document.getElementById('trace-title').textContent=label+' · 运行轨迹';document.title=label+' · 多方言字幕轨迹';
  document.getElementById('trace-model').replaceChildren(...runs.map(r=>{const o=el('option',r.label+' · '+r.effort);o.value=r.key;return o;}));
  const choice=document.getElementById('trace-model');choice.value=key;choice.addEventListener('change',e=>{location.href=`?run=${e.target.value}&view=${encodeURIComponent(view)}`;});
@@ -16,7 +16,7 @@ async function show(){
  }else{
   const ids=new Set((data.steps||[]).flatMap(s=>s.events||[])),events=view==='key'?data.events.filter(e=>ids.has(e.id)):data.events;
   if(!events.length)content.append(el('p','尚无关键步骤标记。','empty'));
-  for(const e of events){const box=el('article',undefined,'card trace-row');box.id=`event-${e.id}`;const status=e.tool?(e.tool==='api_error'?'接口报错':e.status==='completed'?'已返回工具反馈':e.status==='error'?'工具报错':'结果未记录'):`退出码 ${e.exit_code===null?'未记录':e.exit_code}`;box.append(el('h3',`${e.id} · ${e.title}`),el('p',status,'note'));const command=el('details');command.open=params.get('event')===String(e.id);command.append(el('summary','命令'),el('pre',e.command));box.append(command);const out=el('details');out.open=params.get('event')===String(e.id);out.append(el('summary','工具反馈'),el('pre',e.output||'[无终端输出]'));box.append(out);content.append(box);}
+  for(const e of events){const box=el('article',undefined,'card trace-row');box.id=`event-${e.id}`;const status=e.tool?(e.tool==='api_error'?'接口报错':e.tool==='visible_note'?'可见阶段说明':e.status==='completed'?'已返回工具反馈':e.status==='error'?'工具报错':'结果未记录'):`退出码 ${e.exit_code===null?'未记录':e.exit_code}`;box.append(el('h3',`${e.id} · ${e.title}`),el('p',status,'note'));const command=el('details');command.open=params.get('event')===String(e.id);command.append(el('summary','命令'),el('pre',e.command));box.append(command);const out=el('details');out.open=params.get('event')===String(e.id);out.append(el('summary','工具反馈'),el('pre',e.output||'[无终端输出]'));box.append(out);content.append(box);}
  }
  if(params.get('event'))requestAnimationFrame(()=>document.getElementById(`event-${params.get('event')}`)?.scrollIntoView());
 }
