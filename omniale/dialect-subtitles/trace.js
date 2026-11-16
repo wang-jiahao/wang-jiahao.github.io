@@ -1,9 +1,9 @@
 'use strict';
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;};
 async function show(){
- const params=new URLSearchParams(location.search),catalog=await(await fetch('files/case.json?v=20261117-1')).json();
+ const params=new URLSearchParams(location.search),catalog=await(await fetch('files/case.json?v=20261117-2')).json();
  const runs=catalog.runs,run=runs.find(r=>r.key===params.get('run'))||runs.find(r=>r.key==='sol'),key=run.key,prefix=run.asset_prefix;
- const data=await(await fetch(prefix+'files/trace.json?v=20261117-1')).json(),view=params.get('view')||'summary',content=document.getElementById('trace-content');
+ const data=await(await fetch(prefix+'files/trace.json?v=20261117-2')).json(),view=params.get('view')||'summary',content=document.getElementById('trace-content');
  const label=run.label+' · '+run.effort;document.getElementById('trace-title').textContent=label+' · 运行轨迹';document.title=label+' · 多方言字幕轨迹';
  document.getElementById('trace-model').replaceChildren(...runs.map(r=>{const o=el('option',r.label+' · '+r.effort);o.value=r.key;return o;}));
  const choice=document.getElementById('trace-model');choice.value=key;choice.addEventListener('change',e=>{location.href=`?run=${e.target.value}&view=${encodeURIComponent(view)}`;});
