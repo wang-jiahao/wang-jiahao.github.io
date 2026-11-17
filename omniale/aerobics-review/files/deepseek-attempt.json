@@ -1,4 +1,5 @@
 {
+  "tag": "ds_max_20261117_r02",
   "model": "deepseek-v4.1-flash-1017",
   "provider": "dashscope",
   "requested_effort": "max",
@@ -6,22 +7,10 @@
     {
       "model": "deepseek-v4.1-flash-1017",
       "effort": "max"
-    },
-    {
-      "model": "deepseek-v4.1-flash-1017",
-      "effort": "max"
-    },
-    {
-      "model": "deepseek-v4.1-flash-1017",
-      "effort": "max"
-    },
-    {
-      "model": "deepseek-v4.1-flash-1017",
-      "effort": "max"
     }
   ],
   "actual_request_parameters": {
-    "recorded_model_requests": 124,
+    "recorded_model_requests": 63,
     "models": [
       "deepseek-v4.1-flash-1017"
     ],
@@ -36,28 +25,24 @@
   },
   "material_version": "v2-floor",
   "rubric_version": "partial-v1",
-  "started_at": "2026-11-17T14:23:20.013362+00:00",
-  "finished_at": "2026-11-17T14:56:20.697955+00:00",
-  "elapsed_seconds": 1877.797,
-  "initial_interruption_elapsed_seconds": 1632.781,
-  "recovery_elapsed_seconds": 245.016,
-  "resume_count": 1,
-  "elapsed_policy": "sum of measured original and same-session recovery solve segments; no fresh solve",
-  "exit_code": 4294967295,
+  "started_at": "2026-11-17T15:21:43.189337+00:00",
+  "finished_at": "2026-11-17T15:31:58.305853+00:00",
+  "elapsed_seconds": 615.109,
+  "initial_interruption_elapsed_seconds": null,
+  "recovery_elapsed_seconds": null,
+  "resume_count": null,
+  "elapsed_policy": null,
+  "exit_code": 1,
   "turn_completed": false,
-  "turn_failed": false,
+  "turn_failed": true,
   "state": "api_or_execution_failure",
   "score": null,
-  "initial_interruption": {
-    "exit_code": 1,
-    "turn_failed": true,
-    "error": "DashScope stream InternalError.Algo inappropriate-content filter"
-  },
+  "initial_interruption": null,
   "codex_version": "codex-cli 0.169.0-alpha.11.1",
   "network": "enabled; direct model API; normal user download proxy; live web search",
   "execution_budget": "no fixed cutoff",
   "score_eligible": false,
   "reason": "DashScope SSE InternalError.Algo: Input data may contain inappropriate content; interrupted before final delivery.",
-  "recovery_stopped_by_organizer": true,
-  "recovery_stop_reason": "Same-session recovery repeatedly returned identical DashScope content filter errors without useful new work; stopped this failed recovery after repeated errors."
+  "recovery_stopped_by_organizer": null,
+  "recovery_stop_reason": null
 }
