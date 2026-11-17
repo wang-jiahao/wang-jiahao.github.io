@@ -1,0 +1,650 @@
+{
+  "version": "pilot-v8-human1",
+  "score": 55.55555555555556,
+  "source_results": [
+    {
+      "score": 0.0,
+      "adopted_voter_id": "A",
+      "breakdown": {
+        "voter_id": "A",
+        "score": 0.0,
+        "matched_count": 0,
+        "gold_count": 6,
+        "matched_quality": 0,
+        "unsupported_count": 2,
+        "uncertain_count": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matches": [],
+        "unsupported": [
+          {
+            "check_id": "G01",
+            "claim": "96.85–97.6秒签字镜头中左手威士忌杯在落向桌面时融碎，随后空掌压纸、桌面无杯。",
+            "status": "unsupported",
+            "reason": "源片该段连续帧显示酒杯在约97秒与98秒仍完整持于抬起的手中、液体与杯壁清晰，约99秒硬切至窗外礼车；并未出现杯体缩成透明碎形或空掌压纸而桌上无杯的形态。先前对同一持杯—签字事件的细查亦判为正常放置/运镜出画，故‘异常融化消失’被源片反证。",
+            "intervals": [
+              {
+                "start_s": 96.85,
+                "end_s": 97.6
+              }
+            ],
+            "audio_fact": "该处为‘fill my cup… sign a check’乐句，无与杯体形变对应的音效需求。",
+            "visual_fact": "97–98秒酒杯完整持于抬手，99秒切镜；无融碎帧、无‘空手压纸且桌面无杯’的连续证据。",
+            "criterion_id": "V3"
+          },
+          {
+            "check_id": "G03",
+            "claim": "剧院大灯箱排片文字为无意义字串（MTM/ELAGL、MAHECTHARD/ENTM YIHEAS），40–44.9秒与115.5–120.3秒两处可见。",
+            "status": "unsupported",
+            "reason": "该影院招牌乱码正是用户亲自回看源片后从GT移除的R001；115.5–120.3秒为同一灯箱在金龙镜头的复现，属同一被人工否定的命题。将其重新提交为确定需改违反人工排除约束。",
+            "intervals": [
+              {
+                "start_s": 40.0,
+                "end_s": 44.9
+              },
+              {
+                "start_s": 115.5,
+                "end_s": 120.3
+              }
+            ],
+            "audio_fact": "该段为男声主唱乐句，与招牌文字无对应关系。",
+            "visual_fact": "金龙旁灯箱显示上述字串，与R001所描述为同一画面元素。",
+            "criterion_id": "V5"
+          }
+        ],
+        "uncertain": [
+          {
+            "check_id": "G02",
+            "claim": "122.65–124.75秒正面演唱近景在‘my band…money’处缺少/m/、/b/闭唇构音，持续露齿或圆唇。",
+            "status": "uncertain",
+            "reason": "该窗确为居中前景对口型表演，但可得的1秒间隔帧仅见张口/微笑构型，无法在所需亚秒分辨率确认闭唇缺失；相邻120–122秒的口型候选已被独立细查否决（表演者随后有明确articulation），本窗既不能坐实也不能确证排除，证据不足。",
+            "intervals": [
+              {
+                "start_s": 122.65,
+                "end_s": 124.75
+              }
+            ],
+            "audio_fact": "原声此段为前景男声‘and my band ’bout that money, break it down’，含/m/、/b/闭塞音。",
+            "visual_fact": "123–124秒男主张口/微笑，1秒采样无法分辨短暂闭唇是否发生。",
+            "criterion_id": "AV3"
+          }
+        ],
+        "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+      },
+      "individual_judge_results": [
+        {
+          "voter_id": "A",
+          "score": 0.0,
+          "matched_count": 0,
+          "gold_count": 6,
+          "matched_quality": 0,
+          "unsupported_count": 2,
+          "uncertain_count": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "matches": [],
+          "unsupported": [
+            {
+              "check_id": "G01",
+              "claim": "96.85–97.6秒签字镜头中左手威士忌杯在落向桌面时融碎，随后空掌压纸、桌面无杯。",
+              "status": "unsupported",
+              "reason": "源片该段连续帧显示酒杯在约97秒与98秒仍完整持于抬起的手中、液体与杯壁清晰，约99秒硬切至窗外礼车；并未出现杯体缩成透明碎形或空掌压纸而桌上无杯的形态。先前对同一持杯—签字事件的细查亦判为正常放置/运镜出画，故‘异常融化消失’被源片反证。",
+              "intervals": [
+                {
+                  "start_s": 96.85,
+                  "end_s": 97.6
+                }
+              ],
+              "audio_fact": "该处为‘fill my cup… sign a check’乐句，无与杯体形变对应的音效需求。",
+              "visual_fact": "97–98秒酒杯完整持于抬手，99秒切镜；无融碎帧、无‘空手压纸且桌面无杯’的连续证据。",
+              "criterion_id": "V3"
+            },
+            {
+              "check_id": "G03",
+              "claim": "剧院大灯箱排片文字为无意义字串（MTM/ELAGL、MAHECTHARD/ENTM YIHEAS），40–44.9秒与115.5–120.3秒两处可见。",
+              "status": "unsupported",
+              "reason": "该影院招牌乱码正是用户亲自回看源片后从GT移除的R001；115.5–120.3秒为同一灯箱在金龙镜头的复现，属同一被人工否定的命题。将其重新提交为确定需改违反人工排除约束。",
+              "intervals": [
+                {
+                  "start_s": 40.0,
+                  "end_s": 44.9
+                },
+                {
+                  "start_s": 115.5,
+                  "end_s": 120.3
+                }
+              ],
+              "audio_fact": "该段为男声主唱乐句，与招牌文字无对应关系。",
+              "visual_fact": "金龙旁灯箱显示上述字串，与R001所描述为同一画面元素。",
+              "criterion_id": "V5"
+            }
+          ],
+          "uncertain": [
+            {
+              "check_id": "G02",
+              "claim": "122.65–124.75秒正面演唱近景在‘my band…money’处缺少/m/、/b/闭唇构音，持续露齿或圆唇。",
+              "status": "uncertain",
+              "reason": "该窗确为居中前景对口型表演，但可得的1秒间隔帧仅见张口/微笑构型，无法在所需亚秒分辨率确认闭唇缺失；相邻120–122秒的口型候选已被独立细查否决（表演者随后有明确articulation），本窗既不能坐实也不能确证排除，证据不足。",
+              "intervals": [
+                {
+                  "start_s": 122.65,
+                  "end_s": 124.75
+                }
+              ],
+              "audio_fact": "原声此段为前景男声‘and my band ’bout that money, break it down’，含/m/、/b/闭塞音。",
+              "visual_fact": "123–124秒男主张口/微笑，1秒采样无法分辨短暂闭唇是否发生。",
+              "criterion_id": "AV3"
+            }
+          ],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        },
+        {
+          "voter_id": "B",
+          "score": 0.0,
+          "matched_count": 0,
+          "gold_count": 6,
+          "matched_quality": 0,
+          "unsupported_count": 2,
+          "uncertain_count": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "matches": [],
+          "unsupported": [
+            {
+              "check_id": "G01",
+              "claim": "96.85–97.6秒签字镜头中，左手水晶威士忌杯在落向桌面过程中内容物与杯体异常消失，随后空手直接压纸，桌上无已放下的杯子。",
+              "status": "unsupported",
+              "reason": "独立原片三票复核：reject；候选的两项必要事实均不成立：(1)'内容物在仍持于手中时消失'——男子杯变空发生在其举杯到嘴边饮用之后，属正常消耗；女子杯内容物直至出画仍完整可见。(2)'杯体无交代消失'——97.2秒帧显示手携杯下落，97.5秒手按纸，杯离开可见区可由画框裁切/遮挡解释，采样缺帧不能断言凭空蒸发。按规则不得从采样缺路径直接判定物体消失，且饮用、放杯、出画等合理解释未被排除，故reject。；候选的必要事实不成立：内容物变化发生在举杯至嘴边倾斜饮用之后，属正常消耗动作而非'落向桌面过程中凭空蒸发'；杯体离手有明确的向下放置轨迹，且先前对同一窗口的独立观察已记录杯子放回桌面、之后因构图移出画面。'手中蒸发+桌上无杯'的物体连续性指控被饮用动作与放杯-运镜解释排除，不构成新故障。；候选的必要事实不成立：液体与杯体在放置动作全程可见，未发生'手中蒸发'；其后杯子不可见发生在画框右缘裁切与右摇运镜之下，属可验证的正常出画路径，不能由采样中不可见直接断言凭空消失。候选的1fps观察描述（97.0s空杯在原位、98.0s手压纸）与实际帧序矛盾，系对时间线的误读。故reject。",
+              "intervals": [
+                {
+                  "start_s": 96.85,
+                  "end_s": 97.6
+                }
+              ],
+              "audio_fact": "该段为连续放克groove与唱词，无与持杯相关的音效；判定不依赖声音。",
+              "visual_fact": "96.0s杯中琥珀液体+冰块清晰；97.0s同手同位置杯子透明空置；98.0s手压纸书写、桌面无落杯。",
+              "criterion_id": "V3"
+            },
+            {
+              "check_id": "G03",
+              "claim": "40.0–44.9秒及115.5–120.3秒剧院大灯箱排片文字为无意义字串（MTM/ELAGL、MAHECTHARD/ENTM YIHEAS），构成生成文本伪影需修改。",
+              "status": "unsupported",
+              "reason": "该命题与已被用户亲自回看源片否定并从GT移除的R001为同一事实（影院招牌文字/顶部数字乱码）；按人工修正约束，已被判正常的具体事件不得复活，提交仍将其列为确认需改（revise/minor），故记为unsupported。115.5–120.3秒的金龙场景复用同一招牌，同属该被否定命题。",
+              "intervals": [
+                {
+                  "start_s": 40.0,
+                  "end_s": 44.9
+                },
+                {
+                  "start_s": 115.5,
+                  "end_s": 120.3
+                }
+              ],
+              "audio_fact": "该段为男声主唱乐句，与招牌文字无对应关系。",
+              "visual_fact": "影院雨夜与金龙镜头中灯箱显示上述字串，与人工否定前的原始标注一致。",
+              "criterion_id": "V5"
+            }
+          ],
+          "uncertain": [
+            {
+              "check_id": "G02",
+              "claim": "122.65–124.75秒正面演唱近景在'my band…money'处缺少/m/、/b/闭唇构音，口型持续露齿或圆唇。",
+              "status": "uncertain",
+              "reason": "源片该窗口确为居中朝镜头的前景对口型表演（123–125秒男子面向镜头张口演唱并指点），音轨此处有对应唱词线；但传输帧为1秒采样，124.0与125.0秒均呈开口形态，无法在现有采样下确证123.3/124.4秒闭唇起音缺失，亦无反证直接否定提交所述逐帧证据，证据不足故维持不确定。",
+              "intervals": [
+                {
+                  "start_s": 122.65,
+                  "end_s": 124.75
+                }
+              ],
+              "audio_fact": "前景男声唱词线包含my/band/money等含双唇音的乐句，非无词间奏。",
+              "visual_fact": "123–125秒男子正面张口演唱、指点，1fps帧未见可辨的闭唇构音帧。",
+              "criterion_id": "AV3"
+            }
+          ],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        },
+        {
+          "voter_id": "C",
+          "score": 0.0,
+          "matched_count": 0,
+          "gold_count": 6,
+          "matched_quality": 0,
+          "unsupported_count": 1,
+          "uncertain_count": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "matches": [],
+          "unsupported": [
+            {
+              "check_id": "G03",
+              "claim": "40–44.9秒及115.5–120.3秒剧院排片大灯箱文字为无意义拼接字串（MAHECTHARD/ENTM YIHEAS、MTM/ELAGL），构成生成文本伪影。",
+              "status": "unsupported",
+              "reason": "此命题即已被用户亲自回看源片否定并从当前GT移除的R001（影院招牌文字/顶部数字乱码）。人工修正明确将该事件判为正常、不可复活；交付仍把它作为确定需改（revise, minor）提交，属复活被人工否定的命题，按unsupported记录，不计入覆盖也不作新根因。",
+              "intervals": [
+                {
+                  "start_s": 40.0,
+                  "end_s": 44.9
+                },
+                {
+                  "start_s": 115.5,
+                  "end_s": 120.3
+                }
+              ],
+              "audio_fact": "该段为男声主唱乐句，歌词与招牌文字无对应，文字问题纯属画面。",
+              "visual_fact": "金龙旁雨夜影院镜头中招牌灯箱显示多行拉丁字母字串；用户已确认该处不作为生成缺陷。",
+              "criterion_id": "V5"
+            }
+          ],
+          "uncertain": [
+            {
+              "check_id": "G01",
+              "claim": "96.85–97.6秒签字镜头中左手威士忌杯在落向桌面过程中融解成不完整透明碎形并消失，随后空手直接压纸。",
+              "status": "uncertain",
+              "reason": "该事件不在当前GT根因内，也未被人工排除。源片90–108秒段可见96秒左手持带冰酒杯、97秒杯体随手臂移动、98秒杯已离框且桌面空置；稀疏帧下杯体'融解成碎形'的细节无法确证，亦无法完全排除正常放杯+镜头右移出框的读法（同区预筛C011三票均倾向正常放置/平移解释）。证据不足但不能反证，故记uncertain，不作误报也不计入覆盖。",
+              "intervals": [
+                {
+                  "start_s": 96.85,
+                  "end_s": 97.6
+                }
+              ],
+              "audio_fact": "该处为'sign a check'前后的人声乐句，无与持杯/落杯对应的拟音要求。",
+              "visual_fact": "96秒左手水晶杯含冰块清晰、97秒杯随手臂位移、98秒桌面与左缘已无杯，手在纸上横扫；'缩成碎形后蒸发'的中间态在采样帧中不可稳定辨认。",
+              "criterion_id": "V3"
+            },
+            {
+              "check_id": "G02",
+              "claim": "122.65–124.75秒正面演唱近景在'my/band/money'闭唇起音处持续露齿或圆唇，构音与原声不符。",
+              "status": "uncertain",
+              "reason": "该口型构音问题不在当前GT根因内。源片108–126秒段120–124秒为追光舞台胡须男先整理袖扣后张口演唱，原声此带确为男声主线'my band 'bout that money'；但稀疏帧无法逐帧确认/m/、/b/闭唇释放的缺失，且同区预筛C012（120–122闭嘴）三票未达成确认。视觉张口与元音开合可见，闭唇细节证据不足，故记uncertain。",
+              "intervals": [
+                {
+                  "start_s": 122.65,
+                  "end_s": 124.75
+                }
+              ],
+              "audio_fact": "原声此处为前景男声节奏唱词，含my、band、money等含双唇音的句段。",
+              "visual_fact": "居中朝镜头的紫红西装胡须男在无遮挡近景中连续张口演唱，123–124秒口型以开合元音为主，采样帧下不能确证双唇闭合动作缺失。",
+              "criterion_id": "AV3"
+            }
+          ],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        }
+      ],
+      "solver_runs": 1,
+      "subtask": "MV-only development screening; not the8candidate+2MV combined case",
+      "same_model_judge_consensus": true,
+      "development_cpu": true,
+      "gpu_validation_pending": true,
+      "source_id": "mv_uptown",
+      "judge_directory_prefix": "judge-",
+      "source_median_score": 0.0
+    },
+    {
+      "score": 100.0,
+      "adopted_voter_id": "A",
+      "breakdown": {
+        "voter_id": "A",
+        "score": 100.0,
+        "matched_count": 5,
+        "gold_count": 5,
+        "matched_quality": 5.0,
+        "unsupported_count": 0,
+        "uncertain_count": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "matches": [
+          {
+            "root_id": "R001",
+            "check_ids": [
+              "G04"
+            ],
+            "quality": 1.0,
+            "reason": "G04定位2.9–4.3s绿色数字钟特写，指出3.1s显示12:85（非法分钟位）、后续读数跳变至16:27/16:23再到15:22，音轨无缝延续无蒙太奇标记。与GT E009（2.8–3.5s，12:85→16:87→16:27→16:22→15:22）同一机制：相邻帧内无效读数与小时级非单调倒退，属场内数字渲染不稳定。提交覆盖核心非法分钟值与连续漂移事实。"
+          },
+          {
+            "root_id": "R003",
+            "check_ids": [
+              "G08"
+            ],
+            "quality": 1.0,
+            "reason": "G08定位93.83–96.8s毕业幻想镜头，字幕显示'give my college degree'，原声Whisper与本地Omni均识别为'get my college degree'，构成单字实词转写替换错误。与GT Xa41007fe3a37-NE005（93.9–96.77s）同一实例：give/get肯否/动词替换，字幕轨内容错误。提交提供音频盲听证据与字幕原帧，核心事实成立。"
+          },
+          {
+            "root_id": "R004",
+            "check_ids": [
+              "G05"
+            ],
+            "quality": 1.0,
+            "reason": "G05定位121.2–122.85s前景手持手机屏幕，指出联系人/消息字段为'KTREIMENIC Dim''SEIE RENERD 6im'等逐字可辨但无语义的随机拉丁字母/数字拼接串，UI框架完整（蓝色栏、绿色按钮、底部图标）而内容空洞。与GT E007（121.0–123.0s）同一机制：非模糊/马赛克/占位符，而是可辨无意义字符串。提交覆盖核心乱码事实。"
+          },
+          {
+            "root_id": "Xa41007fe3a37-R001",
+            "check_ids": [
+              "G06"
+            ],
+            "quality": 1.0,
+            "reason": "G06定位93.9–94.35s与95.9–96.4s，描述双手握黑色手柄→举拳时手柄消失（拳内无体积轮廓）→双手回落时手柄无可见转移/遮挡/切镜路径地重新出现。与GT Xa41007fe3a37-NE002（93.8–94.3, 95.93–96.4）同一事件：同一连续毕业镜头内道具保持断裂。提交给出前后帧对比与无交接路径论证，核心事实成立。"
+          },
+          {
+            "root_id": "Xa41007fe3a37-R003",
+            "check_ids": [
+              "G07"
+            ],
+            "quality": 1.0,
+            "reason": "G07定位124.85–125.9s，描述被扔向洗衣篮的手机从刚性薄矩形亮屏→合理侧转→不可逆增厚变暗→两端鼓起中间收窄的黑色软物→落入篮中，全程无切镜。与GT Xa41007fe3a37-NE004（124.63–125.33）同一机制：几何形态突变无法用刚体旋转或透视解释。提交覆盖从翻转到变形到落篮的连续轨迹，排除运动模糊单帧误判。"
+          }
+        ],
+        "unsupported": [],
+        "uncertain": [
+          {
+            "check_id": "G09",
+            "claim": "床上正面演唱'comb my hair'时（约133.6–134.4s），comb尾音/m/与my起音/m/缺少连续闭唇，嘴反复作圆口/大开口，口型未按实际辅音构音。",
+            "status": "uncertain",
+            "reason": "该命题与参考扩展中NE001第二context（132.0–135.9s）高度重合，NE001已被标记uncertain，理由包括：本片为卧室/睡衣喜剧即兴演唱风格而非严格对口型MV，辅音构音视觉精确度不在该风格合理预期内；且歌唱中连读/舒展唱腔可改变开口幅度。G09虽声称使用30fps全帧核对，但GT流程未将该AV3口型问题确认为独立根因，人工排除亦未涉及。在缺乏导演委托明确要求精确口型的前提下，不能仅凭辅音窗口内未见闭唇即强判需改。",
+            "intervals": [
+              {
+                "start_s": 132.9,
+                "end_s": 134.5
+              }
+            ],
+            "audio_fact": "原声连续男声唱'...ain't gonna comb my hair'，Whisper定位comb约133.6–134.02s、my约133.96–134.36s。",
+            "visual_fact": "133.60–133.70s张开圆口，133.73–133.87s收小仍留开口，133.90–134.17s大张口露齿舌；comb→my连续/m/位置未见双唇接触。",
+            "criterion_id": "AV3"
+          }
+        ],
+        "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+      },
+      "individual_judge_results": [
+        {
+          "voter_id": "A",
+          "score": 100.0,
+          "matched_count": 5,
+          "gold_count": 5,
+          "matched_quality": 5.0,
+          "unsupported_count": 0,
+          "uncertain_count": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "matches": [
+            {
+              "root_id": "R001",
+              "check_ids": [
+                "G04"
+              ],
+              "quality": 1.0,
+              "reason": "G04定位2.9–4.3s绿色数字钟特写，指出3.1s显示12:85（非法分钟位）、后续读数跳变至16:27/16:23再到15:22，音轨无缝延续无蒙太奇标记。与GT E009（2.8–3.5s，12:85→16:87→16:27→16:22→15:22）同一机制：相邻帧内无效读数与小时级非单调倒退，属场内数字渲染不稳定。提交覆盖核心非法分钟值与连续漂移事实。"
+            },
+            {
+              "root_id": "R003",
+              "check_ids": [
+                "G08"
+              ],
+              "quality": 1.0,
+              "reason": "G08定位93.83–96.8s毕业幻想镜头，字幕显示'give my college degree'，原声Whisper与本地Omni均识别为'get my college degree'，构成单字实词转写替换错误。与GT Xa41007fe3a37-NE005（93.9–96.77s）同一实例：give/get肯否/动词替换，字幕轨内容错误。提交提供音频盲听证据与字幕原帧，核心事实成立。"
+            },
+            {
+              "root_id": "R004",
+              "check_ids": [
+                "G05"
+              ],
+              "quality": 1.0,
+              "reason": "G05定位121.2–122.85s前景手持手机屏幕，指出联系人/消息字段为'KTREIMENIC Dim''SEIE RENERD 6im'等逐字可辨但无语义的随机拉丁字母/数字拼接串，UI框架完整（蓝色栏、绿色按钮、底部图标）而内容空洞。与GT E007（121.0–123.0s）同一机制：非模糊/马赛克/占位符，而是可辨无意义字符串。提交覆盖核心乱码事实。"
+            },
+            {
+              "root_id": "Xa41007fe3a37-R001",
+              "check_ids": [
+                "G06"
+              ],
+              "quality": 1.0,
+              "reason": "G06定位93.9–94.35s与95.9–96.4s，描述双手握黑色手柄→举拳时手柄消失（拳内无体积轮廓）→双手回落时手柄无可见转移/遮挡/切镜路径地重新出现。与GT Xa41007fe3a37-NE002（93.8–94.3, 95.93–96.4）同一事件：同一连续毕业镜头内道具保持断裂。提交给出前后帧对比与无交接路径论证，核心事实成立。"
+            },
+            {
+              "root_id": "Xa41007fe3a37-R003",
+              "check_ids": [
+                "G07"
+              ],
+              "quality": 1.0,
+              "reason": "G07定位124.85–125.9s，描述被扔向洗衣篮的手机从刚性薄矩形亮屏→合理侧转→不可逆增厚变暗→两端鼓起中间收窄的黑色软物→落入篮中，全程无切镜。与GT Xa41007fe3a37-NE004（124.63–125.33）同一机制：几何形态突变无法用刚体旋转或透视解释。提交覆盖从翻转到变形到落篮的连续轨迹，排除运动模糊单帧误判。"
+            }
+          ],
+          "unsupported": [],
+          "uncertain": [
+            {
+              "check_id": "G09",
+              "claim": "床上正面演唱'comb my hair'时（约133.6–134.4s），comb尾音/m/与my起音/m/缺少连续闭唇，嘴反复作圆口/大开口，口型未按实际辅音构音。",
+              "status": "uncertain",
+              "reason": "该命题与参考扩展中NE001第二context（132.0–135.9s）高度重合，NE001已被标记uncertain，理由包括：本片为卧室/睡衣喜剧即兴演唱风格而非严格对口型MV，辅音构音视觉精确度不在该风格合理预期内；且歌唱中连读/舒展唱腔可改变开口幅度。G09虽声称使用30fps全帧核对，但GT流程未将该AV3口型问题确认为独立根因，人工排除亦未涉及。在缺乏导演委托明确要求精确口型的前提下，不能仅凭辅音窗口内未见闭唇即强判需改。",
+              "intervals": [
+                {
+                  "start_s": 132.9,
+                  "end_s": 134.5
+                }
+              ],
+              "audio_fact": "原声连续男声唱'...ain't gonna comb my hair'，Whisper定位comb约133.6–134.02s、my约133.96–134.36s。",
+              "visual_fact": "133.60–133.70s张开圆口，133.73–133.87s收小仍留开口，133.90–134.17s大张口露齿舌；comb→my连续/m/位置未见双唇接触。",
+              "criterion_id": "AV3"
+            }
+          ],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        },
+        {
+          "voter_id": "B",
+          "score": 100.0,
+          "matched_count": 5,
+          "gold_count": 5,
+          "matched_quality": 5.0,
+          "unsupported_count": 0,
+          "uncertain_count": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "matches": [
+            {
+              "root_id": "R001",
+              "check_ids": [
+                "G04"
+              ],
+              "quality": 1.0,
+              "reason": "G04 在连续绿色钟特写（源约2.9–4.3s）中指出分钟位出现非法读数12:85并伴随小时级漂移/倒退（16:2x→15:22），同期音轨无缝、无切镜或时间跳转标记，正对应本场内数字渲染不稳定根因；提交给出的非法分钟值与失稳序列与源片帧一致。"
+            },
+            {
+              "root_id": "R003",
+              "check_ids": [
+                "G08"
+              ],
+              "quality": 1.0,
+              "reason": "G08 记录毕业幻想镜头底部字幕写为“give my college degree”，而原声男声唱“get my college degree”，构成同一条烧录字幕轨的实词转写替换实例，满足该根因“任一成立实例即可覆盖”的匹配政策；提交附带原声WAV与字幕帧佐证，定位区间93.83–96.8s包含该字幕停留全程。"
+            },
+            {
+              "root_id": "R004",
+              "check_ids": [
+                "G05"
+              ],
+              "quality": 1.0,
+              "reason": "G05 在前景手持手机近景（源121.2–122.85s）指出屏幕UI框架完整（状态栏、气泡、绿色按钮、底部图标清晰）但联系人/消息/按钮文字均为逐字可辨却无语义的随机字母数字串（如KTREIMENIC Dim、SEIE RENERD 6im、Gecrhen Lomn），与源片帧吻合，正属内容空洞型场内文字缺陷。"
+            },
+            {
+              "root_id": "Xa41007fe3a37-R001",
+              "check_ids": [
+                "G06"
+              ],
+              "quality": 1.0,
+              "reason": "G06 在同一连续毕业幻想镜头内描述黑色手柄于举拳瞬间从手中消失（空拳无手柄体积轮廓）、双手回落时又无可见转移/遮挡/切镜路径地恢复握持，源片帧序列支持该道具保持断裂，定位区间93.9–94.35与95.9–96.4覆盖消失与复现两阶段。"
+            },
+            {
+              "root_id": "Xa41007fe3a37-R003",
+              "check_ids": [
+                "G07"
+              ],
+              "quality": 1.0,
+              "reason": "G07 在同一连续室内抛物线镜头中描述薄矩形亮屏手机先合理侧转变窄、随后不可逆增厚变暗并出现弯曲凹口，最终以不规则软黑块落入衣篮，几何突变无法用刚体旋转或透视解释，与源片飞行轨迹帧一致，定位区间124.85–125.9s涵盖变形至落地。"
+            }
+          ],
+          "unsupported": [],
+          "uncertain": [
+            {
+              "check_id": "G09",
+              "claim": "床上正面演唱“comb my hair”时（源132.9–134.5s），comb尾音与my起音缺少连续闭唇构音，嘴反复作圆口/大开口，属AV3口型-辅音失配。",
+              "status": "uncertain",
+              "reason": "该断言对应参考扩展中已被列为uncertain的NE001（同一comb→my /m/闭唇窗口）。所提供抽帧密度不足以排除50–100ms辅音闭合落在采样间隙的可能，且本片为卧室/睡衣喜剧即兴演唱风格而非严格对口型MV，构成未被排除的正常解释；源片帧既不反证也无法确证闭唇真正缺失，故不能升格为确定需改的novel_valid，亦非unsupported。",
+              "intervals": [
+                {
+                  "start_s": 132.9,
+                  "end_s": 134.5
+                }
+              ],
+              "audio_fact": "原声连续男声唱“...ain't gonna comb my hair”，Whisper将comb/my定位于约133.6–134.4s。",
+              "visual_fact": "源132.9–134.5s（Video 8 local约6.9–8.5s）男子坐于床上正面演唱，可见帧多为张口/圆口，无明显双唇接触帧，但采样间隔下闭唇帧可能缺失。",
+              "criterion_id": "AV3"
+            }
+          ],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        },
+        {
+          "voter_id": "C",
+          "score": 100.0,
+          "matched_count": 5,
+          "gold_count": 5,
+          "matched_quality": 5.0,
+          "unsupported_count": 0,
+          "uncertain_count": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "matches": [
+            {
+              "root_id": "R001",
+              "check_ids": [
+                "G04"
+              ],
+              "quality": 1.0,
+              "reason": "G04定位2.9–4.3s，覆盖GT示例E009的2.8–3.5s核心区间；提交具体列出12:85非法分钟读数及16:xx→15:22小时级倒退，与GT描述的无效时间值和非单调回归一致；音轨无缝延续无蒙太奇标记，提交亦确认同一镜头连续运动无切镜。"
+            },
+            {
+              "root_id": "R003",
+              "check_ids": [
+                "G08"
+              ],
+              "quality": 1.0,
+              "reason": "G08定位93.83–96.8s，与GT示例Xa41007fe3a37-NE005的93.9–96.77s高度吻合；提交明确指出字幕'give my college degree'与原声'get my college degree'的实词替换错误，并提供Whisper及本地音频模型回查作为声音证据，视觉证据为毕业幻想镜头底部字幕持续显示give。"
+            },
+            {
+              "root_id": "R004",
+              "check_ids": [
+                "G05"
+              ],
+              "quality": 1.0,
+              "reason": "G05定位121.2–122.85s，与GT示例E007的121.0–123.0s吻合；提交具体列出屏幕文字'KTREIMENIC Dim''SEIE RENERD 6im'等无意义字母数字拼接串，确认UI框架完整（蓝色栏、绿色按钮、底部图标）但内容空洞，非模糊或马赛克处理。"
+            },
+            {
+              "root_id": "Xa41007fe3a37-R001",
+              "check_ids": [
+                "G06"
+              ],
+              "quality": 1.0,
+              "reason": "G06定位93.9–94.35s及95.9–96.4s，与GT示例的93.8–94.3s及95.93–96.4s吻合；提交描述双手握柄→举拳时手柄消失（拳内无体积轮廓）→双手回落时手柄无路径恢复的完整过程，确认同一连续毕业镜头内无切镜、无掉落轨迹或拿取动作。"
+            },
+            {
+              "root_id": "Xa41007fe3a37-R003",
+              "check_ids": [
+                "G07"
+              ],
+              "quality": 1.0,
+              "reason": "G07定位124.85–125.9s，覆盖GT示例124.63–125.33s的变形核心阶段；提交描述同一抛物线上亮屏细薄矩形→翻转细边→鼓厚变暗→两端鼓起中间收窄的黑色软物→落入洗衣篮的连续形态突变，排除刚体旋转或透视解释，背景天花板窗帘一致无切镜。"
+            }
+          ],
+          "unsupported": [],
+          "uncertain": [
+            {
+              "check_id": "G09",
+              "claim": "132.9–134.5s正面演唱'comb my hair'时，comb尾音与my起音缺少连续闭唇构音，嘴反复作圆口/大开口。",
+              "status": "uncertain",
+              "reason": "该命题对应未确认候选NE001的第二context（132.0–135.9s）。提交提供30fps逐帧分析及Whisper定位作为证据，但原始不确定理由仍有效：本片为卧室/睡衣/猴面具喜剧即兴演唱风格，辅音构音视觉精确度不在该风格合理预期内；且/p/、/m/闭合时长通常50–100ms，即使30fps采样也可能落在帧间。正常解释（风格不要求严格对口型）未被充分排除。",
+              "intervals": [
+                {
+                  "start_s": 132.9,
+                  "end_s": 134.5
+                }
+              ],
+              "audio_fact": "原声男声连续唱'...ain't gonna comb my hair'，Whisper定位comb约133.6–134.02s、my约133.96–134.36s。",
+              "visual_fact": "提交称133.60–133.70s张圆口，133.73–133.87s收小仍留开口，133.90–134.17s大张口露齿舌；但原始标注指出5fps采样下S00-00段1.8s帧显示唇部收拢，与'全程无闭合'存在矛盾。",
+              "criterion_id": "AV3"
+            }
+          ],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        }
+      ],
+      "solver_runs": 1,
+      "subtask": "MV-only development screening; not the8candidate+2MV combined case",
+      "same_model_judge_consensus": true,
+      "development_cpu": true,
+      "gpu_validation_pending": true,
+      "source_id": "mv_lazy",
+      "judge_directory_prefix": "judge-",
+      "source_median_score": 100.0
+    }
+  ],
+  "combined_breakdown": {
+    "voter_id": "A",
+    "score": 55.55555555555556,
+    "matched_quality": 5.0,
+    "gold_count": 11,
+    "matched_count": 5,
+    "unsupported_count": 2,
+    "precision": 0.7142857142857143,
+    "recall": 0.45454545454545453
+  },
+  "individual_joint_judge_results": [
+    {
+      "voter_id": "A",
+      "score": 55.55555555555556,
+      "matched_quality": 5.0,
+      "gold_count": 11,
+      "matched_count": 5,
+      "unsupported_count": 2,
+      "precision": 0.7142857142857143,
+      "recall": 0.45454545454545453
+    },
+    {
+      "voter_id": "B",
+      "score": 55.55555555555556,
+      "matched_quality": 5.0,
+      "gold_count": 11,
+      "matched_count": 5,
+      "unsupported_count": 2,
+      "precision": 0.7142857142857143,
+      "recall": 0.45454545454545453
+    },
+    {
+      "voter_id": "C",
+      "score": 58.82352941176471,
+      "matched_quality": 5.0,
+      "gold_count": 11,
+      "matched_count": 5,
+      "unsupported_count": 1,
+      "precision": 0.8333333333333334,
+      "recall": 0.45454545454545453
+    }
+  ],
+  "adopted_voter_id": "A",
+  "coverage_score": 45.45454545454545,
+  "model": "gpt-6.1-sol",
+  "effort": "xhigh",
+  "solver_runs": 1,
+  "elapsed_seconds": 2861.781,
+  "development_cpu": true,
+  "gpu_validation_pending": true,
+  "same_model_judge_consensus": true,
+  "applied_human_corrections": true,
+  "common_reference": "gold.json",
+  "common_reference_sha256": "9952d6be7adc374ffac7c07d341cbb0636e251445afb1f206eee514ff34eef14",
+  "judge_directory_prefix": "judge-",
+  "source_resolved": true
+}

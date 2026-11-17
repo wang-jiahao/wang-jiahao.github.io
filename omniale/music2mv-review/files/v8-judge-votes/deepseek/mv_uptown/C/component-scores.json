@@ -1,0 +1,66 @@
+{
+  "score": 0.0,
+  "matched_count": 0,
+  "gold_count": 6,
+  "matched_quality": 0,
+  "unsupported_count": 1,
+  "uncertain_count": 2,
+  "precision": 0.0,
+  "recall": 0.0,
+  "f1": 0.0,
+  "matches": [],
+  "unsupported": [
+    {
+      "check_id": "G01",
+      "claim": "剧院灯箱主字为无意义字母串（左MTM/ELAGL、右MAHECTHARD/ENTM YIHEAS），在40–45s与115–120s重复出现，构成生成文本伪影需修改。",
+      "status": "unsupported",
+      "reason": "该命题对应用户亲自回看后否定并从当前GT移除的R001（影院招牌文字/顶部数字乱码）。按人工源事实优先约束，已被否定的具体事件不得作为确定需改复活；交付将其列为revise检查，属对已排除命题的重复主张。",
+      "intervals": [
+        {
+          "start_s": 40.1,
+          "end_s": 45.0
+        },
+        {
+          "start_s": 115.1,
+          "end_s": 120.0
+        }
+      ],
+      "audio_fact": "",
+      "visual_fact": "40–45s与115–120s雨夜影院镜头中招牌灯箱文字与用户核验后排除的R001为同一对象。",
+      "criterion_id": "V5"
+    }
+  ],
+  "uncertain": [
+    {
+      "check_id": "G02",
+      "claim": "180–185s俯拍舞段中多名舞者持续缺少头部/颈部、躯干上端圆钝，且184.5s附近肢体互相融合成块，属明确人体结构错误需修改。",
+      "status": "uncertain",
+      "reason": "该俯拍段与先前未确认候选C032（180.5–182s肢体融合/朝向突变）高度重叠，而C032三票均reject，帧描述显示各色舞者外轮廓与四肢归属仍可分辨、朝向变化可由绕中心旋转解释。在当前帧分辨率下，俯视站姿的头部本会压缩进躯干剪影，无法确证'无头'，亦无法完全排除184s收紧成圈时的轻度粘连，证据不足以定为确定需改的新根因。",
+      "intervals": [
+        {
+          "start_s": 180.1,
+          "end_s": 185.0
+        }
+      ],
+      "audio_fact": "",
+      "visual_fact": "180–184s俯拍霓虹方框内舞者环绕金色收音机，184s队形收紧成圈；该区间与C032被reject的融合观察重叠，头部在顶视下与肩躯干剪影难分。",
+      "criterion_id": "V1"
+    },
+    {
+      "check_id": "G03",
+      "claim": "120.1–122.3s主唱中近景在'you know who I am, I'm too hot'仍唱时闭口，至约122.4s下一句才张口，属人声继续而嘴停的口型同步错误需修改。",
+      "status": "uncertain",
+      "reason": "该命题对应候选C012，三票为1 accept、2 reject，majority not_confirmed，未成为确认根因。帧序显示约120–121s整理袖口时嘴部偏闭、约122s张口，但反对票指出窗口内嘴部多次张开且该镜头属多表演者蒙太奇、可读作风格化过场；口型开合的逐帧判定在现有采样下存在合理替代解释，不足以坐实为确定需改的新根因。",
+      "intervals": [
+        {
+          "start_s": 120.1,
+          "end_s": 122.3
+        }
+      ],
+      "audio_fact": "词级时间显示焦点句人声连续至约121.68s，其后为'hot damn' tag与下一句。",
+      "visual_fact": "120.08s切到追光舞台紫红西装男，120–121s低头整理袖口、嘴部开合度低，约122s张口；与C012争议观察一致。",
+      "criterion_id": "AV3"
+    }
+  ],
+  "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+}

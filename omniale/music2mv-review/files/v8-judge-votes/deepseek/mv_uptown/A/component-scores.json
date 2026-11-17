@@ -1,0 +1,66 @@
+{
+  "score": 0.0,
+  "matched_count": 0,
+  "gold_count": 6,
+  "matched_quality": 0,
+  "unsupported_count": 1,
+  "uncertain_count": 2,
+  "precision": 0.0,
+  "recall": 0.0,
+  "f1": 0.0,
+  "matches": [],
+  "unsupported": [
+    {
+      "check_id": "G01",
+      "claim": "40.1–45.0秒及115.1–120.0秒剧院灯箱主字为无意义字母串（MTM/ELAGL、MAHECTHARD/ENTM YIHEAS），构成生成文字伪影需修改。",
+      "status": "unsupported",
+      "reason": "该命题即被用户亲自回看源片后否定并从GT移除的旧R001（影院招牌文字/顶部数字乱码）。人工源事实优先，灯箱文字不得再作为确定需改缺陷提交；按规则记为unsupported而非新根因。",
+      "intervals": [
+        {
+          "start_s": 40.1,
+          "end_s": 45.0
+        },
+        {
+          "start_s": 115.1,
+          "end_s": 120.0
+        }
+      ],
+      "audio_fact": "",
+      "visual_fact": "提交描述与旧R001实例（左牌MTM/ELAGL、右牌MAHECTHARD/ENTM YIHEAS、顶部35悬空）一致，属已被人工否定的同一命题。",
+      "criterion_id": "V5"
+    }
+  ],
+  "uncertain": [
+    {
+      "check_id": "G02",
+      "claim": "180.1–185.0秒俯拍霓虹方框舞段中多名舞者持续缺失头部/颈部，且184.5秒附近躯干手臂在收音机周围融合成块。",
+      "status": "uncertain",
+      "reason": "该时段源片为俯视风格化舞段，提交所引帧中人体呈扁平色块造型，头部是否持续缺失在现有分辨率下无法可靠确认；此前对相邻180.5–182秒的独立核验结论为各舞者轮廓分离、无肢体熔接，与'融合成块'的描述相抵触。俯视透视与风格化人台造型构成合理替代解释，证据不足以坐实确定性结构错误，亦未被源片直接反证，故记uncertain。",
+      "intervals": [
+        {
+          "start_s": 180.1,
+          "end_s": 185.0
+        }
+      ],
+      "audio_fact": "该段为副歌律动持续，节拍均匀，音频不提供肢体是否缺头的判据。",
+      "visual_fact": "180–185秒俯拍镜头中八名色标舞者环绕中央金色收音机，身体呈简化色块；提交声称的无头与熔接在采样帧内无法与俯视透视/风格化造型区分。",
+      "criterion_id": "V1"
+    },
+    {
+      "check_id": "G03",
+      "claim": "120.1–122.3秒主唱中近景在'you know who I am, I'm too hot'仍唱时闭口微笑，直到122.4秒下一句才张口，属人声继续而嘴停的口型失误。",
+      "status": "uncertain",
+      "reason": "该命题对应未经多数确认的口型候选：源片该镜头约120秒男子低头整理袖口、嘴部近闭，但约121秒起已面向镜头张口，与'I'm too hot'尾部乐句大体落在同一窗口内，'全程闭口至122.4秒'的必要事实未被帧序列稳定支持；同时该镜头为多表演者蒙太奇中的过场姿态，存在正常表演解释。证据既不足以确认同步失误，也未被完全反证，记uncertain。",
+      "intervals": [
+        {
+          "start_s": 120.1,
+          "end_s": 122.3
+        }
+      ],
+      "audio_fact": "词级时间显示'hot'约121.18–121.68结束，其后接'hot damn'与'and my band…'；人声连续。",
+      "visual_fact": "120秒帧男子低头、嘴闭合带笑；121秒帧已转正面向镜头、嘴部张开，张口时点早于提交所称的122.4秒。",
+      "criterion_id": "AV3"
+    }
+  ],
+  "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+}

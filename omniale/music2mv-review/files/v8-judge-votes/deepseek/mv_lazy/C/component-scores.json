@@ -1,0 +1,32 @@
+{
+  "score": 57.14285714285714,
+  "matched_count": 2,
+  "gold_count": 5,
+  "matched_quality": 2.0,
+  "unsupported_count": 0,
+  "uncertain_count": 0,
+  "precision": 1.0,
+  "recall": 0.4,
+  "f1": 0.5714285714285714,
+  "matches": [
+    {
+      "root_id": "R003",
+      "check_ids": [
+        "G05"
+      ],
+      "quality": 1.0,
+      "reason": "G05 以两处字幕内容错误覆盖 R003 的两个实例：①94.5–97.0s 帧字幕'…give my college degree'与词级 ASR 实唱'get'（95.56s）不符，对应 NE005；②107.5–110.0s 帧字幕'…cause I can't'与实唱开放鼻元音'can'（108.70–109.30s）不符，且与 48.5s 首现字幕'cause I can'自相矛盾，对应 E003。区间、画面 OCR 与音频事实均与源片一致，定位与证据完整。"
+    },
+    {
+      "root_id": "R004",
+      "check_ids": [
+        "G04"
+      ],
+      "quality": 1.0,
+      "reason": "G04 在 120.8–122.8s 提交 revise，描述前景手持手机屏幕 UI 框架完整（状态栏、消息气泡、绿色发送键）但所有文本字段为逐字可辨却无意义的随机串（顶栏'IIEEGtE.dr'、气泡'KTRENENIC Dim / SEIEFENEB Bim'），并引用 121.8/122.0/122.5s 原帧与同期'Don't feel like picking up my phone'歌词。这与 R004/E007（121.0–123.0s 屏幕'RENEED 6im'等空洞字符串）为同一机制，区间覆盖可读焦点段，证据具体。"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [],
+  "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+}

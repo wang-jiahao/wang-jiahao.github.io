@@ -1,0 +1,67 @@
+{
+  "score": 0.0,
+  "matched_count": 0,
+  "gold_count": 6,
+  "matched_quality": 0,
+  "unsupported_count": 2,
+  "uncertain_count": 1,
+  "precision": 0.0,
+  "recall": 0.0,
+  "f1": 0.0,
+  "matches": [],
+  "unsupported": [
+    {
+      "check_id": "G01",
+      "claim": "剧院灯箱文字为无意义乱码（'MTM / ELAGL'、'MAHECTHARD / ENTM YIHEAS'，顶部'35'悬空），在40–45秒与115–120秒两镜头重复出现，需重绘。",
+      "status": "unsupported",
+      "reason": "该命题即旧R001，用户已亲自回看源片并明确否定，从当前GT移除且不可复活；115–120秒为同一灯箱布景的重复实例，属同一被否定根因。将其作为确定需改提交，违反人工源事实优先约束，构成对已排除事件的误报。",
+      "intervals": [
+        {
+          "start_s": 40.1,
+          "end_s": 45.0
+        },
+        {
+          "start_s": 115.1,
+          "end_s": 120.0
+        }
+      ],
+      "audio_fact": "",
+      "visual_fact": "源片40–45秒与115–120秒影院/龙形舞台镜头中灯箱文字内容与交付描述一致，但该文字问题已被用户核验否定，不作为缺陷。",
+      "criterion_id": "V5"
+    },
+    {
+      "check_id": "G02",
+      "claim": "180–185秒俯拍舞段中多名舞者持续缺失头部/颈部、躯干上端呈圆钝块，且184.5秒附近肢体在boombox周围融合成块，属明确人体结构错误。",
+      "status": "unsupported",
+      "claim_note": "",
+      "reason": "源片该窗口（视频11映射180–185秒）的连续帧显示八名色标舞者（酒红/蓝/米白/银）沿霓虹方框环绕收音机，各自头部、躯干与四肢轮廓完整且彼此分离；独立核验在同一窗口记录'彼此分离、轮廓清晰''轮廓各自闭合，未见肢体熔接'，朝向变化可由绕中心公转解释。所称无头与融合均被源帧反证，不成立。",
+      "intervals": [
+        {
+          "start_s": 180.1,
+          "end_s": 185.0
+        }
+      ],
+      "audio_fact": "该段为副歌律动持续，节拍均匀，与肢体是否缺失无关。",
+      "visual_fact": "180.2–184.5秒俯拍帧中各舞者头颈完整、外轮廓闭合，收紧成圈时仅有正常近距遮挡，无躯干圆钝化或肢体熔接。",
+      "criterion_id": "V1"
+    }
+  ],
+  "uncertain": [
+    {
+      "check_id": "G03",
+      "claim": "120.1–122.3秒主唱特写在'you know who I am, I'm too hot'持续演唱期间闭口微笑，直到约122.4秒下一句才张口，属人声继续而嘴停的口型同步错误。",
+      "status": "uncertain",
+      "reason": "源片该镜头（视频7映射120–124秒）中男子120–121秒低头整理袖口、嘴部闭合，约122秒抬头张口；但张口起始点在既有核验中存在冲突读数（一说约121.2秒起随'hot'/'hot damn'开口，一说闭至121.6秒后），交付的FaceMesh测量（闭至122.2、122.4跳变）与其中一种读数相符但无法排除另一种。焦点句尾部与'hot damn'助兴喊句的边界在采样粒度下不可确证，既不能坐实'整句闭口'，也不能完全排除轻微滞后，证据不足，按规则记uncertain而非确定需改或误报。",
+      "intervals": [
+        {
+          "start_s": 120.1,
+          "end_s": 122.3
+        }
+      ],
+      "audio_fact": "该窗口主唱人声连续，'I'm too hot'约收于121.7秒前后，随后接'hot damn'助兴与'And my band…'。",
+      "visual_fact": "120.1–121.0秒男子低头看腕、双手在袖口、嘴闭合；约121.5–122.0秒间抬头，122.0秒帧嘴部已张开，张口起点在0.5秒级采样下不可精确定位。",
+      "criterion_id": "AV3"
+    }
+  ],
+  "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+}

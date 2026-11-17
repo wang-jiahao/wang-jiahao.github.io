@@ -1,0 +1,32 @@
+{
+  "score": 57.14285714285714,
+  "matched_count": 2,
+  "gold_count": 5,
+  "matched_quality": 2.0,
+  "unsupported_count": 0,
+  "uncertain_count": 0,
+  "precision": 1.0,
+  "recall": 0.4,
+  "f1": 0.5714285714285714,
+  "matches": [
+    {
+      "root_id": "R003",
+      "check_ids": [
+        "G05"
+      ],
+      "quality": 1.0,
+      "reason": "G05提交同一烧录字幕轨的两处转写错误：94.5–97.0s字幕'yeah I might mess around and give my college degree'与large-v3词级'get'不符；107.5–110.0s字幕'I said it I said it cause I can't'与音轨末词收在开放鼻元音、无/t/塞音释放的'can'不符，并援引48.5s同句首现字幕为'cause I can'证明自相矛盾。音画事实（ASR词级时间+字幕帧OCR）与需改理由完整，覆盖R003的单字替换与肯否替换两类实例，定位区间包含必要证据。"
+    },
+    {
+      "root_id": "R004",
+      "check_ids": [
+        "G04"
+      ],
+      "quality": 1.0,
+      "reason": "G04提交120.8–122.8s前景手持手机消息界面特写：UI框架完整（状态栏、消息气泡、绿色发送键、底部导航），但顶栏'IIEEGtE.dr'、气泡'KTRENENIC Dim/SEIEFENEB Bim'、输入框与按钮标签均为逐字可辨却无语义的随机字母串，非模糊/马赛克/占位符；同期歌词'Don't feel like picking up my phone'与画面情境一致，手机为剧情核心道具，乱码破坏叙事可信度。事实与需改理由完整，覆盖R004。"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [],
+  "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+}

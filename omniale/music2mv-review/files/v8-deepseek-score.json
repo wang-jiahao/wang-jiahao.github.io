@@ -1,0 +1,486 @@
+{
+  "version": "pilot-v8-human1",
+  "score": 28.57142857142857,
+  "source_results": [
+    {
+      "score": 0.0,
+      "adopted_voter_id": "A",
+      "breakdown": {
+        "voter_id": "A",
+        "score": 0.0,
+        "matched_count": 0,
+        "gold_count": 6,
+        "matched_quality": 0,
+        "unsupported_count": 1,
+        "uncertain_count": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "matches": [],
+        "unsupported": [
+          {
+            "check_id": "G01",
+            "claim": "40.1–45.0秒及115.1–120.0秒剧院灯箱主字为无意义字母串（MTM/ELAGL、MAHECTHARD/ENTM YIHEAS），构成生成文字伪影需修改。",
+            "status": "unsupported",
+            "reason": "该命题即被用户亲自回看源片后否定并从GT移除的旧R001（影院招牌文字/顶部数字乱码）。人工源事实优先，灯箱文字不得再作为确定需改缺陷提交；按规则记为unsupported而非新根因。",
+            "intervals": [
+              {
+                "start_s": 40.1,
+                "end_s": 45.0
+              },
+              {
+                "start_s": 115.1,
+                "end_s": 120.0
+              }
+            ],
+            "audio_fact": "",
+            "visual_fact": "提交描述与旧R001实例（左牌MTM/ELAGL、右牌MAHECTHARD/ENTM YIHEAS、顶部35悬空）一致，属已被人工否定的同一命题。",
+            "criterion_id": "V5"
+          }
+        ],
+        "uncertain": [
+          {
+            "check_id": "G02",
+            "claim": "180.1–185.0秒俯拍霓虹方框舞段中多名舞者持续缺失头部/颈部，且184.5秒附近躯干手臂在收音机周围融合成块。",
+            "status": "uncertain",
+            "reason": "该时段源片为俯视风格化舞段，提交所引帧中人体呈扁平色块造型，头部是否持续缺失在现有分辨率下无法可靠确认；此前对相邻180.5–182秒的独立核验结论为各舞者轮廓分离、无肢体熔接，与'融合成块'的描述相抵触。俯视透视与风格化人台造型构成合理替代解释，证据不足以坐实确定性结构错误，亦未被源片直接反证，故记uncertain。",
+            "intervals": [
+              {
+                "start_s": 180.1,
+                "end_s": 185.0
+              }
+            ],
+            "audio_fact": "该段为副歌律动持续，节拍均匀，音频不提供肢体是否缺头的判据。",
+            "visual_fact": "180–185秒俯拍镜头中八名色标舞者环绕中央金色收音机，身体呈简化色块；提交声称的无头与熔接在采样帧内无法与俯视透视/风格化造型区分。",
+            "criterion_id": "V1"
+          },
+          {
+            "check_id": "G03",
+            "claim": "120.1–122.3秒主唱中近景在'you know who I am, I'm too hot'仍唱时闭口微笑，直到122.4秒下一句才张口，属人声继续而嘴停的口型失误。",
+            "status": "uncertain",
+            "reason": "该命题对应未经多数确认的口型候选：源片该镜头约120秒男子低头整理袖口、嘴部近闭，但约121秒起已面向镜头张口，与'I'm too hot'尾部乐句大体落在同一窗口内，'全程闭口至122.4秒'的必要事实未被帧序列稳定支持；同时该镜头为多表演者蒙太奇中的过场姿态，存在正常表演解释。证据既不足以确认同步失误，也未被完全反证，记uncertain。",
+            "intervals": [
+              {
+                "start_s": 120.1,
+                "end_s": 122.3
+              }
+            ],
+            "audio_fact": "词级时间显示'hot'约121.18–121.68结束，其后接'hot damn'与'and my band…'；人声连续。",
+            "visual_fact": "120秒帧男子低头、嘴闭合带笑；121秒帧已转正面向镜头、嘴部张开，张口时点早于提交所称的122.4秒。",
+            "criterion_id": "AV3"
+          }
+        ],
+        "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+      },
+      "individual_judge_results": [
+        {
+          "voter_id": "A",
+          "score": 0.0,
+          "matched_count": 0,
+          "gold_count": 6,
+          "matched_quality": 0,
+          "unsupported_count": 1,
+          "uncertain_count": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "matches": [],
+          "unsupported": [
+            {
+              "check_id": "G01",
+              "claim": "40.1–45.0秒及115.1–120.0秒剧院灯箱主字为无意义字母串（MTM/ELAGL、MAHECTHARD/ENTM YIHEAS），构成生成文字伪影需修改。",
+              "status": "unsupported",
+              "reason": "该命题即被用户亲自回看源片后否定并从GT移除的旧R001（影院招牌文字/顶部数字乱码）。人工源事实优先，灯箱文字不得再作为确定需改缺陷提交；按规则记为unsupported而非新根因。",
+              "intervals": [
+                {
+                  "start_s": 40.1,
+                  "end_s": 45.0
+                },
+                {
+                  "start_s": 115.1,
+                  "end_s": 120.0
+                }
+              ],
+              "audio_fact": "",
+              "visual_fact": "提交描述与旧R001实例（左牌MTM/ELAGL、右牌MAHECTHARD/ENTM YIHEAS、顶部35悬空）一致，属已被人工否定的同一命题。",
+              "criterion_id": "V5"
+            }
+          ],
+          "uncertain": [
+            {
+              "check_id": "G02",
+              "claim": "180.1–185.0秒俯拍霓虹方框舞段中多名舞者持续缺失头部/颈部，且184.5秒附近躯干手臂在收音机周围融合成块。",
+              "status": "uncertain",
+              "reason": "该时段源片为俯视风格化舞段，提交所引帧中人体呈扁平色块造型，头部是否持续缺失在现有分辨率下无法可靠确认；此前对相邻180.5–182秒的独立核验结论为各舞者轮廓分离、无肢体熔接，与'融合成块'的描述相抵触。俯视透视与风格化人台造型构成合理替代解释，证据不足以坐实确定性结构错误，亦未被源片直接反证，故记uncertain。",
+              "intervals": [
+                {
+                  "start_s": 180.1,
+                  "end_s": 185.0
+                }
+              ],
+              "audio_fact": "该段为副歌律动持续，节拍均匀，音频不提供肢体是否缺头的判据。",
+              "visual_fact": "180–185秒俯拍镜头中八名色标舞者环绕中央金色收音机，身体呈简化色块；提交声称的无头与熔接在采样帧内无法与俯视透视/风格化造型区分。",
+              "criterion_id": "V1"
+            },
+            {
+              "check_id": "G03",
+              "claim": "120.1–122.3秒主唱中近景在'you know who I am, I'm too hot'仍唱时闭口微笑，直到122.4秒下一句才张口，属人声继续而嘴停的口型失误。",
+              "status": "uncertain",
+              "reason": "该命题对应未经多数确认的口型候选：源片该镜头约120秒男子低头整理袖口、嘴部近闭，但约121秒起已面向镜头张口，与'I'm too hot'尾部乐句大体落在同一窗口内，'全程闭口至122.4秒'的必要事实未被帧序列稳定支持；同时该镜头为多表演者蒙太奇中的过场姿态，存在正常表演解释。证据既不足以确认同步失误，也未被完全反证，记uncertain。",
+              "intervals": [
+                {
+                  "start_s": 120.1,
+                  "end_s": 122.3
+                }
+              ],
+              "audio_fact": "词级时间显示'hot'约121.18–121.68结束，其后接'hot damn'与'and my band…'；人声连续。",
+              "visual_fact": "120秒帧男子低头、嘴闭合带笑；121秒帧已转正面向镜头、嘴部张开，张口时点早于提交所称的122.4秒。",
+              "criterion_id": "AV3"
+            }
+          ],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        },
+        {
+          "voter_id": "B",
+          "score": 0.0,
+          "matched_count": 0,
+          "gold_count": 6,
+          "matched_quality": 0,
+          "unsupported_count": 2,
+          "uncertain_count": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "matches": [],
+          "unsupported": [
+            {
+              "check_id": "G01",
+              "claim": "剧院灯箱文字为无意义乱码（'MTM / ELAGL'、'MAHECTHARD / ENTM YIHEAS'，顶部'35'悬空），在40–45秒与115–120秒两镜头重复出现，需重绘。",
+              "status": "unsupported",
+              "reason": "该命题即旧R001，用户已亲自回看源片并明确否定，从当前GT移除且不可复活；115–120秒为同一灯箱布景的重复实例，属同一被否定根因。将其作为确定需改提交，违反人工源事实优先约束，构成对已排除事件的误报。",
+              "intervals": [
+                {
+                  "start_s": 40.1,
+                  "end_s": 45.0
+                },
+                {
+                  "start_s": 115.1,
+                  "end_s": 120.0
+                }
+              ],
+              "audio_fact": "",
+              "visual_fact": "源片40–45秒与115–120秒影院/龙形舞台镜头中灯箱文字内容与交付描述一致，但该文字问题已被用户核验否定，不作为缺陷。",
+              "criterion_id": "V5"
+            },
+            {
+              "check_id": "G02",
+              "claim": "180–185秒俯拍舞段中多名舞者持续缺失头部/颈部、躯干上端呈圆钝块，且184.5秒附近肢体在boombox周围融合成块，属明确人体结构错误。",
+              "status": "unsupported",
+              "claim_note": "",
+              "reason": "源片该窗口（视频11映射180–185秒）的连续帧显示八名色标舞者（酒红/蓝/米白/银）沿霓虹方框环绕收音机，各自头部、躯干与四肢轮廓完整且彼此分离；独立核验在同一窗口记录'彼此分离、轮廓清晰''轮廓各自闭合，未见肢体熔接'，朝向变化可由绕中心公转解释。所称无头与融合均被源帧反证，不成立。",
+              "intervals": [
+                {
+                  "start_s": 180.1,
+                  "end_s": 185.0
+                }
+              ],
+              "audio_fact": "该段为副歌律动持续，节拍均匀，与肢体是否缺失无关。",
+              "visual_fact": "180.2–184.5秒俯拍帧中各舞者头颈完整、外轮廓闭合，收紧成圈时仅有正常近距遮挡，无躯干圆钝化或肢体熔接。",
+              "criterion_id": "V1"
+            }
+          ],
+          "uncertain": [
+            {
+              "check_id": "G03",
+              "claim": "120.1–122.3秒主唱特写在'you know who I am, I'm too hot'持续演唱期间闭口微笑，直到约122.4秒下一句才张口，属人声继续而嘴停的口型同步错误。",
+              "status": "uncertain",
+              "reason": "源片该镜头（视频7映射120–124秒）中男子120–121秒低头整理袖口、嘴部闭合，约122秒抬头张口；但张口起始点在既有核验中存在冲突读数（一说约121.2秒起随'hot'/'hot damn'开口，一说闭至121.6秒后），交付的FaceMesh测量（闭至122.2、122.4跳变）与其中一种读数相符但无法排除另一种。焦点句尾部与'hot damn'助兴喊句的边界在采样粒度下不可确证，既不能坐实'整句闭口'，也不能完全排除轻微滞后，证据不足，按规则记uncertain而非确定需改或误报。",
+              "intervals": [
+                {
+                  "start_s": 120.1,
+                  "end_s": 122.3
+                }
+              ],
+              "audio_fact": "该窗口主唱人声连续，'I'm too hot'约收于121.7秒前后，随后接'hot damn'助兴与'And my band…'。",
+              "visual_fact": "120.1–121.0秒男子低头看腕、双手在袖口、嘴闭合；约121.5–122.0秒间抬头，122.0秒帧嘴部已张开，张口起点在0.5秒级采样下不可精确定位。",
+              "criterion_id": "AV3"
+            }
+          ],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        },
+        {
+          "voter_id": "C",
+          "score": 0.0,
+          "matched_count": 0,
+          "gold_count": 6,
+          "matched_quality": 0,
+          "unsupported_count": 1,
+          "uncertain_count": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "matches": [],
+          "unsupported": [
+            {
+              "check_id": "G01",
+              "claim": "剧院灯箱主字为无意义字母串（左MTM/ELAGL、右MAHECTHARD/ENTM YIHEAS），在40–45s与115–120s重复出现，构成生成文本伪影需修改。",
+              "status": "unsupported",
+              "reason": "该命题对应用户亲自回看后否定并从当前GT移除的R001（影院招牌文字/顶部数字乱码）。按人工源事实优先约束，已被否定的具体事件不得作为确定需改复活；交付将其列为revise检查，属对已排除命题的重复主张。",
+              "intervals": [
+                {
+                  "start_s": 40.1,
+                  "end_s": 45.0
+                },
+                {
+                  "start_s": 115.1,
+                  "end_s": 120.0
+                }
+              ],
+              "audio_fact": "",
+              "visual_fact": "40–45s与115–120s雨夜影院镜头中招牌灯箱文字与用户核验后排除的R001为同一对象。",
+              "criterion_id": "V5"
+            }
+          ],
+          "uncertain": [
+            {
+              "check_id": "G02",
+              "claim": "180–185s俯拍舞段中多名舞者持续缺少头部/颈部、躯干上端圆钝，且184.5s附近肢体互相融合成块，属明确人体结构错误需修改。",
+              "status": "uncertain",
+              "reason": "该俯拍段与先前未确认候选C032（180.5–182s肢体融合/朝向突变）高度重叠，而C032三票均reject，帧描述显示各色舞者外轮廓与四肢归属仍可分辨、朝向变化可由绕中心旋转解释。在当前帧分辨率下，俯视站姿的头部本会压缩进躯干剪影，无法确证'无头'，亦无法完全排除184s收紧成圈时的轻度粘连，证据不足以定为确定需改的新根因。",
+              "intervals": [
+                {
+                  "start_s": 180.1,
+                  "end_s": 185.0
+                }
+              ],
+              "audio_fact": "",
+              "visual_fact": "180–184s俯拍霓虹方框内舞者环绕金色收音机，184s队形收紧成圈；该区间与C032被reject的融合观察重叠，头部在顶视下与肩躯干剪影难分。",
+              "criterion_id": "V1"
+            },
+            {
+              "check_id": "G03",
+              "claim": "120.1–122.3s主唱中近景在'you know who I am, I'm too hot'仍唱时闭口，至约122.4s下一句才张口，属人声继续而嘴停的口型同步错误需修改。",
+              "status": "uncertain",
+              "reason": "该命题对应候选C012，三票为1 accept、2 reject，majority not_confirmed，未成为确认根因。帧序显示约120–121s整理袖口时嘴部偏闭、约122s张口，但反对票指出窗口内嘴部多次张开且该镜头属多表演者蒙太奇、可读作风格化过场；口型开合的逐帧判定在现有采样下存在合理替代解释，不足以坐实为确定需改的新根因。",
+              "intervals": [
+                {
+                  "start_s": 120.1,
+                  "end_s": 122.3
+                }
+              ],
+              "audio_fact": "词级时间显示焦点句人声连续至约121.68s，其后为'hot damn' tag与下一句。",
+              "visual_fact": "120.08s切到追光舞台紫红西装男，120–121s低头整理袖口、嘴部开合度低，约122s张口；与C012争议观察一致。",
+              "criterion_id": "AV3"
+            }
+          ],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        }
+      ],
+      "solver_runs": 1,
+      "subtask": "MV-only development screening; not the8candidate+2MV combined case",
+      "same_model_judge_consensus": true,
+      "development_cpu": true,
+      "gpu_validation_pending": true,
+      "source_id": "mv_uptown",
+      "source_median_score": 0.0
+    },
+    {
+      "score": 57.14285714285714,
+      "adopted_voter_id": "A",
+      "breakdown": {
+        "voter_id": "A",
+        "score": 57.14285714285714,
+        "matched_count": 2,
+        "gold_count": 5,
+        "matched_quality": 2.0,
+        "unsupported_count": 0,
+        "uncertain_count": 0,
+        "precision": 1.0,
+        "recall": 0.4,
+        "f1": 0.5714285714285714,
+        "matches": [
+          {
+            "root_id": "R003",
+            "check_ids": [
+              "G05"
+            ],
+            "quality": 1.0,
+            "reason": "交付G05精确识别了两处字幕转写错误：①94.5–97.0s将'get my college degree'误写为'give my college degree'，与GT例Xa41007fe3a37-NE005（93.9–96.77s）吻合；②107.5–110.0s将'cause I can'误写为'cause I can't'，与GT例E003（107.0–110.7s）吻合。交付提供了large-v3词级时间戳音频证据、具体帧字幕截图描述，并以48.5s首现字幕'cause I can'作为交叉验证，证据链完整。"
+          },
+          {
+            "root_id": "R004",
+            "check_ids": [
+              "G04"
+            ],
+            "quality": 1.0,
+            "reason": "交付G04识别120.8–122.8s手机消息界面屏幕文字为无意义字母串（顶栏'IIEEGtE.dr'、气泡'KTRENENIC Dim / SEIEFENEB Bim'等），与GT例E007（121–123s）完全对应。交付详细描述了UI框架完整但文本字段逐字可辨却无语义的特征，排除了模糊/马赛克/占位符解释，并关联同期歌词'Don't feel like picking up my phone'确认手机为核心叙事道具，证据充分。"
+          }
+        ],
+        "unsupported": [],
+        "uncertain": [],
+        "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+      },
+      "individual_judge_results": [
+        {
+          "voter_id": "A",
+          "score": 57.14285714285714,
+          "matched_count": 2,
+          "gold_count": 5,
+          "matched_quality": 2.0,
+          "unsupported_count": 0,
+          "uncertain_count": 0,
+          "precision": 1.0,
+          "recall": 0.4,
+          "f1": 0.5714285714285714,
+          "matches": [
+            {
+              "root_id": "R003",
+              "check_ids": [
+                "G05"
+              ],
+              "quality": 1.0,
+              "reason": "交付G05精确识别了两处字幕转写错误：①94.5–97.0s将'get my college degree'误写为'give my college degree'，与GT例Xa41007fe3a37-NE005（93.9–96.77s）吻合；②107.5–110.0s将'cause I can'误写为'cause I can't'，与GT例E003（107.0–110.7s）吻合。交付提供了large-v3词级时间戳音频证据、具体帧字幕截图描述，并以48.5s首现字幕'cause I can'作为交叉验证，证据链完整。"
+            },
+            {
+              "root_id": "R004",
+              "check_ids": [
+                "G04"
+              ],
+              "quality": 1.0,
+              "reason": "交付G04识别120.8–122.8s手机消息界面屏幕文字为无意义字母串（顶栏'IIEEGtE.dr'、气泡'KTRENENIC Dim / SEIEFENEB Bim'等），与GT例E007（121–123s）完全对应。交付详细描述了UI框架完整但文本字段逐字可辨却无语义的特征，排除了模糊/马赛克/占位符解释，并关联同期歌词'Don't feel like picking up my phone'确认手机为核心叙事道具，证据充分。"
+            }
+          ],
+          "unsupported": [],
+          "uncertain": [],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        },
+        {
+          "voter_id": "B",
+          "score": 57.14285714285714,
+          "matched_count": 2,
+          "gold_count": 5,
+          "matched_quality": 2.0,
+          "unsupported_count": 0,
+          "uncertain_count": 0,
+          "precision": 1.0,
+          "recall": 0.4,
+          "f1": 0.5714285714285714,
+          "matches": [
+            {
+              "root_id": "R003",
+              "check_ids": [
+                "G05"
+              ],
+              "quality": 1.0,
+              "reason": "G05提交同一烧录字幕轨的两处转写错误：94.5–97.0s字幕'yeah I might mess around and give my college degree'与large-v3词级'get'不符；107.5–110.0s字幕'I said it I said it cause I can't'与音轨末词收在开放鼻元音、无/t/塞音释放的'can'不符，并援引48.5s同句首现字幕为'cause I can'证明自相矛盾。音画事实（ASR词级时间+字幕帧OCR）与需改理由完整，覆盖R003的单字替换与肯否替换两类实例，定位区间包含必要证据。"
+            },
+            {
+              "root_id": "R004",
+              "check_ids": [
+                "G04"
+              ],
+              "quality": 1.0,
+              "reason": "G04提交120.8–122.8s前景手持手机消息界面特写：UI框架完整（状态栏、消息气泡、绿色发送键、底部导航），但顶栏'IIEEGtE.dr'、气泡'KTRENENIC Dim/SEIEFENEB Bim'、输入框与按钮标签均为逐字可辨却无语义的随机字母串，非模糊/马赛克/占位符；同期歌词'Don't feel like picking up my phone'与画面情境一致，手机为剧情核心道具，乱码破坏叙事可信度。事实与需改理由完整，覆盖R004。"
+            }
+          ],
+          "unsupported": [],
+          "uncertain": [],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        },
+        {
+          "voter_id": "C",
+          "score": 57.14285714285714,
+          "matched_count": 2,
+          "gold_count": 5,
+          "matched_quality": 2.0,
+          "unsupported_count": 0,
+          "uncertain_count": 0,
+          "precision": 1.0,
+          "recall": 0.4,
+          "f1": 0.5714285714285714,
+          "matches": [
+            {
+              "root_id": "R003",
+              "check_ids": [
+                "G05"
+              ],
+              "quality": 1.0,
+              "reason": "G05 以两处字幕内容错误覆盖 R003 的两个实例：①94.5–97.0s 帧字幕'…give my college degree'与词级 ASR 实唱'get'（95.56s）不符，对应 NE005；②107.5–110.0s 帧字幕'…cause I can't'与实唱开放鼻元音'can'（108.70–109.30s）不符，且与 48.5s 首现字幕'cause I can'自相矛盾，对应 E003。区间、画面 OCR 与音频事实均与源片一致，定位与证据完整。"
+            },
+            {
+              "root_id": "R004",
+              "check_ids": [
+                "G04"
+              ],
+              "quality": 1.0,
+              "reason": "G04 在 120.8–122.8s 提交 revise，描述前景手持手机屏幕 UI 框架完整（状态栏、消息气泡、绿色发送键）但所有文本字段为逐字可辨却无意义的随机串（顶栏'IIEEGtE.dr'、气泡'KTRENENIC Dim / SEIEFENEB Bim'），并引用 121.8/122.0/122.5s 原帧与同期'Don't feel like picking up my phone'歌词。这与 R004/E007（121.0–123.0s 屏幕'RENEED 6im'等空洞字符串）为同一机制，区间覆盖可读焦点段，证据具体。"
+            }
+          ],
+          "unsupported": [],
+          "uncertain": [],
+          "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+        }
+      ],
+      "solver_runs": 1,
+      "subtask": "MV-only development screening; not the8candidate+2MV combined case",
+      "same_model_judge_consensus": true,
+      "development_cpu": true,
+      "gpu_validation_pending": true,
+      "source_id": "mv_lazy",
+      "source_median_score": 57.14285714285714
+    }
+  ],
+  "combined_breakdown": {
+    "voter_id": "A",
+    "score": 28.57142857142857,
+    "matched_quality": 2.0,
+    "gold_count": 11,
+    "matched_count": 2,
+    "unsupported_count": 1,
+    "precision": 0.6666666666666666,
+    "recall": 0.18181818181818182
+  },
+  "individual_joint_judge_results": [
+    {
+      "voter_id": "A",
+      "score": 28.57142857142857,
+      "matched_quality": 2.0,
+      "gold_count": 11,
+      "matched_count": 2,
+      "unsupported_count": 1,
+      "precision": 0.6666666666666666,
+      "recall": 0.18181818181818182
+    },
+    {
+      "voter_id": "B",
+      "score": 26.666666666666668,
+      "matched_quality": 2.0,
+      "gold_count": 11,
+      "matched_count": 2,
+      "unsupported_count": 2,
+      "precision": 0.5,
+      "recall": 0.18181818181818182
+    },
+    {
+      "voter_id": "C",
+      "score": 28.57142857142857,
+      "matched_quality": 2.0,
+      "gold_count": 11,
+      "matched_count": 2,
+      "unsupported_count": 1,
+      "precision": 0.6666666666666666,
+      "recall": 0.18181818181818182
+    }
+  ],
+  "adopted_voter_id": "A",
+  "coverage_score": 18.181818181818183,
+  "model": "deepseek-v4.1-flash-1017",
+  "effort": "max",
+  "solver_runs": 1,
+  "elapsed_seconds": 4400.407,
+  "development_cpu": true,
+  "gpu_validation_pending": true,
+  "same_model_judge_consensus": true,
+  "original_execution_version": "pilot-v8-human1",
+  "applied_human_corrections": true
+}

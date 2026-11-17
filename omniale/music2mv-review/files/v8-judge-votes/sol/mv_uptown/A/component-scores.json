@@ -1,0 +1,66 @@
+{
+  "score": 0.0,
+  "matched_count": 0,
+  "gold_count": 6,
+  "matched_quality": 0,
+  "unsupported_count": 2,
+  "uncertain_count": 1,
+  "precision": 0.0,
+  "recall": 0.0,
+  "f1": 0.0,
+  "matches": [],
+  "unsupported": [
+    {
+      "check_id": "G01",
+      "claim": "96.85–97.6秒签字镜头中左手威士忌杯在落向桌面时融碎，随后空掌压纸、桌面无杯。",
+      "status": "unsupported",
+      "reason": "源片该段连续帧显示酒杯在约97秒与98秒仍完整持于抬起的手中、液体与杯壁清晰，约99秒硬切至窗外礼车；并未出现杯体缩成透明碎形或空掌压纸而桌上无杯的形态。先前对同一持杯—签字事件的细查亦判为正常放置/运镜出画，故‘异常融化消失’被源片反证。",
+      "intervals": [
+        {
+          "start_s": 96.85,
+          "end_s": 97.6
+        }
+      ],
+      "audio_fact": "该处为‘fill my cup… sign a check’乐句，无与杯体形变对应的音效需求。",
+      "visual_fact": "97–98秒酒杯完整持于抬手，99秒切镜；无融碎帧、无‘空手压纸且桌面无杯’的连续证据。",
+      "criterion_id": "V3"
+    },
+    {
+      "check_id": "G03",
+      "claim": "剧院大灯箱排片文字为无意义字串（MTM/ELAGL、MAHECTHARD/ENTM YIHEAS），40–44.9秒与115.5–120.3秒两处可见。",
+      "status": "unsupported",
+      "reason": "该影院招牌乱码正是用户亲自回看源片后从GT移除的R001；115.5–120.3秒为同一灯箱在金龙镜头的复现，属同一被人工否定的命题。将其重新提交为确定需改违反人工排除约束。",
+      "intervals": [
+        {
+          "start_s": 40.0,
+          "end_s": 44.9
+        },
+        {
+          "start_s": 115.5,
+          "end_s": 120.3
+        }
+      ],
+      "audio_fact": "该段为男声主唱乐句，与招牌文字无对应关系。",
+      "visual_fact": "金龙旁灯箱显示上述字串，与R001所描述为同一画面元素。",
+      "criterion_id": "V5"
+    }
+  ],
+  "uncertain": [
+    {
+      "check_id": "G02",
+      "claim": "122.65–124.75秒正面演唱近景在‘my band…money’处缺少/m/、/b/闭唇构音，持续露齿或圆唇。",
+      "status": "uncertain",
+      "reason": "该窗确为居中前景对口型表演，但可得的1秒间隔帧仅见张口/微笑构型，无法在所需亚秒分辨率确认闭唇缺失；相邻120–122秒的口型候选已被独立细查否决（表演者随后有明确articulation），本窗既不能坐实也不能确证排除，证据不足。",
+      "intervals": [
+        {
+          "start_s": 122.65,
+          "end_s": 124.75
+        }
+      ],
+      "audio_fact": "原声此段为前景男声‘and my band ’bout that money, break it down’，含/m/、/b/闭塞音。",
+      "visual_fact": "123–124秒男主张口/微笑，1秒采样无法分辨短暂闭唇是否发生。",
+      "criterion_id": "AV3"
+    }
+  ],
+  "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+}

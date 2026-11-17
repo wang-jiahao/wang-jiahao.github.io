@@ -1,0 +1,66 @@
+{
+  "score": 0.0,
+  "matched_count": 0,
+  "gold_count": 6,
+  "matched_quality": 0,
+  "unsupported_count": 1,
+  "uncertain_count": 2,
+  "precision": 0.0,
+  "recall": 0.0,
+  "f1": 0.0,
+  "matches": [],
+  "unsupported": [
+    {
+      "check_id": "G03",
+      "claim": "40–44.9秒及115.5–120.3秒剧院排片大灯箱文字为无意义拼接字串（MAHECTHARD/ENTM YIHEAS、MTM/ELAGL），构成生成文本伪影。",
+      "status": "unsupported",
+      "reason": "此命题即已被用户亲自回看源片否定并从当前GT移除的R001（影院招牌文字/顶部数字乱码）。人工修正明确将该事件判为正常、不可复活；交付仍把它作为确定需改（revise, minor）提交，属复活被人工否定的命题，按unsupported记录，不计入覆盖也不作新根因。",
+      "intervals": [
+        {
+          "start_s": 40.0,
+          "end_s": 44.9
+        },
+        {
+          "start_s": 115.5,
+          "end_s": 120.3
+        }
+      ],
+      "audio_fact": "该段为男声主唱乐句，歌词与招牌文字无对应，文字问题纯属画面。",
+      "visual_fact": "金龙旁雨夜影院镜头中招牌灯箱显示多行拉丁字母字串；用户已确认该处不作为生成缺陷。",
+      "criterion_id": "V5"
+    }
+  ],
+  "uncertain": [
+    {
+      "check_id": "G01",
+      "claim": "96.85–97.6秒签字镜头中左手威士忌杯在落向桌面过程中融解成不完整透明碎形并消失，随后空手直接压纸。",
+      "status": "uncertain",
+      "reason": "该事件不在当前GT根因内，也未被人工排除。源片90–108秒段可见96秒左手持带冰酒杯、97秒杯体随手臂移动、98秒杯已离框且桌面空置；稀疏帧下杯体'融解成碎形'的细节无法确证，亦无法完全排除正常放杯+镜头右移出框的读法（同区预筛C011三票均倾向正常放置/平移解释）。证据不足但不能反证，故记uncertain，不作误报也不计入覆盖。",
+      "intervals": [
+        {
+          "start_s": 96.85,
+          "end_s": 97.6
+        }
+      ],
+      "audio_fact": "该处为'sign a check'前后的人声乐句，无与持杯/落杯对应的拟音要求。",
+      "visual_fact": "96秒左手水晶杯含冰块清晰、97秒杯随手臂位移、98秒桌面与左缘已无杯，手在纸上横扫；'缩成碎形后蒸发'的中间态在采样帧中不可稳定辨认。",
+      "criterion_id": "V3"
+    },
+    {
+      "check_id": "G02",
+      "claim": "122.65–124.75秒正面演唱近景在'my/band/money'闭唇起音处持续露齿或圆唇，构音与原声不符。",
+      "status": "uncertain",
+      "reason": "该口型构音问题不在当前GT根因内。源片108–126秒段120–124秒为追光舞台胡须男先整理袖扣后张口演唱，原声此带确为男声主线'my band 'bout that money'；但稀疏帧无法逐帧确认/m/、/b/闭唇释放的缺失，且同区预筛C012（120–122闭嘴）三票未达成确认。视觉张口与元音开合可见，闭唇细节证据不足，故记uncertain。",
+      "intervals": [
+        {
+          "start_s": 122.65,
+          "end_s": 124.75
+        }
+      ],
+      "audio_fact": "原声此处为前景男声节奏唱词，含my、band、money等含双唇音的句段。",
+      "visual_fact": "居中朝镜头的紫红西装胡须男在无遮挡近景中连续张口演唱，123–124秒口型以开合元音为主，采样帧下不能确证双唇闭合动作缺失。",
+      "criterion_id": "AV3"
+    }
+  ],
+  "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+}

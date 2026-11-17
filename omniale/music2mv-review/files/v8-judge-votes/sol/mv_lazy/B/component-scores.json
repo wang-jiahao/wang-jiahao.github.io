@@ -1,0 +1,72 @@
+{
+  "score": 100.0,
+  "matched_count": 5,
+  "gold_count": 5,
+  "matched_quality": 5.0,
+  "unsupported_count": 0,
+  "uncertain_count": 1,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "matches": [
+    {
+      "root_id": "R001",
+      "check_ids": [
+        "G04"
+      ],
+      "quality": 1.0,
+      "reason": "G04 在连续绿色钟特写（源约2.9–4.3s）中指出分钟位出现非法读数12:85并伴随小时级漂移/倒退（16:2x→15:22），同期音轨无缝、无切镜或时间跳转标记，正对应本场内数字渲染不稳定根因；提交给出的非法分钟值与失稳序列与源片帧一致。"
+    },
+    {
+      "root_id": "R003",
+      "check_ids": [
+        "G08"
+      ],
+      "quality": 1.0,
+      "reason": "G08 记录毕业幻想镜头底部字幕写为“give my college degree”，而原声男声唱“get my college degree”，构成同一条烧录字幕轨的实词转写替换实例，满足该根因“任一成立实例即可覆盖”的匹配政策；提交附带原声WAV与字幕帧佐证，定位区间93.83–96.8s包含该字幕停留全程。"
+    },
+    {
+      "root_id": "R004",
+      "check_ids": [
+        "G05"
+      ],
+      "quality": 1.0,
+      "reason": "G05 在前景手持手机近景（源121.2–122.85s）指出屏幕UI框架完整（状态栏、气泡、绿色按钮、底部图标清晰）但联系人/消息/按钮文字均为逐字可辨却无语义的随机字母数字串（如KTREIMENIC Dim、SEIE RENERD 6im、Gecrhen Lomn），与源片帧吻合，正属内容空洞型场内文字缺陷。"
+    },
+    {
+      "root_id": "Xa41007fe3a37-R001",
+      "check_ids": [
+        "G06"
+      ],
+      "quality": 1.0,
+      "reason": "G06 在同一连续毕业幻想镜头内描述黑色手柄于举拳瞬间从手中消失（空拳无手柄体积轮廓）、双手回落时又无可见转移/遮挡/切镜路径地恢复握持，源片帧序列支持该道具保持断裂，定位区间93.9–94.35与95.9–96.4覆盖消失与复现两阶段。"
+    },
+    {
+      "root_id": "Xa41007fe3a37-R003",
+      "check_ids": [
+        "G07"
+      ],
+      "quality": 1.0,
+      "reason": "G07 在同一连续室内抛物线镜头中描述薄矩形亮屏手机先合理侧转变窄、随后不可逆增厚变暗并出现弯曲凹口，最终以不规则软黑块落入衣篮，几何突变无法用刚体旋转或透视解释，与源片飞行轨迹帧一致，定位区间124.85–125.9s涵盖变形至落地。"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "check_id": "G09",
+      "claim": "床上正面演唱“comb my hair”时（源132.9–134.5s），comb尾音与my起音缺少连续闭唇构音，嘴反复作圆口/大开口，属AV3口型-辅音失配。",
+      "status": "uncertain",
+      "reason": "该断言对应参考扩展中已被列为uncertain的NE001（同一comb→my /m/闭唇窗口）。所提供抽帧密度不足以排除50–100ms辅音闭合落在采样间隙的可能，且本片为卧室/睡衣喜剧即兴演唱风格而非严格对口型MV，构成未被排除的正常解释；源片帧既不反证也无法确证闭唇真正缺失，故不能升格为确定需改的novel_valid，亦非unsupported。",
+      "intervals": [
+        {
+          "start_s": 132.9,
+          "end_s": 134.5
+        }
+      ],
+      "audio_fact": "原声连续男声唱“...ain't gonna comb my hair”，Whisper将comb/my定位于约133.6–134.4s。",
+      "visual_fact": "源132.9–134.5s（Video 8 local约6.9–8.5s）男子坐于床上正面演唱，可见帧多为张口/圆口，无明显双唇接触帧，但采样间隔下闭唇帧可能缺失。",
+      "criterion_id": "AV3"
+    }
+  ],
+  "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+}

@@ -1,0 +1,137 @@
+{
+  "checks": [
+    {
+      "id": "G01",
+      "source_id": "mv_uptown",
+      "dimension": "text",
+      "decision": "revise",
+      "intervals": [
+        {
+          "start_s": 40.1,
+          "end_s": 45.0
+        },
+        {
+          "start_s": 115.1,
+          "end_s": 120.0
+        }
+      ],
+      "finding": "剧院门前镜头的灯箱主字为无意义字母串：左侧 'MTM / ELAGL'，右侧 'MAHECTHARD / ENTM YIHEAS'；同一灯箱在两个镜头中重复出现且文字不变。",
+      "audio_evidence": "",
+      "visual_evidence": "40.5s、41.5s、116.5s 原帧中，龙形舞台后方的剧院灯箱位于画面上半部并在焦点内，文字清晰可读；40.08-45.08s 与 115.08-120.08s 两个镜头为同一布景，灯箱文字未变化。",
+      "reason": "灯箱是主背景和场景信息（剧院/片名），占画面显著位置且清晰可读；无意义字母会让观众出戏，不能以虚焦小字或装饰性外文解释。",
+      "priority": "minor",
+      "suggestion": "重绘灯箱为可读的复古剧院信息（剧院名/片名/演出信息），或换用无字灯箱、让招牌处于焦外。"
+    },
+    {
+      "id": "G02",
+      "source_id": "mv_uptown",
+      "dimension": "structure_contact",
+      "decision": "revise",
+      "intervals": [
+        {
+          "start_s": 180.1,
+          "end_s": 185.0
+        }
+      ],
+      "finding": "俯拍舞段中，围绕 boombox 的多名舞者持续缺少头部/颈部，躯干上端直接以圆钝块结束，部分肢体在 184.5s 附近互相融合；前后街景镜头中的舞者均有完整头脸。",
+      "audio_evidence": "",
+      "visual_evidence": "180.2s 原帧可见右上方米色舞者直立分腿、双臂下垂但无头；181.4s、182.0s、182.8s、184.5s 连续多帧同样无头；184.5s 时躯干/手臂在 boombox 周围融合成块状。该镜头从 180.08s 持续到 185.08s，非单帧模糊或遮挡。",
+      "reason": "连续约 5 秒、多个舞者同时缺失头部，无法用遮挡、透视或运动模糊解释；同片其他舞蹈镜头人物结构完整，且前后没有建立无头人偶/动画段落的风格，属于明确的人体结构错误。",
+      "priority": "major",
+      "suggestion": "重生成该俯拍舞蹈段，保证每名舞者有完整头部/颈部与分离肢体；若确实要做无头人偶/动画风格，应在前后镜头建立风格并避免与真人舞者混用。"
+    },
+    {
+      "id": "G03",
+      "source_id": "mv_uptown",
+      "dimension": "audio_visual",
+      "decision": "revise",
+      "intervals": [
+        {
+          "start_s": 120.1,
+          "end_s": 122.3
+        }
+      ],
+      "finding": "主唱中近景中，歌词 'you know who I am, I'm too hot' 仍在唱（约 120.1-121.7s）时他闭口微笑；直到约 122.4s 下一句 'and my band...' 才张口。",
+      "audio_evidence": "large-v3 词级时间：know 119.94-120.12、who 120.12-120.30、I 120.30-120.56、am 120.56-120.84、I'm 120.96-121.08、too 121.08-121.18、hot 121.18-121.68；该段人声连续。",
+      "visual_evidence": "120.08s 切到主唱中近景；120.9-122.2s 每 0.1s 嘴部开合度(mouth/face)仅 0.001-0.004，122.4s 突然升到 0.110；对应 122.52s 起的 'and my band about that money'。",
+      "reason": "镜头明确是主唱在舞台聚光灯前的中近景表演，不是画外音或旁观镜头；歌词连续时闭口、下一句才张口，属于人声继续而嘴停的同步错误，不能用呼吸停顿解释。",
+      "priority": "minor",
+      "suggestion": "按词级时间重做该特写的口型，或在 120.1-122.3 改用侧身/舞蹈镜头，避免正对镜头的闭口特写。"
+    },
+    {
+      "id": "G04",
+      "source_id": "mv_lazy",
+      "dimension": "text",
+      "decision": "revise",
+      "intervals": [
+        {
+          "start_s": 120.8,
+          "end_s": 122.8
+        }
+      ],
+      "finding": "手机消息界面特写中，屏幕文字为无意义字母串：顶栏 'IIEEGtE.dr'，消息气泡 'KTRENENIC Dim / SEIEFENEB Bim'，底部输入框和绿色按钮也是乱码。",
+      "audio_evidence": "121.0-127.0s 可听到 'Don't feel like picking up my phone / So leave a message at the tone'，画面同步展示手机消息界面。",
+      "visual_evidence": "121.8s、122.0s、122.5s 原帧中，手机屏幕占画面左侧约三分之一并在焦点内；UI 结构完整（状态栏、消息气泡、绿色发送键），但各行文字均不可读且不是正常外语。",
+      "reason": "手机是这段剧情的核心道具（他查看消息后把手机扔到空中），屏幕正对镜头、清晰可读；乱码直接破坏叙事可信度，不属于虚焦小字/装饰文字。",
+      "priority": "major",
+      "suggestion": "替换屏幕内容为可读的消息文本，或调整机位/景深让屏幕不成为可读焦点。"
+    },
+    {
+      "id": "G05",
+      "source_id": "mv_lazy",
+      "dimension": "text",
+      "decision": "revise",
+      "intervals": [
+        {
+          "start_s": 94.5,
+          "end_s": 97.0
+        },
+        {
+          "start_s": 107.5,
+          "end_s": 110.0
+        }
+      ],
+      "finding": "字幕轨有两处与可听歌词不符：① 'yeah I might mess around and give my college degree' 把 'get' 写成 'give'；② 第二次副歌 'I said it I said it cause I can' 写成 'cause I can't'（第一次同句字幕为 'cause I can'）。",
+      "audio_evidence": "large-v3 词级：95.56s 为 'get'（93.20-96.64 'Yeah, I might mess around and get my college degree'）；108.70-109.30s 为 'cause I can'（104.00-109.66 'Oh, yes, I said it, I said it, I said it cause I can'）。",
+      "visual_evidence": "94.5s 帧字幕显示 '...give my college degree'；108.5s 帧字幕显示 '...cause I can't'；48.5s 同句第一次出现时字幕为 '...cause I can'。",
+      "reason": "字幕内容与实际演唱不一致，且同一句在两次出现时自相矛盾；不是听不清的模糊处，词级 ASR 与首现字幕均可核对。",
+      "priority": "minor",
+      "suggestion": "将 'give' 改为 'get'、'can't' 改为 'can'，并用同一条字幕轨全片校对类似 ASR 误写。"
+    }
+  ],
+  "uncertain_observations": [
+    {
+      "source_id": "mv_uptown",
+      "intervals": [
+        {
+          "start_s": 147.0,
+          "end_s": 149.5
+        }
+      ],
+      "observation": "街景两侧的霓虹招牌可读成 'EIKNOP'、'JOMETHICS'、'SJYO' 等无意义字母串；但它们属于背景装饰，可能是刻意做的假招牌。",
+      "why_uncertain": "不承载剧情信息的装饰性招牌，按检查表不应当作乱码强判；未计入 checks。"
+    },
+    {
+      "source_id": "mv_lazy",
+      "intervals": [
+        {
+          "start_s": 3.8,
+          "end_s": 9.5
+        }
+      ],
+      "observation": "床头电子钟在推进镜头中显示 '1E:22'、'15:2...' 等不稳定七段字形，并在数秒内跳时。",
+      "why_uncertain": "慢推、失焦和七段码过渡均可造成字形不稳，无法确认是字体错误；也可能是刻意的时间流逝效果。"
+    },
+    {
+      "source_id": "mv_lazy",
+      "intervals": [
+        {
+          "start_s": 186.0,
+          "end_s": 191.8
+        }
+      ],
+      "observation": "结尾从熟睡特写硬切到破败房间，色调和情绪骤变。",
+      "why_uncertain": "没有导演脚本，不能排除有意的反讽/象征收尾（'nothing at all' 对应房间荒废）；未计入 checks。"
+    }
+  ]
+}

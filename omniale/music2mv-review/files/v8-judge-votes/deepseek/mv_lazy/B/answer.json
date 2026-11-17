@@ -1,0 +1,50 @@
+{
+  "coverage": [
+    {
+      "root_id": "R001",
+      "covered": false,
+      "check_ids": [],
+      "localization": 0,
+      "evidence": 0,
+      "reason": "交付未把床头数字钟问题列为确定需改check。它只在uncertain_observations里以3.8–9.5s的'1E:22/15:2…'不稳定七段字形作不确定观察，并主动排除（归因于慢推/失焦/七段码过渡或刻意时间流逝）。GT R001要求的是绿色钟特写相邻帧出现无效读数（分钟位85、87）及小时级非单调倒退这一确定渲染缺陷，交付没有给出该确定断言，故不计覆盖。"
+    },
+    {
+      "root_id": "R003",
+      "covered": true,
+      "check_ids": [
+        "G05"
+      ],
+      "localization": 1,
+      "evidence": 1,
+      "reason": "G05提交同一烧录字幕轨的两处转写错误：94.5–97.0s字幕'yeah I might mess around and give my college degree'与large-v3词级'get'不符；107.5–110.0s字幕'I said it I said it cause I can't'与音轨末词收在开放鼻元音、无/t/塞音释放的'can'不符，并援引48.5s同句首现字幕为'cause I can'证明自相矛盾。音画事实（ASR词级时间+字幕帧OCR）与需改理由完整，覆盖R003的单字替换与肯否替换两类实例，定位区间包含必要证据。"
+    },
+    {
+      "root_id": "R004",
+      "covered": true,
+      "check_ids": [
+        "G04"
+      ],
+      "localization": 1,
+      "evidence": 1,
+      "reason": "G04提交120.8–122.8s前景手持手机消息界面特写：UI框架完整（状态栏、消息气泡、绿色发送键、底部导航），但顶栏'IIEEGtE.dr'、气泡'KTRENENIC Dim/SEIEFENEB Bim'、输入框与按钮标签均为逐字可辨却无语义的随机字母串，非模糊/马赛克/占位符；同期歌词'Don't feel like picking up my phone'与画面情境一致，手机为剧情核心道具，乱码破坏叙事可信度。事实与需改理由完整，覆盖R004。"
+    },
+    {
+      "root_id": "Xa41007fe3a37-R001",
+      "covered": false,
+      "check_ids": [],
+      "localization": 0,
+      "evidence": 0,
+      "reason": "交付没有任何check涉及毕业幻想连续镜头中黑色游戏手柄在双手举拳时消失（拳内无手柄体积轮廓）、随后双手回落时无可见转移/遮挡/切镜路径地复现于握持位的物体连续性断裂；uncertain观察亦未提及该道具，故未覆盖。"
+    },
+    {
+      "root_id": "Xa41007fe3a37-R003",
+      "covered": false,
+      "check_ids": [],
+      "localization": 0,
+      "evidence": 0,
+      "reason": "交付没有任何check涉及飞向衣篮的同一连续室内镜头中薄矩形亮屏手机先合理侧转变窄、随后不可逆增厚变暗并出现弯曲凹口、最终以鞋状黑块落入篮中的几何形态突变；uncertain观察只谈结尾破败房间的色调情绪骤变，未触及此根因，故未覆盖。"
+    }
+  ],
+  "additional_claims": [],
+  "limitations": []
+}

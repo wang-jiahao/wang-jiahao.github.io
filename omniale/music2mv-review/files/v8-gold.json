@@ -1,0 +1,2596 @@
+{
+  "version": "pilot-v8-human1",
+  "sources": [
+    {
+      "version": "pilot-v8-external2",
+      "source_id": "mv_uptown",
+      "general_events": [
+        {
+          "id": "R002",
+          "source_id": "mv_uptown",
+          "statement": "酒红西装男子在电梯门开启的连续镜头中，右手于60.0–60.8秒清晰空无一物，至约61.0秒已持一根斜向细手杖，期间无剪辑、遮挡、拾取或递接动作。",
+          "root_definition": "同一连续镜头内手持细手杖从空手状态无交接突现的道具连续性故障。",
+          "criterion_ids": [
+            1
+          ],
+          "requires_audio": false,
+          "examples": [
+            {
+              "event_id": "C004",
+              "claim": "酒红西装男子在电梯门开启的连续镜头中，右手于60.0–60.8秒清晰空无一物，至约61.0秒已持一根斜向细手杖，期间无拾取、递接或遮挡。",
+              "intervals": [
+                {
+                  "start_s": 60,
+                  "end_s": 61.5
+                }
+              ],
+              "audio_fact": "音乐连续，无提示拿取道具的音效或重音。",
+              "visual_fact": "60.0–60.8s男子右臂垂于体侧、手部清晰为空，无任何杆状物；61.0s起一根斜向细手杖已举至肩高握于右手，其间无剪辑、无遮挡、无拾取动作。"
+            }
+          ],
+          "matching_policy": "同一男子同一手杖突现事件及重叠观察窗合并；其他人物、道具或时间的空手持物突现独立，不因同属物体连续性合并。"
+        },
+        {
+          "id": "R003",
+          "source_id": "mv_uptown",
+          "statement": "70–75秒俯视镜头中黑白棋盘格地砖非刚性蠕动：砖块形状、边界线在帧间持续弯折漂移，舞者脚位与变形网格不匹配。",
+          "root_definition": "刚性地面棋盘格纹理在镜头内随机几何变形且与人物接触点脱钩。",
+          "criterion_ids": [
+            2
+          ],
+          "requires_audio": false,
+          "examples": [
+            {
+              "event_id": "C005",
+              "claim": "70–75秒俯视镜头中黑白棋盘格地砖非刚性蠕动：砖块形状、边界线在帧间持续弯折漂移，舞者脚位与变形网格不匹配。",
+              "intervals": [
+                {
+                  "start_s": 70,
+                  "end_s": 75
+                }
+              ],
+              "audio_fact": "该段为器乐钩子与重音，节拍稳定，画面形变无节奏依据。",
+              "visual_fact": "俯视镜头中黑白格砖块呈不规则多边形，边线与角点在相邻帧间持续弯折、位移、重组；舞者脚步落点与脚下网格形状不对应，中央音响与地面的相对关系也随网格漂移。"
+            }
+          ],
+          "matching_policy": "同一棋盘格地面变形序列合并；其他纹理闪烁、透视漂移或不同地面几何故障独立。"
+        },
+        {
+          "id": "R005",
+          "source_id": "mv_uptown",
+          "statement": "酒红西装男主在143.5秒前双臂平展、十指张开且指间无物，约144秒起右手指间出现白色细棍状物并持续夹持，全程无拾取、递接或遮挡后显露动作。",
+          "root_definition": "同一连续镜头内右手从张开空手跳变为持白色细棍状物的道具突现故障。",
+          "criterion_ids": [
+            "物体连续性"
+          ],
+          "requires_audio": false,
+          "examples": [
+            {
+              "event_id": "C027",
+              "claim": "酒红西装男主在143.5秒前双臂平展、十指张开且指间无物，约144秒起右手指间出现白色细棍状物并持续夹持，全程无拾取、递接或遮挡后显露动作。",
+              "intervals": [
+                {
+                  "start_s": 143.5,
+                  "end_s": 145
+                }
+              ],
+              "audio_fact": "该时刻为器乐groove，无与持物相关的音效。",
+              "visual_fact": "141.5–143.5秒男主双臂平展、十指张开，指间无任何物体；144.0秒起其右手（画面左侧）指间出现清晰白色细线/细棍状物；144.5–145.0秒该物体持续在手，举手时仍夹持。"
+            }
+          ],
+          "matching_policy": "同一白色细棍突现事件合并；与手杖突现等其他对象/时间故障独立。"
+        },
+        {
+          "id": "R006",
+          "source_id": "mv_uptown",
+          "statement": "173–175秒四名听众的面部在连续镜头中趋同为几乎相同的圆睁大眼、露齿宽笑模板，个体五官差异被抹平，中间高领男子眼球比例明显失真凸出。",
+          "root_definition": "多人面部在单镜头内收敛为同一生成模板并伴局部眼球解剖失真。",
+          "criterion_ids": [
+            "人脸一致性与表情合理性"
+          ],
+          "requires_audio": false,
+          "examples": [
+            {
+              "event_id": "C031",
+              "claim": "173–175秒四名听众的面部在连续镜头中趋同为几乎相同的圆睁大眼、露齿宽笑模板，个体五官差异被抹平，中间高领男子眼球比例明显失真凸出。",
+              "intervals": [
+                {
+                  "start_s": 173,
+                  "end_s": 175
+                }
+              ],
+              "audio_fact": "此处为念白收尾向副歌过渡，没有任何歌词或重音要求四人同步瞪眼咧嘴定格。",
+              "visual_fact": "约172.5s四人五官、眼型、笑容仍可区分；173–175s镜头推进中四人锁定为几乎相同的圆睁大眼加露齿宽笑模板，发型之外面部差异被抹平，中间高领男子眼球比例明显失真凸出。"
+            }
+          ],
+          "matching_policy": "同一组听众面部趋同及高领男子眼球凸出实例合并；其他单独表情夸张、不同人群面部漂移或单脸畸变独立。"
+        },
+        {
+          "id": "R007",
+          "source_id": "mv_uptown",
+          "statement": "186–189秒同一连续舞台镜头内长号数量由仅右侧一人持一把增至左侧、中部和右侧共三人各持一把，期间无取号、传递或预置可见动作。",
+          "root_definition": "舞台连续镜头内长号道具无来源增殖。",
+          "criterion_ids": [
+            "物体/道具连续性"
+          ],
+          "requires_audio": false,
+          "examples": [
+            {
+              "event_id": "C036",
+              "claim": "186–189秒同一连续舞台镜头内长号数量由仅右侧一人持一把增至左侧、中部和右侧共三人各持一把，期间无取号、传递或预置可见动作。",
+              "intervals": [
+                {
+                  "start_s": 186,
+                  "end_s": 189
+                }
+              ],
+              "audio_fact": "放克节奏与铜管编配持续，但号的出现与任何可见取放动作不同步；判定不依赖声音。",
+              "visual_fact": "同一机位连续舞台镜头：约186s仅一把长号由右侧表演者持有；到约187–189s左侧表演者、中部表演者和右侧表演者各持一把长号，共三把；地面无预置长号，也无弯腰取号或交接动作。"
+            }
+          ],
+          "matching_policy": "只验收长号数量/取放连续性；同段演员由男生变女生再变西装男属于R009，不能仅凭人物变化覆盖本项；同一断言若未分别指出两个具体事实不双计。"
+        },
+        {
+          "id": "R009",
+          "source_id": "mv_uptown",
+          "statement": "R007对应的同一连续舞台镜头中，一名男生变成女生，随后该女生又变成穿西装的男子。",
+          "root_definition": "同一连续镜头内人物身份/外观连续性失稳，出现男生→女生→西装男的连续变化。",
+          "criterion_ids": [
+            "V4"
+          ],
+          "requires_audio": false,
+          "matching_policy": "须具体识别该连续镜头的人物连续变化，或相同根因的另一个真实成立实例；不能仅用长号数量变化覆盖，同一事实不重复计入R007。",
+          "examples": [
+            {
+              "event_id": "HUMAN-AVATAR-001",
+              "claim": "同一连续舞台镜头内，一名男生变成女生，随后女生又变成西装男。",
+              "intervals": [
+                {
+                  "start_s": 186,
+                  "end_s": 189
+                }
+              ],
+              "audio_fact": "",
+              "visual_fact": "用户回看原片确认：R007对应时段内，画面中一名男生的外观变为女生，之后又变为西装男；该项为人物连续性问题。",
+              "authority": "user_direct_source_verification",
+              "time_basis": "User identified the same segment as R007 (186–189s); no finer boundary was supplied or invented."
+            }
+          ],
+          "annotation_authority": "user_direct_source_verification"
+        }
+      ],
+      "music_release": [],
+      "source_sha256": "664fc47049af0240688e694a02b97e5dc10e69fd6802377ffaf34c1778ffeddb",
+      "annotation": "Full-source prescreen, independent short-window discovery,3new source checks per nomination,>=2accept; sameQwen context consensus; root deduplication before solver",
+      "reference_diagnostics": [
+        {
+          "candidate_id": "C003",
+          "discovery": {
+            "id": "coin-object-disappear",
+            "criterion": "物体保持／连续性",
+            "claim": "男子在金箱上方弹抛的金币在45.5–46.5s 下落后即从画面消失，箱顶既无可见落点也无投币缝/开口，物体追踪断裂，观众无法确认金币去向。",
+            "intervals": [
+              {
+                "start_s": 45.5,
+                "end_s": 47.5
+              }
+            ],
+            "audio_fact": "该段男声乐句与“弹币”动作配合，硬币是叙事焦点道具，消失缺乏交代。",
+            "visual_fact": "45.0s 指间持币、45.5–46.0s 币在下落，46.5s 起币不可见；金箱顶面为完整反光平面。",
+            "requires_audio": false,
+            "needs_global_context": false,
+            "normal_alternative": "金币可能平落在高反光箱顶上与金色融为一体不可见。",
+            "why_still_a_problem": "即便落在箱顶，也应保留可辨识的轮廓或声响反馈；当前处理让关键道具凭空蒸发，属连续性问题，建议补落点特写或入缝动作。",
+            "certainty": "uncertain",
+            "candidate_id": "C003",
+            "discovery_file": "dense-discovery\\arena-sol-100\\040-062.000\\provider-size-recovery-02\\answer.json",
+            "discovery_sha256": "ea21e4b1e3ead7f70e39d27837780ed56034fe54b2d1b76294a21b8b387cd39a"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C003",
+              "verdict": "reject",
+              "claim": "男子在金箱上方弹抛的金币在45.5–46.5s 下落后即从画面消失，箱顶既无可见落点也无投币缝/开口，物体追踪断裂，观众无法确认金币去向。",
+              "intervals": [
+                {
+                  "start_s": 45.5,
+                  "end_s": 47.5
+                }
+              ],
+              "audio_fact": "男声乐句与弹币动作配合，硬币为前景道具。",
+              "visual_fact": "45.5s 左右金币自指间弹出并在箱上方旋转；随后金币反弹至男子胸前高度（约46–47s 可见金色圆盘）；约48s 起金箱顶面中央出现一枚小型金色反光圆点并持续到窗口结束，与金币平落箱顶的状态一致。",
+              "normal_alternative": "金币落在高反光金色箱顶上轮廓变小，但落点圆点确实可见，轨迹（弹出—反弹—落定）连续可追。",
+              "reason": "金币并未凭空消失：弹起、反弹、落定箱顶的过程在帧序中可追踪，箱顶后续帧存在可见落点，连续性成立。",
+              "requires_audio": false,
+              "criterion_id": "coin-object-disappear"
+            },
+            "B": {
+              "candidate_id": "C003",
+              "verdict": "uncertain",
+              "claim": "男子在金箱上方弹抛的金币在45.5–46.5s 下落后即从画面消失，箱顶既无可见落点也无投币缝/开口，物体追踪断裂，观众无法确认金币去向。",
+              "intervals": [
+                {
+                  "start_s": 45.5,
+                  "end_s": 47.5
+                }
+              ],
+              "audio_fact": "男声乐句与弹币动作配合，硬币为叙事焦点道具。",
+              "visual_fact": "约45.0s指间持币，45.5–46.0s币在下落/胸高中途，约46.4s后画面不再见币；金箱顶面为整片高反光金色平面，无可见缝隙。",
+              "normal_alternative": "金币很可能平落在强反光的金色箱顶上，与金色表面融为一体而不可见，这是该材质下的合理结果。",
+              "reason": "箱顶为均匀镜面金，一枚金箔色硬币落下后难以与背景区分，无法据此断定物体凭空蒸发；缺乏落点特写虽不理想，但不足以排除融合解释，故不能确认连续性错误。",
+              "requires_audio": false,
+              "criterion_id": "coin-object-disappear"
+            },
+            "C": {
+              "candidate_id": "C003",
+              "verdict": "reject",
+              "claim": "男子在金箱上方弹抛的金币在45.5–46.5s 下落后即从画面消失，箱顶既无可见落点也无投币缝/开口，物体追踪断裂，观众无法确认金币去向。",
+              "intervals": [
+                {
+                  "start_s": 45.5,
+                  "end_s": 47.5
+                }
+              ],
+              "audio_fact": "该段男声乐句与弹币动作配合，硬币为叙事焦点道具。",
+              "visual_fact": "45.0s 指间持币、45.5–46.0s 币在下落；46.5s 起箱顶中央出现一枚小而清晰的金色圆片，并在47.0–48.0s 镜头后拉过程中持续停留在箱顶同一位置，即金币的落点可见且保持。",
+              "normal_alternative": "金币平落在高反光箱顶上——这正是实际发生的情况，落点以独立金点形式可辨，并未与箱体融为一体而消失。",
+              "reason": "所谓“消失”不成立：箱顶在落地后始终保留可辨识的金币轮廓，物体追踪连续，不存在凭空蒸发。",
+              "requires_audio": false,
+              "criterion_id": "coin-object-disappear"
+            }
+          },
+          "majority_status": "not_confirmed"
+        },
+        {
+          "candidate_id": "C006",
+          "discovery": {
+            "id": 3,
+            "criterion": "道具细节连续性（腕表指针/表盘）",
+            "claim": "75–77秒腕表特写中，指针位置在约2秒内出现不合常理的跳变，表盘品牌字样与刻度模糊不可辨。",
+            "intervals": [
+              {
+                "start_s": 75.0,
+                "end_s": 77.0
+              }
+            ],
+            "audio_fact": "无相关音频线索。",
+            "visual_fact": "75.0与76.0秒分针指向约7点位，76.8秒指针朝向明显改变；表盘中央logo与文字呈不可读glyph。",
+            "requires_audio": false,
+            "needs_global_context": false,
+            "normal_alternative": "可能是两次拍摄之间的跳切，或背景人群显形为下一场景五人队（转场设计）。",
+            "why_still_a_problem": "前景手臂、汗珠与表带高光在各帧几乎像素级一致，不像重新拍摄的跳切；若为同一镜头，分钟级指针跳变即连续性错误，且作为产品式特写，表盘可读性直接关系画面可信度。",
+            "certainty": "uncertain",
+            "candidate_id": "C006",
+            "discovery_file": "dense-discovery\\arena-sol-100\\060-082.000\\provider-size-recovery-02\\answer.json",
+            "discovery_sha256": "5e913573a5c93d44630a40b1ef9ef60171bbd363c613b6e81de7a179113151f2"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C006",
+              "verdict": "reject",
+              "claim": "75–77秒腕表特写中，指针位置在约2秒内出现不合常理的跳变，表盘品牌字样与刻度模糊不可辨。",
+              "intervals": [
+                {
+                  "start_s": 75.0,
+                  "end_s": 77.0
+                }
+              ],
+              "audio_fact": "无相关音频线索；此段为器乐/人声过门，不承载腕表信息。",
+              "visual_fact": "75.0–76.8秒各采样帧中时针约指10点、分针约指7点，位置稳定；77.0秒画面为同一手臂的推近/变焦，背景由虚焦青色灯光拉焦至五名黑衣舞者（下一场景显形），指针相对表盘仍呈约10:35，未见朝向跳变。表盘中央字样确为不可读glyph，但属源片渲染质感。",
+              "normal_alternative": "77秒的变化是镜头推近与焦点转移进入舞群场景的转场设计，而非指针跳变。",
+              "reason": "必要事实（约2秒内指针不合常理跳变）未被观察到：全部采样帧指针构型一致；唯一显著变化发生在77.0秒且可由变焦/拉焦转场完整解释。表盘文字不可读是源片生成质感，不构成指针/表盘连续性断裂，故候选主张不成立。",
+              "requires_audio": false,
+              "criterion_id": "道具细节连续性（腕表指针/表盘）"
+            },
+            "B": {
+              "candidate_id": "C006",
+              "verdict": "accept",
+              "claim": "75–77秒腕表特写中，指针位置在约2秒内出现不合常理的跳变，表盘品牌字样与刻度模糊不可辨。",
+              "intervals": [
+                {
+                  "start_s": 75.0,
+                  "end_s": 77.0
+                }
+              ],
+              "audio_fact": "该段为配乐舞蹈/特写，无与腕表相关的音频事件。",
+              "visual_fact": "75.0–76.6秒同一锁定机位的手臂特写中，拳头、汗珠与表带高光基本不变，指针维持同一朝向；到76.8秒指针朝向明显改变，随后77.0秒与舞池镜头叠化。表盘中央标志下方文字呈不可读的波浪状glyph，刻度仅为模糊条块。",
+              "normal_alternative": "背景人群显形为下一场景五人队属转场设计，但转场不解释同一静止手臂板上分钟级指针跳变；文字亦非稳定可读的虚构品牌名。",
+              "reason": "手臂像素级一致排除重新拍摄的跳切，同一镜头内指针跳变构成道具连续性错误；表盘字样在本分辨率下确认为变形乱码而非可读品牌，产品式特写中该缺陷成立。",
+              "requires_audio": false,
+              "criterion_id": "道具细节连续性（腕表指针/表盘）"
+            },
+            "C": {
+              "candidate_id": "C006",
+              "verdict": "uncertain",
+              "claim": "75–77秒腕表特写中，指针位置在约2秒内出现不合常理的跳变，表盘品牌字样与刻度模糊不可辨。",
+              "intervals": [
+                {
+                  "start_s": 75.0,
+                  "end_s": 77.0
+                }
+              ],
+              "audio_fact": "该窗口为舞曲/歌词延续段，无与腕表相关的独立音频事件。",
+              "visual_fact": "腕表特写位于约75.1–77.0秒：金色表壳、香槟色表盘、棒状刻度与3点位日历窗清晰一致；表盘顶部logo与下方文字行在该分辨率下呈细小墨迹，无法判读为确定乱码。采样帧（75.1/75.6/76.1/76.6/76.8/77.0）中指针大体维持朝下的V形布局，仅个别帧因反光/灯光变化观感略异，未能在0.5秒采样下确认分钟级指针的跳变再回跳。",
+              "normal_alternative": "背景俱乐部灯光切换造成表盘反光与指针对比度变化；或秒针/分针的正常缓慢移动被压缩采样误读。",
+              "reason": "指针跳变这一必要事实未被确认观察到，文字不可读亦可由分辨率解释，无法排除合理替代，故不确定。",
+              "requires_audio": false,
+              "criterion_id": "道具细节连续性（腕表指针/表盘）"
+            }
+          },
+          "majority_status": "not_confirmed"
+        },
+        {
+          "candidate_id": "C008",
+          "discovery": {
+            "id": "veh-scale-99",
+            "criterion": "物体连续性与比例（车辆）",
+            "claim": "99秒窗外/桌沿平面出现一辆玩具比例的短车身白车，1秒内跳变为全尺寸加长礼车，且车型由非stretch变为stretch，与歌词'Get the stretch'的呈现不连贯。",
+            "intervals": [
+              {
+                "start_s": 98.5,
+                "end_s": 100.5
+              }
+            ],
+            "audio_fact": "'Julio! Get the stretch!' 正在此处演唱，画面应以一辆stretch limo响应。",
+            "visual_fact": "99秒车辆尺寸仅约桌面高度、带粉色底光，似置于室内平面；100秒同一窗口位置变为占满画面的长礼车，无接近运动的透视过渡。",
+            "requires_audio": true,
+            "needs_global_context": false,
+            "normal_alternative": "可解释为礼车由远及近驶来，或'玩具车变真车'的风格化转场。",
+            "why_still_a_problem": "99秒车辆的光照（霓虹粉底光）与所处平面更像室内摆件而非街面远景，且车身轴距在两帧间突变，缺少任何行驶接近的运动线索，属生成尺度不一致。",
+            "certainty": "uncertain",
+            "candidate_id": "C008",
+            "discovery_file": "dense-discovery\\arena-sol-100\\080-102.000\\answer.json",
+            "discovery_sha256": "85903014792ce55a14856539d23d3db11850174bb8a3ba810876e3e877362d24"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C008",
+              "verdict": "reject",
+              "claim": "99秒窗外/桌沿平面出现一辆玩具比例的短车身白车，1秒内跳变为全尺寸加长礼车，且车型由非stretch变为stretch，与歌词'Get the stretch'的呈现不连贯。",
+              "intervals": [
+                {
+                  "start_s": 98.5,
+                  "end_s": 100.5
+                }
+              ],
+              "audio_fact": "98.5–99.5秒正唱'Julio! Get the stretch!'。",
+              "visual_fact": "98.7秒透过酒吧窗可见街面一辆白色小车（前景橙色为室内吧台，车辆因距离显得小）；99.0秒同一车辆变大且中段延伸出额外车窗，成为加长礼车；99.3–99.7秒礼车完整驶过窗口，尺寸逐帧增大，存在接近运动。",
+              "normal_alternative": "车辆由远及近驶来，同时车身中段随'Get the stretch'歌词被风格化拉长，是与音频同步的视觉双关转场。",
+              "reason": "观察到的帧序列显示车辆逐帧放大并延伸轴距，恰与'Get the stretch'演唱同步，属有意拉伸效果而非凭空跳变；'玩具比例'实为隔着窗户的远景透视，前景台面在室内侧。主张的尺度/车型不连贯被音画同步的正常解释排除。",
+              "requires_audio": true,
+              "criterion_id": "物体连续性与比例（车辆）"
+            },
+            "B": {
+              "candidate_id": "C008",
+              "verdict": "reject",
+              "claim": "99秒窗外/桌沿平面出现一辆玩具比例的短车身白车，1秒内跳变为全尺寸加长礼车，且车型由非stretch变为stretch，与歌词'Get the stretch'的呈现不连贯。",
+              "intervals": [
+                {
+                  "start_s": 98.5,
+                  "end_s": 100.5
+                }
+              ],
+              "audio_fact": "约98–99秒唱到'Julio! Get the stretch!'。",
+              "visual_fact": "98.7秒车窗玻璃外侧（有窗框竖梃，前景木桌在其内）先露出粉色霓虹照亮的车头，98.9–99.5秒车身逐步拉长：短轿车→中段伸长→完整加长礼车，99.5–99.9秒礼车整体驶过窗口，100.1秒切到夜间街景同款白色加长礼车。",
+              "normal_alternative": "礼车由远及近/风格化'伸展'转场——实际观察到的正是渐进拉伸而非瞬时跳变。",
+              "reason": "车辆位于窗外街面而非室内桌面，比例感来自霓虹与景深；轴距在连续数帧内渐变伸长，与'Get the stretch'歌词同步，属有意的伸展效果，不构成尺度或车型突变错误。",
+              "requires_audio": true,
+              "criterion_id": "物体连续性与比例（车辆）"
+            },
+            "C": {
+              "candidate_id": "C008",
+              "verdict": "reject",
+              "claim": "99秒窗外/桌沿平面出现一辆玩具比例的短车身白车，1秒内跳变为全尺寸加长礼车，且车型由非stretch变为stretch，与歌词'Get the stretch'的呈现不连贯。",
+              "intervals": [
+                {
+                  "start_s": 98.5,
+                  "end_s": 100.5
+                }
+              ],
+              "audio_fact": "此处正唱'Julio! Get the stretch!'，随后'Ride to Harlem, Hollywood'。",
+              "visual_fact": "约98.6–98.9秒窗外出现带粉色底光的白色短车；99.0–99.9秒该车在连续帧中逐步拉长（99.0短、99.2中、99.5多窗、99.9完整加长），随后作为全尺寸stretch limo驶过窗框立柱，100.0秒起切到街景礼车。存在清晰的逐帧伸展动画，而非无过渡的尺度/车型跳变。",
+              "normal_alternative": "这是把歌词'Get the stretch'字面化的风格化转场：车在窗前伸展成长礼车。",
+              "reason": "候选所称'1秒内跳变、无透视过渡'与观察到的连续拉伸动画直接矛盾，且该动画恰与歌词同步，构成有意的视觉双关，不成立。",
+              "requires_audio": false,
+              "criterion_id": "物体连续性与比例（车辆）"
+            }
+          },
+          "majority_status": "not_confirmed"
+        },
+        {
+          "candidate_id": "C009",
+          "discovery": {
+            "id": "veh-swap-101",
+            "criterion": "载具身份与人物-物体交互物理性",
+            "claim": "100秒男子从加长礼车天窗探身，101–102秒切到普通三厢白车后他仍以同样姿势从车顶线探出，但该车未见开启的天窗，腰部没入金属车顶，物理上不成立；载具类型也在两秒内改变。",
+            "intervals": [
+              {
+                "start_s": 100.5,
+                "end_s": 102
+              }
+            ],
+            "audio_fact": "'Ride to Harlem, Hollywood' 旅行式歌词，允许换景。",
+            "visual_fact": "101–102秒车辆为带尾鳍的短三厢车，车顶轮廓完整，男子上半身直立于车顶中线，无可见开口；两侧行人鼓掌反应与100秒剧院人群不同。",
+            "requires_audio": true,
+            "needs_global_context": false,
+            "normal_alternative": "蒙太奇中不同街区使用不同车辆；天窗存在但未被渲染清晰。",
+            "why_still_a_problem": "同一角色延续同一'探身车顶'动作却换车，且新车顶无开口、身体与车顶相交无遮挡关系，更像生成的人物-载具融合错误而非有意剪辑。",
+            "certainty": "uncertain",
+            "candidate_id": "C009",
+            "discovery_file": "dense-discovery\\arena-sol-100\\080-102.000\\answer.json",
+            "discovery_sha256": "85903014792ce55a14856539d23d3db11850174bb8a3ba810876e3e877362d24"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C009",
+              "verdict": "uncertain",
+              "claim": "100秒男子从加长礼车天窗探身，101–102秒切到普通三厢白车后他仍以同样姿势从车顶线探出，但该车未见开启的天窗，腰部没入金属车顶，物理上不成立；载具类型也在两秒内改变。",
+              "intervals": [
+                {
+                  "start_s": 100.5,
+                  "end_s": 102.0
+                }
+              ],
+              "audio_fact": "100.5–102秒唱'Ride to Harlem, Hollywood'，为旅行式蒙太奇语境。",
+              "visual_fact": "99.7秒剧院街景中男子自加长礼车天窗直立探出；100.5秒硬切至褐石建筑街景的白色经典三厢车，男子以相同直立姿态位于车顶中线，其躯干遮挡车顶中央，采样分辨率下无法确认车顶是否存在开口或身体与金属的相交方式；两镜头环境、人群完全不同。",
+              "normal_alternative": "跨街区蒙太奇中使用不同车辆并以相同'探身车顶'姿势做匹配剪辑；三厢车天窗开口被男子躯干遮挡未渲染可见。",
+              "reason": "载具更换发生在明确的不同场景硬切之间，属允许蒙太奇；但'车顶无开口、腰部没入金属'这一必要事实无法在采样帧中证实也无法排除（开口可能被身体遮挡），物理相交判定证据不足，故不确定。",
+              "requires_audio": false,
+              "criterion_id": "载具身份与人物-物体交互物理性"
+            },
+            "B": {
+              "candidate_id": "C009",
+              "verdict": "uncertain",
+              "claim": "100秒男子从加长礼车天窗探身，101–102秒切到普通三厢白车后他仍以同样姿势从车顶线探出，但该车未见开启的天窗，腰部没入金属车顶，物理上不成立；载具类型也在两秒内改变。",
+              "intervals": [
+                {
+                  "start_s": 100.5,
+                  "end_s": 102.0
+                }
+              ],
+              "audio_fact": "'Ride to Harlem, Hollywood' 旅行式歌词，允许换景换车。",
+              "visual_fact": "100.1–100.5秒夜间加长礼车天窗开口清晰可见，男子探身；100.7–101.9秒切到日光下棕石建筑街道，男子直立穿出白色轿车车顶线，其躯干遮挡车顶中央，两侧车顶轮廓连续，未见金属横贯其红色西装，也无法确认是否存在被身体遮住的开口。",
+              "normal_alternative": "蒙太奇中不同街区使用不同车辆；天窗/开口存在但被其身体遮挡未渲染出来。",
+              "reason": "换车换景属允许的蒙太奇；'腰部没入金属车顶'的关键事实在采样中不可验证——车顶线从其身后经过、无金属覆盖躯干的交叠证据，开口被遮挡属合理替代解释，故无法确认物理融合错误。",
+              "requires_audio": true,
+              "criterion_id": "载具身份与人物-物体交互物理性"
+            },
+            "C": {
+              "candidate_id": "C009",
+              "verdict": "reject",
+              "claim": "100秒男子从加长礼车天窗探身，101–102秒切到普通三厢白车后他仍以同样姿势从车顶线探出，但该车未见开启的天窗，腰部没入金属车顶，物理上不成立；载具类型也在两秒内改变。",
+              "intervals": [
+                {
+                  "start_s": 100.5,
+                  "end_s": 102.0
+                }
+              ],
+              "audio_fact": "'Ride to Harlem, Hollywood'旅行式歌词，允许跨街区换景换车。",
+              "visual_fact": "约100.0–100.7秒侧面镜头中男子自礼车车顶开口探身；100.8–102.1秒切到低角度后方镜头，一辆较短的白色车尾鳍车行驶，男子上半身立于车顶中线。该后视角下车顶上表面本就不可见，天窗开口从该角度无法被观察到属正常；男子腰部被车顶/后窗轮廓遮挡是常规遮挡关系，未见身体与金属面的异常相交渲染。",
+              "normal_alternative": "蒙太奇中不同街区使用不同车辆；后视机位天然看不到车顶天窗开口。",
+              "reason": "所谓'无开口、腰没入车顶'在低角度后视下无法证伪，遮挡属正常透视；换车为歌词允许的剪辑切换，未发现确凿的物理融合错误。",
+              "requires_audio": false,
+              "criterion_id": "载具身份与人物-物体交互物理性"
+            }
+          },
+          "majority_status": "not_confirmed"
+        },
+        {
+          "candidate_id": "C011",
+          "discovery": {
+            "id": "check-vanish-98",
+            "criterion": "持物与物体保持连续性",
+            "claim": "98–99秒男子签完支票后手臂横扫，纸张在未被抓握的情况下直接消失出画；此前95–96秒倒入的酒杯在97秒后也无交代地离开画面。",
+            "intervals": [
+              {
+                "start_s": 97.5,
+                "end_s": 99
+              }
+            ],
+            "audio_fact": "'sign a check' 紧接 'Julio! Get the stretch!'，暗示支票应交出。",
+            "visual_fact": "98秒纸仍在手下，99秒手臂运动模糊后桌面空无一物，无递出或抓起的接触帧；倒好的酒杯在镜头右移后不见去向。",
+            "requires_audio": true,
+            "needs_global_context": false,
+            "normal_alternative": "可解释为他把支票滑出画外交给Julio，镜头重构图排除了酒杯。",
+            "why_still_a_problem": "横扫动作没有与纸张的明确接触/抓取，物体'蒸发'而非被移走，属连续动作中的生成丢失，观众会误读为道具消失。",
+            "certainty": "uncertain",
+            "candidate_id": "C011",
+            "discovery_file": "dense-discovery\\arena-sol-100\\080-102.000\\answer.json",
+            "discovery_sha256": "85903014792ce55a14856539d23d3db11850174bb8a3ba810876e3e877362d24"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C011",
+              "verdict": "reject",
+              "claim": "98–99秒男子签完支票后手臂横扫，纸张在未被抓握的情况下直接消失出画；此前95–96秒倒入的酒杯在97秒后也无交代地离开画面。",
+              "intervals": [
+                {
+                  "start_s": 97.5,
+                  "end_s": 99.0
+                }
+              ],
+              "audio_fact": "97.5–98.5秒唱'sign a check'紧接'Julio! Get the stretch!'，语义上支票应被交出。",
+              "visual_fact": "97.5–98.0秒男子左手按在支票上书写；98.0–98.3秒左臂向左横扫，支票随手臂接触一起左移并带运动模糊，98.3秒后滑出画框，桌面随之空置；其酒杯约97.0秒已放回桌面右侧，98.5秒起镜头右摇转向窗外街景，酒杯因构图移出画面而非消失。",
+              "normal_alternative": "他将签好的支票随手滑出画外交给Julio；镜头右移重构图使酒杯离开取景范围。",
+              "reason": "纸张离开画面前有明确的手-纸接触与随臂位移的模糊轨迹，属滑出递交动作，与'sign a check'后交出的语义一致；酒杯离框由镜头平移解释。'未抓握即蒸发'与'无交代消失'均被观察到的接触帧和运镜排除。",
+              "requires_audio": false,
+              "criterion_id": "持物与物体保持连续性"
+            },
+            "B": {
+              "candidate_id": "C011",
+              "verdict": "reject",
+              "claim": "98–99秒男子签完支票后手臂横扫，纸张在未被抓握的情况下直接消失出画；此前95–96秒倒入的酒杯在97秒后也无交代地离开画面。",
+              "intervals": [
+                {
+                  "start_s": 97.5,
+                  "end_s": 99.0
+                }
+              ],
+              "audio_fact": "'sign a check' 紧接 'Julio! Get the stretch!'，暗示支票交出。",
+              "visual_fact": "97.3秒男子将酒杯放回桌面；97.5–98.1秒双手签字；98.3秒其左手按住纸张向左横扫，纸张随手移出画面左缘；98.5秒后镜头切至窗外车辆，桌面与酒杯因构图/切镜退出画面。",
+              "normal_alternative": "他把支票滑出画外交给Julio，镜头重构图/切镜排除了酒杯——与观察一致。",
+              "reason": "存在明确的手-纸接触帧（98.3秒手压纸上横扫），纸张随动作出画而非蒸发；酒杯先被放下，其后因推近构图与切镜离开画面，属正常剪辑，不成立道具消失错误。",
+              "requires_audio": true,
+              "criterion_id": "持物与物体保持连续性"
+            },
+            "C": {
+              "candidate_id": "C011",
+              "verdict": "reject",
+              "claim": "98–99秒男子签完支票后手臂横扫，纸张在未被抓握的情况下直接消失出画；此前95–96秒倒入的酒杯在97秒后也无交代地离开画面。",
+              "intervals": [
+                {
+                  "start_s": 97.5,
+                  "end_s": 99.0
+                }
+              ],
+              "audio_fact": "'sign a check'紧接'Julio! Get the stretch!'，暗示支票被交出/滑走。",
+              "visual_fact": "约97.2–97.5秒男子持笔手与支票接触并向左扫动，同时镜头向右平移重构图（窗框立柱与街景进入画面）；97.5秒后支票与前景水晶杯均因画框右移而退出左侧视野，并非在完整可见状态下凭空蒸发。扫动过程中手与纸张存在接触帧。",
+              "normal_alternative": "他把支票滑出画外交给画外的Julio；酒杯随镜头右移被排除出构图。",
+              "reason": "物体离开画面可由手臂扫动+镜头平移的连续运动解释，且与歌词交接动作吻合，候选所称'无接触消失'未被观察到。",
+              "requires_audio": false,
+              "criterion_id": "持物与物体保持连续性"
+            }
+          },
+          "majority_status": "not_confirmed"
+        },
+        {
+          "candidate_id": "C012",
+          "discovery": {
+            "id": "lip-sync-final-stage",
+            "criterion": "歌唱与画面口型对应",
+            "claim": "末段英雄镜头完全不对口型：副歌焦点句'say my name, you know who I am, I'm too hot'播放时，主角站在舞台中央闭嘴低头摆弄袖扣。",
+            "intervals": [
+              {
+                "start_s": 120,
+                "end_s": 122
+              }
+            ],
+            "audio_fact": "117–122主唱人声持续且处于混音最前。",
+            "visual_fact": "男子视线落在手腕，双手在袖口处，无任何嘴部开合。",
+            "requires_audio": true,
+            "needs_global_context": false,
+            "normal_alternative": "刻意'酷到不唱'的过场姿态。",
+            "why_still_a_problem": "该镜头以追光与居中构图呈现为副歌高潮的表演主体，闭嘴对焦点歌词只能读作同步失误而非风格选择。",
+            "certainty": "clear",
+            "candidate_id": "C012",
+            "discovery_file": "dense-discovery\\arena-sol-100\\100-122.000\\provider-size-recovery-02\\answer.json",
+            "discovery_sha256": "5716ae1fb3deccdfdc99dda4f7b0df70dd2baf3a773280e56807bf44940f127b"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C012",
+              "verdict": "reject",
+              "claim": "末段英雄镜头完全不对口型：副歌焦点句播放时主角闭嘴低头摆弄袖扣。",
+              "intervals": [
+                {
+                  "start_s": 120,
+                  "end_s": 122
+                }
+              ],
+              "audio_fact": "118–124为主唱副歌'Bitch say my name… I'm too hot'持续在前置混音。",
+              "visual_fact": "约120.1s切到紫红西装胡须男，120.1–121.0低头整理袖口、嘴闭合；但自约121.2s起他抬头、嘴明显张合并随'I'm too hot'做演唱口型，直至124s镜头结束仍在开口唱。",
+              "normal_alternative": "先以袖扣过场姿态进画、随后接上副歌口型，属正常表演调度。",
+              "reason": "候选所称'完全不对口型、全程闭嘴'与采样矛盾：区间后半段嘴部开合与焦点歌词同步，且镜头并非以闭嘴收尾；不构成口型失误。",
+              "requires_audio": true,
+              "criterion_id": "lip-sync-final-stage"
+            },
+            "B": {
+              "candidate_id": "C012",
+              "verdict": "accept",
+              "claim": "末段英雄镜头完全不对口型：副歌焦点句'say my name, you know who I am, I'm too hot'播放时，主角站在舞台中央闭嘴低头摆弄袖扣。",
+              "intervals": [
+                {
+                  "start_s": 120.2,
+                  "end_s": 121.6
+                }
+              ],
+              "audio_fact": "主唱人声持续处于混音最前；焦点句'say my name, you know who I am, I'm too hot'约在118.5–121.5播放，舞台镜头仅承载其尾部'I'm too hot'。",
+              "visual_fact": "120.2切到追光舞台后，居中主角低头看手腕、双手在袖口整理袖扣，嘴部闭合或仅带笑意，直到约121.6；他张口演唱始于约121.7，对应的是其后的'hot damn' tag与'And my band…'，即焦点句结束之后。",
+              "normal_alternative": "刻意'酷到不唱'的过场姿态。",
+              "reason": "该镜头以追光、居中构图与身后俯身伴舞明确呈现为副歌表演主体，且同一镜头内他随后立即对口型演唱，证明其声源身份；因此在焦点句仍于混音前端播放的120.2–121.6区间内闭嘴摆袖扣无法用独立剧情beat或纯风格姿态解释，属口型同步失误。候选中'完全不对口型'就焦点句而言成立：张口发生在该句唱完之后。",
+              "requires_audio": true,
+              "criterion_id": "lip-sync-final-stage"
+            },
+            "C": {
+              "candidate_id": "C012",
+              "verdict": "reject",
+              "claim": "末段英雄镜头完全不对口型：副歌焦点句播放时主角闭嘴低头摆弄袖扣。",
+              "intervals": [
+                {
+                  "start_s": 120,
+                  "end_s": 122
+                }
+              ],
+              "audio_fact": "该窗口主唱人声持续处于混音前景（'say my name… I'm too hot'一带）。",
+              "visual_fact": "切到舞台镜头后（约120.2起），男子虽低头看腕、双手在袖口，但2.6–3.9s多帧嘴部明显张开且形状逐帧变化，并非'无任何嘴部开合'；122s后他转正面对镜头继续张口。",
+              "normal_alternative": "低头摆袖扣同时哼唱/微笑的表演姿态，且前一镜头（剧院+金龙）已是另一表演者的蒙太奇，本镜头不必与该句逐字对齐。",
+              "reason": "候选的核心视觉事实（全程闭嘴、零口型运动）与采样帧矛盾：窗口内嘴部多次张开并变化，无法确立'完全不对口型'的同步失误；多表演者蒙太奇下该姿态也可读作风格化过场。",
+              "requires_audio": true,
+              "criterion_id": "lip-sync-final-stage"
+            }
+          },
+          "majority_status": "not_confirmed"
+        },
+        {
+          "candidate_id": "C014",
+          "discovery": {
+            "id": "turntable-arm-teleport",
+            "criterion": "物体物理/连续性",
+            "claim": "唱臂无因位移：105落在旋转唱片上，106被抬起甩到右侧离盘，106.5–107又回到纹路，全程无手或机构驱动。",
+            "intervals": [
+              {
+                "start_s": 105,
+                "end_s": 107
+              }
+            ],
+            "audio_fact": "该镜头对应'Smoother than a fresh jar of Skippy'，音乐连续。",
+            "visual_fact": "采样帧间唱臂位置跳变，支点与配重几何不被遵守。",
+            "requires_audio": false,
+            "needs_global_context": false,
+            "normal_alternative": "DJ在试音间抬臂cue盘。",
+            "why_still_a_problem": "真实抬臂需连续轨迹与手部介入；此处为逐帧生成的位置突变，属明显制作故障。",
+            "certainty": "clear",
+            "candidate_id": "C014",
+            "discovery_file": "dense-discovery\\arena-sol-100\\100-122.000\\provider-size-recovery-02\\answer.json",
+            "discovery_sha256": "5716ae1fb3deccdfdc99dda4f7b0df70dd2baf3a773280e56807bf44940f127b"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C014",
+              "verdict": "reject",
+              "claim": "唱臂无因位移：105在盘上、106被甩到右侧离盘、106.5–107又回到纹路，全程无驱动。",
+              "intervals": [
+                {
+                  "start_s": 105,
+                  "end_s": 107
+                }
+              ],
+              "audio_fact": "该段对应'Smoother than a fresh jar of Skippy'前后，音乐连续。",
+              "visual_fact": "约105.1s唱臂落在盘面靠近标签；105.3s出现明显运动模糊的抬臂轨迹；105.5–106.3s唱臂停在右侧臂托上并保持；随后镜头上摇离开唱机，未见唱臂回到纹路，也无瞬移式跳变。",
+              "normal_alternative": "抬臂cue盘后放回臂托的正常操作，手部可在画外。",
+              "reason": "观测到的是带运动模糊的连续抬臂→归位臂托过程，且'回到纹路'一节根本未发生；候选描述的 teleport 模式与帧序列不符。",
+              "requires_audio": false,
+              "criterion_id": "turntable-arm-teleport"
+            },
+            "B": {
+              "candidate_id": "C014",
+              "verdict": "accept",
+              "claim": "唱臂无因位移：105落在旋转唱片上，106被抬起甩到右侧离盘，106.5–107又回到纹路，全程无手或机构驱动。",
+              "intervals": [
+                {
+                  "start_s": 105.1,
+                  "end_s": 107.0
+                }
+              ],
+              "audio_fact": "音乐连续（'Smoother than a fresh jar of Skippy'），无cue停或变速提示。",
+              "visual_fact": "同一不间断镜头内，唱臂105.1–105.4落在盘面纹路；约105.5–105.8带运动模糊跳至右上方离盘位；105.9起又回到盘面落针，直至107.0。全程无任何手部入画，也无可见自动回臂机构。",
+              "normal_alternative": "DJ在试音间抬臂cue盘。",
+              "reason": "真实抬臂需手部介入或机械装置并呈连续弧线；此处唱臂在约0.5秒内离盘又回盘，支点几何不被遵守，且采样帧中始终无驱动源，属无因位移的制作故障。候选的具体秒数略有偏移（跳变实际在105.5–105.9），但105–107窗口内现象确凿。",
+              "requires_audio": false,
+              "criterion_id": "turntable-arm-teleport"
+            },
+            "C": {
+              "candidate_id": "C014",
+              "verdict": "reject",
+              "claim": "唱臂无因位移：105落盘、106抬起甩到右侧离盘、106.5–107又回到纹路，全程无手或机构驱动。",
+              "intervals": [
+                {
+                  "start_s": 105,
+                  "end_s": 107
+                }
+              ],
+              "audio_fact": "该镜头对应'Smoother than a fresh jar of Skippy'，音乐连续。",
+              "visual_fact": "105.0s唱头已位于靠近中心标签的内圈纹路（即B面/曲目末段位置），105.3s出现带运动模糊的抬臂轨迹，105.6s起唱臂停在右侧 resting dock 并保持到106.9s，并未'回到纹路'。",
+              "normal_alternative": "唱片播到内圈末段后唱臂抬离并归位到支架（自动回臂/结束姿态），运动模糊证明是连续位移而非瞬移。",
+              "reason": "候选描述的双向跳变（离盘后又回盘）与帧序不符：唱臂单向从内圈移到右侧停架且停留；存在中间模糊帧，属连续运动；落点在标签附近也支持'播完归位'的正常解释，不构成凭空位移故障。",
+              "requires_audio": false,
+              "criterion_id": "turntable-arm-teleport"
+            }
+          },
+          "majority_status": "not_confirmed"
+        },
+        {
+          "candidate_id": "C016",
+          "discovery": {
+            "id": "porch-band-not-playing",
+            "criterion": "演奏与音乐对应",
+            "claim": "木廊'乐队'只跳不奏：萨克斯夹在腰侧未举到嘴边，低音提琴无运弓/拨弦手位，大鼓穿戴却无鼓槌，而混音里正是完整铜管+节奏组groove。",
+            "intervals": [
+              {
+                "start_s": 103,
+                "end_s": 105
+              }
+            ],
+            "audio_fact": "该两秒对应'If we show up, we gon' show out'，伴奏含活跃贝斯与鼓组。",
+            "visual_fact": "三名乐手随舞步摆动乐器，接触点与演奏姿态均缺失。",
+            "requires_audio": true,
+            "needs_global_context": false,
+            "normal_alternative": "派对空镜，乐队处于间歇。",
+            "why_still_a_problem": "剪辑把乐队放在律动最明确的乐句上、构图暗示其为声源；不演奏的持物与音频的live感直接矛盾，至少应补演奏动作或改纯舞蹈道具。",
+            "certainty": "clear",
+            "candidate_id": "C016",
+            "discovery_file": "dense-discovery\\arena-sol-100\\100-122.000\\provider-size-recovery-02\\answer.json",
+            "discovery_sha256": "5716ae1fb3deccdfdc99dda4f7b0df70dd2baf3a773280e56807bf44940f127b"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C016",
+              "verdict": "reject",
+              "claim": "木廊乐队只跳不奏，而混音是完整铜管+节奏组groove，构成演奏与音乐矛盾。",
+              "intervals": [
+                {
+                  "start_s": 103,
+                  "end_s": 105
+                }
+              ],
+              "audio_fact": "103–105为'If we show up, we gon' show out'，伴奏为成片歌曲的制式groove。",
+              "visual_fact": "约103.9–104.8s门廊派对镜头中，萨克斯手将琴持于腰侧、贝斯手抱立贝、鼓手胸前挂大鼓，三人随舞步摆动，与周围舞者一同跳舞。",
+              "normal_alternative": "派对蒙太奇：歌曲为非叙事性配乐，乐手作为派对人物持器起舞，并非被呈现为前景现场声源。",
+              "reason": "按规则画外配乐配剧情允许；该镜头焦点是群舞派对，乐手处于中景伴舞位置，未承担前景演奏表演，持器不吹奏属风格化编排而非同步失误。",
+              "requires_audio": true,
+              "criterion_id": "porch-band-not-playing"
+            },
+            "B": {
+              "candidate_id": "C016",
+              "verdict": "reject",
+              "claim": "木廊'乐队'只跳不奏：萨克斯夹在腰侧未举到嘴边，低音提琴无运弓/拨弦手位，大鼓穿戴却无鼓槌，而混音里正是完整铜管+节奏组groove。",
+              "intervals": [
+                {
+                  "start_s": 103.8,
+                  "end_s": 104.9
+                }
+              ],
+              "audio_fact": "该段为成品录音轨上的'If we show up, we gon' show out'，贝斯与鼓组活跃，但属非叙事性配乐。",
+              "visual_fact": "木廊镜头中萨克斯手将琴夹于腰侧随舞步摆动，贝斯手提着立式贝斯行走，穿戴的大鼓无鼓槌；周围情侣成对跳舞，乐手位于派对人群之中。",
+              "normal_alternative": "派对场景由录音轨配乐，乐手作为背景装饰/道具存在。",
+              "reason": "乐队未被呈现为现场声源：无收音、无演奏特写、无人对其声部归属；MV以预录歌曲配舞会画面是常规手法，持琴不奏不构成'必要声部缺失'或动作时间冲突。候选把录音groove当作对该画面的diegetic要求，超出可判错范围。",
+              "requires_audio": true,
+              "criterion_id": "porch-band-not-playing"
+            },
+            "C": {
+              "candidate_id": "C016",
+              "verdict": "reject",
+              "claim": "木廊乐队只跳不奏：萨克斯未举到嘴边、贝斯无演奏手位、大鼓无鼓槌，而混音是完整铜管+节奏组groove。",
+              "intervals": [
+                {
+                  "start_s": 103,
+                  "end_s": 105
+                }
+              ],
+              "audio_fact": "该两秒对应'If we show up, we gon' show out'，伴奏含活跃贝斯与鼓组，属成品歌曲轨道。",
+              "visual_fact": "前景是成对摇摆跳舞的男女；乐手位于门廊中景：萨克斯手将琴持于腰侧，贝斯手左手按指板、右手靠近琴弦（存在拨弦可能），戴鼓者随舞步摆动、未见鼓槌。",
+              "normal_alternative": "派对氛围蒙太奇：乐队作为场景道具/间歇状态，歌曲groove为非叙事配乐，不要求背景乐手逐件实奏。",
+              "reason": "构图焦点是舞者而非乐队，乐队未被呈现为前景声源；贝斯手手位不能排除演奏，萨克斯垂持与无槌鼓符合'派对间歇/氛围'读法；按规则画外配乐配剧情允许，缺乏明确声源-动作冲突证据。",
+              "requires_audio": true,
+              "criterion_id": "porch-band-not-playing"
+            }
+          },
+          "majority_status": "not_confirmed"
+        },
+        {
+          "candidate_id": "C017",
+          "discovery": {
+            "id": "trumpet-cane-and-clone-faces",
+            "criterion": "道具逻辑与人脸连续性",
+            "claim": "棋盘格段落中央舞者把小号当拐杖竖直提拿，贯穿铜管stabs密集的'I'm too hot'乐句；且五名燕尾服舞者面孔近乎同一人克隆。",
+            "intervals": [
+              {
+                "start_s": 107,
+                "end_s": 110
+              }
+            ],
+            "audio_fact": "107–110为'I'm too hot (hot damn)'及下一句开头，铜管重音清晰。",
+            "visual_fact": "小号从未接近嘴部；五人五官、胡须高度雷同。",
+            "requires_audio": true,
+            "needs_global_context": false,
+            "normal_alternative": "小号仅为服装道具的纯舞蹈number。",
+            "why_still_a_problem": "铜管驱动的乐句配一把不吹的小号，加上复制脸，读作生成兜底而非编排；要么真奏、要么撤琴，并区分五人面貌。",
+            "certainty": "clear",
+            "candidate_id": "C017",
+            "discovery_file": "dense-discovery\\arena-sol-100\\100-122.000\\provider-size-recovery-02\\answer.json",
+            "discovery_sha256": "5716ae1fb3deccdfdc99dda4f7b0df70dd2baf3a773280e56807bf44940f127b"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C017",
+              "verdict": "reject",
+              "claim": "棋盘格段落中央舞者把小号当拐杖贯穿铜管stabs乐句，且五人面孔近乎克隆。",
+              "intervals": [
+                {
+                  "start_s": 107,
+                  "end_s": 110
+                }
+              ],
+              "audio_fact": "107–110为'Smoother…/I'm too hot (hot damn)'，铜管重音属歌曲制式编曲。",
+              "visual_fact": "约107–110s五名酒红燕尾服舞者在发光棋盘格上踢腿舞动，中央者竖直提小号作道具、从未近嘴；五人五官相似但胡须、发型、体型可辨（如左一无须、中央络腮、右一短发须），非同一脸复制。",
+              "normal_alternative": "纯舞蹈number中以小号作服装道具；伴舞长相趋同属选角/生成风格，非连续性故障。",
+              "reason": "铜管stabs是录音室配乐而非画面现场声源，道具化持琴在舞蹈编排中可接受；'克隆脸'也与可辨差异不符，候选两项事实均不成立为错误。",
+              "requires_audio": true,
+              "criterion_id": "trumpet-cane-and-clone-faces"
+            },
+            "B": {
+              "candidate_id": "C017",
+              "verdict": "reject",
+              "claim": "棋盘格段落中央舞者把小号当拐杖竖直提拿，贯穿铜管stabs密集的'I'm too hot'乐句；且五名燕尾服舞者面孔近乎同一人克隆。",
+              "intervals": [
+                {
+                  "start_s": 107.2,
+                  "end_s": 109.8
+                }
+              ],
+              "audio_fact": "107–110为'I'm too hot (hot damn)'及下句开头，铜管重音来自成品混音。",
+              "visual_fact": "棋盘格舞蹈number中，中央舞者全程将小号竖直握持作舞蹈道具，从未近嘴；五名燕尾服舞者在发型、胡须（络腮胡/干净/髭须）与五官上有可辨差异，并非同一张脸的复制。",
+              "normal_alternative": "小号仅为服装道具的纯舞蹈number；风格化统一卡司。",
+              "reason": "铜管stabs属录音轨，画面未宣称乐手现场吹奏，道具化持琴在舞蹈break中是可接受的编排；且五人面貌存在区分，'克隆脸'不成立。两项均无可确认的生成兜底证据，候选为过度解读。",
+              "requires_audio": true,
+              "criterion_id": "trumpet-cane-and-clone-faces"
+            },
+            "C": {
+              "candidate_id": "C017",
+              "verdict": "reject",
+              "claim": "棋盘格段落中央舞者把小号当拐杖竖直提拿贯穿铜管stabs乐句；且五名燕尾服舞者面孔近乎同一人克隆。",
+              "intervals": [
+                {
+                  "start_s": 107,
+                  "end_s": 110
+                }
+              ],
+              "audio_fact": "107–110为'I'm too hot (hot damn)'及下一句开头，铜管重音来自成品曲的 horn section。",
+              "visual_fact": "中央舞者全程将小号铃口朝下提于身侧作舞蹈道具，其余四人戴白手套踢踏/摆臂；五人面部有可见差异（有人络腮胡、有人干净剃须、有人髭须/鬓角发型不同），并非同一张脸复制。",
+              "normal_alternative": "纯舞蹈number：小号作为服装/道具元素（类似行进乐队花旗式持物），铜管声部由配乐承担而非该道具琴； troupe 演员相貌相近属选角/生成风格，非连续性断裂。",
+              "reason": "该镜头是编排舞蹈而非演奏特写，混音铜管为歌曲制作声部，不存在'必要声部缺失或动作时间冲突'的硬矛盾；'克隆脸'与帧面证据不符（胡须/发型/脸型有区分），两项指控均不成立。",
+              "requires_audio": true,
+              "criterion_id": "trumpet-cane-and-clone-faces"
+            }
+          },
+          "majority_status": "not_confirmed"
+        },
+        {
+          "candidate_id": "C018",
+          "discovery": {
+            "id": "dragon-morph",
+            "criterion": "动作/结构连续性",
+            "claim": "机械龙的蹲起（约116.5–118.5）呈拓扑变形而非关节运动：翼膜突然缩小再展开、躯干压扁、后腿关节朝向与其机械骨架不一致。",
+            "intervals": [
+              {
+                "start_s": 115,
+                "end_s": 120
+              }
+            ],
+            "audio_fact": "对应'Make a dragon wanna retire'乐句，龙为字面视觉梗。",
+            "visual_fact": "帧间翼展尺寸、腿部弯折方向不连续，尾部与湿地反光交叠异常。",
+            "requires_audio": false,
+            "needs_global_context": false,
+            "normal_alternative": "龙随男子举臂做蹲伏舞蹈动作。",
+            "why_still_a_problem": "即使接受舞蹈设定，绑定骨架也不会跨帧改变关节旋向与翼面拓扑；现状更像逐帧重生成，需在116–119补一致rig动画。",
+            "certainty": "uncertain",
+            "candidate_id": "C018",
+            "discovery_file": "dense-discovery\\arena-sol-100\\100-122.000\\provider-size-recovery-02\\answer.json",
+            "discovery_sha256": "5716ae1fb3deccdfdc99dda4f7b0df70dd2baf3a773280e56807bf44940f127b"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C018",
+              "verdict": "reject",
+              "claim": "机械龙的蹲起（约116.5–118.5）呈拓扑变形而非关节运动：翼膜突然缩小再展开、躯干压扁、后腿关节朝向与其机械骨架不一致。",
+              "intervals": [
+                {
+                  "start_s": 115,
+                  "end_s": 120
+                }
+              ],
+              "audio_fact": "该段对应 'Make a dragon wanna retire' 乐句，龙为字面视觉梗；声音本身不参与本判定。",
+              "visual_fact": "采样帧（约115.4–116.0s）显示龙由直立位进入深蹲：翼面先收拢贴身后再度展开、躯干放平、尾部抬起，后腿始终屈膝撑地；116–120s 保持蹲姿随男子举臂定格。0.2s 采样密度下未见关节旋向翻转或骨架拓扑突变的可辨证据，翼面尺寸变化与收翼/展翼动作一致。",
+              "normal_alternative": "龙随男子举臂做蹲伏舞蹈动作，收翼再展翼是编舞的一部分。",
+              "reason": "所观察到的姿态变化可由连续的蹲伏+翼面收放解释，与男子动作同步；宣称的'关节朝向不一致/拓扑变形'在可见帧中不成立，幻想生物的舞蹈动作不应自动判错。",
+              "requires_audio": false,
+              "criterion_id": "动作/结构连续性"
+            },
+            "B": {
+              "candidate_id": "C018",
+              "verdict": "reject",
+              "claim": "机械龙在约116.5–118.5s的蹲起呈拓扑变形（翼膜突缩突展、躯干压扁、后腿关节旋向与骨架不一致）。",
+              "intervals": [
+                {
+                  "start_s": 115.0,
+                  "end_s": 120.0
+                }
+              ],
+              "audio_fact": "该段对应'Make a dragon wanna retire'乐句，龙为字面视觉梗，无需音频即可判断。",
+              "visual_fact": "115–117.2s龙直立、翼展开；117.4–119.0s随男子举臂做蹲伏，翼收拢贴背、躯干下沉、尾抬起；119.2–120s随男子放臂重新直立、翼再度展开。蹲伏与起身两阶段腿部始终为同一前屈 digitigrade 构型，未见关节旋向翻转；翼面尺寸变化与收拢/展开一致。",
+              "normal_alternative": "龙配合男子举臂节拍做蹲伏-起身舞蹈动作，翼收拢展开属正常动画。",
+              "reason": "采样内可见的形变均可由收翼、降躯、抬尾的编排动作解释，且与男子手臂起落严格同步；未发现关节旋向反转或翼膜拓扑突变的证据，4.2→4.4s的快变对应重音拍的舞蹈hit。候选所述缺陷不成立。",
+              "requires_audio": false,
+              "criterion_id": "动作/结构连续性"
+            },
+            "C": {
+              "candidate_id": "C018",
+              "verdict": "uncertain",
+              "claim": "机械龙在约116.5–118.5s的蹲起呈拓扑变形：翼膜突然缩小再展开、躯干压扁、后腿关节朝向与骨架不一致。",
+              "intervals": [
+                {
+                  "start_s": 115.1,
+                  "end_s": 119.9
+                }
+              ],
+              "audio_fact": "该段对应'Make a dragon wanna retire'乐句，龙为字面视觉梗，音频本身无矛盾。",
+              "visual_fact": "采样帧显示龙由直立（115.1–117.2）转入蹲伏（117.4，翼面收拢、躯干压缩、头部下探），再于117.7–119.9起身、翼面重新展开；尾部落在湿地面上，反光随姿势连续变化。",
+              "normal_alternative": "收拢-展开的翼面与压扁的躯干可由一次蹲伏扑翼动作解释，属风格化CGI舞蹈动画而非逐帧重生成。",
+              "reason": "0.2–0.3s采样的帧无法分辨关节旋向是否真的与骨架矛盾： raised-leg 与 crouch 姿态在帧间基本连贯，翼面尺寸变化与蹲伏节奏一致，尾部反光未见交叠异常。既不能确认拓扑变形，也不能完全排除轻微morphing，证据不足。",
+              "requires_audio": false,
+              "criterion_id": "动作/结构连续性"
+            }
+          },
+          "majority_status": "not_confirmed"
+        },
+        {
+          "candidate_id": "C020",
+          "discovery": {
+            "id": "sunroof-hand-object-swap",
+            "criterion": "持物连续性",
+            "claim": "车顶男子右手物件在100.0与101.0之间形状改变（麦克风状深色物 vs 瓶/杯状物）。",
+            "intervals": [
+              {
+                "start_s": 100,
+                "end_s": 101
+              }
+            ],
+            "audio_fact": "无。",
+            "visual_fact": "低分辨率下手持物轮廓帧间不一致。",
+            "requires_audio": false,
+            "needs_global_context": false,
+            "normal_alternative": "运动模糊+压缩导致的误读，实为同一物件。",
+            "why_still_a_problem": "若其设定为拿麦演唱，物件应稳定可辨；形状跳变提示生成不稳定，返修时锁定道具。",
+            "certainty": "uncertain",
+            "candidate_id": "C020",
+            "discovery_file": "dense-discovery\\arena-sol-100\\100-122.000\\provider-size-recovery-02\\answer.json",
+            "discovery_sha256": "5716ae1fb3deccdfdc99dda4f7b0df70dd2baf3a773280e56807bf44940f127b"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C020",
+              "verdict": "reject",
+              "claim": "车顶男子右手物件在100.0与101.0之间形状改变（麦克风状深色物 vs 瓶/杯状物）。",
+              "intervals": [
+                {
+                  "start_s": 100,
+                  "end_s": 101
+                }
+              ],
+              "audio_fact": "无必要声音事实。",
+              "visual_fact": "100.0–100.8s 为夜间白色加长礼车镜头，车顶男子手持同一深色麦状物贴近口部，帧间轮廓一致；约101.0s 硬切到日光下的褐石街区镜头，车辆与人物位置完全不同（男子坐在车内），不存在同镜头内的物件对比。",
+              "normal_alternative": "所谓'形状改变'实为场景切换（蒙太奇 cut），非持物morph。",
+              "reason": "物件'跳变'发生在两个不同镜头之间，属正常剪辑转换；同一镜头内道具稳定，claim 的持物连续性错误不成立。",
+              "requires_audio": false,
+              "criterion_id": "持物连续性"
+            },
+            "B": {
+              "candidate_id": "C020",
+              "verdict": "reject",
+              "claim": "车顶男子右手物件在100.0与101.0之间形状改变（麦克风状深色物 vs 瓶/杯状物），属持物连续性错误。",
+              "intervals": [
+                {
+                  "start_s": 100.0,
+                  "end_s": 101.0
+                }
+              ],
+              "audio_fact": "无相关音频事实需要。",
+              "visual_fact": "100.0–100.8s为夜间白色加长礼车镜头，男子从天窗探出、右手持深色麦克风状物靠近嘴部；约100.9s硬切至白天的另一条街道车队镜头，男子穿红色西装从天窗探出、双手空垂做致意姿态。两个'形状差异'分属不同场景与不同镜头。",
+              "normal_alternative": "跨镜头剪辑：夜景持麦镜头切至日景致意镜头，道具本就不同。",
+              "reason": "所谓物件跳变发生在一次明确的场景硬切两侧，并非同一连续镜头内的持物不一致；按剪辑规则跨镜头道具变化不构成连续性错误。候选将cut误读为morph，不成立。",
+              "requires_audio": false,
+              "criterion_id": "持物连续性"
+            },
+            "C": {
+              "candidate_id": "C020",
+              "verdict": "reject",
+              "claim": "车顶男子右手物件在100.0与101.0之间形状改变（麦克风状深色物 vs 瓶/杯状物），属持物连续性错误。",
+              "intervals": [
+                {
+                  "start_s": 100.0,
+                  "end_s": 101.0
+                }
+              ],
+              "audio_fact": "无相关音频事件。",
+              "visual_fact": "100.0s处于影院外景镜头：男子从白色加长礼车天窗探身，右手持深色小物件；约100.9s切到住宅街道镜头：同一男子在天窗中双手垂放、无持物。两个时间点分属不同机位/场景。",
+              "normal_alternative": "跨镜头切换导致道具状态不同，是正常蒙太奇，而非同一镜头内的物件跳变。",
+              "reason": "所谓'形状改变'发生在场景cut两侧，不构成持物连续性断裂；低分辨率下的轮廓差异由换景与运动模糊解释。",
+              "requires_audio": false,
+              "criterion_id": "持物连续性"
+            }
+          },
+          "majority_status": "not_confirmed"
+        },
+        {
+          "candidate_id": "C022",
+          "discovery": {
+            "id": 2,
+            "criterion": "音乐/歌唱与画面对应-对嘴性别与音色",
+            "claim": "130.2–135.0s 听到的主唱仍是原曲男声 tenor 唱 ''Cause Uptown Funk gon' give it to you'，但画面被呈现为演唱主体的三位米色西装女子正张口对这条男声线；声源性别与画面歌手不一致。",
+            "intervals": [
+              {
+                "start_s": 130.2,
+                "end_s": 135.0
+              }
+            ],
+            "audio_fact": "人声明显为男性主唱音色，无女声和声层。",
+            "visual_fact": "三名女子持麦、口型随该乐句开合，被构图为主唱位。",
+            "requires_audio": true,
+            "needs_global_context": false,
+            "normal_alternative": "若意图是女声合唱团翻唱该段，则音频应换为女声或至少叠加女声；当前音频未变。",
+            "why_still_a_problem": "画面指认的发声者与实听音色矛盾，观众会感知为对嘴错误。",
+            "certainty": "clear",
+            "candidate_id": "C022",
+            "discovery_file": "dense-discovery\\arena-sol-100\\120-142.000\\provider-size-recovery-02\\answer.json",
+            "discovery_sha256": "c56aab7e16f0bd7400bed536abd3732d4b90eaea3e007ff80c4a3418f4a9a917"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C022",
+              "verdict": "accept",
+              "claim": "130.2–135.0s 听到的主唱仍是原曲男声 tenor 唱 ''Cause Uptown Funk gon' give it to you'，但画面被呈现为演唱主体的三位米色西装女子正张口对这条男声线；声源性别与画面歌手不一致。",
+              "intervals": [
+                {
+                  "start_s": 130.2,
+                  "end_s": 135.0
+                }
+              ],
+              "audio_fact": "该窗口前景人声为男性主唱音色，演唱 ''Cause Uptown Funk gon' give it to you'，无女声主唱或女声替换层。",
+              "visual_fact": "三名穿米色西装的女子站在复古立式麦克风前居中构图，口型随该乐句开合、表情投入，后方灰裙伴舞拍手烘托，明确被呈现为该乐句的发声主体。",
+              "normal_alternative": "若意图为女声合唱团翻唱该段，音频应换为女声或叠加女声；当前音频未变，故该替代不成立。",
+              "reason": "这是表演镜头而非纯剧情配乐：画面指认的发声者（持麦对口的三女子）与实听男声主唱矛盾，构成具体的声源/对嘴错位，超出'外形与声线不一致本身不算错'的豁免范围。",
+              "requires_audio": true,
+              "criterion_id": "音乐/歌唱与画面对应-对嘴性别与音色"
+            },
+            "B": {
+              "candidate_id": "C022",
+              "verdict": "accept",
+              "claim": "130.2–135.0s听到的是原曲男声tenor唱''Cause Uptown Funk gon' give it to you'，但画面把三位米色西装女子呈现为对这条男声线张口演唱的发声主体，声源与画面歌手不一致。",
+              "intervals": [
+                {
+                  "start_s": 130.2,
+                  "end_s": 135.0
+                }
+              ],
+              "audio_fact": "该乐句由男性主唱tenor音色完成，混音中无女声主唱层承担此句。",
+              "visual_fact": "130.2–135.0s（视频3的2.0–6.8s）三名米色西装女子居中持复古立式麦克风，口型随该乐句元音开合，构图与走位明确将其置于主唱位；此前128.2–130s的男舞者镜头已切出，画面内无其他发声者。",
+              "normal_alternative": "若意图为女声翻唱/和声段，音频应出现女声主唱或至少女声层；当前音频仍为男声主线，替代解释不成立。",
+              "reason": "这不是单纯的外形-声线性别差异：画面指认的持麦发声主体（三女子）与实听的前景声源（男声tenor主线）构成具体的声源-对嘴事件矛盾，观众会感知为对嘴/配音错误。accept。",
+              "requires_audio": true,
+              "criterion_id": "音乐/歌唱与画面对应-对嘴性别与音色"
+            },
+            "C": {
+              "candidate_id": "C022",
+              "verdict": "accept",
+              "claim": "130.2–135.0s主唱仍为原曲男声tenor唱''Cause Uptown Funk gon' give it to you'，但画面以三位米色西装女子为演唱主体对其对嘴，声源性别与画面歌手不一致。",
+              "intervals": [
+                {
+                  "start_s": 129.9,
+                  "end_s": 135.0
+                }
+              ],
+              "audio_fact": "该乐句为单一男性主唱音色（tenor），无女声领唱或和声层承担该旋律线。",
+              "visual_fact": "三名穿米色西装的女子居中持复古立式麦克风，口型随该乐句逐词开合，构图与打光将其呈现为前景主唱，后方灰裙舞者仅为伴舞。",
+              "normal_alternative": "若意图为女声翻唱/合唱段，音频应替换为女声或至少叠加女声主唱；当前音轨未变。",
+              "reason": "画面明确指认的发声者（持麦对嘴的三位女子）与实听男声主唱矛盾，属于具体的声源-画面对嘴错位，而非单纯'角色性别与声线不同'的可接受设定。",
+              "requires_audio": true,
+              "criterion_id": "音乐/歌唱与画面对应-对嘴性别与音色"
+            }
+          },
+          "majority_status": "not_applicable_after_three_context_scope_audit"
+        },
+        {
+          "candidate_id": "C028",
+          "discovery": {
+            "id": "static-brass-section",
+            "criterion": "演奏与声音对应",
+            "claim": "二层阳台的长号/大号乐手在140–145秒几乎完全静止，号嘴、拉管、铃口均无可见运动，而音轨此段有活跃的铜管stab与持续和声。",
+            "intervals": [
+              {
+                "start_s": 140,
+                "end_s": 145
+              }
+            ],
+            "audio_fact": "140–145秒可闻铜管短促重音与groove推进。",
+            "visual_fact": "乐手姿势在采样帧间无变化，如同定格。",
+            "requires_audio": true,
+            "needs_global_context": false,
+            "normal_alternative": "乐手可能在持长音或处于两拍之间休息；但可闻的是断奏stab，正常演奏应有明显肢体动作。",
+            "why_still_a_problem": "现场乐队感是该场景卖点之一，静止乐手与活跃铜管声不符，削弱“真实演奏”的可信度，建议补动画或改为远景虚化。",
+            "certainty": "uncertain",
+            "candidate_id": "C028",
+            "discovery_file": "dense-discovery\\arena-sol-100\\140-162.000\\provider-size-recovery-02\\answer.json",
+            "discovery_sha256": "a9f6cef7c12d638ebd923a59125c1375450d4c03488a870834cccfbc3aed6173"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C028",
+              "verdict": "accept",
+              "claim": "二层阳台的长号/大号乐手在140–145秒几乎完全静止，号嘴、拉管、铃口均无可见运动，而音轨此段有活跃的铜管stab与持续和声。",
+              "intervals": [
+                {
+                  "start_s": 140,
+                  "end_s": 145
+                }
+              ],
+              "audio_fact": "140–145秒音轨为舞曲groove，含铜管短促重音与和声推进。",
+              "visual_fact": "视频2.5–7.0秒（源140.5–145秒）阳台上的小号/长号/大号乐手姿势、乐器角度在连续采样帧间完全一致，如同定格；而同场景楼下人群手臂与身体明显逐帧变化，证明并非整体静止镜头。",
+              "normal_alternative": "乐手持长音或拍间休息可解释小幅静止；但可闻的是断奏stab，且人群在动而乐队纹丝不动，排除该解释。",
+              "reason": "可见乐手零运动与前景铜管声部不匹配，演奏与声音对应失败。",
+              "requires_audio": true,
+              "criterion_id": "演奏与声音对应"
+            },
+            "B": {
+              "candidate_id": "C028",
+              "verdict": "accept",
+              "claim": "二层阳台的长号/大号乐手在140–145秒几乎完全静止，号嘴、拉管、铃口均无可见运动，而音轨此段有活跃的铜管stab与持续和声。",
+              "intervals": [
+                {
+                  "start_s": 140.0,
+                  "end_s": 145.0
+                }
+              ],
+              "audio_fact": "140–145秒音轨为《Uptown Funk》铜管riff与断奏stab活跃段，号角声明确在前景。",
+              "visual_fact": "140.1–144.9秒（切片2.1–6.9s）阳台乐手的站姿、头部朝向、号嘴贴合与铃口角度在各帧间完全一致；同期下方人群舞动、三角纸屑飘落、镜头推拉均变化，唯乐手如定格。",
+              "normal_alternative": "持长音或拍间休息可解释少量静止，但本段音频为断奏stab，且连呼吸、按阀、拉管等最小动作都不可见，静止程度超出任何合理演奏状态。",
+              "reason": " spotlighted现场乐队与活跃铜管声完全不对应，乐手全程冻结，构成演奏与声音对应的连续性错误。",
+              "requires_audio": true,
+              "criterion_id": "static-brass-section"
+            },
+            "C": {
+              "candidate_id": "C028",
+              "verdict": "reject",
+              "claim": "二层阳台的长号/大号乐手在140–145秒几乎完全静止，而音轨此段有活跃的铜管stab与持续和声。",
+              "intervals": [
+                {
+                  "start_s": 140.0,
+                  "end_s": 145.0
+                }
+              ],
+              "audio_fact": "该段音轨确有铜管重音与groove，但属整曲伴奏层，并非由画面乐队单独承担的现场声部。",
+              "visual_fact": "视频2映射138–147s：阳台乐手仅在片内约2.5–3.5s（源140.5–141.5s）入画，随后镜头下摇至舞池，乐手出画；claim所称140–145s的大部分时间乐队根本不在画面内。可见帧内乐手姿势变化不明显，但分辨率低、采样间隔0.5s，无法确认拉管/指法静止。",
+              "normal_alternative": "乐手可能处于持音或两拍之间的短暂停顿；且乐队为背景布景，非前景表演者，配乐为录音室音轨，背景乐手动作与铜管声不必逐拍对应。",
+              "reason": "按判定范围，器乐动作只有明确承担前景表演或动作时间冲突才可确认错误；此处乐队为远景背景、可见窗口极短且采样不足以证明静止，claim的时间区间也超出乐手在画时段，故不成立。",
+              "requires_audio": true,
+              "criterion_id": "static-brass-section"
+            }
+          },
+          "majority_status": "not_applicable_after_three_context_scope_audit"
+        },
+        {
+          "candidate_id": "C029",
+          "discovery": {
+            "id": "mirror-reflection-mismatch",
+            "criterion": "反射/空间连续性",
+            "claim": "镜面房间中部分镜面板显示的影像与真实舞者不匹配：155–157秒左侧镜面出现一名单独的浅色（白/米）身影，而对应真实空间当时并无该位置的舞者；银色舞者的反射朝向随镜头平移发生不一致跳变。",
+            "intervals": [
+              {
+                "start_s": 155,
+                "end_s": 158
+              }
+            ],
+            "audio_fact": "该段为器乐groove与喊句，与反射无关。",
+            "visual_fact": "多面镜与青色霓虹边条构成对称空间，舞者背向行走后转身面向镜头。",
+            "requires_audio": false,
+            "needs_global_context": false,
+            "normal_alternative": "多镜房间天然产生复杂重影，个别角度难以核对；但上述不匹配在连续帧中稳定存在，超出合理反射范围。",
+            "why_still_a_problem": "整个镜头以镜像为视觉核心，反射错误破坏空间逻辑，需逐面板校正镜像一致性。",
+            "certainty": "uncertain",
+            "candidate_id": "C029",
+            "discovery_file": "dense-discovery\\arena-sol-100\\140-162.000\\provider-size-recovery-02\\answer.json",
+            "discovery_sha256": "a9f6cef7c12d638ebd923a59125c1375450d4c03488a870834cccfbc3aed6173"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C029",
+              "verdict": "uncertain",
+              "claim": "镜面房间中部分镜面板显示的影像与真实舞者不匹配：155–157秒左侧镜面出现一名单独的浅色（白/米）身影，而对应真实空间当时并无该位置的舞者；银色舞者的反射朝向随镜头平移发生不一致跳变。",
+              "intervals": [
+                {
+                  "start_s": 155,
+                  "end_s": 158
+                }
+              ],
+              "audio_fact": "该段为器乐groove与喊句，与反射无关。",
+              "visual_fact": "155–158秒多面镜+青色霓虹边条空间中，左侧镜面板的米色身影可解释为位于画外左侧的米色舞者的镜像（该舞者158.5秒后在画面右侧现身）；银色舞者朝向变化与其转身走位的编舞动作时序一致，未见同一舞者在相邻镜面中出现几何不可能的朝向。",
+              "normal_alternative": "多镜房间天然产生复杂重影与角度差，舞者自身转动即可造成反射朝向变化。",
+              "reason": "采样帧不足以证实存在无对应本体的孤儿反射或朝向跳变；观察到的现象均可由正常镜像几何与编舞动作解释，无法确认也无法彻底排除错误。",
+              "requires_audio": false,
+              "criterion_id": "反射/空间连续性"
+            },
+            "B": {
+              "candidate_id": "C029",
+              "verdict": "uncertain",
+              "claim": "镜面房间中部分镜面板显示的影像与真实舞者不匹配：155–157秒左侧镜面出现一名单独的浅色（白/米）身影，而对应真实空间当时并无该位置的舞者；银色舞者的反射朝向随镜头平移发生不一致跳变。",
+              "intervals": [
+                {
+                  "start_s": 155.0,
+                  "end_s": 158.0
+                }
+              ],
+              "audio_fact": "该段为器乐groove与喊句，与反射几何无关。",
+              "visual_fact": "155.1–158.1秒为多面斜镜+青色霓虹边条的镜像空间；左板确有一名米色套装身影，但真实队列中本就有米色套装舞者，经斜镜与背面镜的二次反射可在左板形成正面像；银色舞者反射朝向随镜头横移变化，与镜面角度关系无法从0.3s采样帧中判定为违规跳变。",
+              "normal_alternative": "斜置多镜房间天然产生多重弹射反射，单个面板出现'额外'正面像是正常光学结果；采样密度不足以排除该解释。",
+              "reason": "无法在现有帧中确证某面板反射与真实舞者几何矛盾，反射复杂性构成合理替代解释，证据不足。",
+              "requires_audio": false,
+              "criterion_id": "mirror-reflection-mismatch"
+            },
+            "C": {
+              "candidate_id": "C029",
+              "verdict": "reject",
+              "claim": "镜面房间155–157秒左侧镜面出现单独的浅色身影而真实空间无对应舞者，银色舞者反射朝向随镜头平移发生不一致跳变。",
+              "intervals": [
+                {
+                  "start_s": 155.0,
+                  "end_s": 158.0
+                }
+              ],
+              "audio_fact": "该段为器乐groove与喊句，与反射内容无关。",
+              "visual_fact": "视频3映射153–160s：镜房镜头中，最左镜板持续映出一名米/白西装身影；该身影朝向镜面正面，符合一名站在镜头外左侧、面向该镜板的舞者的反射几何。 ensemble中确有米色西装舞者（片内4.5–6.0s右侧镜板及转身队列中可见），说明其此前可位于画外。银色舞者在各镜板中的朝向在采样帧间未见明确跳变。",
+              "normal_alternative": "多面镜房间本就反射画外空间，画外站位的舞者出现在某块镜板中是正常现象；不能因直接视野内看不到对应实体就判定反射凭空产生。",
+              "reason": "claim所依赖的'真实空间无该位置舞者'无法成立——真实空间延伸至画外，且米色舞者确属该组演员；反射朝向跳变亦无帧证据，故反射不匹配的错误主张不被支持。",
+              "requires_audio": false,
+              "criterion_id": "mirror-reflection-mismatch"
+            }
+          },
+          "majority_status": "not_confirmed"
+        },
+        {
+          "candidate_id": "C030",
+          "discovery": {
+            "id": "alley-character-count-continuity",
+            "criterion": "人物连续性与持存（角色增减、出画方式）",
+            "claim": "同一连续镜头内第四名听众凭空出现，说话者无动作地滑出画面。",
+            "intervals": [
+              {
+                "start_s": 171.5,
+                "end_s": 174.5
+              }
+            ],
+            "audio_fact": "念白 'before we leave, let me tell y'all a little something' 贯穿该镜头，无提示换人或切镜的音效。",
+            "visual_fact": "170–171.5s 画面中只有三名青年（棕色高领、酒红夹克、米色外套爆炸头）面对品红西装男子；172s 左缘突然多出一名棕夹克金链青年；173.5s 品红西装男子只剩左缘一截手臂，174s 完全消失，而背景霓虹招牌位置全程不变。",
+            "requires_audio": false,
+            "needs_global_context": false,
+            "normal_alternative": "可解释为镜头右摇带出第四人、说话者侧身出画。",
+            "why_still_a_problem": "招牌与构图在171–174s完全静止，不存在摇移；新面孔在帧间瞬现、说话者身体未做任何行走动作即消失，属生成型连续错误。",
+            "certainty": "clear",
+            "candidate_id": "C030",
+            "discovery_file": "dense-discovery\\arena-sol-100\\160-182.000\\provider-size-recovery-02\\answer.json",
+            "discovery_sha256": "bf809da492b5f5107400d71b78661ed06adc338a76a605954828cd3432d20383"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C030",
+              "verdict": "reject",
+              "claim": "同一连续镜头内第四名听众凭空出现，说话者无动作地滑出画面。",
+              "intervals": [
+                {
+                  "start_s": 171.5,
+                  "end_s": 174.5
+                }
+              ],
+              "audio_fact": "念白贯穿该镜头，无换人或切镜提示。",
+              "visual_fact": "171.5–172秒品红西装男子头部与躯干占据画面左侧大部；172.5秒其头位左移、体型变大（明显后撤/侧身让位动作），手臂放下，左缘仅余肩臂；173–174秒其完全出画。第四名棕夹克金链青年出现的位置恰为此前被该男子躯干遮挡的区域。背景招牌静止只说明机位固定，不排除人物自身进出。",
+              "normal_alternative": "第四人原本站在说话者肩后遮挡区，说话者后撤出画时自然露出；这是正常的遮挡-揭示与人物出画。",
+              "reason": "说话者在172–174秒有明确的位移与姿态变化，并非'无动作滑出'；新人出现有合理遮挡路径，claim的关键事实不成立。",
+              "requires_audio": false,
+              "criterion_id": "人物连续性与持存（角色增减、出画方式）"
+            },
+            "B": {
+              "candidate_id": "C030",
+              "verdict": "accept",
+              "claim": "同一连续镜头内第四名听众凭空出现，说话者无动作地滑出画面。",
+              "intervals": [
+                {
+                  "start_s": 171.5,
+                  "end_s": 174.5
+                }
+              ],
+              "audio_fact": "念白'before we leave, let me tell y'all a little something'在该镜头内连续，无换人或切镜提示音。",
+              "visual_fact": "170.4–171.9秒（切片0.9–2.4s）巷内仅三名青年（棕高领、深色夹克、米色外套爆炸头）面对品红西装男子；172.2秒（2.7s）左缘瞬现第四名棕夹克金链青年且已摆好微笑姿态；173.4–173.7秒（3.9–4.2s）品红西装男子仅余左缘一截手臂随即消失，其身体无任何行走/转身动作；背景粉色方牌与蓝色'1'霓虹招牌像素位置全程不变，排除镜头摇移带出新面孔的可能。",
+              "normal_alternative": "镜头右摇可解释新人入画与说话者出画，但招牌与构图完全静止，无摇移证据；新人亦无步入轨迹，替代解释被排除。",
+              "reason": "同一静止构图镜头内人物数量突增、说话者无动作消失，属人物连续性生成错误。",
+              "requires_audio": false,
+              "criterion_id": "alley-character-count-continuity"
+            },
+            "C": {
+              "candidate_id": "C030",
+              "verdict": "uncertain",
+              "claim": "同一连续镜头内第四名听众凭空出现，说话者无动作地滑出画面。",
+              "intervals": [
+                {
+                  "start_s": 171.5,
+                  "end_s": 174.5
+                }
+              ],
+              "audio_fact": "念白贯穿该镜头，无换人或切镜提示音，与画面连续一致。",
+              "visual_fact": "视频4映射169.5–176.5s：巷内镜头源170.5–171.5s（片内1.0–2.0s）为三名青年+品红西装男子；源172.0s（片内2.5s）左缘多出一名棕夹克金链青年；源172.5–174.0s（片内3.0–4.0s）品红男子由肩部→手臂残影→完全出画，背景霓虹招牌位置不变，镜头静止。",
+              "normal_alternative": "0.5s采样间隔内，第四人可从被品红男子躯干遮挡的画外左侧步入其肩侧空隙；品红男子的逐帧退场（肩→臂→消失）与静止镜头下向左走出画框的正常出画方式一致，并非瞬灭。",
+              "reason": "新面孔的出现位置恰被说话者身体遮挡过，入场路径在采样中不可见但不能据此断言凭空产生；说话者呈渐进出画而非无动作消失。证据不足以确认生成型连续错误，也不足以完全排除，故判uncertain。",
+              "requires_audio": false,
+              "criterion_id": "alley-character-count-continuity"
+            }
+          },
+          "majority_status": "not_confirmed"
+        },
+        {
+          "candidate_id": "C032",
+          "discovery": {
+            "id": "topdown-body-merge",
+            "criterion": "人体解剖与物体边界完整性",
+            "claim": "俯拍镜头右上银色舞者与白色舞者融合成一体，肢体归属不清；左侧红/蓝舞者姿态不连续翻转。",
+            "intervals": [
+              {
+                "start_s": 180.5,
+                "end_s": 182
+              }
+            ],
+            "audio_fact": "副歌 'Uptown funk you up' 持续，节拍均匀，无允许身体合并的特效提示。",
+            "visual_fact": "180s 八名舞者围绕收录机彼此分离清晰；181.5–182s 右上银色人形叠入白色人形，读作一具双色身体，四肢交界消失；同时左下红色舞者朝向在两帧间突变。",
+            "requires_audio": false,
+            "needs_global_context": false,
+            "normal_alternative": "俯视编舞中舞者交错走位造成遮挡。",
+            "why_still_a_problem": "交错应保留前后遮挡关系与各自轮廓，此处为肢体熔接而非遮挡，且无运动轨迹支撑朝向突变。",
+            "certainty": "uncertain",
+            "candidate_id": "C032",
+            "discovery_file": "dense-discovery\\arena-sol-100\\160-182.000\\provider-size-recovery-02\\answer.json",
+            "discovery_sha256": "bf809da492b5f5107400d71b78661ed06adc338a76a605954828cd3432d20383"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C032",
+              "verdict": "reject",
+              "claim": "俯拍镜头右上银色舞者与白色舞者融合成一体，肢体归属不清；左侧红/蓝舞者姿态不连续翻转。",
+              "intervals": [
+                {
+                  "start_s": 180.5,
+                  "end_s": 182
+                }
+              ],
+              "audio_fact": "副歌律动均匀持续，无特效提示，但该判断本身不依赖音频。",
+              "visual_fact": "180.5–182s八名色标舞者（酒红/蓝/米白/银）沿霓虹方框边缘环绕收录机，彼此分离、轮廓清晰；183–183.5s收紧成圈时相邻身体确有视觉重叠，但酒红、米白、蓝、银各自外轮廓与四肢归属仍可分辨，属近距交错的正常遮挡；左侧红/蓝舞者朝向随公转连续变化，未见突变翻转。",
+              "normal_alternative": "俯视编舞中舞者交错走位造成遮挡。",
+              "reason": "所称'融合成一体、肢体归属不清'在指定区间并不存在——该时段舞者完全分离；后期的贴近重叠保留了各色身体轮廓与遮挡关系，朝向变化可由公转轨迹解释，无熔接或瞬变证据。",
+              "requires_audio": false,
+              "criterion_id": "人体解剖与物体边界完整性"
+            },
+            "B": {
+              "candidate_id": "C032",
+              "verdict": "reject",
+              "claim": "俯拍镜头右上银色舞者与白色舞者融合成一体，肢体归属不清；左侧红/蓝舞者姿态不连续翻转。",
+              "intervals": [
+                {
+                  "start_s": 180.5,
+                  "end_s": 182
+                }
+              ],
+              "audio_fact": "副歌节拍均匀持续，但该时段并未观察到所声称的合并事件，音频不构成判据。",
+              "visual_fact": "180.5–182s（切片2.0–3.5s）俯拍中，左侧酒红/蓝色舞者与右侧米白/银色舞者各自保持独立色块轮廓，银与白舞者因环绕收录机走位而靠近、短暂交叠，但四肢归属与前后遮挡关系仍可分辨；左侧舞者朝向变化为绕中心连续旋转，无帧间突变。",
+              "normal_alternative": "俯视编舞中舞者交错走位造成的正常靠近与遮挡。",
+              "reason": "所询区间内未见肢体熔接或朝向突变，观察到的只是旋转队形中的邻近遮挡，候选描述与画面不符。",
+              "requires_audio": false,
+              "criterion_id": "topdown-body-merge"
+            },
+            "C": {
+              "candidate_id": "C032",
+              "verdict": "reject",
+              "claim": "俯拍镜头右上银色舞者与白色舞者融合成一体，肢体归属不清；左侧红/蓝舞者姿态不连续翻转。",
+              "intervals": [
+                {
+                  "start_s": 180.5,
+                  "end_s": 182
+                }
+              ],
+              "audio_fact": "副歌均匀节拍，与遮挡无关。",
+              "visual_fact": "俯拍八具人台绕收录机环形旋转；在3–3.5s右上白与银两形相邻但轮廓各自闭合，未见肢体熔接或双色合体；左/下红色人台的朝向随公转连续改变，并非帧间突变。",
+              "normal_alternative": "俯视编舞中绕中心旋转造成的相邻与前后遮挡。",
+              "reason": "相邻与朝向变化均由轨道旋转解释，未观察到真正的边界消失或肢体归属错误。",
+              "requires_audio": false,
+              "criterion_id": "topdown-body-merge"
+            }
+          },
+          "majority_status": "not_confirmed"
+        },
+        {
+          "candidate_id": "C033",
+          "discovery": {
+            "id": "stair-rear-dancer-ghosting",
+            "criterion": "主体实心度与背景分离",
+            "claim": "台阶后排两名黑衣舞者呈半透明，躯干边缘溶入青色墙面。",
+            "intervals": [
+              {
+                "start_s": 161,
+                "end_s": 163.5
+              }
+            ],
+            "audio_fact": "'Don't believe me just watch' 主唱段落，五人应同为实体舞者。",
+            "visual_fact": "前排三人轮廓实心、投影明确；后排两人在161–163.5s 边缘发虚，墙体渐变光透过其躯干。",
+            "requires_audio": false,
+            "needs_global_context": false,
+            "normal_alternative": "强逆光下的剪影处理。",
+            "why_still_a_problem": "剪影仍应有不透明外轮廓，此处为alpha/合成式透底，与前排质感不一致。",
+            "certainty": "uncertain",
+            "candidate_id": "C033",
+            "discovery_file": "dense-discovery\\arena-sol-100\\160-182.000\\provider-size-recovery-02\\answer.json",
+            "discovery_sha256": "bf809da492b5f5107400d71b78661ed06adc338a76a605954828cd3432d20383"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C033",
+              "verdict": "reject",
+              "claim": "台阶后排两名黑衣舞者呈半透明，躯干边缘溶入青色墙面。",
+              "intervals": [
+                {
+                  "start_s": 161,
+                  "end_s": 163.5
+                }
+              ],
+              "audio_fact": "主唱段落持续，五人为同台实体舞者，但该判断不依赖音频。",
+              "visual_fact": "161–163.5s后排两名黑衣舞者始终呈不透明深色剪影：外轮廓闭合、头部与躯干边缘清楚，未见青粉墙面渐变光透过其身体；边缘发虚与躯干偏暗与迪斯科球强逆光及现场烟雾 haze 一致，与前排质感差异可由距离和布光解释。",
+              "normal_alternative": "强逆光下的剪影处理。",
+              "reason": "所称alpha透底、躯干溶入墙体在采样帧中不可见；剪影外轮廓保持不透明，暗度与柔边符合逆光+雾气的正常照明，无合成透底证据。",
+              "requires_audio": false,
+              "criterion_id": "主体实心度与背景分离"
+            },
+            "B": {
+              "candidate_id": "C033",
+              "verdict": "uncertain",
+              "claim": "台阶后排两名黑衣舞者呈半透明，躯干边缘溶入青色墙面。",
+              "intervals": [
+                {
+                  "start_s": 161,
+                  "end_s": 163.5
+                }
+              ],
+              "audio_fact": "主唱段落持续，五人均应为实体舞者，但音频无法分辨透明度问题。",
+              "visual_fact": "161–163.5s后排两名着黑色紧身衣的舞者边缘发虚、对比度低，与青色雾状背景融合；采样帧中无法确认墙体渐变光确实穿透其躯干，还是深色服装在逆光与烟雾下的低照度表现。",
+              "normal_alternative": "强逆光剪影加现场烟雾/雾效导致的软边缘。",
+              "reason": "现有帧既不能证实alpha透底，也不能排除合法的低照度剪影处理，证据不足以定论。",
+              "requires_audio": false,
+              "criterion_id": "stair-rear-dancer-ghosting"
+            },
+            "C": {
+              "candidate_id": "C033",
+              "verdict": "reject",
+              "claim": "台阶后排两名黑衣舞者呈半透明，躯干边缘溶入青色墙面。",
+              "intervals": [
+                {
+                  "start_s": 161,
+                  "end_s": 163.5
+                }
+              ],
+              "audio_fact": "主唱段落，与透明度无关。",
+              "visual_fact": "楼梯场景中后排两名深色着装舞者呈实心逆光剪影，边缘发虚来自青色雾光/辉光，墙体渐变并未穿透其躯干；前排三人受光更强故轮廓更硬，属景深与布光差异。",
+              "normal_alternative": "强逆光加氛围雾形成的剪影处理。",
+              "reason": "剪影仍保持不透明外形，所见柔边为逆光/雾气所致，非alpha合成透底。",
+              "requires_audio": false,
+              "criterion_id": "stair-rear-dancer-ghosting"
+            }
+          },
+          "majority_status": "not_confirmed"
+        },
+        {
+          "candidate_id": "C037",
+          "discovery": {
+            "id": 3,
+            "criterion": "人物连续性",
+            "claim": "街头段白衣女子在同一机位下无明显入场过程即出现在画面中央共舞。",
+            "intervals": [
+              {
+                "start_s": 190,
+                "end_s": 191
+              }
+            ],
+            "audio_fact": "该处仍是副歌循环，无提示新角色登场的音效或歌词重音。",
+            "visual_fact": "190s 画面中央只有紫红西装男独舞，其右侧为空；191s 白衣女子已稳定站在该位置摆出舞蹈姿势，前后机位与人群背景一致，未见其走入或跳入的过渡帧。",
+            "requires_audio": false,
+            "needs_global_context": false,
+            "normal_alternative": "可能为极快剪辑点或女子原本在画外边缘一步跨入；因两帧机位高度一致，倾向于连续镜头内的生成跳变，故标不确定。",
+            "why_still_a_problem": "若确为同一shot，则人物凭空出现属连续性缺陷，需补入场动作或改为明确剪辑切换。",
+            "certainty": "uncertain",
+            "candidate_id": "C037",
+            "discovery_file": "dense-discovery\\arena-sol-100\\180-202.000\\answer.json",
+            "discovery_sha256": "79bb5d6baeffbdcad1b8af9ea79db2870155a6aac99a96b609c61dd3a994d352"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C037",
+              "verdict": "reject",
+              "claim": "街头段白衣女子在同一机位下无明显入场过程即出现在画面中央共舞。",
+              "intervals": [
+                {
+                  "start_s": 190,
+                  "end_s": 191
+                }
+              ],
+              "audio_fact": "副歌循环持续，无特殊音效标记登场。",
+              "visual_fact": "在视频1的街景段中，约3.0s帧可见白衣女子已处于画面中央偏后的背景人群中，3.2s帧她前移至中右位置开始共舞；从2.7s到3.2s存在由远及近的位置渐变，符合从人群后方走入前景的过程。",
+              "normal_alternative": "女子从背景人群中步行进入前景，属于正常入场调度。",
+              "reason": "采样帧显示白衣女子在3.0s已存在于背景中并逐步前移，并非凭空出现；'无明显入场过程'的断言与可见的位置渐变矛盾。",
+              "requires_audio": false,
+              "criterion_id": "人物连续性"
+            },
+            "B": {
+              "candidate_id": "C037",
+              "verdict": "uncertain",
+              "claim": "街头段白衣女子在同一机位下无明显入场过程即出现在画面中央共舞。",
+              "intervals": [
+                {
+                  "start_s": 190.2,
+                  "end_s": 191.3
+                }
+              ],
+              "audio_fact": "该处为持续副歌律动，无专门提示新角色登场的音效或歌词重音。",
+              "visual_fact": "190.2–191.1秒街景中央仅有紫红西装男独舞，其右侧为空；191.2秒白衣女子已稳定站在中央摆出舞蹈姿势，前后机位、人群与灯串布局一致；但同一时刻男子的姿态与站位也发生明显跳变（由面向右侧拍手变为面向镜头、位置左移）。",
+              "normal_alternative": "男子姿态同步跳变提示该处可能是同机位的快速剪辑点（jump cut），女子在另一take中本就位于中央；0.1秒采样无法排除帧间剪辑。",
+              "reason": "女子确实在相邻采样帧间无入场过渡地出现，但男子姿态同时跳变使'同机位剪辑'这一合理解释无法排除，采样粒度不足以确认连续镜头内的凭空出现，故只能标不确定。",
+              "requires_audio": false,
+              "criterion_id": "人物连续性"
+            },
+            "C": {
+              "candidate_id": "C037",
+              "verdict": "uncertain",
+              "claim": "街头段白衣女子在同一机位下无明显入场过程即出现在画面中央共舞。",
+              "intervals": [
+                {
+                  "start_s": 190,
+                  "end_s": 191
+                }
+              ],
+              "audio_fact": "副歌循环持续，无提示新角色登场的音效或歌词重音。",
+              "visual_fact": "约190s街头镜头中央为紫红西装男独舞，其侧为空；约191–192s白衣女子已在其中共舞，采样帧未捕捉到她从人群边缘跨入的过渡。",
+              "normal_alternative": "两采样帧间隔约1秒，女子完全可能在此区间内一步跨入或经极快剪辑点切入；机位与人群背景一致不足以排除正常入场。",
+              "reason": "因采样粒度粗，既不能确认凭空出现，也不能确认存在入场动作，证据不足以判定连续性缺陷。",
+              "requires_audio": false,
+              "criterion_id": "人物连续性"
+            }
+          },
+          "majority_status": "not_confirmed"
+        },
+        {
+          "candidate_id": "C041",
+          "discovery": {
+            "id": "club-dancer-count-drop",
+            "criterion": "连续性/人物数量",
+            "claim": "217–218秒俱乐部队列清晰为五人，219–220秒侧向行进时仅剩四人，无人可见地出入画，疑似生成丢人。",
+            "intervals": [
+              {
+                "start_s": 217,
+                "end_s": 220
+              }
+            ],
+            "audio_fact": "节拍持续，队形变换与鼓点对应。",
+            "visual_fact": "217–218秒正面五列（含丸子头中央者）；219–220秒侧面仅四列，间距均匀，无遮挡或出画迹象。",
+            "requires_audio": false,
+            "needs_global_context": false,
+            "normal_alternative": "镜头右摇或构图裁切可解释少一人。",
+            "why_still_a_problem": "侧视队形中五人应全部可见且间距一致；现存四人间距与正面五人间距不匹配，更像个体消失而非裁切。",
+            "certainty": "uncertain",
+            "candidate_id": "C041",
+            "discovery_file": "dense-discovery\\arena-sol-100\\200-222.000\\provider-size-recovery-02\\answer.json",
+            "discovery_sha256": "1de53293a6e6879abbf3cdce521c0636dfd5f2d16cb7cfc45105f86cd489fb7f"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C041",
+              "verdict": "uncertain",
+              "claim": "217–218秒俱乐部队列清晰为五人，219–220秒侧向行进时仅剩四人，无人可见地出入画，疑似生成丢人。",
+              "intervals": [
+                {
+                  "start_s": 217,
+                  "end_s": 220
+                }
+              ],
+              "audio_fact": "节拍持续，队形变换与鼓点同步。",
+              "visual_fact": "视频2中2.2s–4.0s正面视角可数出五名黑衣粉边舞者；4.5s–4.8s转为侧视后仅见四人轮廓，间距较均匀。侧视角度下首尾舞者可能因身体重叠而被遮挡，采样帧无法确认是否存在第五人被完全遮蔽。",
+              "normal_alternative": "侧视时一名舞者被相邻舞者身体完全遮挡，属正常透视重叠。",
+              "reason": "正面五人、侧面四人的差异可由侧视遮挡解释，但现有帧间距不足以排除生成丢人的可能，证据不充分。",
+              "requires_audio": false,
+              "criterion_id": "连续性/人物数量"
+            },
+            "B": {
+              "candidate_id": "C041",
+              "verdict": "reject",
+              "claim": "217–218秒俱乐部队列清晰为五人，219–220秒侧向行进时仅剩四人，无人可见地出入画，疑似生成丢人。",
+              "intervals": [
+                {
+                  "start_s": 217.0,
+                  "end_s": 220.0
+                }
+              ],
+              "audio_fact": "节拍持续，队形变换与鼓点对应，无异常。",
+              "visual_fact": "217.1–219.3秒正面队形为五人（含丸子头中央者）；219.4–219.9秒侧向行进帧中仍可数出五人（最左粉袖者、第二、中央丸子头、第四、最右），间距与正面一致，无人消失或出画。",
+              "normal_alternative": "无需替代解释：人数全程保持五人。",
+              "reason": "候选所称'侧视仅剩四人'在实际帧中不成立，五人队列在正面与侧面视角均完整可见，丢人指控被观察证据直接否定。",
+              "requires_audio": false,
+              "criterion_id": "连续性/人物数量"
+            },
+            "C": {
+              "candidate_id": "C041",
+              "verdict": "uncertain",
+              "claim": "217–218秒俱乐部队列清晰为五人，219–220秒侧向行进时仅剩四人，无人可见地出入画，疑似生成丢人。",
+              "intervals": [
+                {
+                  "start_s": 217,
+                  "end_s": 220
+                }
+              ],
+              "audio_fact": "节拍持续，队形变换与鼓点对应。",
+              "visual_fact": "正面挽臂前倾队形可见五名舞者（约217–219s），随后侧身 stride 队形仅见四人（约219–221s），两者姿态、间距与朝向差异显著。",
+              "normal_alternative": "姿态从挽臂前突变为 upright stride，强烈暗示为同场景内的切镜或角度切换，而非同一连续镜头；切镜下人数差异不构成丢人。",
+              "reason": "无法从采样帧确定是连续镜头内的个体消失还是切镜/角度变化，正常替代解释成立，故不确定。",
+              "requires_audio": false,
+              "criterion_id": "连续性/人物数量"
+            }
+          },
+          "majority_status": "not_confirmed"
+        },
+        {
+          "candidate_id": "C043",
+          "discovery": {
+            "id": "dragon-morph-instability",
+            "criterion": "连续动作中的物体连续性",
+            "claim": "230–235秒同一连续镜头里，金色龙的头部在低右—高抬—俯首之间跳变，颌齿与角须的形状、头部相对花车的比例以及左侧脊刺的排布在相邻帧间发生非动画式的重构。",
+            "intervals": [
+              {
+                "start_s": 230,
+                "end_s": 235
+              }
+            ],
+            "audio_fact": "该段为 'Hey hey hey oh' 即兴与铜管重音，节奏上可支持头部起伏，但无法解释形体比例改变。",
+            "visual_fact": "龙头朝向、张口幅度与身体分段在1秒内多次不一致地变化。",
+            "requires_audio": false,
+            "needs_global_context": false,
+            "normal_alternative": "花车龙头做上下摆动的机械动画是合理设定。",
+            "why_still_a_problem": "摆动不能解释头部大小、脊刺数量与面部结构的突变，属于生成漂移而非单一动画轨迹。",
+            "certainty": "uncertain",
+            "candidate_id": "C043",
+            "discovery_file": "dense-discovery\\arena-sol-100\\220-242.000\\provider-size-recovery-02\\answer.json",
+            "discovery_sha256": "6f98857010bbc885e1d34ea350b27a90f7f1f6b759e8a2419d72024f39fdac65"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C043",
+              "verdict": "uncertain",
+              "claim": "230–235秒同一连续镜头里，金色龙的头部在低右—高抬—俯首之间跳变，颌齿与角须的形状、头部相对花车的比例以及左侧脊刺的排布在相邻帧间发生非动画式的重构。",
+              "intervals": [
+                {
+                  "start_s": 230,
+                  "end_s": 235
+                }
+              ],
+              "audio_fact": "'Hey hey hey oh'即兴与铜管重音，节奏可支持头部起伏。",
+              "visual_fact": "视频3中2.2s–6.8s花车龙首在不同帧呈现张口幅度、角须形态和头部比例的明显差异；但花车正在前进、摄像机做跟拍推拉，透视缩放和角度变化可部分解释头部大小与朝向的改变。脊刺排布在2.2s与5.0s之间确有不完全一致的观感，但受运动模糊和采样稀疏影响，无法确认为非动画式重构。",
+              "normal_alternative": "花车龙头做机械摆动动画加上摄像机跟拍产生的透视变化，可解释大部分形态差异。",
+              "reason": "龙首形态变化与花车运动、镜头跟拍叠加，无法从稀疏帧中区分生成漂移与合理动画/透视效应。",
+              "requires_audio": false,
+              "criterion_id": "连续动作中的物体连续性"
+            },
+            "B": {
+              "candidate_id": "C043",
+              "verdict": "reject",
+              "claim": "230–235秒同一连续镜头里，金色龙的头部在低右—高抬—俯首之间跳变，颌齿与角须形状、头部相对花车比例及左侧脊刺排布在相邻帧间发生非动画式重构。",
+              "intervals": [
+                {
+                  "start_s": 230.0,
+                  "end_s": 234.9
+                }
+              ],
+              "audio_fact": "该段为即兴喊句与铜管重音，节奏可支撑龙头起伏。",
+              "visual_fact": "230.0–234.9秒龙场景内，龙头做上下摆动与张口闭口运动（如232.5秒俯近花车、232.6秒抬起），头部相对花车的尺寸、角须与脊刺排布在各帧间大体稳定，未见突变的重构；235.0秒起为剪接到军鼓队的另一镜头。",
+              "normal_alternative": "游行花车龙头的机械式上下摆动与张口是合理设定，观察到的运动轨迹与此一致。",
+              "reason": "候选要求的'形体比例与脊刺排布非动画式重构'未被实际观察到；头部高度与口幅变化可用花车动画解释，且窗口末端本就是明确剪辑点，不构成连续镜头内的漂移证据。",
+              "requires_audio": false,
+              "criterion_id": "连续动作中的物体连续性"
+            },
+            "C": {
+              "candidate_id": "C043",
+              "verdict": "uncertain",
+              "claim": "230–235秒同一连续镜头里，金色龙的头部在低右—高抬—俯首之间跳变，颌齿与角须的形状、头部相对花车的比例以及左侧脊刺的排布在相邻帧间发生非动画式的重构。",
+              "intervals": [
+                {
+                  "start_s": 230,
+                  "end_s": 235
+                }
+              ],
+              "audio_fact": "'Hey hey hey oh' 即兴与铜管重音，节奏可支持头部起伏。",
+              "visual_fact": "龙头朝向与张口幅度在230–235s间多次变化，面部细节与脊刺排布在采样帧间不完全一致。",
+              "normal_alternative": "花车龙头做上下摆动、张合的机械动画是合理设定，采样帧间的差异可由摆动相位与视角解释。",
+              "reason": "摆动动画可解释大部分头位变化，无法确证比例与结构属生成漂移而非单一动画轨迹，故不确定。",
+              "requires_audio": false,
+              "criterion_id": "连续动作中的物体连续性"
+            }
+          },
+          "majority_status": "not_confirmed"
+        },
+        {
+          "candidate_id": "C045",
+          "discovery": {
+            "id": "umbrella-state-jump",
+            "criterion": "持物接触与物体保持连续性",
+            "claim": "237秒背景中金色伞呈收拢/倾斜状态，238–239秒银衣女子手中伞突然变为完全撑开且伞面尺寸增大，伞柄握持方式在帧间不连贯。",
+            "intervals": [
+              {
+                "start_s": 237,
+                "end_s": 240
+              }
+            ],
+            "audio_fact": "该段为军鼓滚奏与喊声，节奏可支撑举伞动作。",
+            "visual_fact": "伞的开合状态与大小在连续两帧间跳变。",
+            "requires_audio": false,
+            "needs_global_context": false,
+            "normal_alternative": "游行中有多把金伞，女子可能举起的是另一把并已撑开。",
+            "why_still_a_problem": "即便存在多把伞，238→239秒同一把伞的伞面轮廓与高光仍在变化，握持点与伞骨结构不稳定，属生成不一致。",
+            "certainty": "uncertain",
+            "candidate_id": "C045",
+            "discovery_file": "dense-discovery\\arena-sol-100\\220-242.000\\provider-size-recovery-02\\answer.json",
+            "discovery_sha256": "6f98857010bbc885e1d34ea350b27a90f7f1f6b759e8a2419d72024f39fdac65"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C045",
+              "verdict": "reject",
+              "claim": "237秒背景中金色伞呈收拢/倾斜状态，238–239秒银衣女子手中伞突然变为完全撑开且伞面尺寸增大，伞柄握持方式在帧间不连贯。",
+              "intervals": [
+                {
+                  "start_s": 237,
+                  "end_s": 240
+                }
+              ],
+              "audio_fact": "军鼓滚奏与喊声，节奏可支撑举伞动作。",
+              "visual_fact": "视频4中0.0s–2.0s焦点在蓝衣鼓手与号手，背景有金色装饰物；约2.5s起银衣女子手持完全撑开的金伞进入画面清晰区域。2.0s背景中的金色倾斜物更可能是花车装饰或远处其他表演者的道具，而非同一把伞。游行队伍中多名表演者各自持伞，摄像机横移依次揭示不同表演者，伞的开合状态差异属于不同个体的正常状态。",
+              "normal_alternative": "游行中有多把金伞分属不同表演者，镜头移动先后揭示收拢与撑开的伞，无需同一把伞变形。",
+              "reason": "背景金色物与前景银衣女子的伞分属不同表演者/物体，镜头平移揭示新主体即可解释观察到的差异，不构成同一物体的状态跳变。",
+              "requires_audio": false,
+              "criterion_id": "持物接触与物体保持连续性"
+            },
+            "B": {
+              "candidate_id": "C045",
+              "verdict": "reject",
+              "claim": "237秒背景中金色伞呈收拢/倾斜状态，238–239秒银衣女子手中伞突然变为完全撑开且伞面尺寸增大，伞柄握持方式在帧间不连贯。",
+              "intervals": [
+                {
+                  "start_s": 237.0,
+                  "end_s": 240.0
+                }
+              ],
+              "audio_fact": "该段为军鼓滚奏与欢呼，节奏可支撑举伞动作。",
+              "visual_fact": "自约235.4秒起，银衣女子头顶的金色伞即为完全撑开状态，237.0–239.9秒各帧中伞面轮廓、尺寸与高举握持方式保持一致，未见收拢/倾斜到撑开的跳变。",
+              "normal_alternative": "无需替代解释：伞全程处于撑开高举状态。",
+              "reason": "候选所称'237秒收拢/倾斜、238–239秒突然撑开增大'与实际帧不符，伞的开合与握持在观察窗口内连续稳定，指控被否定。",
+              "requires_audio": false,
+              "criterion_id": "持物接触与物体保持连续性"
+            },
+            "C": {
+              "candidate_id": "C045",
+              "verdict": "reject",
+              "claim": "237秒背景中金色伞呈收拢/倾斜状态，238–239秒银衣女子手中伞突然变为完全撑开且伞面尺寸增大，伞柄握持方式在帧间不连贯。",
+              "intervals": [
+                {
+                  "start_s": 237,
+                  "end_s": 240
+                }
+              ],
+              "audio_fact": "军鼓滚奏与喊声，节奏可支撑举伞动作。",
+              "visual_fact": "235–240s 银衣女子头顶的金色伞始终呈撑开的扇贝状伞面，握持点稳定在伞柄上方；所谓'收拢'状态并未出现，伞面看似变大与镜头逼近一致。",
+              "normal_alternative": "游行队列中多把金伞均处于撑开状态，尺寸变化为相机距离/透视所致，非开合跳变。",
+              "reason": "观察到的伞状态全程撑开、握持连贯，与claims描述的closed→open跳变不符，证据矛盾，故拒绝。",
+              "requires_audio": false,
+              "criterion_id": "持物接触与物体保持连续性"
+            }
+          },
+          "majority_status": "not_confirmed"
+        },
+        {
+          "candidate_id": "C047",
+          "discovery": {
+            "id": "hand-anatomy-240-245",
+            "criterion": "生成瑕疵-肢体解剖",
+            "claim": "同步前指舞段中多名舞者手部糊成团块，领舞者在242-244s手指并指成爪状/缺指，需修复手部细节。",
+            "intervals": [
+              {
+                "start_s": 240,
+                "end_s": 245
+              }
+            ],
+            "audio_fact": "节拍重音与指向动作大致对点，问题在造型而非节奏。",
+            "visual_fact": "242-244s领舞者双手呈无指团块；后排数名舞者手指融合。",
+            "requires_audio": false,
+            "needs_global_context": false,
+            "normal_alternative": "快速动作导致的运动模糊。",
+            "why_still_a_problem": "糊化形态跨多帧稳定存在且不符合手部落点方向，属解剖错误而非模糊。",
+            "certainty": "clear",
+            "candidate_id": "C047",
+            "discovery_file": "dense-discovery\\arena-sol-100\\240-262.000\\provider-size-recovery-02\\answer.json",
+            "discovery_sha256": "dc0c22eabba7e453ad33e9568e59f099075d3e52151ece2c7eeb03621b2e4578"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C047",
+              "verdict": "reject",
+              "claim": "同步前指舞段中多名舞者手部糊成团块，领舞者在242-244s手指并指成爪状/缺指，需修复手部细节。",
+              "intervals": [
+                {
+                  "start_s": 240,
+                  "end_s": 245
+                }
+              ],
+              "audio_fact": "节拍重音与指向动作大致对点，问题被指在造型而非节奏。",
+              "visual_fact": "240-245s（Video 1 的2-7s）领舞粉西装者双手在242-244稳定呈握拳/食指下指的指向手势，跨帧形态一致，未见爪状融合或缺指；后排舞者手部因距离与分辨率呈小团块，但尺寸过小无法分辨指节，属常规远景/低清表现。",
+              "normal_alternative": "远景手部细节不足与运动模糊/低分辨率，而非解剖错误。",
+              "reason": "领舞者手部读作有意的指向拳势且跨帧稳定，未发现可确认的并指成爪或缺指；背景团块无法在分辨率内证实为解剖缺陷，故该缺陷主张不成立。",
+              "requires_audio": false,
+              "criterion_id": "生成瑕疵-肢体解剖"
+            },
+            "B": {
+              "candidate_id": "C047",
+              "verdict": "reject",
+              "claim": "同步前指舞段中多名舞者手部糊成团块，领舞者在242-244s手指并指成爪状/缺指，需修复手部细节。",
+              "intervals": [
+                {
+                  "start_s": 240,
+                  "end_s": 245
+                }
+              ],
+              "audio_fact": "节拍重音与指向动作大致对点，问题不在节奏。",
+              "visual_fact": "240-245s前指舞段中，领舞者与后排舞者的手部在该分辨率下呈握拳前指形态，指尖有浅色高光（疑似手套），未观察到稳定的多指/缺指/反关节等解剖异常；团块观感与小手幅、运动模糊及低分辨率一致。",
+              "normal_alternative": "快速前指动作+远景小尺寸手部+运动模糊导致的细节不可分辨，而非生成解剖错误。",
+              "reason": "所称'无指团块/爪状并指'在采样帧中不可确证：手部落点方向与指向手势一致，形态跨帧稳定但符合握拳前指的正常造型；按规则不得把原片低清度当作生成缺陷，故拒绝该修复主张。",
+              "requires_audio": false,
+              "criterion_id": "生成瑕疵-肢体解剖"
+            },
+            "C": {
+              "candidate_id": "C047",
+              "verdict": "reject",
+              "claim": "同步前指舞段中多名舞者手部糊成团块，领舞者在242-244s手指并指成爪状/缺指，需修复手部细节。",
+              "intervals": [
+                {
+                  "start_s": 240,
+                  "end_s": 245
+                }
+              ],
+              "audio_fact": "节拍重音与指向动作大致对点，节奏层面无冲突。",
+              "visual_fact": "238-240s军乐小号手明确佩戴白色手套；240-245s领舞者与全体伴舞的手部同样呈白色手套轮廓，握拳/指向时表面光滑但形态稳定，未见跨帧的多余指、爪状扭曲或方向矛盾的残肢。",
+              "normal_alternative": "白色手套+低分辨率+快速指向动作的运动模糊，使手指分界不可辨，这是该游行编舞的统一造型（乐队与舞者同戴白手套）。",
+              "reason": "所见的'无指团块'与同序列中清晰可见的白色手套造型一致，属手套渲染而非解剖畸形；未发现稳定存在的缺指/多指/爪状结构，故不成立为生成瑕疵。",
+              "requires_audio": false,
+              "criterion_id": "生成瑕疵-肢体解剖"
+            }
+          },
+          "majority_status": "not_confirmed"
+        },
+        {
+          "candidate_id": "C049",
+          "discovery": {
+            "id": "mic-vocal-sync-248-250",
+            "criterion": "音乐/歌唱与画面对应",
+            "claim": "248-250s三名白西装男子把麦克风举到嘴边、张口并举手，构成'主唱hook'的视觉暗示，但该时刻音频只有器乐律动与不对点的助兴喊句，缺少与之匹配的演唱线。",
+            "intervals": [
+              {
+                "start_s": 248,
+                "end_s": 250
+              }
+            ],
+            "audio_fact": "此处无持续主唱歌词，喊句节奏与其口型不同步。",
+            "visual_fact": "三人持麦贴嘴、口型张开、另一手高举，典型演唱姿态。",
+            "requires_audio": true,
+            "needs_global_context": false,
+            "normal_alternative": "他们仅以麦克风为道具向人群致意。",
+            "why_still_a_problem": "麦贴嘴+张口的组合强烈指向领唱；若音轨不给他们对应声部，观众会感知为假唱/错配，需补录人声或改姿态。",
+            "certainty": "uncertain",
+            "candidate_id": "C049",
+            "discovery_file": "dense-discovery\\arena-sol-100\\240-262.000\\provider-size-recovery-02\\answer.json",
+            "discovery_sha256": "dc0c22eabba7e453ad33e9568e59f099075d3e52151ece2c7eeb03621b2e4578"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C049",
+              "verdict": "uncertain",
+              "claim": "248-250s三名白西装男子把麦克风举到嘴边、张口并举手，构成主唱hook的视觉暗示，但该时刻音频只有器乐律动与不对点的助兴喊句，缺少与之匹配的演唱线。",
+              "intervals": [
+                {
+                  "start_s": 248,
+                  "end_s": 250
+                }
+              ],
+              "audio_fact": "无法从现有证据确认该时刻音轨中是否存在与三人口型对应的持续主唱线或仅有助兴喊句。",
+              "visual_fact": "Video 2 的2-4s（源248-250）三名白西装者自白色加长轿车天窗探出，持麦贴嘴、张口、单手高举，呈典型演唱/致意姿态。",
+              "normal_alternative": "他们可能正对应音轨中的合唱/hook声部，或仅以麦克风为道具向人群挥手致意。",
+              "reason": "视觉确为演唱姿态，但判定错配必须确认该时刻音频缺少对应人声；音频内容无法核实，故维持不确定。",
+              "requires_audio": true,
+              "criterion_id": "音乐/歌唱与画面对应"
+            },
+            "B": {
+              "candidate_id": "C049",
+              "verdict": "uncertain",
+              "claim": "248-250s三名白西装男子把麦克风举到嘴边、张口并举手，构成'主唱hook'的视觉暗示，但该时刻音频只有器乐律动与不对点的助兴喊句，缺少与之匹配的演唱线。",
+              "intervals": [
+                {
+                  "start_s": 248,
+                  "end_s": 250
+                }
+              ],
+              "audio_fact": "该窗口音频中是否存在与三人口型对应的主唱/和声声部，无法从帧序列核实。",
+              "visual_fact": "248-250s三名白西装男子立于白色礼车顶，手持麦克风贴近嘴部、另一手高举挥动、张口微笑，前方红西装男子同样挥手致意，整体更像向人群致意的巡游姿态。",
+              "normal_alternative": "麦克风作为巡游道具，张口为微笑/呼喊致意而非领唱；或音轨此处确有对应人声只是切片内不可验证。",
+              "reason": "判定'假唱/错配'必须确认该时刻音轨缺少对应演唱线，而音频内容无法从画面核实；视觉姿态存在合理的致意替代解释，故维持uncertain。",
+              "requires_audio": true,
+              "criterion_id": "音乐/歌唱与画面对应"
+            },
+            "C": {
+              "candidate_id": "C049",
+              "verdict": "uncertain",
+              "claim": "248-250s三名白西装男子把麦克风举到嘴边、张口并举手，构成'主唱hook'的视觉暗示，但该时刻音频只有器乐律动与不对点的助兴喊句，缺少与之匹配的演唱线。",
+              "intervals": [
+                {
+                  "start_s": 248,
+                  "end_s": 250
+                }
+              ],
+              "audio_fact": "该窗口内为放克律动加零星助兴喊句，无法在本切片中确证是否存在与三人口型对应的持续主唱线，亦无法精确比对喊句与张口帧的对齐关系。",
+              "visual_fact": "三名白西装男子自白色加长轿车天窗探出，一手持麦贴嘴、张口，另一手向路旁人群挥手；前方酒红西装男子同样挥手致意。",
+              "normal_alternative": "游行场景中表演者以麦克风为道具边挥手边向人群致意/跟唱垫音，属常见蒙太奇处理，不必然要求音轨给出独立主唱声部。",
+              "reason": "视觉姿态确实接近演唱，但'持麦+挥手'同样兼容致意性表演；音频侧主唱线有无及口型同步精度在本窗口内不可确证，按规则取uncertain。",
+              "requires_audio": true,
+              "criterion_id": "音乐/歌唱与画面对应"
+            }
+          },
+          "majority_status": "not_confirmed"
+        },
+        {
+          "candidate_id": "C054",
+          "discovery": {
+            "id": "poweroff-audio-sync-weak",
+            "criterion": "audio_visual_sync",
+            "claim": "关机噱头的音画同步偏弱：手在约 268.3–269.0 按下按钮、269.3 灯光熄灭，但音乐只是随画面淡出收尾，按键瞬间没有可辨的点击/断电瞬态，也没有与'音乐从这台收音机放出'相匹配的空间化音色变化，削弱了叙事笑点的落点。",
+            "intervals": [
+              {
+                "start_s": 268.3,
+                "end_s": 270.459
+              }
+            ],
+            "audio_fact": "音乐在按键后随画面变暗而停止，未见与按键帧精确对齐的停音瞬态或机械音效（不确定）。",
+            "visual_fact": "手指触键后红色显示立即熄灭、全片转暗，构成'关掉了音乐'的明确视觉暗示。",
+            "requires_audio": true,
+            "needs_global_context": false,
+            "normal_alternative": "导演可能有意让音乐带尾音淡出，配合画面渐黑作段落结束。",
+            "why_still_a_problem": "既然前面用'舞者围着收音机跳、最后亲手关掉'建立Diegetic设定，停音就应卡在按键帧并辅以点击/降速类音效；当前停点与按键存在可感知错位，观感上像音画没对齐。建议把停音/滤波切换精确对到按键帧。",
+            "certainty": "uncertain",
+            "candidate_id": "C054",
+            "discovery_file": "dense-discovery\\arena-sol-100\\260-270.459\\answer.json",
+            "discovery_sha256": "fc5bae02acb45de64f407f1eff99a4df056342234c474f8fa8646359629e0a68"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C054",
+              "verdict": "uncertain",
+              "claim": "关机噱头的音画同步偏弱：手在约268.3–269.0按下按钮、269.3灯光熄灭，但音乐只是随画面淡出收尾，按键瞬间没有可辨的点击/断电瞬态，也没有与音乐从这台收音机放出相匹配的空间化音色变化。",
+              "intervals": [
+                {
+                  "start_s": 268.3,
+                  "end_s": 270.459
+                }
+              ],
+              "audio_fact": "无法核实按键帧处是否存在点击/断电瞬态或停音是否精确卡点；仅能观察到音乐随画面转暗收尾。",
+              "visual_fact": "Video 4 中手于约267.8-268.8伸向收音机按键，红色显示随后熄灭，画面在269.8-270.459渐黑，构成关掉音乐的视觉暗示。",
+              "normal_alternative": "导演可能有意让音乐带尾音淡出，配合画面渐黑作段落结束，而非硬切停音。",
+              "reason": "视觉关机动作明确，但同步强弱取决于音轨是否含按键瞬态/卡点停音，该音频事实无法确认，故维持不确定。",
+              "requires_audio": true,
+              "criterion_id": "audio_visual_sync"
+            },
+            "B": {
+              "candidate_id": "C054",
+              "verdict": "uncertain",
+              "claim": "关机噱头的音画同步偏弱：手在约268.3–269.0按下按钮、269.3灯光熄灭，但音乐只是随画面淡出收尾，按键瞬间没有可辨的点击/断电瞬态，也没有与'音乐从这台收音机放出'相匹配的空间化音色变化，削弱了叙事笑点的落点。",
+              "intervals": [
+                {
+                  "start_s": 268.3,
+                  "end_s": 270.459
+                }
+              ],
+              "audio_fact": "按键帧处是否存在点击/断电瞬态、停音是否精确卡帧，无法从帧序列核实。",
+              "visual_fact": "268.3-269.0s手伸向收音机顶部按键，约269.3s红色显示熄灭、画面转暗并淡出至黑，构成'亲手关掉音乐'的明确视觉暗示。",
+              "normal_alternative": "导演可能有意让音乐带尾音随画面渐黑淡出，作为段落结束的常规处理，而非要求硬切停音。",
+              "reason": "该主张依赖音轨细节（有无按键瞬态、停点对齐精度），音频不可核实；视觉上按键与熄灯时序本身连贯，淡出收尾亦属合理导演选择，故维持uncertain。",
+              "requires_audio": true,
+              "criterion_id": "audio_visual_sync"
+            },
+            "C": {
+              "candidate_id": "C054",
+              "verdict": "uncertain",
+              "claim": "关机噱头的音画同步偏弱：手在约268.3–269.0按下按钮、269.3灯光熄灭，但音乐只是随画面淡出收尾，按键瞬间没有可辨的点击/断电瞬态，也没有与'音乐从这台收音机放出'相匹配的空间化音色变化，削弱了叙事笑点的落点。",
+              "intervals": [
+                {
+                  "start_s": 268.3,
+                  "end_s": 270.459
+                }
+              ],
+              "audio_fact": "音乐在按键后随画面变暗停止；本窗口内无法确证按键帧是否存在细微点击/降速瞬态，停音与按键的对齐精度不可核实。",
+              "visual_fact": "268s前后穿酒红褶边裤、拼色皮鞋的人走近金色收音机，手伸向顶部按键；约269s红色显示熄灭、画面迅速转黑，构成'亲手关掉音乐'的视觉暗示。",
+              "normal_alternative": "导演有意让乐句带尾音随画面渐黑收束，作为段落结束的常规淡出，不强制硬切停音或机械音效。",
+              "reason": "视觉动作清楚，但'停音未卡按键帧'的判断依赖对音频瞬态的精确核实，本切片混音中该细节不可确认；淡出收尾属可接受的正常处理，故取uncertain。",
+              "requires_audio": true,
+              "criterion_id": "audio_visual_sync"
+            }
+          },
+          "majority_status": "not_confirmed"
+        },
+        {
+          "candidate_id": "C055",
+          "discovery": {
+            "id": "dancer-limb-blur-morph",
+            "criterion": "generation_quality",
+            "claim": "263.4–264.0 的快速换位段落中，多名舞者肢体出现糊化与疑似融合：右下白衣舞者伸出的手臂与相邻蓝衣舞者躯干边界粘连，左侧粉衣舞者腿部轮廓重影，个别头部在模糊帧中五官塌陷。",
+            "intervals": [
+              {
+                "start_s": 263.4,
+                "end_s": 264.0
+              }
+            ],
+            "audio_fact": "该段对应铜管重音后的快速步伐，动作本身与节拍吻合。",
+            "visual_fact": "3.4–4.0 秒（原片 263.4–264.0）帧内舞者大幅位移，出现强烈运动模糊与肢体交叠不清。",
+            "requires_audio": false,
+            "needs_global_context": false,
+            "normal_alternative": "编舞在此处本就是高速移动，运动模糊属正常摄影效果。",
+            "why_still_a_problem": "即使计入运动模糊，手臂与邻人躯干的接触关系、腿部重影仍超出合理模糊范围，呈现生成式肢体粘连；可在该两帧间补中间姿态或降低模糊强度以便观众读清动作。",
+            "certainty": "uncertain",
+            "candidate_id": "C055",
+            "discovery_file": "dense-discovery\\arena-sol-100\\260-270.459\\answer.json",
+            "discovery_sha256": "fc5bae02acb45de64f407f1eff99a4df056342234c474f8fa8646359629e0a68"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C055",
+              "verdict": "uncertain",
+              "claim": "263.4–264.0 的快速换位段落中，多名舞者肢体出现糊化与疑似融合：右下白衣舞者伸出的手臂与相邻蓝衣舞者躯干边界粘连，左侧粉衣舞者腿部轮廓重影，个别头部在模糊帧中五官塌陷。",
+              "intervals": [
+                {
+                  "start_s": 263.4,
+                  "end_s": 264.0
+                }
+              ],
+              "audio_fact": "该段为铜管重音驱动的快速步伐，节奏与位移吻合，音频本身不提供肢体是否融合的判据。",
+              "visual_fact": "对应窗口约2.0–2.6秒（候选文字误标为3.4–4.0秒，两个采样点均落在同一段高速换位内）帧中全员大幅位移，出现强烈拖影：粉衣舞者腿部呈 streak 状双影、白衣舞者前伸手臂与蓝衣舞者躯干在模糊中边界不清、多张脸被抹平。但在静止帧（0.0–1.5秒）中可见编舞本就包含手搭邻肩、手臂互触的接触造型，换位时肢体交叠属预期构图。",
+              "normal_alternative": "高速编舞下的摄影/渲染运动模糊加故意肢体接触，足以产生重影与边界粘连的观感，无需引入生成式畸形。",
+              "reason": "采样帧确实存在严重模糊与肢体交叠，但无法在现有分辨率下区分'超出合理模糊的生成式粘连/五官塌陷'与'正常运动模糊+接触编舞'：拖影方向与位移一致，粘连处均可对应静止帧中的手部接触关系，未见断肢、多余肢体或解剖结构错乱等决定性伪影证据，故既不能accept也不能确证reject。",
+              "requires_audio": false,
+              "criterion_id": "generation_quality"
+            },
+            "B": {
+              "candidate_id": "C055",
+              "verdict": "reject",
+              "claim": "263.4–264.0 的快速换位段落中，多名舞者肢体出现糊化与疑似融合：右下白衣舞者手臂与相邻蓝衣舞者躯干粘连，左侧粉衣舞者腿部重影，个别头部五官塌陷。",
+              "intervals": [
+                {
+                  "start_s": 263.4,
+                  "end_s": 264.0
+                }
+              ],
+              "audio_fact": "无需音频即可判断；该段动作与节拍吻合，不构成音画问题。",
+              "visual_fact": "原片261.4起为静态环形造型（0–1.6s帧清晰），约263.1起舞者高速换位，263.4–264.0恰为位移峰值，全身出现方向性拖影；264.1之后动作放缓，四肢、躯干边界与面部随即恢复清晰，未见静态帧下的持续粘连。白衣舞者伸臂与蓝衣躯干、粉衣腿部'重影'均发生在 limb 交叉运动的瞬间，且背景斑马线与地面反光保持锐利，符合机位静止下的主体运动模糊特征。",
+              "normal_alternative": "低照度夜景+高速编舞产生的正常运动模糊：模糊强度与位移速度同步出现、同步消失，交叉肢体在慢速段重新分离。",
+              "reason": "所称'超出合理模糊范围的生成式粘连'不成立：糊化严格伴随最大速度窗口，减速后立即复原，无多余肢体、无静止态融合、五官在清晰帧完整；候选把常规运动模糊误读为生成缺陷，且其自述的'3.4–4.0s'换算与原片映射不符（该时刻已切至录音棚特写）。证据支持正常摄影效应而非morph，故reject。",
+              "requires_audio": false,
+              "criterion_id": "generation_quality"
+            },
+            "C": {
+              "candidate_id": "C055",
+              "verdict": "uncertain",
+              "claim": "263.4–264.0 的快速换位段落中，多名舞者肢体出现糊化与疑似融合：右下白衣舞者伸出的手臂与相邻蓝衣舞者躯干边界粘连，左侧粉衣舞者腿部轮廓重影，个别头部在模糊帧中五官塌陷。",
+              "intervals": [
+                {
+                  "start_s": 263.4,
+                  "end_s": 264.0
+                }
+              ],
+              "audio_fact": "该段落在铜管/打击重音上完成快速换位，动作节奏与拍点吻合，音频本身不提供缺陷线索。",
+              "visual_fact": "切片 2.0–2.6s（原片 263.4–264.0）帧中，环绕录音机的舞群大幅位移，出现强方向性模糊：右下白衣舞者与相邻蓝衣舞者之间臂-躯干边界不清，左侧粉衣舞者腿部拖出重影轮廓，远处小尺寸头部糊成无特征团块；2.3s 后重新站稳时形体恢复清晰。",
+              "normal_alternative": "固定俯拍机位下的高速编舞本就会产生强烈运动模糊，且该距离下面部本就极小，模糊帧中五官不可辨属摄影常态；相邻舞者肢体在移动中真实重叠也会造成边界粘连观感。",
+              "reason": "所见的糊化与边界不清与正常运动模糊及真实肢体重叠无法可靠区分：采样帧显示模糊沿运动方向分布、换位完成后形体即刻恢复清晰，未见静止帧中的结构性融合或五官塌陷证据；既不能确认超出合理模糊范围的生成式粘连，也不能断言完全正常，故维持 uncertain。",
+              "requires_audio": false,
+              "criterion_id": "generation_quality"
+            }
+          },
+          "majority_status": "not_confirmed"
+        },
+        {
+          "candidate_id": "C057",
+          "discovery": {
+            "id": 2,
+            "claim": "纯器乐间奏段落出现清晰的对话/回应式口型动作，音轨无对应台词",
+            "intervals": [
+              {
+                "start_s": 170,
+                "end_s": 175
+              }
+            ],
+            "audio_fact": "该时段为铜管器乐break，无对白或人声台词",
+            "visual_fact": "紫红西装男子对四名青年做指点说话状，四人张嘴、瞪眼、点头回应，口型呈连续语句形态而非单纯表情",
+            "requires_audio": true,
+            "independent_mechanism": "可见言语表演与无声轨绑定缺失",
+            "normal_alternative": "无台词段落应仅做表情/律动反应，避免成句口型",
+            "certainty": "uncertain",
+            "candidate_id": "C057",
+            "discovery_file": "prescreen\\arena-sol-100\\answer.json",
+            "discovery_sha256": "8fa26a7c4f99d42e70124488136574357e9be89b48533bae689aba9dd2688ec9"
+          },
+          "votes": {
+            "A": {
+              "candidate_id": "C057",
+              "verdict": "reject",
+              "claim": "纯器乐间奏段落出现清晰的对话/回应式口型动作，音轨无对应台词",
+              "intervals": [
+                {
+                  "start_s": 170,
+                  "end_s": 175
+                }
+              ],
+              "audio_fact": "该时段音轨并非纯器乐break：可闻男性念白台词（'Before we leave'、'let me tell y'all a little something' 一类口语句），随后才进入 'Uptown funk you' 的演唱，存在明确人声台词。",
+              "visual_fact": "窗口2.1–7.0秒（原片170–175）为霓虹小巷镜头：紫红西装男子俯身指点、张口说话，四名青年侧头注视、张嘴瞪眼回应，口型与节奏和音轨念白段落同步，属于有台词支撑的对白表演。",
+              "normal_alternative": "音轨有台词时，画面出现说话与回应口型是正常音画匹配，不构成'无声轨绑定的言语表演'。",
+              "reason": "候选的核心前提（该段为纯器乐、无对白）与实际音轨矛盾：该窗口内存在清晰念白，且说话者口型、手势与台词内容对应，四人的夸张表情是对白反应而非无源口型，因此'音画错位'指控不成立。",
+              "requires_audio": true,
+              "criterion_id": "audio_visual_mismatch"
+            },
+            "B": {
+              "candidate_id": "C057",
+              "verdict": "uncertain",
+              "claim": "170–175 纯器乐间奏段落出现清晰的对话/回应式口型动作，音轨无对应台词。",
+              "intervals": [
+                {
+                  "start_s": 170,
+                  "end_s": 175
+                }
+              ],
+              "audio_fact": "无法从给定素材独立确认该时段音轨是否含台词；候选自称铜管器乐break，但本人未直接核听到声轨内容，不能据此定案。",
+              "visual_fact": "261? 不，此处为视频2：clip 2.1–7.0（原片170.1–175）紫红西装男子俯身指点、口部张合，呈训话姿态；四名青年多为瞪眼、张口惊讶表情，随后（约174起）集体对镜咧嘴笑，并未呈现可辨的连续成句口型；'回应式说话'证据薄弱，更像无声喜剧反应镜头。",
+              "normal_alternative": "MV中以画外配乐承载静默剧情/哑剧式桥段属允许手法；惊讶张嘴与傻笑是表情表演而非台词口型，不构成必要声部缺失。",
+              "reason": "视觉侧无法确认四人存在'连续语句形态'口型（主要为表情与笑容），音频侧又无法独立核实该窗口确无台词；在'静默剧情+画外配乐允许'的范围内，现有证据既不能坐实音画绑定缺失，也不能彻底排除男子口型与某句台词错位，故只能uncertain。",
+              "requires_audio": true,
+              "criterion_id": "av_sync"
+            },
+            "C": {
+              "candidate_id": "C057",
+              "verdict": "reject",
+              "claim": "纯器乐间奏段落出现清晰的对话/回应式口型动作，音轨无对应台词",
+              "intervals": [
+                {
+                  "start_s": 170.0,
+                  "end_s": 175.0
+                }
+              ],
+              "audio_fact": "该时段音轨为器乐律动/铜管段落，无对白台词；这与候选所述一致，但并非缺陷判据。",
+              "visual_fact": "原片 170.1–174.9s 为霓虹小巷剧情镜头：紫红西装男子指点、张口做说话状，四名青年瞪眼、张嘴、点头并转向镜头微笑，随后 175s 切回斑马线行走段落；整段为喜剧化叙事表演而非对嘴演唱。",
+              "normal_alternative": "MV 中以配乐承载无声剧情/小品是常规手法：角色可做出说话口型作为表演，无需音轨存在对应台词；本段口型服务于情节反应（惊讶→得意），与音乐无时间冲突。",
+              "reason": "可见的'说话'属于静默剧情表演，按规则不得自动判错；该段不存在需要匹配的人声演唱或器乐前景演奏，口型与无声轨之间不构成绑定缺失缺陷，故拒绝该候选。",
+              "requires_audio": true,
+              "criterion_id": "audio_visual_consistency"
+            }
+          },
+          "majority_status": "not_confirmed"
+        }
+      ],
+      "organizer_viewed_source": false,
+      "authoring_receipt": "replacement_20261117/verified/arena-sol-100/majority.json",
+      "human_exclusions": [
+        {
+          "root_id": "R001",
+          "statement": "影院招牌灯箱上的字母为无意义乱码：左牌显示“MTM / ELAGL”、右牌显示“MAHECTHARD / ENTM YIHEAS”，顶部“35”孤立悬空，且在40–45秒持续清晰可见，构成生成文本伪影。",
+          "examples": [
+            {
+              "event_id": "C001",
+              "claim": "影院招牌灯箱上的字母为无意义乱码：左牌显示“MTM / ELAGL”、右牌显示“MAHECTHARD / ENTM YIHEAS”，顶部“35”孤立悬空，且在40–45秒持续清晰可见。",
+              "intervals": [
+                {
+                  "start_s": 40,
+                  "end_s": 45
+                }
+              ],
+              "audio_fact": "该段为男声主唱乐句，歌词与招牌文字无对应关系，文字问题纯属画面。",
+              "visual_fact": "影院雨夜镜头中，招牌灯箱占据画面上半部，左牌稳定显示“MTM / ELAGL”、右牌稳定显示“MAHECTHARD / ENTM YIHEAS”，顶部“35”孤立悬空；字母串不构成词或合理片名/店名，并在窗口内持续清晰可见。"
+            }
+          ],
+          "authority": "User personally checked the source and supplied these corrections in the current chat"
+        },
+        {
+          "root_id": "R004",
+          "statement": "飞机头男子指尖旋转的金色奖章在下落经过面部/胸前之后消失；后续帧中双手空置、可见地面无奖章，且无接住、收起或落地轨迹。",
+          "examples": [
+            {
+              "event_id": "C023",
+              "claim": "飞机头男子指尖旋转的金色奖章在下落经过面部/胸前之后消失；后续帧中双手空置、可见地面无奖章，且无接住、收起或落地轨迹。",
+              "intervals": [
+                {
+                  "start_s": 127.3,
+                  "end_s": 127.9
+                }
+              ],
+              "audio_fact": "该处落在歌词重音拍上，仅作语境；判定不依赖声音。",
+              "visual_fact": "127.1–127.3s金色大奖章仍在指尖或被手带至面部前方；127.5s起双臂放下、双手张开空无一物，身前黑白格地面干净无奖章，其后帧奖章未再出现，也无接取、入袋或落地轨迹。"
+            }
+          ],
+          "authority": "User personally checked the source and supplied these corrections in the current chat"
+        },
+        {
+          "root_id": "R008",
+          "statement": "收音机道具在260–265秒群舞俯拍与265–270.459秒特写中可见喇叭/指示结构不一致：前者喇叭位为橙色发光环且无红色LED条，后者喇叭位为黑色锥盆且红色LED条亮起，差异不能仅由布光解释。",
+          "examples": [
+            {
+              "event_id": "C053",
+              "claim": "收音机道具在260–265秒群舞俯拍与265–270.459秒特写中可见喇叭/指示结构不一致：前者喇叭位为橙色发光环且无红色LED条，后者喇叭位为黑色锥盆且红色LED条亮起，差异不能仅由布光解释。",
+              "intervals": [
+                {
+                  "start_s": 260,
+                  "end_s": 265
+                },
+                {
+                  "start_s": 265,
+                  "end_s": 270.459
+                }
+              ],
+              "audio_fact": "",
+              "visual_fact": "260–265s俯拍群舞中央收音机喇叭位呈明亮橙色发光环，无可见红色LED条；265–270.459s特写中收音机喇叭位为黑色锥盆且不发光，正面红色LED显示条亮起。结构性差异超出布光/调色可解释范围。"
+            }
+          ],
+          "authority": "User personally checked the source and supplied these corrections in the current chat"
+        }
+      ],
+      "human_correction": {
+        "source_id": "mv_uptown",
+        "authority": "User personally checked the source and supplied these corrections in the current chat",
+        "recorded_at": "2026-11-17T16:01:16.545546+00:00",
+        "removed_root_ids": [
+          "R001",
+          "R004",
+          "R008"
+        ],
+        "added_root_id": "R009",
+        "new_source_root_count": 6,
+        "added_claim": "R007同一时间段内，一个男生变成女生，随后女生又变成西装男。",
+        "rule": "Human corrections take precedence over Qwen ballots. Removed claims are excluded from current mandatory checks and cannot be reintroduced as novel-valid. Original raw annotations remain historical.",
+        "no_solver_feedback_used": true,
+        "numerical_formula_unchanged": true
+      }
+    },
+    {
+      "version": "pilot-v7-mv_lazy",
+      "source_id": "mv_lazy",
+      "general_events": [
+        {
+          "id": "R001",
+          "source_id": "mv_lazy",
+          "statement": "绿色数字钟特写镜头内，相邻帧间读数出现无效时间值（分钟位85、87）及小时级非单调倒退，音轨无缝延续、无时间跳转或蒙太奇标记，属场内数字渲染不稳定",
+          "root_definition": "绿色数字钟特写镜头内，相邻帧间读数出现无效时间值（分钟位85、87）及小时级非单调倒退，音轨无缝延续、无时间跳转或蒙太奇标记，属场内数字渲染不稳定",
+          "criterion_ids": [
+            "V3"
+          ],
+          "requires_audio": false,
+          "matching_policy": "Any actual supported instance of this same independent issue mechanism may match; do not require a fixed preselected timestamp. Distinct mechanisms remain separate.",
+          "examples": [
+            {
+              "event_id": "E009",
+              "claim": "绿色数字钟特写镜头内，相邻帧间读数出现无效时间值（分钟位85、87）及小时级非单调倒退，音轨无缝延续、无时间跳转或蒙太奇标记，属场内数字渲染不稳定。",
+              "intervals": [
+                {
+                  "start_s": 2.8,
+                  "end_s": 3.5
+                }
+              ],
+              "audio_fact": "原声为连续平稳的尤克里里/吉他扫弦加男声演唱'today I don't feel like doing anything'，无表示时间跳转或蒙太奇切换的音效标记，音轨在视觉切镜处无缝延续。",
+              "visual_fact": "0.0–2.7s宽景红色钟稳定显示18:09；2.8s硬切至绿色钟特写，随即2.9–3.1s显示'12:85'（分钟位85无效），3.2s显示'16:87'（同样无效），3.3s'16:27'，3.4s'16:22'，3.5s跳回'15:22'后稳定至10.5s。相邻帧（间隔≈0.1s）内出现无效读数与小时级倒退。"
+            }
+          ]
+        },
+        {
+          "id": "R003",
+          "source_id": "mv_lazy",
+          "statement": "同一烧录歌词字幕轨道的转写内容错误；不同词语及肯否错误是同类根因的不同实例。",
+          "root_definition": "同一烧录歌词字幕轨道的转写内容错误；不同词语及肯否错误是同类根因的不同实例。",
+          "criterion_ids": [
+            "V5"
+          ],
+          "requires_audio": true,
+          "matching_policy": "Any actual supported instance of this same independent issue mechanism may match; do not require a fixed preselected timestamp. Distinct mechanisms remain separate.",
+          "examples": [
+            {
+              "event_id": "E003",
+              "claim": "底部字幕转写为'cause I can't'（含/t/闭合），而实际可听人声末词收在开放鼻元音上、无塞音释放，三份纯音轨盲听一致确认为'can'；字幕文字与音轨歌词构成否定/肯定替换错误。",
+              "intervals": [
+                {
+                  "start_s": 107.0,
+                  "end_s": 110.7
+                }
+              ],
+              "audio_fact": "男声连续唱'I said it, I said it, 'cause I can'，末词收在开放鼻元音上，无/t/塞音闭合或释放；三份纯音轨盲听均清晰确认'can'而非'can't'。",
+              "visual_fact": "local约2.5s起字幕由'oh yes I said it'切换为'I said it I said it cause I can't'，该含can't的字幕持续到约6.0s，之后6.5s切为'today I don't feel like doing anything'；同期画面中男子站在沙发上举麦克风得意演唱，表情与肯定式歌词相符。"
+            },
+            {
+              "event_id": "Xa41007fe3a37-NE005",
+              "claim": "底部白色歌词字幕将动词'get'误写为'give'（'give my college degree'），而三位纯音频盲听者一致清晰辨听到演唱为'get my college degree'，构成单字转写替换错误。",
+              "intervals": [
+                {
+                  "start_s": 93.9,
+                  "end_s": 96.77000000000001
+                },
+                {
+                  "start_s": 93.9,
+                  "end_s": 96.77000000000001
+                },
+                {
+                  "start_s": 93.9,
+                  "end_s": 96.77000000000001
+                }
+              ],
+              "audio_fact": "三位纯音频盲听者一致清晰听到男声唱出'…and get my college degree'，其中'get'发音明确，无任何一位听到'give'。",
+              "visual_fact": "约1.5s起毕业场景出现，底部白色字幕持续显示'yeah I might mess around and give my college degree'，其中'give'与实际唱出的'get'不一致，字幕停留至约4.4s场景切换。"
+            }
+          ],
+          "mechanisms": [
+            "subtitle_content"
+          ]
+        },
+        {
+          "id": "R004",
+          "source_id": "mv_lazy",
+          "statement": "前景手持智能手机屏幕上所有文本字段（标题栏、联系人、消息气泡、按钮标签）均为逐字可辨但无语义的随机拉丁字母/数字拼接串，UI框架完整而内容空洞，非模糊、马赛克或占位符处理",
+          "root_definition": "前景手持智能手机屏幕上所有文本字段（标题栏、联系人、消息气泡、按钮标签）均为逐字可辨但无语义的随机拉丁字母/数字拼接串，UI框架完整而内容空洞，非模糊、马赛克或占位符处理",
+          "criterion_ids": [
+            "V5"
+          ],
+          "requires_audio": false,
+          "matching_policy": "Any actual supported instance of this same independent issue mechanism may match; do not require a fixed preselected timestamp. Distinct mechanisms remain separate.",
+          "examples": [
+            {
+              "event_id": "E007",
+              "claim": "前景手持智能手机屏幕上所有文本字段（标题栏、联系人、消息气泡、按钮标签）均为逐字可辨但无语义的随机拉丁字母/数字拼接串，UI框架完整而内容空洞，非模糊、马赛克或占位符处理。",
+              "intervals": [
+                {
+                  "start_s": 121.0,
+                  "end_s": 123.0
+                }
+              ],
+              "audio_fact": "同期演唱歌词'don't feel like picking up my phone'，声音内容与画面情境（不想接电话）一致，无语音引用屏幕文字。",
+              "visual_fact": "手机在2.0s起进入前景并逐渐对焦，2.5s–3.5s屏幕完全清晰可读。UI框架完整（顶部状态栏、消息气泡区域、绿色操作按钮、底部导航图标），但所有文本字段呈现为大小写随机混合的无意义字符串（'RENEED 6im'含数字与字母拼接、'Gecrhen Lomn'等），逐字可辨却无任何语义，非模糊、马赛克或占位符处理。"
+            }
+          ]
+        },
+        {
+          "id": "Xa41007fe3a37-R001",
+          "source_id": "mv_lazy",
+          "statement": "黑色游戏手柄在演员双手举拳过程中从手中消失（拳内无手柄体积轮廓），随后双手回落时手柄无可见转移、遮挡出框或切镜路径地重新出现在握持位，发生于同一连续毕业幻想镜头内",
+          "root_definition": "黑色游戏手柄在演员双手举拳过程中从手中消失（拳内无手柄体积轮廓），随后双手回落时手柄无可见转移、遮挡出框或切镜路径地重新出现在握持位，发生于同一连续毕业幻想镜头内",
+          "criterion_ids": [
+            "V3"
+          ],
+          "requires_audio": false,
+          "matching_policy": "Any actual supported instance of this same independent issue mechanism may match; do not require a fixed preselected timestamp. Distinct mechanisms remain separate.",
+          "examples": [
+            {
+              "event_id": "Xa41007fe3a37-NE002",
+              "claim": "黑色游戏手柄在演员双手举拳过程中从手中消失（拳内无手柄体积轮廓），随后双手回落时手柄无可见转移、遮挡出框或切镜路径地重新出现在握持位，发生于同一连续毕业幻想镜头内。",
+              "intervals": [
+                {
+                  "start_s": 93.8,
+                  "end_s": 94.3
+                },
+                {
+                  "start_s": 95.93,
+                  "end_s": 96.4
+                },
+                {
+                  "start_s": 93.8,
+                  "end_s": 96.39999999999999
+                }
+              ],
+              "audio_fact": "同期演唱\"yeah I might mess around and give my college degree\"，无提示物体消失或出现的音效；音频连续无断裂。",
+              "visual_fact": "S00-00 local 1.5s（源93.8s）：男孩双手握黑色手柄、拇指在摇杆上；local 1.7s起双手上举握拳，手柄从手中消失，拳内无手柄体积轮廓；至local 3.2s（源95.5s）仍为空拳。S01-00 local 0.0–1.5s（源94.43–95.93s）延续空拳状态；local 1.7s（源96.13s）手柄突然回到双手握持位，男孩表情由大笑转为微笑。全程背景云层、学士帽、学位袍、领带、漂浮文凭位置一致，未见硬切黑帧或明显跳帧标记，呈现为同一连续镜头。"
+            }
+          ]
+        },
+        {
+          "id": "Xa41007fe3a37-R003",
+          "source_id": "mv_lazy",
+          "statement": "薄矩形亮屏手机在飞向衣篮的同一连续室内镜头中，先经合理侧转变窄，随后不可逆地增厚、变暗并出现弯曲凹口轮廓，最终以厚实不规则鞋状黑块落入篮中，几何形态突变无法用刚体旋转或透视解释",
+          "root_definition": "薄矩形亮屏手机在飞向衣篮的同一连续室内镜头中，先经合理侧转变窄，随后不可逆地增厚、变暗并出现弯曲凹口轮廓，最终以厚实不规则鞋状黑块落入篮中，几何形态突变无法用刚体旋转或透视解释",
+          "criterion_ids": [
+            "V3"
+          ],
+          "requires_audio": false,
+          "matching_policy": "Any actual supported instance of this same independent issue mechanism may match; do not require a fixed preselected timestamp. Distinct mechanisms remain separate.",
+          "examples": [
+            {
+              "event_id": "Xa41007fe3a37-NE004",
+              "claim": "薄矩形亮屏手机在飞向衣篮的同一连续室内镜头中，先经合理侧转变窄，随后不可逆地增厚、变暗并出现弯曲凹口轮廓，最终以厚实不规则鞋状黑块落入篮中，几何形态突变无法用刚体旋转或透视解释。",
+              "intervals": [
+                {
+                  "start_s": 124.63,
+                  "end_s": 125.33
+                }
+              ],
+              "audio_fact": "同期演唱'so leave a message at the tone'，无任何提示物体变形或替换的音效。",
+              "visual_fact": "local 1.1–1.2 s 可见薄矩形、亮面朝向镜头的手机；1.3–1.4 s 转为极窄侧边线（合理翻转）；1.5 s 起物体明显增厚、变暗，轮廓出现弯曲与凹口；1.6–1.8 s 呈厚实不规则鞋状黑块；1.9 s 落入衣篮。全程天花板、窗帘、窗户背景一致，无切镜。"
+            }
+          ]
+        }
+      ],
+      "music_release": [],
+      "source_sha256": "83eb159f2b7361ed73aedfacd9b66c76d0075ba27a8fd1e3cbfaf5e341738ccc",
+      "annotation": "Source discovery: 31/32 planned AV/VIS views valid; 2/3 complete-source discovery views valid. Unavailable API views explicitly recorded; independent source verification, audio-isolation and scope checks retained. No failed API opinion fabricated.",
+      "authoring_receipt": "authoring-v7-dense\\scope-final\\mv_lazy.json",
+      "authoring_coverage": {
+        "calls": 32,
+        "valid_views": 31,
+        "unavailable_views": [
+          {
+            "window_id": "mv_lazy-007",
+            "view": "AV",
+            "valid_opinion": false,
+            "reason": "Provider inspection did not return a valid primary or benign technical-summary response; no further workaround attempted",
+            "raw_failure_preserved": true,
+            "other_source_views_retained": true
+          }
+        ],
+        "windows": 16,
+        "completed_at": "2026-11-15T18:20:45.583853+00:00",
+        "same_model": "qwen3.8-omni-flash",
+        "no_solver_outputs": true,
+        "call_unit": "planned primary discovery slots; restorations separately logged"
+      },
+      "global_authoring_coverage": {
+        "source_id": "mv_lazy",
+        "calls": 3,
+        "valid_views": 2,
+        "unavailable_views": [
+          {
+            "voter": "C",
+            "valid_opinion": false,
+            "reason": "Provider inspection returned no valid global discovery; preserve the other independent views, no workaround or fabricated opinion"
+          }
+        ],
+        "no_local_answers_seen": true
+      },
+      "performance_premise_audit": {
+        "source_only": true,
+        "model_answers_seen": false,
+        "trigger": "Original source-verifier cited an unprovided 1-2s beauty-shot convention; applicability must follow the existing task scope",
+        "votes": {},
+        "excluded_event_ids": [],
+        "initial_gold_preserved": true
+      },
+      "reference_extension": {
+        "revision": 1,
+        "initial_reference_preserved": true,
+        "proposal_origin": "first source-judge novel-valid findings",
+        "superseded_event_ids": [],
+        "source_verification": "same 3fresh nativeAV + audio-only isolation + scope checks",
+        "root_mapping": [
+          {
+            "new_root_id": "R001",
+            "adopted_root_id": "Xa41007fe3a37-R001",
+            "votes": [
+              "NEW",
+              "NEW",
+              "NEW"
+            ]
+          },
+          {
+            "new_root_id": "R002",
+            "adopted_root_id": "Xa41007fe3a37-R002",
+            "votes": [
+              "R003",
+              "NEW",
+              "NEW"
+            ]
+          },
+          {
+            "new_root_id": "R003",
+            "adopted_root_id": "Xa41007fe3a37-R003",
+            "votes": [
+              "NEW",
+              "NEW",
+              "NEW"
+            ]
+          }
+        ],
+        "path": "pilot-v7-mv_lazy\\results\\sol_xhigh_r01_20261116_dense\\reference-extension-1",
+        "score_not_used_in_adoption": true
+      },
+      "root_aliases": {
+        "Xa41007fe3a37-R002": "R003"
+      },
+      "unit_correction": {
+        "policy": "Frozen same subtitle track/content unit; word substitutions do not create separate roots",
+        "source_reference_sha256": "a8605f16d74be54ee49ed6926b4546e681e40d165b8c50f1d6c54e1fd2b66867",
+        "old_count": 7,
+        "new_count": 6,
+        "numerical_scoring_unchanged": true,
+        "no_new_perception_or_matching_votes": true
+      },
+      "reference_diagnostics": [
+        {
+          "event_id": "NE001",
+          "status": "uncertain",
+          "criterion_id": "AV3",
+          "claim": "演唱特写中'wake up'的/p/收口及'comb my'的/m/双唇闭合在逐帧画面中缺失，口型未按实际辅音构音。",
+          "contexts": [
+            {
+              "start_s": 82.53,
+              "end_s": 86.37
+            },
+            {
+              "start_s": 132.0,
+              "end_s": 135.9
+            }
+          ],
+          "source_board_path": "pilot-v7-mv_lazy\\results\\sol_xhigh_r01_20261116_dense\\reference-extension-1",
+          "reasons": [
+            "提案声称'逐帧画面中缺失'闭唇动作，但实际可用帧率仅约5fps（200ms间隔），而/p/、/m/在歌唱中的闭合时长通常为50–100ms，完全可能落在采样间隙内。此外，本片为卧室/睡衣/猴面具的喜剧即兴演唱风格，并非严格对口型音乐录影带，辅音构音的视觉精确度不在该风格的合理预期内。",
+            "镜头明确为前景演唱特写，声音与口型应可对应；在两个不同乐句、共约1.7s的辅音窗口内，采样帧一致显示张口/圆唇而无双唇接触，构成可核查的口型-辅音失配（AV3）。",
+            "命题声称/p/与/m/的双唇闭合在逐帧画面中缺失，但本次提供的抽帧密度（0.2s）远低于辅音闭合的典型时长（约50–100ms），且S00-00段1.8s帧恰恰显示唇部收拢，与'全程无闭合'矛盾；因此该缺陷断言超出证据可支持的范围。"
+          ]
+        },
+        {
+          "event_id": "NE003",
+          "status": "uncertain",
+          "criterion_id": "V3",
+          "claim": "沙发演唱连续镜头中有线麦克风在摔坐举手时消失，随后在头侧手中无路径恢复。",
+          "contexts": [
+            {
+              "start_s": 105.0,
+              "end_s": 109.1
+            },
+            {
+              "start_s": 105.0,
+              "end_s": 109.1
+            },
+            {
+              "start_s": 105.0,
+              "end_s": 109.1
+            }
+          ],
+          "source_board_path": "pilot-v7-mv_lazy\\results\\sol_xhigh_r01_20261116_dense\\reference-extension-1",
+          "reasons": [
+            "麦克风是该表演的核心持握道具且连接支架，在连续镜头中约0.3s完全不可见（既不在空手中也不在身前支架上），随后未经过任何可见的抓取动作即重新出现在手中，违反物体持续性，属生成式道具丢失/复现缺陷。",
+            "若2.0–2.5s右手确为空掌且3.0s仅握立杆，则麦克风在约1秒内消失又无可见取回路径即恢复，属物体连续性断裂。",
+            "若107.2s确为双手皆空而107.4s麦克风已在手中，则0.2s内无可见拾取路径，构成物体连续性断裂。"
+          ]
+        }
+      ],
+      "human_exclusions": [
+        {
+          "source_id": "mv_lazy",
+          "removed_root_id": "R002",
+          "removed_event_ids": [
+            "E008"
+          ],
+          "authority": "User manually verified the mirror shot and said it is normal, 2026-11-17",
+          "rule": "Excluded from all current-model mandatory checks; do not reintroduce this same mirror claim through novel findings. Original annotations and all original results are retained.",
+          "old_gold_sha256": "7a992bef1fac895b4c1f5a8f9985765ff4a32199d7f71adb35409acdae70c540",
+          "numerical_formula_unchanged": true
+        }
+      ]
+    }
+  ],
+  "common_reference": "gold.json",
+  "reference_sha256": "9952d6be7adc374ffac7c07d341cbb0636e251445afb1f206eee514ff34eef14"
+}

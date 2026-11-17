@@ -1,0 +1,50 @@
+{
+  "coverage": [
+    {
+      "root_id": "R001",
+      "covered": false,
+      "check_ids": [],
+      "localization": 0,
+      "evidence": 0,
+      "reason": "交付仅把床头电子钟记为不确定观察（3.8–9.5s，'1E:22'/'15:2…'字形不稳）并明确声明'未计入 checks'，没有任何 revise 提交断言该钟需修改。GT 的核心机制是绿色钟特写在 2.8–3.5s 出现无效分钟位 85/87 与小时级非单调倒退（12:85→16:87→16:27→16:22→15:22），交付既未提交为缺陷、其不确定描述也未精确命中这些无效读数，故 R001 未被任何实际提交覆盖。"
+    },
+    {
+      "root_id": "R003",
+      "covered": true,
+      "check_ids": [
+        "G05"
+      ],
+      "localization": 1,
+      "evidence": 1,
+      "reason": "G05 以两处字幕内容错误覆盖 R003 的两个实例：①94.5–97.0s 帧字幕'…give my college degree'与词级 ASR 实唱'get'（95.56s）不符，对应 NE005；②107.5–110.0s 帧字幕'…cause I can't'与实唱开放鼻元音'can'（108.70–109.30s）不符，且与 48.5s 首现字幕'cause I can'自相矛盾，对应 E003。区间、画面 OCR 与音频事实均与源片一致，定位与证据完整。"
+    },
+    {
+      "root_id": "R004",
+      "covered": true,
+      "check_ids": [
+        "G04"
+      ],
+      "localization": 1,
+      "evidence": 1,
+      "reason": "G04 在 120.8–122.8s 提交 revise，描述前景手持手机屏幕 UI 框架完整（状态栏、消息气泡、绿色发送键）但所有文本字段为逐字可辨却无意义的随机串（顶栏'IIEEGtE.dr'、气泡'KTRENENIC Dim / SEIEFENEB Bim'），并引用 121.8/122.0/122.5s 原帧与同期'Don't feel like picking up my phone'歌词。这与 R004/E007（121.0–123.0s 屏幕'RENEED 6im'等空洞字符串）为同一机制，区间覆盖可读焦点段，证据具体。"
+    },
+    {
+      "root_id": "Xa41007fe3a37-R001",
+      "covered": false,
+      "check_ids": [],
+      "localization": 0,
+      "evidence": 0,
+      "reason": "交付无任何 check 涉及毕业幻想镜头中黑色游戏手柄在双手举拳时消失、回落时无转移路径又重现的物体持续性问题（源约 93.8–96.4s）。报告反而把毕业场景整体归为'可解释的喜剧/象征表达'而不扣分，故该独立 V3 根因未被覆盖。"
+    },
+    {
+      "root_id": "Xa41007fe3a37-R003",
+      "covered": false,
+      "check_ids": [],
+      "localization": 0,
+      "evidence": 0,
+      "reason": "交付无任何 check 涉及被抛向衣篮的薄亮屏手机在同一连续镜头中不可逆增厚、变暗、出现弯曲凹口并以鞋状黑块落篮的几何突变（源约 124.6–125.3s）。G04 只覆盖此前静态屏幕文字，未触及飞行段的形态变异，故该独立 V3 根因未被覆盖。"
+    }
+  ],
+  "additional_claims": [],
+  "limitations": []
+}

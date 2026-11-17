@@ -1,0 +1,50 @@
+{
+  "coverage": [
+    {
+      "root_id": "R001",
+      "covered": false,
+      "check_ids": [],
+      "localization": 0,
+      "evidence": 0,
+      "reason": "GT要求识别绿色数字钟特写中无效读数（分钟位85、87）及小时级非单调倒退。交付仅在uncertain_observations中提及'床头电子钟显示不稳定七段字形并在数秒内跳时'，但明确标注为不确定、未计入checks，理由是'慢推、失焦和七段码过渡均可造成字形不稳'。然而GT已核实分钟位85/87为不可能存在的无效时间值，无法用任何正常七段码过渡或失焦解释；交付未将其作为确定需改项提交，故未覆盖。"
+    },
+    {
+      "root_id": "R003",
+      "covered": true,
+      "check_ids": [
+        "G05"
+      ],
+      "localization": 1,
+      "evidence": 1,
+      "reason": "交付G05精确识别了两处字幕转写错误：①94.5–97.0s将'get my college degree'误写为'give my college degree'，与GT例Xa41007fe3a37-NE005（93.9–96.77s）吻合；②107.5–110.0s将'cause I can'误写为'cause I can't'，与GT例E003（107.0–110.7s）吻合。交付提供了large-v3词级时间戳音频证据、具体帧字幕截图描述，并以48.5s首现字幕'cause I can'作为交叉验证，证据链完整。"
+    },
+    {
+      "root_id": "R004",
+      "covered": true,
+      "check_ids": [
+        "G04"
+      ],
+      "localization": 1,
+      "evidence": 1,
+      "reason": "交付G04识别120.8–122.8s手机消息界面屏幕文字为无意义字母串（顶栏'IIEEGtE.dr'、气泡'KTRENENIC Dim / SEIEFENEB Bim'等），与GT例E007（121–123s）完全对应。交付详细描述了UI框架完整但文本字段逐字可辨却无语义的特征，排除了模糊/马赛克/占位符解释，并关联同期歌词'Don't feel like picking up my phone'确认手机为核心叙事道具，证据充分。"
+    },
+    {
+      "root_id": "Xa41007fe3a37-R001",
+      "covered": false,
+      "check_ids": [],
+      "localization": 0,
+      "evidence": 0,
+      "reason": "GT要求识别毕业幻想镜头中黑色游戏手柄在双手举拳时消失、回落时无路径重新出现的问题（约93.8–96.4s）。交付的checks和uncertain_observations中均未提及此事件，完全未覆盖。"
+    },
+    {
+      "root_id": "Xa41007fe3a37-R003",
+      "covered": false,
+      "check_ids": [],
+      "localization": 0,
+      "evidence": 0,
+      "reason": "GT要求识别手机飞向衣篮过程中从薄矩形亮屏不可逆增厚变暗、最终呈鞋状黑块落入篮中的几何形态突变（约124.63–125.33s）。交付的checks和uncertain_observations中均未提及此事件，完全未覆盖。"
+    }
+  ],
+  "additional_claims": [],
+  "limitations": []
+}

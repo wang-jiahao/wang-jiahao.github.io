@@ -1,0 +1,10 @@
+---
+layout: null
+sitemap: false
+permalink: /omniale/music2mv-review/v8-traces.html
+---
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>音乐视频审片 · 运行轨迹</title><link rel="stylesheet" href="case.css"><link rel="stylesheet" href="v7-case.css"></head><body><main><a href="./#trajectory">← 返回案例</a><h1>音乐视频审片 · 运行轨迹</h1><div class="toolbar"><button data-view="summary">过程总结</button><button data-view="key">关键步骤</button><button data-view="all">全部记录</button><input id="trace-search" placeholder="搜索可见记录" aria-label="搜索可见记录"></div><div id="trace-content"></div></main><script>
+const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));let DATA,mode=new URLSearchParams(location.search).get('view')||'summary';
+function render(){const q=document.querySelector('#trace-search').value.toLowerCase(),out=document.querySelector('#trace-content');if(mode==='summary'&&!q){out.innerHTML='<p>'+esc(DATA.summary)+'</p>'+DATA.tools.map(x=>'<article class="card"><h3>'+esc(x.name)+'</h3><p>'+esc(x.description)+'</p></article>').join('');return}out.innerHTML=DATA.events.filter(e=>(mode!=='key'||e.key)&&(!q||(e.title+' '+e.body).toLowerCase().includes(q))).map(e=>'<details class="record" id="'+e.id+'"><summary>'+esc(e.id)+' · '+esc(e.kind)+' · '+esc(e.title)+'</summary><pre>'+esc(e.body)+'</pre></details>').join('');if(location.hash){const el=document.getElementById(location.hash.slice(1));if(el){el.open=true;el.scrollIntoView()}}}
+fetch('traces/v8-'+(new URLSearchParams(location.search).get('model')||'sol')+'.json').then(r=>r.json()).then(d=>{DATA=d;render()});document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{mode=b.dataset.view;history.replaceState(null,'','?model='+(new URLSearchParams(location.search).get('model')||'sol')+'&view='+mode);render()});document.querySelector('#trace-search').oninput=render;
+</script></body></html>

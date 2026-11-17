@@ -1,0 +1,72 @@
+{
+  "score": 100.0,
+  "matched_count": 5,
+  "gold_count": 5,
+  "matched_quality": 5.0,
+  "unsupported_count": 0,
+  "uncertain_count": 1,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "matches": [
+    {
+      "root_id": "R001",
+      "check_ids": [
+        "G04"
+      ],
+      "quality": 1.0,
+      "reason": "G04定位2.9–4.3s，覆盖GT示例E009的2.8–3.5s核心区间；提交具体列出12:85非法分钟读数及16:xx→15:22小时级倒退，与GT描述的无效时间值和非单调回归一致；音轨无缝延续无蒙太奇标记，提交亦确认同一镜头连续运动无切镜。"
+    },
+    {
+      "root_id": "R003",
+      "check_ids": [
+        "G08"
+      ],
+      "quality": 1.0,
+      "reason": "G08定位93.83–96.8s，与GT示例Xa41007fe3a37-NE005的93.9–96.77s高度吻合；提交明确指出字幕'give my college degree'与原声'get my college degree'的实词替换错误，并提供Whisper及本地音频模型回查作为声音证据，视觉证据为毕业幻想镜头底部字幕持续显示give。"
+    },
+    {
+      "root_id": "R004",
+      "check_ids": [
+        "G05"
+      ],
+      "quality": 1.0,
+      "reason": "G05定位121.2–122.85s，与GT示例E007的121.0–123.0s吻合；提交具体列出屏幕文字'KTREIMENIC Dim''SEIE RENERD 6im'等无意义字母数字拼接串，确认UI框架完整（蓝色栏、绿色按钮、底部图标）但内容空洞，非模糊或马赛克处理。"
+    },
+    {
+      "root_id": "Xa41007fe3a37-R001",
+      "check_ids": [
+        "G06"
+      ],
+      "quality": 1.0,
+      "reason": "G06定位93.9–94.35s及95.9–96.4s，与GT示例的93.8–94.3s及95.93–96.4s吻合；提交描述双手握柄→举拳时手柄消失（拳内无体积轮廓）→双手回落时手柄无路径恢复的完整过程，确认同一连续毕业镜头内无切镜、无掉落轨迹或拿取动作。"
+    },
+    {
+      "root_id": "Xa41007fe3a37-R003",
+      "check_ids": [
+        "G07"
+      ],
+      "quality": 1.0,
+      "reason": "G07定位124.85–125.9s，覆盖GT示例124.63–125.33s的变形核心阶段；提交描述同一抛物线上亮屏细薄矩形→翻转细边→鼓厚变暗→两端鼓起中间收窄的黑色软物→落入洗衣篮的连续形态突变，排除刚体旋转或透视解释，背景天花板窗帘一致无切镜。"
+    }
+  ],
+  "unsupported": [],
+  "uncertain": [
+    {
+      "check_id": "G09",
+      "claim": "132.9–134.5s正面演唱'comb my hair'时，comb尾音与my起音缺少连续闭唇构音，嘴反复作圆口/大开口。",
+      "status": "uncertain",
+      "reason": "该命题对应未确认候选NE001的第二context（132.0–135.9s）。提交提供30fps逐帧分析及Whisper定位作为证据，但原始不确定理由仍有效：本片为卧室/睡衣/猴面具喜剧即兴演唱风格，辅音构音视觉精确度不在该风格合理预期内；且/p/、/m/闭合时长通常50–100ms，即使30fps采样也可能落在帧间。正常解释（风格不要求严格对口型）未被充分排除。",
+      "intervals": [
+        {
+          "start_s": 132.9,
+          "end_s": 134.5
+        }
+      ],
+      "audio_fact": "原声男声连续唱'...ain't gonna comb my hair'，Whisper定位comb约133.6–134.02s、my约133.96–134.36s。",
+      "visual_fact": "提交称133.60–133.70s张圆口，133.73–133.87s收小仍留开口，133.90–134.17s大张口露齿舌；但原始标注指出5fps采样下S00-00段1.8s帧显示唇部收拢，与'全程无闭合'存在矛盾。",
+      "criterion_id": "AV3"
+    }
+  ],
+  "policy": "dense-mv-v7:100*quality-root-F1; q=.5+.25*localization+.25*evidence; each independent root once; valid alternative instances allowed"
+}

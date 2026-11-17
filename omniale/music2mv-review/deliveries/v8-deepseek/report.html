@@ -1,0 +1,129 @@
+---
+layout: null
+sitemap: false
+permalink: /omniale/music2mv-review/deliveries/v8-deepseek/report.html
+---
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="../../case.css"><main><a href="../../#results">返回案例</a><h1>音乐视频审片报告</h1>
+<h2>素材与方法</h2>
+<ul>
+<li><code>mv_uptown</code>（Uptown Funk）：270.459 s，1280×720，24 fps，H.264 + AAC 44.1 kHz 立体声。</li>
+<li><code>mv_lazy</code>（Lazy Song）：191.821 s，864×480，30 fps，H.264 + AAC 44.1 kHz 立体声。</li>
+<li>从 MP4 无损抽出原声（<code>output/work/*.wav</code>），用 faster-whisper small / medium.en / large-v3 做词级转写；用 librosa 检查节拍、能量、静音与尾部；用 ffmpeg 场景检测（Uptown 54 个切点、Lazy 46 个切点）建立镜头表。</li>
+<li>画面逐镜头抽帧（关键段 4–10 fps，必要时逐帧）检查；Lazy 烧录字幕用 2 fps OCR + 原帧人工复核；Uptown 主唱特写用 MediaPipe FaceMesh 量化嘴部开合。</li>
+<li>没有独立发行母带，不评价未提供母带的保真；画外配乐、风格化幻想、重复动机、正常转场不作为错误。</li>
+</ul>
+<h2>结论摘要</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>素材</th>
+<th>维度</th>
+<th>优先级</th>
+<th>问题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G01</td>
+<td>mv_uptown</td>
+<td>text</td>
+<td>minor</td>
+<td>剧院灯箱为无意义字母串 <code>MTM / ELAGL</code>、<code>MAHECTHARD / ENTM YIHEAS</code>，在 40–45 s 与 115–120 s 两个镜头重复出现</td>
+</tr>
+<tr>
+<td>G02</td>
+<td>mv_uptown</td>
+<td>structure_contact</td>
+<td>major</td>
+<td>180–185 s 俯拍舞段中多名舞者无头/无颈，躯干和肢体在 184.5 s 附近融合成块状</td>
+</tr>
+<tr>
+<td>G03</td>
+<td>mv_uptown</td>
+<td>audio_visual</td>
+<td>minor</td>
+<td>120.1–122.3 s 主唱特写闭口微笑，但歌词 <code>you know who I am, I'm too hot</code> 仍在唱，直到 122.4 s 才张口</td>
+</tr>
+<tr>
+<td>G04</td>
+<td>mv_lazy</td>
+<td>text</td>
+<td>major</td>
+<td>120.8–122.8 s 手机消息界面全部为乱码字母串</td>
+</tr>
+<tr>
+<td>G05</td>
+<td>mv_lazy</td>
+<td>text</td>
+<td>minor</td>
+<td>字幕把 <code>get my college degree</code> 写成 <code>give...</code>，并把第二次 <code>cause I can</code> 写成 <code>cause I can't</code></td>
+</tr>
+</tbody>
+</table>
+<h2>详细发现</h2>
+<h3>G01 剧院灯箱乱码（mv_uptown，40.1–45.0 s / 115.1–120.0 s）</h3>
+<ul>
+<li>画面事实：龙形舞台后方的剧院灯箱占画面上半部，左侧面板读作 <code>MTM / ELAGL</code>，右侧读作 <code>MAHECTHARD / ENTM YIHEAS</code>；40.5 s、41.5 s、116.5 s 原帧均可清晰辨认，两个镜头文字不变。</li>
+<li>声音事实：纯视觉问题，无对应声音要求。</li>
+<li>需改理由：灯箱是主背景和场景信息（剧院/片名），不是虚焦小字或装饰性外文；无意义字母会直接破坏场景可信度。</li>
+<li>建议：重绘为可读的复古剧院信息（剧院名/片名/演出信息），或换无字灯箱/让招牌处于焦外。</li>
+</ul>
+<h3>G02 俯拍舞段无头/肢体融合（mv_uptown，180.1–185.0 s）</h3>
+<ul>
+<li>画面事实：180.2 s 右上方米色舞者直立分腿、双臂下垂，但头部和颈部缺失，躯干上端是圆钝块；181.4 s、182.0 s、182.8 s、184.5 s 连续多帧同样无头；184.5 s 多名舞者的躯干/手臂在 boombox 周围融合成块状。该镜头从 180.08 s 持续到 185.08 s，不是单帧模糊。</li>
+<li>前后对照：178–180 s 街景中的同一组舞者、185–189 s 舞台上的舞者均有完整头脸；本片没有建立“无头人偶/动画段落”的风格。</li>
+<li>需改理由：连续约 5 秒、多个舞者同时缺失头部，无法用遮挡、透视、运动模糊解释；属于明确的人体结构错误，且出现在副歌舞蹈段中心。</li>
+<li>建议：重生成该俯拍段，保证每名舞者有完整头部/颈部和分离肢体；若确实要做无头人偶/动画风格，应在前后镜头建立风格并避免与真人舞者混用。</li>
+</ul>
+<h3>G03 主唱特写口型滞后（mv_uptown，120.1–122.3 s）</h3>
+<ul>
+<li>声音事实：large-v3 词级时间：<code>know</code> 119.94–120.12、<code>who</code> 120.12–120.30、<code>I</code> 120.30–120.56、<code>am</code> 120.56–120.84、<code>I'm</code> 120.96–121.08、<code>too</code> 121.08–121.18、<code>hot</code> 121.18–121.68；该段人声连续。</li>
+<li>画面事实：120.08 s 切到主唱中近景；120.9–122.2 s 每 0.1 s 的嘴部开合度（mouth/face）仅 0.001–0.004，122.4 s 突然升到 0.110；对应 122.52 s 起的 <code>and my band about that money</code>。</li>
+<li>需改理由：镜头明确是主唱在舞台聚光灯前的中近景表演，不是画外音或旁观镜头；歌词连续时闭口、下一句才张口，属于“人声继续而嘴停”，不能用呼吸停顿解释。</li>
+<li>建议：按词级时间重做该特写口型，或在 120.1–122.3 s 改用侧身/舞蹈镜头，避免正对镜头的闭口特写。</li>
+</ul>
+<h3>G04 手机消息界面乱码（mv_lazy，120.8–122.8 s）</h3>
+<ul>
+<li>画面事实：121.8 s、122.0 s、122.5 s 原帧中，手机屏幕占画面左侧约三分之一并在焦点内；顶栏读作 <code>IIEEGtE.dr</code>，消息气泡读作 <code>KTRENENIC Dim / SEIEFENEB Bim</code>，底部输入框和绿色按钮也是无意义字母。UI 结构完整（状态栏、气泡、发送键），但每行文字都不可读。</li>
+<li>声音事实：121.0–127.0 s 可听到 <code>Don't feel like picking up my phone / So leave a message at the tone</code>，画面同步展示手机消息界面。</li>
+<li>需改理由：手机是这段剧情的核心道具（他查看消息后把手机扔到空中），屏幕正对镜头、清晰可读；乱码直接破坏叙事可信度，不属于虚焦小字/装饰文字。</li>
+<li>建议：替换为可读的消息文本，或调整机位/景深让屏幕不成为可读焦点。</li>
+</ul>
+<h3>G05 字幕转写错误（mv_lazy，94.5–97.0 s / 107.5–110.0 s）</h3>
+<ul>
+<li>画面事实：94.5 s 帧字幕显示 <code>...give my college degree</code>；108.5 s 帧字幕显示 <code>...cause I can't</code>；48.5 s 同一句第一次出现时字幕为 <code>...cause I can</code>。</li>
+<li>声音事实：large-v3 词级：95.56 s 为 <code>get</code>（93.20–96.64 <code>Yeah, I might mess around and get my college degree</code>）；108.70–109.30 s 为 <code>cause I can</code>（104.00–109.66 <code>Oh, yes, I said it, I said it, I said it cause I can</code>）。</li>
+<li>需改理由：字幕内容与实际演唱不一致，且同一句在两次出现时自相矛盾；不是听不清的模糊处，词级 ASR 与首现字幕均可核对。两处属于同一条字幕轨的同类转写错误，合并为一项。</li>
+<li>建议：将 <code>give</code> 改为 <code>get</code>、<code>can't</code> 改为 <code>can</code>，并用同一条字幕轨全片校对类似 ASR 误写。</li>
+</ul>
+<h2>不确定观察（未计入 checks）</h2>
+<ol>
+<li><strong>mv_uptown 147.0–149.5 s</strong>：街景两侧霓虹招牌可读成 <code>EIKNOP</code>、<code>JOMETHICS</code>、<code>SJYO</code> 等无意义字母串；但它们是背景装饰，可能是刻意做的假招牌，按检查表不应当作乱码强判。</li>
+<li><strong>mv_lazy 3.8–9.5 s</strong>：床头电子钟在推进镜头中显示 <code>1E:22</code>、<code>15:2...</code> 等不稳定七段字形，并在数秒内跳时；慢推、失焦和七段码过渡均可造成字形不稳，也可能是刻意的时间流逝效果，无法确认是字体错误。</li>
+<li><strong>mv_lazy 186.0–191.8 s</strong>：结尾从熟睡特写硬切到破败房间，色调和情绪骤变；没有导演脚本，不能排除有意的反讽/象征收尾（<code>nothing at all</code> 对应房间荒废），未计入 checks。</li>
+</ol>
+<h2>已检查且未作为问题的项</h2>
+<ul>
+<li>Uptown 片尾 270.25–270.42 s 的黑帧是正常收尾淡出，不是非意图黑帧；全片未检出 &gt;0.5 s 的冻结帧。</li>
+<li>Lazy 无黑帧、无冻结；原声除开头 1.16 s、结尾 3.4 s 的静音外无内部静音；两片音频尾部均为正常淡出。</li>
+<li>Uptown 的 5 秒切镜结构、重复的门框/棋盘格/boombox 动机、巨型迪斯科球、龙形舞台、消防车与游行属于风格化 MV 设计，不作为重复/穿帮错误。</li>
+<li>Lazy 的猴子面具、猴子克隆乐队、黄色 <code>Censored</code> 贴纸、过山车/毕业/父亲幻想、结尾废墟均为可解释的喜剧或象征表达；不按“逐字演歌词”或“必须统一风格”扣分。</li>
+<li>Lazy 字幕显示起止总体跟歌词乐句对齐；本次只报告内容错误，不把正常换行或短间隙当显示时序错误。</li>
+</ul>
+<h2>证据文件</h2>
+<ul>
+<li><code>output/evidence/uptown_40_5_marquee.png</code>、<code>uptown_116_5_marquee.png</code>：G01 灯箱乱码。</li>
+<li><code>output/evidence/uptown_180_2_headless.png</code>、<code>uptown_184_5_headless.png</code>：G02 无头/肢体融合。</li>
+<li><code>output/evidence/uptown_120_5_lips_closed.png</code>、<code>uptown_122_6_lips_open.png</code>、<code>uptown_119_5_123_5.wav</code>：G03 口型与同期人声。</li>
+<li><code>output/evidence/lazy_122_0_phone.png</code>：G04 手机屏幕乱码。</li>
+<li><code>output/evidence/lazy_94_5_subtitle_give.png</code>、<code>lazy_108_5_subtitle_cant.png</code>、<code>lazy_48_5_subtitle_can.png</code>、<code>lazy_93_2_97_2.wav</code>、<code>lazy_104_111.wav</code>：G05 字幕与音频对照。</li>
+</ul>
+<h2>技术核验摘要</h2>
+<ul>
+<li>镜头切点：Uptown 54 个、Lazy 46 个；关键段逐帧复核。</li>
+<li>音频：44.1 kHz 立体声 AAC 原样抽出；未发现爆音、非意图断音或与画面无关的异常声；词级时间用于 G03/G05。</li>
+<li>字幕：Lazy 烧录字幕，2 fps OCR 后对 94.5、108.5、48.5 s 等关键帧人工核对；字幕内容与显示时序分开评估。</li>
+<li>口型：G03 段用 FaceMesh 计算嘴部开合度，闭口段 0.001–0.004，张口段 0.11，支持“人声继续而嘴停”的判断。</li>
+</ul>
+</main></html>
