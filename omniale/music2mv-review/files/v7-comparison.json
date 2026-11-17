@@ -404,16 +404,14 @@
           }
         ],
         "solver_runs": 1,
-        "subtask": "independent selected-two combined solve: per-source component",
+        "subtask": "MV-only development screening; not the8candidate+2MV combined case",
         "same_model_judge_consensus": true,
         "development_cpu": true,
         "gpu_validation_pending": true,
-        "reference_revision": 0,
-        "reference_version": "pilot-v7-selected2-component-mv_apt",
-        "judge_directory_prefix": "judge-",
-        "performance_premise_reference_corrected": false,
-        "initial_reference_sha256": "c456391d8a75cd1db3dda67a34ffcade69a02358880d88e629cc6ddc5f3bb6ca",
         "source_id": "mv_apt",
+        "reference_version": "pilot-v7-human1-component-mv_apt",
+        "judge_directory_prefix": "judge-human1-",
+        "human_correction_applied": true,
         "source_median_score": 66.66666666666666
       },
       "adopted_ballot": {
@@ -7648,31 +7646,6 @@
           ]
         },
         {
-          "id": "R002",
-          "source_id": "mv_lazy",
-          "statement": "同一连续镜头内，前景男子弯腰向左伸手够取物品时，落地镜反射始终冻结为直立站姿、双臂垂于体侧，未镜像躯干前倾与伸臂；该窗口前后（跳舞转身段、直身举遥控器段）反射均正确跟踪，排除有意艺术处理",
-          "root_definition": "同一连续镜头内，前景男子弯腰向左伸手够取物品时，落地镜反射始终冻结为直立站姿、双臂垂于体侧，未镜像躯干前倾与伸臂；该窗口前后（跳舞转身段、直身举遥控器段）反射均正确跟踪，排除有意艺术处理",
-          "criterion_ids": [
-            "V2"
-          ],
-          "requires_audio": false,
-          "matching_policy": "Any actual supported instance of this same independent issue mechanism may match; do not require a fixed preselected timestamp. Distinct mechanisms remain separate.",
-          "examples": [
-            {
-              "event_id": "E008",
-              "claim": "同一连续镜头内，前景男子弯腰向左伸手够取物品时，落地镜反射始终冻结为直立站姿、双臂垂于体侧，未镜像躯干前倾与伸臂；该窗口前后（跳舞转身段、直身举遥控器段）反射均正确跟踪，排除有意艺术处理。",
-              "intervals": [
-                {
-                  "start_s": 77.89999999999999,
-                  "end_s": 78.6
-                }
-              ],
-              "audio_fact": "该时段音频为男声重复句'nothing at all'及轻快节奏，无提示切换或特效的音效；声音本身与画面无冲突，缺陷为纯视觉。",
-              "visual_fact": "原速Video 1中约1.8s起男子明显前倾弯腰、左臂伸向画面左侧床头柜，持续至约2.4s抓取；同期慢放辅助帧（对应源77.8–78.4s）清楚显示镜中反射为直立正面站姿、双臂自然下垂、灰色上衣与敞开睡袍可见，与前景姿态完全脱节；约2.5s男子直身举起遥控器后反射才恢复一致。此前1.4–1.7s跳舞转身时反射正确跟随，此后也正确。"
-            }
-          ]
-        },
-        {
           "id": "R003",
           "source_id": "mv_lazy",
           "statement": "同一烧录歌词字幕轨道的转写内容错误；不同词语及肯否错误是同类根因的不同实例。",
@@ -7811,7 +7784,7 @@
           "voter_id": "A",
           "score": 0.0,
           "matched_count": 0,
-          "gold_count": 6,
+          "gold_count": 5,
           "matched_quality": 0,
           "unsupported_count": 0,
           "uncertain_count": 0,
@@ -7828,7 +7801,7 @@
             "voter_id": "A",
             "score": 0.0,
             "matched_count": 0,
-            "gold_count": 6,
+            "gold_count": 5,
             "matched_quality": 0,
             "unsupported_count": 0,
             "uncertain_count": 0,
@@ -7844,7 +7817,7 @@
             "voter_id": "B",
             "score": 0.0,
             "matched_count": 0,
-            "gold_count": 6,
+            "gold_count": 5,
             "matched_quality": 0,
             "unsupported_count": 0,
             "uncertain_count": 0,
@@ -7860,7 +7833,7 @@
             "voter_id": "C",
             "score": 0.0,
             "matched_count": 0,
-            "gold_count": 6,
+            "gold_count": 5,
             "matched_quality": 0,
             "unsupported_count": 0,
             "uncertain_count": 0,
@@ -7874,16 +7847,14 @@
           }
         ],
         "solver_runs": 1,
-        "subtask": "independent selected-two combined solve: per-source component",
+        "subtask": "MV-only development screening; not the8candidate+2MV combined case",
         "same_model_judge_consensus": true,
         "development_cpu": true,
         "gpu_validation_pending": true,
-        "reference_revision": 0,
-        "reference_version": "pilot-v7-selected2-component-mv_lazy",
-        "judge_directory_prefix": "judge-",
-        "performance_premise_reference_corrected": false,
-        "initial_reference_sha256": "a36db376acb79fa1ae1f5a26809cccd08dc4b5b53ce228b1f520773d62ebc1b9",
         "source_id": "mv_lazy",
+        "reference_version": "pilot-v7-human1-component-mv_lazy",
+        "judge_directory_prefix": "judge-human1-",
+        "human_correction_applied": true,
         "source_median_score": 0.0
       },
       "adopted_ballot": {
@@ -7895,14 +7866,6 @@
             "localization": 0,
             "evidence": 0,
             "reason": "交付checks为空，报告反而断言Lazy Song无需返修的场内文字/剪辑问题。源片Video 1在2.8–3.5s绿色数字钟特写内，相邻帧读数出现无效分钟位（如12:85、16:87）及小时级非单调倒退（16:22→15:22），同期音轨无缝延续无跳转标记，属V3渲染不稳定，未被报告识别。"
-          },
-          {
-            "root_id": "R002",
-            "covered": false,
-            "check_ids": [],
-            "localization": 0,
-            "evidence": 0,
-            "reason": "交付未提及任何镜面反射问题。源片Video 5约77.9–78.6s，前景男子弯腰向左伸手够取床头柜物品时，落地镜反射始终冻结为直立站姿、双臂垂于体侧，未镜像躯干前倾与伸臂；该窗口前后跳舞转身与直身举遥控器段反射均正确，排除有意处理，属V2接触/空间错误，未被报告识别。"
           },
           {
             "root_id": "R003",
@@ -8277,151 +8240,6 @@
             },
             "scope_mechanism": "diegetic_text",
             "pre_scope_root_id": "R003"
-          },
-          {
-            "event_id": "E008",
-            "root_id": "R002",
-            "criterion_id": "V2",
-            "category": "structure_contact",
-            "family": "mirror_reflection_tracking_failure",
-            "claim": "同一连续镜头内，前景男子弯腰向左伸手够取物品时，落地镜反射始终冻结为直立站姿、双臂垂于体侧，未镜像躯干前倾与伸臂；该窗口前后（跳舞转身段、直身举遥控器段）反射均正确跟踪，排除有意艺术处理。",
-            "intervals": [
-              {
-                "start_s": 77.89999999999999,
-                "end_s": 78.6
-              }
-            ],
-            "audio_fact": "该时段音频为男声重复句'nothing at all'及轻快节奏，无提示切换或特效的音效；声音本身与画面无冲突，缺陷为纯视觉。",
-            "visual_fact": "原速Video 1中约1.8s起男子明显前倾弯腰、左臂伸向画面左侧床头柜，持续至约2.4s抓取；同期慢放辅助帧（对应源77.8–78.4s）清楚显示镜中反射为直立正面站姿、双臂自然下垂、灰色上衣与敞开睡袍可见，与前景姿态完全脱节；约2.5s男子直身举起遥控器后反射才恢复一致。此前1.4–1.7s跳舞转身时反射正确跟随，此后也正确。",
-            "alternative_explanation": "可能是后期合成时反射层取自相邻帧（如跳舞段），或AI生成时反射通道未能跟踪躯干大角度旋转",
-            "why_alternative_insufficient": "无论成因，最终画面在同一连续镜头内呈现反射与前景姿态矛盾，观众可直观识别为穿帮；前后跳舞段反射均正确跟踪，唯独此弯腰段失效，排除'故意艺术处理'的可能",
-            "proposal_ids": [
-              "mv_lazy-006-VIS-01"
-            ],
-            "merger_reported_intervals": [
-              {
-                "start_s": 77.6,
-                "end_s": 78.8
-              }
-            ],
-            "time_policy": "Known source discovery contexts; fresh source verifier supplies final local event times",
-            "verification_votes": {
-              "A": {
-                "event_id": "E008",
-                "verdict": "accept",
-                "accepted_claim": "在男子弯腰向左伸手够取床头柜物品的连续过程中（原速片段约1.8–2.5s），落地镜中的反射始终保持戴猴面具直立站姿、双臂垂于体侧，未跟随前景躯干的大角度前倾与伸臂动作；该窗口前后（跳舞转身段与直身拿遥控器段）反射均正确跟踪，说明这是反射通道未能跟踪姿态的连续性失误，而非有意艺术处理。",
-                "criterion_id": "V2",
-                "intervals": [
-                  {
-                    "start_s": 77.89999999999999,
-                    "end_s": 78.6
-                  }
-                ],
-                "audio_fact": "该时段音频为男声重复句'nothing at all'及轻快节奏，无提示切换或特效的音效；声音本身与画面无冲突，缺陷为纯视觉。",
-                "visual_fact": "原速Video 1中约1.8s起男子明显前倾弯腰、左臂伸向画面左侧床头柜，持续至约2.4s抓取；同期慢放辅助帧（对应源77.8–78.4s）清楚显示镜中反射为直立正面站姿、双臂自然下垂、灰色上衣与敞开睡袍可见，与前景姿态完全脱节；约2.5s男子直身举起遥控器后反射才恢复一致。此前1.4–1.7s跳舞转身时反射正确跟随，此后也正确。",
-                "why_problem": "同一连续镜头内平面镜反射必须与前景姿态几何一致；反射在躯干大幅前倾时保持直立，属于可直观识别的物理一致性穿帮，破坏镜头真实感。",
-                "alternative_explanation": "可能是反射层取自相邻帧的合成残留，或生成时反射通道未跟踪大角度姿态；也可能是男子身体遮挡导致反射不可见而被误读。",
-                "why_alternative_rejected_or_not": "遮挡解释不成立：弯腰期间镜中仍清晰可见完整的直立反射人像，未被前景身体遮蔽；且前后段落反射均正确跟踪，唯独此弯腰段失效，排除故意艺术处理或统一风格选择。无论成因，最终画面呈现的矛盾事实成立。",
-                "localization_quality": 1,
-                "evidence_quality": 1,
-                "requires_audio_for_verification": false,
-                "severity": "minor",
-                "limitations": [
-                  "缺陷窗口不足1秒，仅在慢放辅助中逐帧确认反射姿态；原速下观众可能一闪而过。"
-                ],
-                "raw_time_coordinates": "per-normal-speed-segment-local; source offsets applied in code",
-                "raw_answer_preserved": true,
-                "raw_response_file": "verify\\mv_lazy\\E008\\A\\answer.json"
-              },
-              "B": {
-                "event_id": "E008",
-                "verdict": "accept",
-                "accepted_claim": "男子弯腰向左伸手取床头柜物品期间，落地镜中反射仍显示直立站姿、双臂垂于身前/体侧，未呈现弯腰或伸臂姿态，违反平面镜成像物理一致性",
-                "criterion_id": "V2",
-                "intervals": [
-                  {
-                    "start_s": 77.6,
-                    "end_s": 78.6
-                  }
-                ],
-                "audio_fact": "该时段音频为'nothing at all'歌声重复段，无特殊音效提示镜头切换或反射特效",
-                "visual_fact": "Video 1 local 1.5s–2.3s（源77.6–78.4s）：前景男子背对镜头明显弯腰近水平、左手伸向左侧床头柜抓取物品；同期落地镜中反射始终呈直立正面站姿、双手置于腰腹/体侧，未出现弯腰前倾或单臂侧伸。Video 2 同一场景弯腰段（local 1.4s–4.2s）镜中反射同样维持直立姿态，与前景弯腰伸手持续脱节。男子约 local 2.5s 直身转回后反射才重新同步。",
-                "why_problem": "同一连续镜头内，前景大角度弯腰伸臂与镜中直立姿态直接矛盾，违反平面镜成像几何一致性；前后站立/舞蹈段反射均正确跟踪躯干运动，唯独弯腰取物段失效，排除风格化或故意艺术处理。",
-                "alternative_explanation": "AI 生成时反射通道未能跟踪躯干大角度旋转，或后期合成时反射层误取自相邻直立帧。",
-                "why_alternative_rejected_or_not": "无论成因，最终成片在同一镜头内呈现可直观识别的反射穿帮；前后段反射正确证明系统具备跟踪能力，弯腰段失效非设计意图。",
-                "localization_quality": 0.5,
-                "evidence_quality": 0.5,
-                "requires_audio_for_verification": false,
-                "severity": "major",
-                "limitations": [
-                  "Video 1 中不匹配主要集中在 local 1.5–2.3s，2.3–2.5s 前景已开始直身、反射趋于同步，命题原区间 77.6–78.8s 的尾部略有夸大；Video 2 显示不匹配持续更长但其源时间映射未明确给出，无法精确对齐。",
-                  "受帧分辨率与背影视角限制，镜中反射手部细节辨识度有限，但躯干直立/弯腰的对比在多帧中一致可辨。"
-                ],
-                "raw_time_coordinates": "per-normal-speed-segment-local; source offsets applied in code",
-                "raw_answer_preserved": true,
-                "raw_response_file": "verify\\mv_lazy\\E008\\B\\answer.json"
-              },
-              "C": {
-                "event_id": "E008",
-                "verdict": "accept",
-                "accepted_claim": "在同一连续卧室镜头中，男子弯腰并向左伸手去床头柜取物时（本地约1.6–2.7s），落地镜中的反射始终保持直立正面站姿、双臂垂于体侧，未呈现弯腰或伸臂姿态，违反平面镜成像一致性；直到他直身后反射才重新同步。",
-                "criterion_id": "V2",
-                "intervals": [
-                  {
-                    "start_s": 77.69999999999999,
-                    "end_s": 78.8
-                  }
-                ],
-                "audio_fact": "该段音频为连续 upbeat 流行演唱，男声唱'nothing at all'并带'woo hoo'和声，无任何音效、断点或剪辑提示表明此处为刻意切换或特效；字幕'nothing at all'全程持续。",
-                "visual_fact": "约0.9s起为单一连续卧室镜头：男子先双手调整猴子面具，镜中反射同步（0.9–1.3s）；随后他转身并大幅弯腰、左手伸向左侧床头柜抓取一深色小物件（1.6–2.6s），同期镜中反射始终为直立正面、双臂下垂姿态，与前景近水平弯腰完全脱节；2.7–2.8s他直身后反射才恢复持物屈臂姿态，之后3.0–4.0s跳舞段反射跟踪正确。",
-                "why_problem": "无切镜、无遮挡、无光照变化的同一连续镜头内，反射与前景躯干姿态出现直立vs近水平弯腰的矛盾，属明确的物理穿帮/生成跟踪失败，观众可直观识别。",
-                "alternative_explanation": "可解释为刻意喜剧效果（反射有独立意识），或反射层取自相邻跳舞帧、AI镜像通道未跟踪大角度躯干旋转。",
-                "why_alternative_rejected_or_not": "音频与剪辑无任何提示支持刻意设计；反射在调整面具、跳舞、直身等所有其他复杂动作中均正确跟踪，唯独弯腰取物段失效且时长与弯腰动作精确重合，符合非意图的跟踪/合成失败而非风格化处理；姿态差异过大也无法用运动模糊或轻微延迟解释。",
-                "localization_quality": 1,
-                "evidence_quality": 1,
-                "requires_audio_for_verification": false,
-                "severity": "major",
-                "limitations": [
-                  "采样帧间隔约0.1–0.2s，失配起止点可能有±0.1s误差。",
-                  "无法逐帧检查采样间隙，但前景与反射的姿态差异（近水平弯腰vs直立）远超延迟或模糊可解释范围。"
-                ],
-                "raw_time_coordinates": "per-normal-speed-segment-local; source offsets applied in code",
-                "raw_answer_preserved": true,
-                "raw_response_file": "verify\\mv_lazy\\E008\\C\\answer.json"
-              }
-            },
-            "accept_count": 3,
-            "raw_vote_paths": {
-              "A": "verify\\mv_lazy\\E008\\A\\answer.json",
-              "B": "verify\\mv_lazy\\E008\\B\\answer.json",
-              "C": "verify\\mv_lazy\\E008\\C\\answer.json"
-            },
-            "requires_audio_for_verification": false,
-            "scope_votes": {
-              "A": {
-                "event_id": "E008",
-                "scope": "include",
-                "scoped_claim": "同一连续镜头内，前景男子弯腰向左伸手够取物品时，落地镜反射始终冻结为直立站姿、双臂垂于体侧，未镜像躯干前倾与伸臂；该窗口前后（跳舞转身段、直身举遥控器段）反射均正确跟踪，排除有意艺术处理。",
-                "mechanism": "object_persistence",
-                "reason": "反射作为持续视觉元素在连续帧间维持了错误状态，属对象持续性缺陷；纯视觉问题，与音轨无冲突，修复为使反射通道正确镜像当前帧姿态。"
-              },
-              "B": {
-                "event_id": "E008",
-                "scope": "include",
-                "scoped_claim": "男子弯腰向左伸手够取床头柜物品的连续过程中，落地镜中反射始终保持直立站姿、双臂垂于体侧，未跟随前景躯干前倾与伸臂动作；该窗口前后（跳舞转身段与直身举遥控器段）反射均正确跟踪，排除有意艺术处理",
-                "mechanism": "contact",
-                "reason": "同一连续镜头内镜面反射与前景姿态的空间交互脱节，属V2动作与空间相互作用缺陷，慢放辅助帧与前后上下文双重验证"
-              },
-              "C": {
-                "event_id": "E008",
-                "scope": "include",
-                "scoped_claim": "同一连续镜头内，前景男子弯腰向左伸手够取物品时，落地镜反射保持直立双臂垂落姿态未跟随躯干前倾与伸臂；该窗口前后反射均正确跟踪主体动作",
-                "mechanism": "object_persistence",
-                "reason": "镜中反射在主体姿态大幅变化期间冻结为上一帧直立状态，与前景明显脱节；前后相邻时段反射正确，排除有意艺术处理或遮挡，属镜面反射输出未持续跟踪主体当前帧姿态"
-              }
-            },
-            "scope_mechanism": "object_persistence",
-            "pre_scope_root_id": "R004"
           },
           {
             "event_id": "E009",
@@ -10484,8 +10302,8 @@
     ]
   },
   "result": {
-    "version": "pilot-v7-selected2",
-    "score": 33.33333333333333,
+    "version": "pilot-v7-human1",
+    "score": 36.36363636363637,
     "source_results": [
       {
         "score": 66.66666666666666,
@@ -10625,16 +10443,14 @@
           }
         ],
         "solver_runs": 1,
-        "subtask": "independent selected-two combined solve: per-source component",
+        "subtask": "MV-only development screening; not the8candidate+2MV combined case",
         "same_model_judge_consensus": true,
         "development_cpu": true,
         "gpu_validation_pending": true,
-        "reference_revision": 0,
-        "reference_version": "pilot-v7-selected2-component-mv_apt",
-        "judge_directory_prefix": "judge-",
-        "performance_premise_reference_corrected": false,
-        "initial_reference_sha256": "c456391d8a75cd1db3dda67a34ffcade69a02358880d88e629cc6ddc5f3bb6ca",
         "source_id": "mv_apt",
+        "reference_version": "pilot-v7-human1-component-mv_apt",
+        "judge_directory_prefix": "judge-human1-",
+        "human_correction_applied": true,
         "source_median_score": 66.66666666666666
       },
       {
@@ -10644,7 +10460,7 @@
           "voter_id": "A",
           "score": 0.0,
           "matched_count": 0,
-          "gold_count": 6,
+          "gold_count": 5,
           "matched_quality": 0,
           "unsupported_count": 0,
           "uncertain_count": 0,
@@ -10661,7 +10477,7 @@
             "voter_id": "A",
             "score": 0.0,
             "matched_count": 0,
-            "gold_count": 6,
+            "gold_count": 5,
             "matched_quality": 0,
             "unsupported_count": 0,
             "uncertain_count": 0,
@@ -10677,7 +10493,7 @@
             "voter_id": "B",
             "score": 0.0,
             "matched_count": 0,
-            "gold_count": 6,
+            "gold_count": 5,
             "matched_quality": 0,
             "unsupported_count": 0,
             "uncertain_count": 0,
@@ -10693,7 +10509,7 @@
             "voter_id": "C",
             "score": 0.0,
             "matched_count": 0,
-            "gold_count": 6,
+            "gold_count": 5,
             "matched_quality": 0,
             "unsupported_count": 0,
             "uncertain_count": 0,
@@ -10707,59 +10523,57 @@
           }
         ],
         "solver_runs": 1,
-        "subtask": "independent selected-two combined solve: per-source component",
+        "subtask": "MV-only development screening; not the8candidate+2MV combined case",
         "same_model_judge_consensus": true,
         "development_cpu": true,
         "gpu_validation_pending": true,
-        "reference_revision": 0,
-        "reference_version": "pilot-v7-selected2-component-mv_lazy",
-        "judge_directory_prefix": "judge-",
-        "performance_premise_reference_corrected": false,
-        "initial_reference_sha256": "a36db376acb79fa1ae1f5a26809cccd08dc4b5b53ce228b1f520773d62ebc1b9",
         "source_id": "mv_lazy",
+        "reference_version": "pilot-v7-human1-component-mv_lazy",
+        "judge_directory_prefix": "judge-human1-",
+        "human_correction_applied": true,
         "source_median_score": 0.0
       }
     ],
     "combined_breakdown": {
       "voter_id": "A",
-      "score": 33.33333333333333,
+      "score": 36.36363636363637,
       "matched_quality": 2.0,
-      "gold_count": 10,
+      "gold_count": 9,
       "matched_count": 2,
       "unsupported_count": 0,
       "precision": 1.0,
-      "recall": 0.2
+      "recall": 0.2222222222222222
     },
     "individual_joint_judge_results": [
       {
         "voter_id": "A",
-        "score": 33.33333333333333,
+        "score": 36.36363636363637,
         "matched_quality": 2.0,
-        "gold_count": 10,
+        "gold_count": 9,
         "matched_count": 2,
         "unsupported_count": 0,
         "precision": 1.0,
-        "recall": 0.2
+        "recall": 0.2222222222222222
       },
       {
         "voter_id": "B",
-        "score": 33.33333333333333,
+        "score": 36.36363636363637,
         "matched_quality": 2.0,
-        "gold_count": 10,
+        "gold_count": 9,
         "matched_count": 2,
         "unsupported_count": 0,
         "precision": 1.0,
-        "recall": 0.2
+        "recall": 0.2222222222222222
       },
       {
         "voter_id": "C",
-        "score": 33.33333333333333,
+        "score": 36.36363636363637,
         "matched_quality": 2.0,
-        "gold_count": 10,
+        "gold_count": 9,
         "matched_count": 2,
         "unsupported_count": 0,
         "precision": 1.0,
-        "recall": 0.2
+        "recall": 0.2222222222222222
       }
     ],
     "adopted_voter_id": "A",
@@ -10776,7 +10590,21 @@
     "development_cpu": true,
     "gpu_validation_pending": true,
     "exit_code": 0,
-    "same_model_judge_consensus": true
+    "same_model_judge_consensus": true,
+    "human_correction": {
+      "source_id": "mv_lazy",
+      "removed_root_id": "R002",
+      "removed_event_ids": [
+        "E008"
+      ],
+      "authority": "User manually verified the mirror shot and said it is normal, 2026-11-17",
+      "rule": "Excluded from all current-model mandatory checks; do not reintroduce this same mirror claim through novel findings. Original annotations and all original results are retained.",
+      "old_gold_sha256": "7a992bef1fac895b4c1f5a8f9985765ff4a32199d7f71adb35409acdae70c540",
+      "numerical_formula_unchanged": true
+    },
+    "coverage_score": 22.22222222222222,
+    "unweighted_hit_rate": 22.22222222222222,
+    "new_solver_runs": 0
   },
   "screening": {
     "results": [
@@ -11891,5 +11719,16 @@
         "line": 105
       }
     ]
+  },
+  "human_correction": {
+    "source_id": "mv_lazy",
+    "removed_root_id": "R002",
+    "removed_event_ids": [
+      "E008"
+    ],
+    "authority": "User manually verified the mirror shot and said it is normal, 2026-11-17",
+    "rule": "Excluded from all current-model mandatory checks; do not reintroduce this same mirror claim through novel findings. Original annotations and all original results are retained.",
+    "old_gold_sha256": "7a992bef1fac895b4c1f5a8f9985765ff4a32199d7f71adb35409acdae70c540",
+    "numerical_formula_unchanged": true
   }
 }

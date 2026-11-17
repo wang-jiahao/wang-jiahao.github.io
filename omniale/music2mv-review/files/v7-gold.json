@@ -1,5 +1,5 @@
 {
-  "version": "pilot-v7-selected2",
+  "version": "pilot-v7-human1",
   "sources": [
     {
       "version": "pilot-v7-mv_apt",
@@ -374,31 +374,6 @@
           ]
         },
         {
-          "id": "R002",
-          "source_id": "mv_lazy",
-          "statement": "同一连续镜头内，前景男子弯腰向左伸手够取物品时，落地镜反射始终冻结为直立站姿、双臂垂于体侧，未镜像躯干前倾与伸臂；该窗口前后（跳舞转身段、直身举遥控器段）反射均正确跟踪，排除有意艺术处理",
-          "root_definition": "同一连续镜头内，前景男子弯腰向左伸手够取物品时，落地镜反射始终冻结为直立站姿、双臂垂于体侧，未镜像躯干前倾与伸臂；该窗口前后（跳舞转身段、直身举遥控器段）反射均正确跟踪，排除有意艺术处理",
-          "criterion_ids": [
-            "V2"
-          ],
-          "requires_audio": false,
-          "matching_policy": "Any actual supported instance of this same independent issue mechanism may match; do not require a fixed preselected timestamp. Distinct mechanisms remain separate.",
-          "examples": [
-            {
-              "event_id": "E008",
-              "claim": "同一连续镜头内，前景男子弯腰向左伸手够取物品时，落地镜反射始终冻结为直立站姿、双臂垂于体侧，未镜像躯干前倾与伸臂；该窗口前后（跳舞转身段、直身举遥控器段）反射均正确跟踪，排除有意艺术处理。",
-              "intervals": [
-                {
-                  "start_s": 77.89999999999999,
-                  "end_s": 78.6
-                }
-              ],
-              "audio_fact": "该时段音频为男声重复句'nothing at all'及轻快节奏，无提示切换或特效的音效；声音本身与画面无冲突，缺陷为纯视觉。",
-              "visual_fact": "原速Video 1中约1.8s起男子明显前倾弯腰、左臂伸向画面左侧床头柜，持续至约2.4s抓取；同期慢放辅助帧（对应源77.8–78.4s）清楚显示镜中反射为直立正面站姿、双臂自然下垂、灰色上衣与敞开睡袍可见，与前景姿态完全脱节；约2.5s男子直身举起遥控器后反射才恢复一致。此前1.4–1.7s跳舞转身时反射正确跟随，此后也正确。"
-            }
-          ]
-        },
-        {
           "id": "R003",
           "source_id": "mv_lazy",
           "statement": "同一烧录歌词字幕轨道的转写内容错误；不同词语及肯否错误是同类根因的不同实例。",
@@ -623,7 +598,69 @@
         "numerical_scoring_unchanged": true,
         "no_new_perception_or_matching_votes": true
       },
-      "reference_diagnostics": []
+      "reference_diagnostics": [
+        {
+          "event_id": "NE001",
+          "status": "uncertain",
+          "criterion_id": "AV3",
+          "claim": "演唱特写中'wake up'的/p/收口及'comb my'的/m/双唇闭合在逐帧画面中缺失，口型未按实际辅音构音。",
+          "contexts": [
+            {
+              "start_s": 82.53,
+              "end_s": 86.37
+            },
+            {
+              "start_s": 132.0,
+              "end_s": 135.9
+            }
+          ],
+          "source_board_path": "pilot-v7-mv_lazy\\results\\sol_xhigh_r01_20261116_dense\\reference-extension-1",
+          "reasons": [
+            "提案声称'逐帧画面中缺失'闭唇动作，但实际可用帧率仅约5fps（200ms间隔），而/p/、/m/在歌唱中的闭合时长通常为50–100ms，完全可能落在采样间隙内。此外，本片为卧室/睡衣/猴面具的喜剧即兴演唱风格，并非严格对口型音乐录影带，辅音构音的视觉精确度不在该风格的合理预期内。",
+            "镜头明确为前景演唱特写，声音与口型应可对应；在两个不同乐句、共约1.7s的辅音窗口内，采样帧一致显示张口/圆唇而无双唇接触，构成可核查的口型-辅音失配（AV3）。",
+            "命题声称/p/与/m/的双唇闭合在逐帧画面中缺失，但本次提供的抽帧密度（0.2s）远低于辅音闭合的典型时长（约50–100ms），且S00-00段1.8s帧恰恰显示唇部收拢，与'全程无闭合'矛盾；因此该缺陷断言超出证据可支持的范围。"
+          ]
+        },
+        {
+          "event_id": "NE003",
+          "status": "uncertain",
+          "criterion_id": "V3",
+          "claim": "沙发演唱连续镜头中有线麦克风在摔坐举手时消失，随后在头侧手中无路径恢复。",
+          "contexts": [
+            {
+              "start_s": 105.0,
+              "end_s": 109.1
+            },
+            {
+              "start_s": 105.0,
+              "end_s": 109.1
+            },
+            {
+              "start_s": 105.0,
+              "end_s": 109.1
+            }
+          ],
+          "source_board_path": "pilot-v7-mv_lazy\\results\\sol_xhigh_r01_20261116_dense\\reference-extension-1",
+          "reasons": [
+            "麦克风是该表演的核心持握道具且连接支架，在连续镜头中约0.3s完全不可见（既不在空手中也不在身前支架上），随后未经过任何可见的抓取动作即重新出现在手中，违反物体持续性，属生成式道具丢失/复现缺陷。",
+            "若2.0–2.5s右手确为空掌且3.0s仅握立杆，则麦克风在约1秒内消失又无可见取回路径即恢复，属物体连续性断裂。",
+            "若107.2s确为双手皆空而107.4s麦克风已在手中，则0.2s内无可见拾取路径，构成物体连续性断裂。"
+          ]
+        }
+      ],
+      "human_exclusions": [
+        {
+          "source_id": "mv_lazy",
+          "removed_root_id": "R002",
+          "removed_event_ids": [
+            "E008"
+          ],
+          "authority": "User manually verified the mirror shot and said it is normal, 2026-11-17",
+          "rule": "Excluded from all current-model mandatory checks; do not reintroduce this same mirror claim through novel findings. Original annotations and all original results are retained.",
+          "old_gold_sha256": "7a992bef1fac895b4c1f5a8f9985765ff4a32199d7f71adb35409acdae70c540",
+          "numerical_formula_unchanged": true
+        }
+      ]
     }
   ],
   "initial_frozen_reference": "v7-initial-gold.json"

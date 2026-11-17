@@ -1,6 +1,6 @@
 {
-  "version": "pilot-v7-selected2",
-  "score": 33.33333333333333,
+  "version": "pilot-v7-human1",
+  "score": 36.36363636363637,
   "source_results": [
     {
       "score": 66.66666666666666,
@@ -140,16 +140,14 @@
         }
       ],
       "solver_runs": 1,
-      "subtask": "independent selected-two combined solve: per-source component",
+      "subtask": "MV-only development screening; not the8candidate+2MV combined case",
       "same_model_judge_consensus": true,
       "development_cpu": true,
       "gpu_validation_pending": true,
-      "reference_revision": 0,
-      "reference_version": "pilot-v7-selected2-component-mv_apt",
-      "judge_directory_prefix": "judge-",
-      "performance_premise_reference_corrected": false,
-      "initial_reference_sha256": "c456391d8a75cd1db3dda67a34ffcade69a02358880d88e629cc6ddc5f3bb6ca",
       "source_id": "mv_apt",
+      "reference_version": "pilot-v7-human1-component-mv_apt",
+      "judge_directory_prefix": "judge-human1-",
+      "human_correction_applied": true,
       "source_median_score": 66.66666666666666
     },
     {
@@ -159,7 +157,7 @@
         "voter_id": "A",
         "score": 0.0,
         "matched_count": 0,
-        "gold_count": 6,
+        "gold_count": 5,
         "matched_quality": 0,
         "unsupported_count": 0,
         "uncertain_count": 0,
@@ -176,7 +174,7 @@
           "voter_id": "A",
           "score": 0.0,
           "matched_count": 0,
-          "gold_count": 6,
+          "gold_count": 5,
           "matched_quality": 0,
           "unsupported_count": 0,
           "uncertain_count": 0,
@@ -192,7 +190,7 @@
           "voter_id": "B",
           "score": 0.0,
           "matched_count": 0,
-          "gold_count": 6,
+          "gold_count": 5,
           "matched_quality": 0,
           "unsupported_count": 0,
           "uncertain_count": 0,
@@ -208,7 +206,7 @@
           "voter_id": "C",
           "score": 0.0,
           "matched_count": 0,
-          "gold_count": 6,
+          "gold_count": 5,
           "matched_quality": 0,
           "unsupported_count": 0,
           "uncertain_count": 0,
@@ -222,59 +220,57 @@
         }
       ],
       "solver_runs": 1,
-      "subtask": "independent selected-two combined solve: per-source component",
+      "subtask": "MV-only development screening; not the8candidate+2MV combined case",
       "same_model_judge_consensus": true,
       "development_cpu": true,
       "gpu_validation_pending": true,
-      "reference_revision": 0,
-      "reference_version": "pilot-v7-selected2-component-mv_lazy",
-      "judge_directory_prefix": "judge-",
-      "performance_premise_reference_corrected": false,
-      "initial_reference_sha256": "a36db376acb79fa1ae1f5a26809cccd08dc4b5b53ce228b1f520773d62ebc1b9",
       "source_id": "mv_lazy",
+      "reference_version": "pilot-v7-human1-component-mv_lazy",
+      "judge_directory_prefix": "judge-human1-",
+      "human_correction_applied": true,
       "source_median_score": 0.0
     }
   ],
   "combined_breakdown": {
     "voter_id": "A",
-    "score": 33.33333333333333,
+    "score": 36.36363636363637,
     "matched_quality": 2.0,
-    "gold_count": 10,
+    "gold_count": 9,
     "matched_count": 2,
     "unsupported_count": 0,
     "precision": 1.0,
-    "recall": 0.2
+    "recall": 0.2222222222222222
   },
   "individual_joint_judge_results": [
     {
       "voter_id": "A",
-      "score": 33.33333333333333,
+      "score": 36.36363636363637,
       "matched_quality": 2.0,
-      "gold_count": 10,
+      "gold_count": 9,
       "matched_count": 2,
       "unsupported_count": 0,
       "precision": 1.0,
-      "recall": 0.2
+      "recall": 0.2222222222222222
     },
     {
       "voter_id": "B",
-      "score": 33.33333333333333,
+      "score": 36.36363636363637,
       "matched_quality": 2.0,
-      "gold_count": 10,
+      "gold_count": 9,
       "matched_count": 2,
       "unsupported_count": 0,
       "precision": 1.0,
-      "recall": 0.2
+      "recall": 0.2222222222222222
     },
     {
       "voter_id": "C",
-      "score": 33.33333333333333,
+      "score": 36.36363636363637,
       "matched_quality": 2.0,
-      "gold_count": 10,
+      "gold_count": 9,
       "matched_count": 2,
       "unsupported_count": 0,
       "precision": 1.0,
-      "recall": 0.2
+      "recall": 0.2222222222222222
     }
   ],
   "adopted_voter_id": "A",
@@ -291,5 +287,19 @@
   "development_cpu": true,
   "gpu_validation_pending": true,
   "exit_code": 0,
-  "same_model_judge_consensus": true
+  "same_model_judge_consensus": true,
+  "human_correction": {
+    "source_id": "mv_lazy",
+    "removed_root_id": "R002",
+    "removed_event_ids": [
+      "E008"
+    ],
+    "authority": "User manually verified the mirror shot and said it is normal, 2026-11-17",
+    "rule": "Excluded from all current-model mandatory checks; do not reintroduce this same mirror claim through novel findings. Original annotations and all original results are retained.",
+    "old_gold_sha256": "7a992bef1fac895b4c1f5a8f9985765ff4a32199d7f71adb35409acdae70c540",
+    "numerical_formula_unchanged": true
+  },
+  "coverage_score": 22.22222222222222,
+  "unweighted_hit_rate": 22.22222222222222,
+  "new_solver_runs": 0
 }
