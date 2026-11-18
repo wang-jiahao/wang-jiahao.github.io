@@ -10,7 +10,7 @@
     "state": "scored",
     "score": 91.25,
     "verified_successful_requests": 101,
-    "snapshot_utc": "2026-11-18T11:20+00:00",
+    "snapshot_utc": "2026-11-18T13:33+00:00",
     "content": 50.0,
     "production": 41.25,
     "raw_quality_score": 91.25,
@@ -203,10 +203,42 @@
       "ballot_sha256": "4d216694098c5967497c879d695b75b38dee9a81c611c67fbda8fc2506b7ee93",
       "original_video_sha256": "d56541f6ce11268c445e2b84616c29469b974e949336449ef6c8641cc7ddf502",
       "preview_video_sha256": "d24b09d5d93b75507958fbf8361f589d96cc91c469a715f5f25485d04e0d12c5",
+      "preview_video": "media/v8-sol-review.mp4",
+      "source_video": "media/source-full.mp4",
       "page": "experiments/v8/",
       "is_formal_target_success": false,
-      "astra_state": "api_interrupted_no_score",
-      "show_in_summary": false
+      "astra_state": "completed",
+      "show_in_summary": false,
+      "original_video_file": "commentary.mp4"
+    },
+    {
+      "material_version": "v8",
+      "model": "gpt-6.2-astra",
+      "effort": "xhigh",
+      "actual_request_efforts": [
+        "xhigh"
+      ],
+      "tag": "astra_xhigh_r01_v8_20261118",
+      "score": 100.0,
+      "raw_quality_score": 100.0,
+      "score_cap": 100,
+      "content_score": 50,
+      "production_score": 50.0,
+      "elapsed_seconds": 4918.156000000017,
+      "score_record_sha256": "b8eeb211907f4747bf9872b264720fd9983b325ae9590a2b98bd8ec910687df8",
+      "ballot_sha256": "ed56a06dd14a4e05b1387d03c682602f6a2cd11706bc5413e38b1c33277a1f94",
+      "original_video_sha256": "dcea41caca008c362e9b527b11894948a0331e7b413403ade19a4951bcd9db15",
+      "preview_video_sha256": "10b254b3fbf6fc2fb227677f7120f43c906fb5fa4aafc61f24330be4e516ada7",
+      "preview_video": "media/v8-astra-review.mp4",
+      "source_video": "../media/source-full.mp4",
+      "page": "experiments/v8/astra/",
+      "is_formal_target_success": false,
+      "astra_state": "completed",
+      "show_in_summary": false,
+      "original_video_file": "commentary.mp4",
+      "resume_count": 1,
+      "elapsed_note": "Measured original run plus recovery active time; the API-outage waiting period is excluded. Same session, not an independent solve.",
+      "wall_clock_span_seconds": 12984.755279064178
     }
   ]
 }
