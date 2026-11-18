@@ -1,0 +1,80 @@
+{
+  "week": "5",
+  "order": [
+    "aerobics-review",
+    "dialect-subtitles",
+    "music2mv-review"
+  ],
+  "cases": [
+    {
+      "id": "aerobics-review",
+      "url": "aerobics-review/",
+      "cover": "aerobics-review.jpg",
+      "title": "健美操动作台账与口头申诉复核",
+      "desc": "看两段健美操录像，给八个动作逐一查规则、记代码和基础分。再听教练的十二项口头申诉，分清争议和撤回事项，用画面说明每项裁决。",
+      "scores": {
+        "Qwen3.8 Omni": 75.25,
+        "gpt-6.1-sol": 52.75
+      },
+      "score_source": "aerobics-review/files/results.json",
+      "max_model_score": 75.25,
+      "score": "Qwen3.8 Omni 75.25 · gpt-6.1-sol 52.75",
+      "classification": {
+        "week": "5",
+        "domain": 6,
+        "scenario": "体育训练复盘与规则复核",
+        "show_in_summary": true,
+        "cross_platform": {
+          "confirmed": true,
+          "environments": [
+            "命令行",
+            "浏览器"
+          ],
+          "basis": "Qwen 在命令行调用 Playwright，读取真实浏览器中的报告表格、媒体时长及页面宽度。",
+          "evidence_url": "https://wang-jiahao.github.io/omniale/aerobics-review/traces-qwen.html?event=event-572"
+        }
+      }
+    },
+    {
+      "id": "dialect-subtitles",
+      "url": "dialect-subtitles/",
+      "cover": "dialect-subtitles.jpg",
+      "title": "多方言视频的普通话字幕制作",
+      "desc": "把六地方言的 24 段真人讲话译成普通话字幕，对齐原片并交付可切换字幕的成片。译文要说清谁做了什么，不能把“差点发生”译成“已经发生”。",
+      "scores": {
+        "gpt-6.1-sol": 51.92857142857142,
+        "Qwen3.8 Omni": 50.71428571428571,
+        "DeepSeek V4.1 Flash": 38.71428571428571
+      },
+      "score_source": "dialect-subtitles/files/comparison-results.json",
+      "max_model_score": 51.92857142857142,
+      "score": "gpt-6.1-sol 51.92857142857142 · Qwen3.8 Omni 50.71428571428571 · DeepSeek V4.1 Flash 38.71428571428571",
+      "classification": {
+        "week": "5",
+        "domain": 5,
+        "scenario": "方言视频字幕本地化",
+        "show_in_summary": true
+      }
+    },
+    {
+      "id": "music2mv-review",
+      "url": "music2mv-review/",
+      "cover": "music2mv-review.jpg",
+      "title": "音乐视频上线前审片",
+      "desc": "为《Uptown Funk》和《The Lazy Song》的两支生成 MV 做上线前审片。对照音乐、演唱和连续镜头，标出声画不同步或画面不连贯的位置，给剪辑师留下时间码和修改建议。",
+      "scores": {
+        "gpt-6.1-sol": 55.55555555555556,
+        "DeepSeek V4.1 Flash": 28.57142857142857
+      },
+      "score_source": "music2mv-review/files/v8-comparison.json",
+      "max_model_score": 55.55555555555556,
+      "score": "gpt-6.1-sol 55.55555555555556 · DeepSeek V4.1 Flash 28.57142857142857",
+      "classification": {
+        "week": "5",
+        "domain": 4,
+        "scenario": "音乐视频质量审查",
+        "show_in_summary": true
+      }
+    }
+  ]
+}
