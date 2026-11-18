@@ -1,0 +1,316 @@
+{
+  "score": 75.25,
+  "components": {
+    "ledger_code": 25.0,
+    "ledger_value": 6.25,
+    "ledger_video_evidence": 10.0,
+    "request_route": 8.0,
+    "request_claim": 8.0,
+    "request_status": 6.0,
+    "request_actual": 8.0,
+    "request_video_evidence": 2.0,
+    "request_audio_evidence": 2.0
+  },
+  "weights": {
+    "ledger_code": 40,
+    "ledger_value": 10,
+    "ledger_video_evidence": 10,
+    "request_route": 8,
+    "request_claim": 8,
+    "request_status": 8,
+    "request_actual": 12,
+    "request_video_evidence": 2,
+    "request_audio_evidence": 2
+  },
+  "counts": {
+    "elements": 8,
+    "requests": 12
+  },
+  "diagnostic": {
+    "elements": [
+      {
+        "id": "A01",
+        "expected_code": "A328",
+        "candidate_code": "A326",
+        "matches_found": 1,
+        "credit": {
+          "ledger_code": 0.0,
+          "ledger_value": 0.0,
+          "ledger_video_evidence": 1.0
+        }
+      },
+      {
+        "id": "A02",
+        "expected_code": "A305",
+        "candidate_code": "A305",
+        "matches_found": 1,
+        "credit": {
+          "ledger_code": 1.0,
+          "ledger_value": 1.0,
+          "ledger_video_evidence": 1.0
+        }
+      },
+      {
+        "id": "A03",
+        "expected_code": "A355",
+        "candidate_code": "A355",
+        "matches_found": 1,
+        "credit": {
+          "ledger_code": 1.0,
+          "ledger_value": 1.0,
+          "ledger_video_evidence": 1.0
+        }
+      },
+      {
+        "id": "A04",
+        "expected_code": "A317",
+        "candidate_code": "A315",
+        "matches_found": 1,
+        "credit": {
+          "ledger_code": 0.0,
+          "ledger_value": 0.0,
+          "ledger_video_evidence": 1.0
+        }
+      },
+      {
+        "id": "B01",
+        "expected_code": "A334",
+        "candidate_code": "A334",
+        "matches_found": 1,
+        "credit": {
+          "ledger_code": 1.0,
+          "ledger_value": 1.0,
+          "ledger_video_evidence": 1.0
+        }
+      },
+      {
+        "id": "B02",
+        "expected_code": "A326",
+        "candidate_code": "A326",
+        "matches_found": 1,
+        "credit": {
+          "ledger_code": 1.0,
+          "ledger_value": 1.0,
+          "ledger_video_evidence": 1.0
+        }
+      },
+      {
+        "id": "B03",
+        "expected_code": "A307",
+        "candidate_code": "A305",
+        "matches_found": 1,
+        "credit": {
+          "ledger_code": 0.0,
+          "ledger_value": 0.0,
+          "ledger_video_evidence": 1.0
+        }
+      },
+      {
+        "id": "B04",
+        "expected_code": "A315",
+        "candidate_code": "A315",
+        "matches_found": 1,
+        "credit": {
+          "ledger_code": 1.0,
+          "ledger_value": 1.0,
+          "ledger_video_evidence": 1.0
+        }
+      }
+    ],
+    "requests": [
+      {
+        "id": "R01",
+        "expected_status": "reject",
+        "candidate_status": "uphold",
+        "expected_actual_code": "A328",
+        "candidate_actual_code": "A326",
+        "credit": {
+          "request_route": 1.0,
+          "request_claim": 1.0,
+          "request_status": 0.0,
+          "request_actual": 0.0,
+          "request_video_evidence": 1.0,
+          "request_audio_evidence": 1.0
+        }
+      },
+      {
+        "id": "R02",
+        "expected_status": "reject",
+        "candidate_status": "reject",
+        "expected_actual_code": "A305",
+        "candidate_actual_code": "A305",
+        "credit": {
+          "request_route": 1.0,
+          "request_claim": 1.0,
+          "request_status": 1.0,
+          "request_actual": 1.0,
+          "request_video_evidence": 1.0,
+          "request_audio_evidence": 1.0
+        }
+      },
+      {
+        "id": "R03",
+        "expected_status": "uphold",
+        "candidate_status": "uphold",
+        "expected_actual_code": "A355",
+        "candidate_actual_code": "A355",
+        "credit": {
+          "request_route": 1.0,
+          "request_claim": 1.0,
+          "request_status": 1.0,
+          "request_actual": 1.0,
+          "request_video_evidence": 1.0,
+          "request_audio_evidence": 1.0
+        }
+      },
+      {
+        "id": "R04",
+        "expected_status": "reject",
+        "candidate_status": "uphold",
+        "expected_actual_code": "A307",
+        "candidate_actual_code": "A305",
+        "credit": {
+          "request_route": 1.0,
+          "request_claim": 1.0,
+          "request_status": 0.0,
+          "request_actual": 0.0,
+          "request_video_evidence": 1.0,
+          "request_audio_evidence": 1.0
+        }
+      },
+      {
+        "id": "R05",
+        "expected_status": "withdrawn",
+        "candidate_status": "withdrawn",
+        "expected_actual_code": "A317",
+        "candidate_actual_code": "A315",
+        "credit": {
+          "request_route": 1.0,
+          "request_claim": 1.0,
+          "request_status": 1.0,
+          "request_actual": 0.0,
+          "request_video_evidence": 1.0,
+          "request_audio_evidence": 1.0
+        }
+      },
+      {
+        "id": "R06",
+        "expected_status": "reject",
+        "candidate_status": "reject",
+        "expected_actual_code": "A326",
+        "candidate_actual_code": "A326",
+        "credit": {
+          "request_route": 1.0,
+          "request_claim": 1.0,
+          "request_status": 1.0,
+          "request_actual": 1.0,
+          "request_video_evidence": 1.0,
+          "request_audio_evidence": 1.0
+        }
+      },
+      {
+        "id": "R07",
+        "expected_status": "uphold",
+        "candidate_status": "uphold",
+        "expected_actual_code": "A315",
+        "candidate_actual_code": "A315",
+        "credit": {
+          "request_route": 1.0,
+          "request_claim": 1.0,
+          "request_status": 1.0,
+          "request_actual": 1.0,
+          "request_video_evidence": 1.0,
+          "request_audio_evidence": 1.0
+        }
+      },
+      {
+        "id": "R08",
+        "expected_status": "uphold",
+        "candidate_status": "reject",
+        "expected_actual_code": "A317",
+        "candidate_actual_code": "A315",
+        "credit": {
+          "request_route": 1.0,
+          "request_claim": 1.0,
+          "request_status": 0.0,
+          "request_actual": 0.0,
+          "request_video_evidence": 1.0,
+          "request_audio_evidence": 1.0
+        }
+      },
+      {
+        "id": "R09",
+        "expected_status": "reject",
+        "candidate_status": "reject",
+        "expected_actual_code": "A334",
+        "candidate_actual_code": "A334",
+        "credit": {
+          "request_route": 1.0,
+          "request_claim": 1.0,
+          "request_status": 1.0,
+          "request_actual": 1.0,
+          "request_video_evidence": 1.0,
+          "request_audio_evidence": 1.0
+        }
+      },
+      {
+        "id": "R10",
+        "expected_status": "withdrawn",
+        "candidate_status": "withdrawn",
+        "expected_actual_code": "A315",
+        "candidate_actual_code": "A315",
+        "credit": {
+          "request_route": 1.0,
+          "request_claim": 1.0,
+          "request_status": 1.0,
+          "request_actual": 1.0,
+          "request_video_evidence": 1.0,
+          "request_audio_evidence": 1.0
+        }
+      },
+      {
+        "id": "R11",
+        "expected_status": "uphold",
+        "candidate_status": "uphold",
+        "expected_actual_code": "A305",
+        "candidate_actual_code": "A305",
+        "credit": {
+          "request_route": 1.0,
+          "request_claim": 1.0,
+          "request_status": 1.0,
+          "request_actual": 1.0,
+          "request_video_evidence": 1.0,
+          "request_audio_evidence": 1.0
+        }
+      },
+      {
+        "id": "R12",
+        "expected_status": "uphold",
+        "candidate_status": "uphold",
+        "expected_actual_code": "A326",
+        "candidate_actual_code": "A326",
+        "credit": {
+          "request_route": 1.0,
+          "request_claim": 1.0,
+          "request_status": 1.0,
+          "request_actual": 1.0,
+          "request_video_evidence": 1.0,
+          "request_audio_evidence": 1.0
+        }
+      }
+    ]
+  },
+  "totals_diagnostic": {
+    "A": {
+      "expected": 2.5,
+      "submitted": 2.1,
+      "correct": false
+    },
+    "B": {
+      "expected": 2.2,
+      "submitted": 2.0,
+      "correct": false
+    }
+  },
+  "policy": "Frozen deterministic field-level partial credit; no post-run manual score changes. Totals and report quality are diagnostic, not extra easy points."
+}
