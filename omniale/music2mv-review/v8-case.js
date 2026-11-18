@@ -35,7 +35,18 @@ function jump(sid,time,rid){document.querySelectorAll('video,audio').forEach(p=>
  if(rid){const target=document.getElementById('root-'+sid+'-'+rid);if(target)target.open=true}p.scrollIntoView({behavior:'smooth',block:'center'})}
 document.addEventListener('play',e=>{if(e.target.matches('video,audio'))document.querySelectorAll('video,audio').forEach(p=>{if(p!==e.target)p.pause()})},true);
 document.addEventListener('click',e=>{const b=e.target.closest('button[data-source],button[data-compare]');if(b)jump(b.dataset.source||b.dataset.compare,b.dataset.time,b.dataset.root)});
-async function init(){data=await(await fetch('files/v8-comparison.json')).json();modelId=data.models[0].id;sourceId=data.sources[0].id;
+function setupFindingReview(){
+ document.querySelectorAll('.mv-review-card').forEach(card=>{
+  const p=card.querySelector('video'),clips=card.querySelector('.mv-review-clip'),speed=card.querySelector('.mv-review-speed'),clock=card.querySelector('.mv-review-clock');
+  const update=()=>{clock.textContent='原片时间 '+stamp(Number(p.dataset.offset)+p.currentTime)+' · 片段时间 '+stamp(p.currentTime)};
+  p.addEventListener('timeupdate',update);p.addEventListener('loadedmetadata',update);
+  const seek=t=>{p.pause();const apply=()=>{p.currentTime=Math.max(0,Math.min(Number.isFinite(p.duration)?p.duration:t,t));update()};if(p.readyState>=1)apply();else{p.addEventListener('loadedmetadata',apply,{once:true});p.load()}};
+  clips.onchange=()=>{p.pause();const o=clips.selectedOptions[0];p.dataset.offset=o.dataset.offset;p.dataset.focus=o.dataset.focus;p.dataset.fps=o.dataset.fps;p.src=o.value;p.load();p.playbackRate=Number(speed.value);clock.textContent='片段从原片 '+stamp(Number(o.dataset.offset))+' 开始，含前后文。'};
+  speed.onchange=()=>{p.playbackRate=Number(speed.value)};
+  card.querySelectorAll('[data-review-action]').forEach(button=>button.onclick=()=>{const action=button.dataset.reviewAction;seek(action==='focus'?Number(p.dataset.focus):p.currentTime+(action==='next'?1:-1)/Number(p.dataset.fps))});
+ });
+}
+async function init(){setupFindingReview();data=await(await fetch('files/v8-comparison.json')).json();modelId=data.models[0].id;sourceId=data.sources[0].id;
  $('#v8-model').innerHTML=data.models.map(m=>`<option value="${m.id}">${esc(m.label)}</option>`).join('');$('#v7-source').innerHTML=data.sources.map(s=>`<option value="${s.id}">${esc(s.title)}</option>`).join('');
  $('#v8-model').onchange=e=>setModel(e.target.value);$('#v7-source').onchange=e=>{document.querySelectorAll('video,audio').forEach(p=>p.pause());sourceId=e.target.value;$('#v7-player').onloadedmetadata=null;renderSource()};$('#v7-filter').onchange=renderSource;renderSource();renderAnalysis();}
 init().catch(e=>{$('#v7-comparisons').textContent='对照数据加载失败，请刷新或查看原始 JSON。';console.error(e)});
