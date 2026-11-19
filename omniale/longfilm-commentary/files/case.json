@@ -1,15 +1,17 @@
 {
   "id": "longfilm-commentary",
   "title": "长片中文剧情解说",
-  "material_version": "v10",
-  "rubric_version": "commentary-v10-carbon-debiased-c40-s35-p25-cap60",
+  "material_version": "v11",
+  "rubric_version": "commentary-v11-carbon-despoiled-c40-s35-p25-cap60",
+  "grader_report_rubric_version": "commentary-v10-carbon-debiased-c40-s35-p25-cap60",
+  "score_policy": "commentary-v11-carbon-audit1-conservative",
   "show_in_summary": true,
   "week": "5",
   "film": "Valkaama",
   "source_duration_s": 5593.6,
   "source_sha256": "b1f8e37f62e52840e8b50bc8c1dae393017f12d4e467bf4b78c4ff9a41613a9f",
   "judge_model": "gemini-4-carbon (de-biased blind-visual + AV + holistic)",
-  "scoring_condition": "公开评分说明包含16项具体剧情核查范围；1次正式求解与1次完整裁判结果。",
+  "scoring_condition": "公开说明不列具体剧情清单；1次正式求解、1次完整自动评估，沿用已完成的向上复核。",
   "runs": [
     {
       "model": "gpt-6.2-astra",
@@ -18,12 +20,13 @@
       "actual_request_efforts": [
         "xhigh"
       ],
-      "score": 79.5023,
-      "raw_quality_score": 79.5023,
+      "score": 78.7404,
+      "raw_quality_score": 78.7404,
+      "initial_automatic_score": 75.5677,
       "score_cap": 100,
-      "elapsed_seconds": 1916.920999999973,
-      "started_at": "2026-11-19T10:51:47.608238+00:00",
-      "finished_at": "2026-11-19T11:23:44.543763+00:00",
+      "elapsed_seconds": 7652.531000000075,
+      "started_at": "2026-11-19T12:17:12.904654+00:00",
+      "finished_at": "2026-11-19T14:24:45.448862+00:00",
       "exit_code": 0,
       "turn_completed": true,
       "provider": "NJU Link",
@@ -33,96 +36,109 @@
       "execution_budget": null,
       "components": {
         "content_40": 33.75,
-        "sourcing_35": 32.419,
+        "sourcing_35": 33.3237,
         "sourcing_localization_10": 10.0,
-        "sourcing_consistency_25": 22.419,
-        "production_25": 13.3333
+        "sourcing_consistency_25": 23.3237,
+        "production_25": 11.6667
       },
-      "video_sha256": "c631fa9dfded26c0bb242bb1cd49a85d252cd88755256f7d8537c4c64cbee10f",
-      "duration_s": 648.542,
-      "source_map_segments": 129,
+      "video_sha256": "5fa057ea75aaf5d4287ed0a1a8c9003dc1ef5549a87751428617e5e8d1442514",
+      "duration_s": 671.88,
+      "source_map_segments": 160,
+      "subtitle_count": 217,
       "default_tts": "Qwen3-TTS-Flash / Ethan（API）",
-      "trace": "traces/astra/",
-      "delivery": "media/astra-commentary.mp4",
+      "trace": "traces/v11-astra/",
+      "delivery": "media/v11/astra-commentary.mp4",
       "preview_is_compressed_copy": true
     }
   ],
   "input_hashes": {
     "ENVIRONMENT.md": "0e742e83c86c0ba73194382f41631cc67f77edee152dddd6f9c0818fbe0e3902",
     "input/source.mp4": "b1f8e37f62e52840e8b50bc8c1dae393017f12d4e467bf4b78c4ff9a41613a9f",
-    "SCORING.md": "76a95dd622c9b0c3efd22afa4aa0307c06ee319e637cce77281a4dc299ab00e3",
+    "SCORING.md": "8b5b79bf512be53d0ab159873a8ba1975338dd13fc7559b120ed1540cb91cbaf",
     "SOURCES.md": "5ff711525e19c5c7b54566f5346072cb490893528873a097c38cff6791b5a901",
-    "TASK.md": "60f936451d922209d58931cb643d2154f1bbd7bde25325a325685e8314bb8546",
+    "TASK.md": "9117be8c91cc8439b9dda728dbb0cd25881ed56e979967630ae8c209fef6814a",
     "tools/tts.py": "0ca2800dd2a21978560e4eda1bb53ee8a4afb4a4998b77ce5105d20c767bc139"
   },
   "evidence": [
     {
-      "title": "营地：旁白说到了，画面却剪掉了",
+      "title": "车站：说的是发火，画面却在站立与指路",
+      "source_start": 3108,
+      "source_end": 3182,
+      "output_start": 341.8,
+      "output_end": 353.8,
+      "event_id": 130,
+      "detail": "裁判指出旁白描述马格努斯冲乞讨者发火，同期选镜却主要是抱胸站立和拉塞拿票指路，具体动作及主体没有得到画面支撑。",
+      "source_label": "51:48–53:02",
+      "output_label": "05:41–05:53",
+      "source_clip": "media/v11/evidence-source-0.mp4",
+      "source_poster": "assets/v11-source-0.jpg",
+      "output_poster": "assets/v11-output-0.jpg"
+    },
+    {
+      "title": "营火：抽纸片焚烧的说法缺少对应道具",
       "source_start": 4105,
       "source_end": 4175,
-      "output_start": 385,
-      "output_end": 409,
-      "event_id": 56,
-      "detail": "裁判指出：旁白描述把手机卡投入火中、划掉名字并烧纸，同期成片却主要停在拆手机后盖，关键动作没有呈现。轨迹显示模型曾按1秒间隔查看这一场景，问题出在最终选镜与剪辑。",
+      "output_start": 421,
+      "output_end": 434,
+      "event_id": 76,
+      "detail": "裁判指出成片说从夹子里抽出纸片并逐张烧掉，同期镜头却未呈现纸片与焚烧动作；手机卡、划名等原片细节也未完整交代。",
       "source_label": "68:25–69:35",
-      "output_label": "06:25–06:49",
-      "source_clip": "media/evidence-source-0.mp4",
-      "source_poster": "assets/evidence-source-0.jpg",
-      "output_poster": "assets/evidence-output-0.jpg"
+      "output_label": "07:01–07:14",
+      "source_clip": "media/v11/evidence-source-1.mp4",
+      "source_poster": "assets/v11-source-1.jpg",
+      "output_poster": "assets/v11-output-1.jpg"
     },
     {
-      "title": "餐馆：“回来劝阻”超出了原片行为",
-      "source_start": 3925,
-      "source_end": 4003,
-      "output_start": 357,
-      "output_end": 375,
-      "event_id": 44,
-      "detail": "裁判指出：解说说“拉塞回来劝阻”，原片与成片中他却只在门口停步旁观。人物出现在正确场景，仍不足以支撑旁白所说的具体行动。",
-      "source_label": "65:25–66:43",
-      "output_label": "05:57–06:15",
-      "source_clip": "media/evidence-source-1.mp4",
-      "source_poster": "assets/evidence-source-1.jpg",
-      "output_poster": "assets/evidence-output-1.jpg"
+      "title": "孤儿院：电话、面谈与坐站姿态衔接不清",
+      "source_start": 2112,
+      "source_end": 2185,
+      "output_start": 211.5,
+      "output_end": 227,
+      "event_id": 59,
+      "detail": "旁白只说电话打到孤儿院，画面却进入现场面谈；裁判还指出216.5–223.5秒坐站跳切、局部外语漏音，以及未交代拒绝透露地址后私下告知的过程。",
+      "source_label": "35:12–36:25",
+      "output_label": "03:31–03:47",
+      "source_clip": "media/v11/evidence-source-2.mp4",
+      "source_poster": "assets/v11-source-2.jpg",
+      "output_poster": "assets/v11-output-2.jpg"
     },
     {
-      "title": "坡地：对白与冲撞保留，刀具画面缺失",
-      "source_start": 5217,
-      "source_end": 5235,
-      "output_start": 575,
-      "output_end": 585,
-      "event_id": 44,
-      "detail": "裁判指出：旁白说“蒂穆拔了刀”，所选远景却没有让观众看清拔刀或刀具。冲撞结局剪进了成片，促成冲突的关键动作仍未得到对应画面支持。",
-      "source_label": "86:57–87:15",
-      "output_label": "09:35–09:45",
-      "source_clip": "media/evidence-source-2.mp4",
-      "source_poster": "assets/evidence-source-2.jpg",
-      "output_poster": "assets/evidence-output-2.jpg"
-    },
-    {
-      "title": "通信细节：判票与源片标注存在冲突",
-      "source_start": 1940,
-      "source_end": 2012,
-      "output_start": 66,
-      "output_end": 90.8,
-      "event_id": 74,
-      "detail": "这一项存在证据冲突：裁判把“隔一阵回哥德堡”判为误述，但源片标注在1957–1960秒记录了拉塞说“But every now and then I return to Gothenburg.”，稍后又谈及向哥德堡的同伴寄信。本页保留原始判票与79.5023分，不把这条当作已确认的模型事实错误；可播放原声核对。",
-      "source_label": "32:20–33:32",
-      "output_label": "01:06–01:30",
-      "source_clip": "media/evidence-source-3.mp4",
-      "source_poster": "assets/evidence-source-3.jpg",
-      "output_poster": "assets/evidence-output-3.jpg"
+      "title": "片尾：持瓶镜头确实存在，已撤销误判",
+      "source_start": 5365,
+      "source_end": 5402.6,
+      "output_start": 653.64,
+      "output_end": 664.88,
+      "event_id": 58,
+      "detail": "源片5374.5–5393秒确有马格努斯手持黄盖小瓶凝视、未饮下的画面。初评因原标注窗口截在5365秒而误判成编造；既有复核已恢复C16的2.5分和声画一致性的0.6727分，正式采用78.7404。此项展示评分纠错，不是模型失败。",
+      "source_label": "89:25–90:02",
+      "output_label": "10:53–11:04",
+      "source_clip": "media/v11/evidence-source-3.mp4",
+      "source_poster": "assets/v11-source-3.jpg",
+      "output_poster": "assets/v11-output-3.jpg"
     }
   ],
+  "audit_correction": {
+    "initial_score": 75.5677,
+    "adopted_score": 78.7404,
+    "delta": 3.1727,
+    "criterion": "C16",
+    "detail": "人工回查源片 5365s–5402s（此前 W08 切片仅截到 5365s）：源片 5374.5–5393.0s 真实存在 Magnus 在湖边握持黄盖小药瓶低头凝视且未饮下的镜头。遵循工作区“自动失败须人工审计，真值窗口截断造成的误判只向上修正并保留原始记录”铁律，将 C16 (+2.5) 与 653.8–671.9s 声画一致性 (+0.6727) 恢复满分；P1 原已为 L3 (3.3333/5.0)，其余全部扣分项（开篇缺递钥匙动作、前段字幕“蕾娜/露娜”混用、孤儿院硬切跳切漏音、车站冲乞讨者发火动作完全剪丢且切错人、篝火旁编造夹子抽纸片烧毁、废墟缺露娜痛斥与正面支撑、AI TTS平直等）逐帧核实确属真实缺陷。"
+  },
   "scoring_disputes": [
     {
-      "criterion": "C03",
+      "criterion": "P1",
       "score_preserved": true,
-      "detail": "这一项存在证据冲突：裁判把“隔一阵回哥德堡”判为误述，但源片标注在1957–1960秒记录了拉塞说“But every now and then I return to Gothenburg.”，稍后又谈及向哥德堡的同伴寄信。本页保留原始判票与79.5023分，不把这条当作已确认的模型事实错误；可播放原声核对。",
-      "source_annotation": "files/park-source-annotation.md",
-      "source_span_s": [
-        1957,
-        1960
-      ]
+      "detail": "复核已确认片尾持瓶是真实原片镜头。原报告本项理由中“嫁接药瓶”的文字未同步清理，不作为有效失败证据；沿用既有3档分值。"
+    },
+    {
+      "criterion": "P2",
+      "score_preserved": true,
+      "detail": "展示核对：SRT中“露娜”24处、“蕾娜”0处；原始MP4的26、29、61秒抽帧也不支持“多次写成蕾娜”的说法，26秒可见字幕重叠。原判译名混用的识读依据存在争议，保留采用分，提供原始抽帧供核对。"
+    },
+    {
+      "criterion": "P5",
+      "score_preserved": true,
+      "detail": "原判理由还提及“无双语双层字幕”，但公开任务只要求中文旁白字幕和原声翻译字幕可辨。本页保留既有判票，明确这一理由未被题面要求充分支持；跳切与动作脱节另有具体证据。"
     }
   ]
 }
