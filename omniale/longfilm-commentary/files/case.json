@@ -1,271 +1,104 @@
 {
-  "case_id": "longfilm-commentary",
-  "mode": "development-review",
-  "material_version": "v7",
-  "show_in_summary": false,
-  "astra": {
-    "tag": "astra_xhigh_r01_v7_20261118",
-    "model": "gpt-6.2-astra",
-    "effort": "xhigh",
-    "state": "scored",
-    "score": 91.25,
-    "verified_successful_requests": 101,
-    "snapshot_utc": "2026-11-18T15:06+00:00",
-    "content": 50.0,
-    "production": 41.25,
-    "raw_quality_score": 91.25,
-    "score_cap": 100,
-    "video": "media/spione-astra.mp4",
-    "audited_video_sha256": "d431e2d64b74f90f056d41bc169db8582ab5da91f4eeb54a7847df0726587b4e",
-    "score_record_sha256": "e94bd4bd1d4d9f3e84d94e7cb47dfa276e916525f35489507d620b235bc940bc",
-    "elapsed_seconds": null,
-    "elapsed_seconds_lower_bound": 4580.5753260993515
-  },
-  "sol_v7": {
-    "state": "host_interrupted_no_score",
-    "score": null
-  },
+  "id": "longfilm-commentary",
+  "title": "长片中文剧情解说",
+  "material_version": "v10",
+  "rubric_version": "commentary-v10-carbon-debiased-c40-s35-p25-cap60",
+  "show_in_summary": true,
+  "week": "5",
+  "film": "Valkaama",
+  "source_duration_s": 5593.6,
+  "source_sha256": "b1f8e37f62e52840e8b50bc8c1dae393017f12d4e467bf4b78c4ff9a41613a9f",
+  "judge_model": "gemini-4-carbon (de-biased blind-visual + AV + holistic)",
+  "scoring_condition": "公开评分说明包含16项具体剧情核查范围；1次正式求解与1次完整裁判结果。",
   "runs": [
     {
-      "key": "v1",
-      "tag": "sol_xhigh_r01_20261118",
-      "audit_version": "v1",
-      "grading_version": "v1-source-audit1",
-      "movie": "Kansas City Confidential",
-      "model": "gpt-6.1-sol",
+      "model": "gpt-6.2-astra",
+      "label": "Astra 6.2",
       "effort": "xhigh",
       "actual_request_efforts": [
         "xhigh"
       ],
-      "elapsed_seconds": 3412.8130000000237,
-      "score": 88.75,
-      "raw_quality_score": 88.75,
-      "content": 46.25,
-      "production": 42.5,
-      "points": {
-        "facts": 11.25,
-        "causes": 20.0,
-        "compression": 15.0,
-        "grounding": 18.75,
-        "pacing": 10.0,
-        "sound": 10.0,
-        "subtitles": 3.75
-      }
-    },
-    {
-      "key": "v2",
-      "tag": "sol_xhigh_r01_v2_20261118",
-      "audit_version": "v2",
-      "grading_version": "v2",
-      "movie": "The Red House",
-      "model": "gpt-6.1-sol",
-      "effort": "xhigh",
-      "actual_request_efforts": [
-        "xhigh"
-      ],
-      "elapsed_seconds": 2756.515000000014,
-      "score": 88.75,
-      "raw_quality_score": 88.75,
-      "content": 45.0,
-      "production": 43.75,
-      "points": {
-        "facts": 15.0,
-        "causes": 15.0,
-        "compression": 15.0,
-        "grounding": 18.75,
-        "pacing": 10.0,
-        "sound": 10.0,
-        "subtitles": 5.0
-      }
-    },
-    {
-      "key": "v3",
-      "tag": "sol_xhigh_r01_v3_20261118",
-      "audit_version": "v3",
-      "grading_version": "v3",
-      "movie": "The Front Page",
-      "model": "gpt-6.1-sol",
-      "effort": "xhigh",
-      "actual_request_efforts": [
-        "xhigh"
-      ],
-      "elapsed_seconds": 2297.5779999999795,
-      "score": 100.0,
-      "raw_quality_score": 100.0,
-      "content": 50.0,
-      "production": 50.0,
-      "points": {
-        "facts": 15.0,
-        "causes": 20.0,
-        "compression": 15.0,
-        "grounding": 25.0,
-        "pacing": 10.0,
-        "sound": 10.0,
-        "subtitles": 5.0
-      }
-    },
-    {
-      "key": "v4",
-      "tag": "sol_xhigh_r01_v4_20261118",
-      "audit_version": "v4",
-      "grading_version": "v4",
-      "movie": "The Cosmonaut",
-      "model": "gpt-6.1-sol",
-      "effort": "xhigh",
-      "actual_request_efforts": [
-        "xhigh"
-      ],
-      "elapsed_seconds": 3080.8279999999795,
-      "score": 93.75,
-      "raw_quality_score": 93.75,
-      "content": 50.0,
-      "production": 43.75,
-      "points": {
-        "facts": 15.0,
-        "causes": 20.0,
-        "compression": 15.0,
-        "grounding": 18.75,
-        "pacing": 10.0,
-        "sound": 10.0,
-        "subtitles": 5.0
-      }
-    },
-    {
-      "key": "v5",
-      "tag": "sol_xhigh_r01_v5_20261118",
-      "audit_version": "v5",
-      "grading_version": "v5",
-      "movie": "The Phantom Carriage / Körkarlen",
-      "model": "gpt-6.1-sol",
-      "effort": "xhigh",
-      "actual_request_efforts": [
-        "xhigh"
-      ],
-      "elapsed_seconds": 2947.6880000000237,
-      "score": 97.5,
-      "raw_quality_score": 97.5,
-      "content": 50.0,
-      "production": 47.5,
-      "points": {
-        "facts": 15.0,
-        "causes": 20.0,
-        "compression": 15.0,
-        "grounding": 25.0,
-        "pacing": 7.5,
-        "sound": 10.0,
-        "subtitles": 5.0
-      }
-    },
-    {
-      "key": "v6",
-      "tag": "sol_xhigh_r01_v6_20261118",
-      "audit_version": "v6",
-      "grading_version": "v6",
-      "movie": "Valkaama",
-      "model": "gpt-6.1-sol",
-      "effort": "xhigh",
-      "actual_request_efforts": [
-        "xhigh"
-      ],
-      "elapsed_seconds": 2387.5310000000172,
-      "score": 93.75,
-      "raw_quality_score": 93.75,
-      "content": 50.0,
-      "production": 43.75,
-      "points": {
-        "facts": 15.0,
-        "causes": 20.0,
-        "compression": 15.0,
-        "grounding": 18.75,
-        "pacing": 10.0,
-        "sound": 10.0,
-        "subtitles": 5.0
-      }
+      "score": 79.5023,
+      "raw_quality_score": 79.5023,
+      "score_cap": 100,
+      "elapsed_seconds": 1916.920999999973,
+      "started_at": "2026-11-19T10:51:47.608238+00:00",
+      "finished_at": "2026-11-19T11:23:44.543763+00:00",
+      "exit_code": 0,
+      "turn_completed": true,
+      "provider": "NJU Link",
+      "native_windows": true,
+      "network_enabled": true,
+      "codex_version": "codex-cli 0.163.0",
+      "execution_budget": null,
+      "components": {
+        "content_40": 33.75,
+        "sourcing_35": 32.419,
+        "sourcing_localization_10": 10.0,
+        "sourcing_consistency_25": 22.419,
+        "production_25": 13.3333
+      },
+      "video_sha256": "c631fa9dfded26c0bb242bb1cd49a85d252cd88755256f7d8537c4c64cbee10f",
+      "duration_s": 648.542,
+      "source_map_segments": 129,
+      "default_tts": "Qwen3-TTS-Flash / Ethan（API）",
+      "trace": "traces/astra/",
+      "delivery": "media/astra-commentary.mp4",
+      "preview_is_compressed_copy": true
     }
   ],
-  "rubric_version": "commentary-v2-c50-p50-cap60-silent",
-  "additional_experiments": [
+  "input_hashes": {
+    "ENVIRONMENT.md": "0e742e83c86c0ba73194382f41631cc67f77edee152dddd6f9c0818fbe0e3902",
+    "input/source.mp4": "b1f8e37f62e52840e8b50bc8c1dae393017f12d4e467bf4b78c4ff9a41613a9f",
+    "SCORING.md": "76a95dd622c9b0c3efd22afa4aa0307c06ee319e637cce77281a4dc299ab00e3",
+    "SOURCES.md": "5ff711525e19c5c7b54566f5346072cb490893528873a097c38cff6791b5a901",
+    "TASK.md": "60f936451d922209d58931cb643d2154f1bbd7bde25325a325685e8314bb8546",
+    "tools/tts.py": "0ca2800dd2a21978560e4eda1bb53ee8a4afb4a4998b77ce5105d20c767bc139"
+  },
+  "evidence": [
     {
-      "material_version": "v8",
-      "model": "gpt-6.1-sol",
-      "effort": "xhigh",
-      "actual_request_efforts": [
-        "xhigh"
-      ],
-      "tag": "sol_xhigh_r01_v8_20261118",
-      "score": 97.5,
-      "raw_quality_score": 97.5,
-      "score_cap": 100,
-      "content_score": 47.5,
-      "production_score": 50.0,
-      "elapsed_seconds": 3525.6720000000205,
-      "score_record_sha256": "5e2ac6c201d0466202a574b646bbc37a8e33fabedc4901b82121acd2da5db9d4",
-      "ballot_sha256": "4d216694098c5967497c879d695b75b38dee9a81c611c67fbda8fc2506b7ee93",
-      "original_video_sha256": "d56541f6ce11268c445e2b84616c29469b974e949336449ef6c8641cc7ddf502",
-      "preview_video_sha256": "d24b09d5d93b75507958fbf8361f589d96cc91c469a715f5f25485d04e0d12c5",
-      "preview_video": "media/v8-sol-review.mp4",
-      "source_video": "media/source-full.mp4",
-      "page": "experiments/v8/",
-      "is_formal_target_success": false,
-      "astra_state": "completed",
-      "show_in_summary": false,
-      "original_video_file": "commentary.mp4"
+      "title": "营地：旁白说到了，画面却剪掉了",
+      "source_start": 4105,
+      "source_end": 4175,
+      "output_start": 385,
+      "output_end": 409,
+      "event_id": 56,
+      "detail": "裁判指出：旁白描述把手机卡投入火中、划掉名字并烧纸，同期成片却主要停在拆手机后盖，关键动作没有呈现。轨迹显示模型曾按1秒间隔查看这一场景，问题出在最终选镜与剪辑。",
+      "source_label": "68:25–69:35",
+      "output_label": "06:25–06:49"
     },
     {
-      "material_version": "v8",
-      "model": "gpt-6.2-astra",
-      "effort": "xhigh",
-      "actual_request_efforts": [
-        "xhigh"
-      ],
-      "tag": "astra_xhigh_r01_v8_20261118",
-      "score": 100.0,
-      "raw_quality_score": 100.0,
-      "score_cap": 100,
-      "content_score": 50,
-      "production_score": 50.0,
-      "elapsed_seconds": 4918.156000000017,
-      "score_record_sha256": "b8eeb211907f4747bf9872b264720fd9983b325ae9590a2b98bd8ec910687df8",
-      "ballot_sha256": "ed56a06dd14a4e05b1387d03c682602f6a2cd11706bc5413e38b1c33277a1f94",
-      "original_video_sha256": "dcea41caca008c362e9b527b11894948a0331e7b413403ade19a4951bcd9db15",
-      "preview_video_sha256": "10b254b3fbf6fc2fb227677f7120f43c906fb5fa4aafc61f24330be4e516ada7",
-      "preview_video": "media/v8-astra-review.mp4",
-      "source_video": "../media/source-full.mp4",
-      "page": "experiments/v8/astra/",
-      "is_formal_target_success": false,
-      "astra_state": "completed",
-      "show_in_summary": false,
-      "original_video_file": "commentary.mp4",
-      "resume_count": 1,
-      "elapsed_note": "Measured original run plus recovery active time; the API-outage waiting period is excluded. Same session, not an independent solve.",
-      "wall_clock_span_seconds": 12984.755279064178
+      "title": "餐馆：“回来劝阻”超出了原片行为",
+      "source_start": 3925,
+      "source_end": 4003,
+      "output_start": 357,
+      "output_end": 375,
+      "event_id": 44,
+      "detail": "裁判指出：解说说“拉塞回来劝阻”，原片与成片中他却只在门口停步旁观。人物出现在正确场景，仍不足以支撑旁白所说的具体行动。",
+      "source_label": "65:25–66:43",
+      "output_label": "05:57–06:15"
     },
     {
-      "material_version": "v9",
-      "model": "gpt-6.2-astra",
-      "effort": "xhigh",
-      "actual_request_efforts": [
-        "xhigh"
-      ],
-      "tag": "astra_xhigh_r01_v9_20261118",
-      "score": 100.0,
-      "raw_quality_score": 100.0,
-      "score_cap": 100,
-      "content_score": 50.0,
-      "production_score": 50.0,
-      "elapsed_seconds": 2262.780999999959,
-      "score_record_sha256": "e39cddeea9b5497690f46a2a5553689d3e3401ec11159fd799587f0dfd78086c",
-      "ballot_sha256": "0a469202b1934512c6b7ab4a9d715595af940ea020947ab60975a709b421a253",
-      "original_video_sha256": "69f3502ce366e81bbc30cf969978dc6201c910b0814963cf52e45e62ca12968f",
-      "original_video_file": "commentary.mp4",
-      "preview_video_sha256": "ec5e63f4d9f22c96a160f04ae8e59487bfacabad524a745eb3043969460b9e3a",
-      "preview_video": "media/v9-astra-review.mp4",
-      "source_video": "media/source-full.mp4",
-      "source_duration_s": 6949.15,
-      "page": "experiments/v9/",
-      "public_items": 23,
-      "show_in_summary": false,
-      "is_formal_target_success": false
+      "title": "坡地：对白与冲撞保留，刀具画面缺失",
+      "source_start": 5217,
+      "source_end": 5235,
+      "output_start": 575,
+      "output_end": 585,
+      "event_id": 44,
+      "detail": "裁判指出：旁白说“蒂穆拔了刀”，所选远景却没有让观众看清拔刀或刀具。冲撞结局剪进了成片，促成冲突的关键动作仍未得到对应画面支持。",
+      "source_label": "86:57–87:15",
+      "output_label": "09:35–09:45"
+    },
+    {
+      "title": "通信：寄信去某地，被说成自己返回",
+      "source_start": 1122.96,
+      "source_end": 2842.32,
+      "output_start": 66,
+      "output_end": 90.8,
+      "event_id": 74,
+      "detail": "裁判指出：拉塞向哥德堡的阿里寄信分享游历，被解说写成自己“隔一阵会回哥德堡”；同段还有人物入镜滞后。人物关系主干成立，具体旅行行为仍被讲错。",
+      "source_label": "18:42–47:22",
+      "output_label": "01:06–01:30"
     }
   ]
 }

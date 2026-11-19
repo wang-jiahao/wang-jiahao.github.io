@@ -1,0 +1,104 @@
+{
+  "id": "longfilm-commentary",
+  "title": "长片中文剧情解说",
+  "material_version": "v10",
+  "rubric_version": "commentary-v10-carbon-debiased-c40-s35-p25-cap60",
+  "show_in_summary": true,
+  "week": "5",
+  "film": "Valkaama",
+  "source_duration_s": 5593.6,
+  "source_sha256": "b1f8e37f62e52840e8b50bc8c1dae393017f12d4e467bf4b78c4ff9a41613a9f",
+  "judge_model": "gemini-4-carbon (de-biased blind-visual + AV + holistic)",
+  "scoring_condition": "公开评分说明包含16项具体剧情核查范围；1次正式求解与1次完整裁判结果。",
+  "runs": [
+    {
+      "model": "gpt-6.2-astra",
+      "label": "Astra 6.2",
+      "effort": "xhigh",
+      "actual_request_efforts": [
+        "xhigh"
+      ],
+      "score": 79.5023,
+      "raw_quality_score": 79.5023,
+      "score_cap": 100,
+      "elapsed_seconds": 1916.920999999973,
+      "started_at": "2026-11-19T10:51:47.608238+00:00",
+      "finished_at": "2026-11-19T11:23:44.543763+00:00",
+      "exit_code": 0,
+      "turn_completed": true,
+      "provider": "NJU Link",
+      "native_windows": true,
+      "network_enabled": true,
+      "codex_version": "codex-cli 0.163.0",
+      "execution_budget": null,
+      "components": {
+        "content_40": 33.75,
+        "sourcing_35": 32.419,
+        "sourcing_localization_10": 10.0,
+        "sourcing_consistency_25": 22.419,
+        "production_25": 13.3333
+      },
+      "video_sha256": "c631fa9dfded26c0bb242bb1cd49a85d252cd88755256f7d8537c4c64cbee10f",
+      "duration_s": 648.542,
+      "source_map_segments": 129,
+      "default_tts": "Qwen3-TTS-Flash / Ethan（API）",
+      "trace": "traces/astra/",
+      "delivery": "media/astra-commentary.mp4",
+      "preview_is_compressed_copy": true
+    }
+  ],
+  "input_hashes": {
+    "ENVIRONMENT.md": "0e742e83c86c0ba73194382f41631cc67f77edee152dddd6f9c0818fbe0e3902",
+    "input/source.mp4": "b1f8e37f62e52840e8b50bc8c1dae393017f12d4e467bf4b78c4ff9a41613a9f",
+    "SCORING.md": "76a95dd622c9b0c3efd22afa4aa0307c06ee319e637cce77281a4dc299ab00e3",
+    "SOURCES.md": "5ff711525e19c5c7b54566f5346072cb490893528873a097c38cff6791b5a901",
+    "TASK.md": "60f936451d922209d58931cb643d2154f1bbd7bde25325a325685e8314bb8546",
+    "tools/tts.py": "0ca2800dd2a21978560e4eda1bb53ee8a4afb4a4998b77ce5105d20c767bc139"
+  },
+  "evidence": [
+    {
+      "title": "营地：旁白说到了，画面却剪掉了",
+      "source_start": 4105,
+      "source_end": 4175,
+      "output_start": 385,
+      "output_end": 409,
+      "event_id": 56,
+      "detail": "裁判指出：旁白描述把手机卡投入火中、划掉名字并烧纸，同期成片却主要停在拆手机后盖，关键动作没有呈现。轨迹显示模型曾按1秒间隔查看这一场景，问题出在最终选镜与剪辑。",
+      "source_label": "68:25–69:35",
+      "output_label": "06:25–06:49"
+    },
+    {
+      "title": "餐馆：“回来劝阻”超出了原片行为",
+      "source_start": 3925,
+      "source_end": 4003,
+      "output_start": 357,
+      "output_end": 375,
+      "event_id": 44,
+      "detail": "裁判指出：解说说“拉塞回来劝阻”，原片与成片中他却只在门口停步旁观。人物出现在正确场景，仍不足以支撑旁白所说的具体行动。",
+      "source_label": "65:25–66:43",
+      "output_label": "05:57–06:15"
+    },
+    {
+      "title": "坡地：对白与冲撞保留，刀具画面缺失",
+      "source_start": 5217,
+      "source_end": 5235,
+      "output_start": 575,
+      "output_end": 585,
+      "event_id": 44,
+      "detail": "裁判指出：旁白说“蒂穆拔了刀”，所选远景却没有让观众看清拔刀或刀具。冲撞结局剪进了成片，促成冲突的关键动作仍未得到对应画面支持。",
+      "source_label": "86:57–87:15",
+      "output_label": "09:35–09:45"
+    },
+    {
+      "title": "通信：寄信去某地，被说成自己返回",
+      "source_start": 1122.96,
+      "source_end": 2842.32,
+      "output_start": 66,
+      "output_end": 90.8,
+      "event_id": 74,
+      "detail": "裁判指出：拉塞向哥德堡的阿里寄信分享游历，被解说写成自己“隔一阵会回哥德堡”；同段还有人物入镜滞后。人物关系主干成立，具体旅行行为仍被讲错。",
+      "source_label": "18:42–47:22",
+      "output_label": "01:06–01:30"
+    }
+  ]
+}
