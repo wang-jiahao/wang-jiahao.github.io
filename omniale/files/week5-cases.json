@@ -5,18 +5,18 @@
     "music2mv-review",
     "low-light-restoration",
     "moving-tile-source-tracing-v4",
+    "multiface",
+    "omniecho-investigation",
+    "code2video",
+    "longfilm-commentary",
     "birds-field-guide",
     "adr-take360",
     "voice-reconstruction",
     "dialect-subtitles",
     "adr-scene",
-    "multiface",
-    "omniecho-investigation",
     "assembly-manual",
-    "code2video",
     "music-locked-picture",
     "aerobics-review",
-    "longfilm-commentary",
     "wr-bughouse-reconstruction"
   ],
   "cases": [
@@ -116,6 +116,108 @@
         "week": "5",
         "domain": 7,
         "scenario": "音画素材溯源",
+        "show_in_summary": true
+      }
+    },
+    {
+      "id": "multiface",
+      "title": "多视角动态场景重建",
+      "cover": "multiface.jpg",
+      "cover_source": "https://vibrant700.github.io/omniale/multiface/assets/input-overview.jpg",
+      "url": "https://vibrant700.github.io/omniale/multiface/",
+      "scores": {
+        "gpt-6.2-astra": 55.445625055939914,
+        "gpt-6.2-sol": 53.44006880303704,
+        "deepseek-v4-pro": 41.83598489049549
+      },
+      "score": "gpt-6.2-astra 55.445625055939914 · gpt-6.2-sol 53.44006880303704 · deepseek-v4-pro 41.83598489049549",
+      "max_model_score": 55.445625055939914,
+      "score_source": "https://vibrant700.github.io/omniale/multiface/results.html#sol62-xhigh",
+      "score_sources": [
+        "https://vibrant700.github.io/omniale/multiface/files/score.json",
+        "https://vibrant700.github.io/omniale/multiface/assets/models/astra62-xhigh/score.json",
+        "https://vibrant700.github.io/omniale/multiface/assets/models/ds4pro-max/score.json"
+      ],
+      "score_note": "采用各模型公开 score.json 的总分（视觉 50、场景要素 40、音画同步 10）。",
+      "classification": {
+        "week": "5",
+        "domain": 2,
+        "scenario": "多视角动态人脸重建",
+        "show_in_summary": true,
+        "software": [
+          "Blender"
+        ]
+      }
+    },
+    {
+      "id": "omniecho-investigation",
+      "title": "空间音频：多声源事件调查",
+      "cover": "omniecho-investigation.jpg",
+      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/omniecho-investigation/incident_poster.jpg",
+      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-omniecho-investigation/task",
+      "desc": "从 37 秒四通道现场录音和画面中，判断报警、塑料摩擦和钥匙声的位置与变化。导出保留四通道的证据片段，让读者能从报告跳回原声核对。",
+      "scores": {
+        "gpt-6-astra": 60.5864,
+        "gpt-6.1-sol": 46.6049,
+        "gpt-6-luna": 10.6373
+      },
+      "score": "gpt-6-astra 60.5864 · gpt-6.1-sol 46.6049 · gpt-6-luna 10.6373",
+      "max_model_score": 60.5864,
+      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/omniecho-investigation/data.js",
+      "score_note": "V2 严格版：同一封存答卷重新评分，各模型时间预算不同。",
+      "classification": {
+        "week": "5",
+        "domain": 3,
+        "scenario": "空间听辨与声源定位",
+        "show_in_summary": true
+      }
+    },
+    {
+      "id": "code2video",
+      "title": "品牌动画重建、人像合成与音画同步",
+      "cover": "code2video-v3.jpg",
+      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/code2video-v3/poster.jpg",
+      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/code2video-v3/review/index.html",
+      "desc": "先用独立人像素材重建十秒无声品牌动画，再按第二阶段给出的音轨返修动作与局部视觉响应。",
+      "scores": {
+        "gpt-6-astra": 65.75,
+        "gpt-6.1-sol": 59.75
+      },
+      "score": "gpt-6-astra 65.75 · gpt-6.1-sol 59.75",
+      "max_model_score": 65.75,
+      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/code2video-v3/data.json",
+      "score_note": "视觉 70、音画同步 25、工程 5。Sol 为既有答卷事后复评，Astra 在评分规则冻结后重新作答。",
+      "material_version": "v3",
+      "scoring_version": "v3.1",
+      "score_sources": [
+        "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/code2video-v3/evaluation_v31/sol/grade.json",
+        "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/code2video-v3/evaluation_v31/astra/grade.json"
+      ],
+      "classification": {
+        "week": "5",
+        "domain": 1,
+        "scenario": "品牌动效重建与声音驱动返修",
+        "show_in_summary": true
+      }
+    },
+    {
+      "id": "longfilm-commentary",
+      "title": "长片中文剧情解说",
+      "cover": "longfilm-commentary.jpg",
+      "url": "longfilm-commentary/",
+      "desc": "把93分钟完整电影剪成8–12分钟中文解说，讲清交错人物线、信息差与结局。关键动作要有对应画面，旁白、原片对白和音乐需自然衔接，另交字幕、文稿与镜头映射。",
+      "scores": {
+        "gpt-6.2-astra": 78.7404,
+        "gpt-6.2-sol": 70.9607
+      },
+      "score": "gpt-6.2-astra 78.7404 · gpt-6.2-sol 70.9607",
+      "max_model_score": 78.7404,
+      "score_source": "longfilm-commentary/files/results.json",
+      "score_note": "v11；xhigh，NJU Link，联网；同一冻结v11，各模型1次独立求解与1次完整自动评估，采用保留原票的向上纠错；公开说明不列具体剧情清单。未触发格式封顶。",
+      "classification": {
+        "week": "5",
+        "domain": 1,
+        "scenario": "长片叙事解说制作",
         "show_in_summary": true
       }
     },
@@ -247,59 +349,6 @@
       }
     },
     {
-      "id": "multiface",
-      "title": "多视角动态场景重建",
-      "cover": "multiface.jpg",
-      "cover_source": "https://vibrant700.github.io/omniale/multiface/assets/input-overview.jpg",
-      "url": "https://vibrant700.github.io/omniale/multiface/",
-      "scores": {
-        "gpt-6.2-astra": 55.445625055939914,
-        "gpt-6.2-sol": 53.44006880303704,
-        "deepseek-v4-pro": 41.83598489049549
-      },
-      "score": "gpt-6.2-astra 55.445625055939914 · gpt-6.2-sol 53.44006880303704 · deepseek-v4-pro 41.83598489049549",
-      "max_model_score": 55.445625055939914,
-      "score_source": "https://vibrant700.github.io/omniale/multiface/results.html#sol62-xhigh",
-      "score_sources": [
-        "https://vibrant700.github.io/omniale/multiface/files/score.json",
-        "https://vibrant700.github.io/omniale/multiface/assets/models/astra62-xhigh/score.json",
-        "https://vibrant700.github.io/omniale/multiface/assets/models/ds4pro-max/score.json"
-      ],
-      "score_note": "采用各模型公开 score.json 的总分（视觉 50、场景要素 40、音画同步 10）。",
-      "classification": {
-        "week": "5",
-        "domain": 2,
-        "scenario": "多视角动态人脸重建",
-        "show_in_summary": true,
-        "software": [
-          "Blender"
-        ]
-      }
-    },
-    {
-      "id": "omniecho-investigation",
-      "title": "空间音频：多声源事件调查",
-      "cover": "omniecho-investigation.jpg",
-      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/omniecho-investigation/incident_poster.jpg",
-      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-omniecho-investigation/task",
-      "desc": "从 37 秒四通道现场录音和画面中，判断报警、塑料摩擦和钥匙声的位置与变化。导出保留四通道的证据片段，让读者能从报告跳回原声核对。",
-      "scores": {
-        "gpt-6-astra": 60.5864,
-        "gpt-6.1-sol": 46.6049,
-        "gpt-6-luna": 10.6373
-      },
-      "score": "gpt-6-astra 60.5864 · gpt-6.1-sol 46.6049 · gpt-6-luna 10.6373",
-      "max_model_score": 60.5864,
-      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/omniecho-investigation/data.js",
-      "score_note": "V2 严格版：同一封存答卷重新评分，各模型时间预算不同。",
-      "classification": {
-        "week": "5",
-        "domain": 3,
-        "scenario": "空间听辨与声源定位",
-        "show_in_summary": true
-      }
-    },
-    {
       "id": "assembly-manual",
       "title": "装配录像理解与图解手册",
       "cover": "assembly-manual.jpg",
@@ -320,34 +369,6 @@
         "week": "5",
         "domain": 8,
         "scenario": "装配作业指导与纠错手册",
-        "show_in_summary": true
-      }
-    },
-    {
-      "id": "code2video",
-      "title": "品牌动画重建、人像合成与音画同步",
-      "cover": "code2video-v3.jpg",
-      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/code2video-v3/poster.jpg",
-      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/code2video-v3/review/index.html",
-      "desc": "先用独立人像素材重建十秒无声品牌动画，再按第二阶段给出的音轨返修动作与局部视觉响应。",
-      "scores": {
-        "gpt-6-astra": 65.75,
-        "gpt-6.1-sol": 59.75
-      },
-      "score": "gpt-6-astra 65.75 · gpt-6.1-sol 59.75",
-      "max_model_score": 65.75,
-      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/code2video-v3/data.json",
-      "score_note": "视觉 70、音画同步 25、工程 5。Sol 为既有答卷事后复评，Astra 在评分规则冻结后重新作答。",
-      "material_version": "v3",
-      "scoring_version": "v3.1",
-      "score_sources": [
-        "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/code2video-v3/evaluation_v31/sol/grade.json",
-        "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/code2video-v3/evaluation_v31/astra/grade.json"
-      ],
-      "classification": {
-        "week": "5",
-        "domain": 1,
-        "scenario": "品牌动效重建与声音驱动返修",
         "show_in_summary": true
       }
     },
@@ -409,27 +430,6 @@
           "basis": "Qwen 3.8 Omni Flash 在命令行调用 Playwright，读取真实浏览器中的报告表格、媒体时长及页面宽度。",
           "evidence_url": "https://wang-jiahao.github.io/omniale/aerobics-review/traces-qwen.html?event=event-572"
         }
-      }
-    },
-    {
-      "id": "longfilm-commentary",
-      "title": "长片中文剧情解说",
-      "cover": "longfilm-commentary.jpg",
-      "url": "longfilm-commentary/",
-      "desc": "把93分钟完整电影剪成8–12分钟中文解说，讲清交错人物线、信息差与结局。关键动作要有对应画面，旁白、原片对白和音乐需自然衔接，另交字幕、文稿与镜头映射。",
-      "scores": {
-        "gpt-6.2-astra": 78.7404,
-        "gpt-6.2-sol": 70.9607
-      },
-      "score": "gpt-6.2-astra 78.7404 · gpt-6.2-sol 70.9607",
-      "max_model_score": 78.7404,
-      "score_source": "longfilm-commentary/files/results.json",
-      "score_note": "v11；xhigh，NJU Link，联网；同一冻结v11，各模型1次独立求解与1次完整自动评估，采用保留原票的向上纠错；公开说明不列具体剧情清单。未触发格式封顶。",
-      "classification": {
-        "week": "5",
-        "domain": 1,
-        "scenario": "长片叙事解说制作",
-        "show_in_summary": true
       }
     },
     {
