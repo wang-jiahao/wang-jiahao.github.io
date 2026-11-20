@@ -14,10 +14,10 @@
     "omniecho-investigation",
     "assembly-manual",
     "code2video",
+    "music-locked-picture",
     "aerobics-review",
     "longfilm-commentary",
-    "wr-bughouse-reconstruction",
-    "music-locked-picture"
+    "wr-bughouse-reconstruction"
   ],
   "cases": [
     {
@@ -325,24 +325,61 @@
     },
     {
       "id": "code2video",
-      "title": "品牌动画的代码复现与定向返修",
-      "cover": "code2video.jpg",
-      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/code2video-v2/poster.jpg",
-      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-code2video/task",
-      "desc": "照着四秒品牌动画，用可编辑代码重建标志、指针、材质和转场，再用同一工程交付六秒返修版。只有指定指针要延迟，不能用参考帧序列代替动画。",
+      "title": "品牌动画重建、人像合成与音画同步",
+      "cover": "code2video-v3.jpg",
+      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/code2video-v3/poster.jpg",
+      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/code2video-v3/review/index.html",
+      "desc": "先用独立人像素材重建十秒无声品牌动画，再按第二阶段给出的音轨返修动作与局部视觉响应。",
       "scores": {
-        "gpt-6-astra": 71.75,
-        "gpt-6.1-sol": 60.0
+        "gpt-6-astra": 65.75,
+        "gpt-6.1-sol": 59.75
       },
-      "score": "gpt-6-astra 71.75 · gpt-6.1-sol 60.0",
-      "max_model_score": 71.75,
-      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/code2video-v2/data.js",
-      "score_note": "Code2Video v2；两次有效运行。",
+      "score": "gpt-6-astra 65.75 · gpt-6.1-sol 59.75",
+      "max_model_score": 65.75,
+      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/code2video-v3/data.json",
+      "score_note": "视觉 70、音画同步 25、工程 5。Sol 为既有答卷事后复评，Astra 在评分规则冻结后重新作答。",
+      "material_version": "v3",
+      "scoring_version": "v3.1",
+      "score_sources": [
+        "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/code2video-v3/evaluation_v31/sol/grade.json",
+        "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/code2video-v3/evaluation_v31/astra/grade.json"
+      ],
       "classification": {
         "week": "5",
         "domain": 1,
-        "scenario": "品牌动效重建与返修",
+        "scenario": "品牌动效重建与声音驱动返修",
         "show_in_summary": true
+      }
+    },
+    {
+      "id": "music-locked-picture",
+      "title": "动作喜剧配乐重剪",
+      "cover": "music-locked-picture.jpg",
+      "cover_source": "https://huayuankou333.github.io/omniale/music-locked-picture/media/long-poster.jpg",
+      "url": "https://huayuankou333.github.io/omniale/music-locked-picture/#watch",
+      "desc": "为 128 秒无声动作喜剧自行找音乐、重剪配乐，让音乐回应等待、危险和和解。再为 32 秒追逐片段制作有独立开头与收尾的短版，交付可重放的工程。",
+      "scores": {
+        "gpt-6.1-sol": 67.10428571428571,
+        "gpt-6.2-astra": 39.49142857142857
+      },
+      "score": "gpt-6.1-sol 67.10428571428571 · gpt-6.2-astra 39.49142857142857",
+      "max_model_score": 67.10428571428571,
+      "score_source": "https://huayuankou333.github.io/omniale/music-locked-picture/files/COMPARISON.zh-CN.md",
+      "score_note": "采用来源页已形成的 Qwen 辅助总分，非正式艺术评分。DeepSeek 仅有已评内容小计 28.8/78，缺 12 分，未形成总分。",
+      "score_caption": "未校准辅助分",
+      "score_sources": [
+        "https://huayuankou333.github.io/omniale/music-locked-picture/files/astra62/qwen38-auxiliary/astra62-auxiliary-score.json",
+        "https://huayuankou333.github.io/omniale/music-locked-picture/files/qwen38-auxiliary/sol-auxiliary-score.json",
+        "https://huayuankou333.github.io/omniale/music-locked-picture/files/qwen38-auxiliary/deepseek-auxiliary-score.json"
+      ],
+      "classification": {
+        "week": "5",
+        "domain": 4,
+        "scenario": "锁定画面的配乐剪辑",
+        "show_in_summary": true,
+        "software": [
+          "REAPER"
+        ]
       }
     },
     {
@@ -419,29 +456,6 @@
         "domain": 6,
         "scenario": "双盘棋局复盘",
         "show_in_summary": true
-      }
-    },
-    {
-      "id": "music-locked-picture",
-      "title": "动作喜剧配乐重剪",
-      "cover": "music-locked-picture.jpg",
-      "cover_source": "https://huayuankou333.github.io/omniale/music-locked-picture/media/long-poster.jpg",
-      "url": "https://huayuankou333.github.io/omniale/music-locked-picture/#watch",
-      "desc": "为 128 秒无声动作喜剧自行找音乐、重剪配乐，让音乐回应等待、危险和和解。再为 32 秒追逐片段制作有独立开头与收尾的短版，交付可重放的工程。",
-      "scores": {},
-      "score": "",
-      "max_model_score": null,
-      "score_source": "https://huayuankou333.github.io/omniale/music-locked-picture/files/COMPARISON.zh-CN.md",
-      "score_note": "三模型均无正式艺术总分。Sol 67.1 和 Astra 39.5 为未校准辅助分；DeepSeek 辅助评测缺项。",
-      "score_placeholder": "暂无正式总分",
-      "classification": {
-        "week": "5",
-        "domain": 4,
-        "scenario": "锁定画面的配乐剪辑",
-        "show_in_summary": true,
-        "software": [
-          "REAPER"
-        ]
       }
     }
   ]
