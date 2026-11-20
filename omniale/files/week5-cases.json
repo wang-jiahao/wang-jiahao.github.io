@@ -10,7 +10,9 @@
     "voice-reconstruction",
     "dialect-subtitles",
     "adr-scene",
+    "multiface",
     "omniecho-investigation",
+    "assembly-manual",
     "code2video",
     "aerobics-review",
     "longfilm-commentary",
@@ -245,6 +247,36 @@
       }
     },
     {
+      "id": "multiface",
+      "title": "多视角动态场景重建",
+      "cover": "multiface.jpg",
+      "cover_source": "https://vibrant700.github.io/omniale/multiface/assets/input-overview.jpg",
+      "url": "https://vibrant700.github.io/omniale/multiface/",
+      "scores": {
+        "gpt-6.2-astra": 55.445625055939914,
+        "gpt-6.2-sol": 53.44006880303704,
+        "deepseek-v4-pro": 41.83598489049549
+      },
+      "score": "gpt-6.2-astra 55.445625055939914 · gpt-6.2-sol 53.44006880303704 · deepseek-v4-pro 41.83598489049549",
+      "max_model_score": 55.445625055939914,
+      "score_source": "https://vibrant700.github.io/omniale/multiface/results.html#sol62-xhigh",
+      "score_sources": [
+        "https://vibrant700.github.io/omniale/multiface/files/score.json",
+        "https://vibrant700.github.io/omniale/multiface/assets/models/astra62-xhigh/score.json",
+        "https://vibrant700.github.io/omniale/multiface/assets/models/ds4pro-max/score.json"
+      ],
+      "score_note": "采用各模型公开 score.json 的总分（视觉 50、场景要素 40、音画同步 10）。",
+      "classification": {
+        "week": "5",
+        "domain": 2,
+        "scenario": "多视角动态人脸重建",
+        "show_in_summary": true,
+        "software": [
+          "Blender"
+        ]
+      }
+    },
+    {
       "id": "omniecho-investigation",
       "title": "空间音频：多声源事件调查",
       "cover": "omniecho-investigation.jpg",
@@ -264,6 +296,30 @@
         "week": "5",
         "domain": 3,
         "scenario": "空间听辨与声源定位",
+        "show_in_summary": true
+      }
+    },
+    {
+      "id": "assembly-manual",
+      "title": "装配录像理解与图解手册",
+      "cover": "assembly-manual.jpg",
+      "cover_source": "https://vibrant700.github.io/omniale/assembly-manual/assets/poster.jpg",
+      "url": "https://vibrant700.github.io/omniale/assembly-manual/",
+      "scores": {
+        "gpt-6.2-sol": 60.875,
+        "deepseek-v4.1-flash": 31.25
+      },
+      "score": "gpt-6.2-sol 60.875 · deepseek-v4.1-flash 31.25",
+      "max_model_score": 60.875,
+      "score_source": "https://vibrant700.github.io/omniale/assembly-manual/data-v2.json",
+      "score_sources": [
+        "https://vibrant700.github.io/omniale/assembly-manual/data-v2.json"
+      ],
+      "score_note": "采用 2.4-four-dimensions 总分。",
+      "classification": {
+        "week": "5",
+        "domain": 8,
+        "scenario": "装配作业指导与纠错手册",
         "show_in_summary": true
       }
     },
