@@ -1,71 +1,47 @@
 {
   "week": "5",
   "order": [
-    "aerobics-review",
-    "dialect-subtitles",
+    "piano-contact",
     "music2mv-review",
-    "longfilm-commentary",
+    "low-light-restoration",
+    "moving-tile-source-tracing-v4",
     "birds-field-guide",
+    "adr-take360",
+    "voice-reconstruction",
+    "dialect-subtitles",
+    "adr-scene",
     "omniecho-investigation",
     "code2video",
-    "low-light-restoration",
-    "music-locked-picture",
-    "moving-tile-source-tracing-v3",
+    "aerobics-review",
+    "longfilm-commentary",
     "wr-bughouse-reconstruction",
-    "adr-take360",
-    "adr-scene",
-    "voice-reconstruction",
-    "piano-contact"
+    "music-locked-picture"
   ],
   "cases": [
     {
-      "id": "aerobics-review",
-      "url": "aerobics-review/",
-      "cover": "aerobics-review.jpg",
-      "title": "健美操动作台账与口头申诉复核",
-      "desc": "看两段健美操录像，给八个动作逐一查规则、记代码和基础分。再听教练的十二项口头申诉，分清争议和撤回事项，用画面说明每项裁决。",
+      "id": "piano-contact",
+      "title": "从钢琴录音到三维双手演奏教学",
+      "cover": "piano-contact.jpg",
+      "cover_source": "https://starivers152.github.io/OmniALE/piano-contact/assets/astra/poster.jpg",
+      "url": "https://starivers152.github.io/OmniALE/piano-contact/",
+      "desc": "听辨 25 秒真人钢琴录音，写出可编辑乐谱和 MIDI，再用双手模型在 88 键键盘上演奏。按下的琴键、手指接触、谱面与重新合成的声音要同步。",
       "scores": {
-        "Qwen 3.8 Omni Flash": 75.25,
-        "gpt-6.1-sol": 52.75
+        "gpt-6.2-astra": 57.72804530327561,
+        "gpt-6-astra": 45.301959312471,
+        "gpt-6.1-sol": 21.899535809018566
       },
-      "score_source": "aerobics-review/files/results.json",
-      "max_model_score": 75.25,
-      "score": "Qwen 3.8 Omni Flash 75.25 · gpt-6.1-sol 52.75",
+      "score": "gpt-6.2-astra 57.72804530327561 · gpt-6-astra 45.301959312471 · gpt-6.1-sol 21.899535809018566",
+      "max_model_score": 57.72804530327561,
+      "score_source": "https://starivers152.github.io/OmniALE/piano-contact/#results",
+      "score_note": "当前统一评分版本 0.6.1；三份既有交付复评，采用各自 results.json 的 raw_score。",
       "classification": {
         "week": "5",
         "domain": 6,
-        "scenario": "体育训练复盘与规则复核",
+        "scenario": "钢琴转谱与三维演奏示范",
         "show_in_summary": true,
-        "cross_platform": {
-          "confirmed": true,
-          "environments": [
-            "命令行",
-            "浏览器"
-          ],
-          "basis": "Qwen 3.8 Omni Flash 在命令行调用 Playwright，读取真实浏览器中的报告表格、媒体时长及页面宽度。",
-          "evidence_url": "https://wang-jiahao.github.io/omniale/aerobics-review/traces-qwen.html?event=event-572"
-        }
-      }
-    },
-    {
-      "id": "dialect-subtitles",
-      "url": "dialect-subtitles/",
-      "cover": "dialect-subtitles.jpg",
-      "title": "多方言视频的普通话字幕制作",
-      "desc": "把六地方言的 24 段真人讲话译成普通话字幕，对齐原片并交付可切换字幕的成片。译文要说清谁做了什么，不能把“差点发生”译成“已经发生”。",
-      "scores": {
-        "gpt-6.1-sol": 51.92857142857142,
-        "Qwen 3.8 Omni Flash": 50.71428571428571,
-        "DeepSeek V4.1 Flash": 38.71428571428571
-      },
-      "score_source": "dialect-subtitles/files/comparison-results.json",
-      "max_model_score": 51.92857142857142,
-      "score": "gpt-6.1-sol 51.92857142857142 · Qwen 3.8 Omni Flash 50.71428571428571 · DeepSeek V4.1 Flash 38.71428571428571",
-      "classification": {
-        "week": "5",
-        "domain": 5,
-        "scenario": "方言视频字幕本地化",
-        "show_in_summary": true
+        "software": [
+          "Blender"
+        ]
       }
     },
     {
@@ -85,94 +61,6 @@
         "week": "5",
         "domain": 4,
         "scenario": "音乐MV质量审查",
-        "show_in_summary": true
-      }
-    },
-    {
-      "id": "longfilm-commentary",
-      "title": "长片中文剧情解说",
-      "cover": "longfilm-commentary.jpg",
-      "url": "longfilm-commentary/",
-      "desc": "把93分钟完整电影剪成8–12分钟中文解说，讲清交错人物线、信息差与结局。关键动作要有对应画面，旁白、原片对白和音乐需自然衔接，另交字幕、文稿与镜头映射。",
-      "scores": {
-        "gpt-6.2-astra": 78.7404,
-        "gpt-6.2-sol": 70.9607
-      },
-      "score": "gpt-6.2-astra 78.7404 · gpt-6.2-sol 70.9607",
-      "max_model_score": 78.7404,
-      "score_source": "longfilm-commentary/files/results.json",
-      "score_note": "v11；xhigh，NJU Link，联网；同一冻结v11，各模型1次独立求解与1次完整自动评估，采用保留原票的向上纠错；公开说明不列具体剧情清单。未触发格式封顶。",
-      "classification": {
-        "week": "5",
-        "domain": 1,
-        "scenario": "长片叙事解说制作",
-        "show_in_summary": true
-      }
-    },
-    {
-      "id": "birds-field-guide",
-      "title": "鸟类识别与中文科普视频",
-      "cover": "birds-field-guide.jpg",
-      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/birds-v6-report/poster.jpg",
-      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-birds/task",
-      "desc": "辨认六段匿名录像里的鸟，结合形态、行为和鸣声制作中文科普片。每段都要保留原声，配上旁白和与实际解说一致的字幕。",
-      "scores": {
-        "gpt-6-astra": 24.8514,
-        "gpt-6-luna": 10.7291
-      },
-      "score": "gpt-6-astra 24.8514 · gpt-6-luna 10.7291",
-      "max_model_score": 24.8514,
-      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/birds-case/data.js",
-      "score_note": "采用来源页 V6 当前 xhigh 不限时组；Sol high 60 分钟被来源明确列作历史参考。",
-      "classification": {
-        "week": "5",
-        "domain": 6,
-        "scenario": "自然科普视频制作",
-        "show_in_summary": true
-      }
-    },
-    {
-      "id": "omniecho-investigation",
-      "title": "空间音频：多声源事件调查",
-      "cover": "omniecho-investigation.jpg",
-      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/omniecho-investigation/incident_poster.jpg",
-      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-omniecho-investigation/task",
-      "desc": "从 37 秒四通道现场录音和画面中，判断报警、塑料摩擦和钥匙声的位置与变化。导出保留四通道的证据片段，让读者能从报告跳回原声核对。",
-      "scores": {
-        "gpt-6-astra": 77.7778,
-        "gpt-6.1-sol": 61.1111,
-        "gpt-6-luna": 33.3333
-      },
-      "score": "gpt-6-astra 77.7778 · gpt-6.1-sol 61.1111 · gpt-6-luna 33.3333",
-      "max_model_score": 77.7778,
-      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/omniecho-investigation/data.js",
-      "score_note": "同一条录像上的开发试跑；各模型时间预算不同。",
-      "classification": {
-        "week": "5",
-        "domain": 3,
-        "scenario": "空间听辨与声源定位",
-        "show_in_summary": true
-      }
-    },
-    {
-      "id": "code2video",
-      "title": "品牌动画的代码复现与定向返修",
-      "cover": "code2video.jpg",
-      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/code2video-v2/poster.jpg",
-      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-code2video/task",
-      "desc": "照着四秒品牌动画，用可编辑代码重建标志、指针、材质和转场，再用同一工程交付六秒返修版。只有指定指针要延迟，不能用参考帧序列代替动画。",
-      "scores": {
-        "gpt-6-astra": 71.75,
-        "gpt-6.1-sol": 60.0
-      },
-      "score": "gpt-6-astra 71.75 · gpt-6.1-sol 60.0",
-      "max_model_score": 71.75,
-      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/code2video-v2/data.js",
-      "score_note": "Code2Video v2；两次有效运行。",
-      "classification": {
-        "week": "5",
-        "domain": 1,
-        "scenario": "品牌动效重建与返修",
         "show_in_summary": true
       }
     },
@@ -200,46 +88,28 @@
       }
     },
     {
-      "id": "music-locked-picture",
-      "title": "动作喜剧配乐重剪",
-      "cover": "music-locked-picture.jpg",
-      "cover_source": "https://huayuankou333.github.io/omniale/music-locked-picture/media/long-poster.jpg",
-      "url": "https://huayuankou333.github.io/omniale/music-locked-picture/#watch",
-      "desc": "为 128 秒无声动作喜剧自行找音乐、重剪配乐，让音乐回应等待、危险和和解。再为 32 秒追逐片段制作有独立开头与收尾的短版，交付可重放的工程。",
-      "scores": {},
-      "score": "",
-      "max_model_score": null,
-      "score_source": "https://huayuankou333.github.io/omniale/music-locked-picture/files/REPORT.zh-CN.md",
-      "score_note": "来源仅公布未校准辅助分；Sol 辅助总分 67.1，DeepSeek 缺项，无完整总分。不纳入汇总成绩。",
-      "score_placeholder": "暂无正式总分",
-      "classification": {
-        "week": "5",
-        "domain": 4,
-        "scenario": "锁定画面的配乐剪辑",
-        "show_in_summary": true,
-        "software": [
-          "REAPER"
-        ]
-      }
-    },
-    {
-      "id": "moving-tile-source-tracing-v3",
-      "title": "电视墙画面与声音来源回查",
-      "cover": "moving-tile-source-tracing-v3.jpg",
-      "cover_source": "https://walnutpz.github.io/omniale/moving-tile-source-tracing-v3/media/poster.jpg",
-      "url": "https://walnutpz.github.io/omniale/moving-tile-source-tracing-v3/",
-      "desc": "16 台电视同时播放片段，画面还会换位置。对照五部无声原片，查清每段画面与声音取自哪里，记录原片时间、屏幕位置、倒放或旋转等处理。",
+      "id": "moving-tile-source-tracing-v4",
+      "title": "电视墙镜头与声音来源回查",
+      "cover": "moving-tile-source-tracing-v4.jpg",
+      "cover_source": "https://walnutpz.github.io/omniale/moving-tile-source-tracing-v4/media/poster.jpg",
+      "url": "https://walnutpz.github.io/omniale/moving-tile-source-tracing-v4/",
+      "desc": "在两分钟的 25 屏电视墙里追踪不断换位的片段。对照八部无声原片，查出每段画面与声音的来源、时间和位置，并标出素材库里没有的片段。",
       "scores": {
-        "gpt-6.2-astra": 82.41,
-        "gpt-6.2-sol": 61.69,
-        "kimi-k3.1-pro": 9.45,
-        "deepseek-v4.1-flash-1017": 2.73,
-        "gpt-6-luna": 1.59
+        "gpt-6.2-astra": 58.625532034785415,
+        "gpt-6.2-sol": 13.22979581589745,
+        "kimi-k3.1-pro": 1.116550904905119,
+        "gpt-6-luna": 0.38650524842752537
       },
-      "score": "gpt-6.2-astra 82.41 · gpt-6.2-sol 61.69 · kimi-k3.1-pro 9.45 · deepseek-v4.1-flash-1017 2.73 · gpt-6-luna 1.59",
-      "max_model_score": 82.41,
-      "score_source": "https://walnutpz.github.io/omniale/moving-tile-source-tracing-v3/#results",
-      "score_note": "采用来源页总得分列，非视频或音频分项。",
+      "score": "gpt-6.2-astra 58.625532034785415 · gpt-6.2-sol 13.22979581589745 · kimi-k3.1-pro 1.116550904905119 · gpt-6-luna 0.38650524842752537",
+      "max_model_score": 58.625532034785415,
+      "score_source": "https://walnutpz.github.io/omniale/moving-tile-source-tracing-v4/#results",
+      "score_note": "v4，采用逐项评分 JSON 的总分；DeepSeek 未交付，没有得分。",
+      "score_sources": [
+        "https://walnutpz.github.io/omniale/moving-tile-source-tracing-v4/sources/scores/astra.json",
+        "https://walnutpz.github.io/omniale/moving-tile-source-tracing-v4/sources/scores/sol.json",
+        "https://walnutpz.github.io/omniale/moving-tile-source-tracing-v4/sources/scores/kimi.json",
+        "https://walnutpz.github.io/omniale/moving-tile-source-tracing-v4/sources/scores/luna.json"
+      ],
       "classification": {
         "week": "5",
         "domain": 7,
@@ -248,28 +118,29 @@
       }
     },
     {
-      "id": "wr-bughouse-reconstruction",
-      "title": "听懂规则并复原四人象棋对局",
-      "cover": "wr-bughouse-reconstruction.jpg",
-      "cover_source": "https://walnutpz.github.io/omniale/wr-bughouse-reconstruction/media/poster.jpg",
-      "url": "https://walnutpz.github.io/omniale/wr-bughouse-reconstruction/",
-      "desc": "听赛前讲解，整理本场双盘国际象棋的特殊规则，再从八分钟静音近景恢复两盘棋步。把吃子、向搭档交子和跨盘取子写进一份可共同重放的棋谱。",
+      "id": "birds-field-guide",
+      "title": "鸟类识别与中文科普视频",
+      "cover": "birds-field-guide.jpg",
+      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/birds-v6-report/poster.jpg",
+      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-birds/task",
+      "desc": "辨认六段匿名录像里的鸟，结合形态、行为和鸣声制作中文科普片。每段都要保留原声，配上旁白和与实际解说一致的字幕。",
       "scores": {
-        "gpt-6.2-astra": 99.08,
-        "gpt-6.1-sol（三次均分）": 74.42,
-        "deepseek-v4.1-flash-1017": 20.87,
-        "qwen3.8-max-0902": 20.39,
-        "kimi-k3.1-pro": 18.12,
-        "gpt-6-luna": 7.5
+        "gpt-6.1-sol（两次均分）": 26.4229,
+        "gpt-6-astra": 24.8514,
+        "gpt-6-luna": 10.7291
       },
-      "score": "gpt-6.2-astra 99.08 · gpt-6.1-sol（三次均分） 74.42 · deepseek-v4.1-flash-1017 20.87 · qwen3.8-max-0902 20.39 · kimi-k3.1-pro 18.12 · gpt-6-luna 7.5",
-      "max_model_score": 99.08,
-      "score_source": "https://walnutpz.github.io/omniale/wr-bughouse-reconstruction/#results",
-      "score_note": "Sol 采用来源列出的三次均值，其余采用来源各模型总分。",
+      "score": "gpt-6.1-sol（两次均分） 26.4229 · gpt-6-astra 24.8514 · gpt-6-luna 10.7291",
+      "max_model_score": 26.4229,
+      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/birds-case/data.js",
+      "score_note": "V6 不限时。Sol high 采用来源列出的两次放宽网站限制实验均分；Astra、Luna 为原 xhigh 单次。旧 Sol 60 分钟基线另列于详情页。",
+      "score_sources": [
+        "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/birds-case/data.js",
+        "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/birds-v6-relaxed-report/reports/index.html"
+      ],
       "classification": {
         "week": "5",
         "domain": 6,
-        "scenario": "双盘棋局复盘",
+        "scenario": "自然科普视频制作",
         "show_in_summary": true
       }
     },
@@ -293,33 +164,6 @@
         "week": "5",
         "domain": 3,
         "scenario": "替代对白选取与口型同步",
-        "show_in_summary": true,
-        "software": [
-          "REAPER",
-          "Shotcut"
-        ]
-      }
-    },
-    {
-      "id": "adr-scene",
-      "title": "复杂电影场景的跨镜头对白重建",
-      "cover": "adr-scene.jpg",
-      "cover_source": "https://huayuankou333.github.io/omniale/adr-scene/media/role-B.jpg",
-      "url": "https://huayuankou333.github.io/omniale/adr-scene/",
-      "desc": "为《Tears of Steel》的 142 秒无声片段恢复 34 句台词与呼喊。从 200 条候选录音里认人、裁出完整表演，对齐开口时刻，并让画外音和跨镜头对白自然衔接。",
-      "scores": {
-        "gpt-6.1-terra": 54.27557995028997,
-        "gpt-6.1-sol": 52.64705882352941,
-        "deepseek-v4.1-flash-1017": 47.46582435791218
-      },
-      "score": "gpt-6.1-terra 54.27557995028997 · gpt-6.1-sol 52.64705882352941 · deepseek-v4.1-flash-1017 47.46582435791218",
-      "max_model_score": 54.27557995028997,
-      "score_source": "https://huayuankou333.github.io/omniale/adr-scene/results.json",
-      "score_note": "采用来源当前开发集自动初评总分，未获人工认证。",
-      "classification": {
-        "week": "5",
-        "domain": 3,
-        "scenario": "电影对白剪辑与场景连续性",
         "show_in_summary": true,
         "software": [
           "REAPER",
@@ -353,28 +197,194 @@
       }
     },
     {
-      "id": "piano-contact",
-      "title": "从钢琴录音到三维双手演奏教学",
-      "cover": "piano-contact.jpg",
-      "cover_source": "https://starivers152.github.io/OmniALE/piano-contact/assets/astra/poster.jpg",
-      "url": "https://starivers152.github.io/OmniALE/piano-contact/",
-      "desc": "听辨 25 秒真人钢琴录音，写出可编辑乐谱和 MIDI，再用双手模型在 88 键键盘上演奏。按下的琴键、手指接触、谱面与重新合成的声音要同步。",
+      "id": "dialect-subtitles",
+      "url": "dialect-subtitles/",
+      "cover": "dialect-subtitles.jpg",
+      "title": "多方言视频的普通话字幕制作",
+      "desc": "把六地方言的 24 段真人讲话译成普通话字幕，对齐原片并交付可切换字幕的成片。译文要说清谁做了什么，不能把“差点发生”译成“已经发生”。",
       "scores": {
-        "gpt-6.2-astra": 61.92052957986807,
-        "gpt-6-astra": 61.297153564825976,
-        "gpt-6.1-sol": 44.29671382257589
+        "gpt-6.1-sol": 51.92857142857142,
+        "Qwen 3.8 Omni Flash": 50.71428571428571,
+        "DeepSeek V4.1 Flash": 38.71428571428571
       },
-      "score": "gpt-6.2-astra 61.92052957986807 · gpt-6-astra 61.297153564825976 · gpt-6.1-sol 44.29671382257589",
-      "max_model_score": 61.92052957986807,
-      "score_source": "https://starivers152.github.io/OmniALE/piano-contact/#results",
-      "score_note": "采用统一 0.4.2 评分：两次原交付复评，一次首次评分。",
+      "score_source": "dialect-subtitles/files/comparison-results.json",
+      "max_model_score": 51.92857142857142,
+      "score": "gpt-6.1-sol 51.92857142857142 · Qwen 3.8 Omni Flash 50.71428571428571 · DeepSeek V4.1 Flash 38.71428571428571",
+      "classification": {
+        "week": "5",
+        "domain": 5,
+        "scenario": "方言视频字幕本地化",
+        "show_in_summary": true
+      }
+    },
+    {
+      "id": "adr-scene",
+      "title": "复杂电影场景的跨镜头对白重建",
+      "cover": "adr-scene.jpg",
+      "cover_source": "https://huayuankou333.github.io/omniale/adr-scene/media/role-B.jpg",
+      "url": "https://huayuankou333.github.io/omniale/adr-scene/",
+      "desc": "为《Tears of Steel》的 142 秒无声片段恢复 34 句台词与呼喊。从 200 条候选录音里认人、裁出完整表演，对齐开口时刻，并让画外音和跨镜头对白自然衔接。",
+      "scores": {
+        "gpt-6.1-terra": 54.27557995028997,
+        "gpt-6.1-sol": 52.64705882352941,
+        "deepseek-v4.1-flash-1017": 47.46582435791218
+      },
+      "score": "gpt-6.1-terra 54.27557995028997 · gpt-6.1-sol 52.64705882352941 · deepseek-v4.1-flash-1017 47.46582435791218",
+      "max_model_score": 54.27557995028997,
+      "score_source": "https://huayuankou333.github.io/omniale/adr-scene/results.json",
+      "score_note": "采用来源当前开发集自动初评总分，未获人工认证。",
+      "classification": {
+        "week": "5",
+        "domain": 3,
+        "scenario": "电影对白剪辑与场景连续性",
+        "show_in_summary": true,
+        "software": [
+          "REAPER",
+          "Shotcut"
+        ]
+      }
+    },
+    {
+      "id": "omniecho-investigation",
+      "title": "空间音频：多声源事件调查",
+      "cover": "omniecho-investigation.jpg",
+      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/omniecho-investigation/incident_poster.jpg",
+      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-omniecho-investigation/task",
+      "desc": "从 37 秒四通道现场录音和画面中，判断报警、塑料摩擦和钥匙声的位置与变化。导出保留四通道的证据片段，让读者能从报告跳回原声核对。",
+      "scores": {
+        "gpt-6-astra": 60.5864,
+        "gpt-6.1-sol": 46.6049,
+        "gpt-6-luna": 10.6373
+      },
+      "score": "gpt-6-astra 60.5864 · gpt-6.1-sol 46.6049 · gpt-6-luna 10.6373",
+      "max_model_score": 60.5864,
+      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/omniecho-investigation/data.js",
+      "score_note": "V2 严格版：同一封存答卷重新评分，各模型时间预算不同。",
+      "classification": {
+        "week": "5",
+        "domain": 3,
+        "scenario": "空间听辨与声源定位",
+        "show_in_summary": true
+      }
+    },
+    {
+      "id": "code2video",
+      "title": "品牌动画的代码复现与定向返修",
+      "cover": "code2video.jpg",
+      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/code2video-v2/poster.jpg",
+      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-code2video/task",
+      "desc": "照着四秒品牌动画，用可编辑代码重建标志、指针、材质和转场，再用同一工程交付六秒返修版。只有指定指针要延迟，不能用参考帧序列代替动画。",
+      "scores": {
+        "gpt-6-astra": 71.75,
+        "gpt-6.1-sol": 60.0
+      },
+      "score": "gpt-6-astra 71.75 · gpt-6.1-sol 60.0",
+      "max_model_score": 71.75,
+      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/code2video-v2/data.js",
+      "score_note": "Code2Video v2；两次有效运行。",
+      "classification": {
+        "week": "5",
+        "domain": 1,
+        "scenario": "品牌动效重建与返修",
+        "show_in_summary": true
+      }
+    },
+    {
+      "id": "aerobics-review",
+      "url": "aerobics-review/",
+      "cover": "aerobics-review.jpg",
+      "title": "健美操动作台账与口头申诉复核",
+      "desc": "看两段健美操录像，给八个动作逐一查规则、记代码和基础分。再听教练的十二项口头申诉，分清争议和撤回事项，用画面说明每项裁决。",
+      "scores": {
+        "Qwen 3.8 Omni Flash": 75.25,
+        "gpt-6.1-sol": 52.75
+      },
+      "score_source": "aerobics-review/files/results.json",
+      "max_model_score": 75.25,
+      "score": "Qwen 3.8 Omni Flash 75.25 · gpt-6.1-sol 52.75",
       "classification": {
         "week": "5",
         "domain": 6,
-        "scenario": "钢琴转谱与三维演奏示范",
+        "scenario": "体育训练复盘与规则复核",
+        "show_in_summary": true,
+        "cross_platform": {
+          "confirmed": true,
+          "environments": [
+            "命令行",
+            "浏览器"
+          ],
+          "basis": "Qwen 3.8 Omni Flash 在命令行调用 Playwright，读取真实浏览器中的报告表格、媒体时长及页面宽度。",
+          "evidence_url": "https://wang-jiahao.github.io/omniale/aerobics-review/traces-qwen.html?event=event-572"
+        }
+      }
+    },
+    {
+      "id": "longfilm-commentary",
+      "title": "长片中文剧情解说",
+      "cover": "longfilm-commentary.jpg",
+      "url": "longfilm-commentary/",
+      "desc": "把93分钟完整电影剪成8–12分钟中文解说，讲清交错人物线、信息差与结局。关键动作要有对应画面，旁白、原片对白和音乐需自然衔接，另交字幕、文稿与镜头映射。",
+      "scores": {
+        "gpt-6.2-astra": 78.7404,
+        "gpt-6.2-sol": 70.9607
+      },
+      "score": "gpt-6.2-astra 78.7404 · gpt-6.2-sol 70.9607",
+      "max_model_score": 78.7404,
+      "score_source": "longfilm-commentary/files/results.json",
+      "score_note": "v11；xhigh，NJU Link，联网；同一冻结v11，各模型1次独立求解与1次完整自动评估，采用保留原票的向上纠错；公开说明不列具体剧情清单。未触发格式封顶。",
+      "classification": {
+        "week": "5",
+        "domain": 1,
+        "scenario": "长片叙事解说制作",
+        "show_in_summary": true
+      }
+    },
+    {
+      "id": "wr-bughouse-reconstruction",
+      "title": "听懂规则并复原四人象棋对局",
+      "cover": "wr-bughouse-reconstruction.jpg",
+      "cover_source": "https://walnutpz.github.io/omniale/wr-bughouse-reconstruction/media/poster.jpg",
+      "url": "https://walnutpz.github.io/omniale/wr-bughouse-reconstruction/",
+      "desc": "听赛前讲解，整理本场双盘国际象棋的特殊规则，再从八分钟静音近景恢复两盘棋步。把吃子、向搭档交子和跨盘取子写进一份可共同重放的棋谱。",
+      "scores": {
+        "gpt-6.2-astra": 99.08,
+        "gpt-6.1-sol（三次均分）": 74.42,
+        "deepseek-v4.1-flash-1017": 20.87,
+        "qwen3.8-max-0902": 20.39,
+        "kimi-k3.1-pro": 18.12,
+        "gpt-6-luna": 7.5
+      },
+      "score": "gpt-6.2-astra 99.08 · gpt-6.1-sol（三次均分） 74.42 · deepseek-v4.1-flash-1017 20.87 · qwen3.8-max-0902 20.39 · kimi-k3.1-pro 18.12 · gpt-6-luna 7.5",
+      "max_model_score": 99.08,
+      "score_source": "https://walnutpz.github.io/omniale/wr-bughouse-reconstruction/#results",
+      "score_note": "Sol 采用来源列出的三次均值，其余采用来源各模型总分。",
+      "classification": {
+        "week": "5",
+        "domain": 6,
+        "scenario": "双盘棋局复盘",
+        "show_in_summary": true
+      }
+    },
+    {
+      "id": "music-locked-picture",
+      "title": "动作喜剧配乐重剪",
+      "cover": "music-locked-picture.jpg",
+      "cover_source": "https://huayuankou333.github.io/omniale/music-locked-picture/media/long-poster.jpg",
+      "url": "https://huayuankou333.github.io/omniale/music-locked-picture/#watch",
+      "desc": "为 128 秒无声动作喜剧自行找音乐、重剪配乐，让音乐回应等待、危险和和解。再为 32 秒追逐片段制作有独立开头与收尾的短版，交付可重放的工程。",
+      "scores": {},
+      "score": "",
+      "max_model_score": null,
+      "score_source": "https://huayuankou333.github.io/omniale/music-locked-picture/files/COMPARISON.zh-CN.md",
+      "score_note": "三模型均无正式艺术总分。Sol 67.1 和 Astra 39.5 为未校准辅助分；DeepSeek 辅助评测缺项。",
+      "score_placeholder": "暂无正式总分",
+      "classification": {
+        "week": "5",
+        "domain": 4,
+        "scenario": "锁定画面的配乐剪辑",
         "show_in_summary": true,
         "software": [
-          "Blender"
+          "REAPER"
         ]
       }
     }

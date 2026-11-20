@@ -3,10 +3,6 @@ layout: null
 sitemap: false
 permalink: /omniale/
 ---
----
-layout: null
-sitemap: false
----
 <!DOCTYPE html>
 
 <html lang="zh-CN"><head><meta charset="utf-8"/><meta content="noindex,nofollow" name="robots"/>
@@ -70,70 +66,92 @@ border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:16px 0}
 </style><style id="week4-platform-style">
 .case-tags{display:flex;align-items:flex-start;justify-content:flex-end;flex-wrap:wrap;gap:6px;flex-shrink:0}
 .platform-tag{display:inline-flex;align-items:center;padding:3px 9px;border:1px solid #b4c6d4;border-radius:5px;background:#edf3f7;color:#31546d;font-size:11.5px;line-height:1.5;white-space:nowrap}
+</style><style id="week5-grid-style">
+.week5-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:16px 0 28px}
+.week5-grid .case{display:flex;flex-direction:column;min-width:0;border-radius:8px;margin:0}
+.week5-grid .case:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.week5-grid .cover{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;flex:none}
+.week5-grid .body{display:flex;flex-direction:column;flex:1;padding:13px 15px 15px}
+.week5-grid .case-meta{gap:6px;margin:0 0 9px;min-height:34px;line-height:1.45}
+.week5-grid .scenario{display:block;margin:2px 0 0;font-size:11px}
+.week5-grid .case-tags{flex:0 1 auto;max-width:48%}
+.week5-grid .software-tags{gap:2px;flex-shrink:1}
+.week5-grid .software-tag,.week5-grid .platform-tag{padding:1px 4px;font-size:10px;gap:3px}
+.week5-grid .software-tag strong{font-size:10px}
+.week5-grid h3{margin:0 0 7px;font-size:16px;line-height:1.45}
+.week5-grid .desc{margin:0 0 14px;font-size:13px;line-height:1.6}
+.week5-grid .sc{margin:auto 0 0;padding-top:8px;border-top:1px solid var(--line);font-size:12px;line-height:1.65}
+.week5-grid .model-result{display:flex;justify-content:space-between;align-items:baseline;gap:6px}
+.week5-grid .model-result>span:first-child{min-width:0;overflow-wrap:anywhere}
+.week5-grid .model-result>span:last-child{flex:none;color:var(--ink)}
+@media(max-width:1150px){.week5-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:850px){.week5-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.week5-grid{grid-template-columns:minmax(0,1fr)}}
 </style></head><body><main>
 <header class="summary-header"><div class="summary-top"><div class="eyebrow">OMNIALE<span class="brand-description"> · 专业音视频智能体评测基准</span></div>
 <h1>案例汇总</h1></div>
 <div class="summary-overview"><p class="lead">从原始音视频到可用交付，查看任务、成绩、轨迹与失败分析。</p><details class="taxonomy"><summary>领域分类</summary><div class="table-scroll"><table>
 <tr><th>编号</th><th>一级领域（Domain）</th><th>二级应用场景</th></tr><tr><td class="num">01</td><td>影视、节目与视觉后期</td><td>影视剪辑、广告动效、视频特效、画质修复、节目质检、场记审核</td></tr><tr><td class="num">02</td><td>三维动画与产品可视化</td><td>人体动作复现、角色绑定与动画、表情控制、产品机构动画</td></tr><tr><td class="num">03</td><td>音频后期与声音工程</td><td>拟音、空间声音、多轨对白、音乐混音、音频工程维护</td></tr><tr><td class="num">04</td><td>音乐制作与演出服务</td><td>音乐转谱、编配、排练修订、声部练习、音乐会制作、MV分镜</td></tr><tr><td class="num">05</td><td>译制、无障碍与发布适配</td><td>手语字幕、字幕制作、跨语译制、音频描述、发布匿名化</td></tr><tr><td class="num">06</td><td>教育、训练与学习应用</td><td>教学视频、技能课程、体育训练复盘、听力测验、教学材料审核</td></tr><tr><td class="num">07</td><td>档案检索与证据研究</td><td>素材检索、来源溯源、口述史、长片证据核查、跨资料研究</td></tr><tr><td class="num">08</td><td>企业协作与数字业务</td><td>装配记录交接、会议协作、操作规范、商品选购网页</td></tr></table></div></details></div></header>
-<section aria-labelledby="week-5" class="week"><div class="week-heading"><h2 id="week-5">Week 5</h2><span class="count">15 个案例</span></div><a class="case" data-case="aerobics-review" href="aerobics-review/">
-<img alt="健美操动作台账与口头申诉复核" class="cover" height="292" loading="lazy" src="covers/aerobics-review.jpg?v=3" width="520"/>
-<div class="body"><div class="case-meta"><div class="badge">教育、训练与学习应用<span class="scenario">体育训练复盘与规则复核</span></div><div class="case-tags"><span aria-label="跨平台：命令行 ↔ 浏览器" class="platform-tag" title="跨平台：命令行 ↔ 浏览器">跨平台</span></div></div>
-<h3>健美操动作台账与口头申诉复核</h3><p class="desc">看两段健美操录像，给八个动作逐一查规则、记代码和基础分。再听教练的十二项口头申诉，分清争议和撤回事项，用画面说明每项裁决。</p><p class="sc">Qwen 3.8 Omni Flash <b>75.3</b> · gpt-6.1-sol 52.8</p></div></a>
-<a class="case" data-case="dialect-subtitles" href="dialect-subtitles/">
-<img alt="多方言视频的普通话字幕制作" class="cover" height="292" loading="lazy" src="covers/dialect-subtitles.jpg?v=3" width="520"/>
-<div class="body"><div class="case-meta"><div class="badge">译制、无障碍与发布适配<span class="scenario">方言视频字幕本地化</span></div><div class="case-tags"></div></div>
-<h3>多方言视频的普通话字幕制作</h3><p class="desc">把六地方言的 24 段真人讲话译成普通话字幕，对齐原片并交付可切换字幕的成片。译文要说清谁做了什么，不能把“差点发生”译成“已经发生”。</p><p class="sc">gpt-6.1-sol <b>51.9</b> · Qwen 3.8 Omni Flash 50.7 · DeepSeek V4.1 Flash 38.7</p></div></a>
+<section class="week" aria-labelledby="week-5"><div class="week-heading"><h2 id="week-5">Week 5</h2><span class="count">15 个案例</span></div><div class="week5-grid"><a class="case" data-case="piano-contact" href="https://starivers152.github.io/OmniALE/piano-contact/" target="_blank" rel="noopener">
+<img class="cover" src="covers/piano-contact.jpg?v=3" alt="从钢琴录音到三维双手演奏教学" loading="lazy" width="520" height="292">
+<div class="body"><div class="case-meta"><div class="badge">教育、训练与学习应用<span class="scenario">钢琴转谱与三维演奏示范</span></div><div class="case-tags"><div class="software-tags" aria-label="任务指定软件"><span class="software-tag"><span>指定软件</span><strong>Blender</strong></span></div></div></div>
+<h3>从钢琴录音到三维双手演奏教学</h3><p class="desc">听辨 25 秒真人钢琴录音，写出可编辑乐谱和 MIDI，再用双手模型在 88 键键盘上演奏。按下的琴键、手指接触、谱面与重新合成的声音要同步。</p><p class="sc"><span class="model-result"><span>gpt-6.2-astra</span> <span><b>57.7</b></span></span><span class="model-result"><span>gpt-6-astra</span> <span>45.3</span></span><span class="model-result"><span>gpt-6.1-sol</span> <span>21.9</span></span></p></div></a>
 <a class="case" data-case="music2mv-review" href="music2mv-review/">
-<img alt="音乐MV上线前审片" class="cover" height="292" loading="lazy" src="covers/music2mv-review.jpg?v=3" width="520"/>
+<img class="cover" src="covers/music2mv-review.jpg?v=3" alt="音乐MV上线前审片" loading="lazy" width="520" height="292">
 <div class="body"><div class="case-meta"><div class="badge">音乐制作与演出服务<span class="scenario">音乐MV质量审查</span></div><div class="case-tags"></div></div>
-<h3>音乐MV上线前审片</h3><p class="desc">为《Uptown Funk》和《The Lazy Song》的两支生成 MV 做上线前审片。对照音乐、演唱和连续镜头，标出声画不同步或画面不连贯的位置，给剪辑师留下时间码和修改建议。</p><p class="sc">gpt-6.1-sol <b>55.6</b> · DeepSeek V4.1 Flash 28.6</p></div></a><a class="case" data-case="longfilm-commentary" href="longfilm-commentary/">
-<img alt="长片中文剧情解说" class="cover" height="292" loading="lazy" src="covers/longfilm-commentary.jpg?v=3" width="520"/>
-<div class="body"><div class="case-meta"><div class="badge">影视、节目与视觉后期<span class="scenario">长片叙事解说制作</span></div><div class="case-tags"></div></div>
-<h3>长片中文剧情解说</h3><p class="desc">把93分钟完整电影剪成8–12分钟中文解说，讲清交错人物线、信息差与结局。关键动作要有对应画面，旁白、原片对白和音乐需自然衔接，另交字幕、文稿与镜头映射。</p><p class="sc">gpt-6.2-astra <b>78.7</b> · gpt-6.2-sol 71.0</p></div></a>
-<a class="case" data-case="birds-field-guide" href="https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-birds/task" rel="noopener" target="_blank">
-<img alt="鸟类识别与中文科普视频" class="cover" height="292" loading="lazy" src="covers/birds-field-guide.jpg?v=3" width="520"/>
-<div class="body"><div class="case-meta"><div class="badge">教育、训练与学习应用<span class="scenario">自然科普视频制作</span></div><div class="case-tags"></div></div>
-<h3>鸟类识别与中文科普视频</h3><p class="desc">辨认六段匿名录像里的鸟，结合形态、行为和鸣声制作中文科普片。每段都要保留原声，配上旁白和与实际解说一致的字幕。</p><p class="sc">gpt-6-astra <b>24.9</b> · gpt-6-luna 10.7</p></div></a>
-<a class="case" data-case="omniecho-investigation" href="https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-omniecho-investigation/task" rel="noopener" target="_blank">
-<img alt="空间音频：多声源事件调查" class="cover" height="292" loading="lazy" src="covers/omniecho-investigation.jpg?v=3" width="520"/>
-<div class="body"><div class="case-meta"><div class="badge">音频后期与声音工程<span class="scenario">空间听辨与声源定位</span></div><div class="case-tags"></div></div>
-<h3>空间音频：多声源事件调查</h3><p class="desc">从 37 秒四通道现场录音和画面中，判断报警、塑料摩擦和钥匙声的位置与变化。导出保留四通道的证据片段，让读者能从报告跳回原声核对。</p><p class="sc">gpt-6-astra <b>77.8</b> · gpt-6.1-sol 61.1 · gpt-6-luna 33.3</p></div></a>
-<a class="case" data-case="code2video" href="https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-code2video/task" rel="noopener" target="_blank">
-<img alt="品牌动画的代码复现与定向返修" class="cover" height="292" loading="lazy" src="covers/code2video.jpg?v=3" width="520"/>
-<div class="body"><div class="case-meta"><div class="badge">影视、节目与视觉后期<span class="scenario">品牌动效重建与返修</span></div><div class="case-tags"></div></div>
-<h3>品牌动画的代码复现与定向返修</h3><p class="desc">照着四秒品牌动画，用可编辑代码重建标志、指针、材质和转场，再用同一工程交付六秒返修版。只有指定指针要延迟，不能用参考帧序列代替动画。</p><p class="sc">gpt-6-astra <b>71.8</b> · gpt-6.1-sol 60.0</p></div></a>
-<a class="case" data-case="low-light-restoration" href="https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-05/task" rel="noopener" target="_blank">
-<img alt="弱光画面与音乐修复" class="cover" height="292" loading="lazy" src="covers/low-light-restoration.jpg?v=3" width="520"/>
+<h3>音乐MV上线前审片</h3><p class="desc">为《Uptown Funk》和《The Lazy Song》的两支生成 MV 做上线前审片。对照音乐、演唱和连续镜头，标出声画不同步或画面不连贯的位置，给剪辑师留下时间码和修改建议。</p><p class="sc"><span class="model-result"><span>gpt-6.1-sol</span> <span><b>55.6</b></span></span><span class="model-result"><span>DeepSeek V4.1 Flash</span> <span>28.6</span></span></p></div></a>
+<a class="case" data-case="low-light-restoration" href="https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-05/task" target="_blank" rel="noopener">
+<img class="cover" src="covers/low-light-restoration.jpg?v=3" alt="弱光画面与音乐修复" loading="lazy" width="520" height="292">
 <div class="body"><div class="case-meta"><div class="badge">影视、节目与视觉后期<span class="scenario">低照度影像与受损配乐修复</span></div><div class="case-tags"></div></div>
-<h3>弱光画面与音乐修复</h3><p class="desc">修复 26 秒实拍的弱光画面和受损音乐，同时保留真实动作、设计好的光线变化和原有节奏。交付视觉母版、修复音轨和可播放的合成预览。</p><p class="sc">gpt-6-astra <b>61.4</b> · gpt-6.1-sol 49.8 · gpt-6-luna 32.9</p></div></a>
-<a class="case" data-case="music-locked-picture" href="https://huayuankou333.github.io/omniale/music-locked-picture/#watch" rel="noopener" target="_blank">
-<img alt="动作喜剧配乐重剪" class="cover" height="292" loading="lazy" src="covers/music-locked-picture.jpg?v=3" width="520"/>
-<div class="body"><div class="case-meta"><div class="badge">音乐制作与演出服务<span class="scenario">锁定画面的配乐剪辑</span></div><div class="case-tags"><div aria-label="任务指定软件" class="software-tags"><span class="software-tag"><span>指定软件</span><strong>REAPER</strong></span></div></div></div>
-<h3>动作喜剧配乐重剪</h3><p class="desc">为 128 秒无声动作喜剧自行找音乐、重剪配乐，让音乐回应等待、危险和和解。再为 32 秒追逐片段制作有独立开头与收尾的短版，交付可重放的工程。</p><p class="sc">暂无正式总分</p></div></a>
-<a class="case" data-case="moving-tile-source-tracing-v3" href="https://walnutpz.github.io/omniale/moving-tile-source-tracing-v3/" rel="noopener" target="_blank">
-<img alt="电视墙画面与声音来源回查" class="cover" height="292" loading="lazy" src="covers/moving-tile-source-tracing-v3.jpg?v=3" width="520"/>
+<h3>弱光画面与音乐修复</h3><p class="desc">修复 26 秒实拍的弱光画面和受损音乐，同时保留真实动作、设计好的光线变化和原有节奏。交付视觉母版、修复音轨和可播放的合成预览。</p><p class="sc"><span class="model-result"><span>gpt-6-astra</span> <span><b>61.4</b></span></span><span class="model-result"><span>gpt-6.1-sol</span> <span>49.8</span></span><span class="model-result"><span>gpt-6-luna</span> <span>32.9</span></span></p></div></a>
+<a class="case" data-case="moving-tile-source-tracing-v4" href="https://walnutpz.github.io/omniale/moving-tile-source-tracing-v4/" target="_blank" rel="noopener">
+<img class="cover" src="covers/moving-tile-source-tracing-v4.jpg?v=3" alt="电视墙镜头与声音来源回查" loading="lazy" width="520" height="292">
 <div class="body"><div class="case-meta"><div class="badge">档案检索与证据研究<span class="scenario">音画素材溯源</span></div><div class="case-tags"></div></div>
-<h3>电视墙画面与声音来源回查</h3><p class="desc">16 台电视同时播放片段，画面还会换位置。对照五部无声原片，查清每段画面与声音取自哪里，记录原片时间、屏幕位置、倒放或旋转等处理。</p><p class="sc">gpt-6.2-astra <b>82.4</b> · gpt-6.2-sol 61.7 · kimi-k3.1-pro 9.5 · deepseek-v4.1-flash-1017 2.7 · gpt-6-luna 1.6</p></div></a>
-<a class="case" data-case="wr-bughouse-reconstruction" href="https://walnutpz.github.io/omniale/wr-bughouse-reconstruction/" rel="noopener" target="_blank">
-<img alt="听懂规则并复原四人象棋对局" class="cover" height="292" loading="lazy" src="covers/wr-bughouse-reconstruction.jpg?v=3" width="520"/>
+<h3>电视墙镜头与声音来源回查</h3><p class="desc">在两分钟的 25 屏电视墙里追踪不断换位的片段。对照八部无声原片，查出每段画面与声音的来源、时间和位置，并标出素材库里没有的片段。</p><p class="sc"><span class="model-result"><span>gpt-6.2-astra</span> <span><b>58.6</b></span></span><span class="model-result"><span>gpt-6.2-sol</span> <span>13.2</span></span><span class="model-result"><span>kimi-k3.1-pro</span> <span>1.1</span></span><span class="model-result"><span>gpt-6-luna</span> <span>0.4</span></span></p></div></a>
+<a class="case" data-case="birds-field-guide" href="https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-birds/task" target="_blank" rel="noopener">
+<img class="cover" src="covers/birds-field-guide.jpg?v=3" alt="鸟类识别与中文科普视频" loading="lazy" width="520" height="292">
+<div class="body"><div class="case-meta"><div class="badge">教育、训练与学习应用<span class="scenario">自然科普视频制作</span></div><div class="case-tags"></div></div>
+<h3>鸟类识别与中文科普视频</h3><p class="desc">辨认六段匿名录像里的鸟，结合形态、行为和鸣声制作中文科普片。每段都要保留原声，配上旁白和与实际解说一致的字幕。</p><p class="sc"><span class="model-result"><span>gpt-6.1-sol（两次均分）</span> <span><b>26.4</b></span></span><span class="model-result"><span>gpt-6-astra</span> <span>24.9</span></span><span class="model-result"><span>gpt-6-luna</span> <span>10.7</span></span></p></div></a>
+<a class="case" data-case="adr-take360" href="https://huayuankou333.github.io/omniale/adr-take360/" target="_blank" rel="noopener">
+<img class="cover" src="covers/adr-take360.jpg?v=3" alt="替代对白：从 360 条录音中选对表演" loading="lazy" width="520" height="292">
+<div class="body"><div class="case-meta"><div class="badge">音频后期与声音工程<span class="scenario">替代对白选取与口型同步</span></div><div class="case-tags"><div class="software-tags" aria-label="任务指定软件"><span class="software-tag"><span>指定软件</span><strong>REAPER</strong></span><span class="software-tag"><span>指定软件</span><strong>Shotcut</strong></span></div></div></div>
+<h3>替代对白：从 360 条录音中选对表演</h3><p class="desc">看 24 段无声表演，从 360 条录音中选出人物、台词、情绪和强度都吻合的一条，对齐嘴形。交付分轨、混音和成片，再按四句返修要求交第二版。</p><p class="sc"><span class="model-result"><span>deepseek-v4.1-flash-1017</span> <span><b>28.4</b></span></span><span class="model-result"><span>gpt-6.1-sol</span> <span>22.5</span></span><span class="model-result"><span>gpt-6.1-terra</span> <span>22.2</span></span></p></div></a>
+<a class="case" data-case="voice-reconstruction" href="https://huayuankou333.github.io/omniale/voice-reconstruction/" target="_blank" rel="noopener">
+<img class="cover" src="covers/voice-reconstruction.jpg?v=3" alt="演唱声线重建与音画匹配" loading="lazy" width="520" height="292">
+<div class="body"><div class="case-meta"><div class="badge">音频后期与声音工程<span class="scenario">演唱声线重建与音画同步</span></div><div class="case-tags"><div class="software-tags" aria-label="任务指定软件"><span class="software-tag"><span>指定软件</span><strong>REAPER</strong></span><span class="software-tag"><span>指定软件</span><strong>Shotcut</strong></span></div></div></div>
+<h3>演唱声线重建与音画匹配</h3><p class="desc">从三个无声候选画面里找出与导唱对应的表演，再从另一位歌者的独立录音中重建目标声线。保留歌词、旋律与呼吸，交付同步的 30 秒成片。</p><p class="sc"><span class="model-result"><span>gpt-6.1-sol</span> <span><b>33.0</b></span></span></p></div></a>
+<a class="case" data-case="dialect-subtitles" href="dialect-subtitles/">
+<img class="cover" src="covers/dialect-subtitles.jpg?v=3" alt="多方言视频的普通话字幕制作" loading="lazy" width="520" height="292">
+<div class="body"><div class="case-meta"><div class="badge">译制、无障碍与发布适配<span class="scenario">方言视频字幕本地化</span></div><div class="case-tags"></div></div>
+<h3>多方言视频的普通话字幕制作</h3><p class="desc">把六地方言的 24 段真人讲话译成普通话字幕，对齐原片并交付可切换字幕的成片。译文要说清谁做了什么，不能把“差点发生”译成“已经发生”。</p><p class="sc"><span class="model-result"><span>gpt-6.1-sol</span> <span><b>51.9</b></span></span><span class="model-result"><span>Qwen 3.8 Omni Flash</span> <span>50.7</span></span><span class="model-result"><span>DeepSeek V4.1 Flash</span> <span>38.7</span></span></p></div></a>
+<a class="case" data-case="adr-scene" href="https://huayuankou333.github.io/omniale/adr-scene/" target="_blank" rel="noopener">
+<img class="cover" src="covers/adr-scene.jpg?v=3" alt="复杂电影场景的跨镜头对白重建" loading="lazy" width="520" height="292">
+<div class="body"><div class="case-meta"><div class="badge">音频后期与声音工程<span class="scenario">电影对白剪辑与场景连续性</span></div><div class="case-tags"><div class="software-tags" aria-label="任务指定软件"><span class="software-tag"><span>指定软件</span><strong>REAPER</strong></span><span class="software-tag"><span>指定软件</span><strong>Shotcut</strong></span></div></div></div>
+<h3>复杂电影场景的跨镜头对白重建</h3><p class="desc">为《Tears of Steel》的 142 秒无声片段恢复 34 句台词与呼喊。从 200 条候选录音里认人、裁出完整表演，对齐开口时刻，并让画外音和跨镜头对白自然衔接。</p><p class="sc"><span class="model-result"><span>gpt-6.1-terra</span> <span><b>54.3</b></span></span><span class="model-result"><span>gpt-6.1-sol</span> <span>52.6</span></span><span class="model-result"><span>deepseek-v4.1-flash-1017</span> <span>47.5</span></span></p></div></a>
+<a class="case" data-case="omniecho-investigation" href="https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-omniecho-investigation/task" target="_blank" rel="noopener">
+<img class="cover" src="covers/omniecho-investigation.jpg?v=3" alt="空间音频：多声源事件调查" loading="lazy" width="520" height="292">
+<div class="body"><div class="case-meta"><div class="badge">音频后期与声音工程<span class="scenario">空间听辨与声源定位</span></div><div class="case-tags"></div></div>
+<h3>空间音频：多声源事件调查</h3><p class="desc">从 37 秒四通道现场录音和画面中，判断报警、塑料摩擦和钥匙声的位置与变化。导出保留四通道的证据片段，让读者能从报告跳回原声核对。</p><p class="sc"><span class="model-result"><span>gpt-6-astra</span> <span><b>60.6</b></span></span><span class="model-result"><span>gpt-6.1-sol</span> <span>46.6</span></span><span class="model-result"><span>gpt-6-luna</span> <span>10.6</span></span></p></div></a>
+<a class="case" data-case="code2video" href="https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-code2video/task" target="_blank" rel="noopener">
+<img class="cover" src="covers/code2video.jpg?v=3" alt="品牌动画的代码复现与定向返修" loading="lazy" width="520" height="292">
+<div class="body"><div class="case-meta"><div class="badge">影视、节目与视觉后期<span class="scenario">品牌动效重建与返修</span></div><div class="case-tags"></div></div>
+<h3>品牌动画的代码复现与定向返修</h3><p class="desc">照着四秒品牌动画，用可编辑代码重建标志、指针、材质和转场，再用同一工程交付六秒返修版。只有指定指针要延迟，不能用参考帧序列代替动画。</p><p class="sc"><span class="model-result"><span>gpt-6-astra</span> <span><b>71.8</b></span></span><span class="model-result"><span>gpt-6.1-sol</span> <span>60.0</span></span></p></div></a>
+<a class="case" data-case="aerobics-review" href="aerobics-review/">
+<img class="cover" src="covers/aerobics-review.jpg?v=3" alt="健美操动作台账与口头申诉复核" loading="lazy" width="520" height="292">
+<div class="body"><div class="case-meta"><div class="badge">教育、训练与学习应用<span class="scenario">体育训练复盘与规则复核</span></div><div class="case-tags"><span class="platform-tag" title="跨平台：命令行 ↔ 浏览器" aria-label="跨平台：命令行 ↔ 浏览器">跨平台</span></div></div>
+<h3>健美操动作台账与口头申诉复核</h3><p class="desc">看两段健美操录像，给八个动作逐一查规则、记代码和基础分。再听教练的十二项口头申诉，分清争议和撤回事项，用画面说明每项裁决。</p><p class="sc"><span class="model-result"><span>Qwen 3.8 Omni Flash</span> <span><b>75.3</b></span></span><span class="model-result"><span>gpt-6.1-sol</span> <span>52.8</span></span></p></div></a>
+<a class="case" data-case="longfilm-commentary" href="longfilm-commentary/">
+<img class="cover" src="covers/longfilm-commentary.jpg?v=3" alt="长片中文剧情解说" loading="lazy" width="520" height="292">
+<div class="body"><div class="case-meta"><div class="badge">影视、节目与视觉后期<span class="scenario">长片叙事解说制作</span></div><div class="case-tags"></div></div>
+<h3>长片中文剧情解说</h3><p class="desc">把93分钟完整电影剪成8–12分钟中文解说，讲清交错人物线、信息差与结局。关键动作要有对应画面，旁白、原片对白和音乐需自然衔接，另交字幕、文稿与镜头映射。</p><p class="sc"><span class="model-result"><span>gpt-6.2-astra</span> <span><b>78.7</b></span></span><span class="model-result"><span>gpt-6.2-sol</span> <span>71.0</span></span></p></div></a>
+<a class="case" data-case="wr-bughouse-reconstruction" href="https://walnutpz.github.io/omniale/wr-bughouse-reconstruction/" target="_blank" rel="noopener">
+<img class="cover" src="covers/wr-bughouse-reconstruction.jpg?v=3" alt="听懂规则并复原四人象棋对局" loading="lazy" width="520" height="292">
 <div class="body"><div class="case-meta"><div class="badge">教育、训练与学习应用<span class="scenario">双盘棋局复盘</span></div><div class="case-tags"></div></div>
-<h3>听懂规则并复原四人象棋对局</h3><p class="desc">听赛前讲解，整理本场双盘国际象棋的特殊规则，再从八分钟静音近景恢复两盘棋步。把吃子、向搭档交子和跨盘取子写进一份可共同重放的棋谱。</p><p class="sc">gpt-6.2-astra <b>99.1</b> · gpt-6.1-sol（三次均分） 74.4 · deepseek-v4.1-flash-1017 20.9 · qwen3.8-max-0902 20.4 · kimi-k3.1-pro 18.1 · gpt-6-luna 7.5</p></div></a>
-<a class="case" data-case="adr-take360" href="https://huayuankou333.github.io/omniale/adr-take360/" rel="noopener" target="_blank">
-<img alt="替代对白：从 360 条录音中选对表演" class="cover" height="292" loading="lazy" src="covers/adr-take360.jpg?v=3" width="520"/>
-<div class="body"><div class="case-meta"><div class="badge">音频后期与声音工程<span class="scenario">替代对白选取与口型同步</span></div><div class="case-tags"><div aria-label="任务指定软件" class="software-tags"><span class="software-tag"><span>指定软件</span><strong>REAPER</strong></span><span class="software-tag"><span>指定软件</span><strong>Shotcut</strong></span></div></div></div>
-<h3>替代对白：从 360 条录音中选对表演</h3><p class="desc">看 24 段无声表演，从 360 条录音中选出人物、台词、情绪和强度都吻合的一条，对齐嘴形。交付分轨、混音和成片，再按四句返修要求交第二版。</p><p class="sc">deepseek-v4.1-flash-1017 <b>28.4</b> · gpt-6.1-sol 22.5 · gpt-6.1-terra 22.2</p></div></a>
-<a class="case" data-case="adr-scene" href="https://huayuankou333.github.io/omniale/adr-scene/" rel="noopener" target="_blank">
-<img alt="复杂电影场景的跨镜头对白重建" class="cover" height="292" loading="lazy" src="covers/adr-scene.jpg?v=3" width="520"/>
-<div class="body"><div class="case-meta"><div class="badge">音频后期与声音工程<span class="scenario">电影对白剪辑与场景连续性</span></div><div class="case-tags"><div aria-label="任务指定软件" class="software-tags"><span class="software-tag"><span>指定软件</span><strong>REAPER</strong></span><span class="software-tag"><span>指定软件</span><strong>Shotcut</strong></span></div></div></div>
-<h3>复杂电影场景的跨镜头对白重建</h3><p class="desc">为《Tears of Steel》的 142 秒无声片段恢复 34 句台词与呼喊。从 200 条候选录音里认人、裁出完整表演，对齐开口时刻，并让画外音和跨镜头对白自然衔接。</p><p class="sc">gpt-6.1-terra <b>54.3</b> · gpt-6.1-sol 52.6 · deepseek-v4.1-flash-1017 47.5</p></div></a>
-<a class="case" data-case="voice-reconstruction" href="https://huayuankou333.github.io/omniale/voice-reconstruction/" rel="noopener" target="_blank">
-<img alt="演唱声线重建与音画匹配" class="cover" height="292" loading="lazy" src="covers/voice-reconstruction.jpg?v=3" width="520"/>
-<div class="body"><div class="case-meta"><div class="badge">音频后期与声音工程<span class="scenario">演唱声线重建与音画同步</span></div><div class="case-tags"><div aria-label="任务指定软件" class="software-tags"><span class="software-tag"><span>指定软件</span><strong>REAPER</strong></span><span class="software-tag"><span>指定软件</span><strong>Shotcut</strong></span></div></div></div>
-<h3>演唱声线重建与音画匹配</h3><p class="desc">从三个无声候选画面里找出与导唱对应的表演，再从另一位歌者的独立录音中重建目标声线。保留歌词、旋律与呼吸，交付同步的 30 秒成片。</p><p class="sc">gpt-6.1-sol <b>33.0</b></p></div></a>
-<a class="case" data-case="piano-contact" href="https://starivers152.github.io/OmniALE/piano-contact/" rel="noopener" target="_blank">
-<img alt="从钢琴录音到三维双手演奏教学" class="cover" height="292" loading="lazy" src="covers/piano-contact.jpg?v=3" width="520"/>
-<div class="body"><div class="case-meta"><div class="badge">教育、训练与学习应用<span class="scenario">钢琴转谱与三维演奏示范</span></div><div class="case-tags"><div aria-label="任务指定软件" class="software-tags"><span class="software-tag"><span>指定软件</span><strong>Blender</strong></span></div></div></div>
-<h3>从钢琴录音到三维双手演奏教学</h3><p class="desc">听辨 25 秒真人钢琴录音，写出可编辑乐谱和 MIDI，再用双手模型在 88 键键盘上演奏。按下的琴键、手指接触、谱面与重新合成的声音要同步。</p><p class="sc">gpt-6.2-astra <b>61.9</b> · gpt-6-astra 61.3 · gpt-6.1-sol 44.3</p></div></a></section>
+<h3>听懂规则并复原四人象棋对局</h3><p class="desc">听赛前讲解，整理本场双盘国际象棋的特殊规则，再从八分钟静音近景恢复两盘棋步。把吃子、向搭档交子和跨盘取子写进一份可共同重放的棋谱。</p><p class="sc"><span class="model-result"><span>gpt-6.2-astra</span> <span><b>99.1</b></span></span><span class="model-result"><span>gpt-6.1-sol（三次均分）</span> <span>74.4</span></span><span class="model-result"><span>deepseek-v4.1-flash-1017</span> <span>20.9</span></span><span class="model-result"><span>qwen3.8-max-0902</span> <span>20.4</span></span><span class="model-result"><span>kimi-k3.1-pro</span> <span>18.1</span></span><span class="model-result"><span>gpt-6-luna</span> <span>7.5</span></span></p></div></a>
+<a class="case" data-case="music-locked-picture" href="https://huayuankou333.github.io/omniale/music-locked-picture/#watch" target="_blank" rel="noopener">
+<img class="cover" src="covers/music-locked-picture.jpg?v=3" alt="动作喜剧配乐重剪" loading="lazy" width="520" height="292">
+<div class="body"><div class="case-meta"><div class="badge">音乐制作与演出服务<span class="scenario">锁定画面的配乐剪辑</span></div><div class="case-tags"><div class="software-tags" aria-label="任务指定软件"><span class="software-tag"><span>指定软件</span><strong>REAPER</strong></span></div></div></div>
+<h3>动作喜剧配乐重剪</h3><p class="desc">为 128 秒无声动作喜剧自行找音乐、重剪配乐，让音乐回应等待、危险和和解。再为 32 秒追逐片段制作有独立开头与收尾的短版，交付可重放的工程。</p><p class="sc">暂无正式总分</p></div></a></div></section>
 <section aria-labelledby="week-4" class="week"><div class="week-heading"><h2 id="week-4">Week 4</h2><span class="count">8 个案例</span></div><a class="case" data-case="charge-foley" href="https://huayuankou333.github.io/omniale/charge-foley/" rel="noopener" target="_blank">
 <img alt="跨软件电影拟音与返修" class="cover" height="292" loading="lazy" src="covers/charge-foley.jpg?v=3" width="520"/>
 <div class="body"><div class="case-meta"><div class="badge">音频后期与声音工程<span class="scenario">电影拟音与跨软件交付</span></div><div class="case-tags"><div aria-label="任务指定软件" class="software-tags"><span class="software-tag"><span>指定软件</span><strong>REAPER</strong></span><span class="software-tag"><span>指定软件</span><strong>Shotcut</strong></span></div></div></div>
