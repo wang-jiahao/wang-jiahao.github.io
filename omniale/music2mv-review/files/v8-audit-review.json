@@ -1,0 +1,1764 @@
+{
+  "purpose": "Full manual visual/audio verification queue for all Music2MV candidate findings outside current 11 GT items",
+  "included_in_current_published_gold": false,
+  "model_scores_omitted": true,
+  "total_items": 42,
+  "group_counts": {
+    "prev4": 4,
+    "uptown_high": 17,
+    "lazy_high": 10,
+    "boundary": 11
+  },
+  "items": [
+    {
+      "id": "N001",
+      "group": "prev4",
+      "source_id": "mv_uptown",
+      "source_title": "Uptown Funk",
+      "dimension": "structure_contact",
+      "badges": [
+        [
+          "先前 4 项",
+          "tag-prev"
+        ],
+        [
+          "Qwen 支持 3/3",
+          "gray"
+        ]
+      ],
+      "title": "举杯时酒杯是否悬空？",
+      "claim": "举杯换手时，杯子在没有支撑的地方折返上升。",
+      "caution": "【本次逐帧纠偏】确实属实（V2）。注意两处细节修正：杯子在 0:18.50 略降后实际无支撑“向上浮升”（先后越过青色霓虹线）而非缓降；且释放与接回的是同一只左手（画面右侧），不是左右手互换。",
+      "visual_evidence": "红衣人把盛着金色液体的高脚杯往下带。18.42 秒手撤开，杯底和脚清楚露出；杯子先低到衬衣高度，再直立向上飘过后方蓝色灯字，约 19.08 秒另一只手才托住它。",
+      "audio_evidence": "",
+      "reason": "前面白袖人递杯可以成立；这里却是杯子已经向下脱手、在空中改变方向，不是正常上抛后接住。镜头在移，杯身相对后方灯字也确实上移。",
+      "suggestion": "保留举杯笑点，让第二只手先接到杯脚再抬高，或剪在第一次举杯处。",
+      "provenance": "来自主页面 #new-findings 此前待核对的 4 项提名（已保留原始三份 Qwen 核验票）。",
+      "verified_claim": "18.3–19.2秒吧台连续镜头中，酒红西装男子举杯后手撤开，酒杯在无支撑状态下悬空并垂直下降，约19.0–19.3秒才被手重新托住。",
+      "votes": {
+        "A": {
+          "verdict": "accept",
+          "reason": "已持握物体在连续镜头内脱离手部后无支撑悬空并垂直移动，再被接回，属接触/物理连续性缺陷；与R002（空手突现手杖）、R005（空手突现白棍）为不同物体、不同机制、不同时段，构成独立新根因。",
+          "normal_alternative": "曾考虑上抛轨迹、隐藏支架、他人持握或魔法蒙太奇设定：帧序显示杯缓慢垂直下降而非抛物线；杯底杯脚全程暴露无支架；白衬衫男子双手在腰侧未及杯位；该镜头为写实酒吧连续镜头，无奇幻转场语境，替代解释均被排除。"
+        },
+        "B": {
+          "verdict": "accept",
+          "reason": "同一连续镜头内酒杯在完全无支撑接触下悬停并垂直位移后被重新接住，违反物体物理连续性；与既有R002（手杖突现）、R005（白棍突现）为不同对象与不同事件，属独立新实例。",
+          "normal_alternative": "抛接或刻意魔术噱头。排除：手撤开前无向上推送动作，杯未出现上升弧线而是原地悬停，随后缓慢受控下降，不符合抛体轨迹；场景为写实酒吧，无弦线、无道具手势、无奇幻框架支撑' levitation'设定；连续镜头内亦无cut或遮挡可解释。"
+        },
+        "C": {
+          "verdict": "accept",
+          "reason": "同一连续镜头内，杯体在手撤开后仍保持面部高度悬停并垂直缓降，随后才被接住，位移不遵循自由落体也无抛接轨迹，属物体接触与物理连续性故障；与既有根R002（手杖突现）、R005（白棍突现）、R007/R009（186–189秒长号与人物变化）为不同对象、不同时段，独立成立，不与人工已否定项（影院招牌、奖章、收音机外观、镜面冻结）重叠。",
+          "normal_alternative": "排除项：(1)自由落体接杯——面到胸约0.3米落差自由落体仅需约0.25秒，实测悬停后缓降约0.6秒且手先撤离等待，不符重力轨迹；(2)上抛——无上升弧段，杯仅垂直下沉；(3)握持遮挡或运动模糊——多帧中杯脚与张开手掌清晰分离，背景镜面与霓虹提供高对比参照；(4)切镜/进出画——该段为单一连续摇移镜头，场景约20.1秒后才切至街机厅。写实酒吧语境无魔法或特技设定可解释无支撑悬停。"
+        }
+      },
+      "clips": [
+        {
+          "file": "../media/new-findings/N001-01.mp4",
+          "site_rel": "media/new-findings/N001-01.mp4",
+          "source_start_s": 16.79,
+          "source_end_s": 20.71,
+          "event_start_s": 18.29,
+          "event_end_s": 19.21,
+          "focus_s": 18.29,
+          "fps": 24.0,
+          "label": "实例 1"
+        }
+      ]
+    },
+    {
+      "id": "N006",
+      "group": "prev4",
+      "source_id": "mv_uptown",
+      "source_title": "Uptown Funk",
+      "dimension": "continuity",
+      "badges": [
+        [
+          "先前 4 项",
+          "tag-prev"
+        ],
+        [
+          "Qwen 支持 2/3",
+          "gray"
+        ],
+        [
+          "★裁判误杀 Sol G01",
+          "tag-judge"
+        ]
+      ],
+      "title": "签单时酒杯是否消失？",
+      "claim": "签单人放下的直筒酒杯在手掌下消失。",
+      "caution": "【本次逐帧核实 + ★裁判误杀】100% 属实（V3）：1:36.85 持杯、1:37.00 倾斜触桌、1:37.17 在手指下彻底消失。主页面中 Sol G01 曾准确报告此问题，但被 Qwen 裁判误杀为误报，若纳入标答须一并平反。",
+      "visual_evidence": "画面右侧的手把有杯沿、杯壁和酒液的杯子放低，97.00 秒仍可见斜着的杯底。到 97.21 秒手指已平铺在纸上，纸上、手旁都没有杯子，另一手仍在写。",
+      "audio_evidence": "",
+      "reason": "前景另一人端走的是左边的大花纹杯，不能解释签单人手里的第二只杯子；这期间没有切镜，也没有从右侧拿走的路径。",
+      "suggestion": "单独跟踪右手的杯子，明确放在支票右上方，再让手移回去按纸。",
+      "provenance": "来自主页面 #new-findings 此前待核对的 4 项提名（已保留原始三份 Qwen 核验票）。",
+      "verified_claim": "签支票静态特写中（原片约96.5–97.6秒），男子那只盛琥珀酒液的直筒矮杯在被放到支票右侧桌面后，于约97.1→97.2秒间在原位凭空消失：同一连续静止镜头内，手移去按纸时杯已不在可见桌面，无放置完成后的留存、无人取走、无出画路径。",
+      "votes": {
+        "A": {
+          "verdict": "reject",
+          "reason": "候选必要事实不成立：97.5秒后杯在桌面持续可见，放置动作与落点均在帧序中可追踪，属正常持物—放置—构图出画，非连续动作中的物体丢失；该主张实为此前已否定的C011酒杯子项换说法（收窄窗口并改称'未放置即消失'），其'进出画/放置'合理解释未被排除反而被帧序证实。另候选把手部指认错误（持杯手与执笔手颠倒），进一步说明其观察不可靠。",
+          "normal_alternative": "杯子被明确放回桌面并停留至镜头右摇出画；候选所称'无放置消失'由可见的落桌静止帧与后续运镜共同排除。"
+        },
+        "B": {
+          "verdict": "accept",
+          "reason": "0.1s采样帧序显示矮杯先落桌、随后在无人触碰、机位静止、落点区域持续可见的条件下原位消失，属连续镜头内的物体保持断裂，非剪辑或遮挡可解释。",
+          "normal_alternative": "候选解释逐一排除：(1)切镜——96.9–98.1s为同一连续静止特写，构图元素像素级连贯；(2)镜头摇移致出画——右摇发生在约98.2s之后，消失时杯区仍在视野内；(3)他人取走/自己移走——无接触者、无位移轨迹，女子仅持自己的大杯；(4)仍持于手中——手已平放纸上，指间无物。"
+        },
+        "C": {
+          "verdict": "accept",
+          "reason": "同一连续静止镜头内，直筒酒杯从握持状态在相邻采样帧间凭空消失，无放置、递接或出画轨迹，属物体保持/连续性故障；与R002（手杖突现）、R005（白棍突现）为不同人物、不同道具、不同方向的独立事件，不归并既有root。",
+          "normal_alternative": "可设想杯被放到画框右缘外或由画外人接走：但96.8秒杯完整位于画内桌面上方，镜头静止且96.9秒后杯所在桌面区域持续可见为空，无第二只手入画，替代解释被排除；亦不同于C011所述'镜头右移致酒杯出画'——本事件发生在右摇之前、机位静止的连续帧内。"
+        }
+      },
+      "clips": [
+        {
+          "file": "../media/new-findings/N006-01.mp4",
+          "site_rel": "media/new-findings/N006-01.mp4",
+          "source_start_s": 95.0,
+          "source_end_s": 99.08,
+          "event_start_s": 96.5,
+          "event_end_s": 97.58,
+          "focus_s": 96.5,
+          "fps": 24.0,
+          "label": "实例 1"
+        }
+      ]
+    },
+    {
+      "id": "N017",
+      "group": "prev4",
+      "source_id": "mv_lazy",
+      "source_title": "Lazy Song",
+      "dimension": "editing_technical",
+      "badges": [
+        [
+          "先前 4 项",
+          "tag-prev"
+        ],
+        [
+          "Qwen 支持 3/3",
+          "gray"
+        ]
+      ],
+      "title": "部分镜头是否出现不一致的黑边？",
+      "claim": "几组表演镜头忽然缩窄，两侧出现平直黑条，切回叙事镜头又铺满。",
+      "caution": "【全帧 5,753 帧像素实测】100% 属实（V6）：精确只有这 6 段带左右 18–19px 平直黑边（有效宽 864→828px，累计 40.0 秒 / 20.9%），且与对口型演唱分支严格 1 对 1 重合，其余镜头全部铺满，明确为管线画幅不一致而非艺术构图。",
+      "visual_evidence": "源视频宽 864 像素。例：43.7 秒卧床镜头铺满，43.77 秒切唱脸后左约 18 像素、右约 18 像素为黑；俯拍床头仍有黑条，55.77 秒再恢复。另五组区间有相同边界。",
+      "audio_evidence": "",
+      "reason": "黑条与素材切点固定，不是播放器留边、暗墙或全片的统一宽银幕遮幅；近景连续看会出现画框跳动。",
+      "suggestion": "统一交付画幅，在不伤脸和字幕安全区的前提下轻裁或扩边；不要横向拉伸人物。",
+      "provenance": "来自主页面 #new-findings 此前待核对的 4 项提名（已保留原始三份 Qwen 核验票）。",
+      "verified_claim": "同一连续乐段内，多个对镜演唱近景镜头两侧出现约18–21px平直纯黑竖条（pillarbox），而相邻叙事/全景镜头铺满画框，黑条随切镜交替出现，属生成镜头画幅不一致的技术残留。",
+      "votes": {
+        "A": {
+          "verdict": "accept",
+          "reason": "六个窗口均实测到对镜演唱近景两侧平直纯黑竖条、相邻叙事镜头铺满的交替模式，且音轨连续无转场标记，符合生成镜头分辨率/画幅不一致的技术残留，claim核心事实成立。",
+          "normal_alternative": "统一遮幅、播放器留边或刻意艺术黑边均可排除：黑条仅出现在特定演唱近景且与铺满镜头在同一乐段内交替，非全片恒定；亦非进出画或遮挡所致，黑条位于画框固定边缘而非内容区。"
+        },
+        "B": {
+          "verdict": "accept",
+          "reason": "六个独立段落一致呈现'表演近景带平直黑条、相邻叙事镜头铺满'的交替模式，音轨连续无切换标记，排除统一遮幅与创意处理，构成可核验的镜头间画幅不一致技术残留。",
+          "normal_alternative": "非统一遮幅（同段相邻镜头铺满）、非播放器留边（同源其他镜头无黑边）、非创意信箱处理（原曲MV无此处理且同乐句内交替出现）；黑条为平直纯色边带，不能用切镜、进出画、遮挡或持物解释。"
+        },
+        "C": {
+          "verdict": "accept",
+          "reason": "六个窗口一致显示表演近景两侧约18px平直黑条、相邻叙事镜头铺满，且黑条跨同段切镜持续，属镜头间画幅不一致的生成技术残留，事实清楚、无合理解释可覆盖，判为有效新故障。",
+          "normal_alternative": "已排除：播放器统一遮幅（相邻镜头铺满，故非全局留边）；刻意画幅设计（18px不匹配任何标准比例，且在连续乐段内随镜头类型突兀交替、跨切镜保持）；进出画/遮挡/转动/蒙太奇/配乐声源等均与画幅边缘黑条无关；窗口边界本身非剪接错误，黑条位于窗口内部镜头。"
+        }
+      },
+      "clips": [
+        {
+          "file": "../media/new-findings/N017-01.mp4",
+          "site_rel": "media/new-findings/N017-01.mp4",
+          "source_start_s": 21.27,
+          "source_end_s": 27.27,
+          "event_start_s": 22.77,
+          "event_end_s": 25.77,
+          "focus_s": 22.77,
+          "fps": 30.0,
+          "label": "实例 1"
+        },
+        {
+          "file": "../media/new-findings/N017-02.mp4",
+          "site_rel": "media/new-findings/N017-02.mp4",
+          "source_start_s": 42.27,
+          "source_end_s": 57.27,
+          "event_start_s": 43.77,
+          "event_end_s": 55.77,
+          "focus_s": 43.77,
+          "fps": 30.0,
+          "label": "实例 2"
+        },
+        {
+          "file": "../media/new-findings/N017-03.mp4",
+          "site_rel": "media/new-findings/N017-03.mp4",
+          "source_start_s": 81.27,
+          "source_end_s": 87.27,
+          "event_start_s": 82.77,
+          "event_end_s": 85.77,
+          "focus_s": 82.77,
+          "fps": 30.0,
+          "label": "实例 3"
+        },
+        {
+          "file": "../media/new-findings/N017-04.mp4",
+          "site_rel": "media/new-findings/N017-04.mp4",
+          "source_start_s": 102.27,
+          "source_end_s": 117.27,
+          "event_start_s": 103.77,
+          "event_end_s": 115.77,
+          "focus_s": 103.77,
+          "fps": 30.0,
+          "label": "实例 4"
+        },
+        {
+          "file": "../media/new-findings/N017-05.mp4",
+          "site_rel": "media/new-findings/N017-05.mp4",
+          "source_start_s": 129.27,
+          "source_end_s": 136.27,
+          "event_start_s": 130.77,
+          "event_end_s": 134.77,
+          "focus_s": 130.77,
+          "fps": 30.0,
+          "label": "实例 5"
+        },
+        {
+          "file": "../media/new-findings/N017-06.mp4",
+          "site_rel": "media/new-findings/N017-06.mp4",
+          "source_start_s": 152.27,
+          "source_end_s": 161.27,
+          "event_start_s": 153.77,
+          "event_end_s": 159.77,
+          "focus_s": 153.77,
+          "fps": 30.0,
+          "label": "实例 6"
+        }
+      ]
+    },
+    {
+      "id": "N023",
+      "group": "prev4",
+      "source_id": "mv_lazy",
+      "source_title": "Lazy Song",
+      "dimension": "continuity",
+      "badges": [
+        [
+          "先前 4 项",
+          "tag-prev"
+        ],
+        [
+          "Qwen 支持 2/3",
+          "gray"
+        ]
+      ],
+      "title": "抛手机前后的内搭是否不连续？",
+      "claim": "同一抛手机段的反打接不上人物的内搭。",
+      "caution": "【本次逐帧核实】100% 属实（V4）：同卧室、同白底红蓝卡通毯、同一抛手机反打内，2:02.5 浅蓝圆领卡通 T 恤直接跳变为 2:03.1 芥末黄白滚边翻领纽扣睡衣。",
+      "visual_evidence": "举着手机的近景里，卡通浴袍下是蓝领白底印花上衣；切到同一房间床边，他仍披同图案浴袍、随即去取手机，但里面成了整件芥末黄排扣睡衣。",
+      "audio_evidence": "",
+      "reason": "全片本来就常换睡衣；这里只隔一次景别切换，空间、外袍、同一件手机和正在进行的动作都保留，没有另一天的提示。",
+      "suggestion": "两镜统一内搭，或插入明确的时间省略，保留各段各自的换装。",
+      "provenance": "来自主页面 #new-findings 此前待核对的 4 项提名（已保留原始三份 Qwen 核验票）。",
+      "verified_claim": "抛手机连续段内，约122.7s处由近景切至宽景时，卡通浴袍下的内搭由蓝领白底卡通印花上衣跳变为芥末黄排扣睡衣（含白色滚边与黄色长裤），外袍图案、卧室陈设、手机及'看手机—抛手机'动作均连续，歌词行跨切镜无缝延续，属衣着时间一致性缺陷。",
+      "votes": {
+        "A": {
+          "verdict": "accept",
+          "reason": "切镜发生在单一连续表演时刻内（同毯、同室、同手机、同动作、歌词行跨切镜），服装在切镜两侧不可逆地整体更换，无法用遮挡、持物、转动或蒙太奇解释；与既有根因（R004手机屏乱码文本、Xa41007fe3a37-R003手机形态突变）机制不同，为独立的衣着连续性缺陷，accept。",
+          "normal_alternative": "多机位/不同take剪辑或场景时间跳转可解释跨切镜服装变化；但本例毯子图案、房间、手机道具与动作序列完全一致，且同一句歌词字幕跨切镜连续，表明为同一叙事瞬间，切镜与时间跳转解释被排除；光照差异解释亦被排除，因衣领结构与纽扣门襟属不同服装。"
+        },
+        "B": {
+          "verdict": "accept",
+          "reason": "源事实清楚：单一连续歌词时刻内内搭身份在切镜两侧互换且无叙事提示；与R004（屏幕乱码文本）、Xa41007fe3a37-R003（手机形态突变）为不同独立故障，构成新root。",
+          "normal_alternative": "切到另一场景/另一天可解释换装，但被排除：歌词字幕与人声跨切镜连续、房间陈设与浴袍完全一致、动作（被展示手机→取机→抛机）为同一连续节拍；遮挡或转动也无法使蓝领鸭纹衫变成黄色排扣衫。"
+        },
+        "C": {
+          "verdict": "reject",
+          "reason": "候选把切镜边界误读为单镜头内的服装跳变。其前提'手机及动作均连续、无时间跳跃'与画面不符——切镜后前景手机消失、机位与姿态改变，证明这是两个镜头的拼接而非同一连续段内的morph；跨cut的服装差异是合理剪辑，排除V4缺陷。",
+          "normal_alternative": "镜头切换（cut）：音乐录影带在不同take/机位间剪辑，服装、道具（前景手机）、构图随切镜变化属正常编辑；连续声轨覆盖视觉切镜亦为标准做法，不构成场内连续性缺陷。"
+        }
+      },
+      "clips": [
+        {
+          "file": "../media/new-findings/N023-01.mp4",
+          "site_rel": "media/new-findings/N023-01.mp4",
+          "source_start_s": 120.97,
+          "source_end_s": 124.97,
+          "event_start_s": 122.47,
+          "event_end_s": 123.47,
+          "focus_s": 122.47,
+          "fps": 30.0,
+          "label": "实例 1"
+        }
+      ]
+    },
+    {
+      "id": "U01",
+      "group": "uptown_high",
+      "source_id": "mv_uptown",
+      "dimension": "V4 / V1 · 服装与腿部变形",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "Carbon 发现",
+          "gray"
+        ]
+      ],
+      "title": "连续拉镜中，裸腿高跟靴是否融变成粉皮裤与平底鞋？",
+      "claim": "无切镜连续后拉镜头里，右侧舞者的裸腿白袜与白色系带细高跟短靴直接融变成亮面玫红皮裤和白色平底板鞋；左侧男子的系带布洛克鞋同步变形为大开口平底黑鞋。",
+      "caution": "点击“定位关键时刻”到 0:07.20 后逐帧向后看：先看 0:05.5–0:07.4 的光腿+细高跟短靴，再看 0:07.6–0:08.5 连续变成粉皮裤与平底板鞋，期间零切镜。",
+      "visual_evidence": "5.0–7.6s 右侧舞者清晰可见光腿、白袜、白色系带细高跟短靴；左侧男子穿黑白系带布洛克皮鞋。7.6–8.4s 无切镜后拉中，右舞者腿部与鞋跟直接融变为亮面玫红皮裤和平底白板鞋；8.4s 左男鞋面变成露白袜的平底黑鞋。",
+      "audio_evidence": "",
+      "provenance": "此前 Gemini Carbon 分段扫描发现，本次已逐帧核实（不在当前 11 项标答，也未被另一个 AI 发现）。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/U01-01.mp4",
+          "site_rel": "media/audit-review/U01-01.mp4",
+          "source_start_s": 3.8,
+          "source_end_s": 10.2,
+          "event_start_s": 5.0,
+          "event_end_s": 9.0,
+          "focus_s": 7.2,
+          "fps": 24.0,
+          "label": "连续拉镜变形"
+        }
+      ]
+    },
+    {
+      "id": "U02",
+      "group": "uptown_high",
+      "source_id": "mv_uptown",
+      "dimension": "V4 / V7 · 镜面反射变形",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "★全新发现",
+          "tag-new"
+        ]
+      ],
+      "title": "化妆间镜中主角红西装背影，是否直接变形为正面墨镜舞者？",
+      "claim": "空化妆间里左侧大镜原本映出主角身穿红丝绒西装的背面背影；身后出现四名伴舞时，镜中主角自己的背影直接变形为一名正面朝外、穿红运动服戴墨镜抱臂站立的舞者。",
+      "caution": "盯住画面左侧镜子里的红色身影：0:30.2–0:31.0 是主角后脑勺与红丝绒后背，0:31.6–0:32.4 原位置直接翻变成正对镜外的墨镜红运动服男。",
+      "visual_evidence": "30.2–31.0s 镜中清晰显示主角背影且房间其余区域为空；31.6–32.2s 四名墨镜舞者出现在他身后，同时左侧镜中原本属于主角的红西装背影在原位直接变成正面朝外、戴墨镜抱臂的红运动服男子并持续至 34.6s。",
+      "audio_evidence": "",
+      "provenance": "本次无损原片全片人工复核首次发现（所有历史模型、Carbon 扫描与另一个 AI 均漏检）。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/U02-01.mp4",
+          "site_rel": "media/audit-review/U02-01.mp4",
+          "source_start_s": 29.2,
+          "source_end_s": 35.8,
+          "event_start_s": 30.2,
+          "event_end_s": 34.6,
+          "focus_s": 31.2,
+          "fps": 24.0,
+          "label": "左侧镜面背影变形"
+        }
+      ]
+    },
+    {
+      "id": "U03",
+      "group": "uptown_high",
+      "source_id": "mv_uptown",
+      "dimension": "V2 / V3 · 物体瞬移与消失",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "Carbon 提及",
+          "gray"
+        ]
+      ],
+      "title": "落台旋转的金币是否消失后瞬移浮到领带上并蒸发？",
+      "claim": "光头男子将金币扔在金色台面上后，台面金币于 0:45.75 消失，随后凭空浮现在他胸前黑色领带表面，缩小并在 0:47.0 彻底蒸发。",
+      "caution": "用 0.25× 慢放或逐帧看台面与领带：0:45.50 金币落台，0:45.75 台面消失，0:46.00–0:46.25 胸口领带上突然多出一枚浮空金币，0:47.0 彻底消失且无人接住。",
+      "visual_evidence": "45.2–45.5s 光头酒红西装男把金币丢在平整金色台面上；45.75s 台面金币消失；46.0–46.25s 金币凭空浮现在其黑色领带正前方（45.2–45.75s 该处为空）；46.5s 缩小、47.0s 完全消失。",
+      "audio_evidence": "",
+      "provenance": "Carbon 仅部分提及，本次逐帧核实出完整“落台→消失→领带浮现→蒸发”轨迹。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/U03-01.mp4",
+          "site_rel": "media/audit-review/U03-01.mp4",
+          "source_start_s": 44.0,
+          "source_end_s": 48.5,
+          "event_start_s": 45.2,
+          "event_end_s": 47.0,
+          "focus_s": 45.5,
+          "fps": 24.0,
+          "label": "金币落台与领带浮现"
+        }
+      ]
+    },
+    {
+      "id": "U04",
+      "group": "uptown_high",
+      "source_id": "mv_uptown",
+      "dimension": "V3 / V4 · 人物凭空生成",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "Carbon 发现",
+          "gray"
+        ]
+      ],
+      "title": "粉色空墙缝隙里是否凭空长出第 7 名女舞者？",
+      "claim": "录音机后方原本只有 6 名舞者，亚裔女与爆炸头女之间是从头到脚完全空白的粉色墙面；0:68.0 起该空隙中凭空生出第 7 名黑上衣蓝绿裤女舞者。",
+      "caution": "盯住画面偏右白橙上衣亚裔女与爆炸头女之间的粉色空墙：1:05.5–1:07.6 全程空无一人直通地板，1:08.0–1:09.2 原地凭空生成一名齐刘海女舞者（原第 6 人仍在右侧未动）。",
+      "visual_evidence": "65.5–67.6s 录音机后方 6 人站位清晰，白橙衣亚裔女与爆炸头女之间为 100% 空白粉墙直达地面；68.0–69.2s 该空白处直接长出第 7 名舞者（齐刘海、黑露脐上衣、蓝绿阔腿裤）。",
+      "audio_evidence": "",
+      "provenance": "Carbon 发现，本次逐帧核实成立。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/U04-01.mp4",
+          "site_rel": "media/audit-review/U04-01.mp4",
+          "source_start_s": 64.5,
+          "source_end_s": 70.2,
+          "event_start_s": 65.5,
+          "event_end_s": 69.2,
+          "focus_s": 67.4,
+          "fps": 24.0,
+          "label": "粉墙空隙生出第7人"
+        }
+      ]
+    },
+    {
+      "id": "U05",
+      "group": "uptown_high",
+      "source_id": "mv_uptown",
+      "dimension": "V4 · 连续镜头鞋色跳变",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "含 3:37 整段复用",
+          "gray"
+        ]
+      ],
+      "title": "夜店五人齐舞时，左侧舞者的鞋子是否在镜内由黑变白？",
+      "claim": "同一连续舞蹈镜头内，左侧两名舞者靠左一侧的鞋子由纯黑色直接变为纯白色；且该片段在 3:37 被整段原样复用，问题完整复现两次。",
+      "caution": "可用上方“核对时间段”切换 1:17.8 与 3:37.2 两处像素级复用片段，盯住左侧两名舞者脚部：先是纯黑鞋，未切镜直接变纯白鞋。",
+      "visual_evidence": "77.8–78.3s（复用处 217.2–218.0s）左侧两名舞者画面左侧的鞋子均为纯黑色；78.8s（复用处 219.4s）在同一连续镜头内直接变成纯白色。全片像素比对证实 70.0–90.0s 与 210.08–230.08s 整段复用（平均 MAD=0.36）。",
+      "audio_evidence": "",
+      "provenance": "Carbon 仅报 217s 后处，本次核实首现于 77.8s 且两处为整段像素级复用。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/U05-01.mp4",
+          "site_rel": "media/audit-review/U05-01.mp4",
+          "source_start_s": 76.3,
+          "source_end_s": 80.5,
+          "event_start_s": 77.8,
+          "event_end_s": 79.0,
+          "focus_s": 77.8,
+          "fps": 24.0,
+          "label": "首次出现"
+        },
+        {
+          "file": "../media/audit-review/U05-02.mp4",
+          "site_rel": "media/audit-review/U05-02.mp4",
+          "source_start_s": 215.8,
+          "source_end_s": 220.5,
+          "event_start_s": 217.2,
+          "event_end_s": 219.4,
+          "focus_s": 217.6,
+          "fps": 24.0,
+          "label": "3:37 整段像素复用"
+        }
+      ]
+    },
+    {
+      "id": "U06",
+      "group": "uptown_high",
+      "source_id": "mv_uptown",
+      "dimension": "V3 / V4 · 人物蒸发与身份瞬移",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "Carbon 发现",
+          "gray"
+        ]
+      ],
+      "title": "斑马线群舞中，红皮衣男是否永久蒸发且中景银衣女变身瞬移？",
+      "claim": "最右侧红皮衣男子走入洋红衣女子身后后再未出现；同时中景银西装卷发女融变为白露脐短发亚裔舞者，左侧酒红与蓝西装之间又凭空瞬移出一名银衣女。",
+      "caution": "建议分两遍看：① 盯最右侧红皮衣男在 2:31.8 走到身后即永久消失；② 盯中景银西装卷发女在 2:32.2–2:33.0 变身白露脐装，同时左侧 2:33.6 凭空多出一名银衣女。",
+      "visual_evidence": "150.5–151.2s 最右侧红皮衣男入画，151.8s 经洋红衣女身后即永久消失（152.2–154.3s 地面与后景均无）；同期中景米色与洋红西装间的银西装卷发女在 152.2–153.0s 突变为白露脐短发亚裔舞者，左侧酒红与蓝西装间于 153.6s 凭空出现银衣女。",
+      "audio_evidence": "",
+      "provenance": "Carbon 发现，本次逐帧核实全部三处同步异常。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/U06-01.mp4",
+          "site_rel": "media/audit-review/U06-01.mp4",
+          "source_start_s": 149.5,
+          "source_end_s": 155.5,
+          "event_start_s": 150.5,
+          "event_end_s": 154.3,
+          "focus_s": 151.2,
+          "fps": 24.0,
+          "label": "斑马线人物蒸发与变身"
+        }
+      ]
+    },
+    {
+      "id": "U07",
+      "group": "uptown_high",
+      "source_id": "mv_uptown",
+      "dimension": "V1 · 身体朝向 4 帧背翻正",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "Astra N008",
+          "gray"
+        ]
+      ],
+      "title": "镜厅中央蓝西装男是否在 4 帧内由纯背影直接翻成正面？",
+      "claim": "蓝西装舞者原本完全背对镜头，在下半身与髋部几乎未旋转的情况下，仅 4 帧（约 0.17 秒）内正面黑翻领与正脸直接从背部“翻”出来。",
+      "caution": "极快瞬时硬伤！务必点击“定位关键时刻”到 2:37.67 后点“下一帧”逐帧看：2:37.71 是整片蓝色后背，2:37.79–2:37.88 毫无侧身过程直接变成正面黑翻领与正脸。",
+      "visual_evidence": "157.71s 近景中央蓝西装男呈完整蓝色后背、手搭髋侧；157.79–157.88s（共 4 帧）无镜柱遮挡且髋腿基本未转，背部直接变为黑色前翻领与正脸。",
+      "audio_evidence": "",
+      "provenance": "Astra 笔记 N008，本次逐帧核实确认（与紧随其后的 U08 属同一镜厅内两个独立缺陷）。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/U07-01.mp4",
+          "site_rel": "media/audit-review/U07-01.mp4",
+          "source_start_s": 156.2,
+          "source_end_s": 159.2,
+          "event_start_s": 157.58,
+          "event_end_s": 157.96,
+          "focus_s": 157.67,
+          "fps": 24.0,
+          "label": "4 帧背翻正"
+        }
+      ]
+    },
+    {
+      "id": "U08",
+      "group": "uptown_high",
+      "source_id": "mv_uptown",
+      "dimension": "V4 · 连续镜头服装融变",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "Carbon 发现",
+          "gray"
+        ]
+      ],
+      "title": "镜厅前景亚裔女的银色连体衣是否无切镜融变为米白西装？",
+      "claim": "紧邻蓝西装男右侧的前景亚裔女原穿亮面金属银连体衣，在 2:38.4–2:39.5 无切镜情况下，全身服装直接融变成哑光米白色双排扣西装（镜中倒影同步变化）。",
+      "caution": "看画面中偏右的前景亚裔女：2:38.0–2:38.4 是一身闪亮金属银连体衣，2:38.9–2:39.5 无需遮挡与切镜直接变成哑光米白西装。",
+      "visual_evidence": "158.0–158.4s 前景亚裔女穿亮面银色连体衣；158.9–159.5s 同一连续镜头内整套衣服融变为哑光米白双排扣西装，镜中倒影同步变形。",
+      "audio_evidence": "",
+      "provenance": "Carbon 发现，本次逐帧核实确认（独立于前 1 秒的 U07 蓝西装男翻面）。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/U08-01.mp4",
+          "site_rel": "media/audit-review/U08-01.mp4",
+          "source_start_s": 157.2,
+          "source_end_s": 160.5,
+          "event_start_s": 158.4,
+          "event_end_s": 159.5,
+          "focus_s": 158.3,
+          "fps": 24.0,
+          "label": "银连体衣变米白西装"
+        }
+      ]
+    },
+    {
+      "id": "U09",
+      "group": "uptown_high",
+      "source_id": "mv_uptown",
+      "dimension": "V4 · 人物肤色发型身份连续变形",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "Carbon 发现",
+          "gray"
+        ]
+      ],
+      "title": "跳跃舞者落地时，是否由蓝发连续变形为黑人爆炸头女性？",
+      "claim": "红西装男左侧紧邻的舞者起跳时是亮青蓝色头发，空中变为金橙短发，落地直接变成深肤色黑人爆炸头女性；其左侧邻近舞者也同步由深色马尾变亮金色。",
+      "caution": "盯住中央红西装男紧邻左侧那位起跳的舞者：2:45.5–2:47.0 亮蓝发 → 2:47.5 金橙短发 → 2:48.0–2:48.6 彻底变成黑人爆炸头女性。",
+      "visual_evidence": "165.5–167.0s 红西装男左侧舞者顶着亮青蓝发起跳；167.5s 空中头发变为金橙短发；168.0–168.6s 落地时脸部、肤色与发型完全变为深肤色黑人爆炸头女性，再左侧舞者马尾同期变亮金。",
+      "audio_evidence": "",
+      "provenance": "Carbon 发现，本次逐帧核实成立。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/U09-01.mp4",
+          "site_rel": "media/audit-review/U09-01.mp4",
+          "source_start_s": 164.5,
+          "source_end_s": 169.9,
+          "event_start_s": 165.5,
+          "event_end_s": 168.6,
+          "focus_s": 166.8,
+          "fps": 24.0,
+          "label": "起跳变身黑人爆炸头"
+        }
+      ]
+    },
+    {
+      "id": "U10",
+      "group": "uptown_high",
+      "source_id": "mv_uptown",
+      "dimension": "V3 / V4 · 人物凭空生成",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "独立于 R006",
+          "gray"
+        ]
+      ],
+      "title": "暗巷听众镜头中，是否在空地凭空长出第 4 名男子？",
+      "claim": "2:50.2–2:51.8 画面右侧只有 3 名听众，红西装男手臂与棕高领男之间是清晰可见的湿漉漉空巷；2:52.1–2:52.5 第 4 名戴双层金链的卷发男子直接从红西装男肩侧凭空长出。",
+      "caution": "注意区分既有标答 R006（2:53–2:55 四人面部趋同与眼球失真）：这里发生在 R006 之前（2:51.6–2:52.5），属于空地凭空生成第 4 人的独立事件。",
+      "visual_evidence": "170.2–171.8s 右侧仅有 3 名听众，红西装男与棕色高领男之间清晰露出潮湿小巷地面与墙面；172.1–172.5s 敞开棕西装、戴双层金链的卷发第 4 人凭空从红西装男肩侧长出。",
+      "audio_evidence": "",
+      "provenance": "Carbon 发现，本次逐帧核实与 R006 为不同时间与机制。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/U10-01.mp4",
+          "site_rel": "media/audit-review/U10-01.mp4",
+          "source_start_s": 169.5,
+          "source_end_s": 173.8,
+          "event_start_s": 170.2,
+          "event_end_s": 172.5,
+          "focus_s": 171.6,
+          "fps": 24.0,
+          "label": "空巷生出第4名听众"
+        }
+      ]
+    },
+    {
+      "id": "U11",
+      "group": "uptown_high",
+      "source_id": "mv_uptown",
+      "dimension": "V4 · 群舞服装复制与瞬移",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "修正 Carbon 点数",
+          "gray"
+        ]
+      ],
+      "title": "俯拍 8 人圆阵中，银衣与白衣舞者是否凭空复制并瞬移换位？",
+      "claim": "俯拍旋转圆阵中，总人数其实保持 8→8 未减员（纠正 Carbon “8→6”的误判），但服装与身份发生不可能的复制与瞬移：5:30 方向凭空出现第二名银衣舞者、2:00 原银衣消失，同时 9:00 方向凭空跳出白衣舞者。",
+      "caution": "用 0.5× 慢放盯住钟面 2:00、5:30、9:00 三个方位：3:03.0–3:03.5 同时出现两名银衣人（2:00 与 5:30），3:04.0 2:00 银衣消失，同时 9:00 原本红/蓝位置凭空变成白衣。",
+      "visual_evidence": "181.5–185.0s 全程均为 8 人；183.0–183.5s 5:30 方向生成第二名银衣舞者而 2:00 银衣仍在，184.0s 2:00 银衣消失；183.5–184.0s 9:00 方向凭空出现白衣舞者（此前该侧仅酒红与蓝衣）。",
+      "audio_evidence": "",
+      "provenance": "基于 Carbon 线索复核：修正其“8→6”错误点数，确认真实的服装复制/瞬移硬伤。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/U11-01.mp4",
+          "site_rel": "media/audit-review/U11-01.mp4",
+          "source_start_s": 180.1,
+          "source_end_s": 186.2,
+          "event_start_s": 181.5,
+          "event_end_s": 185.0,
+          "focus_s": 182.8,
+          "fps": 24.0,
+          "label": "俯拍8人圆阵瞬移复制"
+        }
+      ]
+    },
+    {
+      "id": "U12",
+      "group": "uptown_high",
+      "source_id": "mv_uptown",
+      "dimension": "V3 · 道具尺寸形态塌缩",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "同镜于 R007/R009",
+          "gray"
+        ]
+      ],
+      "title": "舞台中央宽体双喇叭金色录音机，被遮挡后是否缩成细窄金盒？",
+      "claim": "与标答 R007（长号变 3 支）、R009（男→女→西装男）处于同一镜头：前景原本宽大的双扬声器金色录音机在被短暂遮挡后，重新露出时塌缩成宽度不足一半的无喇叭竖向窄金盒。",
+      "caution": "盯住画面最下方正中央的金色录音机：3:06.5–3:08.0 是带两个圆形喇叭的宽机身，3:08.5 遮挡瞬间后，3:09.0–3:09.9 缩成一个无喇叭的瘦高窄盒子。",
+      "visual_evidence": "186.5–188.0s 舞台中央前景摆放宽体双喇叭金色录音机；188.5s 被舞者裙摆/肢体短暂遮挡；189.0–189.9s 露出为不到原宽一半、无扬声器结构的窄竖金盒。",
+      "audio_evidence": "",
+      "provenance": "Carbon 发现，本次逐帧核实确认（注意与已被你排除的旧 R008 260–270s 跨镜录音机不同，这里是同一连续镜头内的明显塌缩）。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/U12-01.mp4",
+          "site_rel": "media/audit-review/U12-01.mp4",
+          "source_start_s": 186.0,
+          "source_end_s": 190.8,
+          "event_start_s": 187.6,
+          "event_end_s": 189.9,
+          "focus_s": 187.8,
+          "fps": 24.0,
+          "label": "录音机塌缩成窄盒"
+        }
+      ]
+    },
+    {
+      "id": "U13",
+      "group": "uptown_high",
+      "source_id": "mv_uptown",
+      "dimension": "V1 · 人体肢体缺失与融合",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "Carbon 发现",
+          "gray"
+        ]
+      ],
+      "title": "前景酒红西装男是否缺失小腿、巨鞋直连大腿并融合成单肢？",
+      "claim": "广角人群镜头中，最前方酒红西装男双脚巨鞋直接接在膝盖/大腿下方（完全没有小腿），随后双腿融合成一根只剩一只鞋的残肢，到 3:12.2 又凭空长回两条腿。",
+      "caution": "盯住画面中下方前景酒红西装男的下半身：3:10.4–3:10.8 巨鞋直连大腿无小腿 → 3:11.4–3:11.8 两腿融成单腿单鞋 → 3:12.2 长回双腿（身后几十名群众腿部正常，非广角透视）。",
+      "visual_evidence": "190.4–190.8s 巨型平底白鞋紧贴膝/大腿下端，小腿缺失；191.4–191.8s 左右腿融成单肢且仅剩一只白鞋；192.2–192.6s 重新分出正常双腿，背景人群比例正常。",
+      "audio_evidence": "",
+      "provenance": "Carbon 发现，本次逐帧核实确认。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/U13-01.mp4",
+          "site_rel": "media/audit-review/U13-01.mp4",
+          "source_start_s": 189.5,
+          "source_end_s": 194.0,
+          "event_start_s": 190.4,
+          "event_end_s": 192.6,
+          "focus_s": 190.4,
+          "fps": 24.0,
+          "label": "缺小腿与融合重长"
+        }
+      ]
+    },
+    {
+      "id": "U14",
+      "group": "uptown_high",
+      "source_id": "mv_uptown",
+      "dimension": "V3 / V6 · 乐器变形消失与光斑",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "Astra N012 + Carbon",
+          "gray"
+        ]
+      ],
+      "title": "两名挂小鼓的乐手抬手时，鼓棒是否齐变小号且随后小号消失？",
+      "claim": "右侧两名红羽毛帽挂鼓鼓手抬起拿白色鼓棒的双手时，两对鼓棒在原地直接变形为银色小号贴在嘴边（腰间小鼓仍挂着、嘴部带刺眼青蓝光斑），到 3:59.2 前排小号再次凭空消失。",
+      "caution": "另一个 AI 只注意到嘴边蓝光斑和左黑边，漏掉了更大的乐器变形！请看右侧两名羽毛帽鼓手：3:55.5 持白鼓棒敲鼓 → 3:56.2 鼓棒全变小号 → 3:59.2 前排小号彻底消失。",
+      "visual_evidence": "235.4–235.7s 右侧前后两名羽毛帽乐手均腰挎小鼓、双手持白鼓棒；235.9–236.6s 抬手瞬间两人鼓棒齐变银色小号抵口（腰鼓未卸），236.2–238.3s 嘴部出现异常青蓝光斑；239.2s 右前乐手小号凭空消失。",
+      "audio_evidence": "",
+      "provenance": "Astra N012 与 Carbon 均发现前半段鼓棒变小号，本次逐帧补全 239.2s 小号再次消失。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/U14-01.mp4",
+          "site_rel": "media/audit-review/U14-01.mp4",
+          "source_start_s": 234.2,
+          "source_end_s": 240.3,
+          "event_start_s": 235.4,
+          "event_end_s": 239.2,
+          "focus_s": 235.67,
+          "fps": 24.0,
+          "label": "鼓棒变小号与消失"
+        }
+      ]
+    },
+    {
+      "id": "U15",
+      "group": "uptown_high",
+      "source_id": "mv_uptown",
+      "dimension": "V4 · 发型瞬间剧变",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "Carbon 发现",
+          "gray"
+        ]
+      ],
+      "title": "街头俯拍庆典中，紫西装男黑短发是否瞬间炸成荧光粉爆炸头？",
+      "claim": "无切镜俯拍街头庆典里，画面正中央紫西装男子原本留着普通深色短发，在 4:11.5–4:12.5 瞬间膨胀变成一团巨大的亮荧光粉爆炸头。",
+      "caution": "盯住画面正中央的紫色西装男子头部：4:10.5–4:11.5 是普通深色短发，4:12.5–4:13.8 毫无遮挡瞬间炸成巨型亮粉爆炸头。",
+      "visual_evidence": "250.5–251.5s 中央紫西装男深色短发清晰可见；252.5–253.8s 无切镜下头顶膨胀变形为超大亮粉色爆炸头。",
+      "audio_evidence": "",
+      "provenance": "Carbon 发现，本次逐帧核实确认。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/U15-01.mp4",
+          "site_rel": "media/audit-review/U15-01.mp4",
+          "source_start_s": 249.5,
+          "source_end_s": 255.0,
+          "event_start_s": 250.5,
+          "event_end_s": 253.8,
+          "focus_s": 251.5,
+          "fps": 24.0,
+          "label": "黑短发炸成粉爆炸头"
+        }
+      ]
+    },
+    {
+      "id": "U16",
+      "group": "uptown_high",
+      "source_id": "mv_uptown",
+      "dimension": "V3 · 手持道具形态变形",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "局部放大修正 Carbon",
+          "gray"
+        ]
+      ],
+      "title": "右侧礼帽男手中的黑色麦克风，是否拉长变形为细指挥棒？",
+      "claim": "画面右侧戴礼帽男子右手原本握着黑色麦克风，在 4:18.6–4:19.1 挥动间，黑色麦克风直接拉细变直成一根细长指挥棒。",
+      "caution": "盯住画面最右侧礼帽男的右手（画面右边缘附近），建议 0.25× 慢放或逐帧看 4:18.45–4:19.10：黑话筒头拉长变细成直棒。（注：他另一只白槌实际正常换到了左手，并非消失。）",
+      "visual_evidence": "局部高倍核验确认：258.45–258.60s 右侧礼帽男右手握黑色球头麦克风；258.75–259.10s 麦克风直接拉伸变形为细长直棒。",
+      "audio_evidence": "",
+      "provenance": "基于 Carbon 线索做局部放大核实，排除了“白鼓槌消失”的误判，确认黑麦克风变指挥棒属实。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/U16-01.mp4",
+          "site_rel": "media/audit-review/U16-01.mp4",
+          "source_start_s": 257.0,
+          "source_end_s": 260.4,
+          "event_start_s": 258.4,
+          "event_end_s": 259.1,
+          "focus_s": 258.45,
+          "fps": 24.0,
+          "label": "黑麦拉长变指挥棒"
+        }
+      ]
+    },
+    {
+      "id": "U17",
+      "group": "uptown_high",
+      "source_id": "mv_uptown",
+      "dimension": "V1 / V2 · 肢体解剖异常",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "Carbon 发现",
+          "gray"
+        ]
+      ],
+      "title": "结尾按录音机时，是否出现僵直单腿与从顶部天降的黑袖手臂？",
+      "claim": "结尾特写里，右侧立着一条笔直贯通画面的品红裤腿（无膝弯、无第二条腿与躯干），同时一只戴手表的黑袖手臂直接从画面最顶部天空边缘垂直下探按按钮。",
+      "caution": "结合人体站姿与比例观察整个画面：右侧像柱子一样笔直的品红单腿、以及完全违反正常弯腰角度从顶部边缘笔直垂下的黑袖手臂。",
+      "visual_evidence": "266.8–268.6s 画面右侧为单条垂直僵直的品红裤腿（缺第二条腿与躯干连接），顶部天空边缘垂直伸下一条带腕表的黑袖手臂按下金色录音机按钮。",
+      "audio_evidence": "",
+      "provenance": "Carbon 发现，本次逐帧核实确认。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/U17-01.mp4",
+          "site_rel": "media/audit-review/U17-01.mp4",
+          "source_start_s": 265.3,
+          "source_end_s": 270.4,
+          "event_start_s": 266.8,
+          "event_end_s": 268.6,
+          "focus_s": 266.8,
+          "fps": 24.0,
+          "label": "单腿与天降手臂"
+        }
+      ]
+    },
+    {
+      "id": "L01",
+      "group": "lazy_high",
+      "source_id": "mv_lazy",
+      "dimension": "V5 · 电子钟非法五位数字",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "早于 R001 切镜",
+          "gray"
+        ]
+      ],
+      "title": "片头 0:00–0:02.7 红色闹钟是否显示非法五位时间 18:000 / 18:090？",
+      "claim": "在现有标答 R001（0:02.8–0:03.5 绿色数字钟）切镜之前，开片第一个俯拍镜头里的红色 LED 闹钟已显示无效五位数 18:000，随后变 18:09 带杂点，0:02.7 又变回 18:090/18:099。",
+      "caution": "片段保留到 0:04.5，可清楚看出 0:02.77 是硬切镜头才换到绿色钟（并非另一个 AI 所说的镜内红变绿）。请核验后决定是否并入现有标答 R001 扩展时间窗口。",
+      "visual_evidence": "0.00s 床头红色 LED 钟清楚显示五位数 18:000；0.5–1.8s 变为 18:09 伴多余光点；2.70s 再次变为五位非法数字 18:090/18:099；2.77s 硬切到另一机位的绿色电子钟（R001）。",
+      "audio_evidence": "",
+      "provenance": "Astra N013 与另一个 AI 均有提及，本次逐帧精确纠偏了 2.77s 切镜位置。",
+      "source_title": "Lazy Song",
+      "clips": [
+        {
+          "file": "../media/audit-review/L01-01.mp4",
+          "site_rel": "media/audit-review/L01-01.mp4",
+          "source_start_s": 0.0,
+          "source_end_s": 4.5,
+          "event_start_s": 0.0,
+          "event_end_s": 2.76,
+          "focus_s": 0.0,
+          "fps": 30.0,
+          "label": "开片红钟与切镜"
+        }
+      ]
+    },
+    {
+      "id": "L02",
+      "group": "lazy_high",
+      "source_id": "mv_lazy",
+      "dimension": "V5 · 前景屏幕乱码与图标畸变",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "关联 R004",
+          "gray"
+        ]
+      ],
+      "title": "0:02.9–0:09.8 床头近景手机屏幕是否全程乱码且图标持续变形？",
+      "claim": "除既有标答 R004（2:01–2:03 手持手机）外，片头 0:02.9–0:09.8 长达 7 秒的床头桌面近景中，摆在前景的手机屏幕同样全程呈现无意义乱码字符，且彩色圆点图标持续蠕动变形。",
+      "caution": "盯住画面右侧床头柜上的手机屏幕（0:03–0:09.8 全程位于前景）：文字不可读且圆点图标不断畸变。请决定是否并入 R004（手机屏乱码）作为第二实例或独立标注。",
+      "visual_evidence": "2.9–9.8s 床头桌面静物镜头中，右侧手机亮屏展示大面积无意义字符及不断变形/增减的彩色圆形图标。",
+      "audio_evidence": "",
+      "provenance": "另一个 AI 仅提到 0:04 单帧，本次核实持续 2.9–9.8s 整段镜头。",
+      "source_title": "Lazy Song",
+      "clips": [
+        {
+          "file": "../media/audit-review/L02-01.mp4",
+          "site_rel": "media/audit-review/L02-01.mp4",
+          "source_start_s": 2.4,
+          "source_end_s": 10.8,
+          "event_start_s": 2.9,
+          "event_end_s": 9.8,
+          "focus_s": 3.5,
+          "fps": 30.0,
+          "label": "床头手机全程乱码"
+        }
+      ]
+    },
+    {
+      "id": "L03",
+      "group": "lazy_high",
+      "source_id": "mv_lazy",
+      "dimension": "AV3 · 音画对白口型静止",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "Astra N018 · 需开声",
+          "gray"
+        ]
+      ],
+      "title": "过山车女生说“Oh my God, this is great!”时，嘴巴是否全程僵直不动？",
+      "claim": "音轨在主唱后清晰响起语速很快的女声回应台词 “Oh my God, this is great!”，但正面特写里的女生从头到尾一直定格在大张嘴尖叫状，对 my 闭唇及后续音节零口型动作。",
+      "caution": "请打开声音听 1:31.7–1:33.2 的女声清晰对白，同时看正面女生嘴型：整句期间下颌几乎纹丝不动，无任何念台词的开合与闭唇。",
+      "visual_evidence": "91.5–93.5s 正面双人过山车镜头里，女生嘴巴持续定格在张大尖叫/大笑形态，91.9–92.9s 女声说台词时无闭唇或二次起口动作。",
+      "audio_evidence": "男声唱完 she's gonna scream out, this is great 后，约 91.75–93.23s 音轨清晰出现分节说话女声 “Oh my God, this is great!”。",
+      "provenance": "Astra 笔记 N018，本次带原声与逐帧联合核实成立。",
+      "source_title": "Lazy Song",
+      "clips": [
+        {
+          "file": "../media/audit-review/L03-01.mp4",
+          "site_rel": "media/audit-review/L03-01.mp4",
+          "source_start_s": 90.0,
+          "source_end_s": 94.5,
+          "event_start_s": 91.75,
+          "event_end_s": 93.23,
+          "focus_s": 91.75,
+          "fps": 30.0,
+          "label": "过山车女声对白口型"
+        }
+      ]
+    },
+    {
+      "id": "L04",
+      "group": "lazy_high",
+      "source_id": "mv_lazy",
+      "dimension": "V5 · 前景人声整段漏字幕",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "Astra N016 · 需开声",
+          "gray"
+        ]
+      ],
+      "title": "过山车女声回应与五分屏 4.5 秒 yeah 连唱，是否整段漏配字幕？",
+      "claim": "两处清晰前景人声完全未配烧录字幕：① 1:31.75–1:33.23 过山车女生完整对白 “Oh my God, this is great!” 字幕在 1:32.4 中断；② 2:29.0–2:33.35 五分屏长达 4.5 秒的 “yeah yeah yeah...” 零字幕（而前段 2:18–2:21 的 “no no no...” 完整配了字幕）。",
+      "caution": "请开声并用下拉框分别核对两处：尤其是实例 2，紧挨着前面有字幕的 no no no，切到五分屏 10 拍响亮 yeah 时底部完全空白。",
+      "visual_evidence": "92.4s 底部字幕提前消失，整句女声回应无字；149.0–153.35s 五分屏整段画面底部完全无字幕，与 138–141s 的 no 连唱有字幕形成直接对比。",
+      "audio_evidence": "91.75–93.23s 清晰女声对白；149.0–153.35s 连续 10 拍响亮前景人声 yeah yeah yeah。",
+      "provenance": "Astra 笔记 N016 + Carbon 发现，本次带原声核实成立。",
+      "source_title": "Lazy Song",
+      "clips": [
+        {
+          "file": "../media/audit-review/L04-01.mp4",
+          "site_rel": "media/audit-review/L04-01.mp4",
+          "source_start_s": 90.0,
+          "source_end_s": 94.5,
+          "event_start_s": 91.75,
+          "event_end_s": 93.23,
+          "focus_s": 91.75,
+          "fps": 30.0,
+          "label": "过山车女声回应漏字"
+        },
+        {
+          "file": "../media/audit-review/L04-02.mp4",
+          "site_rel": "media/audit-review/L04-02.mp4",
+          "source_start_s": 147.5,
+          "source_end_s": 154.8,
+          "event_start_s": 149.0,
+          "event_end_s": 153.35,
+          "focus_s": 149.0,
+          "fps": 30.0,
+          "label": "五分屏 4.5 秒 yeah 漏字"
+        }
+      ]
+    },
+    {
+      "id": "L05",
+      "group": "lazy_high",
+      "source_id": "mv_lazy",
+      "dimension": "V3 · 固定机位道具整套消失复现",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "★裁判误杀 Astra N021",
+          "tag-judge"
+        ]
+      ],
+      "title": "固定机位沙发演出中，立麦架、话筒与遥控器是否整套凭空消失又闪现？",
+      "claim": "1:45.8–1:46.55 主角站在沙发上手持黑色落地立麦架与遥控器；1:46.75–1:47.20 倒向沙发踢腿挥手时，整套立麦架、话筒与遥控器在房间里完全消失；1:47.75–1:48.40 起身时麦线、立麦架与遥控器全部凭空瞬移回原位。",
+      "caution": "重要平反项！此前 Qwen 裁判把 Astra N021 判成了误报。请逐帧看 1:46.55（立麦架+遥控器都在）→ 1:46.75–1:47.20（整根麦架与遥控器彻底消失）→ 1:48.40（整套凭空回归）。",
+      "visual_evidence": "105.8–106.55s 站立于沙发上，左手握黑色落地麦架上的有线话筒、右手持黑遥控器；106.75–107.20s 仰倒挥空手，整根黑色立麦架、话筒及遥控器彻底从房间消失；107.75s 麦线凭空回到手中，108.40s 立麦架与遥控器完整瞬移归位。",
+      "audio_evidence": "",
+      "provenance": "Astra N021（遭 Qwen 裁判误杀）+ Carbon 发现，本次逐帧实锤 100% 属实。",
+      "source_title": "Lazy Song",
+      "clips": [
+        {
+          "file": "../media/audit-review/L05-01.mp4",
+          "site_rel": "media/audit-review/L05-01.mp4",
+          "source_start_s": 105.0,
+          "source_end_s": 110.0,
+          "event_start_s": 106.5,
+          "event_end_s": 108.5,
+          "focus_s": 106.5,
+          "fps": 30.0,
+          "label": "立麦架与遥控器消失复现"
+        }
+      ]
+    },
+    {
+      "id": "L06",
+      "group": "lazy_high",
+      "source_id": "mv_lazy",
+      "dimension": "V1 / V2 · 错位第三只手",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "同镜于 R004",
+          "gray"
+        ]
+      ],
+      "title": "卧室手机特写中，是否凭空伸出“第三只手”反举手机朝向镜头？",
+      "claim": "与既有标答 R004（手机屏乱码）处于同一镜头：主角自己的双肩与双臂清晰垂在毯子两侧，但画面左下角凭空升起一只不属于他的手，把手机屏幕正对镜头举起，而主角盯着手机背面看。",
+      "caution": "看主角双肩下垂位置和左下角那只托手机的手：不仅多出第三只手，而且手机屏幕朝外给镜头看，主角自己正面朝手机背面。与 R004 文字乱码属独立机制。",
+      "visual_evidence": "121.1–122.73s 主角双肩与两臂自然垂放于白色卡通毯下，左下角另有一只悬空手臂托举手机使屏幕面向镜头，主角目光落于手机背部。",
+      "audio_evidence": "",
+      "provenance": "Carbon 发现，本次逐帧核实成立。",
+      "source_title": "Lazy Song",
+      "clips": [
+        {
+          "file": "../media/audit-review/L06-01.mp4",
+          "site_rel": "media/audit-review/L06-01.mp4",
+          "source_start_s": 120.2,
+          "source_end_s": 123.6,
+          "event_start_s": 121.1,
+          "event_end_s": 122.73,
+          "focus_s": 121.3,
+          "fps": 30.0,
+          "label": "第三只手反举手机"
+        }
+      ]
+    },
+    {
+      "id": "L07",
+      "group": "lazy_high",
+      "source_id": "mv_lazy",
+      "dimension": "V5 · 字幕切分与提前剧透",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "Astra N015 · 需开声",
+          "gray"
+        ]
+      ],
+      "title": "底部字幕是否提前 3 秒把下段首句粘在一起剧透并跨镜滞留？",
+      "claim": "2:08.47 还在唱 “I'm not doing anything” 时，底部字幕就已经把下一乐段首句拼成整行 “I'm not doing anything no I ain't gonna comb my hair”（比实际开唱早约 3 秒），且跨切镜一直滞留到 2:14.8。",
+      "caution": "开声核对 2:08.4–2:11.5：唱完 anything 中间有明显停顿换气，到 2:11.5 才开始唱 No, I ain't gonna comb my hair，但字幕在 2:08.47 就提前把两句粘死。按 TASK.md 独立于 R003 错词。",
+      "visual_evidence": "128.47s 起底部单行字幕同时展示两句，跨越 130.77s 切镜持续挂屏至约 134.8s。",
+      "audio_evidence": "128.4–130.85s 唱 I'm not doing anything；停顿换气后约 131.5s 才起唱 No, I ain't gonna comb my hair。",
+      "provenance": "Astra 笔记 N015，本次带原声核实成立。",
+      "source_title": "Lazy Song",
+      "clips": [
+        {
+          "file": "../media/audit-review/L07-01.mp4",
+          "site_rel": "media/audit-review/L07-01.mp4",
+          "source_start_s": 127.2,
+          "source_end_s": 136.0,
+          "event_start_s": 128.4,
+          "event_end_s": 134.8,
+          "focus_s": 128.47,
+          "fps": 30.0,
+          "label": "字幕提前合并剧透"
+        }
+      ]
+    },
+    {
+      "id": "L08",
+      "group": "lazy_high",
+      "source_id": "mv_lazy",
+      "dimension": "V6 / V5 · 异物图标贴图伪影",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "★全新发现",
+          "tag-new"
+        ]
+      ],
+      "title": "敞开睡袍时，裸胸上是否贴着像素风头盔图标并融变成 Censored 框？",
+      "claim": "唱 “I'll just strut in my birthday suit” 敞开睡袍时，主角裸胸皮肤上莫名贴着一个黑描边像素风铁头盔/RPG图标，随后融成黄斑并变成扁平黄色圆角 UI 框写着 Censored（d 下方带粉色杂点）。",
+      "caution": "逐帧看 2:23.3–2:25.4 主角胸口：先是一个格格不入的像素风铁头盔图标贴在皮肤上，2:24.5 糊成黄块，2:24.8–2:25.4 变成黄色 Censored 框。",
+      "visual_evidence": "143.3–144.2s 敞袍裸胸中央贴着黑描边像素风铁头盔图标；144.5s 化为模糊黄斑；144.8–145.4s 变为黄色圆角 Censored 框，145.1s 字母 d 下方出现粉色光标状伪影。",
+      "audio_evidence": "",
+      "provenance": "本次无损原片人工复核首次发现（所有历史模型、Carbon 与另一个 AI 均漏检）。",
+      "source_title": "Lazy Song",
+      "clips": [
+        {
+          "file": "../media/audit-review/L08-01.mp4",
+          "site_rel": "media/audit-review/L08-01.mp4",
+          "source_start_s": 142.0,
+          "source_end_s": 146.5,
+          "event_start_s": 143.0,
+          "event_end_s": 145.5,
+          "focus_s": 143.3,
+          "fps": 30.0,
+          "label": "像素头盔变Censored框"
+        }
+      ]
+    },
+    {
+      "id": "L09",
+      "group": "lazy_high",
+      "source_id": "mv_lazy",
+      "dimension": "V3 · 道具集体闪现蒸发",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "Carbon 发现",
+          "gray"
+        ]
+      ],
+      "title": "五分屏猴面具舞者无切镜下，4 格猴尾是否集体生长、换边又蒸发？",
+      "claim": "同一无切镜五分屏舞蹈画面里，5 个分屏中有 4 个分屏的猴尾巴凭空长出、换侧并最终集体蒸发消失。",
+      "caution": "慢放 0.5× 横扫五格屁股后方：2:29.2 仅第 1、3 格有尾 → 2:30.2 第 2、4 格凭空长出大尾巴且第 3 格尾巴甩到另一侧 → 2:31.2–2:32.5 所有五格的尾巴全部蒸发。",
+      "visual_evidence": "149.2s 仅分屏 1、3 有尾巴；150.2s 分屏 2、4 凭空长出粗大猴尾，分屏 3 尾巴翻转到另一侧；151.2–152.5s 五个分屏的所有尾巴彻底消失，期间无切镜。",
+      "audio_evidence": "",
+      "provenance": "Carbon 发现，本次逐帧核实确认（与同段 L04 的 4.5 秒 yeah 漏字幕分属不同维度）。",
+      "source_title": "Lazy Song",
+      "clips": [
+        {
+          "file": "../media/audit-review/L09-01.mp4",
+          "site_rel": "media/audit-review/L09-01.mp4",
+          "source_start_s": 147.8,
+          "source_end_s": 154.5,
+          "event_start_s": 148.9,
+          "event_end_s": 153.2,
+          "focus_s": 149.2,
+          "fps": 30.0,
+          "label": "五分屏猴尾集体蒸发"
+        }
+      ]
+    },
+    {
+      "id": "L10",
+      "group": "lazy_high",
+      "source_id": "mv_lazy",
+      "dimension": "V2 / V6 · 幽灵鼓被 + 6 次冻结卡顿",
+      "badges": [
+        [
+          "高置信度",
+          "gray"
+        ],
+        [
+          "★全新发现",
+          "tag-new"
+        ]
+      ],
+      "title": "结尾空房中，空床被子是否自行鼓起爬落地面并伴 6 次冻结卡顿？",
+      "claim": "另一个 AI 只注意到这段画风割裂，却漏掉了两大硬伤：① 3:08.5 原本平整无人的空床被子突然自行高高鼓起成形并爬落地板（3:07.0 天花板另有黄斑瞬闪）；② 3:06.3–3:11.7 内出现 6 次长达 0.3–0.5 秒的连续冻结卡顿。",
+      "caution": "先 1× 正常播放感受明显的一顿一顿卡帧（共 6 次 9–15 帧冻结），同时盯住空床上的被子在 3:08.5 自行鼓起并滚落到地板上。",
+      "visual_evidence": "186.0–187.7s 空床平整（187.0s 天花板瞬闪黄斑）；188.5s 无人的空床被子自行鼓起成团，189.6–190.5s 爬落地面。全帧像素差检出 6 段重复冻结：186.30–186.73s（14帧）、187.93–188.20s（9帧）、189.33–189.73s（13帧）、189.77–190.20s（14帧）、190.77–191.23s（15帧）、191.27–191.73s（15帧）。",
+      "audio_evidence": "",
+      "provenance": "本次全帧像素检测 + 人工复核首次发现（所有历史模型、Carbon 与另一个 AI 均漏检）。",
+      "source_title": "Lazy Song",
+      "clips": [
+        {
+          "file": "../media/audit-review/L10-01.mp4",
+          "site_rel": "media/audit-review/L10-01.mp4",
+          "source_start_s": 184.5,
+          "source_end_s": 191.82,
+          "event_start_s": 186.0,
+          "event_end_s": 191.73,
+          "focus_s": 187.8,
+          "fps": 30.0,
+          "label": "空床鼓被与6次冻结"
+        }
+      ]
+    },
+    {
+      "id": "B01",
+      "group": "boundary",
+      "source_id": "mv_uptown",
+      "dimension": "V6 · 随机胶片边缘黑条",
+      "badges": [
+        [
+          "边界/次要",
+          "tag-boundary"
+        ],
+        [
+          "像素实测 3 处",
+          "gray"
+        ]
+      ],
+      "title": "全片仅 3 个随机镜头带 35mm 胶片边框与闪烁黄字，是否算技术伪影？",
+      "claim": "全片仅 3 个镜头边缘出现黑色竖条胶片边框并带闪烁黄色编号：0:40.0–0:45.0（左 11px）、1:55.1–2:00.0（左 11px，另一个 AI 漏检）、3:55.1–4:00.0（左 21px + 右 16px，它漏了右边）。",
+      "caution": "请用下拉框查看全部 3 处，判断这种随机夹杂 3 镜的 35mm 齿孔黑边/黄字应归为无意生成的画幅伪影（V6），还是放行为可接受的复古胶片质感。",
+      "visual_evidence": "全帧扫描确认 40.00–44.96s（左 11px）、115.08–120.04s（左 11px）、235.08–240.04s（左 21px、右 16px）边缘存在黑色胶片边条与闪烁黄色数字，其余绝大部分镜头铺满无边。",
+      "audio_evidence": "",
+      "provenance": "另一个 AI 发现其中 2 处左边缘，本次全帧像素扫描补全第 2 处（115s）及第 3 处右侧 16px 黑边。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/B01-01.mp4",
+          "site_rel": "media/audit-review/B01-01.mp4",
+          "source_start_s": 38.8,
+          "source_end_s": 46.0,
+          "event_start_s": 40.0,
+          "event_end_s": 44.96,
+          "focus_s": 40.2,
+          "fps": 24.0,
+          "label": "金龙镜头 #1（左 11px）"
+        },
+        {
+          "file": "../media/audit-review/B01-02.mp4",
+          "site_rel": "media/audit-review/B01-02.mp4",
+          "source_start_s": 114.0,
+          "source_end_s": 121.0,
+          "event_start_s": 115.08,
+          "event_end_s": 120.04,
+          "focus_s": 115.3,
+          "fps": 24.0,
+          "label": "金龙镜头 #2（左 11px，补检）"
+        },
+        {
+          "file": "../media/audit-review/B01-03.mp4",
+          "site_rel": "media/audit-review/B01-03.mp4",
+          "source_start_s": 234.0,
+          "source_end_s": 241.0,
+          "event_start_s": 235.08,
+          "event_end_s": 240.04,
+          "focus_s": 235.3,
+          "fps": 24.0,
+          "label": "军乐队（左 21px + 右 16px）"
+        }
+      ]
+    },
+    {
+      "id": "B02",
+      "group": "boundary",
+      "source_id": "mv_uptown",
+      "dimension": "V5 · 腕表表盘乱码与指针静止",
+      "badges": [
+        [
+          "边界/次要",
+          "tag-boundary"
+        ],
+        [
+          "含 3:35 整段复用",
+          "gray"
+        ]
+      ],
+      "title": "金色腕表大特写表盘波浪乱码与秒针静止，是否达到需改标准？",
+      "claim": "腕表特写中表盘品牌字样为波浪形 AI 乱码、日历窗与刻度微畸变，且细指针约 1.8 秒完全静止；该镜头首现于 1:15.0–1:16.85 并在 3:35.08–3:36.95 原样复用。",
+      "caution": "纠偏另一个 AI：它写的 3:33–3:35 其实是棋盘格舞者，且把腕部反光汗珠误认成皮肤圆形伪影。真正需核对的是表盘文字乱码与 1.8 秒静止指针是否算必改缺陷。",
+      "visual_evidence": "75.00–76.85s 与像素级复用处 215.08–216.95s 表盘商标呈波浪乱码，细指针约 1.8 秒静止不动；手腕表面小圆点实为反光汗珠。",
+      "audio_evidence": "",
+      "provenance": "另一个 AI 提及 3:35 处，本次修正精确区间并核实其为 1:15 处的整段像素复用。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/B02-01.mp4",
+          "site_rel": "media/audit-review/B02-01.mp4",
+          "source_start_s": 74.0,
+          "source_end_s": 78.0,
+          "event_start_s": 75.0,
+          "event_end_s": 76.85,
+          "focus_s": 75.2,
+          "fps": 24.0,
+          "label": "首次出现 1:15"
+        },
+        {
+          "file": "../media/audit-review/B02-02.mp4",
+          "site_rel": "media/audit-review/B02-02.mp4",
+          "source_start_s": 214.0,
+          "source_end_s": 218.0,
+          "event_start_s": 215.08,
+          "event_end_s": 216.95,
+          "focus_s": 215.3,
+          "fps": 24.0,
+          "label": "3:35 像素复用"
+        }
+      ]
+    },
+    {
+      "id": "B03",
+      "group": "boundary",
+      "source_id": "mv_uptown",
+      "dimension": "V5 · 前景路牌与霓虹伪字",
+      "badges": [
+        [
+          "边界/次要",
+          "tag-boundary"
+        ],
+        [
+          "已避开旧 R001",
+          "gray"
+        ]
+      ],
+      "title": "除已排除的剧院灯箱外，这些街头路牌与灯牌乱码是否纳入标答？",
+      "claim": "已严格避开你此前人工移除的旧 R001（40–45s 剧院灯箱）；此处汇总片中最显眼的 4 组前景路牌/霓虹乱码，尤其是 0:26.8–0:29.8 清晰路牌逐帧重组成 LLENCEWS / LUCE TALL / BLLENGCRS。",
+      "caution": "考虑到你此前曾移除旧 R001 剧院灯箱，请结合你的文字严苛度标准查看这 4 处代表片段（特别是实例 1 逐帧抖动变形的清晰路牌），裁定 Uptown 是否保留文字乱码类标答。",
+      "visual_evidence": "26.8–29.8s 路口路牌清晰白边文字逐帧变形（LLENCEWS/LUCE TALL/BLLENGCRS/LUDE TEAL）；18–19.6s 吧台霓虹 Fang...coccks 笔画重组；145.5–149s 霓虹 POBHEIXOP/SUTNO；230.5–234.5s 牌匾 ...ELLOTML/O MAAREP。",
+      "audio_evidence": "",
+      "provenance": "Astra N002 + 本次全片核对整理（避开人工排除的旧 R001 剧院灯箱）。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/B03-01.mp4",
+          "site_rel": "media/audit-review/B03-01.mp4",
+          "source_start_s": 25.5,
+          "source_end_s": 30.6,
+          "event_start_s": 26.8,
+          "event_end_s": 29.8,
+          "focus_s": 27.0,
+          "fps": 24.0,
+          "label": "路口路牌逐帧变形"
+        },
+        {
+          "file": "../media/audit-review/B03-02.mp4",
+          "site_rel": "media/audit-review/B03-02.mp4",
+          "source_start_s": 16.8,
+          "source_end_s": 20.5,
+          "event_start_s": 18.0,
+          "event_end_s": 19.6,
+          "focus_s": 18.2,
+          "fps": 24.0,
+          "label": "吧台青色灯牌重组"
+        },
+        {
+          "file": "../media/audit-review/B03-03.mp4",
+          "site_rel": "media/audit-review/B03-03.mp4",
+          "source_start_s": 144.8,
+          "source_end_s": 150.2,
+          "event_start_s": 145.5,
+          "event_end_s": 149.0,
+          "focus_s": 146.5,
+          "fps": 24.0,
+          "label": "街景霓虹 POBHEIXOP"
+        },
+        {
+          "file": "../media/audit-review/B03-04.mp4",
+          "site_rel": "media/audit-review/B03-04.mp4",
+          "source_start_s": 229.8,
+          "source_end_s": 235.2,
+          "event_start_s": 230.5,
+          "event_end_s": 234.5,
+          "focus_s": 231.5,
+          "fps": 24.0,
+          "label": "牌匾 ...ELLOTML"
+        }
+      ]
+    },
+    {
+      "id": "B04",
+      "group": "boundary",
+      "source_id": "mv_uptown",
+      "dimension": "V3 / V2 · 道具机械突变",
+      "badges": [
+        [
+          "边界/次要",
+          "tag-boundary"
+        ],
+        [
+          "本次复核发现",
+          "gray"
+        ]
+      ],
+      "title": "黑胶唱机特写中，细唱臂消失并变为粗金臂横扫唱片是否算缺陷？",
+      "claim": "1:45.2–1:45.45 位于 12 点方向的细唱臂在 1:45.55 模糊消失，紧接着一条明显变粗的金色唱臂在 1:45.65–1:46.0 径直横扫旋转黑胶唱片甩到 4 点方向。",
+      "caution": "镜头很短（约 0.8 秒），请点“定位关键时刻”到 1:45.45 后逐帧向后查看唱臂形态突变与横刮唱片动作，判断其显著程度是否够入标答。",
+      "visual_evidence": "105.2–105.45s 12 点位细唱臂清晰；105.55s 虚化消失；105.65–106.0s 出现粗金色唱臂快速扫过唱片表面至 4 点位。",
+      "audio_evidence": "",
+      "provenance": "本次逐帧复核核实（C01 拼图）。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/B04-01.mp4",
+          "site_rel": "media/audit-review/B04-01.mp4",
+          "source_start_s": 104.2,
+          "source_end_s": 107.2,
+          "event_start_s": 105.2,
+          "event_end_s": 106.05,
+          "focus_s": 105.45,
+          "fps": 24.0,
+          "label": "黑胶唱臂突变横扫"
+        }
+      ]
+    },
+    {
+      "id": "B05",
+      "group": "boundary",
+      "source_id": "mv_uptown",
+      "dimension": "V1 / V3 · 乐器附着异常",
+      "badges": [
+        [
+          "边界/次要",
+          "tag-boundary"
+        ],
+        [
+          "本次复核发现",
+          "gray"
+        ]
+      ],
+      "title": "门廊乐队中，无鼓手的大鼓诡异贴在贝斯手胯部与裙摆间是否算缺陷？",
+      "claim": "短促切镜的门廊乐队画面中，蓝西装男一边怀抱立式低音提琴，一只无人演奏的大鼓莫名悬空贴附在其胯部与邻近女舞者裙摆之间。",
+      "caution": "画面约 1 秒较短，盯住中央抱大提琴蓝西装男的腰胯侧：看那只悬在半空、没有鼓手也没有支架的大鼓是否足够明显。",
+      "visual_evidence": "104.0–105.05s 门廊场景蓝西装男持低音提琴，胯侧与旁人裙摆之间紧贴一只无鼓手与支架的大鼓。",
+      "audio_evidence": "",
+      "provenance": "本次逐帧复核核实（B06 拼图）。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/B05-01.mp4",
+          "site_rel": "media/audit-review/B05-01.mp4",
+          "source_start_s": 103.2,
+          "source_end_s": 105.6,
+          "event_start_s": 104.0,
+          "event_end_s": 105.05,
+          "focus_s": 104.3,
+          "fps": 24.0,
+          "label": "门廊乐队悬空大鼓"
+        }
+      ]
+    },
+    {
+      "id": "B06",
+      "group": "boundary",
+      "source_id": "mv_uptown",
+      "dimension": "AV3 · 合唱立麦口型脱节",
+      "badges": [
+        [
+          "边界/次要",
+          "tag-boundary"
+        ],
+        [
+          "Astra N003 · 需开声",
+          "gray"
+        ]
+      ],
+      "title": "三名白西装立麦歌手两段合唱的口型/朝向脱节，是否纳入音画标答？",
+      "claim": "两处三人立麦特写：① 0:52–0:54.95 响起新一轮 Girls hit your hallelujah 时，两翼歌手已离麦转头；② 2:10.1–2:15.04 从长音 hallelujah 切入急促短句 Uptown funk gon' give it to ya，三人下颌仍僵在持续露齿大张状态。",
+      "caution": "请开声分别检查两段！目前 Uptown 正式标答里 0 项依赖音频，请判断是否把这类较明确的音画口型脱节纳入。",
+      "visual_evidence": "52.0–54.95s 两侧歌手离麦转头、中央回头看；130.12–135.04s 三人持续保持拉长元音的大张口僵态，未随短促歌词构音。",
+      "audio_evidence": "52s 起连续再唱 Girls hit your hallelujah；131.4s 由 hallelujah 转入节奏紧凑的 Uptown funk gon' give it to ya。",
+      "provenance": "Astra 笔记 N003，本次带原声与 C03 拼图核实。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/B06-01.mp4",
+          "site_rel": "media/audit-review/B06-01.mp4",
+          "source_start_s": 50.8,
+          "source_end_s": 56.0,
+          "event_start_s": 52.0,
+          "event_end_s": 54.95,
+          "focus_s": 52.0,
+          "fps": 24.0,
+          "label": "0:52 立麦转头离麦"
+        },
+        {
+          "file": "../media/audit-review/B06-02.mp4",
+          "site_rel": "media/audit-review/B06-02.mp4",
+          "source_start_s": 129.0,
+          "source_end_s": 136.2,
+          "event_start_s": 130.12,
+          "event_end_s": 135.04,
+          "focus_s": 131.4,
+          "fps": 24.0,
+          "label": "2:10 长音口型跨快句"
+        }
+      ]
+    },
+    {
+      "id": "B07",
+      "group": "boundary",
+      "source_id": "mv_uptown",
+      "dimension": "AV3 · 纯器乐间奏假唱",
+      "badges": [
+        [
+          "边界/次要",
+          "tag-boundary"
+        ],
+        [
+          "Astra N007 · 需开声",
+          "gray"
+        ]
+      ],
+      "title": "进入纯铜管器乐间奏后，前景红衣男仍大幅张合嘴领唱是否算缺陷？",
+      "claim": "2:21.5 唱完 “Don't believe me, just watch” 后进入纯铜管/鼓贝斯间奏（无人声歌词），但镜头推给居中酒红衣男子特写，他连续张大口、收圆唇、再张口做出明显连续唱词动作至 2:24.9。",
+      "caution": "请开声对比 2:21.8–2:24.9 的纯器乐声部和前景男子的连续构音嘴型，判断这是明显音画错配，还是可接受的随节拍欢呼表演。",
+      "visual_evidence": "141.79–144.92s 居中红衣男面向镜头多次开合嘴、收圆唇做连续领唱动作，持续约 3 秒。",
+      "audio_evidence": "139.7–141.5s 唱完 Don't believe me, just watch 后，141.8–144.9s 为纯铜管 riff 与鼓贝斯，无连续唱词。",
+      "provenance": "Astra 笔记 N007，本次带原声核实。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/B07-01.mp4",
+          "site_rel": "media/audit-review/B07-01.mp4",
+          "source_start_s": 140.2,
+          "source_end_s": 146.0,
+          "event_start_s": 141.79,
+          "event_end_s": 144.92,
+          "focus_s": 141.8,
+          "fps": 24.0,
+          "label": "纯铜管段领唱特写"
+        }
+      ]
+    },
+    {
+      "id": "B08",
+      "group": "boundary",
+      "source_id": "mv_uptown",
+      "dimension": "AV3 · 原页面未确定口型",
+      "badges": [
+        [
+          "边界/次要",
+          "tag-boundary"
+        ],
+        [
+          "原待定 Sol G02/G03",
+          "gray"
+        ]
+      ],
+      "title": "2:00–2:05 正面独唱特写口型（原待定 Sol G02/G03）是否确实偏轻？",
+      "claim": "主页面此前标为“未确定”的闭唇音口型项。本次带原声核对：他在 2:01.2–2:04.3 确实有明显张合嘴演唱（并非 Carbon 所说全程静止微笑），仅在 my/band/'bout 闭唇偏松，且 2:04.8 break it down 尾句提前抿嘴微笑。",
+      "caution": "开声 0.5× 慢放检查 2:02.6–2:04.9：我们初步判断该项属“偏轻/边界”，大概率不必纳入必查标答，请你亲自听看拍板。",
+      "visual_evidence": "121.2–124.3s 嘴部持续张合演唱；122.65–124.75s 闭唇音收合偏松，124.8s 提前收成微笑。",
+      "audio_evidence": "约 122.65–124.75s 唱 And my band 'bout that money, break it down。",
+      "provenance": "对应主页面 Sol G02/G03（未确定）与 Astra N004，本次带原声与 B07 拼图核实。",
+      "source_title": "Uptown Funk",
+      "clips": [
+        {
+          "file": "../media/audit-review/B08-01.mp4",
+          "site_rel": "media/audit-review/B08-01.mp4",
+          "source_start_s": 119.0,
+          "source_end_s": 126.0,
+          "event_start_s": 120.0,
+          "event_end_s": 124.96,
+          "focus_s": 122.65,
+          "fps": 24.0,
+          "label": "正面独唱闭唇核对"
+        }
+      ]
+    },
+    {
+      "id": "B09",
+      "group": "boundary",
+      "source_id": "mv_lazy",
+      "dimension": "V2 / V7 · 镜面后半段差异",
+      "badges": [
+        [
+          "边界/次要",
+          "tag-boundary"
+        ],
+        [
+          "关联已排除旧 R002",
+          "tag-judge"
+        ]
+      ],
+      "title": "1:19.2–1:22.7 照镜子起身后的面具/帽兜/朝向不符，是否维持整镜排除？",
+      "claim": "片段刻意从 1:16.5 开始以便对照：1:18.0–1:18.5 弯腰时确实是自己身体挡住了镜子（你此前移除旧 R002 完全正确）；但在 1:19.2 起身后，前景为半脸面具露棕色真发+白色大帽兜、身体侧转，而镜中却是全包猴头套无真发+无帽翻领且正对镜头。",
+      "caution": "严格尊重你此前排除旧 R002（1:17.9–1:18.6）的决定！这里只提供 1:19.2–1:22.7 后半段原画幅片段，由你决定是“整镜继续排除”，还是“改用 1:19.2–1:22.7 重新纳入”。",
+      "visual_evidence": "78.0–78.5s 前景弯腰遮挡镜面（旧 R002 不成立）；79.2–82.7s 起身后前景戴半脸猴面具露棕发、穿白羊羔绒连帽且 80.2–82.4s 侧身向左，镜中为全包猴头套无真发、无帽翻领且正对镜外。",
+      "audio_evidence": "",
+      "provenance": "另一个 AI 重新提起 1:17 镜面；本次逐帧厘清前半段（你已排除）与后半段（真实不符）的边界。",
+      "source_title": "Lazy Song",
+      "clips": [
+        {
+          "file": "../media/audit-review/B09-01.mp4",
+          "site_rel": "media/audit-review/B09-01.mp4",
+          "source_start_s": 76.5,
+          "source_end_s": 83.8,
+          "event_start_s": 79.2,
+          "event_end_s": 82.7,
+          "focus_s": 79.2,
+          "fps": 30.0,
+          "label": "起身后的镜面差异（含前段对照）"
+        }
+      ]
+    },
+    {
+      "id": "B10",
+      "group": "boundary",
+      "source_id": "mv_lazy",
+      "dimension": "V4 / V3 · 快切道具消失",
+      "badges": [
+        [
+          "边界/次要",
+          "tag-boundary"
+        ],
+        [
+          "Carbon 发现 · 含快切",
+          "gray"
+        ]
+      ],
+      "title": "厨房三连快切间，纸皇冠与大片牙膏泡沫瞬间消失是否算连续性缺陷？",
+      "claim": "同一厨房、同一服装、端着同一只碗的 no no no 三连快切里，头上戴的纸皇冠（2:20.1→2:21.2）和嘴边大片牙膏泡沫（2:21.2→2:21.8）在切镜间瞬间清零。",
+      "caution": "该段包含明确快切（2:19.0 / 2:20.33 / 2:21.67 均有切点），按 TASK.md 可能被视作喜剧蒙太奇切镜，因此列为边界项请你裁定。",
+      "visual_evidence": "139.0–140.1s 戴纸皇冠；140.33s 切镜后 141.2s 皇冠消失、嘴边满是白沫；141.67s 切镜后 141.8–142.3s 嘴边泡沫瞬间完全干净。",
+      "audio_evidence": "",
+      "provenance": "Carbon 发现，本次逐帧核实确有切点（140.33s、141.67s），列为边界待定。",
+      "source_title": "Lazy Song",
+      "clips": [
+        {
+          "file": "../media/audit-review/B10-01.mp4",
+          "site_rel": "media/audit-review/B10-01.mp4",
+          "source_start_s": 137.8,
+          "source_end_s": 143.2,
+          "event_start_s": 139.0,
+          "event_end_s": 142.3,
+          "focus_s": 140.0,
+          "fps": 30.0,
+          "label": "厨房快切皇冠与泡沫"
+        }
+      ]
+    },
+    {
+      "id": "B11",
+      "group": "boundary",
+      "source_id": "mv_lazy",
+      "dimension": "AV3 · 原页面未确定口型",
+      "badges": [
+        [
+          "边界/次要",
+          "tag-boundary"
+        ],
+        [
+          "原待定 G09 · 需开声",
+          "gray"
+        ]
+      ],
+      "title": "唱“comb my hair”时的闭唇口型（原待定 G09）是否偏轻微？",
+      "claim": "主页面此前标为“未确定”的闭唇音同步项。本次带原声与逐帧检查：唱到 comb my 时 2:13.75 嘴唇确有收窄动作，只是未完全严实闭合，观感偏轻微。",
+      "caution": "开声 0.5× 慢放检查 2:13.3–2:14.2：初步认为偏轻微、不必作为硬性标答，请你亲自听看确认。",
+      "visual_evidence": "133.55–133.95s 嘴唇在 133.75s 有明显收窄但未完全闭严。",
+      "audio_evidence": "约 133.6–134.4s 唱 comb my hair。",
+      "provenance": "对应主页面待定项 Lazy G09，本次带原声与 C05 拼图核实。",
+      "source_title": "Lazy Song",
+      "clips": [
+        {
+          "file": "../media/audit-review/B11-01.mp4",
+          "site_rel": "media/audit-review/B11-01.mp4",
+          "source_start_s": 131.2,
+          "source_end_s": 135.6,
+          "event_start_s": 132.7,
+          "event_end_s": 134.5,
+          "focus_s": 133.6,
+          "fps": 30.0,
+          "label": "comb my hair 闭唇核对"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+/* Dedicated full manual verification queue for Music2MV (matches v8 paper/ink palette). */
+.ar-header{padding:12px 0 6px;max-width:940px}
+.ar-header h1{font-size:34px;margin:6px 0 12px}
+.ar-header .lead{max-width:860px;line-height:1.8}
+
+.ar-toolbar-wrap{
+  position:sticky;top:0;z-index:30;
+  background:rgba(246,245,240,.96);backdrop-filter:blur(6px);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:12px 0;margin:20px 0 24px;
+}
+.ar-toolbar{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;justify-content:space-between}
+.ar-pills{display:flex;flex-wrap:wrap;gap:6px}
+.ar-pill{
+  border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:999px;padding:6px 12px;font-size:12px;cursor:pointer;
+  transition:background .12s,border-color .12s,color .12s;
+}
+.ar-pill:hover{border-color:var(--accent)}
+.ar-pill.active{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+
+.ar-filters{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.ar-filters label{display:flex;gap:6px;align-items:center;font-size:12px;color:var(--muted)}
+.ar-filters select{font-size:12px;padding:5px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);color:var(--ink)}
+
+.ar-status-row{
+  display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;
+  margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:12px;
+}
+.ar-progress{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-variant-numeric:tabular-nums}
+.ar-progress strong{color:var(--accent);font-size:13px}
+.ar-stat-ok{color:#1d6f42;font-weight:600}
+.ar-stat-no{color:#9a3b3b;font-weight:600}
+.ar-stat-maybe{color:#8c6314;font-weight:600}
+
+.ar-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ar-actions button{
+  border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:5px;padding:5px 10px;font-size:12px;cursor:pointer;
+}
+.ar-actions button:hover{border-color:var(--accent);color:var(--accent)}
+.ar-actions button.ar-btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.ar-actions button.ar-btn-primary:hover{opacity:.92;color:#fff}
+.ar-copy-feedback{font-size:12px;color:var(--accent);font-weight:600}
+
+.ar-group-block{margin:28px 0 36px}
+.ar-group-block[hidden]{display:none}
+.ar-group-head{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.ar-group-head h2{margin:0;border:0;padding:0;font-size:21px}
+.ar-group-head p{margin:0;font-size:13px;color:var(--muted)}
+
+.ar-badge-row{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.tag.tag-new{background:#e3f3ee;color:#145a4d;border-color:#9fc9be}
+.tag.tag-judge{background:#fcebe9;color:#8e2a25;border-color:#e4b4b0}
+.tag.tag-boundary{background:#f7f1e1;color:#7a5612;border-color:#dfcfa4}
+.tag.tag-prev{background:#eaeff5;color:#284d73;border-color:#c0d0e2}
+
+.mv-review-card[hidden]{display:none}
+.mv-review-card.is-accept{border-color:#7bb899;box-shadow:inset 3px 0 0 #2e8458}
+.mv-review-card.is-reject{border-color:#d8a3a0;box-shadow:inset 3px 0 0 #b04640;opacity:.88}
+.mv-review-card.is-unsure{border-color:#d9bf7a;box-shadow:inset 3px 0 0 #b38319}
+
+.ar-verdict-box{
+  margin-top:12px;padding-top:10px;border-top:1px solid var(--line);
+  display:grid;gap:8px;
+}
+.ar-verdict-btns{display:flex;flex-wrap:wrap;gap:6px}
+.ar-vbtn{
+  flex:1;min-width:86px;padding:6px 8px;font-size:12px;
+  border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:5px;cursor:pointer;text-align:center;
+}
+.ar-vbtn:hover{border-color:var(--accent)}
+.ar-vbtn[data-verdict="accept"].active{background:#1f754a;border-color:#1f754a;color:#fff;font-weight:600}
+.ar-vbtn[data-verdict="reject"].active{background:#a53c36;border-color:#a53c36;color:#fff;font-weight:600}
+.ar-vbtn[data-verdict="unsure"].active{background:#a67612;border-color:#a67612;color:#fff;font-weight:600}
+.ar-note-input{
+  width:100%;box-sizing:border-box;padding:6px 9px;font-size:12px;
+  border:1px solid var(--line);border-radius:5px;background:#fafaf6;color:var(--ink);
+}
+.ar-note-input:focus{outline:2px solid var(--accent);outline-offset:1px;background:#fff}
+
+.ar-empty{
+  padding:28px;text-align:center;color:var(--muted);
+  border:1px dashed var(--line);border-radius:8px;background:var(--paper);margin:20px 0;
+}
+.ar-empty[hidden]{display:none}
+
+/* Full-movie modal drawer so jumping to source video never loses scroll position */
+.ar-modal-backdrop{
+  position:fixed;inset:0;z-index:80;background:rgba(16,28,31,.62);
+  display:flex;align-items:center;justify-content:center;padding:18px;
+}
+.ar-modal-backdrop[hidden]{display:none}
+.ar-modal{
+  width:min(960px,100%);max-height:92vh;overflow:auto;
+  background:var(--paper);border:1px solid var(--line);border-radius:10px;
+  padding:18px 20px;box-shadow:0 20px 50px rgba(0,0,0,.3);
+}
+.ar-modal-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+.ar-modal-head h3{margin:0;font-size:18px}
+.ar-modal-close{
+  border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:5px;padding:5px 11px;font-size:13px;cursor:pointer;
+}
+.ar-modal video{width:100%;display:block;aspect-ratio:16/9;background:#111;border-radius:6px}
+.ar-modal-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+.ar-modal-tools button{font-size:12px;cursor:pointer}
+.ar-modal-tools label{font-size:12px;display:flex;gap:5px;align-items:center}
+.ar-modal-clock{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;margin-left:auto}
+
+/* Export preview modal */
+.ar-export-text{
+  width:100%;min-height:260px;box-sizing:border-box;
+  font:12px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;
+  padding:10px;border:1px solid var(--line);border-radius:6px;background:#fafaf6;color:var(--ink);
+}
+
+@media(max-width:750px){
+  .ar-header h1{font-size:26px}
+  .ar-toolbar-wrap{position:static}
+  .ar-modal{padding:14px}
+}
