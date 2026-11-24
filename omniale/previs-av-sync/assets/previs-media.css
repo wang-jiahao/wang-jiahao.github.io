@@ -1,0 +1,23 @@
+#task { margin-top: 24px }
+.previs-inputs { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 14px; align-items: stretch; margin: 16px 0 }
+.media-card { background: var(--paper); border: 1px solid var(--line); border-radius: 9px; min-width: 0; padding: 16px; display: flex; flex-direction: column }
+.media-card h3 { margin-bottom: 2px }
+.media-card .meta { color: var(--muted); font-size: 13px; margin: 0 0 12px }
+.media-card figcaption { font-size: 13px; color: var(--muted) }
+.media-card video, .comparison video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: contain; background: #142529; border-radius: 6px }
+.media-card audio { display: block; width: 100%; margin: 6px 0 10px }
+.media-card .toolbar { margin: auto 0 0; padding-top: 6px }
+.waveform { margin: 12px 0 16px; border-radius: 6px; background: var(--wash); padding: 12px 9px 8px }
+.wave-bars { height: 75px; display: flex; gap: 1px; align-items: center; overflow: hidden }
+.wave-bars i { flex: 1 1 0; min-width: 0; height: var(--level); border-radius: 2px; background: #39847a }
+.wave-time { display: flex; justify-content: space-between; color: var(--muted); border-top: 1px solid var(--line); padding-top: 4px; font-size: 11px; font-variant-numeric: tabular-nums }
+.comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 12px 0 }
+.comparison .media-card { padding: 12px }
+.comparison .meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 10px }
+.comparison .takeaway { font-size: 13px; color: var(--muted); margin: 8px 0 0 }
+.compare-tools { margin-top: 12px }
+.compare-tools p { margin: 0 0 5px }
+.compare-tools button[aria-pressed=true] { background: var(--accent); color: #fff; border-color: var(--accent) }
+.media-note { color: var(--muted); font-size: 13px }
+.task-details ul { margin: 4px 0 10px; padding-left: 23px }
+@media (max-width: 760px) { .previs-inputs, .comparison { grid-template-columns: minmax(0, 1fr) } .media-card { padding: 12px } }
