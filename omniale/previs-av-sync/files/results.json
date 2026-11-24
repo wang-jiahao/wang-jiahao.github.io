@@ -1,0 +1,181 @@
+{
+  "case_id": "previs_av_sync",
+  "version": "v1",
+  "title": "多镜头灰模预演与现场声同步",
+  "domain": 2,
+  "scenario": "影视动态分镜预演与声画合板",
+  "software": [
+    "Blender"
+  ],
+  "rubric_version": "previs-av-sync-v1-pvscore54-qwen38omni-sync20",
+  "upstream_source": {
+    "benchmark": "VibePrevisBench (arXiv:2611.15789)",
+    "task_id": "B250_191",
+    "license": "Code Apache-2.0; dataset annotations CC BY-NC-SA 4.0",
+    "media_source": "https://www.bilibili.com/video/av114281244789133",
+    "media_title": "2023 Rolex Grand Prix CHI Genève - Jump-Off",
+    "source_anchor_s": 491.2,
+    "location_audio_window_s": [
+      395.0,
+      605.0
+    ],
+    "gt_offset_s": 96.2
+  },
+  "scoring_weights": {
+    "scene_check_pvscore54": 40.0,
+    "screen_check_vlm_qwen38omni": 40.0,
+    "audio_vse_editable_gate": 4.0,
+    "audio_waveform_sync_accuracy": 16.0
+  },
+  "models": [
+    {
+      "model": "gpt-6.2-sol",
+      "display_name": "Sol 6.2",
+      "tag": "sol62_xhigh_r01_20261124",
+      "harness": "Codex CLI 0.171.0-alpha.13",
+      "provider": "NJU Link (direct)",
+      "network_enabled": true,
+      "requested_effort": "xhigh",
+      "actual_request_efforts": [
+        "xhigh"
+      ],
+      "explicit_effort_verified": true,
+      "actual_request_count": 64,
+      "actual_http_statuses": [
+        200
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1987.609,
+      "replay_passed": true,
+      "all_immutable_inputs_intact": true,
+      "trace_forbidden_hits": [],
+      "total_score": 66.0948,
+      "summary_score_1dp": 66.1,
+      "breakdown": {
+        "scene_pts_40": 19.6448,
+        "scene_raw_100": 49.112,
+        "screen_pts_40": 27.25,
+        "screen_raw_100": 68.125,
+        "audio_vse_pts_4": 4.0,
+        "audio_sync_pts_16": 15.2,
+        "audio_total_pts_20": 19.2
+      },
+      "scene_dims": {
+        "A1": 1.0,
+        "A2": 0.5334,
+        "A3": null,
+        "P1": 0.4605,
+        "B1": 0.018,
+        "B2": 0.4681,
+        "C1": 0.4562,
+        "C2": 0.839,
+        "D1": 0.1538
+      },
+      "screen_dims": {
+        "V1": 0.9167,
+        "V2": 0.6,
+        "V3": 0.875,
+        "V4": 0.3333
+      },
+      "audio_sync": {
+        "reported_offset_s": 96.375,
+        "actual_offset_s": 96.375,
+        "gt_offset_s": 96.2,
+        "offset_err_s": 0.175,
+        "offset_err_frames_24fps": 4.2,
+        "corr_peak": 0.9998
+      },
+      "trace_stats": {
+        "commands": 93,
+        "render_previs_calls": 10,
+        "asr_calls": 4
+      }
+    },
+    {
+      "model": "deepseek-v4.1-flash-1017",
+      "display_name": "DeepSeek V4.1 Flash",
+      "tag": "ds41_max_r01_20261124",
+      "harness": "Codex CLI 0.171.0-alpha.13",
+      "provider": "DashScope (direct)",
+      "network_enabled": true,
+      "requested_effort": "max",
+      "actual_request_efforts": [
+        "max"
+      ],
+      "explicit_effort_verified": true,
+      "actual_request_count": 172,
+      "actual_http_statuses": [
+        200
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2447.312,
+      "replay_passed": true,
+      "all_immutable_inputs_intact": true,
+      "trace_forbidden_hits": [],
+      "total_score": 44.9,
+      "summary_score_1dp": 44.9,
+      "breakdown": {
+        "scene_pts_40": 15.9,
+        "scene_raw_100": 39.75,
+        "screen_pts_40": 25.0,
+        "screen_raw_100": 62.5,
+        "audio_vse_pts_4": 4.0,
+        "audio_sync_pts_16": 0.0,
+        "audio_total_pts_20": 4.0
+      },
+      "scene_dims": {
+        "A1": 1.0,
+        "A2": 0.2825,
+        "A3": null,
+        "P1": 0.1474,
+        "B1": 0.0,
+        "B2": 0.2841,
+        "C1": 0.2992,
+        "C2": 0.8762,
+        "D1": 0.2906
+      },
+      "screen_dims": {
+        "V1": 1.0,
+        "V2": 0.0,
+        "V3": 1.0,
+        "V4": 0.5
+      },
+      "audio_sync": {
+        "reported_offset_s": 88.0,
+        "actual_offset_s": 88.0,
+        "gt_offset_s": 96.2,
+        "offset_err_s": 8.2,
+        "offset_err_frames_24fps": 196.8,
+        "corr_peak": 0.9997
+      },
+      "trace_stats": {
+        "commands": 210,
+        "render_previs_calls": 17,
+        "asr_calls": 7
+      },
+      "audit_note": "Qwen judge omitted 'place:' prefix on S01/S02 in V1 JSON (scored 4/4=1.0 instead of 5.5/6=0.9167, +0.83 pt). Unmodified official score 44.90 retained."
+    }
+  ],
+  "calibration": {
+    "calib_good": {
+      "replay_passed": true,
+      "audio_offset_err_s": 0.0,
+      "audio_corr_peak": 0.9998,
+      "audio_total_pts_20": 20.0
+    },
+    "calib_shifted": {
+      "replay_passed": true,
+      "audio_offset_err_s": 1.2584,
+      "audio_corr_peak": 0.9683,
+      "audio_total_pts_20": 10.9665
+    },
+    "calib_silent": {
+      "replay_passed": true,
+      "audio_total_pts_20": 0.0
+    },
+    "calib_broken": {
+      "replay_passed": false,
+      "total_score": 0.0
+    }
+  }
+}
