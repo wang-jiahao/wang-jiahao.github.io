@@ -1,12 +1,105 @@
 {
   "week": "6",
   "order": [
+    "phoenix-reconstruction",
+    "chamber-forensics",
+    "slakh-project-migration",
     "video-crosscheck-0019",
     "omni2web-464",
     "longfilm-commentary-trapped",
-    "music2mv-review-lazy"
+    "music2mv-review-lazy",
+    "piano-contact-ii",
+    "scv-showcase"
   ],
   "cases": [
+    {
+      "id": "phoenix-reconstruction",
+      "title": "凤凰角色重建与新机位有声动画",
+      "cover": "phoenix-reconstruction.jpg",
+      "cover_source": "https://vibrant700.github.io/omniale/phoenix-reconstruction/assets/reference/I1-poster.jpg",
+      "url": "https://vibrant700.github.io/omniale/phoenix-reconstruction/",
+      "scores": {
+        "gpt-6.2-astra": 39.18651588184098
+      },
+      "score": "gpt-6.2-astra 39.18651588184098",
+      "max_model_score": 39.18651588184098,
+      "score_source": "https://vibrant700.github.io/omniale/phoenix-reconstruction/results/astra62-xhigh/score.json",
+      "score_sources": [
+        "https://vibrant700.github.io/omniale/phoenix-reconstruction/results/astra62-xhigh/score.json"
+      ],
+      "classification": {
+        "week": "6",
+        "domain": 2,
+        "scenario": "动态角色重建与新机位动画",
+        "show_in_summary": true,
+        "variant": false,
+        "software": [
+          "Blender"
+        ]
+      }
+    },
+    {
+      "id": "chamber-forensics",
+      "title": "室内乐演出视频异常排查",
+      "cover": "chamber-forensics.jpg",
+      "cover_source": "https://walnutpz.github.io/omniale/chamber-forensics/media/poster.jpg",
+      "url": "https://walnutpz.github.io/omniale/chamber-forensics/",
+      "scores": {
+        "gpt-6.2-astra": 65.61553195015205,
+        "gpt-6.2-sol": 4.689558704088078,
+        "gpt-6-luna": 0,
+        "kimi-k3.1-pro": 0
+      },
+      "score": "gpt-6.2-astra 65.61553195015205 · gpt-6.2-sol 4.689558704088078 · gpt-6-luna 0 · kimi-k3.1-pro 0",
+      "max_model_score": 65.61553195015205,
+      "score_source": "https://walnutpz.github.io/omniale/chamber-forensics/results.html",
+      "score_sources": [
+        "https://walnutpz.github.io/omniale/chamber-forensics/results.html",
+        "https://walnutpz.github.io/omniale/chamber-forensics/sources/scores/astra.json",
+        "https://walnutpz.github.io/omniale/chamber-forensics/sources/scores/sol.json",
+        "https://walnutpz.github.io/omniale/chamber-forensics/sources/scores/luna.json",
+        "https://walnutpz.github.io/omniale/chamber-forensics/sources/scores/kimi.json"
+      ],
+      "classification": {
+        "week": "6",
+        "domain": 4,
+        "scenario": "演出录制质检与声画取证",
+        "show_in_summary": true,
+        "variant": false
+      }
+    },
+    {
+      "id": "slakh-project-migration",
+      "title": "多声部音乐工程迁移与碎谱定位",
+      "cover": "slakh-project-migration.jpg",
+      "cover_source": "https://walnutpz.github.io/omniale/slakh-project-migration/media/fragment-06.png",
+      "url": "https://walnutpz.github.io/omniale/slakh-project-migration/",
+      "scores": {
+        "gpt-6.2-sol": 45.26515181670608,
+        "kimi-k3.1-pro": 21.4933794605947,
+        "gpt-6-luna": 3.333333333333333
+      },
+      "score": "gpt-6.2-sol 45.26515181670608 · kimi-k3.1-pro 21.4933794605947 · gpt-6-luna 3.333333333333333",
+      "max_model_score": 45.26515181670608,
+      "score_source": "https://walnutpz.github.io/omniale/slakh-project-migration/results.html",
+      "score_sources": [
+        "https://walnutpz.github.io/omniale/slakh-project-migration/results.html",
+        "https://walnutpz.github.io/omniale/slakh-project-migration/sources/scores/sol.json",
+        "https://walnutpz.github.io/omniale/slakh-project-migration/sources/scores/kimi.json",
+        "https://walnutpz.github.io/omniale/slakh-project-migration/sources/scores/luna.json"
+      ],
+      "score_note": "DeepSeek 尚无正式总分。",
+      "classification": {
+        "week": "6",
+        "domain": 3,
+        "scenario": "多轨音频工程迁移与乐谱定位",
+        "show_in_summary": true,
+        "variant": false,
+        "software": [
+          "REAPER"
+        ]
+      }
+    },
     {
       "id": "video-crosscheck-0019",
       "url": "video-crosscheck-0019/",
@@ -25,7 +118,8 @@
         "week": "6",
         "domain": 7,
         "scenario": "视频与外部资料交叉核实",
-        "show_in_summary": true
+        "show_in_summary": true,
+        "variant": true
       }
     },
     {
@@ -46,7 +140,8 @@
         "week": "6",
         "domain": 8,
         "scenario": "录屏驱动网页编辑",
-        "show_in_summary": true
+        "show_in_summary": true,
+        "variant": true
       }
     },
     {
@@ -67,7 +162,8 @@
         "week": "6",
         "domain": 1,
         "scenario": "电影剧情解说与音画剪辑",
-        "show_in_summary": true
+        "show_in_summary": true,
+        "variant": true
       }
     },
     {
@@ -88,7 +184,65 @@
         "week": "6",
         "domain": 4,
         "scenario": "生成 MV 的声画与连续性核查",
-        "show_in_summary": true
+        "show_in_summary": true,
+        "variant": true
+      }
+    },
+    {
+      "id": "piano-contact-ii",
+      "title": "Piano Contact II · 双手钢琴教学",
+      "cover": "piano-contact-ii.jpg",
+      "cover_source": "https://starivers152.github.io/OmniALE/piano-contact-ii/assets/astra/poster.jpg",
+      "url": "https://starivers152.github.io/OmniALE/piano-contact-ii/index.html",
+      "scores": {
+        "gpt-6.2-astra": 61.98983463116003,
+        "gpt-6.2-sol": 44.1259990739447
+      },
+      "score": "gpt-6.2-astra 61.98983463116003 · gpt-6.2-sol 44.1259990739447",
+      "max_model_score": 61.98983463116003,
+      "score_source": "https://starivers152.github.io/OmniALE/piano-contact-ii/assets/astra/results.json",
+      "score_sources": [
+        "https://starivers152.github.io/OmniALE/piano-contact-ii/assets/astra/results.json",
+        "https://starivers152.github.io/OmniALE/piano-contact-ii/assets/sol/results.json"
+      ],
+      "score_note": "采用来源当前正式评分 0.1.1。",
+      "classification": {
+        "week": "6",
+        "domain": 6,
+        "scenario": "钢琴教学与双手触键",
+        "show_in_summary": true,
+        "variant": true,
+        "software": [
+          "Blender",
+          "MuseScore"
+        ]
+      }
+    },
+    {
+      "id": "scv-showcase",
+      "title": "SCV 机甲资产重建与展示片制作",
+      "cover": "scv-showcase.jpg",
+      "cover_source": "https://vibrant700.github.io/omniale/scv-showcase/assets/poster.jpg",
+      "url": "https://vibrant700.github.io/omniale/scv-showcase/",
+      "scores": {
+        "gpt-6.2-astra": 39.14017793633829
+      },
+      "score": "gpt-6.2-astra 39.14017793633829",
+      "max_model_score": 39.14017793633829,
+      "score_source": "https://vibrant700.github.io/omniale/scv-showcase/results.json",
+      "score_sources": [
+        "https://vibrant700.github.io/omniale/scv-showcase/results.json"
+      ],
+      "score_note": "采用 scv-showcase-detail-v2 总分。",
+      "classification": {
+        "week": "6",
+        "domain": 2,
+        "scenario": "机甲资产重建与有声展示",
+        "show_in_summary": true,
+        "variant": true,
+        "software": [
+          "Blender"
+        ]
       }
     }
   ]
