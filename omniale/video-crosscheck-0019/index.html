@@ -1,0 +1,46 @@
+---
+layout: null
+sitemap: false
+---
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>家用机架服务器的视听研究 · OmniALE</title><style>
+:root{--bg:#f4f3ee;--paper:#fffefa;--ink:#172c32;--muted:#647374;--line:#d9deda;--accent:#166f68;--soft:#e4efea;--warm:#b97131}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;font-size:15px;line-height:1.65}
+main{max-width:1180px;margin:auto;padding:36px 40px 90px}
+h1{font-size:33px;line-height:1.3;letter-spacing:-.02em;margin:0 0 10px;font-weight:650}
+h2{font-size:21px;margin:38px 0 12px;font-weight:600;border-top:1px solid var(--line);padding-top:26px}
+h3{font-size:16px;margin:22px 0 8px;font-weight:600}
+.eyebrow{color:var(--accent);font-size:12px;letter-spacing:.12em;font-weight:650;margin-bottom:10px}
+.lead{color:#52686c;font-size:16.5px;max-width:900px}
+.tag{display:inline-block;font-size:12px;color:var(--accent);background:var(--soft);padding:2px 9px;border-radius:4px;margin:0 6px 6px 0}
+.tag.gray{background:#e9ece6;color:#52666b}
+table{border-collapse:collapse;width:100%;font-size:13.5px;background:var(--paper);margin:6px 0 4px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:12px;white-space:nowrap}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+pre{white-space:pre-wrap;font-size:12.5px;background:var(--paper);border:1px solid var(--line);padding:14px;border-radius:6px;max-height:420px;overflow:auto}
+img{max-width:100%;border:1px solid var(--line);background:#fff;border-radius:4px}
+audio,video{width:100%}
+details>summary{cursor:pointer;color:var(--accent);font-size:14px}
+.ok{color:#166f68;font-weight:650}.no{color:var(--warm);font-weight:650}
+.note{color:var(--muted);font-size:13px}
+.pill{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:10px;background:#e9ece6;color:#52666b;margin-left:6px}
+.major{background:#f5e3d7;color:#9a4f17}
+
+main{max-width:1160px}.eyebrow{color:#17786c} nav,.links{display:flex;flex-wrap:wrap;gap:10px 18px;margin:12px 0 16px}
+.hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:24px;margin:24px 0 34px}.hero img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px}
+.hero h1{font-size:clamp(28px,4vw,45px);line-height:1.2;margin:10px 0}.hero p{max-width:38em}.scene{max-width:800px}
+video{display:block;width:100%;max-width:800px;background:#142d2e;aspect-ratio:16/9;border-radius:8px;margin:12px 0}
+.still{display:inline-block;width:min(30%,480px);margin:8px 10px 8px 0;vertical-align:top}.still img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:8px}.scene .still{width:min(100%,650px)}
+.inside{padding:0 15px 15px}.table-scroll{overflow:auto}.number{font-variant-numeric:tabular-nums}.run-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.run{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:0 15px}.run ul{columns:2;padding-left:18px}.run h4{margin-bottom:2px}section{scroll-margin-top:16px}
+dl{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}dd{margin:0 13px 0 0;font-weight:700}dt{color:var(--muted)}.foot{margin-top:28px}
+@media(max-width:720px){.hero{display:flex;flex-direction:column;align-items:stretch;gap:6px}.still{width:100%}.table-scroll table{min-width:410px}}
+</style></head><body><main>
+    <div><a href="../#week-6">← OmniALE 案例汇总</a> · <a href="../video-crosscheck/">查看原案例</a></div>
+    <header class="hero"><div><p class="eyebrow">OMNIALE · WEEK 6</p><h1>家用机架服务器的视听研究</h1><p>从硬件科普视频辨认 2U 服务器，并交叉调查家用部署的噪音、功耗和散热。</p><nav aria-label="案例章节"><a href="#task">任务定义</a><a href="#results">运行结果</a><a href="#trajectory">运行轨迹</a><a href="#analysis">失败分析</a></nav></div><img alt="家用机架服务器的视听研究封面" src="../covers/video-crosscheck-0019.jpg" width="1040" height="585"></header>
+    <section id="task"><h2>一、任务定义</h2><p>输入为 16 分 10 秒的硬件视频与用户问题。报告需要说明把退役 2U 服务器搬进书房的条件与取舍，能按时间定位原片、核查外部引用，并交付可阅读的网页报告。</p><div class="scene"><a class="still" href="assets/poster.jpg"><img loading="lazy" src="assets/poster.jpg" alt="输入视频截图"></a><div class="links"><a href="https://www.bilibili.com/video/BV1D3411i7RD">B 站原视频 · 无情开评</a></div></div></section>
+    <section id="results"><h2>二、运行结果</h2><p>采用第一轮 Terra 判票。总分由内容 50、引用 30、展示 20 构成，并应用该轮的门控与覆盖规则。</p><h3>2U Homelab</h3><div class="table-scroll"><table><thead><tr><th>模型</th><th>初评分</th><th>实测强度</th><th>用时</th><th>请求</th></tr></thead><tbody><tr><th scope="row" title="gpt-6.2-sol">Sol 6.2</th><td class="number"><strong>55.33</strong></td><td>xhigh</td><td>35 分 24 秒</td><td>46</td></tr><tr><th scope="row" title="deepseek-v4.1-flash-1017">DeepSeek V4.1 Flash</th><td class="number"><strong>43.8</strong></td><td>xhigh</td><td>42 分 22 秒</td><td>166</td></tr></tbody></table></div><details><summary>Sol 6.2 · 交付与初评明细</summary><div class="inside"><dl><dt>内容 /50</dt><dd>17.84</dd><dt>引用 /30</dt><dd>17.50</dd><dt>展示 /20</dt><dd>20.00</dd></dl><a class="still" href="assets/sol62-desktop.jpg"><img loading="lazy" src="assets/sol62-desktop.jpg" alt="交付报告首页"></a><div class="links"><a href="assets/sol62-full.jpg">查看完整报告长图</a> <a href="files/sol62-report.json">报告数据</a></div></div></details><details><summary>DeepSeek V4.1 Flash · 交付与初评明细</summary><div class="inside"><dl><dt>内容 /50</dt><dd>10.53</dd><dt>引用 /30</dt><dd>15.88</dd><dt>展示 /20</dt><dd>17.39</dd></dl><a class="still" href="assets/ds41-desktop.jpg"><img loading="lazy" src="assets/ds41-desktop.jpg" alt="交付报告首页"></a><div class="links"><a href="assets/ds41-full.jpg">查看完整报告长图</a> <a href="files/ds41-report.json">报告数据</a></div></div></details><div class="links"><a href="files/results.json">初评结果 JSON</a></div></section>
+    <section id="trajectory"><h2>三、运行轨迹</h2><h3>2U Homelab</h3><div class="run-grid"><article class="run"><h4>Sol 6.2</h4><p>Codex CLI · xhigh · NJU Link · exit 0</p><ul><li>执行命令 <b>88</b></li><li>推理记录 <b>21</b></li><li>网络检索 <b>11</b></li><li>模型消息 <b>8</b></li><li>开启会话 <b>1</b></li><li>turn.started <b>1</b></li><li>完成轮次 <b>1</b></li></ul></article><article class="run"><h4>DeepSeek V4.1 Flash</h4><p>Codex CLI · xhigh · DashScope · exit 0</p><ul><li>执行命令 <b>223</b></li><li>模型消息 <b>21</b></li><li>网络检索 <b>4</b></li><li>开启会话 <b>1</b></li><li>turn.started <b>1</b></li><li>完成轮次 <b>1</b></li></ul></article></div></section>
+    <section id="analysis"><h2>四、失败分析</h2><article><h3>原片型号识别</h3><p>Sol 用 03:50 附近的机箱截图识别 Dell PowerEdge R720。DeepSeek 将 R730 文档用作同类参照，实际型号的证据链较弱。</p></article><article><h3>冗余电源解释</h3><p>Sol 写清两块电源可各自承担整机负载，命中 1+1 冗余机制的关键判点。</p></article><article><h3>引用与展示</h3><p>两份报告都有外部来源。DeepSeek 有三处图注缺少对应帧的时间戳，影响证据回查。</p></article></section><div class="foot"><a href="../#week-6">返回 Week 6</a></div></main></body></html>

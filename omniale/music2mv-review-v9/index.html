@@ -1,0 +1,46 @@
+---
+layout: null
+sitemap: false
+---
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>音乐 MV 单片审片 · OmniALE</title><style>
+:root{--bg:#f4f3ee;--paper:#fffefa;--ink:#172c32;--muted:#647374;--line:#d9deda;--accent:#166f68;--soft:#e4efea;--warm:#b97131}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;font-size:15px;line-height:1.65}
+main{max-width:1180px;margin:auto;padding:36px 40px 90px}
+h1{font-size:33px;line-height:1.3;letter-spacing:-.02em;margin:0 0 10px;font-weight:650}
+h2{font-size:21px;margin:38px 0 12px;font-weight:600;border-top:1px solid var(--line);padding-top:26px}
+h3{font-size:16px;margin:22px 0 8px;font-weight:600}
+.eyebrow{color:var(--accent);font-size:12px;letter-spacing:.12em;font-weight:650;margin-bottom:10px}
+.lead{color:#52686c;font-size:16.5px;max-width:900px}
+.tag{display:inline-block;font-size:12px;color:var(--accent);background:var(--soft);padding:2px 9px;border-radius:4px;margin:0 6px 6px 0}
+.tag.gray{background:#e9ece6;color:#52666b}
+table{border-collapse:collapse;width:100%;font-size:13.5px;background:var(--paper);margin:6px 0 4px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:12px;white-space:nowrap}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+pre{white-space:pre-wrap;font-size:12.5px;background:var(--paper);border:1px solid var(--line);padding:14px;border-radius:6px;max-height:420px;overflow:auto}
+img{max-width:100%;border:1px solid var(--line);background:#fff;border-radius:4px}
+audio,video{width:100%}
+details>summary{cursor:pointer;color:var(--accent);font-size:14px}
+.ok{color:#166f68;font-weight:650}.no{color:var(--warm);font-weight:650}
+.note{color:var(--muted);font-size:13px}
+.pill{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:10px;background:#e9ece6;color:#52666b;margin-left:6px}
+.major{background:#f5e3d7;color:#9a4f17}
+
+main{max-width:1160px}.eyebrow{color:#17786c} nav,.links{display:flex;flex-wrap:wrap;gap:10px 18px;margin:12px 0 16px}
+.hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:24px;margin:24px 0 34px}.hero img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px}
+.hero h1{font-size:clamp(28px,4vw,45px);line-height:1.2;margin:10px 0}.hero p{max-width:38em}.scene{max-width:800px}
+video{display:block;width:100%;max-width:800px;background:#142d2e;aspect-ratio:16/9;border-radius:8px;margin:12px 0}
+.still{display:inline-block;width:min(30%,480px);margin:8px 10px 8px 0;vertical-align:top}.still img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:8px}.scene .still{width:min(100%,650px)}
+.inside{padding:0 15px 15px}.table-scroll{overflow:auto}.number{font-variant-numeric:tabular-nums}.run-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.run{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:0 15px}.run ul{columns:2;padding-left:18px}.run h4{margin-bottom:2px}section{scroll-margin-top:16px}
+dl{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}dd{margin:0 13px 0 0;font-weight:700}dt{color:var(--muted)}.foot{margin-top:28px}
+@media(max-width:720px){.hero{display:flex;flex-direction:column;align-items:stretch;gap:6px}.still{width:100%}.table-scroll table{min-width:410px}}
+</style></head><body><main>
+    <div><a href="../#week-6">← OmniALE 案例汇总</a> · <a href="../music2mv-review/">查看原案例</a></div>
+    <header class="hero"><div><p class="eyebrow">OMNIALE · WEEK 6</p><h1>音乐 MV 单片审片</h1><p>对《Uptown Funk》和《The Lazy Song》分别审片，交付带时间码、证据与返修建议的问题清单。</p><nav aria-label="案例章节"><a href="#task">任务定义</a><a href="#results">运行结果</a><a href="#trajectory">运行轨迹</a><a href="#analysis">失败分析</a></nav></div><img alt="音乐 MV 单片审片封面" src="../covers/music2mv-review-v9.jpg" width="1040" height="585"></header>
+    <section id="task"><h2>一、任务定义</h2><p>每次独立给模型一支完整的有声 MV。审查人声与动作同步、镜头连续性、肢体和道具、字幕及技术问题。交付结构化问题清单和文字报告，为每条问题注明时间、证据及返修建议。</p><div class="scene"><div class="links"><a href="https://www.tryai.dev/blog/ai-music-video-arena-claude-vs-gpt-5.6">Uptown Funk 源页</a> <a href="https://m-a-p.ai/AutoMV/">The Lazy Song 来源 · AutoMV</a></div></div></section>
+    <section id="results"><h2>二、运行结果</h2><p>采用冻结清单上的初评质量 F1。《Uptown Funk》25 项，《The Lazy Song》16 项。F1 同时考虑命中、定位与证据质量及误报。</p><h3>Uptown Funk</h3><video controls playsinline preload="none" aria-label="Uptown Funk" poster="assets/uptown.jpg" src="../music2mv-review/media/v8/mv_uptown.mp4"></video><div class="table-scroll"><table><thead><tr><th>模型</th><th>初评分</th><th>实测强度</th><th>用时</th><th>请求</th></tr></thead><tbody><tr><th scope="row" title="gpt-6.2-sol">Sol 6.2</th><td class="number"><strong>37.5</strong></td><td>xhigh</td><td>42 分 38 秒</td><td>57</td></tr><tr><th scope="row" title="qwen3.8-omni-flash">Qwen 3.8 Omni Flash</th><td class="number"><strong>0</strong></td><td>xhigh</td><td>3 小时 15 分 39 秒</td><td>1744</td></tr></tbody></table></div><details><summary>Sol 6.2 · 交付与初评明细</summary><div class="inside"><dl><dt>命中 /25</dt><dd>6.00</dd><dt>误报</dt><dd>1.00</dd><dt>待确定</dt><dd>8.00</dd></dl><div class="links"><a href="files/uptown-sol62-report.md">审片报告</a> <a href="files/uptown-sol62-review.json">问题清单</a></div></div></details><details><summary>Qwen 3.8 Omni Flash · 交付与初评明细</summary><div class="inside"><dl><dt>命中 /25</dt><dd>0.00</dd><dt>误报</dt><dd>1.00</dd><dt>待确定</dt><dd>2.00</dd></dl><div class="links"><a href="files/uptown-qwen38-report.md">审片报告</a> <a href="files/uptown-qwen38-review.json">问题清单</a></div></div></details><h3>The Lazy Song</h3><video controls playsinline preload="none" aria-label="The Lazy Song" poster="assets/lazy.jpg" src="../music2mv-review/media/v8/mv_lazy.mp4"></video><div class="table-scroll"><table><thead><tr><th>模型</th><th>初评分</th><th>实测强度</th><th>用时</th><th>请求</th></tr></thead><tbody><tr><th scope="row" title="gpt-6.2-sol">Sol 6.2</th><td class="number"><strong>76.9231</strong></td><td>xhigh</td><td>31 分 49 秒</td><td>39</td></tr><tr><th scope="row" title="deepseek-v4.1-flash-1017">DeepSeek V4.1 Flash</th><td class="number"><strong>40</strong></td><td>max</td><td>1 小时 0 分 12 秒</td><td>272</td></tr><tr><th scope="row" title="qwen3.8-omni-flash">Qwen 3.8 Omni Flash</th><td class="number"><strong>中断 · 无成绩</strong></td><td>xhigh</td><td>6 分 11 秒</td><td>46</td></tr></tbody></table></div><details><summary>Sol 6.2 · 交付与初评明细</summary><div class="inside"><dl><dt>命中 /16</dt><dd>10.00</dd><dt>误报</dt><dd>0.00</dd><dt>待确定</dt><dd>4.00</dd></dl><div class="links"><a href="files/lazy-sol62-report.md">审片报告</a> <a href="files/lazy-sol62-review.json">问题清单</a></div></div></details><details><summary>DeepSeek V4.1 Flash · 交付与初评明细</summary><div class="inside"><dl><dt>命中 /16</dt><dd>4.00</dd><dt>误报</dt><dd>0.00</dd><dt>待确定</dt><dd>0.00</dd></dl><div class="links"><a href="files/lazy-ds_v41-report.md">审片报告</a> <a href="files/lazy-ds_v41-review.json">问题清单</a></div></div></details><div class="links"><a href="files/results.json">初评结果 JSON</a></div></section>
+    <section id="trajectory"><h2>三、运行轨迹</h2><h3>Uptown Funk</h3><div class="run-grid"><article class="run"><h4>Sol 6.2</h4><p>Codex CLI · xhigh · NJU Link · exit 0</p><ul><li>执行命令 <b>62</b></li><li>推理记录 <b>41</b></li><li>模型消息 <b>13</b></li><li>开启会话 <b>1</b></li><li>turn.started <b>1</b></li><li>完成轮次 <b>1</b></li></ul></article><article class="run"><h4>Qwen 3.8 Omni Flash</h4><p>Qwen Code · xhigh · DashScope · exit 0</p><ul><li>助手事件 <b>1086</b></li><li>用户事件 <b>500</b></li><li>系统事件 <b>1</b></li><li>stream_event <b>1</b></li><li>执行结果 <b>1</b></li></ul></article></div><h3>The Lazy Song</h3><div class="run-grid"><article class="run"><h4>Sol 6.2</h4><p>Codex CLI · xhigh · NJU Link · exit 0</p><ul><li>执行命令 <b>52</b></li><li>推理记录 <b>28</b></li><li>模型消息 <b>8</b></li><li>开启会话 <b>1</b></li><li>turn.started <b>1</b></li><li>完成轮次 <b>1</b></li></ul></article><article class="run"><h4>DeepSeek V4.1 Flash</h4><p>Codex CLI · max · DashScope · exit 0</p><ul><li>执行命令 <b>139</b></li><li>模型消息 <b>28</b></li><li>开启会话 <b>1</b></li><li>turn.started <b>1</b></li><li>完成轮次 <b>1</b></li></ul></article><article class="run"><h4>Qwen 3.8 Omni Flash</h4><p>Qwen Code · xhigh · DashScope · exit 1</p><ul><li>助手事件 <b>46</b></li><li>用户事件 <b>27</b></li><li>系统事件 <b>1</b></li><li>stream_event <b>1</b></li><li>执行结果 <b>1</b></li></ul></article></div></section>
+    <section id="analysis"><h2>四、失败分析</h2><article><h3>Uptown Funk</h3><p>Sol 的初评归并命中 6 项，存在 1 条误报。Qwen 完成了交付，在冻结的 25 项里没有命中，获得有效的 0 分。</p></article><article><h3>The Lazy Song</h3><p>Sol 命中 10 项，DeepSeek 命中 4 项，两者均无明确误报。Qwen 因接口内容过滤中断，未交付，成绩为空。</p></article></section><div class="foot"><a href="../#week-6">返回 Week 6</a></div></main></body></html>

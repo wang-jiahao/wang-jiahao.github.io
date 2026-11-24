@@ -1,0 +1,46 @@
+---
+layout: null
+sitemap: false
+---
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>音视频编辑网页 · Atlas 旅行手账 · OmniALE</title><style>
+:root{--bg:#f4f3ee;--paper:#fffefa;--ink:#172c32;--muted:#647374;--line:#d9deda;--accent:#166f68;--soft:#e4efea;--warm:#b97131}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;font-size:15px;line-height:1.65}
+main{max-width:1180px;margin:auto;padding:36px 40px 90px}
+h1{font-size:33px;line-height:1.3;letter-spacing:-.02em;margin:0 0 10px;font-weight:650}
+h2{font-size:21px;margin:38px 0 12px;font-weight:600;border-top:1px solid var(--line);padding-top:26px}
+h3{font-size:16px;margin:22px 0 8px;font-weight:600}
+.eyebrow{color:var(--accent);font-size:12px;letter-spacing:.12em;font-weight:650;margin-bottom:10px}
+.lead{color:#52686c;font-size:16.5px;max-width:900px}
+.tag{display:inline-block;font-size:12px;color:var(--accent);background:var(--soft);padding:2px 9px;border-radius:4px;margin:0 6px 6px 0}
+.tag.gray{background:#e9ece6;color:#52666b}
+table{border-collapse:collapse;width:100%;font-size:13.5px;background:var(--paper);margin:6px 0 4px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:12px;white-space:nowrap}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+pre{white-space:pre-wrap;font-size:12.5px;background:var(--paper);border:1px solid var(--line);padding:14px;border-radius:6px;max-height:420px;overflow:auto}
+img{max-width:100%;border:1px solid var(--line);background:#fff;border-radius:4px}
+audio,video{width:100%}
+details>summary{cursor:pointer;color:var(--accent);font-size:14px}
+.ok{color:#166f68;font-weight:650}.no{color:var(--warm);font-weight:650}
+.note{color:var(--muted);font-size:13px}
+.pill{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:10px;background:#e9ece6;color:#52666b;margin-left:6px}
+.major{background:#f5e3d7;color:#9a4f17}
+
+main{max-width:1160px}.eyebrow{color:#17786c} nav,.links{display:flex;flex-wrap:wrap;gap:10px 18px;margin:12px 0 16px}
+.hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:24px;margin:24px 0 34px}.hero img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px}
+.hero h1{font-size:clamp(28px,4vw,45px);line-height:1.2;margin:10px 0}.hero p{max-width:38em}.scene{max-width:800px}
+video{display:block;width:100%;max-width:800px;background:#142d2e;aspect-ratio:16/9;border-radius:8px;margin:12px 0}
+.still{display:inline-block;width:min(30%,480px);margin:8px 10px 8px 0;vertical-align:top}.still img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:8px}.scene .still{width:min(100%,650px)}
+.inside{padding:0 15px 15px}.table-scroll{overflow:auto}.number{font-variant-numeric:tabular-nums}.run-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.run{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:0 15px}.run ul{columns:2;padding-left:18px}.run h4{margin-bottom:2px}section{scroll-margin-top:16px}
+dl{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}dd{margin:0 13px 0 0;font-weight:700}dt{color:var(--muted)}.foot{margin-top:28px}
+@media(max-width:720px){.hero{display:flex;flex-direction:column;align-items:stretch;gap:6px}.still{width:100%}.table-scroll table{min-width:410px}}
+</style></head><body><main>
+    <div><a href="../#week-6">← OmniALE 案例汇总</a> · <a href="../omni2web-118/">查看原案例</a></div>
+    <header class="hero"><div><p class="eyebrow">OMNIALE · WEEK 6</p><h1>音视频编辑网页 · Atlas 旅行手账</h1><p>听懂中文录屏里的 17 条指令，在旅行手账站点上修改目标元素，落实三组撤回并保留其余交互。</p><nav aria-label="案例章节"><a href="#task">任务定义</a><a href="#results">运行结果</a><a href="#trajectory">运行轨迹</a><a href="#analysis">失败分析</a></nav></div><img alt="音视频编辑网页 · Atlas 旅行手账封面" src="../covers/omni2web-464.jpg" width="1040" height="585"></header>
+    <section id="task"><h2>一、任务定义</h2><p>输入为原始 HTML 和 2 分 54 秒的中文有声录屏。根据鼠标位置和口头要求更新原页，提交完整可打开的 HTML。终态需要结合撤回顺序判断。</p><div class="scene"><video controls playsinline preload="none" aria-label="中文修改要求录屏" poster="assets/original.jpg" src="media/request.mp4"></video><div class="links"><a href="assets/original.jpg">原始页面截图</a> <a href="https://huggingface.co/datasets/minghaofdu/Omni2Web">素材来源 · Omni2Web</a> <a href="https://huggingface.co/datasets/BroAlanTaps/WebVR">网页来源 · WebVR</a></div></div></section>
+    <section id="results"><h2>二、运行结果</h2><p>初评采用 464-audit-v1.0 的 EFS。定位、编辑落实、无损和撤回的权重依次为 10%、50%、20%、20%。</p><h3>Atlas 旅行手账</h3><div class="table-scroll"><table><thead><tr><th>模型</th><th>初评分</th><th>实测强度</th><th>用时</th><th>请求</th></tr></thead><tbody><tr><th scope="row" title="gpt-6.2-sol">Sol 6.2</th><td class="number"><strong>65.58</strong></td><td>xhigh</td><td>45 分 51 秒</td><td>81</td></tr><tr><th scope="row" title="deepseek-v4.1-flash-1017">DeepSeek V4.1 Flash</th><td class="number"><strong>56.45</strong></td><td>xhigh</td><td>31 分 09 秒</td><td>104</td></tr></tbody></table></div><details><summary>Sol 6.2 · 交付与初评明细</summary><div class="inside"><dl><dt>定位 /100</dt><dd>84.62</dd><dt>编辑落实 /100</dt><dd>70.00</dd><dt>无损 /100</dt><dd>43.94</dd><dt>撤回 /100</dt><dd>66.67</dd></dl><a class="still" href="assets/sol62-hero.jpg"><img loading="lazy" src="assets/sol62-hero.jpg" alt="首页"></a><a class="still" href="assets/sol62-entries.jpg"><img loading="lazy" src="assets/sol62-entries.jpg" alt="Entries 工作台"></a><a class="still" href="assets/sol62-materials.jpg"><img loading="lazy" src="assets/sol62-materials.jpg" alt="Materials 工作台"></a><div class="links"><a href="files/sol62-delivery.zip">下载交付 HTML 与附件</a></div></div></details><details><summary>DeepSeek V4.1 Flash · 交付与初评明细</summary><div class="inside"><dl><dt>定位 /100</dt><dd>69.23</dd><dt>编辑落实 /100</dt><dd>40.00</dd><dt>无损 /100</dt><dd>47.62</dd><dt>撤回 /100</dt><dd>100.00</dd></dl><a class="still" href="assets/ds41-hero.jpg"><img loading="lazy" src="assets/ds41-hero.jpg" alt="首页"></a><a class="still" href="assets/ds41-entries.jpg"><img loading="lazy" src="assets/ds41-entries.jpg" alt="Entries 工作台"></a><a class="still" href="assets/ds41-materials.jpg"><img loading="lazy" src="assets/ds41-materials.jpg" alt="Materials 工作台"></a><div class="links"><a href="files/ds41-delivery.zip">下载交付 HTML 与附件</a></div></div></details><div class="links"><a href="files/results.json">初评结果 JSON</a></div></section>
+    <section id="trajectory"><h2>三、运行轨迹</h2><h3>Atlas 旅行手账</h3><div class="run-grid"><article class="run"><h4>Sol 6.2</h4><p>Codex CLI · xhigh · NJU Link · exit 0</p><ul><li>执行命令 <b>63</b></li><li>推理记录 <b>35</b></li><li>模型消息 <b>10</b></li><li>网络检索 <b>2</b></li><li>开启会话 <b>1</b></li><li>turn.started <b>1</b></li><li>完成轮次 <b>1</b></li></ul></article><article class="run"><h4>DeepSeek V4.1 Flash</h4><p>Codex CLI · xhigh · DashScope · exit 0</p><ul><li>执行命令 <b>55</b></li><li>模型消息 <b>8</b></li><li>开启会话 <b>1</b></li><li>turn.started <b>1</b></li><li>完成轮次 <b>1</b></li></ul></article></div></section>
+    <section id="analysis"><h2>四、失败分析</h2><article><h3>定位与落实</h3><p>Sol 在初评中落实的任务检查项为 20/26，DeepSeek 为 16/26。点指目标、交互状态和最终样式按各自的检查项计分。</p></article><article><h3>判断撤回</h3><p>录屏里有三组撤回，其中最后一组同时撤回两处早先修改。页面结果保留初评对撤回和无损的独立计分。</p></article><article><h3>失分记录</h3><p>初评的无损分包含对样式和结构额外改动的判定。下方各单项分和总分来自同一份初评记录。</p></article></section><div class="foot"><a href="../#week-6">返回 Week 6</a></div></main></body></html>

@@ -1,0 +1,124 @@
+{
+  "checks": [
+    {
+      "id": "G01",
+      "source_id": "mv_lazy",
+      "dimension": "text",
+      "decision": "revise",
+      "intervals": [
+        {
+          "start_s": 93.9,
+          "end_s": 96.7
+        },
+        {
+          "start_s": 106.9,
+          "end_s": 110.5
+        }
+      ],
+      "finding": "烧录歌词字幕有两处词语转写/拼写错误：毕业段将实际演唱的“get my college degree”写成“give my college degree”；副歌段将实际演唱的“cause I can”写成“cause I can't”。",
+      "audio_evidence": "独立音轨在 93.76–96.70s 为“...and get my college degree”（large-v3 对 get 置信度高），在 104.40–109.68s 为“...cause I can”；48.36–49.32s 同一句也清楚唱作“can”。",
+      "visual_evidence": "94.0–96.5s 毕业袍/抛帽画面下，底部字幕清晰显示“give my college degree”；107.0–110.5s 卡拉 OK 画面下字幕显示“I said it I said it cause I can't”，而 47.5s 前后同句字幕为“cause I can”。",
+      "reason": "这不是同义改写，而是把动词 get 误写成 give、把肯定 can 误写成否定 can't，直接改变歌词含义，并与同一首歌另一轮副歌字幕自相矛盾。",
+      "priority": "major",
+      "suggestion": "按原声分别改为“get my college degree”和“cause I can”，统一首轮/二轮副歌字幕，并用原声音轨对全片字幕逐句校对。"
+    },
+    {
+      "id": "G02",
+      "source_id": "mv_lazy",
+      "dimension": "text",
+      "decision": "revise",
+      "intervals": [
+        {
+          "start_s": 3.0,
+          "end_s": 4.5
+        }
+      ],
+      "finding": "同一固定机位下的床头数字闹钟在 3.0–4.5s 内自行重绘，从可读时间“13:45”跳成不合法的“12:85”，随后又变为残缺/漂移读数。",
+      "audio_evidence": "",
+      "visual_evidence": "3.0s 钟面可读作“13:45”；3.5s 变成不合法的“12:85”；4.0s 又变为“1E:22”/“12:22”一类残缺读数；期间手机、杯子和台灯位置不变，且 2.767–9.767s 无切镜。",
+      "reason": "“12:85”不是有效时间，钟面还在同一固定画面、约 1 秒内从“13:45”跳到“12:85”并继续重绘；这可排除正常时间流逝，属于道具数字稳定性故障。",
+      "priority": "minor",
+      "suggestion": "把该段钟面固定为连续有效时间；若需要表现时间流逝，应采用清晰递增的时间，或在独立延时镜头中完成。"
+    },
+    {
+      "id": "G03",
+      "source_id": "mv_lazy",
+      "dimension": "text",
+      "decision": "revise",
+      "intervals": [
+        {
+          "start_s": 120.9,
+          "end_s": 122.8
+        }
+      ],
+      "finding": "前景手机被举近镜头时，消息/提醒界面正文由不可读的伪字母串组成，绿色按钮文字也无法辨认。",
+      "audio_evidence": "同段 121.12–124.14s 原唱为“Don't feel like picking up my phone”，手机是歌词直接对应的核心道具。",
+      "visual_evidence": "120.9–122.8s 手机屏幕占画面左侧大面积且处于焦点内，标题、正文和绿色按钮显示“IEE Gre ar”“AREIKIENIC Dim”“SEIE RENGB Girm”等无意义字符组合，读不出正常英文或其他语言。",
+      "reason": "这不是背景虚焦小字，而是被镜头推近、要求观众阅读的 UI；半可读的伪文字会直接破坏手机道具的可信度和歌词语义。",
+      "priority": "minor",
+      "suggestion": "替换为可读且与情节一致的消息界面；若不需要观众读内容，可统一处理为锁屏或自然虚焦，避免半可读乱码。"
+    },
+    {
+      "id": "G04",
+      "source_id": "mv_lazy",
+      "dimension": "text",
+      "decision": "revise",
+      "intervals": [
+        {
+          "start_s": 128.5,
+          "end_s": 130.5
+        }
+      ],
+      "finding": "下一句歌词“no I ain't gonna comb my hair”被提前约 2 秒并入当前句字幕，128.5s 起屏幕已显示“I'm not doing anything no I ain't gonna comb my hair”。",
+      "audio_evidence": "128.28–130.50s 原唱仍只有“I'm not doing anything”；下一句“No”到 130.50–131.66s 才起唱。",
+      "visual_evidence": "127.8s 底部字幕仍为“cause today I swear”；128.5–129.5s 已合并显示“I'm not doing anything no I ain't gonna comb my hair”，而画面仍在演唱前一句。",
+      "reason": "这不是下一句的轻微预排，而是整句提前约 2 秒出现，并与当前句挤在同一行；画面/原声与字幕阅读顺序错位，按全片逐句切换的字幕样式也缺乏双句预排依据。",
+      "priority": "minor",
+      "suggestion": "拆成两条字幕事件：当前句“I'm not doing anything”覆盖约 128.3–130.5s，下一句从约 130.5s 再出现；避免把相邻两句合并为一条提前显示。"
+    }
+  ],
+  "uncertain_observations": [
+    {
+      "id": "U01",
+      "source_id": "mv_lazy",
+      "intervals": [
+        {
+          "start_s": 77.0,
+          "end_s": 82.5
+        }
+      ],
+      "finding": "镜中猴面人的反射在前景弯腰时短暂消失，起身后与前景的手势并非逐帧一致；受镜面视锥、遮挡和面具限制，不能确认这是反射错误。",
+      "audio_evidence": "",
+      "visual_evidence": "77.0–77.5s 可见前景与镜中反射；78.0s 前景弯腰时镜中只剩房间；78.5s 反射重新出现；79.0–82.5s 反射保持正面姿态，而前景在侧身调整面具。",
+      "reason": "弯腰者可能离开镜面反射视锥，且梦境/魔法镜面允许独立表演，故未计入 revise。"
+    },
+    {
+      "id": "U02",
+      "source_id": "mv_lazy",
+      "intervals": [
+        {
+          "start_s": 106.5,
+          "end_s": 108.0
+        }
+      ],
+      "finding": "卡拉 OK 沙发翻滚段中，黑色遥控器在 106.5s 后离开可见区域，107.0s 双手举起时麦克风也不在手；107.5s 麦克风又回到右手，108.0s 遥控器重新出现。可能是快速掉落/拾取或遮挡。",
+      "audio_evidence": "",
+      "visual_evidence": "106.4s 仍可见麦克风与黑色遥控器；106.5–107.3s 角色翻上沙发并举起双手，两件道具不可见；107.5s 麦克风回到手中；108.0s 遥控器重新出现。",
+      "reason": "动作极快且手部多次被沙发和身体遮挡，无法确认道具是凭空消失还是在画面外被重新拾起，故未作为独立穿帮计入。"
+    },
+    {
+      "id": "U03",
+      "source_id": "mv_lazy",
+      "intervals": [
+        {
+          "start_s": 175.0,
+          "end_s": 177.0
+        }
+      ],
+      "finding": "近景中角色闭眼、闭唇贯穿“Nothing at all”的演唱段。",
+      "audio_evidence": "174.84–177.16s 有清楚的主唱声“Nothing at all”。",
+      "visual_evidence": "175.0–177.0s 近景脸部可见，嘴部基本闭合，仅有轻微下颌变化。",
+      "reason": "MV 前文多次使用非逐字表演的叙事/反应镜头，此处也可解释为“doing nothing”的刻意静止表演，因此未认定为口型错误。"
+    }
+  ]
+}

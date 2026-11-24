@@ -1,0 +1,614 @@
+{
+  "meta": {
+    "theme": "t05",
+    "category": "Homelab / 书房部署",
+    "lang": "zh"
+  },
+  "video": {
+    "src": "media/source.mp4",
+    "duration": 969.771,
+    "poster": "img/poster.jpg",
+    "title": "把 Dell PowerEdge R720 搬进书房，噪声、功耗和发热怎么压？"
+  },
+  "summary": "片中 2U 铭牌可确认 Dell PowerEdge R720。2×750 W 指电源额定输出与冗余配置。适合多盘、大内存或企业硬件实验，轻量服务同屋常开优先选小主机。R720 有安静运行的厂商配置，也有开机升速与高温、扩展件驱动的转速变化。购买前请以目标机器在坐席的声级、墙插平均功率和夏季进风温度验收。[S1][S2][S3][S4][S5][S6]",
+  "segments": [
+    {
+      "id": "role",
+      "start": 0,
+      "end": 66.94,
+      "title": "服务器的工作可以由小主机承担",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S5"
+      ],
+      "caption": [
+        {
+          "type": "text",
+          "text": "**只跑轻量容器、软路由或几台低负载虚拟机，书房常开优先选低功耗小主机。** 确实需要多块热插拔盘、大内存、多张 PCIe 卡或专门练企业硬件运维，再考虑这台 Dell PowerEdge R720。先争取带配置试机和退换，书桌旁通不过验收就移到能排热的独立空间，或只在实验时开机。[S1][S2][S3][S5]"
+        },
+        {
+          "type": "image",
+          "src": "img/opening.jpg",
+          "cap": "00:13 | 片头从服务器在互联网中的角色切入 [S1]"
+        },
+        {
+          "type": "text",
+          "text": "00:28–01:06 将服务器与 PC 对比，并以 PC 对外提供服务举例。对 homelab，先列出需要常开的服务、内存、盘位和扩展卡，再决定机箱。片中未给出这台退役整机的声压、插座功耗或室温实测。[S1]"
+        }
+      ]
+    },
+    {
+      "id": "forms",
+      "start": 66.94,
+      "end": 196.35,
+      "title": "塔式、机架式和刀片式的取舍",
+      "sources": [
+        "S1",
+        "S2",
+        "S5"
+      ],
+      "caption": [
+        {
+          "type": "text",
+          "text": "01:06 起介绍塔式、机架式和刀片式，随后转入处理器架构与服务用途。2U 体现的是机架高度与部署密度。要把机器放进书房，前后空间、散热路径和坐席距离会直接影响体验。[S1][S2]"
+        },
+        {
+          "type": "image",
+          "src": "img/secret.jpg",
+          "cap": "01:42 | 主机形态介绍过后，讲者在机架和塔式设备旁转入架构分类 [S1]"
+        },
+        {
+          "type": "text",
+          "text": "多盘又需同屋常开时，优先看容得下所需盘位的低功耗塔式机或 NAS，仍按目标配置验收。小主机适合盘位要求低的常驻服务，R720 的热插拔、内存和 PCIe 扩展对专门实验更有价值。[S2][S5]"
+        }
+      ]
+    },
+    {
+      "id": "model",
+      "start": 196.35,
+      "end": 299.31,
+      "title": "03:50 铭牌确认是 PowerEdge R720",
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "caption": [
+        {
+          "type": "text",
+          "text": "03:16 开始用一台常见 2U 讲解硬件，先讲挂耳、前面板和状态灯。03:50 正面铭牌可辨认出 Dell PowerEdge R720，右侧可见 SAS 1 TB 7.2K 标签。以铭牌作为机型依据，周围机架和插入画面可能出现其他机器。[S1]"
+        },
+        {
+          "type": "image",
+          "src": "img/rack.jpg",
+          "cap": "03:30 | 挂耳与机架安装示意 [S1]"
+        },
+        {
+          "type": "image",
+          "src": "anchors/r720-front.jpg",
+          "cap": "03:50 | 前面板放大，可读出 PowerEdge R720 和右侧硬盘标签 [S1]"
+        },
+        {
+          "type": "text",
+          "text": "购买前量机身、前后支柱间距和后门内深，把滑轨、插头与线缆弯折、换件空间算进去。戴尔指南第 39、55 页给出了导轨选项与深度。检查滑轨或承重托架，避免靠机耳独自支撑整台机器。[S2]"
+        }
+      ]
+    },
+    {
+      "id": "storage",
+      "start": 299.31,
+      "end": 429.17,
+      "title": "盘位、阵列与机械盘噪声",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "caption": [
+        {
+          "type": "text",
+          "text": "04:59 讲大小盘位、企业盘、背板与 RAID。多盘提供容量和并发能力，但机械盘叠加寻道声、振动与热量。戴尔列出盘数、转速和控制器为声学变量。轻量实验可先用一两块兼容 SSD 验证，只有容量或阵列实验需要时再加盘。[S1][S2]"
+        },
+        {
+          "type": "image",
+          "src": "img/drives.jpg",
+          "cap": "05:25 | 讲者手持不同规格的企业盘 [S1]"
+        },
+        {
+          "type": "text",
+          "text": "二手到货核对盘架、挡片、盘健康、PERC/HBA 及数据备份。换盘先核对背板与控制器兼容性。有 R720 的 SPEC 结果采用单 SATA SSD，不能直接拿来预测满盘运行。[S1][S2][S3]"
+        }
+      ]
+    },
+    {
+      "id": "compute",
+      "start": 429.17,
+      "end": 507.28,
+      "title": "双路散热器和计算配置",
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "caption": [
+        {
+          "type": "image",
+          "src": "img/layout.jpg",
+          "cap": "07:12 | 开盖指向计算区，能看到两组散热器与成排 DIMM 插槽 [S1]"
+        },
+        {
+          "type": "text",
+          "text": "07:09 起讲 CPU 与多路能力。已有机器先记下两颗 CPU、DIMM、硬盘、控制器和网卡的清单。选购时尽量少配闲置部件。若想把双路改成单路，先确认 CPU1、内存插法、挡片、riser 及依赖 CPU2 的 PCIe 槽位，改后再做开机、负载和温度测试。[S1][S2][S3]"
+        }
+      ]
+    },
+    {
+      "id": "memory-gpu",
+      "start": 507.28,
+      "end": 631.31,
+      "title": "ECC、GPU 与常开负载",
+      "sources": [
+        "S1",
+        "S2",
+        "S4"
+      ],
+      "caption": [
+        {
+          "type": "text",
+          "text": "08:27 进入内存和 ECC，09:29 转到 GPU。大量内存和计算卡有明确用途时再上。戴尔明确把 DIMM 和 GPU 纳入散热控制，R720 加内部 GPU 时厂商连续运行进风温度上限由 35°C 降到 30°C，具体仍按配置和海拔限制查表。[S1][S2][S4]"
+        },
+        {
+          "type": "image",
+          "src": "img/memory.jpg",
+          "cap": "09:04 | 内存模组特写，字幕正在解释 ECC [S1]"
+        },
+        {
+          "type": "text",
+          "text": "优先删掉用不到的高功耗卡，并按厂商支持的方式补回挡片。保留所需容量与可靠性功能，随后逐件对比插座瓦数、静置噪声与实际任务性能。[S2][S4]"
+        }
+      ]
+    },
+    {
+      "id": "expansion",
+      "start": 631.31,
+      "end": 681.23,
+      "title": "PCIe 扩展会改变默认风扇策略",
+      "sources": [
+        "S1",
+        "S2",
+        "S4"
+      ],
+      "caption": [
+        {
+          "type": "image",
+          "src": "img/expansion.jpg",
+          "cap": "10:53 | 机内空间与扩展区，字幕讨论插槽数量 [S1]"
+        },
+        {
+          "type": "text",
+          "text": "10:31 起讲 I/O 区、网卡、HBA 和用于横置插卡的 riser。扩展卡可增加本身的热，也可能改变系统按配置选用的基线风量。收到机器先记录原状，把用不到或不受支持的卡逐一移除或更换，观察各区温度、RPM 和噪声变化。[S1][S2][S4]"
+        }
+      ]
+    },
+    {
+      "id": "airflow",
+      "start": 681.23,
+      "end": 722.66,
+      "title": "前进后出，导风罩给部件分配风量",
+      "sources": [
+        "S1",
+        "S2",
+        "S4",
+        "S6"
+      ],
+      "caption": [
+        {
+          "type": "text",
+          "text": "11:26 说明从前进风、从后排风，11:32 讲导风板分配风量，11:38 起展示可热插拔的风扇模块。小截面气流要穿过盘笼、散热片和扩展区，原厂模块与风道共同建立所需风量和压差。[S1][S2][S4]"
+        },
+        {
+          "type": "image",
+          "src": "img/shroud.jpg",
+          "cap": "11:35 | 讲者拿起导风罩，风扇墙位于前盘笼与计算区之间 [S1]"
+        },
+        {
+          "type": "image",
+          "src": "img/fan.jpg",
+          "cap": "11:42 | 热插拔风扇模块特写，可以看到外框、线束和把手 [S1]"
+        },
+        {
+          "type": "flow",
+          "title": "书房里的气流与噪声",
+          "steps": [
+            "机箱前口吸入室内较凉空气 [S1][S2]",
+            "风扇和导风罩把气流送过盘、CPU、内存与 I/O 区 [S1][S2][S4]",
+            "后口热风排到通风处。回吸会抬高进风温度，自动控制可能提高转速 [S2][S4]"
+          ]
+        },
+        {
+          "type": "text",
+          "text": "保留上盖、原厂风扇、罩和空位挡板，清理堵塞，检查异常轴承声。前后留净空，尾端远离墙角和坐席，线缆走边，进出风分开。用独立通风空间和距离降低听感。密闭木柜、吸音棉贴风口、拆罩开盖运行、替换低静压风扇、强锁低 PWM 都可能恶化局部散热。CPU 温度正常时仍需检查盘、PERC/HBA、内存和网卡。[S2][S4]"
+        },
+        {
+          "type": "text",
+          "text": "**R720 的厂商数据给了一个可达到的参考点。** 2.5 英寸典型配置在 23 ± 2°C，双 CPU、6 块 10K SAS、8×8 GB、2×750 W、H710 和 GbE NIC，LpA 怠速 25 dBA、处理器受压 26 dBA。最低配置为单 CPU、单 7.2K SATA、单 495 W、8 GB、H310，两工况均为 20 dBA。LpA 是半机架四个旁观者测点平均声压，表中的 bel 是声功率级。受压口径为 SPECpower 50% 处理器负载。R720xd 同指南典型为 28/30 dBA，不应套用到 R720。实际书房的距离、反射、背景、风扇老化、冷启动和热负载都要另测。[S2][S6]"
+        },
+        {
+          "type": "image",
+          "src": "_assets/docs/dell-r720-acoustics.png",
+          "cap": "外部原表 | Dell 技术指南第 38 页表 21，R720 2.5 英寸机箱的配置和声压/声功率列。[S2]"
+        }
+      ]
+    },
+    {
+      "id": "rear-io",
+      "start": 722.66,
+      "end": 789.06,
+      "title": "后 I/O 与 iDRAC 温控入口",
+      "sources": [
+        "S1",
+        "S2",
+        "S4"
+      ],
+      "caption": [
+        {
+          "type": "image",
+          "src": "img/rear.jpg",
+          "cap": "12:04 | 后面板可见通风网、I/O、扩展槽与两个电源模块 [S1]"
+        },
+        {
+          "type": "text",
+          "text": "12:02 起指认后 I/O，12:24 左右讲管理接口。备份配置，查看 iDRAC7 的进风温度、风扇 RPM、告警、事件日志和电源读数。墙插表用于核对实际 AC 用电。先消除缺件、风扇异常与高进风温度，再从 Auto/Default 或厂商支持的 Performance per Watt、Thermal Minimum Power 开始，每次只改一项。[S1][S2][S4]"
+        },
+        {
+          "type": "image",
+          "src": "_assets/docs/dell-idrac-thermal.png",
+          "cap": "外部原图 | Dell 白皮书第 8 页的 R720 iDRAC Thermal 菜单，固件版本会影响可选项。[S4]"
+        },
+        {
+          "type": "text",
+          "text": "Fan Speed Offset 在算法结果上加速。需要安静时检查有无额外 offset，先回到合适的默认设置，不用它强压转速。更低的排风温度上限也可能要求更多风量。保留自动保护，出现温度告警、风扇告警、降频或传感器异常就恢复上一个稳定配置并排查。还可试 OS 平衡省电、CPU C-states，或在支持时测试功耗上限与性能代价，别照搬基准测试的 BIOS 优化清单。[S2][S3][S4]"
+        }
+      ]
+    },
+    {
+      "id": "power",
+      "start": 789.06,
+      "end": 828.06,
+      "title": "双电源的 750 W 额定值和墙插功耗",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S7"
+      ],
+      "caption": [
+        {
+          "type": "text",
+          "text": "13:09–13:28 讲模块化、配置决定用电、热插拔和冗余。12:04 的后部镜头能确认两个电源模块，给定画质无法可靠读取这两块的瓦数。750 W 是题设，戴尔确实为 R720 提供该选件。[S1][S2]"
+        },
+        {
+          "type": "image",
+          "src": "img/psu.jpg",
+          "cap": "13:33 | 热插拔与冗余讲解中的后部操作切镜，展示冗余概念 [S1]"
+        },
+        {
+          "type": "image",
+          "src": "_assets/docs/dell-750w.png",
+          "cap": "外部原图 | Dell 技术指南第 36 页图 13，从 R720 抽出的 750 W 模块，可见风扇面标签。[S2]"
+        },
+        {
+          "type": "text",
+          "text": "两块 750 W 在 1+1 冗余下要由任一块独自承担故障后的负载。750 W 是每块的额定输出容量，真实 AC 输入随工作负载和转换效率变化。两个输入进同一排插仍可防单电源模块故障，排插和上游线路却仍是共同故障点。测总输入时给两路分别量瓦数或量整台所用的专用计量插座。[S2][S3]"
+        },
+        {
+          "type": "text",
+          "text": "2012 年 SPEC 公开结果中，双 E5-2660、24 GB、单 SATA SSD 和单 495 W 的 R720，在 Active Idle 为 52.7 W、100% 基准负载平均 250 W。另一套双 E5-2670、24 GB、单 SSD、单 495 W 为 51.0/231 W。它们是有调优的同型机参照，双 750 W、多 SAS 盘、HBA/GPU 或家用工作负载应以实测为准。[S3][S7]"
+        },
+        {
+          "type": "text",
+          "text": "保留双电源，从厂商默认冗余起步。固件支持 Hot Spare 时，启用后可能让轻载下的一个模块休眠以改善效率。厂商也指出默认关闭 Hot Spare 对电源声学最有利。以双路总瓦数、听感和冗余状态做 A/B，记录轻载、重载和回落。只有接受失去单模块容错、确认单电源和空位挡片支持及容量够用时，才考虑单电源。整机断电再变更配置，别拆开电源或改其内部风扇。[S2]"
+        },
+        {
+          "type": "text",
+          "text": "若墙插实测长期平均 100 W，全天常开一年就是 876 kWh，室内持续增加约 100 W 热负荷。温度应在夏季关门的实际位置复测，以机箱进风口为准，并给温度限值留余量。房间越闷，越值得把热源移走。[S2][S3][S4]"
+        }
+      ]
+    },
+    {
+      "id": "post",
+      "start": 828.06,
+      "end": 865.06,
+      "title": "启动自检、风扇爬升和稳态测量",
+      "sources": [
+        "S1",
+        "S2",
+        "S4",
+        "S6"
+      ],
+      "caption": [
+        {
+          "type": "image",
+          "src": "img/post.jpg",
+          "cap": "14:03 | 字幕说明开机逐个检查组件，机器仍以讲解镜头为主 [S1]"
+        },
+        {
+          "type": "text",
+          "text": "13:48 进入开机自检，随后提到另一台八路机器启动慢的案例。戴尔另有 R720 开机风扇升速再下降的说明。片中成片音轨不能校准到现场 dBA。需要分开记录冷开机峰值和持续时间、系统稳定后的怠速及真实任务负载。[S1][S2][S6]"
+        },
+        {
+          "type": "text",
+          "text": "**按书房工位验收。** 同一摆位、门窗状态和坐姿耳位，先记录关机背景的 dBA LAeq，再测冷启最大值、20–30 分钟稳定怠速、30–60 分钟典型负载与短时并发重负载，记录 A 计权 LAeq、最大值及明显尖啸、寻道或周期升速。另记距机器约 1 m 的固定点和朝向，方便复测。优先用可校准声级计，手机只作同设备相对筛查。iOS 可用 NIOSH SLM，安静背景接近仪表底噪时改用合适量程的声级计。[S2][S6]"
+        },
+        {
+          "type": "text",
+          "text": "实用自定门槛可设为：常开后坐席稳态较关机背景升幅尽量不超过约 3 dBA，并且通话、阅读时听不到持续音调。升幅反复达约 5 dBA、尖音明显或启动频繁打断工作，就改摆位或放弃同室常开。这是舒适度筛选，按个人和房间调整。同步记录进风、房温、RPM 和部件告警，复测最热使用时段。[S2][S4][S6]"
+        }
+      ]
+    },
+    {
+      "id": "virtual",
+      "start": 865.06,
+      "end": 927.74,
+      "title": "虚拟化、分机运行和按需开机",
+      "sources": [
+        "S1",
+        "S3",
+        "S5"
+      ],
+      "caption": [
+        {
+          "type": "image",
+          "src": "img/virtual.jpg",
+          "cap": "15:02 | 讲者解释用虚拟化提高硬件资源利用率 [S1]"
+        },
+        {
+          "type": "text",
+          "text": "14:25 起用网站、文件共享和软路由解释合并部署，接着讲虚拟机、容器和云。实际 homelab 可让核心服务在低功耗主机常驻，R720 只在需要大内存、大量 VM、磁盘或企业级硬件实验时启动。关机待命时也可量一下带 iDRAC 的墙插功耗，折算运行时间和待机时间。[S1][S3][S5]"
+        },
+        {
+          "type": "text",
+          "text": "ServeTheHome 在 120 V 下测到双核 Lenovo M720q Tiny 空闲 11–14 W，负载声描述是作者听感。这提供了轻量常开方案的量级参考。多盘 NAS 或塔式机的实际墙插瓦数取决于盘和配置，按同样方法复测。[S5]"
+        }
+      ]
+    },
+    {
+      "id": "close",
+      "start": 927.74,
+      "end": 969.771,
+      "title": "片尾的冗余设计与买前验收",
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S6"
+      ],
+      "caption": [
+        {
+          "type": "image",
+          "src": "img/closing.jpg",
+          "cap": "15:48 | 回到整套设备和机架的广角镜头，片尾总结冗余与可靠性 [S1]"
+        },
+        {
+          "type": "text",
+          "text": "15:27 起总结冗余和企业服务器的可靠性取向。卖家至少需要提供带配置的怠速和负载插座读数、风扇与温度界面、开机后稳定用时，并让你确认机型、盘架、导风罩、原厂风扇、两块电源及导轨。实测比卖家的录音响度更接近你的使用场景。[S1][S2][S3][S6]"
+        },
+        {
+          "type": "flow",
+          "title": "到货验收和去留",
+          "steps": [
+            "原装风道，核对风扇、PSU、卡和固件，测两路总功耗和坐席背景 [S2][S3][S6]",
+            "依次测冷启、怠速、真实负载、热天进风，记录温度、RPM、噪声和瓦数 [S2][S4][S6]",
+            "清理气路，选择支持的节能策略，逐项 A/B，出告警或降频就回退 [S2][S4]",
+            "坐席听感、常开电费或房温过不了验收，就移机、按需开机或选低功耗平台 [S2][S3][S6]"
+          ]
+        }
+      ]
+    }
+  ],
+  "anchors": [
+    {
+      "id": "A1",
+      "label": "R720 铭牌与两块电源",
+      "category": "更多支撑",
+      "why": "用机型和 PSU 选件约束外推。",
+      "segmentIds": [
+        "model",
+        "power"
+      ]
+    },
+    {
+      "id": "A2",
+      "label": "热插拔模块、风道与控制",
+      "category": "背景知识",
+      "why": "查 12G 的温控规则、菜单与噪声测量条件。",
+      "segmentIds": [
+        "airflow",
+        "rear-io",
+        "post"
+      ]
+    },
+    {
+      "id": "A3",
+      "label": "墙插功耗和全年热负荷",
+      "category": "更多支撑",
+      "why": "用公开同型号仪表结果校准为按负载计算的量级。",
+      "segmentIds": [
+        "storage",
+        "compute",
+        "power",
+        "close"
+      ]
+    },
+    {
+      "id": "A4",
+      "label": "轻量常开与按需硬件实验",
+      "category": "类似产品·事件对比",
+      "why": "比较可承担轻量常驻任务的小主机，明确配置差异。",
+      "segmentIds": [
+        "role",
+        "forms",
+        "virtual"
+      ]
+    },
+    {
+      "id": "A5",
+      "label": "坐席声级与启动峰值",
+      "category": "背景知识",
+      "why": "明确实际测量量、位置和时间。",
+      "segmentIds": [
+        "airflow",
+        "post",
+        "close"
+      ]
+    }
+  ],
+  "research": [
+    {
+      "id": "S1",
+      "type": "video",
+      "title": "为什么它被称为互联网之魂？服务器硬件知识科普",
+      "url": "https://www.bilibili.com/video/BV1D3411i7RD",
+      "summary": "无情开评，2021-09-03。03:50 铭牌为 R720，11:26–11:53 展示风道、罩与风扇，12:04 可见双电源，13:09 后讲供电和冗余，13:48 后讲启动。视频提供硬件观察，无书房环境的量测。",
+      "anchorId": "A1",
+      "publisher": "无情开评 / 哔哩哔哩",
+      "media": "media/source.mp4",
+      "perception": "_work/reading.json"
+    },
+    {
+      "id": "S2",
+      "type": "report",
+      "title": "PowerEdge R720 and R720xd Technical Guide",
+      "url": "https://i.dell.com/sites/doccontent/shared-content/data-sheets/en/Documents/ESG-PowerEdge-R720-and-R720xd-Technical-Guide.pdf",
+      "summary": "第 11–13 页机箱与后部。第 34–38 页电源选件、1+1、风控、声学配置与测法。第 39、53、55 页机架安装、温湿度和 PSU 规格。原图和表已嵌在对应段落。",
+      "anchorId": "A1",
+      "publisher": "Dell",
+      "media": "_assets/docs/S2.pdf",
+      "primary": true
+    },
+    {
+      "id": "S3",
+      "type": "web",
+      "title": "SPECpower_ssj2008：Dell PowerEdge R720 (E5-2660)",
+      "url": "https://www.spec.org/power_ssj2008/results/res2012q2/power_ssj2008-20120417-00452.html",
+      "summary": "Dell 于 2012 年提交的实测。单机双 E5-2660、24 GB、1 块 SATA SSD、单 495 W，Active Idle 52.7 W，100% 目标负载 250 W，现场约 23°C。详见图下结果表、硬件配置与 Notes。",
+      "anchorId": "A3",
+      "publisher": "SPEC / Dell（测试提交方）",
+      "media": "_assets/docs/S3.html",
+      "primary": true
+    },
+    {
+      "id": "S4",
+      "type": "report",
+      "title": "Advanced Thermal Control: Optimizing across Environments and Power Goals",
+      "url": "https://i.dell.com/sites/content/business/solutions/whitepapers/en/Documents/advanced-thermal-control.pdf",
+      "summary": "第 4 页多组件传感器反馈，第 7–10 页 12G 的 Minimum Power、最大排气温度和 Fan Speed Offset。第 8 页 Figure 1 是 R720 截图。Offset 实际提高默认风速。",
+      "anchorId": "A2",
+      "publisher": "Dell / Paul Artman, Chris E. Peterson",
+      "media": "_assets/docs/S4.pdf",
+      "primary": true
+    },
+    {
+      "id": "S5",
+      "type": "web",
+      "title": "Lenovo ThinkCentre M720q TinyMiniMicro Feature | Performance and Power",
+      "url": "https://www.servethehome.com/lenovo-thinkcentre-m720q-tinyminimicro-feature/3/",
+      "summary": "Power Consumption 一节的作者实测，双核测试机 120 V 怠速 11–14 W，噪声为定性描述。可比量是待机服务的能耗量级，机型和能力不同。",
+      "anchorId": "A4",
+      "publisher": "ServeTheHome",
+      "media": "_assets/docs/S5.txt",
+      "primary": true
+    },
+    {
+      "id": "S6",
+      "type": "web",
+      "title": "NIOSH Sound Level Meter App",
+      "url": "https://www.cdc.gov/niosh/noise/about/app.html",
+      "summary": "说明 iOS 工具记录 LAeq、Max、Peak 等指标，配校准外接麦克风可满足 Type 2 要求。页面目标是工作场所噪声测量，书房的舒适门槛自行设定。",
+      "anchorId": "A5",
+      "publisher": "CDC / NIOSH",
+      "media": "_assets/docs/S6.txt",
+      "primary": true
+    },
+    {
+      "id": "S7",
+      "type": "web",
+      "title": "SPECpower_ssj2008：Dell PowerEdge R720 (E5-2670)",
+      "url": "https://www.spec.org/power_ssj2008/results/res2012q1/power_ssj2008-20120306-00435.html",
+      "summary": "Dell 另一套 2012 年提交配置。双 E5-2670、24 GB、单 100 GB SATA SSD、单 495 W，Active Idle 51.0 W，100% 目标负载 231 W，现场 22.8°C。同一测试提交方。",
+      "anchorId": "A3",
+      "publisher": "SPEC / Dell（测试提交方）",
+      "media": "_assets/docs/S7.html",
+      "primary": true
+    }
+  ],
+  "insights": [
+    {
+      "kind": "compare",
+      "title": "常开平台的怠速账单和适用工作",
+      "table": {
+        "cols": [
+          "有实测的配置",
+          "怠速 AC 功耗",
+          "按该值全天运行一年",
+          "适合的任务"
+        ],
+        "rows": [
+          [
+            "R720 双 E5-2660，24 GB，单 SSD、单 495 W [S3]",
+            "52.7 W",
+            "约 462 kWh",
+            "需要机架、PCIe 和扩展余量的实验"
+          ],
+          [
+            "M720q Tiny 双核测试机，120 V [S5]",
+            "11–14 W",
+            "约 96–123 kWh",
+            "轻量常驻服务，盘位和内存按需求核对"
+          ]
+        ]
+      },
+      "body": "列出两套公开测得的实际样机。怠速定义、软件、供电和能力不同，全年值为怠速功率乘 8,760 小时的算例。只要轻量任务，小主机更容易同时压住全年电量和热负荷。[S3][S5]",
+      "sources": [
+        "S3",
+        "S5"
+      ],
+      "evidence": [
+        {
+          "srcId": "S3",
+          "quote": "Active Idle 0 52.7 0",
+          "local": "_assets/docs/S3.html"
+        },
+        {
+          "srcId": "S5",
+          "quote": "Idle power consumption on 120V power we saw 11-14W idle for the dual-core unit.",
+          "local": "_assets/docs/S5.txt"
+        }
+      ]
+    },
+    {
+      "kind": "cause",
+      "title": "用实际平均功率算电费和室内热量",
+      "body": "日耗电 = 平均 W × 运行小时 ÷ 1,000，年耗电用模式功率按占时加权，或将代表性数日的实测电量外推。年费 = 年 kWh × 本地边际电价，空调额外用电另计。按 24×365，50 / 100 / 150 / 250 W 分别对应 438 / 876 / 1,314 / 2,190 kWh/年。以 0.60 元/kWh 为演算电价，分别约 263 / 526 / 788 / 1,314 元/年。[S3][S7]\n\n若机器和排气均在室内，稳态下墙插功率近似成为同等热功率。1 W ≈ 3.412 BTU/h，50 / 100 / 150 / 250 W 分别约 171 / 341 / 512 / 853 BTU/h。100 W 持续一天给房间约 2.4 kWh 热。室温变化还取决于房间换气、围护、季节和空调，尾部很热时先检查前端是否回吸。估算日常值用墙插读数，额定 PSU 和出风温度各有别的用途。[S2][S3][S4]",
+      "sources": [
+        "S2",
+        "S3",
+        "S4",
+        "S7"
+      ]
+    },
+    {
+      "kind": "context",
+      "title": "高转速出现在哪个阶段",
+      "body": "开机短暂升速后回落属于戴尔记录的启动策略。持续怠速高转先对照进风温度、风扇和传感器健康、上盖和挡片、PSU/扩展件及 thermal profile。负载时升速优先核对盘和扩展卡等局部温度，再按同一任务做 A/B。读数正常但仍吵时，测试房间布置、振动和距离，或将计算节点移出书房。[S1][S2][S4][S6]",
+      "sources": [
+        "S1",
+        "S2",
+        "S4",
+        "S6"
+      ]
+    }
+  ]
+}

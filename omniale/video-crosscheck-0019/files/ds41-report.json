@@ -1,0 +1,578 @@
+{
+  "meta": {
+    "theme": "t05",
+    "category": "硬件与家庭实验室",
+    "lang": "zh"
+  },
+  "summary": "这类退役 2U 服务器可以放进书房，但不能只凭 750W 铭牌判断：原片展示了前进后出风道、导风板和高静压热插拔风扇 [S1]；同代 Dell R730 白皮书在 23±2°C、最小配置下给出 28 dBA 空载和 33 dBA 运行值，典型 2.5 英寸配置运行可升到 39 dBA [S3]。电源额定 750W 也不等于耗电 750W，独立测试机空载 56W，而更重的双路多盘机器可到 200W 级 [S5][S6]。可行做法是把配置压到实际用途所需、在 iDRAC/BIOS 使用功耗优化档、实测壁插功率与 1 米声压，并把机柜放到有人长时间停留区之外；若只需要少量容器和文件服务，低功耗整机通常比旧机架机更合适。",
+  "video": {
+    "src": "media/source.mp4",
+    "title": "为什么它被称为互联网之魂？服务器硬件知识科普",
+    "duration": 969.771,
+    "poster": "img/seg1-00m55s.png"
+  },
+  "segments": [
+    {
+      "id": "seg1",
+      "start": 0,
+      "end": 68,
+      "title": "片头的机架群：服务器不是一台更贵的 PC",
+      "keyframe": "img/seg1-00m55s.png",
+      "caption": [
+        {
+          "type": "text",
+          "text": "`00:55`：片头把桌面主机与成排机架设备放在同一画面。原片对服务器的定义是“能在网络里为其他客户机提供计算或应用服务的高性能计算机”，强调的是持续服务角色，而不是某一种机箱外形 [S1]。"
+        },
+        {
+          "type": "text",
+          "text": "对 home lab 来说，需要验收的是 24×7 运行时的近场声压、壁插功率、排热量和可维护性；2U 尺寸只决定摆位和风道。原片没有给出这台机器的噪音或功耗读数，因此本报告用独立资料补齐这两个缺口 [S1][S4]。"
+        }
+      ],
+      "sources": [
+        "S1",
+        "S4"
+      ],
+      "insights": []
+    },
+    {
+      "id": "seg2",
+      "start": 68,
+      "end": 200,
+      "title": "塔式、机架与刀片：先选形态，再谈退役机",
+      "keyframe": "img/seg2-01m18s.png",
+      "caption": [
+        {
+          "type": "text",
+          "text": "`01:18`：镜头扫过整柜机架服务器。原片把常见形态分为塔式、机架式和刀片式，并按 IA、RISC、ARM 等架构继续分类 [S1]。外形分类之后，真正影响家庭部署的是机柜深度、盘位、风扇和电源，而不是“服务器”这个统称。"
+        },
+        {
+          "type": "text",
+          "text": "以本报告用于量化对照的 Dell PowerEdge R730 为例，它是双路 2U 机架服务器，支持热插拔冗余风扇与 750W 级冗余电源；这些企业特性提高了可用性，也意味着整机按机柜风道设计 [S2]。"
+        }
+      ],
+      "sources": [
+        "S1",
+        "S2"
+      ],
+      "insights": [
+        {
+          "kind": "context",
+          "title": "退役机架机的第一张清单应是“用途与摆位”",
+          "body": "若需要大量 ECC 内存、多盘位、PCIe 卡或远程管理，2U 机架机仍有用武之地；若只是 DNS、文件共享、软路由和少量容器，先比较低功耗小主机，避免把企业级冗余和风量余量带进书房 [S1][S2]。",
+          "sources": [
+            "S1",
+            "S2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seg3",
+      "start": 200,
+      "end": 430,
+      "title": "2U 前面板：盘位密度就是功耗与风量的起点",
+      "keyframe": "img/seg3-03m23s.png",
+      "caption": [
+        {
+          "type": "text",
+          "text": "`03:23`：原片以这台最常见的 2U 服务器为例，展示前面板挂耳、诊断屏、USB/VGA、定位灯和中间的大盘位存储区 [S1]。它指出同型号常有大小盘位版本，硬盘按 RAID 组织，企业盘更强调低功耗与长无故障时间。"
+        },
+        {
+          "type": "text",
+          "text": "盘位并不是免费的容量：Dell 声学白皮书指出，硬盘数量和转速会影响噪音，15K SAS 通常比 10K 和 7.2K 更响；PCIe SSD 虽不直接发声，却需要更多风量，压力测试时声功率可升到 7.0 bels [S3]。"
+        }
+      ],
+      "sources": [
+        "S1",
+        "S3"
+      ],
+      "insights": [
+        {
+          "kind": "cause",
+          "title": "满盘位不是只多几块盘",
+          "body": "硬盘本身有寻道和主轴噪声，RAID/HBA 与背板也增加功耗；盘越多，机箱需要的风量越高，风扇转速与噪音随之上调。因此“8 盘或 12 盘都插满”的退役机，不能按一台只装一两块盘的新 NAS 来估算 [S3]。",
+          "sources": [
+            "S3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seg4",
+      "start": 430,
+      "end": 683,
+      "title": "CPU、内存、GPU 与扩展卡：热负载会叠加",
+      "keyframe": "img/seg4-08m20s.png",
+      "caption": [
+        {
+          "type": "text",
+          "text": "`08:20`：画面把服务器与桌面 CPU 放在一起比较。原片随后讲双路、四路、八路、多通道 ECC 内存、服务器 GPU 和 PCIe 扩展卡；这些部件共同决定计算能力，也共同抬高整机发热 [S1]。"
+        },
+        {
+          "type": "text",
+          "text": "因此不能只看 CPU 的 TDP。Dell 白皮书明确说，配置和利用率提高会推高声功率；GPGPU 配置约比典型配置响一倍，性能优化热策略也会让风扇更快 [S3]。"
+        }
+      ],
+      "sources": [
+        "S1",
+        "S3"
+      ],
+      "insights": [
+        {
+          "kind": "cause",
+          "title": "高核心数不等于家庭负载会用到",
+          "body": "旧双路机的 CPU、满排 DIMM、PERC/HBA、网卡和 GPU 即使利用率不高，也会形成固定功耗与风量需求。先删掉不必要的第二颗 CPU、显卡和扩展卡，比直接调低风扇更接近根因 [S1][S3]。",
+          "sources": [
+            "S1",
+            "S3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seg5",
+      "start": 683,
+      "end": 715,
+      "title": "前进后出：导风板和高静压风扇把热带走也把噪声带来",
+      "keyframe": "img/seg5-11m28s.png",
+      "caption": [
+        {
+          "type": "text",
+          "text": "`11:28`：原片打开 2U 顶盖后说，服务器内部空间紧凑，通常前进风、后出风，并用导风板分配风量；风扇是热插拔的涵道风扇，功率更大、风力更集中，轴承也更好 [S1]。`11:40` 的片段显示风扇从机箱中热插拔取出。"
+        },
+        {
+          "type": "image",
+          "src": "anchors/A1-hotswap-fan-11m40s.png",
+          "cap": "`11:40`：原片正在抽取热插拔风扇。高静压风道适合密集设备，但前后近场会直接听到气流与轴承噪声 [S1]。"
+        },
+        {
+          "type": "flow",
+          "title": "热负荷如何变成书房里的噪声",
+          "steps": [
+            "CPU、硬盘和 PCIe 卡持续发热 [S3]",
+            "前进后出风道需要足够风量和静压 [S1]",
+            "涵道风扇提高转速并产生气流噪声 [S1][S3]",
+            "23°C 下典型 2.5 英寸配置运行可到 39 dBA，高配会更高 [S3]"
+          ]
+        },
+        {
+          "type": "image",
+          "src": "_assets/images/S3-r730-acoustics-evidence.png",
+          "cap": "Dell 13G 声学白皮书第 6 页：R730 最小配置在 23±2°C 下为 28 dBA 空载、33 dBA 运行；典型 2.5 英寸配置运行值为 39 dBA [S3]。"
+        },
+        {
+          "type": "image",
+          "src": "_assets/images/S3-acoustic-reference-evidence.png",
+          "cap": "同一白皮书的熟悉噪声参照：30 dBA 接近安静图书馆，35 dBA 接近安静办公室，45 dBA 接近正常客厅；这比只看“静音服务器”标签更能判断书房接受度 [S3]。"
+        }
+      ],
+      "sources": [
+        "S1",
+        "S3"
+      ],
+      "insights": [
+        {
+          "kind": "cause",
+          "title": "为什么同一款机器会从“安静”变成“吵”",
+          "body": "Dell 的默认 Power Optimized 策略通常会降低风扇转速；切到 Performance Optimized、增加 PCIe SSD 或 GPGPU、提高进风温度，都会让风扇更早提速。官方 28 dBA 是特定最小配置与 23±2°C 条件下的数据，不是任何一台二手满配机的保证 [S3]。",
+          "sources": [
+            "S3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seg6",
+      "start": 715,
+      "end": 827,
+      "title": "750W 冗余电源：容量、冗余与实际耗电是三件事",
+      "keyframe": "img/seg6-13m35s.png",
+      "caption": [
+        {
+          "type": "text",
+          "text": "`13:35`：原片展示后置 I/O 与双电源仓，并说明服务器电源采用模块化设计，有不同功率可选；同一款服务器的实际功耗会因 CPU、硬盘、内存和扩展设备而相差很大，所以选购时要留余量。双电源热插拔与冗余则在单个电源故障时继续供电 [S1]。"
+        },
+        {
+          "type": "image",
+          "src": "anchors/A3-rear-modular-psu-13m10s.png",
+          "cap": "`13:10`：后部可看到模块化电源仓。原片强调的是冗余与可更换，不是运行时的真实耗电 [S1]。"
+        },
+        {
+          "type": "image",
+          "src": "_assets/images/S4-r730-psu-evidence.png",
+          "cap": "Dell R730 手册第 28 页：系统支持两个冗余 PSU；750W AC 的最大散热为 2891 BTU/hr，但注脚明确说该值按 PSU 额定功率计算 [S4]。"
+        },
+        {
+          "type": "image",
+          "src": "_assets/images/S5-crn-power-evidence.png",
+          "cap": "CRN 对 R730 的独立实测段落：双冗余热插拔电源在基准中约 86W，空载约 56W，全程未超过 113W；这是测试配置的结果，不是所有 R730 的固定值 [S5]。"
+        },
+        {
+          "type": "image",
+          "src": "_assets/images/S6-dan-power-graph.png",
+          "cap": "另一台双路 E5-2699 v3 R730 的长期功耗曲线：调优后多数时段约 196–210W，改造前约 321–336W。作者把这里的 idle 定义为“惯常负载、并非构建软件包”，因此不应把它当作严格空载数据 [S6]。"
+        }
+      ],
+      "sources": [
+        "S1",
+        "S4",
+        "S5",
+        "S6"
+      ],
+      "insights": [
+        {
+          "kind": "context",
+          "title": "先测三个数，再谈每月电费",
+          "body": "至少记录盘片停转空载、典型服务和瞬时峰值三个壁插功率。按 24×7 运行，功率每 100W 约对应 876 kWh/年；热量可按 1W≈3.412 BTU/hr 估算。铭牌上的 750W 是电源容量，不是应当直接乘 24 小时的耗电 [S4][S5][S6]。",
+          "sources": [
+            "S4",
+            "S5",
+            "S6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seg7",
+      "start": 827,
+      "end": 969.7,
+      "title": "启动、虚拟化与上云：把 24×7 账算完再搬进书房",
+      "keyframe": "img/seg7-14m40s.png",
+      "caption": [
+        {
+          "type": "text",
+          "text": "`14:40`：原片说服务器开机要做设备健康检查，配置越高启动越慢，并举例八路 8180、6TB 内存的机器约 25 分钟才出现启动画面 [S1]。随后他把话题转向虚拟化：把一台服务器拆成多台隔离虚拟机，能用容器减少整机数量，但单台硬件仍需持续运行。"
+        },
+        {
+          "type": "image",
+          "src": "anchors/A4-rack-context-15m40s.png",
+          "cap": "`15:40`：片尾回到成排机架设备。原片认为冗余设计提高了稳定性，也让维护、重启和上云取舍成为服务器使用的一部分 [S1]。"
+        },
+        {
+          "type": "image",
+          "src": "_assets/images/S4-r730-thermal-evidence.png",
+          "cap": "Dell R730 手册第 63 页：iDRAC 中可选 Default、Maximum Performance 和 Minimum Power 热策略，并调整 Fan Speed Offset、Minimum Fan Speed 与自定义最低转速 [S4]。先使用厂商支持的策略，再考虑更激进的第三方风扇脚本。"
+        },
+        {
+          "type": "mindmap",
+          "root": "书房部署验收",
+          "branches": [
+            {
+              "label": "噪声",
+              "items": [
+                "在桌前 1 米测空载与负载 dBA [S3]",
+                "同时听启动自检和风扇突变 [S5]"
+              ]
+            },
+            {
+              "label": "热量",
+              "items": [
+                "保持进风 10–35°C 的标准连续工作窗口 [S4]",
+                "柜内留进排风空间并复测进风温度"
+              ]
+            },
+            {
+              "label": "功耗",
+              "items": [
+                "用墙插功率计记录 56–336W 等真实工况 [S5][S6]",
+                "按 24×7 换算年电量与热量"
+              ]
+            },
+            {
+              "label": "运维",
+              "items": [
+                "确认 iDRAC/IPMI 可用 [S1]",
+                "接受启动慢、固件与硬盘老化风险 [S1]"
+              ]
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "S1",
+        "S3",
+        "S4",
+        "S5",
+        "S6"
+      ],
+      "insights": [
+        {
+          "kind": "context",
+          "title": "推荐决策顺序",
+          "body": "若确实需要多盘位、ECC 内存或 PCIe 扩展，并且机器能放到书房外的通风位置，旧 2U 可以留下；若只是轻量容器、DNS、媒体与备份，低功耗小主机通常更容易做到安静。无论选哪条路，都先用功率计和声级计按实际配置验收，再决定是否长期开机 [S1][S3][S4][S5][S6]。",
+          "sources": [
+            "S1",
+            "S3",
+            "S4",
+            "S5",
+            "S6"
+          ]
+        }
+      ]
+    }
+  ],
+  "anchors": [
+    {
+      "id": "A1",
+      "label": "2U 机箱的前进后出风道、导风板与热插拔风扇",
+      "category": "背景知识",
+      "why": "解释原片中高静压风扇和密集风道为何会带来近场噪声，并把画面时间与硬件资料对应起来。",
+      "segmentIds": [
+        "seg2",
+        "seg3",
+        "seg5"
+      ]
+    },
+    {
+      "id": "A2",
+      "label": "同代 R730 的配置相关声压数据",
+      "category": "更多支撑",
+      "why": "用厂商 ISO 7779 口径的实测声压替代“服务器都很吵”或“服务器很安静”的口头判断。",
+      "segmentIds": [
+        "seg5",
+        "seg7"
+      ]
+    },
+    {
+      "id": "A3",
+      "label": "750W 铭牌、实际耗电与热量",
+      "category": "类似产品·事件对比",
+      "why": "区分电源容量、冗余能力和真实壁插功率，并给出可复算的年电量与热负荷。",
+      "segmentIds": [
+        "seg6",
+        "seg7"
+      ]
+    },
+    {
+      "id": "A4",
+      "label": "在不牺牲散热安全的前提下降低功耗与噪声",
+      "category": "更多支撑",
+      "why": "用厂商热策略、C-State 与操作系统电源管理资料形成从保守到激进的降噪顺序。",
+      "segmentIds": [
+        "seg5",
+        "seg7"
+      ]
+    }
+  ],
+  "research": [
+    {
+      "id": "S1",
+      "type": "video",
+      "title": "为什么它被称为互联网之魂？服务器硬件知识科普",
+      "url": "https://www.bilibili.com/video/BV1D3411i7RD",
+      "summary": "全片 16 分 09 秒的服务器硬件科普。与问题直接相关的内容包括 2U 前面板、盘位与 RAID、双路 CPU/ECC/GPU、前进后出与导风板、高静压热插拔风扇、模块化冗余电源、启动自检、虚拟化与上云。原片没有给出 2U 机器的实测噪音或功耗。",
+      "anchorId": "A1",
+      "publisher": "无情开评 / Bilibili",
+      "primary": true,
+      "media": "media/source.mp4",
+      "perception": "_work/S1/reading.json"
+    },
+    {
+      "id": "S2",
+      "type": "report",
+      "title": "PowerEdge R730 and R730xd Technical Guide",
+      "url": "https://i.dell.com/sites/doccontent/shared-content/data-sheets/en/Documents/Dell-PowerEdge-R730-and-R730xd-Technical-Guide-v1-7.pdf",
+      "summary": "Dell 官方技术指南。R730 是双路 2U 机架平台，支持热插拔冗余风扇，并提供 495W、750W 和 1100W 等热插拔冗余电源配置。",
+      "anchorId": "A1",
+      "publisher": "Dell Technologies",
+      "primary": true,
+      "media": "_assets/docs/S2-dell-r730-tech-guide.pdf"
+    },
+    {
+      "id": "S3",
+      "type": "report",
+      "title": "Dell 13G PowerEdge Acoustical Performance & Dependencies",
+      "url": "https://i.dell.com/sites/csdocuments/Shared-Content_data-Sheets_Documents/en/Dell-13G-PowerEdge-Acoustical-Performance-and-Dependencies.pdf",
+      "summary": "Dell 官方声学白皮书。R730 最小配置与典型 3.5 英寸配置在 23±2°C 下均为 28 dBA 空载、33 dBA 运行；典型 2.5 英寸配置运行为 39 dBA。性能策略、处理器功耗、硬盘数量与类型、PCIe SSD 和 GPGPU 都会推高噪声。",
+      "anchorId": "A2",
+      "publisher": "Dell Technologies",
+      "primary": true,
+      "media": "_assets/docs/S3-dell-13g-acoustics.pdf"
+    },
+    {
+      "id": "S4",
+      "type": "report",
+      "title": "Dell PowerEdge R730 Owner's Manual (Rev. A05)",
+      "url": "https://dl.dell.com/topicspdf/poweredge-r730-dsms_owners-manual_en-us.pdf",
+      "summary": "Dell 官方用户手册。系统支持双冗余 PSU；750W AC PSU 的最大散热标注为 2891 BTU/hr，并按额定功率计算。标准连续工作环境为 10–35°C，iDRAC 提供默认、最高性能和最低功耗热策略以及用户风扇转速选项。",
+      "anchorId": "A3",
+      "publisher": "Dell Technologies",
+      "primary": true,
+      "media": "_assets/docs/S4-dell-r730-owners-manual.pdf"
+    },
+    {
+      "id": "S5",
+      "type": "web",
+      "title": "Review: Dell PowerEdge R730 Is Furious Fast",
+      "url": "https://www.crn.com/reviews/data-center/300073939/review-dell-poweredge-r730-is-furious-fast",
+      "summary": "CRN 对双路 R730 的独立测试：冗余热插拔电源在基准中约 86W，空载约 56W，测试期间未超过 113W；机器相对安静，但开机自检时风扇很响。",
+      "anchorId": "A3",
+      "publisher": "CRN",
+      "primary": true,
+      "media": "_assets/docs/S5-crn-r730-review.html"
+    },
+    {
+      "id": "S6",
+      "type": "web",
+      "title": "Using powerd++ to reduce power consumption on a Dell R730",
+      "url": "https://dan.langille.org/2024/01/29/using-powerd-to-reduce-power-consumption-on-a-dell-r730/",
+      "summary": "一台双路 E5-2699 v3 R730 的长期功耗记录。调整 C-State 为 Performance per Watt (OS) 并启用 powerd++ 后，记录功率从约 320W 降至 210W；文中同时给出约 321–336W 的改造前惯常负载区间和 196–210W 的调优后区间，作者明确说明这里的 idle 并非严格空载。",
+      "anchorId": "A4",
+      "publisher": "Dan Langille",
+      "primary": true,
+      "media": "_assets/docs/S8-dan-r730-powerd.html"
+    }
+  ],
+  "insights": [
+    {
+      "kind": "compare",
+      "title": "750W 是电源上限，不是整机耗电",
+      "table": {
+        "cols": [
+          "口径",
+          "Dell 官方手册",
+          "CRN 独立测试"
+        ],
+        "rows": [
+          [
+            "文档中的数值",
+            "支持两个冗余 PSU；750W AC 最大散热 2891 BTU/hr，按额定功率计算 [S4]",
+            "同一测试机空载 56W、基准约 86W，全程不超过 113W [S5]"
+          ],
+          [
+            "应如何理解",
+            "额定容量与最坏情况散热口径，不是实际负载 [S4]",
+            "实际壁插功率随 CPU、盘、卡和负载变化 [S5]"
+          ]
+        ]
+      },
+      "body": "将 750W 直接乘 24 小时会把功耗和电费高估数倍。正确做法是用墙插功率计测这台机器的空载、典型负载和峰值；散热则接近实际耗电功率，而不是电源铭牌功率 [S4][S5]。",
+      "sources": [
+        "S4",
+        "S5"
+      ],
+      "evidence": [
+        {
+          "srcId": "S4",
+          "quote": "The PowerEdge R730 system supports up to two AC or DC redundant power supply units (PSUs).",
+          "local": "_assets/docs/S4-dell-r730-owners-manual.txt"
+        },
+        {
+          "srcId": "S5",
+          "quote": "We monitored the consumption of the R730's redundant hot-swap power supplies, which hovered around 86 watts during benchmarks and settled at 56 watts during idle times.",
+          "local": "_assets/docs/S5-crn-r730-review.html"
+        }
+      ]
+    },
+    {
+      "kind": "compare",
+      "title": "“安静”有配置边界，启动和负载突变仍会吵",
+      "table": {
+        "cols": [
+          "条件",
+          "Dell 官方声学数据",
+          "CRN 独立测试观察"
+        ],
+        "rows": [
+          [
+            "低配或典型配置",
+            "23±2°C 下空载 28 dBA、运行 33 dBA；典型 2.5 英寸配置运行 39 dBA [S3]",
+            "双路测试机在基准期间相对安静 [S5]"
+          ],
+          [
+            "暂态与高配",
+            "Performance Optimized、PCIe SSD 或 GPGPU 会显著提高风扇转速与噪声 [S3]",
+            "开机自检时多速风扇很响，之后才回落 [S5]"
+          ]
+        ]
+      },
+      "body": "同代 2U 可以达到安静办公室量级，但前提是低配、默认功耗优化策略和较低进风温度。退役机若满盘、加 GPU、积灰或 BIOS 设为性能模式，不能用 28 dBA 代表它 [S3][S5]。",
+      "sources": [
+        "S3",
+        "S5"
+      ],
+      "evidence": [
+        {
+          "srcId": "S3",
+          "quote": "Consciously designed to scale with configuration and usage, sound from the PowerEdge R730 in minimal configuration is sufficiently quiet to be masked in open office layout environments.",
+          "local": "_assets/docs/S3-dell-13g-acoustics.txt"
+        },
+        {
+          "srcId": "S5",
+          "quote": "Unlike prior generations, the power-sipping PowerEdge R730 remained relatively quiet. Its bank of multi-speed cooling fans, which are quite loud during its power-on self test, hummed along quietly during tests and never never needed to go into overdrive.",
+          "local": "_assets/docs/S5-crn-r730-review.html"
+        }
+      ]
+    },
+    {
+      "kind": "cause",
+      "title": "噪音、功耗和发热是同一件事的三个读数",
+      "body": "设备把电能的大部分转成热，热量必须由前进后出风道带走；配置越密、进风越热，风扇越可能提速。原片所说的高功率、集中风力的涵道风扇正是为此设计，所以书房噪音不是偶发故障，而是散热目标与使用环境错配的结果 [S1][S3][S4]。",
+      "sources": [
+        "S1",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "kind": "context",
+      "title": "把瓦数换算成热量和年电量",
+      "table": {
+        "cols": [
+          "工况",
+          "连续功率",
+          "24×7 年电量",
+          "显热",
+          "参考年电费*"
+        ],
+        "rows": [
+          [
+            "CRN 低配空载",
+            "56 W [S5]",
+            "491 kWh",
+            "191 BTU/hr",
+            "约 ¥294"
+          ],
+          [
+            "CRN 基准测试",
+            "86 W [S5]",
+            "753 kWh",
+            "293 BTU/hr",
+            "约 ¥452"
+          ],
+          [
+            "较重双路机调优后",
+            "196–210 W [S6]",
+            "1717–1840 kWh",
+            "669–717 BTU/hr",
+            "约 ¥1030–1104"
+          ],
+          [
+            "同机调优前惯常负载",
+            "321–336 W [S6]",
+            "2812–2943 kWh",
+            "1095–1146 BTU/hr",
+            "约 ¥1687–1766"
+          ]
+        ]
+      },
+      "body": "表中按 24×7、功率因数 1、0.6 元/kWh 做透明估算，实际值以当地电价和墙插电表为准；显热按 1W≈3.412 BTU/hr 换算。即使同一型号，低配与重型配置也可能相差数倍 [S5][S6]。",
+      "sources": [
+        "S4",
+        "S5",
+        "S6"
+      ]
+    },
+    {
+      "kind": "context",
+      "title": "压下来的优先顺序",
+      "body": "先减少不必要的硬件，再用厂商热策略与功耗优化档，然后清理风道并把机器移出长时间停留区；降低最低风扇转速必须同时监测 CPU、内存、硬盘和 PCIe 温度。消费级静音风扇若静压不足，看似更安静但可能让硬盘或扩展卡过热，不能只凭听感替换 [S1][S3][S4][S6]。",
+      "sources": [
+        "S1",
+        "S3",
+        "S4",
+        "S6"
+      ]
+    }
+  ]
+}

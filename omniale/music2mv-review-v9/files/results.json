@@ -1,0 +1,142 @@
+{
+  "id": "music2mv-review-v9",
+  "title": "音乐 MV 单片审片",
+  "policy": "采用冻结清单上的初评质量 F1。《Uptown Funk》25 项，《The Lazy Song》16 项。F1 同时考虑命中、定位与证据质量及误报。",
+  "groups": [
+    {
+      "key": "uptown",
+      "name": "Uptown Funk",
+      "runs": [
+        {
+          "label": "Sol 6.2",
+          "model": "gpt-6.2-sol",
+          "harness": "Codex CLI",
+          "effort": "xhigh",
+          "api": "NJU Link",
+          "seconds": 2558.093,
+          "requests": 57,
+          "exit": 0,
+          "score": 37.5,
+          "parts": {
+            "命中 /25": 6,
+            "误报": 1,
+            "待确定": 8
+          },
+          "events": {
+            "thread.started": 1,
+            "turn.started": 1,
+            "agent_message": 13,
+            "command_execution": 62,
+            "reasoning": 41,
+            "turn.completed": 1
+          },
+          "delivery": "sol62",
+          "score_source": "music2mv_review/pilot-v9-mv_uptown/results/sol62_xhigh_r01_20261123/score.json"
+        },
+        {
+          "label": "Qwen 3.8 Omni Flash",
+          "model": "qwen3.8-omni-flash",
+          "harness": "Qwen Code",
+          "effort": "xhigh",
+          "api": "DashScope",
+          "seconds": 11739.437,
+          "requests": 1744,
+          "exit": 0,
+          "score": 0.0,
+          "parts": {
+            "命中 /25": 0,
+            "误报": 1,
+            "待确定": 2
+          },
+          "events": {
+            "system": 1,
+            "stream_event": 1,
+            "assistant": 1086,
+            "user": 500,
+            "result": 1
+          },
+          "delivery": "qwen38",
+          "score_source": "music2mv_review/pilot-v9-mv_uptown/results/qwen38_xhigh_r01_20261123/score-frozen-gt.json"
+        }
+      ]
+    },
+    {
+      "key": "lazy",
+      "name": "The Lazy Song",
+      "runs": [
+        {
+          "label": "Sol 6.2",
+          "model": "gpt-6.2-sol",
+          "harness": "Codex CLI",
+          "effort": "xhigh",
+          "api": "NJU Link",
+          "seconds": 1909.266,
+          "requests": 39,
+          "exit": 0,
+          "score": 76.92307692307693,
+          "parts": {
+            "命中 /16": 10,
+            "误报": 0,
+            "待确定": 4
+          },
+          "events": {
+            "thread.started": 1,
+            "turn.started": 1,
+            "agent_message": 8,
+            "command_execution": 52,
+            "reasoning": 28,
+            "turn.completed": 1
+          },
+          "delivery": "sol62",
+          "score_source": "music2mv_review/pilot-v9-mv_lazy/results/sol62_xhigh_r01_20261123/score.json"
+        },
+        {
+          "label": "DeepSeek V4.1 Flash",
+          "model": "deepseek-v4.1-flash-1017",
+          "harness": "Codex CLI",
+          "effort": "max",
+          "api": "DashScope",
+          "seconds": 3611.531,
+          "requests": 272,
+          "exit": 0,
+          "score": 40.0,
+          "parts": {
+            "命中 /16": 4,
+            "误报": 0,
+            "待确定": 0
+          },
+          "events": {
+            "thread.started": 1,
+            "turn.started": 1,
+            "agent_message": 28,
+            "command_execution": 139,
+            "turn.completed": 1
+          },
+          "delivery": "ds_v41",
+          "score_source": "music2mv_review/pilot-v9-mv_lazy/results/ds_v41_flash_max_r01_20261123/score.json"
+        },
+        {
+          "label": "Qwen 3.8 Omni Flash",
+          "model": "qwen3.8-omni-flash",
+          "harness": "Qwen Code",
+          "effort": "xhigh",
+          "api": "DashScope",
+          "seconds": 370.797,
+          "requests": 46,
+          "exit": 1,
+          "score": null,
+          "parts": {},
+          "events": {
+            "system": 1,
+            "stream_event": 1,
+            "assistant": 46,
+            "user": 27,
+            "result": 1
+          },
+          "delivery": null,
+          "score_source": null
+        }
+      ]
+    }
+  ]
+}

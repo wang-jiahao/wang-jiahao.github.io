@@ -1,0 +1,67 @@
+{
+  "id": "omni2web-464",
+  "title": "音视频编辑网页 · Atlas 旅行手账",
+  "policy": "初评采用 464-audit-v1.0 的 EFS。定位、编辑落实、无损和撤回的权重依次为 10%、50%、20%、20%。",
+  "groups": [
+    {
+      "key": "atlas",
+      "name": "Atlas 旅行手账",
+      "runs": [
+        {
+          "label": "Sol 6.2",
+          "model": "gpt-6.2-sol",
+          "harness": "Codex CLI",
+          "effort": "xhigh",
+          "api": "NJU Link",
+          "seconds": 2750.719,
+          "requests": 81,
+          "exit": 0,
+          "score": 65.58,
+          "parts": {
+            "定位 /100": 84.62,
+            "编辑落实 /100": 70.0,
+            "无损 /100": 43.94,
+            "撤回 /100": 66.67
+          },
+          "events": {
+            "thread.started": 1,
+            "turn.started": 1,
+            "agent_message": 10,
+            "command_execution": 63,
+            "reasoning": 35,
+            "web_search": 2,
+            "turn.completed": 1
+          },
+          "delivery": "sol62",
+          "score_source": "omni2web_464/results/eval_paired_20261124/sol62/result.json"
+        },
+        {
+          "label": "DeepSeek V4.1 Flash",
+          "model": "deepseek-v4.1-flash-1017",
+          "harness": "Codex CLI",
+          "effort": "xhigh",
+          "api": "DashScope",
+          "seconds": 1868.578,
+          "requests": 104,
+          "exit": 0,
+          "score": 56.45,
+          "parts": {
+            "定位 /100": 69.23,
+            "编辑落实 /100": 40.0,
+            "无损 /100": 47.62,
+            "撤回 /100": 100.0
+          },
+          "events": {
+            "thread.started": 1,
+            "turn.started": 1,
+            "agent_message": 8,
+            "command_execution": 55,
+            "turn.completed": 1
+          },
+          "delivery": "ds41",
+          "score_source": "omni2web_464/results/eval_paired_20261124/ds41/result.json"
+        }
+      ]
+    }
+  ]
+}

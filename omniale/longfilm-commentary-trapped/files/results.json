@@ -1,0 +1,66 @@
+{
+  "id": "longfilm-commentary-trapped",
+  "title": "长片中文剧情解说 · Trapped",
+  "policy": "采用 v12 的自动初评。内容 40 分、取材定位 10 分、声画一致性 25 分、制作 25 分。",
+  "groups": [
+    {
+      "key": "trapped",
+      "name": "Trapped（1949）",
+      "runs": [
+        {
+          "label": "Sol 6.2",
+          "model": "gpt-6.2-sol",
+          "harness": "Codex CLI",
+          "effort": "xhigh",
+          "api": "NJU Link",
+          "seconds": 1953.0,
+          "requests": 77,
+          "exit": 0,
+          "score": 76.4751,
+          "parts": {
+            "内容 /40": 31.25,
+            "定位 /10": 10.0,
+            "声画 /25": 21.8918,
+            "制作 /25": 13.3333
+          },
+          "events": {
+            "thread.started": 1,
+            "turn.started": 1,
+            "agent_message": 18,
+            "command_execution": 147,
+            "reasoning": 53,
+            "turn.completed": 1
+          },
+          "delivery": "sol62",
+          "score_source": "longfilm_commentary/v12_trapped/runs/sol62_xhigh_r01_v12_20261124/evaluation/score.json"
+        },
+        {
+          "label": "DeepSeek V4.1 Flash",
+          "model": "deepseek-v4.1-flash-1017",
+          "harness": "Codex CLI",
+          "effort": "max",
+          "api": "DashScope",
+          "seconds": 8691.579,
+          "requests": 508,
+          "exit": 0,
+          "score": 52.6484,
+          "parts": {
+            "内容 /40": 15.0,
+            "定位 /10": 10.0,
+            "声画 /25": 15.9817,
+            "制作 /25": 11.6667
+          },
+          "events": {
+            "thread.started": 1,
+            "turn.started": 1,
+            "agent_message": 37,
+            "command_execution": 547,
+            "turn.completed": 1
+          },
+          "delivery": "ds41",
+          "score_source": "longfilm_commentary/v12_trapped/runs/ds41_max_r01_v12_20261124/evaluation/score.json"
+        }
+      ]
+    }
+  ]
+}

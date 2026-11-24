@@ -1,0 +1,66 @@
+{
+  "id": "video-crosscheck-0019",
+  "title": "家用机架服务器的视听研究",
+  "policy": "采用第一轮 Terra 判票。总分由内容 50、引用 30、展示 20 构成，并应用该轮的门控与覆盖规则。",
+  "groups": [
+    {
+      "key": "homelab",
+      "name": "2U Homelab",
+      "runs": [
+        {
+          "label": "Sol 6.2",
+          "model": "gpt-6.2-sol",
+          "harness": "Codex CLI",
+          "effort": "xhigh",
+          "api": "NJU Link",
+          "seconds": 2124.063,
+          "requests": 46,
+          "exit": 0,
+          "score": 55.33,
+          "parts": {
+            "内容 /50": 17.835,
+            "引用 /30": 17.499000000000002,
+            "展示 /20": 20.0
+          },
+          "events": {
+            "thread.started": 1,
+            "turn.started": 1,
+            "agent_message": 8,
+            "command_execution": 88,
+            "web_search": 11,
+            "reasoning": 21,
+            "turn.completed": 1
+          },
+          "delivery": "sol62",
+          "score_source": "video_crosscheck_0019/runs/sol62_xhigh_r01_20261124/grade-1/scores.json"
+        },
+        {
+          "label": "DeepSeek V4.1 Flash",
+          "model": "deepseek-v4.1-flash-1017",
+          "harness": "Codex CLI",
+          "effort": "xhigh",
+          "api": "DashScope",
+          "seconds": 2542.344,
+          "requests": 166,
+          "exit": 0,
+          "score": 43.8,
+          "parts": {
+            "内容 /50": 10.525,
+            "引用 /30": 15.881999999999998,
+            "展示 /20": 17.392000000000003
+          },
+          "events": {
+            "thread.started": 1,
+            "turn.started": 1,
+            "agent_message": 21,
+            "command_execution": 223,
+            "web_search": 4,
+            "turn.completed": 1
+          },
+          "delivery": "ds41",
+          "score_source": "video_crosscheck_0019/runs/ds41_xhigh_r01_20261124/grade-1/scores.json"
+        }
+      ]
+    }
+  ]
+}
