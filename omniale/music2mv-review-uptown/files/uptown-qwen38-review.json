@@ -1,0 +1,198 @@
+{
+ "checks": [
+  {
+   "id": "G01",
+   "source_id": "mv_uptown",
+   "dimension": "editing_technical",
+   "decision": "revise",
+   "intervals": [
+    {
+     "start_s": 70.0,
+     "end_s": 90.0
+    },
+    {
+     "start_s": 210.083,
+     "end_s": 230.083
+    }
+   ],
+   "finding": "第 210.08–230.08 秒的画面是第 70.00–90.00 秒画面的逐帧复制品，整段 20 秒被重复使用了一次。",
+   "visual_evidence": "以恒定偏移 3362 帧（140.083 s）配对 70.00–90.00 s 与 210.083–230.083 s：480 组帧对中 331 组在 640×360 下 MAE=0.000，逐帧 MAE 中位数 0.000、全段均值 0.435、最大值 1.700，无任何一组超过 3.0；全分辨率抽样（每 6 帧一帧，共 80 组）MAE 均值 0.435、最低 0.000，相关系数均值 0.9998（最低 0.9986）；再取 75.00–88.00 s 每秒一帧共 14 组做全分辨率比较，MAE 全部为 0.000（逐比特相同）；70.00–75.00 s ↔ 210.00–215.00 s 段每秒一帧，SSIM 0.9906；CLIP 图像向量对 8 个镜头两两给出 0.989–0.999 余弦；逐帧测量值也完全重合（如 70–75 s 与 210.08–215.08 s 两段：底部亮度 0.5422/0.5422、锐度 1325.7/1325.7）；本地语义判读器对 t=75.0 与 t=215.1 给出逐字相同的描述。其余被 CLIP 相似度（0.94–0.98）标记的相似镜头经全分辨率复核 MAE 为 14–55、SSIM 0.10–0.36，属不同素材，未计入。",
+   "audio_evidence": "两份画面下的声音不同：70–90 s 下是第一轮副歌（'Don't believe me just watch' 连续四次 + 'Hey, hey, hey, oh'），210.08–230.08 s 下是后半段主歌与副歌（'Dames, jump on it…'、'Come on, dance, jump on it'、214.84 s 的 'Don't believe me just watch'）；两段波形相关 −0.012、50 ms 响度包络相关 −0.021，说明不是同一段音乐的再现，而是同一画面压在了不同音乐上。",
+   "reason": "同一批镜头原样出现第二次，且第二次的音乐内容完全不同，观众会在副歌后半段清楚感到'这段看过'。这不是风格化的呼应或蒙太奇：复制是逐比特的，且两端都落在 5.000 s 生成块的边界附近（被复制段 70.00–90.00 s 正好是 4 个块；偏移 140.083 s = 28 个块 + 2 帧，所以副本的首帧 210.083 s 比它本该落到的 210.000 s 晚了 2 帧），属于生成块被整段再次粘贴进时间线的装配事故。",
+   "priority": "major",
+   "suggestion": "重做 210.08–230.08 s 这段画面（新的舞蹈/街景素材），若确需回看前段，只保留 1–2 秒有音乐动机的插入镜头，而不是整 20 秒照搬。"
+  },
+  {
+   "id": "G02",
+   "source_id": "mv_uptown",
+   "dimension": "continuity",
+   "decision": "revise",
+   "intervals": [
+    {
+     "start_s": 91.79,
+     "end_s": 92.42
+    }
+   ],
+   "finding": "第 90.00–95.00 秒这一个连续镜头内，人群舞池在没有任何切点的情况下溶成两个人的吧台，人凭空消失、酒瓶凭空出现。",
+   "visual_evidence": "该窗口内最近的检出切点在 1.875 s 之外，即镜头未被切分；锐度（拉普拉斯方差，640×360）从 91.50 s 的 659.2 跌到 92.04 s 的 25.3（约 1/26），随后回升到 93.00 s 的 1663.2；Canny 边缘密度 0.0921 → 0.0279；YOLO 人体数（conf≥0.45）9 → 6 → 3 → 2 → 1 → 2，最低点只剩 1 个人；'cup' 于 92.04 s 首次出现、'bottle' 于 92.25 s 首次出现，此前该镜头内从未检出过这两类物体；本地语义判读器独立给出同一镜头前后的内容：91.75 s 'dimly lit, vibrant nightclub … at least 15 people … in sharp focus … no bottles or glasses visible'；92.00 s 'The image is blurred … There are no bottles or glasses visible'；93.00 s 'The man is holding a glass in his right hand and has his left hand raised … The woman is sitting behind the bar' ——即由拥挤夜店变成两人吧台，而中间没有任何切点；同一镜头的两端再各问一次人数与地点，答案仍然一致：90.00 s 'There are 20 people in the frame. The location is a dimly lit bar … wooden counter and shelves with bottles'，94.50 s 'There are two people in this frame. One person is standing behind the bar, and the other is sitting at the bar'——同一个空间里 20 人变成 2 人；并且它也不是正常叠化：把中间帧对前后两个干净场景做最小二乘拟合 M=k·A+(1−k)·B，残差 MAE 达 25.2–26.9，与它相对单一场景的直接 MAE（28.4–34.9）相当（真叠化残差应接近 0），corr(M,A) 由 0.531 降到 0.407、corr(M,B) 由 0.313 升到 0.434，画面是先解体再重合成。",
+   "audio_evidence": "溶变正落在歌词 'Stop,'（91.86–92.10 s）与 'wait a minute'（92.36–93.56 s）上，同时编曲在 92 s 处出现全曲最大的一次秒级能量下跌（−14.3 dB），进入第二段主歌的稀疏伴奏。紧接着的吧台画面（93.0 s：男子右手举杯、左手抬掌朝外，女调酒师在吧台后）与随后唱到的 'Fill my cup, put some liquor in it'（93.56–95.76 s）内容是对得上的，说明这次换场景的意图正确，坏在执行时没有切点、旧场景在过渡中解体。",
+   "reason": "音乐在这里确实换了段落，但画面没有对应的切点：同一个镜头之内先失焦溶解、再合成出另一个地点，拥挤人群的检测数在 0.4 秒内从 9 掉到 1–2，吧台用的杯子与酒瓶凭空出现并在之后长期保留。这不是剪辑者做的叠化——叠化会保留两个清晰源画面，而这里的源画面本身在过渡中解体；也不是正常的换场蒙太奇，因为整段没有任何切点可供观众建立因果。",
+   "priority": "major",
+   "suggestion": "把 90–95 s 这段拆成两个镜头：舞池镜头在 91.86 s（'Stop' 起唱处）硬切到吧台镜头；若要保留叠化观感，用后期叠化两条独立生成的素材，而不是让单段生成内部换场景。"
+  },
+  {
+   "id": "G03",
+   "source_id": "mv_uptown",
+   "dimension": "text",
+   "decision": "revise",
+   "intervals": [
+    {
+     "start_s": 10.0,
+     "end_s": 20.0
+    },
+    {
+     "start_s": 40.0,
+     "end_s": 45.0
+    },
+    {
+     "start_s": 115.083,
+     "end_s": 121.0
+    }
+   ],
+   "finding": "俱乐部招牌上的字是不存在的单词且在换帧：40–45 s 与 115–121 s 同一块招牌读作 MAHECTHARD / ENTM / YIHEAS，旁边的招牌在 ELAGL / ELA GL / ELACL / MTM / KTM 之间跳；15–20 s 海报读作 COCCKE / CACCKE / CACEKE / FONG；10–15 s 霓虹第二行在 11 种预处理下从未读出过 LOUNGE。",
+   "visual_evidence": "取证流程：全片 1 s 间隔全帧 OCR（271 个采样点、48 次文字命中，按位置归并成 14 个固定招牌区域）→ 对 10 个区域再以 0.25 s（4 Hz）连续复读 19–23 帧 → 对每个裁切再做 11 种预处理（2×/3×/4×/5× 放大、灰度、Otsu、自适应阈值、反色、锐化、彩色）投票。\n· 右侧招牌（x≈780–965, y≈80–225，约 150×70 px）：1 s 采样 14 次命中 = ENTM 8 次 + Mahecthard 5 次（置信 0.354–0.676）；4 Hz 采样 19/19 全部可读、得到 6 种不同串（YIHEAS 11、MAHECTHARD 3、CTHARD 2、YAHECTY/VIHEAS/FN 各 1），相邻帧读数不同的比例 0.556，均值置信 0.822；第二次出现（115–121 s）23 次采样 20 次可读、4 种串（YIHEAS 9、MAHECTHARD 8、ENTM 2），相邻不同比例 0.526，均值置信升到 0.927；11 种预处理的票：t=41 为 MAHECTHARD 6 票@0.996、YIHEAS 2 票@0.919、THARD_ 1 票@0.996；t=120 为 MAHECTHARD 4 票@0.995、YIHEAS 3 票@0.972、ENTM 2 票@0.894。\n· 左侧招牌（x≈196–277, y≈139–199，约 78×40 px）：1 s 采样 11 次命中得到 5 种串（ELAGL 5、ELA GL 3、ELA CL 1、MTM 1、MtM 1，置信最高 0.944）；4 Hz 采样 19/19 可读 → ELA 8、ELAGL 7、ELACL 3、KTM 1，相邻不同比例 0.444，均值置信 0.835；第二次出现（115–121 s）23 次采样 → 5 种串，相邻不同比例 0.632，均值置信 0.784；11 种预处理：t=41 为 ELA 6 票@0.991、ELACL 2 票@0.961、MTK 1 票@0.641；t=120 为 GL 3 票@0.999、ELAGL 3 票@0.998、ELA GL 2 票@0.885。\n· 15–20 s 海报（x≈400–960, y≈150–300）：4 Hz 采样 19 帧只有 10 帧可读，却得到 9 种互不相同的串（CUCCLY / TODT / IA / N / AEN / 7k / S / Ittx / U），相邻不同比例 0.889，均值置信仅 0.042；单帧 11 种预处理的票为 COCCKE 2 票@0.887、CACCKE 1 票@0.620、CACEKE 1 票@0.490、FONG 1 票@0.439，另有 2 种预处理读空。\n· 10–15 s 霓虹：上行稳定（11 种预处理 JAZZ 10/11 票@1.000；4 Hz 8 次可读中 JAZZ 4 次，均值置信 0.857），下行却始终不成字：t=11.0 的 11 种预处理给出 OUNGE 4 票@0.990、QUNGE 1 票@0.793、OUNCE 1 票@0.726、'QUNGE 1 票@0.554、OUNE 1 票@0.524 —— LOUNGE 出现 0 次；4 Hz 连续 19 帧里只有 6 帧可读，而这 6 帧给出 6 种互不相同的串（JALL / QINCC / LOUNGE / OUNGE / LUUNGE / CCMALE），相邻一致率 0%；单独裁首字母区（x≈575–655）13 帧只有 4 帧可读，给出 ON / LO / 0 / LU 四种结果。\n· 独立复核：本地语义判读器对同一批裁切四次独立提问全部给出一致的假词结论——t=41 'MAHECTHARD / ENTM YIHEAS'、t=44 'MAHECTHARD / ENTM YIHEAS，No, it's not a real word，Letters are not well formed'、t=118 'ELAGL. No, it's not a real word. Letters are not well formed'、t=120 'MTM / ELAGL'，与 OCR 的假词完全吻合。\n· 排除镜像：把每个裁切水平翻转后重读，置信增益 ≤0.036（最大 0.036 出现在 27 s 的 'll'），所以这些字是正向印刷而非镜面反字。\n· 对照组（证明不是识别能力问题）：同一批流程在门牌 '35'（x≈515–602, y≈0–60）上 3 次采样读数完全一致、置信 0.985–0.998；霓虹上行 'JAZZ' 11 种预处理 10 票且置信顶格 1.000。能读稳的地方都读稳了，上面这些假词与逐帧变形的串就不是 OCR 噪声。",
+   "audio_evidence": "",
+   "reason": "招牌是观众唯一会去读的画面文字。这里同一块招牌在一段连续镜头里就在几种读法之间跳（左牌 0.25 s 间隔相邻采样 44%–63% 不一致），而且读出来的都是不存在的单词——MAHECTHARD、YIHEAS、ENTM、ELAGL、COCCKE 不属于任何语言。同一片霓虹里既有能读稳的真词（JAZZ、35），又有高置信度的假词，说明缺陷在生成内容本身，不是拍摄距离、字体设计或识别难度的问题。10–15 s 的 LOUNGE 尤其典型：观众能猜出它是 LOUNGE，但首字母的字形在帧与帧之间不成立，11 种预处理一次都没读成完整单词。",
+   "priority": "major",
+   "suggestion": "重做这几处招牌素材：文字要么改成能稳定读出的真实词（如 JAZZ LOUNGE 那样上下行都成立），要么虚化/移出主体画面；同一招牌在 40–45 s 与 115–121 s 两次出现时必须保持同一字形，不能在同一段镜头里换写法。"
+  },
+  {
+   "id": "G04",
+   "source_id": "mv_uptown",
+   "dimension": "audio_visual",
+   "decision": "revise",
+   "intervals": [
+    {
+     "start_s": 89.9,
+     "end_s": 91.4
+    },
+    {
+     "start_s": 94.9,
+     "end_s": 95.76
+    },
+    {
+     "start_s": 99.9,
+     "end_s": 103.54
+    },
+    {
+     "start_s": 124.9,
+     "end_s": 127.52
+    }
+   ],
+   "finding": "剪辑节奏被锁死在 5.000 秒的生成块边界上：73 个镜头里 43 个长度正好 5.000 s，54 个块边界有 53 个是硬切，并因此频繁切在唱句中间。",
+   "visual_evidence": "镜头长度：中位数 5.000 s，43/73 个镜头正好 5.000 s（44 个在 ±2 帧以内），其余长度各只出现一次；全片 54 个 5.000 s 块边界中 53 个存在切点（唯一没有的是 270.0 s，其后只剩 0.459 s 片尾）；直方图检出的 71 个切点里 51 个距 5.000 s 网格不超过 2 帧，切点帧号对 120 取模的余数集中在这 2 个值上（余 0：21 次，余 2：33 次，其余余数各 1–2 次）；举出具体落点：90.00 s、95.00 s、100.00 s、125.083 s 都在唱句中间。",
+   "audio_evidence": "速度全程稳定 117.45 BPM（30 s 分段测速 117.45/117.45/117.45/117.45），一拍 0.5109 s、一小节 2.0434 s，所以 5.000 s = 2.447 小节——与乐句结构在数学上不可能对齐；歌词逐词时间轴显示 51 个网格切点中 26 个落在有词区间内，例如 90.00 s 切在 'Hey, hey, hey, oh'（89.18–91.40 s）中间、95.00 s 切在 'Fill my cup, put some liquor in it'（93.56–95.76 s）中间、100.00 s 切在 'Raps at Harlem, Hollywood, Jackson, Mississippi'（99.62–103.54 s）中间、125.083 s 切在 'Break it down, girls, hit your hallelujah, girls'（124.58–127.52 s）中间。",
+   "reason": "问题不是'没切在鼓点上'（反拍、半速、慢动作都是合法选择），而是镜头长度被生成器的块长决定而非被内容或乐句决定：2.447 小节的块长使切点相对乐句持续漂移，结果是唱句被反复拦腰切断。抽样核查表明被网格切分处的动作本身多是完整的（如 90.00 s 两侧判读分别为 'pointing forward … action appears complete' 与 'walking forward amidst a group of people dancing … complete'），所以损失集中在人声乐句的连续性，不在动作中断。这也是 G01 那 20 秒整块复制能够发生的同一结构性原因（复制边界同样落在块边界上）。",
+   "priority": "minor",
+   "suggestion": "按乐句重新分配镜头长度：切点对齐到 2.0434 s 小节的整数倍（或至少避开人声词中间），让块长不再等于固定 5.000 s；必要时对现有素材做二次裁切而不改变画面内容。"
+  }
+ ],
+ "uncertain_observations": [
+  {
+   "id": "U01",
+   "dimension": "audio_visual",
+   "intervals": [
+    {
+     "start_s": 185.083,
+     "end_s": 190.083
+    }
+   ],
+   "observation": "185–190 s 舞台上有人吹铜管乐器（长号），但两件工具对『它是什么结构』和『声音里有没有铜管』都给出了矛盾答案。",
+   "evidence": "画面侧：CLIP 零样本在 t=190.0 给 'a trombone with a long slide' 0.863（trumpet 仅 0.047），镜头 48（185.08–189.75 s）有 12 帧、镜头 49（189.75–190.08 s）有 2 帧首选标签为演奏铜管；本地判读器三次提问互相矛盾：'left hand is on the slide, right hand is on the valves'（真长号无活塞，且滑管应由右手操作）、对同一裁切又答 '(1) trombone (2) piston valves (3) right hand holds slide'、再问一次答 '(1)-(5) 全部 No'，另一次答 'left hand on mouthpiece'（不可能的姿势）。声音侧：MusicFlamingo 对 180–192 s 的 content 提问答 'rhythmic electric-guitar chops… No additional horns, keyboards, or strings are present, keeping the texture lean'，即认为这一段没有铜管；但同一模型对同一段的 sync 提问退化成了模板式列举（把 ad-lib 时间点一直列到 22.4 s，而片段只有 12 s），且它对 96–108 s 先说有男声主唱并引了正确歌词、随后又说同一段'essentially instrumental, no discernible lead vocals'。另注：本地测得的 117.45 BPM 与该模型自报的 '≈115 BPM' 相差 2%，其节拍读数只能当量级参考。",
+   "why_uncertain": "画面证据强（CLIP 0.863 + 14 帧一致指向长号），但结构细节只有 3B 判读器在回答，而它四次答案互斥；声音证据只来自一个音乐模型，而该模型在本轮已被证明不稳定（同一段两次提问互相矛盾、还出现超出片段长度的模板式列举），其自报 tempo 也比本地实测低约 2%。两边都不可靠时，我既不认定『画面有长号而声音无铜管』这一 AV1 缺陷，也不认定乐器结构畸形。",
+   "needed": "用可信的听音手段确认 185–190 s 是否真有铜管声部；同时对乐器区域做原生分辨率放大，逐帧确认滑管/活塞与双手分工是否自洽。"
+  },
+  {
+   "id": "U02",
+   "dimension": "audio_visual",
+   "intervals": [
+    {
+     "start_s": 105.083,
+     "end_s": 110.083
+    }
+   ],
+   "observation": "105–110 s 的录音棚镜头里一张黑胶唱机在转动、判读器说'设备正在被操作'，但该镜头 YOLO 未检出任何人（多人帧数为 0）。",
+   "evidence": "t=107.0 的检测结果为空（无 person），判读器答 'No one is present. A record player with a spinning vinyl record is visible. The equipment is being operated.'；该镜头 CLIP 场景偏向 recording studio，器乐提示 0.267。",
+   "why_uncertain": "唱片自行转动的空镜在 MV 里是合法的空镜；只有当声音里出现对应的刮碟/唱盘动作而画面无人操作，或画面暗示有人在操作却看不到人时才算问题。本轮尚未取得该段乐器的逐时刻听辨结果。",
+   "needed": "用音乐理解模型确认 105–110 s 是否有唱盘/刮碟类音色事件，再决定是否算声源归属缺失。"
+  },
+  {
+   "id": "U03",
+   "dimension": "structure_contact",
+   "intervals": [
+    {
+     "start_s": 150.083,
+     "end_s": 155.083
+    }
+   ],
+   "observation": "150.08–155.08 s 主体在画面里横向走过 0.42 倍画宽，但脚踝高度几乎不变，可能是脚底打滑式行走。",
+   "evidence": "相位相关扣除摄像机运动后：世界坐标位移 0.4187（帧内位移 0.4194，摄像机位移仅 0.033），脚踝 y 标准差 0.0145，仅为髋–踝距离 0.3136 的 4.6%；同片其他行走镜头该比例为 23%–70%（如 200.08 s 0.234、70.0 s 0.701、5.0 s 0.314）。两次直接追问脚部：t=152.0 答 'feet are in contact with the ground. No one is mid-step. Stance looks like walking. No malformed, doubled, or incomplete legs.'；t=153.5 答 'The shoes do not deform or flicker. The feet appear to move without changing height, suggesting a continuous step cycle.'——两次都承认脚的高度不变，但都把它解释成正常的行走。",
+   "why_uncertain": "低摆动也可能只是滑步行走（moonwalk/dolly 步）这种放克编舞动作，而非生成失败；两种解释在数值上无法区分，需要直接观察脚步与地面的接触细节。",
+   "needed": "放大该镜头的脚部序列，检查是否有脚跟抬起、膝弯变化；若整段脚底与地面相对滑动则为缺陷。"
+  },
+  {
+   "id": "U04",
+   "dimension": "continuity",
+   "intervals": [
+    {
+     "start_s": 40.0,
+     "end_s": 45.0
+    },
+    {
+     "start_s": 115.083,
+     "end_s": 120.083
+    },
+    {
+     "start_s": 140.083,
+     "end_s": 145.083
+    },
+    {
+     "start_s": 260.083,
+     "end_s": 265.083
+    }
+   ],
+   "observation": "多个固定机位镜头内的人数在 10 帧尺度上持续变化，可能有群众演员凭空出现或消失。",
+   "evidence": "28 个镜头满足'摄像机基本静止 + 有大主体 + 10 帧平滑后人数变化 ≥1.6'：40–45 s 4.7→13.0、90–95 s 1.9→10.5、115–120 s 1.5→9.9、140–145 s 1.8→11.2、260–265 s 4.9→13.1。本地判读器在同一镜头内两次计数也不同（t=41.5 答 20 人、t=43.0 答 15 人）。",
+   "why_uncertain": "群舞镜头里人员进出画框、互相遮挡是常态；检测器置信阈值也会造成计数波动。没有逐帧直接观察，无法区分'人走进画面'与'人凭空出现'。",
+   "needed": "对这几个镜头做逐帧人流跟踪观察，确认新增/消失的人是否有连续的入画/出画轨迹。"
+  },
+  {
+   "id": "U05",
+   "dimension": "audio_visual",
+   "intervals": [
+    {
+     "start_s": 30.94,
+     "end_s": 34.46
+    }
+   ],
+   "observation": "30.94–34.46 s 唱到 'Gotta kiss myself, I'm so pretty / I'm too hot, hot, hot' 时，画面里的大特写人物嘴始终闭着。",
+   "evidence": "逐词检测：该镜头 8 个有效大字特写词中 7 个整词嘴开合比最大值 ≤0.076（'kiss' 仅 0.0030），面部网格覆盖率 100% 帧、大脸占比 111/120 帧；同步率 0.25。但本地判读器对 t=31.5 答 'Hands are adjusting the suit. Mouth is slightly parted. Not clearly singing or performing to camera. No microphone visible.'",
+   "why_uncertain": "主唱本来就不必出现在画面里（画外歌声、后期配音在 MV 中合法）。只有当该人物被明确当作歌手呈现（对镜演唱、手持话筒）时，闭嘴才是口型缺陷。",
+   "needed": "确认 30–35 s 这位红色天鹅绒西装人物是否被当作主唱（有无对镜演唱、话筒、追光等指示），再判定口型问题。"
+  },
+  {
+   "id": "U06",
+   "dimension": "text",
+   "intervals": [
+    {
+     "start_s": 238.0,
+     "end_s": 240.083
+    }
+   ],
+   "observation": "238–240 s 左上角一块数字牌在连续三秒里每秒读出不同数字：38b,339 → 352.353 → 392.369（多预处理下的众数分别为 380.333 / 352.353 / 392.368）。",
+   "evidence": "同一固定框位（x≈151–236, y=0–20，仅 85×20 px）在 1 s 间隔采样下三次读数互不相同；11 种预处理的投票也分散（380.333 得 4 票、388.339/386.393 各 1 票），置信 0.41–0.98。",
+   "why_uncertain": "该区域只有 20 px 高、单字符约 10 px 宽，已低于 OCR 的稳定判读下限；读数不一致既可能是字形真的在变，也可能是小字号霓虹的 OCR 噪声。对照：门牌 '35'（87×60 px）三次采样完全一致，说明较大字号能读稳，但不能排除这块小牌的读数抖动纯属分辨率不足。",
+   "needed": "把该区域放大到原生分辨率以上逐帧比对字形，或确认它是否是一个本应跳动的电子显示屏（如计价表/时钟）。"
+  }
+ ]
+}

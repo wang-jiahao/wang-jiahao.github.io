@@ -2,7 +2,7 @@
   "week": "5",
   "order": [
     "piano-contact",
-    "music2mv-review",
+    "music2mv-review-uptown",
     "low-light-restoration",
     "moving-tile-source-tracing-v4",
     "multiface",
@@ -47,22 +47,23 @@
       }
     },
     {
-      "id": "music2mv-review",
-      "url": "music2mv-review/",
-      "cover": "music2mv-review.jpg",
-      "title": "音乐MV上线前审片",
-      "desc": "为《Uptown Funk》和《The Lazy Song》的两支生成 MV 做上线前审片。对照音乐、演唱和连续镜头，标出声画不同步或画面不连贯的位置，给剪辑师留下时间码和修改建议。",
+      "id": "music2mv-review-uptown",
+      "url": "music2mv-review-uptown/",
+      "cover": "music2mv-review-uptown.jpg",
+      "title": "音乐 MV 审片 · Uptown Funk",
+      "desc": "独立审看《Uptown Funk》的声画同步与镜头连续性，交付带时间码、证据和返修建议的问题清单。",
       "scores": {
-        "gpt-6.1-sol": 55.55555555555556,
-        "DeepSeek V4.1 Flash": 28.57142857142857
+        "Sol 6.2": 37.5,
+        "Qwen 3.8 Omni Flash": 0.0
       },
-      "score_source": "music2mv-review/files/v8-comparison.json",
-      "max_model_score": 55.55555555555556,
-      "score": "gpt-6.1-sol 55.55555555555556 · DeepSeek V4.1 Flash 28.57142857142857",
+      "score": "Sol 6.2 37.5 · Qwen 3.8 Omni Flash 0.0",
+      "score_source": "music2mv-review-uptown/files/results.json",
+      "max_model_score": 37.5,
+      "score_policy": "initial",
       "classification": {
         "week": "5",
         "domain": 4,
-        "scenario": "音乐MV质量审查",
+        "scenario": "生成 MV 的声画与连续性核查",
         "show_in_summary": true
       }
     },

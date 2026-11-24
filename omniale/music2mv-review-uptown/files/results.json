@@ -1,0 +1,64 @@
+{
+  "id": "music2mv-review-uptown",
+  "title": "音乐 MV 审片 · Uptown Funk",
+  "policy": "采用该片冻结清单（25 项）的初评质量 F1，计入命中、定位与证据质量及误报。",
+  "groups": [
+    {
+      "key": "uptown",
+      "name": "Uptown Funk",
+      "runs": [
+        {
+          "label": "Sol 6.2",
+          "model": "gpt-6.2-sol",
+          "harness": "Codex CLI",
+          "effort": "xhigh",
+          "api": "NJU Link",
+          "seconds": 2558.093,
+          "requests": 57,
+          "exit": 0,
+          "score": 37.5,
+          "parts": {
+            "命中 /25": 6,
+            "误报": 1,
+            "待确定": 8
+          },
+          "events": {
+            "thread.started": 1,
+            "turn.started": 1,
+            "agent_message": 13,
+            "command_execution": 62,
+            "reasoning": 41,
+            "turn.completed": 1
+          },
+          "delivery": "sol62",
+          "score_source": "music2mv_review/pilot-v9-mv_uptown/results/sol62_xhigh_r01_20261123/score.json"
+        },
+        {
+          "label": "Qwen 3.8 Omni Flash",
+          "model": "qwen3.8-omni-flash",
+          "harness": "Qwen Code",
+          "effort": "xhigh",
+          "api": "DashScope",
+          "seconds": 11739.437,
+          "requests": 1744,
+          "exit": 0,
+          "score": 0.0,
+          "parts": {
+            "命中 /25": 0,
+            "误报": 1,
+            "待确定": 2
+          },
+          "events": {
+            "system": 1,
+            "stream_event": 1,
+            "assistant": 1086,
+            "user": 500,
+            "result": 1
+          },
+          "delivery": "qwen38",
+          "score_source": "music2mv_review/pilot-v9-mv_uptown/results/qwen38_xhigh_r01_20261123/score-frozen-gt.json"
+        }
+      ]
+    }
+  ]
+}

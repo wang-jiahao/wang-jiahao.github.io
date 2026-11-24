@@ -1,0 +1,93 @@
+: root { color-scheme: light; --ink: #192b30; --muted: #516468; --line: #d7e0dd; --paper: #fff; --accent: #176f68; --wash: #eef5f2; --page: #f5f6f2 }
+* { box-sizing: border-box }
+body { margin: 0; background: var(--page); color: var(--ink); font: 15px/1.65 system-ui,"Microsoft YaHei",sans-serif }
+a { color: var(--accent); text-underline-offset: 3px }
+button,select { font: inherit }
+button { cursor: pointer }
+img,video { display: block; max-width: 100% }
+[hidden] { display: none!important }
+main { width: min(100% - 48px,1120px); margin: auto; padding: 26px 0 55px }
+.crumb,.toolbar,.navline,.switcher { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 16px }
+.crumb { justify-content: space-between; color: var(--muted); font-size: 13px }
+.eyebrow { font-size: 12px; font-weight: 750; letter-spacing: .11em; color: var(--accent); margin: 0 0 7px }
+header { margin: 28px 0 20px }
+h1,h2,h3,h4 { line-height: 1.28 }
+h1 { font-size: clamp(30px,5vw,49px); margin: 0 0 9px; letter-spacing: -.025em }
+h2 { font-size: 26px; margin: 0 0 12px }
+h3 { font-size: 18px; margin: 0 0 10px }
+h4 { font-size: 15px; margin: 0 0 6px }
+p { margin: 0 0 12px }
+.lead { font-size: 17px; color: var(--muted); max-width: 62ch }
+.navline { margin: 20px 0 18px; gap: 7px 12px }
+.navline a,.switcher button,.toolbar a,.seek { border: 1px solid var(--line); background: var(--paper); border-radius: 6px; padding: 5px 10px; color: var(--accent); text-decoration: none; font-size: 13px }
+.navline a:hover,.switcher button:hover,.toolbar a:hover,.seek:hover { border-color: var(--accent) }
+.switcher [aria-pressed=true] { background: var(--accent); border-color: var(--accent); color: #fff }
+.hero { display: grid; align-items: start; grid-template-columns: minmax(0,1.9fr) minmax(240px,1fr); gap: 16px }
+.hero figure,.hero-aside,.panel,.evidence,.trace-box,details { border: 1px solid var(--line); border-radius: 9px; background: var(--paper); overflow: hidden }
+.hero figure { margin: 0 }
+.hero figure img { width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover }
+.caption { padding: 6px 12px; color: var(--muted); font-size: 12px }
+.hero-aside { padding: 18px 19px }
+.score-tile { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line) }
+.score-tile strong { font-size: 18px; color: var(--accent); font-variant-numeric: tabular-nums }
+.score-tile:last-child { border: 0 }
+.note,.trace-meta,.muted { font-size: 13px; color: var(--muted) }
+section { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); scroll-margin-top: 12px }
+.section-intro { max-width: 80ch; color: var(--muted) }
+.input,.panel,.trace-box { padding: 16px; margin-top: 12px }
+.input video,.panel video,.report-shot { width: 100%; max-width: 880px; background: #142529; border-radius: 6px; max-height: 520px; object-fit: contain }
+.input .still { max-width: 640px }
+.input .still img { width: 100% }
+.input a { margin-top: 4px }
+.source-note { border-left: 3px solid var(--accent); padding: 5px 12px; margin: 12px 0; background: var(--wash) }
+.settings { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; margin: 14px 0 }
+.settings div { background: var(--wash); padding: 9px 12px; border-radius: 6px }
+.settings dt { color: var(--muted); font-size: 12px }
+.settings dd { margin: 0; font-weight: 650 }
+.table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 7px; margin: 12px 0 16px }
+table { width: 100%; border-collapse: collapse; background: var(--paper) }
+th,td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--line) }
+thead th { font-size: 12px; color: var(--muted); background: var(--wash) }
+tbody tr:last-child>* { border-bottom: 0 }
+.number { font-variant-numeric: tabular-nums; white-space: nowrap }
+.total { color: var(--accent); font-weight: 750 }
+.switcher { gap: 7px; margin: 9px 0 13px }
+.inside { padding: 0 12px 12px }
+details { margin: 10px 0 }
+summary { cursor: pointer; font-weight: 650; color: var(--accent); padding: 8px 12px }
+.gallery { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; margin: 14px 0 }
+.gallery figure { margin: 0; min-width: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden }
+.gallery img { width: 100%; height: auto }
+.evidence-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 9px; margin-top: 10px }
+.evidence { padding: 12px }
+.evidence p:last-child { margin-bottom: 0 }
+.flag { display: inline-block; font-size: 12px; color: var(--accent); margin: 0 0 4px }
+.event-list { margin: 0; padding: 0; list-style: none }
+.event-list li { display: grid; grid-template-columns: 7em 1fr auto; gap: 8px; padding: 5px 0; border-bottom: 1px solid var(--line); font-size: 13px; scroll-margin-top: 16px }
+.event-list li:target { background: var(--wash) }
+.runtime { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 4px 0 10px }
+.ok { color: #176453 }
+.miss { color: #925322 }
+.check-title { font-weight: 700 }
+.score-table { min-width: 450px }
+.score-detail { min-width: 470px }
+.quote { padding: 8px 12px; margin: 9px 0; border-left: 3px solid var(--accent); background: var(--wash) }
+.clip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px }
+.source-clip { padding: 9px; border: 1px solid var(--line); border-radius: 7px }
+.foot { margin-top: 28px }
+.toolbar { margin-top: 9px; gap: 6px 9px }
+.toolbar .still { margin: 0 }
+.panel pre { white-space: pre-wrap; overflow-wrap: anywhere }
+.report-summary { padding: 10px 13px; background: var(--wash); border-radius: 6px; margin: 10px 0 }
+@media(max-width: 720px) {
+  main { width: calc(100% - 28px); padding-top: 16px }
+  .hero,.evidence-grid,.settings { grid-template-columns: 1fr }
+  .hero-aside { padding: 13px 15px }
+  .settings { gap: 6px }
+  .crumb { gap: 3px 10px }
+  .clip-grid { grid-template-columns: 1fr }
+  .input,.panel,.trace-box { padding: 11px }
+  .event-list li { grid-template-columns: 5em 1fr auto }
+  .lead { font-size: 15px }
+  section { margin-top: 25px }
+}
