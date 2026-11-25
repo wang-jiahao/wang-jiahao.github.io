@@ -87,20 +87,18 @@ border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:16px 0}
 @media(max-width:1150px){.week5-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:850px){.week5-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.week5-grid{grid-template-columns:minmax(0,1fr)}}
-</style><style id="variant-badge-style">
-.variant-tag{display:inline-block;margin-inline-start:.65em;padding:1px 6px;vertical-align:.12em;
-    border:1px solid #b5c9dd;border-radius:5px;background:#edf4fa;color:#2e4f6e;
-    font-size:11px;font-weight:650;line-height:1.45;white-space:nowrap}
+</style><style id="variant-section-style">
+.variant-heading{margin:20px 0 8px;font-size:16px}
 </style></head><body><main>
 <header class="summary-header"><div class="summary-top"><div class="eyebrow">OMNIALE<span class="brand-description"> · 专业音视频智能体评测基准</span></div>
 <h1>案例汇总</h1></div>
 <div class="summary-overview"><p class="lead">从原始音视频到可用交付，查看任务、成绩、轨迹与失败分析。</p><details class="taxonomy"><summary>领域分类</summary><div class="table-scroll"><table>
 <tr><th>编号</th><th>一级领域（Domain）</th><th>二级应用场景</th></tr><tr><td class="num">01</td><td>影视、节目与视觉后期</td><td>影视剪辑、广告动效、视频特效、画质修复、节目质检、场记审核</td></tr><tr><td class="num">02</td><td>三维动画与产品可视化</td><td>人体动作复现、角色绑定与动画、表情控制、产品机构动画</td></tr><tr><td class="num">03</td><td>音频后期与声音工程</td><td>拟音、空间声音、多轨对白、音乐混音、音频工程维护</td></tr><tr><td class="num">04</td><td>音乐制作与演出服务</td><td>音乐转谱、编配、排练修订、声部练习、音乐会制作、MV分镜</td></tr><tr><td class="num">05</td><td>译制、无障碍与发布适配</td><td>手语字幕、字幕制作、跨语译制、音频描述、发布匿名化</td></tr><tr><td class="num">06</td><td>教育、训练与学习应用</td><td>教学视频、技能课程、体育训练复盘、听力测验、教学材料审核</td></tr><tr><td class="num">07</td><td>档案检索与证据研究</td><td>素材检索、来源溯源、口述史、长片证据核查、跨资料研究</td></tr><tr><td class="num">08</td><td>企业协作与数字业务</td><td>装配记录交接、会议协作、操作规范、商品选购网页</td></tr></table></div></details></div></header>
 <!-- week-6:start -->
-<section class="week" aria-labelledby="week-6"><div class="week-heading"><h2 id="week-6">Week 6</h2><span class="count">10 个案例</span></div><div class="week5-grid"><a class="case" data-case="phoenix-reconstruction" href="https://vibrant700.github.io/omniale/phoenix-reconstruction/" target="_blank" rel="noopener">
-<img class="cover" src="covers/phoenix-reconstruction.jpg?v=3" alt="凤凰角色重建与新机位有声动画" loading="lazy" width="520" height="292">
-<div class="body"><div class="case-meta"><div class="badge">三维动画与产品可视化<span class="scenario">动态角色重建与新机位动画</span></div><div class="case-tags"><div class="software-tags" aria-label="任务指定软件"><span class="software-tag"><span>指定软件</span><strong>Blender</strong></span></div></div></div>
-<h3>凤凰角色重建与新机位有声动画</h3><p class="sc"><span class="model-result"><span>gpt-6.2-astra</span> <span><b>39.2</b></span></span></p></div></a>
+<section class="week" aria-labelledby="week-6"><div class="week-heading"><h2 id="week-6">Week 6</h2><span class="count">10 个案例</span></div><div class="week5-grid"><a class="case" data-case="scv-showcase" href="https://vibrant700.github.io/omniale/scv-showcase/" target="_blank" rel="noopener">
+<img class="cover" src="covers/scv-showcase.jpg?v=3" alt="SCV 机甲资产重建与展示片制作" loading="lazy" width="520" height="292">
+<div class="body"><div class="case-meta"><div class="badge">三维动画与产品可视化<span class="scenario">机甲资产重建与有声展示</span></div><div class="case-tags"><div class="software-tags" aria-label="任务指定软件"><span class="software-tag"><span>指定软件</span><strong>Blender</strong></span></div></div></div>
+<h3>SCV 机甲资产重建与展示片制作</h3><p class="sc"><span class="model-result"><span>gpt-6.2-astra</span> <span><b>39.1</b></span></span></p></div></a>
 <a class="case" data-case="chamber-forensics" href="https://walnutpz.github.io/omniale/chamber-forensics/" target="_blank" rel="noopener">
 <img class="cover" src="covers/chamber-forensics.jpg?v=3" alt="室内乐演出视频异常排查" loading="lazy" width="520" height="292">
 <div class="body"><div class="case-meta"><div class="badge">音乐制作与演出服务<span class="scenario">演出录制质检与声画取证</span></div><div class="case-tags"></div></div>
@@ -112,31 +110,30 @@ border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:16px 0}
 <a class="case" data-case="previs-av-sync" href="previs-av-sync/">
 <img class="cover" src="covers/previs-av-sync.jpg?v=3" alt="多镜头灰模预演与现场声同步" loading="lazy" width="520" height="292">
 <div class="body"><div class="case-meta"><div class="badge">三维动画与产品可视化<span class="scenario">影视动态分镜预演与声画合板</span></div><div class="case-tags"><div class="software-tags" aria-label="任务指定软件"><span class="software-tag"><span>指定软件</span><strong>Blender</strong></span></div></div></div>
-<h3>多镜头灰模预演与现场声同步</h3><p class="sc"><span class="model-result"><span>Sol 6.2</span> <span><b>66.1</b></span></span><span class="model-result"><span>DeepSeek V4.1 Flash</span> <span>44.9</span></span></p></div></a>
-<a class="case" data-case="video-crosscheck-0019" href="video-crosscheck-0019/">
+<h3>多镜头灰模预演与现场声同步</h3><p class="sc"><span class="model-result"><span>Sol 6.2</span> <span><b>66.1</b></span></span><span class="model-result"><span>DeepSeek V4.1 Flash</span> <span>44.9</span></span></p></div></a></div><h3 class="variant-heading" id="week-6-variants">变体题：</h3><div class="week5-grid"><a class="case" data-case="video-crosscheck-0019" href="video-crosscheck-0019/">
 <img class="cover" src="covers/video-crosscheck-0019.jpg?v=3" alt="家用机架服务器的视听研究" loading="lazy" width="520" height="292">
 <div class="body"><div class="case-meta"><div class="badge">档案检索与证据研究<span class="scenario">视频与外部资料交叉核实</span></div><div class="case-tags"></div></div>
-<h3>家用机架服务器的视听研究 <span class="variant-tag">变体题</span></h3><p class="sc"><span class="model-result"><span>Sol 6.2</span> <span><b>55.3</b></span></span><span class="model-result"><span>DeepSeek V4.1 Flash</span> <span>43.8</span></span></p></div></a>
+<h3>家用机架服务器的视听研究</h3><p class="sc"><span class="model-result"><span>Sol 6.2</span> <span><b>55.3</b></span></span><span class="model-result"><span>DeepSeek V4.1 Flash</span> <span>43.8</span></span></p></div></a>
 <a class="case" data-case="omni2web-464" href="omni2web-464/">
 <img class="cover" src="covers/omni2web-464.jpg?v=3" alt="音视频编辑网页 · Atlas 旅行手账" loading="lazy" width="520" height="292">
 <div class="body"><div class="case-meta"><div class="badge">企业协作与数字业务<span class="scenario">录屏驱动网页编辑</span></div><div class="case-tags"></div></div>
-<h3>音视频编辑网页 · Atlas 旅行手账 <span class="variant-tag">变体题</span></h3><p class="sc"><span class="model-result"><span>Sol 6.2</span> <span><b>65.6</b></span></span><span class="model-result"><span>DeepSeek V4.1 Flash</span> <span>56.5</span></span></p></div></a>
+<h3>音视频编辑网页 · Atlas 旅行手账</h3><p class="sc"><span class="model-result"><span>Sol 6.2</span> <span><b>65.6</b></span></span><span class="model-result"><span>DeepSeek V4.1 Flash</span> <span>56.5</span></span></p></div></a>
 <a class="case" data-case="longfilm-commentary-trapped" href="longfilm-commentary-trapped/">
 <img class="cover" src="covers/longfilm-commentary-trapped.jpg?v=3" alt="长片中文剧情解说 · Trapped" loading="lazy" width="520" height="292">
 <div class="body"><div class="case-meta"><div class="badge">影视、节目与视觉后期<span class="scenario">电影剧情解说与音画剪辑</span></div><div class="case-tags"></div></div>
-<h3>长片中文剧情解说 · Trapped <span class="variant-tag">变体题</span></h3><p class="sc"><span class="model-result"><span>Sol 6.2</span> <span><b>76.5</b></span></span><span class="model-result"><span>DeepSeek V4.1 Flash</span> <span>52.6</span></span></p></div></a>
+<h3>长片中文剧情解说 · Trapped</h3><p class="sc"><span class="model-result"><span>Sol 6.2</span> <span><b>76.5</b></span></span><span class="model-result"><span>DeepSeek V4.1 Flash</span> <span>52.6</span></span></p></div></a>
 <a class="case" data-case="music2mv-review-lazy" href="music2mv-review-lazy/">
 <img class="cover" src="covers/music2mv-review-lazy.jpg?v=3" alt="音乐 MV 审片 · The Lazy Song" loading="lazy" width="520" height="292">
 <div class="body"><div class="case-meta"><div class="badge">音乐制作与演出服务<span class="scenario">生成 MV 的声画与连续性核查</span></div><div class="case-tags"></div></div>
-<h3>音乐 MV 审片 · The Lazy Song <span class="variant-tag">变体题</span></h3><p class="sc"><span class="model-result"><span>Sol 6.2</span> <span><b>76.9</b></span></span><span class="model-result"><span>DeepSeek V4.1 Flash</span> <span>40.0</span></span></p></div></a>
+<h3>音乐 MV 审片 · The Lazy Song</h3><p class="sc"><span class="model-result"><span>Sol 6.2</span> <span><b>76.9</b></span></span><span class="model-result"><span>DeepSeek V4.1 Flash</span> <span>40.0</span></span></p></div></a>
 <a class="case" data-case="piano-contact-ii" href="https://starivers152.github.io/OmniALE/piano-contact-ii/index.html" target="_blank" rel="noopener">
 <img class="cover" src="covers/piano-contact-ii.jpg?v=3" alt="Piano Contact II · 双手钢琴教学" loading="lazy" width="520" height="292">
 <div class="body"><div class="case-meta"><div class="badge">教育、训练与学习应用<span class="scenario">钢琴教学与双手触键</span></div><div class="case-tags"><div class="software-tags" aria-label="任务指定软件"><span class="software-tag"><span>指定软件</span><strong>Blender</strong></span><span class="software-tag"><span>指定软件</span><strong>MuseScore</strong></span></div></div></div>
-<h3>Piano Contact II · 双手钢琴教学 <span class="variant-tag">变体题</span></h3><p class="sc"><span class="model-result"><span>gpt-6.2-astra</span> <span><b>62.0</b></span></span><span class="model-result"><span>gpt-6.2-sol</span> <span>44.1</span></span></p></div></a>
-<a class="case" data-case="scv-showcase" href="https://vibrant700.github.io/omniale/scv-showcase/" target="_blank" rel="noopener">
-<img class="cover" src="covers/scv-showcase.jpg?v=3" alt="SCV 机甲资产重建与展示片制作" loading="lazy" width="520" height="292">
-<div class="body"><div class="case-meta"><div class="badge">三维动画与产品可视化<span class="scenario">机甲资产重建与有声展示</span></div><div class="case-tags"><div class="software-tags" aria-label="任务指定软件"><span class="software-tag"><span>指定软件</span><strong>Blender</strong></span></div></div></div>
-<h3>SCV 机甲资产重建与展示片制作 <span class="variant-tag">变体题</span></h3><p class="sc"><span class="model-result"><span>gpt-6.2-astra</span> <span><b>39.1</b></span></span></p></div></a></div></section>
+<h3>Piano Contact II · 双手钢琴教学</h3><p class="sc"><span class="model-result"><span>gpt-6.2-astra</span> <span><b>62.0</b></span></span><span class="model-result"><span>gpt-6.2-sol</span> <span>44.1</span></span></p></div></a>
+<a class="case" data-case="phoenix-reconstruction" href="https://vibrant700.github.io/omniale/phoenix-reconstruction/" target="_blank" rel="noopener">
+<img class="cover" src="covers/phoenix-reconstruction.jpg?v=3" alt="凤凰角色重建与新机位有声动画" loading="lazy" width="520" height="292">
+<div class="body"><div class="case-meta"><div class="badge">三维动画与产品可视化<span class="scenario">动态角色重建与新机位动画</span></div><div class="case-tags"><div class="software-tags" aria-label="任务指定软件"><span class="software-tag"><span>指定软件</span><strong>Blender</strong></span></div></div></div>
+<h3>凤凰角色重建与新机位有声动画</h3><p class="sc"><span class="model-result"><span>gpt-6.2-astra</span> <span><b>39.2</b></span></span></p></div></a></div></section>
 <!-- week-6:end -->
 <section class="week" aria-labelledby="week-5"><div class="week-heading"><h2 id="week-5">Week 5</h2><span class="count">17 个案例</span></div><div class="week5-grid"><a class="case" data-case="piano-contact" href="https://starivers152.github.io/OmniALE/piano-contact/" target="_blank" rel="noopener">
 <img class="cover" src="covers/piano-contact.jpg?v=3" alt="从钢琴录音到三维双手演奏教学" loading="lazy" width="520" height="292">
