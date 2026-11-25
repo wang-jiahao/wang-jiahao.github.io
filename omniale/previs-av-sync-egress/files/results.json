@@ -1,0 +1,184 @@
+{
+  "case_id": "previs_av_sync_egress",
+  "version": "v1",
+  "domain": 2,
+  "scenario": "影视动态分镜预演与声画合板",
+  "software": [
+    "Blender"
+  ],
+  "rubric_version": "previs-av-sync-egress-v1-pvscore54-qwen38omni-sync20",
+  "scoring_weights": {
+    "scene_check_pvscore54": 40.0,
+    "screen_check_vlm_qwen38omni": 40.0,
+    "audio_vse_editable_gate": 4.0,
+    "audio_waveform_sync_accuracy": 16.0
+  },
+  "historical_interruptions": [
+    {
+      "model": "deepseek-v4.1-flash-1017",
+      "tag": "ds41_max_r01_20261125",
+      "requested_effort": "max",
+      "state": "completed_without_requested_artifact",
+      "exit_code": 0,
+      "delivered": false,
+      "elapsed_seconds": 304.797,
+      "actual_request_count": 25,
+      "reason": "DashScope server-side built-in web_search reached 5-call/turn quota ('tool call quota has been used up'), causing model to halt without delivering output/. Archived as gateway/tool-quota interruption (not scored as 0); fresh run ds41_max_r02_20261125 executed with Codex --web-search disabled while preserving full OS/Python internet."
+    }
+  ],
+  "upstream_source": {
+    "benchmark": "VibePrevisBench (arXiv:2611.15789)",
+    "task_id": "B250_207",
+    "license": "Code Apache-2.0; dataset annotations CC BY-NC-SA 4.0; NASA media US Government Public Domain",
+    "media_source": "https://images-assets.nasa.gov/video/KSC-20240809-MH-GEB01_0001-Artemis_II_ISVV-1_Emergency_Egress_Day_2-M8390/KSC-20240809-MH-GEB01_0001-Artemis_II_ISVV-1_Emergency_Egress_Day_2-M8390~orig.mp4",
+    "media_title": "Artemis II ISVV-1 Emergency Egress Demonstration (Day 2)",
+    "source_anchor_s": 107.482,
+    "location_audio_window_s": [
+      20.0,
+      230.0
+    ],
+    "gt_offset_s": 87.482
+  },
+  "models": [
+    {
+      "model": "deepseek-v4.1-flash-1017",
+      "display_name": "DeepSeek V4.1 Flash",
+      "tag": "ds41_max_r02_20261125",
+      "harness": "Codex CLI 0.171.0-alpha.13",
+      "provider": "DashScope (direct)",
+      "network_enabled": true,
+      "web_search": "disabled",
+      "requested_effort": "max",
+      "actual_request_efforts": [
+        "max"
+      ],
+      "explicit_effort_verified": true,
+      "actual_request_count": 210,
+      "actual_http_statuses": [
+        200
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 3021.281,
+      "replay_passed": true,
+      "all_immutable_inputs_intact": true,
+      "trace_forbidden_hits": [],
+      "total_score": 68.5972,
+      "summary_score_1dp": 68.6,
+      "breakdown": {
+        "scene_pts_40": 19.3396,
+        "scene_raw_100": 48.349,
+        "screen_pts_40": 29.2576,
+        "screen_raw_100": 73.1439,
+        "audio_vse_pts_4": 4.0,
+        "audio_sync_pts_16": 16.0,
+        "audio_total_pts_20": 20.0
+      },
+      "scene_dims": {
+        "A1": 0.8547,
+        "A2": 0.0693,
+        "A3": null,
+        "P1": 0.4223,
+        "B1": 0.2004,
+        "B2": 0.5489,
+        "C1": 0.3585,
+        "C2": 0.7936,
+        "D1": 0.6202
+      },
+      "screen_dims": {
+        "V1": 0.9090909090909091,
+        "V2": 0.5,
+        "V3": 0.85,
+        "V4": 0.6666666666666666
+      },
+      "audio_sync": {
+        "reported_offset_s": 87.533333,
+        "actual_offset_s": 87.5334,
+        "gt_offset_s": 87.482,
+        "offset_err_s": 0.0514,
+        "offset_err_frames_24fps": 1.23,
+        "corr_peak": 0.9555
+      },
+      "trace_stats": {
+        "commands": 228,
+        "render_previs_calls": 6,
+        "render_previs_succeeded": 5,
+        "asr_calls": 2,
+        "asr_succeeded": 1,
+        "web_search_calls": 0,
+        "nasa_http_cmds": 21
+      },
+      "audit_note": "Full internet permitted per workspace rules; agent visually identified NASA Artemis II from reference.mp4, queried images-api.nasa.gov (21 HTTP commands) to download public Day 1-4 preview MP4s, matched Day 2 at 107.533333 s, and cross-correlated against location_audio.wav (87.533333 s, +0.0514 s error). Codex server-side web_search tool was disabled on r02 after r01 hit DashScope 5-call/turn quota error; all immutable SHA-256 checks intact and Qwen Screen Check missing=0."
+    },
+    {
+      "model": "gpt-6.2-sol",
+      "display_name": "Sol 6.2",
+      "tag": "sol62_xhigh_r01_20261125",
+      "harness": "Codex CLI 0.171.0-alpha.13",
+      "provider": "NJU Link (direct)",
+      "network_enabled": true,
+      "web_search": "live",
+      "requested_effort": "xhigh",
+      "actual_request_efforts": [
+        "xhigh"
+      ],
+      "explicit_effort_verified": true,
+      "actual_request_count": 45,
+      "actual_http_statuses": [
+        200
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1691.5,
+      "replay_passed": true,
+      "all_immutable_inputs_intact": true,
+      "trace_forbidden_hits": [],
+      "total_score": 58.7939,
+      "summary_score_1dp": 58.8,
+      "breakdown": {
+        "scene_pts_40": 22.0856,
+        "scene_raw_100": 55.214,
+        "screen_pts_40": 32.7083,
+        "screen_raw_100": 81.7708,
+        "audio_vse_pts_4": 4.0,
+        "audio_sync_pts_16": 0.0,
+        "audio_total_pts_20": 4.0
+      },
+      "scene_dims": {
+        "A1": 0.9714,
+        "A2": 0.1538,
+        "A3": null,
+        "P1": 0.5227,
+        "B1": 0.3086,
+        "B2": 0.4358,
+        "C1": 0.6292,
+        "C2": 0.95,
+        "D1": 0.4456
+      },
+      "screen_dims": {
+        "V1": 0.9166666666666666,
+        "V2": 0.75,
+        "V3": 0.9375,
+        "V4": 0.6666666666666666
+      },
+      "audio_sync": {
+        "reported_offset_s": 72.065,
+        "actual_offset_s": 72.065,
+        "gt_offset_s": 87.482,
+        "offset_err_s": 15.417,
+        "offset_err_frames_24fps": 370.01,
+        "corr_peak": 0.9998
+      },
+      "trace_stats": {
+        "commands": 64,
+        "render_previs_calls": 3,
+        "render_previs_succeeded": 3,
+        "asr_calls": 2,
+        "asr_succeeded": 1,
+        "web_search_calls": 0,
+        "nasa_http_cmds": 0
+      },
+      "audit_note": "Pure local cross-modal approach (0 web searches, 0 external media fetches). Strong 4D visual reconstruction (54.79/80 combined scene+screen, exact 5-shot cuts C2=0.950), but heuristic spectral/ASR matching locked onto 72.065 s (-15.417 s error). Qwen Screen Check missing=0."
+    }
+  ],
+  "title": "应急撤离灰模预演与现场声同步",
+  "score_policy": "initial"
+}
