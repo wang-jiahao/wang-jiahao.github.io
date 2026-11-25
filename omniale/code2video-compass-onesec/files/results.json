@@ -1,0 +1,391 @@
+{
+  "evaluated_at": "2026-11-25T13:51:11.526256+00:00",
+  "case": "code2video_compass_onesec/v1",
+  "l1_passed": true,
+  "allow_reference_oracle": false,
+  "raw_score": 68.877,
+  "final_score": 68.877,
+  "score_config": {
+    "sa_weight": 15.0,
+    "sa_floor": 0.48,
+    "sa_min_matched_dur_s": 4.5,
+    "af_weight": 20.0,
+    "af_floor": 0.3,
+    "mf_weight": 25.0,
+    "mf_floor": 0.3,
+    "mf_ceil": 0.78,
+    "if_weight": 20.0,
+    "code2av_weight": 20.0
+  },
+  "breakdown": {
+    "SA_raw": 0.894853,
+    "AF_raw": 0.810595,
+    "MF_raw": 0.536891,
+    "MF_moving_only": 0.504319,
+    "IF_raw": 0.923077,
+    "IF_yes": 12,
+    "IF_total": 13,
+    "matched_window_s": {
+      "start_s": 31.0,
+      "end_s": 32.5,
+      "duration_s": 1.5,
+      "span_ratio": 0.2692307692307692
+    },
+    "SA_pts": 3.989,
+    "AF_pts": 14.5884,
+    "MF_pts": 12.3381,
+    "MF_align_gate": 1.0,
+    "IF_pts": 18.4615,
+    "Code2AV_pts": 19.5,
+    "AV1": 5.0,
+    "AV2": 6.0,
+    "AV3": 5.0,
+    "AV4": 3.5
+  },
+  "l1_gate": {
+    "l1_passed": true,
+    "timeline_ok": true,
+    "allow_reference_oracle": false,
+    "errors": [],
+    "warnings": [],
+    "video_meta": {
+      "codec": "h264",
+      "width": 1280,
+      "height": 720,
+      "fps": 30.0,
+      "duration_s": 58.0
+    },
+    "audio_meta": {
+      "codec": "aac",
+      "channels": 2,
+      "sample_rate": 48000,
+      "start_time_s": 0.0,
+      "rms_dbfs": -16.03
+    },
+    "motion_meta": {
+      "mean_abs_frame_diff": 22.74060781105705,
+      "max_abs_frame_diff": 85.98915100097656
+    },
+    "source_anticheat": {
+      "passed": true,
+      "code_file_count": 8,
+      "flags": []
+    }
+  },
+  "media_anticheat": {
+    "passed": true,
+    "flags": [],
+    "peak_frame_ssim": 0.7378,
+    "mean_frame_ssim": 0.7176,
+    "min_frame_mae": 0.13002,
+    "max_abs_audio_xcorr": 0.0436
+  },
+  "compass_v2v": {
+    "device": "cpu",
+    "reference_duration_s": 6.5,
+    "generated_duration_s": 58.0,
+    "SA_raw": 0.8948533535003662,
+    "AF_raw": 0.8105946366603558,
+    "MF_raw": 0.5368914008140564,
+    "MF_moving_only": 0.5043187737464905,
+    "matched_window_s": {
+      "start_s": 31.0,
+      "end_s": 32.5,
+      "duration_s": 1.5,
+      "span_ratio": 0.2692307692307692
+    },
+    "SA_details": {
+      "similarity_mean": 0.8948533535003662,
+      "similarity_min": 0.8752920627593994,
+      "path_length": 26,
+      "reference_start_index": 0,
+      "reference_end_index": 25,
+      "generated_start_index": 124,
+      "generated_end_index": 130,
+      "generated_span_frames": 7,
+      "generated_span_ratio_of_reference": 0.2692307692307692,
+      "minimum_generated_span_ratio": 0.25,
+      "generated_start_timestamp_s": 31.0,
+      "generated_end_timestamp_s": 32.5
+    },
+    "AF_details": {
+      "metric_protocol": "v2v_dreamsim_dino_aligned_window_v1",
+      "appearance_fidelity": 0.8105946366603558,
+      "dtw_aligned_distance_mean": 0.18940536333964422,
+      "dtw_band_fraction": 0.38,
+      "dtw_path_length": 26,
+      "reference_frame_count": 26,
+      "generated_window_frame_count": 7
+    },
+    "MF_details": {
+      "metric_protocol": "v2v_cotracker3_tracklet_chamfer_v1",
+      "repository_commit": "82e02e8029753ad4ef13cf06be7f4fc5facdda4d",
+      "tracklet_chamfer_similarity": 0.5368914008140564,
+      "reference_tracklet_count": 400,
+      "generated_tracklet_count": 400,
+      "valid_reference_tracklet_count": 176,
+      "valid_generated_tracklet_count": 321,
+      "valid_reference_tracklet_coverage": 0.44,
+      "valid_generated_tracklet_coverage": 0.8025,
+      "valid_pair_count": 55338,
+      "pairwise_tracklet_matrix_shape": [
+        400,
+        400
+      ],
+      "minimum_jointly_visible_steps": 6,
+      "moving_only_diagnostic": {
+        "tracklet_chamfer_similarity": 0.5043187737464905,
+        "reference_tracklet_count": 129,
+        "generated_tracklet_count": 52,
+        "valid_reference_tracklet_count": 55,
+        "valid_generated_tracklet_count": 44,
+        "valid_reference_tracklet_coverage": 0.4263565891472868,
+        "valid_generated_tracklet_coverage": 0.8461538461538461,
+        "valid_pair_count": 2357,
+        "pairwise_tracklet_matrix_shape": [
+          129,
+          52
+        ],
+        "minimum_jointly_visible_steps": 6
+      }
+    },
+    "timings_s": {
+      "sa": 52.688,
+      "af": 21.094,
+      "mf": 45.609,
+      "total": 119.391
+    }
+  },
+  "code2av": {
+    "code2av_score": 19.5,
+    "AV1_stopwatch_slowdown": 5.0,
+    "AV2_cardiac_and_ion_lock": 6.0,
+    "AV3_atp_soundscape_contrast": 5.0,
+    "AV4_cuts_and_craft": 3.5,
+    "diagnostics": {
+      "opening_tick_count": 5,
+      "early_peak_centroid_hz": 1844.7,
+      "slowed_min_centroid_hz": 196.0,
+      "centroid_drop_ratio": 0.8937,
+      "cardiac_sub_peaks": 5,
+      "cardiac_max_peak_ratio": 3.03,
+      "ion_visual_peaks_s": [
+        45.4,
+        42.8,
+        46.47
+      ],
+      "ion_audio_peaks_s": [
+        36.46,
+        42.8
+      ],
+      "ion_best_av_offset_s": 0.0,
+      "atp_rms_dbfs": -25.63,
+      "atp_centroid_cv": 0.4374,
+      "atp_env_cv": 0.1358,
+      "four_phase_mfcc_mean_dist": 65.67,
+      "cut_candidates": 5,
+      "cut_hits": 4,
+      "peak_dbfs": -1.14,
+      "overall_rms_dbfs": -19.04,
+      "max_mid_silence_gap_s": 0.0
+    }
+  },
+  "if_judge": {
+    "judge_model": "qwen3.8-omni-flash",
+    "judge_effort": "xhigh",
+    "judge_fps": 2,
+    "video_sha256": "bc14b73c3895d46a1110ba65e3336f771bfef5108420378ec2595628d8aec496",
+    "yes_count": 12,
+    "total_items": 13,
+    "IF_raw": 0.923077,
+    "IF_score": 18.4615,
+    "overall_summary": "The video faithfully executes the multi-scale 3D biomedical animation: a real-time 0.000→1.000 s stopwatch intro, a 120× slow-motion zoom from a translucent human silhouette down through heart, capillary, mitochondrion and rotating ATP-synthase turbines to a voltage-gated ion channel, then a reverse zoom back to the body, all wrapped in a futuristic HUD with a right-side telemetry card and upper-right ECG. The only unsupported element is the logical coupling of the ion-channel gate opening to an ECG spike, since the ECG trace merely scrolls the single heart beat independently of the ~0.80 s gate-opening event.",
+    "items": [
+      {
+        "index": 1,
+        "section": "SharedChecklist",
+        "dimension": "Content.Text",
+        "question": "Is the title '你身体里的一秒钟 / One Second Inside You' displayed on screen?",
+        "answer": "Yes",
+        "evidence_timestamps_s": [
+          0.0,
+          1.0,
+          55.0
+        ],
+        "reason": "Title '你身体里的一秒钟 / ONE SECOND INSIDE YOU' is shown on the opening card and repeated on the end card."
+      },
+      {
+        "index": 2,
+        "section": "SharedChecklist",
+        "dimension": "Content.Information",
+        "question": "Does the stopwatch reach “1.000 s”?",
+        "answer": "Yes",
+        "evidence_timestamps_s": [
+          4.0,
+          51.0
+        ],
+        "reason": "The central stopwatch reads 1.000 s at the end of the real-time intro and again as 'MEASUREMENT COMPLETE'."
+      },
+      {
+        "index": 3,
+        "section": "SharedChecklist",
+        "dimension": "Attribute.Look",
+        "question": "Is the human figure depicted as a standing translucent silhouette?",
+        "answer": "Yes",
+        "evidence_timestamps_s": [
+          5.0,
+          12.0,
+          49.0
+        ],
+        "reason": "The subject is rendered as a standing, semi-transparent blue wireframe/silhouette with visible nervous and circulatory systems."
+      },
+      {
+        "index": 4,
+        "section": "SharedChecklist",
+        "dimension": "Cinematography.Frame",
+        "question": "Is the central visual area framed by an on-screen HUD overlay with a telemetry data card positioned on the right side?",
+        "answer": "Yes",
+        "evidence_timestamps_s": [
+          5.0,
+          30.0,
+          51.0
+        ],
+        "reason": "A persistent HUD frames the scene, with the '这一秒 / IN THIS SECOND' telemetry data card docked on the right side throughout."
+      },
+      {
+        "index": 5,
+        "section": "SharedChecklist",
+        "dimension": "Relations.Spatial",
+        "question": "Is the ECG oscilloscope monitor located in the upper-right section of the frame?",
+        "answer": "Yes",
+        "evidence_timestamps_s": [
+          5.0,
+          20.0,
+          43.0
+        ],
+        "reason": "The '心电图 ECG' oscilloscope waveform panel sits in the upper-right corner of the frame."
+      },
+      {
+        "index": 6,
+        "section": "SharedChecklist",
+        "dimension": "Relations.Logical",
+        "question": "Does the opening of the molecular ion channel gates correspond to an electrical spike on the ECG monitor?",
+        "answer": "No",
+        "evidence_timestamps_s": [
+          42.0,
+          43.0,
+          44.0
+        ],
+        "reason": "When the voltage gate opens (~0.80 s), the ECG trace is simply scrolling the one heart beat leftward; no new electrical spike is synchronized to the gate-opening event."
+      },
+      {
+        "index": 7,
+        "section": "SharedChecklist",
+        "dimension": "Dynamics.Motion",
+        "question": "Do the ATP synthase turbines rotate around their central shafts?",
+        "answer": "Yes",
+        "evidence_timestamps_s": [
+          28.0,
+          33.0,
+          37.0
+        ],
+        "reason": "The mushroom-shaped ATP-synthase turbines visibly spin around their central stalks as proton particles stream past, matching the '每转一圈' narration."
+      },
+      {
+        "index": 8,
+        "section": "SharedChecklist",
+        "dimension": "Dynamics.Transformation",
+        "question": "Do the ion channel gates visibly transition from a closed state to an open conformation?",
+        "answer": "Yes",
+        "evidence_timestamps_s": [
+          39.0,
+          43.0,
+          44.0
+        ],
+        "reason": "The channel is labeled 'VOLTAGE GATE - CLOSED' with ions waiting outside, then flips to 'ION INFUX - Na⁺' as the pore visibly opens and ions pour through."
+      },
+      {
+        "index": 9,
+        "section": "SharedChecklist",
+        "dimension": "Dynamics.ViewportMotion",
+        "question": "Does the camera execute a multi-scale zoom-in into microscopic cellular structures followed by a reverse zoom back to the full human silhouette?",
+        "answer": "Yes",
+        "evidence_timestamps_s": [
+          13.0,
+          24.0,
+          38.0,
+          45.0,
+          50.0
+        ],
+        "reason": "The camera zooms body→heart→capillary→mitochondrion→membrane, then reverses back out to the full human silhouette at 1.000 s."
+      },
+      {
+        "index": 10,
+        "section": "SharedChecklist",
+        "dimension": "Dynamics.TemporalRelation",
+        "question": "Does the initial stopwatch count up from '0.000' to '1.000' in real time before the slowed-down anatomical zoom sequence begins?",
+        "answer": "Yes",
+        "evidence_timestamps_s": [
+          2.0,
+          3.0,
+          4.0,
+          5.0
+        ],
+        "reason": "The intro counts 0.000→0.663→1.000 in real time before cutting to the '120× SLOW MOTION' anatomical sequence."
+      },
+      {
+        "index": 11,
+        "section": "SharedChecklist",
+        "dimension": "Aesthetics.Style",
+        "question": "Is the animation rendered in a 3D medical science explainer aesthetic featuring futuristic scientific HUD telemetry overlays?",
+        "answer": "Yes",
+        "evidence_timestamps_s": [
+          5.0,
+          30.0,
+          51.0
+        ],
+        "reason": "Rendering is a polished 3D medical-explainer style with glowing volumetric molecules and futuristic HUD telemetry overlays."
+      },
+      {
+        "index": 12,
+        "section": "ReferenceClipSpecific",
+        "dimension": "MitochondrialTurbineSimulation",
+        "question": "Does the video faithfully reproduce the reference clip's warm-toned mitochondrial environment featuring rotating molecular ATP synthase turbines driven by luminous particles?",
+        "answer": "Yes",
+        "evidence_timestamps_s": [
+          28.0,
+          32.0,
+          36.0
+        ],
+        "reason": "The mitochondrial scene is warm/golden-toned and shows rotating molecular turbines driven by luminous proton particles, faithfully reproducing the reference."
+      },
+      {
+        "index": 13,
+        "section": "ReferenceClipSpecific",
+        "dimension": "ClipBoundaryTransition",
+        "question": "Does the sequence seamlessly enter the reference clip's ATP synthase scene from the capillary level and subsequently transition onward to the cell membrane ion channel sequence?",
+        "answer": "Yes",
+        "evidence_timestamps_s": [
+          23.0,
+          27.0,
+          38.0,
+          44.0
+        ],
+        "reason": "The zoom flows smoothly from the capillary/red-cell level into the mitochondrion and ATP-synthase turbines, then continues onward to the cell-membrane ion-channel sequence."
+      }
+    ]
+  },
+  "score_policy": "initial",
+  "run": {
+    "model": "gpt-6.2-sol",
+    "actual_request_efforts": [
+      "xhigh"
+    ],
+    "elapsed_seconds": 2431.266,
+    "request_count": 43,
+    "exit_code": 0,
+    "codex_version": "codex-cli 0.163.0",
+    "network_enabled": true,
+    "provider": "nju"
+  }
+}

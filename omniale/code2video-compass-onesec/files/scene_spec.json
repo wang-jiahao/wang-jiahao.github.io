@@ -1,0 +1,111 @@
+{
+  "case_id": "code2video_compass_onesec_v1",
+  "title": "你身体里的一秒钟 / One Second Inside You",
+  "video_spec": {
+    "width": 1280,
+    "height": 720,
+    "recommended_fps": 30,
+    "recommended_duration_s": 58.0,
+    "allowed_duration_range_s": [45.0, 70.0],
+    "time_dilation_factor": 120,
+    "audio_sample_rate": 48000,
+    "audio_channels": 2
+  },
+  "reference_clip": {
+    "path": "input/keyclip.mp4",
+    "duration_s": 6.5,
+    "scale_label": "5 纳米",
+    "subject": "Mitochondrial ATP synthase molecular turbines driven by luminous proton streams in warm glowing microscopic environment",
+    "hud_elements": [
+      "Top-left dual timer & 120x slowdown readout",
+      "Bottom-left scale hierarchy (人体 Body -> 器官 Organ -> 细胞 Cell -> 分子 Molecule -> 原子 Atom) with nanometer ruler",
+      "Top-right live ECG trace monitor",
+      "Right-side '这一秒 / IN THIS SECOND' 8-metric live tally card with rapidly climbing ATP battery counter",
+      "Left contextual callouts ('真实速度 每秒 100+ 圈 / 画面速度 每秒约 1 圈', '转子：被质子推着转 / Rotor: pushed by a flow of protons')",
+      "Bottom centered bilingual subtitles"
+    ]
+  },
+  "eight_metrics_at_1s": [
+    {"id": "heartbeat", "zh": "心跳", "en": "Heartbeat", "end_value": "1.00 次"},
+    {"id": "breath", "zh": "呼吸", "en": "Breath", "end_value": "0.250 口"},
+    {"id": "nerve_signal", "zh": "神经信号走了", "en": "Nerve signal", "end_value": "100 米"},
+    {"id": "heart_output", "zh": "心脏泵出", "en": "Heart output", "end_value": "70 毫升"},
+    {"id": "new_rbc", "zh": "新造红细胞", "en": "New red blood cells", "end_value": "2,400,000 个"},
+    {"id": "replaced_cells", "zh": "换新的细胞", "en": "Replaced cells", "end_value": "3,800,000 个"},
+    {"id": "charged_atp", "zh": "充好的 ATP 电池", "en": "ATP charged", "end_value": "9.0 万亿亿 个"},
+    {"id": "ion_influx", "zh": "一瞬间门放进", "en": "Ions admitted in flash", "end_value": "10,000 个"}
+  ],
+  "acts": [
+    {
+      "id": 1,
+      "name": "Real-time one-second stopwatch",
+      "recommended_share": 0.08,
+      "scale_label": "实时 1.000 秒",
+      "key_visuals": "Main title '你身体里的一秒钟 / One Second Inside You', central circular stopwatch sweeping 0.000 -> 1.000 in real time."
+    },
+    {
+      "id": 2,
+      "name": "Time slowdown and cosmic HUD initialization",
+      "recommended_share": 0.10,
+      "scale_label": "50 厘米",
+      "key_visuals": "120x time slowdown cue; cosmic dark HUD initializes around standing translucent 3D human silhouette with top-right ECG monitor and right-hand '这一秒 / IN THIS SECOND' card."
+    },
+    {
+      "id": 3,
+      "name": "Full-body nerve transmission and heart ventricle contraction",
+      "recommended_share": 0.15,
+      "scale_label": "20 厘米 -> 5 厘米",
+      "key_visuals": "Neural signal flashes along peripheral nerves (~100 m/s), camera zooms smoothly into contracting 3D heart pumping blood."
+    },
+    {
+      "id": 4,
+      "name": "Capillary flow, red blood cells and muscle cell mitochondria dive",
+      "recommended_share": 0.17,
+      "scale_label": "20 微米 -> 500 纳米",
+      "key_visuals": "Macro zoom into narrow capillaries with tumbling red blood cells releasing oxygen across muscle membrane into glowing mitochondria."
+    },
+    {
+      "id": 5,
+      "name": "Mitochondrial ATP synthase turbines (Reference Keyclip Segment)",
+      "recommended_share": 0.16,
+      "scale_label": "5 纳米",
+      "key_visuals": "Seamless entry into warm luminous mitochondrial interior matching input/keyclip.mp4: 3D molecular ATP synthase turbines spinning on central stalks pushed by glowing protons, energy glow flashes, bilingual subtitles, trillions ATP tally climbing."
+    },
+    {
+      "id": 6,
+      "name": "Membrane ion channel gates locked to ECG electrical spike",
+      "recommended_share": 0.14,
+      "scale_label": "5 纳米",
+      "key_visuals": "Zoom into adjacent phospholipid bilayer with closed ion-channel gates and crowded outside sodium ions; top-right ECG spikes and triggers visible closed -> open gate transition + bright millisecond ion torrent."
+    },
+    {
+      "id": 7,
+      "name": "Swift reverse zoom back to human silhouette",
+      "recommended_share": 0.08,
+      "scale_label": "5 纳米 -> 50 厘米",
+      "key_visuals": "Rapid multi-scale reverse camera zoom ascending through all anatomical layers back to the full standing translucent human figure."
+    },
+    {
+      "id": 8,
+      "name": "1.000 s halt and 8-metric summary dashboard",
+      "recommended_share": 0.07,
+      "scale_label": "1 米",
+      "key_visuals": "Micro-timer stops cleanly at 1.000 s; right-side dashboard displays all 8 physiological achievements simultaneously."
+    },
+    {
+      "id": 9,
+      "name": "Final conclusion and closing title card",
+      "recommended_share": 0.05,
+      "scale_label": "1.000 s",
+      "key_visuals": "Settling heartbeat glow and closing bilingual statement '你什么都没做，可你的身体，把这些事全做完了'."
+    }
+  ],
+  "audio_design_cues": [
+    "stopwatch_real_time_ticks",
+    "time_dilation_120x_downward_sweep",
+    "cardiac_lub_dub_subbass_pulses",
+    "atp_turbine_rotational_harmonic_soundscape",
+    "ecg_spike_ion_channel_flash_transient",
+    "reverse_zoom_riser_and_resolution"
+  ]
+}
