@@ -1,47 +1,34 @@
 {
   "week": "6",
   "order": [
-    "scv-showcase",
     "chamber-forensics",
     "slakh-project-migration",
     "previs-av-sync",
     "code2video-compass-onesec",
+    "captaincook4d-v2",
+    "lipreading-correction",
+    "sports-evidence-korea-final",
+    "target-dialogue-rescue",
+    "object-event-trigger",
+    "coach-review",
     "video-crosscheck-0019",
     "omni2web-464",
     "longfilm-commentary-trapped",
     "music2mv-review-lazy",
     "piano-contact-ii",
     "phoenix-reconstruction",
-    "previs-av-sync-egress"
+    "previs-av-sync-egress",
+    "moving-tile-source-tracing-joneses",
+    "chamber-forensics-followup",
+    "slakh-project-migration-track00869",
+    "av-restoration-spring",
+    "sign-variant-csl",
+    "interview-matte-variant",
+    "film-dubbing-variant",
+    "meeting-subtitles-variant",
+    "mid-duel"
   ],
   "cases": [
-    {
-      "id": "scv-showcase",
-      "title": "SCV 机甲资产重建与展示片制作",
-      "cover": "scv-showcase.jpg",
-      "cover_source": "https://vibrant700.github.io/omniale/scv-showcase/assets/poster.jpg",
-      "url": "https://vibrant700.github.io/omniale/scv-showcase/",
-      "scores": {
-        "gpt-6.2-astra": 39.14017793633829
-      },
-      "score": "gpt-6.2-astra 39.14017793633829",
-      "max_model_score": 39.14017793633829,
-      "score_source": "https://vibrant700.github.io/omniale/scv-showcase/results.json",
-      "score_sources": [
-        "https://vibrant700.github.io/omniale/scv-showcase/results.json"
-      ],
-      "score_note": "采用 scv-showcase-detail-v2 总分。",
-      "classification": {
-        "week": "6",
-        "domain": 2,
-        "scenario": "机甲资产重建与有声展示",
-        "show_in_summary": true,
-        "variant": false,
-        "software": [
-          "Blender"
-        ]
-      }
-    },
     {
       "id": "chamber-forensics",
       "title": "室内乐演出视频异常排查",
@@ -146,6 +133,145 @@
         "week": "6",
         "domain": 1,
         "scenario": "程序化三维科普动画与声画合成",
+        "show_in_summary": true,
+        "variant": false
+      }
+    },
+    {
+      "id": "captaincook4d-v2",
+      "title": "第一视角厨房操作纠错片",
+      "cover": "captaincook4d-v2.jpg",
+      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/captaincook4d/source/A.jpg",
+      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/captaincook4d-v2/index.html",
+      "desc": "审核三段第一人称厨房操作长视频，定位违反配方或流程的错误，制作有普通话讲解和时间证据的班前培训片。",
+      "scores": {
+        "gpt-6.2-astra": 40.78431372549019,
+        "gpt-6.2-sol": 16.708496732026145,
+        "gpt-6-luna": 0.0
+      },
+      "score": "gpt-6.2-astra 40.78431372549019 · gpt-6.2-sol 16.708496732026145 · gpt-6-luna 0.0",
+      "max_model_score": 40.78431372549019,
+      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/captaincook4d-v2/results.js",
+      "score_note": "V2 内容分与成片质量乘积，采用来源正式总分。",
+      "classification": {
+        "week": "6",
+        "domain": 6,
+        "scenario": "操作流程审核与培训制作",
+        "show_in_summary": true,
+        "variant": false
+      }
+    },
+    {
+      "id": "lipreading-correction",
+      "title": "唇语纠正与字幕错误定位",
+      "cover": "lipreading-correction.jpg",
+      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/lipreading/poster.jpg",
+      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-lipreading/results",
+      "desc": "从无声普通话视频核验十段待检查字幕，检测错误文字并定位口型和时间区间，交付证据报告。",
+      "scores": {
+        "gpt-6.1-sol": 10
+      },
+      "score": "gpt-6.1-sol 10",
+      "max_model_score": 10,
+      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/lipreading/data.js",
+      "score_note": "来源当前版本 v2 已给最终评分，运行退出码非零且有提交，采用来源有效评定分。",
+      "classification": {
+        "week": "6",
+        "domain": 5,
+        "scenario": "唇语理解与字幕质检",
+        "show_in_summary": true,
+        "variant": false
+      }
+    },
+    {
+      "id": "sports-evidence-korea-final",
+      "title": "羽毛球比赛回放与逐拍复核",
+      "cover": "sports-evidence-korea-final.jpg",
+      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/sports-evidence-v1/korea-final/rally-54-preview.mp4",
+      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/sports-evidence-v1/korea-final/",
+      "desc": "核对韩国大师赛男双决赛长转播，恢复回合、击球属性、时间、站位和失分原因，提交逐拍复盘。",
+      "scores": {
+        "gpt-6.2-sol": 51.59
+      },
+      "score": "gpt-6.2-sol 51.59",
+      "max_model_score": 51.59,
+      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/sports-evidence-v1/korea-final/grade.json",
+      "classification": {
+        "week": "6",
+        "domain": 6,
+        "scenario": "体育回放与技战术复核",
+        "show_in_summary": true,
+        "variant": false
+      }
+    },
+    {
+      "id": "target-dialogue-rescue",
+      "title": "画面指定人物的重叠原声抢救",
+      "cover": "target-dialogue-rescue.jpg",
+      "cover_source": "https://huayuankou333.github.io/omniale/target-dialogue-rescue/media/A-person.jpg",
+      "url": "https://huayuankou333.github.io/omniale/target-dialogue-rescue/",
+      "desc": "根据画面和人物指示分离重叠对话中的目标原声，输出原长声轨、残余声轨、同步视频与可迁移工程。",
+      "scores": {
+        "gpt-6.2-sol": 58.6
+      },
+      "score": "gpt-6.2-sol 58.6",
+      "max_model_score": 58.6,
+      "score_source": "https://huayuankou333.github.io/omniale/target-dialogue-rescue/case-data.js",
+      "score_note": "来源已有声音证据初评，17 个单元缺有效听审，中点插补；正式总分待审核。",
+      "score_policy": "preliminary",
+      "formal_total": null,
+      "classification": {
+        "week": "6",
+        "domain": 3,
+        "scenario": "指定人物对白分离与声音保真",
+        "show_in_summary": true,
+        "variant": false,
+        "software": [
+          "REAPER"
+        ]
+      }
+    },
+    {
+      "id": "object-event-trigger",
+      "title": "器具声事件触发器",
+      "cover": "object-event-trigger.jpg",
+      "cover_source": "https://huayuankou333.github.io/omniale/object-event-trigger/preview/outputs/B-Q1/target-indicator.png",
+      "url": "https://huayuankou333.github.io/omniale/object-event-trigger/",
+      "desc": "根据目标物体的图像指示和视听场景，定位该器具的真实发声区间、控制困难负例，并迁移到新录像。",
+      "scores": {
+        "gpt-6.2-sol": 55.8
+      },
+      "score": "gpt-6.2-sol 55.8",
+      "max_model_score": 55.8,
+      "score_source": "https://huayuankou333.github.io/omniale/object-event-trigger/case-data.js",
+      "score_note": "采用来源 Qwen 辅助初评点估计 55.8，有一处边界缺项，正式总分待审核。",
+      "score_policy": "preliminary",
+      "formal_total": null,
+      "classification": {
+        "week": "6",
+        "domain": 3,
+        "scenario": "视听事件识别与声源归属",
+        "show_in_summary": true,
+        "variant": false
+      }
+    },
+    {
+      "id": "coach-review",
+      "title": "AG 五人第一视角战术大屏",
+      "cover": "coach-review.jpg",
+      "cover_source": "https://vibrant700.github.io/omniale/coach-review/models/astra62-xhigh-v2/media/dashboard.jpg",
+      "url": "https://vibrant700.github.io/omniale/coach-review/",
+      "desc": "整合五路选手录像和官播声音，制作累计伤害双榜、重点解说字幕、选手高亮的同步战术大屏。",
+      "scores": {
+        "gpt-6.2-astra": 31.75
+      },
+      "score": "gpt-6.2-astra 31.75",
+      "max_model_score": 31.75,
+      "score_source": "https://vibrant700.github.io/omniale/coach-review/models/astra62-xhigh-v2/results/score.json",
+      "classification": {
+        "week": "6",
+        "domain": 6,
+        "scenario": "多视角电竞回放与战术复盘",
         "show_in_summary": true,
         "variant": false
       }
@@ -315,6 +441,242 @@
         "software": [
           "Blender"
         ],
+        "show_in_summary": true,
+        "variant": true
+      }
+    },
+    {
+      "id": "moving-tile-source-tracing-joneses",
+      "title": "电视墙镜头与声音来源回查 · Joneses",
+      "cover": "moving-tile-source-tracing-joneses.jpg",
+      "cover_source": "https://walnutpz.github.io/omniale/moving-tile-source-tracing-joneses/media/poster.jpg",
+      "url": "https://walnutpz.github.io/omniale/moving-tile-source-tracing-joneses/",
+      "desc": "在多来源影片中定位电视墙成片的各个画面和声音来源，精确恢复原片时间区间。",
+      "scores": {
+        "gpt-6.2-sol": 24.550608948823402,
+        "gpt-6-luna": 0.5015451808212082
+      },
+      "score": "gpt-6.2-sol 24.550608948823402 · gpt-6-luna 0.5015451808212082",
+      "max_model_score": 24.550608948823402,
+      "score_source": "https://walnutpz.github.io/omniale/moving-tile-source-tracing-joneses/sources/scores/sol.json",
+      "score_sources": [
+        "https://walnutpz.github.io/omniale/moving-tile-source-tracing-joneses/sources/scores/sol.json",
+        "https://walnutpz.github.io/omniale/moving-tile-source-tracing-joneses/sources/scores/luna.json"
+      ],
+      "score_note": "采用逐段视频和音频综合分，Kimi 未交付无分。",
+      "classification": {
+        "week": "6",
+        "domain": 7,
+        "scenario": "多来源音画素材溯源",
+        "show_in_summary": true,
+        "variant": true
+      }
+    },
+    {
+      "id": "chamber-forensics-followup",
+      "title": "室内乐四重奏与五重奏异常排查",
+      "cover": "chamber-forensics-followup.jpg",
+      "cover_source": "https://walnutpz.github.io/omniale/chamber-forensics-followup/media/poster.jpg",
+      "url": "https://walnutpz.github.io/omniale/chamber-forensics-followup/",
+      "desc": "检查室内乐演出录像，定位音画异常、对应声部和时间区间。",
+      "scores": {
+        "gpt-6.2-astra": 32.43279248152997,
+        "qwen3.8-max-0902": 4.716981132075472,
+        "kimi-k3.1-pro": 3.494296577946768,
+        "gpt-6-sol": 0.0,
+        "gpt-6-luna": 0.0,
+        "deepseek-v4.1-flash-1017": 0.0
+      },
+      "score": "gpt-6.2-astra 32.43279248152997 · qwen3.8-max-0902 4.716981132075472 · kimi-k3.1-pro 3.494296577946768 · gpt-6-sol 0.0 · gpt-6-luna 0.0 · deepseek-v4.1-flash-1017 0.0",
+      "max_model_score": 32.43279248152997,
+      "score_source": "https://walnutpz.github.io/omniale/chamber-forensics-followup/sources/scores/astra.json",
+      "score_sources": [
+        "https://walnutpz.github.io/omniale/chamber-forensics-followup/sources/scores/astra.json",
+        "https://walnutpz.github.io/omniale/chamber-forensics-followup/sources/scores/sol.json",
+        "https://walnutpz.github.io/omniale/chamber-forensics-followup/sources/scores/luna.json",
+        "https://walnutpz.github.io/omniale/chamber-forensics-followup/sources/scores/deepseek.json",
+        "https://walnutpz.github.io/omniale/chamber-forensics-followup/sources/scores/kimi.json",
+        "https://walnutpz.github.io/omniale/chamber-forensics-followup/sources/scores/qwen.json"
+      ],
+      "classification": {
+        "week": "6",
+        "domain": 4,
+        "scenario": "演出录制质检与声画取证",
+        "show_in_summary": true,
+        "variant": true
+      }
+    },
+    {
+      "id": "slakh-project-migration-track00869",
+      "title": "多声部音乐工程迁移与碎谱定位 · Track00869",
+      "cover": "slakh-project-migration-track00869.jpg",
+      "cover_source": "https://walnutpz.github.io/omniale/slakh-project-migration-track00869/media/fragment-06.png",
+      "url": "https://walnutpz.github.io/omniale/slakh-project-migration-track00869/",
+      "desc": "迁移 42 条音轨至可编辑工程，复现混音和声像，并定位八张无名谱片的对应声部和时间。",
+      "scores": {
+        "gpt-6.2-astra": 51.938146261873364,
+        "deepseek-v4.1-flash-1017": 21.92150825899683,
+        "gpt-6.2-sol": 15.367614332624523,
+        "kimi-k3.1-pro": 11.696399764381326,
+        "gpt-6-luna": 6.583634132012735
+      },
+      "score": "gpt-6.2-astra 51.938146261873364 · deepseek-v4.1-flash-1017 21.92150825899683 · gpt-6.2-sol 15.367614332624523 · kimi-k3.1-pro 11.696399764381326 · gpt-6-luna 6.583634132012735",
+      "max_model_score": 51.938146261873364,
+      "score_source": "https://walnutpz.github.io/omniale/slakh-project-migration-track00869/sources/scores/astra.json",
+      "score_sources": [
+        "https://walnutpz.github.io/omniale/slakh-project-migration-track00869/sources/scores/astra.json",
+        "https://walnutpz.github.io/omniale/slakh-project-migration-track00869/sources/scores/deepseek.json",
+        "https://walnutpz.github.io/omniale/slakh-project-migration-track00869/sources/scores/sol.json",
+        "https://walnutpz.github.io/omniale/slakh-project-migration-track00869/sources/scores/kimi.json",
+        "https://walnutpz.github.io/omniale/slakh-project-migration-track00869/sources/scores/luna.json"
+      ],
+      "classification": {
+        "week": "6",
+        "domain": 3,
+        "scenario": "多轨音频工程迁移与乐谱定位",
+        "show_in_summary": true,
+        "variant": true,
+        "software": [
+          "REAPER"
+        ]
+      }
+    },
+    {
+      "id": "av-restoration-spring",
+      "title": "《Spring》电影原声音画修复",
+      "cover": "av-restoration-spring.jpg",
+      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/variants/case26-spring-input-detail.jpg",
+      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-variant-26/results",
+      "desc": "修复26秒电影片段强画面损伤和原始立体声混音，保留原配乐、环境声、音效与时间轴。",
+      "scores": {
+        "gpt-6.2-sol": 58.5848
+      },
+      "score": "gpt-6.2-sol 58.5848",
+      "max_model_score": 58.5848,
+      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/variant-results/three-cases-data.js?v=spring-comparison-20261125",
+      "score_note": "当前详情已公布正式总分 58.5848；旧 variants 页面仍显示待核及上限，采用最新详情。",
+      "classification": {
+        "week": "6",
+        "domain": 1,
+        "scenario": "电影画质与原声音频修复",
+        "show_in_summary": true,
+        "variant": true
+      }
+    },
+    {
+      "id": "sign-variant-csl",
+      "title": "中国手语中英文字幕",
+      "cover": "sign-variant-csl.jpg",
+      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/variant-results/case-10-sign/candidate/poster.jpg",
+      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/variants/#case10",
+      "desc": "理解23个独立真实中国手语表达，制作准确的中英文字幕和可切换语言的成片。",
+      "scores": {
+        "gpt-6.2-astra": 39,
+        "gpt-6.2-sol": 39,
+        "gpt-6-luna": 25.965
+      },
+      "score": "gpt-6.2-astra 39 · gpt-6.2-sol 39 · gpt-6-luna 25.965",
+      "max_model_score": 39,
+      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/variants/results.json",
+      "score_sources": [
+        "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/variants/results.json",
+        "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/variant-results/three-cases-data.js?v=spring-comparison-20261125"
+      ],
+      "score_note": "采用经过门槛封顶后的正式总分，排除作者参考；修正原给定的 #case26 锚点至手语 Case10。",
+      "classification": {
+        "week": "6",
+        "domain": 5,
+        "scenario": "手语理解与双语字幕",
+        "show_in_summary": true,
+        "variant": true
+      }
+    },
+    {
+      "id": "interview-matte-variant",
+      "title": "双人访谈抠像与对白分轨",
+      "cover": "interview-matte-variant.jpg",
+      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/variant-results/case-07-interview/candidate/source.mp4",
+      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-variant-7-interview/results",
+      "desc": "保留交叉与道具遮挡中目标人物可见部分，交付绿底视频、两人对白分轨及 Resolve 工程。",
+      "scores": {
+        "gpt-6.2-sol": 61.0222
+      },
+      "score": "gpt-6.2-sol 61.0222",
+      "max_model_score": 61.0222,
+      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/variant-results/three-cases-data.js?v=spring-comparison-20261125",
+      "classification": {
+        "week": "6",
+        "domain": 1,
+        "scenario": "动态人物抠像与对白分离",
+        "show_in_summary": true,
+        "variant": true,
+        "software": [
+          "DaVinci Resolve"
+        ]
+      }
+    },
+    {
+      "id": "film-dubbing-variant",
+      "title": "电影中文配音与原人物声线保留",
+      "cover": "film-dubbing-variant.jpg",
+      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/variant-results/case-40/candidate/input/source.mp4",
+      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-variant-40/results",
+      "desc": "将12分钟瑞典语电影译制为普通话，保留人物声音特征、情绪反应、原画面、非对白声轨和双语字幕。",
+      "scores": {
+        "gpt-6.2-sol": 42.5579
+      },
+      "score": "gpt-6.2-sol 42.5579",
+      "max_model_score": 42.5579,
+      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/variant-results/data.js?v=case40-final-425579",
+      "score_note": "采用当前来源正式总分，待核分数区间不计入。",
+      "classification": {
+        "week": "6",
+        "domain": 5,
+        "scenario": "跨语影视译制",
+        "show_in_summary": true,
+        "variant": true
+      }
+    },
+    {
+      "id": "meeting-subtitles-variant",
+      "title": "四人会议字幕对轴",
+      "cover": "meeting-subtitles-variant.jpg",
+      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/variant-results/case-31/candidate/input/source.mp4",
+      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-variant-31/results",
+      "desc": "将完整英文转写对齐到150秒多人会议视频，处理重叠、短附和、重复、修正、声源身份和时序。",
+      "scores": {
+        "gpt-6.2-sol": 60.781,
+        "gpt-6-luna": 27.04
+      },
+      "score": "gpt-6.2-sol 60.781 · gpt-6-luna 27.04",
+      "max_model_score": 60.781,
+      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/variant-results/data.js?v=case40-final-425579",
+      "score_note": "采用当前来源内容与交付乘积总分。",
+      "classification": {
+        "week": "6",
+        "domain": 5,
+        "scenario": "多人会议字幕与说话人对齐",
+        "show_in_summary": true,
+        "variant": true
+      }
+    },
+    {
+      "id": "mid-duel",
+      "title": "长生与向鱼中路双视角战术大屏",
+      "cover": "mid-duel.jpg",
+      "cover_source": "https://vibrant700.github.io/omniale/mid-duel/media/poster.jpg",
+      "url": "https://vibrant700.github.io/omniale/mid-duel/",
+      "desc": "整合两路中单视角与官播声音，制作伤害双榜、重点字幕、关联操作与选手高亮的复盘大屏。",
+      "scores": {
+        "gpt-6.2-astra": 41
+      },
+      "score": "gpt-6.2-astra 41",
+      "max_model_score": 41,
+      "score_source": "https://vibrant700.github.io/omniale/mid-duel/results/score.json",
+      "classification": {
+        "week": "6",
+        "domain": 6,
+        "scenario": "多视角电竞回放与战术复盘",
         "show_in_summary": true,
         "variant": true
       }
