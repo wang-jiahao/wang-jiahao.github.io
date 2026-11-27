@@ -1,0 +1,434 @@
+{
+  "evaluated_at": "2026-11-27T09:08:57.061901+00:00",
+  "mode": "full",
+  "l1_passed": true,
+  "forbidden_media_detected": false,
+  "objective_score_80": 58.9025,
+  "raw_score": 75.9025,
+  "final_score": 75.9025,
+  "scores": {
+    "axis1_harmony_rhythm": 13.7739,
+    "axis2_arrangement_aesthetics": 22.851,
+    "axis3_mixing": 10.0,
+    "axis4_video_avsync": 12.2776,
+    "axis5_holistic_av_judge": 17.0
+  },
+  "l1_gate": {
+    "l1_passed": true,
+    "errors": [],
+    "forbidden_media_detected": false,
+    "video_meta": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 30.0,
+      "pix_fmt": "yuv420p",
+      "duration_s": 90.0,
+      "audio_sr": 48000,
+      "audio_channels": 2
+    },
+    "audio_meta": {
+      "accompaniment.wav": {
+        "sr": 48000,
+        "channels": 2,
+        "duration_s": 90.0
+      },
+      "mix.wav": {
+        "sr": 48000,
+        "channels": 2,
+        "duration_s": 90.0
+      },
+      "accompaniment_rms_db": -18.13,
+      "mix_rms_db": -14.38,
+      "mix_mv_env_corr": 1.0
+    },
+    "vocal_preservation": {
+      "passed": true,
+      "residual_vocal_corr": 0.92761,
+      "direct_mix_vocal_corr": 0.80548,
+      "effective_vocal_corr": 0.92761,
+      "vocal_lag_ms": 0.0,
+      "estimated_accomp_gain": 1.0305
+    },
+    "anticheat": {
+      "passed": true,
+      "flags": [],
+      "code_file_count": 3,
+      "vocal_leak_in_accomp_corr": -0.00818,
+      "accomp_vs_ref_corr": 0.02091
+    },
+    "notes_valid": true
+  },
+  "axis1": {
+    "axis1_score": 13.7739,
+    "max_score": 25.0,
+    "a11_key_scale": {
+      "score": 4.0989,
+      "max_score": 5.0,
+      "active_frac": 0.9967,
+      "krumhansl_corr": 0.8639,
+      "krumhansl_eff": 0.8639,
+      "ref_chroma_cos": 0.956,
+      "in_scale_ratio": 0.7599,
+      "pitch_class_dist": [
+        0.1014,
+        0.0824,
+        0.0458,
+        0.1162,
+        0.0444,
+        0.1036,
+        0.0466,
+        0.0762,
+        0.1465,
+        0.0575,
+        0.1336,
+        0.0459
+      ]
+    },
+    "a12a_consonance": {
+      "score": 5.0,
+      "max_score": 5.0,
+      "mean_consonance": 0.706,
+      "active_vocal_coverage": 1.0,
+      "n_evaluated_frames": 1193
+    },
+    "a12b_tonnetz": {
+      "score": 4.127,
+      "max_score": 5.0,
+      "tonnetz_cos": 0.5559,
+      "null_mean": 0.4708,
+      "null_std": 0.0248,
+      "null_z": 3.4266
+    },
+    "a13_rhythm_beats": {
+      "a13a_score": 0.548,
+      "a13b_score": 0.0,
+      "score": 0.548,
+      "max_score": 10.0,
+      "est_tempo_bpm": 140.62,
+      "ref_tempo_bpm": 140.62,
+      "beat_f1_1x": 0.2095,
+      "beat_f1_effective": 0.3359,
+      "bidir_beat_align": 0.3934,
+      "onset_xcorr_real": -0.0549,
+      "onset_null_z": -1.7566
+    }
+  },
+  "axis2": {
+    "axis2_score": 22.851,
+    "max_score": 25.0,
+    "harmony_gate": 1.0,
+    "harmony_compat_pts_input": 9.0989,
+    "a21_apa": {
+      "score": 8.0,
+      "max_score": 8.0,
+      "apa": 0.93832,
+      "fad_C_R": 0.02102,
+      "fad_C_Rprime": 0.04627,
+      "fad_R_Rprime": 0.0288,
+      "mmd2_C_R": 0.01565,
+      "paired_clap_cos": 0.98672,
+      "raw_score": 8.0
+    },
+    "a22_audiobox": {
+      "score": 9.0,
+      "max_score": 9.0,
+      "raw": {
+        "mix": {
+          "CE": 7.8547,
+          "CU": 7.927,
+          "PC": 6.2727,
+          "PQ": 8.3427
+        },
+        "accomp": {
+          "CE": 7.5947,
+          "CU": 8.0238,
+          "PC": 5.0203,
+          "PQ": 7.9044
+        },
+        "composite": 7.5743
+      },
+      "lower_anchor": 3.9159,
+      "upper_anchor": 7.5011,
+      "raw_score": 9.0
+    },
+    "a23_structure_richness": {
+      "score": 5.851,
+      "max_score": 8.0,
+      "energy_arc_corr": 0.2616,
+      "climax_vs_quiet_db": 5.88,
+      "climax_vs_quiet_onset_ratio": 1.6,
+      "high_vs_quiet_bw_ratio": 2.41,
+      "mean_4s_adj_similarity": 0.9314,
+      "pitch_class_entropy_bits": 3.4584,
+      "onset_iqr_ratio": 0.9062,
+      "section_stats": {
+        "sec_1": {
+          "rms_db": -24.19,
+          "onset_mean": 0.598,
+          "bw_hz": 545.4,
+          "tier": "quiet"
+        },
+        "sec_2": {
+          "rms_db": -22.65,
+          "onset_mean": 0.804,
+          "bw_hz": 928.0,
+          "tier": "quiet"
+        },
+        "sec_3": {
+          "rms_db": -19.02,
+          "onset_mean": 1.074,
+          "bw_hz": 1595.9,
+          "tier": "build"
+        },
+        "sec_4": {
+          "rms_db": -16.06,
+          "onset_mean": 1.17,
+          "bw_hz": 1954.7,
+          "tier": "climax"
+        }
+      },
+      "subscores": {
+        "arc_corr": 0.4058,
+        "dynamic_lift": 2.0,
+        "non_loop_novelty": 1.5,
+        "pitch_entropy": 1.25,
+        "groove_richness": 0.6953
+      }
+    }
+  },
+  "axis3": {
+    "axis3_score": 10.0,
+    "max_score": 10.0,
+    "a31_loudness": {
+      "score": 3.0,
+      "max_score": 3.0,
+      "integrated_lufs": -13.93,
+      "true_peak_dbtp": -1.68,
+      "lra_lu": 9.17,
+      "subscores": {
+        "lufs": 1.2,
+        "true_peak": 1.0,
+        "lra": 0.8
+      }
+    },
+    "a32_var": {
+      "score": 3.5,
+      "max_score": 3.5,
+      "var_db": 1.44,
+      "estimated_g_vocal": 1.2159,
+      "estimated_g_accomp": 1.0038,
+      "vocal_lag_ms": 0.0
+    },
+    "a33_unmasking_stereo": {
+      "score": 3.5,
+      "max_score": 3.5,
+      "vocal_1_4k_snr_db": 11.26,
+      "vocal_pocket_1_4k_headroom_db": 11.93,
+      "accomp_side_mid_ratio": 0.3915,
+      "mix_lr_phase_corr": 0.8477,
+      "subscores": {
+        "band_1_4k_intelligibility": 1.25,
+        "vocal_pocket_unmasking": 0.75,
+        "stereo_width": 0.75,
+        "phase_coherence": 0.75
+      }
+    }
+  },
+  "axis4": {
+    "axis4_score": 12.2776,
+    "max_score": 20.0,
+    "a41a_visual_beat_sync": {
+      "score": 0.3539,
+      "max_score": 4.0,
+      "visual_peaks_count": 51,
+      "beat_align_ref": 0.2042,
+      "beat_align_sub": 0.1977,
+      "beat_impulse_null_z": 0.9069
+    },
+    "a41b_vocal_reactivity": {
+      "score": 3.3491,
+      "raw_score": 3.3491,
+      "scene_gate": 1.0,
+      "max_score": 4.0,
+      "best_channel": "edge_lower",
+      "vocal_vis_corr": 0.3673,
+      "vocal_vis_null_z": 2.3491,
+      "active_vs_silent_diff_p95_ratio": 1.8224,
+      "channels": {
+        "diff_p95": {
+          "r": -0.0938,
+          "z": -2.2335,
+          "contrast": 0.6023,
+          "raw_score": 0.0
+        },
+        "diff_center": {
+          "r": 0.0006,
+          "z": 0.0086,
+          "contrast": 0.9037,
+          "raw_score": 0.0
+        },
+        "diff_lower": {
+          "r": -0.1649,
+          "z": -3.4949,
+          "contrast": 0.3156,
+          "raw_score": 0.0
+        },
+        "edge_lower": {
+          "r": 0.3673,
+          "z": 2.3491,
+          "contrast": 1.8224,
+          "raw_score": 3.3491
+        }
+      }
+    },
+    "a42_multiscene_worldbuilding": {
+      "a42a_score": 2.9119,
+      "a42b_score": 1.7333,
+      "score": 4.6452,
+      "max_score": 7.0,
+      "inter_section_dinov3_dist": 0.1617,
+      "intra_section_dinov3_coh": 0.9638,
+      "target_boundaries_s": [
+        6.31,
+        32.53,
+        48.79
+      ],
+      "detected_visual_cuts_s": [
+        0.13,
+        13.73,
+        34.0,
+        48.87,
+        64.0,
+        82.53,
+        89.83
+      ],
+      "boundary_hits": 2,
+      "boundary_recall": 0.6667,
+      "cut_f1": 0.4
+    },
+    "a43_craft_hygiene": {
+      "score": 3.9294,
+      "max_score": 5.0,
+      "mean_l1_diff": 0.545,
+      "max_frozen_run_s": 0.93,
+      "max_black_run_s": 0.07,
+      "mean_sobel_edge_density": 0.1903,
+      "mean_color_entropy_bits": 2.61,
+      "subscores": {
+        "motion": 0.6243,
+        "hygiene": 1.5,
+        "visual_craft": 1.8051
+      }
+    }
+  },
+  "axis5": {
+    "axis5_score": 17.0,
+    "max_score": 20.0,
+    "judge_model": "qwen3.8-omni-flash",
+    "judge_effort": "xhigh",
+    "judge_fps": 2,
+    "video_sha256": "e4d38388e2fc213924ae321f1e0624b0175a5d796fca9692b25f98352dc24142",
+    "overall_summary": "A cohesive, melancholic code-animated MV for 'Watching the Rain Fall' pairing a piano-led vocal ballad with six distinct metaphor-driven scenes (stormy pier, cinders, letter, canal crossing, open water, far shore). The art direction and narrative interpretation are strong; the arrangement and motion are expressive but lean ambient rather than tightly beat-driven.",
+    "dimensions": {
+      "musicality_synergy": {
+        "score": 4.0,
+        "max_score": 5.0,
+        "evidence_timestamps_s": [
+          7.0,
+          21.0,
+          35.0,
+          49.0,
+          56.0,
+          74.0,
+          84.0
+        ],
+        "reason": "Vocals are in tune, forward and clearly mixed over a warm piano bed from [00:07]. A genuine verse-to-chorus build exists: sparse piano verses [00:07-00:34], lift at 'So write me a letter' [00:35], and a fuller chorus with added strings/soft percussion at [00:49-01:05], then a gentle wind-down on 'Part of you is with me' [01:14-01:30]. Deduction: the groove stays static ballad-time with little rhythmic variation between [00:21-00:34], and percussive drive remains minimal even in the chorus, keeping it just short of a 5."
+      },
+      "visual_art_direction": {
+        "score": 4.5,
+        "max_score": 5.0,
+        "evidence_timestamps_s": [
+          1.0,
+          14.0,
+          35.0,
+          44.0,
+          49.0,
+          65.0,
+          83.0
+        ],
+        "reason": "Excellent unified craft: muted teal/sepia palettes with a consistent red accent (coat/umbrella/boat trim), film-grain texture, elegant serif title [00:01], chapter labels ('Cinders' [00:14], 'Correspondence' [00:35], 'The crossing' [00:49], 'Open water' [01:05], 'The far shore' [01:23]). Lyrics are bottom-centered, never overlapping, with word-level underline sync (e.g., 'passed' [00:08], 'letter' [00:36]). The overhead letter scene [00:35-00:48] renders actual handwritten text ('My friend, I hope the weather has been kind. With love,') folding into a paper boat — a standout detail. Only minor quibble: the heavy dark foreground frame in the ruins scene [00:14-00:34] slightly crowds the composition."
+      },
+      "motion_choreography": {
+        "score": 4.0,
+        "max_score": 5.0,
+        "evidence_timestamps_s": [
+          7.0,
+          14.0,
+          35.0,
+          46.0,
+          49.0,
+          56.0,
+          65.0,
+          83.0,
+          88.0
+        ],
+        "reason": "Genuinely distinct visual worlds per musical section: rainy pier with parallax clouds and ripple rings [00:07-00:13], ember-lit ruins [00:14], animated hand-writing and paper-fold [00:35-00:48], slow dolly-in down the lamp-lined canal as the boat drifts [00:49-01:04], sunset lake with flying birds [01:05], and a closing pan as the woman exits frame [01:23-01:30]. No waveform-visualizer cap applies. Deduction: the character walk cycle is a simple repeating loop not tied to beat accents [00:07-00:13, 00:21-00:34], and boat/rain motion is ambient rather than responsive to the chorus swell at [00:49]."
+      },
+      "narrative_engagement": {
+        "score": 4.5,
+        "max_score": 5.0,
+        "evidence_timestamps_s": [
+          7.0,
+          14.0,
+          21.0,
+          35.0,
+          46.0,
+          49.0,
+          65.0,
+          74.0,
+          84.0
+        ],
+        "reason": "The visuals interpret the lyrics metaphorically and cohesively: storm passing = breakup [00:07], ash/ruins = aftermath [00:14], the written letter becoming a paper boat = the message sent away [00:35-00:48], the canal crossing = moving on [00:49], and the boat drifting to 'the far shore' as the woman turns and walks away = acceptance of 'part of me is gone' [01:14-01:30]. Chapter titles reinforce the arc, and the emotional pacing mirrors the song's build and release."
+      }
+    },
+    "timestamped_defects": [
+      {
+        "timestamp_s": 21.0,
+        "modality": "audio",
+        "defect": "Dynamics stay flat through the second verse half [00:21-00:34]; arrangement adds little until the [00:35] lift, making the pre-chorus feel mechanically repetitive."
+      },
+      {
+        "timestamp_s": 7.0,
+        "modality": "av_sync",
+        "defect": "The walking cycle and rain/ripple motion run at a constant ambient pace, ignoring beat accents and the vocal phrasing of 'Now the storm has passed' [00:07-00:13]."
+      },
+      {
+        "timestamp_s": 14.0,
+        "modality": "visual",
+        "defect": "Hard cut into the ruins scene; the thick dark foreground silhouette frame slightly crowds the character and reads as visual clutter for the first seconds [00:14-00:17]."
+      },
+      {
+        "timestamp_s": 49.0,
+        "modality": "av_sync",
+        "defect": "Chorus instrumentation swells at [00:49] but the canal shot's camera dolly and boat drift remain equally calm, missing an opportunity for a more pronounced motion accent on the downbeat."
+      },
+      {
+        "timestamp_s": 84.0,
+        "modality": "visual",
+        "defect": "Final section [01:23-01:30] is largely a static drift-and-exit; motion energy drops noticeably while the sustained 'gone' vocal holds, weakening the closing beat."
+      }
+    ]
+  },
+  "run": {
+    "model": "gpt-6.2-sol",
+    "actual_request_efforts": [
+      "xhigh"
+    ],
+    "elapsed_seconds": 2007.141,
+    "request_count": 46,
+    "exit_code": 0,
+    "codex_version": "codex-cli 0.163.0",
+    "network_enabled": true,
+    "provider": "nju"
+  }
+}
