@@ -12,6 +12,8 @@
     "object-event-trigger",
     "coach-review",
     "longfilm-commentary-ncp",
+    "targeted-meeting-anonymization",
+    "code2av-vocal-mv",
     "video-crosscheck-0019",
     "omni2web-464",
     "music2mv-review-lazy",
@@ -32,7 +34,8 @@
     "sophies-universe",
     "sprite-dialogue-ii",
     "dialect-subtitles-variant-c",
-    "longfilm-commentary-scarlet-street"
+    "longfilm-commentary-scarlet-street",
+    "sprite-fright-audio-description"
   ],
   "cases": [
     {
@@ -300,6 +303,48 @@
         "week": "6",
         "domain": 1,
         "scenario": "定稿脚本驱动的电影精准寻镜与剪辑",
+        "show_in_summary": true,
+        "variant": false
+      }
+    },
+    {
+      "id": "targeted-meeting-anonymization",
+      "title": "定向匿名 · 单混音会议发布版",
+      "cover": "targeted-meeting-anonymization.jpg",
+      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-09",
+      "desc": "用参考人像找到指定受访者，遮住所有入镜的人脸和首分钟的姓名条，从单声道混音去除其原声，并用匿名字幕保留观点。",
+      "scores": {
+        "gpt-6.2-sol": 59,
+        "gpt-6-luna": 39.032
+      },
+      "score": "gpt-6.2-sol 59 · gpt-6-luna 39.032",
+      "max_model_score": 59,
+      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/results.js",
+      "score_note": "单混音 v5 采用正式总分，Sol 原程序分 71.487 因硬门槛封顶为 59。",
+      "classification": {
+        "week": "6",
+        "domain": 5,
+        "scenario": "会议匿名化与原声保护",
+        "show_in_summary": true,
+        "variant": false
+      }
+    },
+    {
+      "id": "code2av-vocal-mv",
+      "title": "盲测干声驱动的全代码编曲混音与多场景叙事 MV 制作",
+      "url": "code2av-vocal-mv/",
+      "cover": "code2av-vocal-mv.jpg",
+      "desc": "给 Agent 90 秒独立人声及无时间戳歌词，自行分析调性和节拍、编写伴奏并混音，再用纯代码制作随歌曲发展的多场景叙事 MV。",
+      "scores": {
+        "gpt-6.2-sol": 75.9025
+      },
+      "score": "gpt-6.2-sol 75.9025",
+      "max_model_score": 75.9025,
+      "score_source": "code2av-vocal-mv/files/results.json",
+      "classification": {
+        "week": "6",
+        "domain": 4,
+        "scenario": "干声编曲与叙事 MV",
         "show_in_summary": true,
         "variant": false
       }
@@ -840,6 +885,29 @@
         "week": "6",
         "domain": 1,
         "scenario": "非线性定稿解说与跨场景镜头对照",
+        "show_in_summary": true,
+        "variant": true
+      }
+    },
+    {
+      "id": "sprite-fright-audio-description",
+      "title": "《Sprite Fright》中文口述影像",
+      "cover": "sprite-fright-audio-description.jpg",
+      "url": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/index.html#task-variant-46",
+      "desc": "在 81 秒动画原片对白的间隙插入中文口述，保留原画面和时间轴，让视障观众跟上剧情。",
+      "scores": {
+        "gpt-6.2-sol": 68.7346,
+        "gpt-6-luna": 59
+      },
+      "score": "gpt-6.2-sol 68.7346 · gpt-6-luna 59",
+      "max_model_score": 68.7346,
+      "score_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/variant-results/data.js?v=case40-final-425579",
+      "score_note": "采用来源正式总分，Luna 因关键事实门槛封顶为 59。",
+      "cover_source": "https://nanxiang-git.github.io/OmniALE_v2/case_dashboard/dist/variant-results/case-46/poster.jpg",
+      "classification": {
+        "week": "6",
+        "domain": 5,
+        "scenario": "中文口述影像与无障碍交付",
         "show_in_summary": true,
         "variant": true
       }
