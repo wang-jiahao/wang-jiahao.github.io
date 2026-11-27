@@ -1,0 +1,691 @@
+{
+  "material_version": "v2_variant_c",
+  "score": 50.60714285714286,
+  "semantic_score": 40.60714285714286,
+  "organization_score": 5.0,
+  "delivery_score": 5,
+  "semantic_by_dialect": {
+    "晋语/山西文水": 0.6714285714285715,
+    "徽语/安徽歙县": 0.125,
+    "桂南平话/广西横州": 0.8333333333333333,
+    "闽东语/福州长乐": 0.45238095238095233,
+    "莆仙话/福建莆田城区": 0.0,
+    "江淮官话/扬州广陵": 0.625
+  },
+  "rows": [
+    {
+      "segment_id": "S001",
+      "dialect": "晋语/山西文水",
+      "gold_count": 1,
+      "true_positive": 0.5,
+      "false_positive": 1,
+      "semantic_f1": 0.4,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0.5,
+            "candidate_quote": "贴了一组地图",
+            "reason": "提到贴地图，但未说明在墙上，数量也与来源不符。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "一组地图",
+            "reason": "来源说的是一张地图。"
+          }
+        ]
+      },
+      "candidate": "[无法确认]贴了一组地图。"
+    },
+    {
+      "segment_id": "S002",
+      "dialect": "徽语/安徽歙县",
+      "gold_count": 1,
+      "true_positive": 0,
+      "false_positive": 0,
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "未说明老人、床或躺卧行为。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "[无法确认]有一个[无法确认]。"
+    },
+    {
+      "segment_id": "S003",
+      "dialect": "桂南平话/广西横州",
+      "gold_count": 2,
+      "true_positive": 1.5,
+      "false_positive": 1,
+      "semantic_f1": 0.6666666666666666,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0.5,
+            "candidate_quote": "水底有很多鲶鱼在游",
+            "reason": "提到鱼在水中游，但未说明是在江里或河里。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 1,
+            "candidate_quote": "很多鲶鱼",
+            "reason": "表示鱼的数量很多。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "鲶鱼",
+            "reason": "来源没有说明鱼的种类。"
+          }
+        ]
+      },
+      "candidate": "水底有很多鲶鱼在游。"
+    },
+    {
+      "segment_id": "S004",
+      "dialect": "闽东语/福州长乐",
+      "gold_count": 1,
+      "true_positive": 0.5,
+      "false_positive": 0,
+      "semantic_f1": 0.6666666666666666,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0.5,
+            "candidate_quote": "让你去洗一下",
+            "reason": "保留了让听者洗的意思，但未说明洗碗。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "让你去洗一下。"
+    },
+    {
+      "segment_id": "S005",
+      "dialect": "莆仙话/福建莆田城区",
+      "gold_count": 2,
+      "true_positive": 0,
+      "false_positive": 0,
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "未说我们买了车票。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "未说在车站买票。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "那么，[无法确认]车站旁边的车。"
+    },
+    {
+      "segment_id": "S006",
+      "dialect": "江淮官话/扬州广陵",
+      "gold_count": 3,
+      "true_positive": 3,
+      "false_positive": 0,
+      "semantic_f1": 1.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 1,
+            "candidate_quote": "他家一下子死了三头猪",
+            "reason": "明确说他家死了猪。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 1,
+            "candidate_quote": "死了三头猪",
+            "reason": "明确数量为三头。"
+          },
+          {
+            "atom_id": "A03",
+            "credit": 1,
+            "candidate_quote": "一下子死了",
+            "reason": "说明事情一下子发生。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "他家一下子死了三头猪。"
+    },
+    {
+      "segment_id": "S007",
+      "dialect": "晋语/山西文水",
+      "gold_count": 2,
+      "true_positive": 2,
+      "false_positive": 0,
+      "semantic_f1": 1.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 1,
+            "candidate_quote": "学生们已经坐了两天汽车了",
+            "reason": "说明学生们坐汽车。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 1,
+            "candidate_quote": "已经坐了两天汽车了",
+            "reason": "说明已经坐了两天。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "学生们已经坐了两天汽车了。"
+    },
+    {
+      "segment_id": "S008",
+      "dialect": "徽语/安徽歙县",
+      "gold_count": 1,
+      "true_positive": 0,
+      "false_positive": 0,
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "只保留疑问词，未说议论老师的事。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "[无法确认]，哪个[无法确认]？"
+    },
+    {
+      "segment_id": "S009",
+      "dialect": "桂南平话/广西横州",
+      "gold_count": 1,
+      "true_positive": 0.5,
+      "false_positive": 0,
+      "semantic_f1": 0.6666666666666666,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0.5,
+            "candidate_quote": "那辆车是开往广州的",
+            "reason": "保留车辆开往广州，但指示词由这辆变为那辆。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "那辆车是开往广州的。"
+    },
+    {
+      "segment_id": "S010",
+      "dialect": "闽东语/福州长乐",
+      "gold_count": 2,
+      "true_positive": 1.5,
+      "false_positive": 0,
+      "semantic_f1": 0.8571428571428571,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0.5,
+            "candidate_quote": "前面来了一个胖乎乎的小孩",
+            "reason": "说到前面来了一个小孩，但未说明是男孩或走来。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 1,
+            "candidate_quote": "胖乎乎的小孩",
+            "reason": "说明小孩胖乎乎的。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "前面来了一个胖乎乎的小孩。"
+    },
+    {
+      "segment_id": "S011",
+      "dialect": "莆仙话/福建莆田城区",
+      "gold_count": 3,
+      "true_positive": 0,
+      "false_positive": 1,
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "未说建议听者尝点心。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "未说明点心是谁做的。"
+          },
+          {
+            "atom_id": "A03",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "未提到尝过以后离开。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "现在就要吃",
+            "reason": "来源未断言现在就要吃。"
+          }
+        ]
+      },
+      "candidate": "现在大概[无法确认]要吃。\n[无法确认]，现在就要吃。"
+    },
+    {
+      "segment_id": "S012",
+      "dialect": "江淮官话/扬州广陵",
+      "gold_count": 2,
+      "true_positive": 1.0,
+      "false_positive": 1,
+      "semantic_f1": 0.5,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0.5,
+            "candidate_quote": "你才吃了一碗面",
+            "reason": "保留只吃了一碗，但把饭说成了面。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0.5,
+            "candidate_quote": "吃得下就再添一碗吧",
+            "reason": "提议再添一碗，但增加了吃得下的条件，承接的食物也变成了面。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "你才吃了一碗面",
+            "reason": "来源说吃的是饭，而非面。"
+          }
+        ]
+      },
+      "candidate": "你才吃了一碗面，\n吃得下就再添一碗吧。"
+    },
+    {
+      "segment_id": "S013",
+      "dialect": "晋语/山西文水",
+      "gold_count": 2,
+      "true_positive": 0.5,
+      "false_positive": 1,
+      "semantic_f1": 0.2857142857142857,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有让孩子先离开。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0.5,
+            "candidate_quote": "再仔细看看咱俩的",
+            "reason": "保留了再仔细看的建议，但未说看展览。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "咱俩的",
+            "reason": "来源未说明所看之物属于说话者和听者两人。"
+          }
+        ]
+      },
+      "candidate": "你这会儿先别走。\n再仔细看看咱俩的。"
+    },
+    {
+      "segment_id": "S014",
+      "dialect": "徽语/安徽歙县",
+      "gold_count": 2,
+      "true_positive": 0,
+      "false_positive": 1,
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "未说明在看电视。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "未说看电视期间睡着。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "看看就熟悉了",
+            "reason": "来源说看着看着睡着了，没有说看过就熟悉了。"
+          }
+        ]
+      },
+      "candidate": "[无法确认]，看看就熟悉了。"
+    },
+    {
+      "segment_id": "S015",
+      "dialect": "桂南平话/广西横州",
+      "gold_count": 2,
+      "true_positive": 2,
+      "false_positive": 0,
+      "semantic_f1": 1.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 1,
+            "candidate_quote": "来算算看",
+            "reason": "请对方算算看。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 1,
+            "candidate_quote": "这点钱够不够花",
+            "reason": "询问这点钱是否够花。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "来算算看，这点钱够不够花？"
+    },
+    {
+      "segment_id": "S016",
+      "dialect": "闽东语/福州长乐",
+      "gold_count": 2,
+      "true_positive": 0.5,
+      "false_positive": 1,
+      "semantic_f1": 0.2857142857142857,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0.5,
+            "candidate_quote": "新娘给了你一本[无法确认]的书吗",
+            "reason": "询问是否给听者一本书，但给书者由老师变成了新娘。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "书的厚度标为无法确认。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "新娘给了你一本[无法确认]的书吗",
+            "reason": "问话中的给书者变成新娘，来源问的是老师。"
+          }
+        ]
+      },
+      "candidate": "新娘给了你一本[无法确认]的书吗？"
+    },
+    {
+      "segment_id": "S017",
+      "dialect": "莆仙话/福建莆田城区",
+      "gold_count": 2,
+      "true_positive": 0,
+      "false_positive": 0,
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "未提到卖药者骗钱。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "未提到一千元。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "那个比[无法确认]便宜[无法确认]。"
+    },
+    {
+      "segment_id": "S018",
+      "dialect": "江淮官话/扬州广陵",
+      "gold_count": 2,
+      "true_positive": 0,
+      "false_positive": 1,
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "问的是锻炼用什么器材，没有问运家具用什么车。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "未说家具从南京运到这里。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "我们用什么器材锻炼",
+            "reason": "询问锻炼器材，来源没有涉及锻炼。"
+          }
+        ]
+      },
+      "candidate": "我们用什么器材锻炼？\n王[无法确认]用家具啊。"
+    },
+    {
+      "segment_id": "S019",
+      "dialect": "晋语/山西文水",
+      "gold_count": 2,
+      "true_positive": 2,
+      "false_positive": 0,
+      "semantic_f1": 1.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 1,
+            "candidate_quote": "咱不能怨别人",
+            "reason": "说不能怪别人。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 1,
+            "candidate_quote": "只能怨自己",
+            "reason": "说只能怪自己。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "咱不能怨别人，只能怨自己。"
+    },
+    {
+      "segment_id": "S020",
+      "dialect": "徽语/安徽歙县",
+      "gold_count": 3,
+      "true_positive": 1.0,
+      "false_positive": 0,
+      "semantic_f1": 0.5,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "末班车前的内容无法确认，未说明有人搭上车。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0.5,
+            "candidate_quote": "还没搭上车",
+            "reason": "提到没搭上车，但未明确说话者晚了一步或已经错过。"
+          },
+          {
+            "atom_id": "A03",
+            "credit": 0.5,
+            "candidate_quote": "只好慢慢走到[无法确认]去",
+            "reason": "说只好慢慢走，但目的地无法确认。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "[无法确认]末班车。\n还没搭上车，[无法确认]，\n只好慢慢走到[无法确认]去。"
+    },
+    {
+      "segment_id": "S021",
+      "dialect": "桂南平话/广西横州",
+      "gold_count": 2,
+      "true_positive": 2,
+      "false_positive": 0,
+      "semantic_f1": 1.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 1,
+            "candidate_quote": "明天王经理来公司吗",
+            "reason": "询问王经理明天是否来公司。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 1,
+            "candidate_quote": "我看他不会来",
+            "reason": "判断他不会来。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "明天王经理来公司吗？\n我看他不会来。"
+    },
+    {
+      "segment_id": "S022",
+      "dialect": "闽东语/福州长乐",
+      "gold_count": 3,
+      "true_positive": 0,
+      "false_positive": 2,
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有询问诗的作者。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有提到奖励猜对的人。"
+          },
+          {
+            "atom_id": "A03",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "没有提到十元奖励。"
+          }
+        ],
+        "false_assertions": [
+          {
+            "quote": "这是电脑的显示器",
+            "reason": "来源未提到电脑显示器。"
+          },
+          {
+            "quote": "我就装了十多件",
+            "reason": "来源未说说话者安装或装了十多件东西。"
+          }
+        ]
+      },
+      "candidate": "这是电脑的显示器。\n电脑的一种[无法确认]，\n我就装了十多件。"
+    },
+    {
+      "segment_id": "S023",
+      "dialect": "莆仙话/福建莆田城区",
+      "gold_count": 2,
+      "true_positive": 0,
+      "false_positive": 0,
+      "semantic_f1": 0.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "未说明这种干活方式会很累。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 0,
+            "candidate_quote": "",
+            "reason": "未提到年轻小伙子会累坏。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "[无法确认]，练得多。"
+    },
+    {
+      "segment_id": "S024",
+      "dialect": "江淮官话/扬州广陵",
+      "gold_count": 2,
+      "true_positive": 2,
+      "false_positive": 0,
+      "semantic_f1": 1.0,
+      "judgment": {
+        "atoms": [
+          {
+            "atom_id": "A01",
+            "credit": 1,
+            "candidate_quote": "他跟病人差不多，\n靠在沙发上",
+            "reason": "说明他靠在沙发上。"
+          },
+          {
+            "atom_id": "A02",
+            "credit": 1,
+            "candidate_quote": "他跟病人差不多",
+            "reason": "将他的样子比作病人。"
+          }
+        ],
+        "false_assertions": []
+      },
+      "candidate": "他跟病人差不多，\n靠在沙发上。"
+    }
+  ],
+  "judge": "gpt-6.1-terra",
+  "judge_effort": "high",
+  "judge_rounds": 1,
+  "truth_sha256": "bb88dd5399acc3a8c9caabdb0887c572fcb7056f1afb4c550bbcc89fbb475583",
+  "rubric_sha256": "5b57f86f77fe9753023cd0300ecc66f214ae66bdcc0d3c5bfd79ba8d6c2f5760",
+  "grader_sha256": "a6f77994a2274fa52997dbff8caa8ae5d5d1eebdcf93185387919fe5d8400320",
+  "scored_at": "2026-11-27T12:37:17.910765+00:00"
+}

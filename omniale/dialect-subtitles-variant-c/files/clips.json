@@ -1,0 +1,1193 @@
+[
+  {
+    "id": "S001",
+    "dialect": "晋语/山西文水",
+    "start": 0.0,
+    "end": 5.12,
+    "url": "https://video.zhongguoyuyan.cn/video/20/12A88mb01yf0015.mp4",
+    "cues": [
+      {
+        "id": 1,
+        "start": 1.3,
+        "end": 3.88,
+        "text": "[无法确认]贴了一组地图。"
+      }
+    ],
+    "candidate": "[无法确认]贴了一组地图。",
+    "reference": "墙上贴着一张地图",
+    "uncertainty": "句首听起来像单位名称，无法确认。末尾听作“地图”。",
+    "semantic_f1": 0.4,
+    "atoms": [
+      {
+        "id": "A01",
+        "meaning": "墙上贴着一张地图"
+      }
+    ],
+    "judgment": {
+      "atoms": [
+        {
+          "atom_id": "A01",
+          "credit": 0.5,
+          "candidate_quote": "贴了一组地图",
+          "reason": "提到贴地图，但未说明在墙上，数量也与来源不符。"
+        }
+      ],
+      "false_assertions": [
+        {
+          "quote": "一组地图",
+          "reason": "来源说的是一张地图。"
+        }
+      ]
+    }
+  },
+  {
+    "id": "S002",
+    "dialect": "徽语/安徽歙县",
+    "start": 5.12,
+    "end": 9.657,
+    "url": "https://video.zhongguoyuyan.cn/video/20/21E62mb01yf0016.mp4",
+    "cues": [
+      {
+        "id": 2,
+        "start": 1.82,
+        "end": 3.69,
+        "text": "[无法确认]有一个[无法确认]。"
+      }
+    ],
+    "candidate": "[无法确认]有一个[无法确认]。",
+    "reference": "床上躺着一个老人",
+    "uncertainty": "前半句的地点及后半句的对象无法确认。",
+    "semantic_f1": 0.0,
+    "atoms": [
+      {
+        "id": "A01",
+        "meaning": "一个老人躺在或睡在床上"
+      }
+    ],
+    "judgment": {
+      "atoms": [
+        {
+          "atom_id": "A01",
+          "credit": 0,
+          "candidate_quote": "",
+          "reason": "未说明老人、床或躺卧行为。"
+        }
+      ],
+      "false_assertions": []
+    }
+  },
+  {
+    "id": "S003",
+    "dialect": "桂南平话/广西横州",
+    "start": 9.657,
+    "end": 15.355,
+    "url": "https://video.zhongguoyuyan.cn/video/20/01E11mb01yf0017.mp4",
+    "cues": [
+      {
+        "id": 3,
+        "start": 1.35,
+        "end": 4.55,
+        "text": "水底有很多鲶鱼在游。"
+      }
+    ],
+    "candidate": "水底有很多鲶鱼在游。",
+    "reference": "河里游着好多小鱼",
+    "uncertainty": "水域名称不清，鱼名听作“鲶鱼”。",
+    "semantic_f1": 0.6666666666666666,
+    "atoms": [
+      {
+        "id": "A01",
+        "meaning": "鱼在河里或江里游，接受“鱼”或“小鱼”"
+      },
+      {
+        "id": "A02",
+        "meaning": "鱼的数量很多"
+      }
+    ],
+    "judgment": {
+      "atoms": [
+        {
+          "atom_id": "A01",
+          "credit": 0.5,
+          "candidate_quote": "水底有很多鲶鱼在游",
+          "reason": "提到鱼在水中游，但未说明是在江里或河里。"
+        },
+        {
+          "atom_id": "A02",
+          "credit": 1,
+          "candidate_quote": "很多鲶鱼",
+          "reason": "表示鱼的数量很多。"
+        }
+      ],
+      "false_assertions": [
+        {
+          "quote": "鲶鱼",
+          "reason": "来源没有说明鱼的种类。"
+        }
+      ]
+    }
+  },
+  {
+    "id": "S004",
+    "dialect": "闽东语/福州长乐",
+    "start": 15.355,
+    "end": 21.716,
+    "url": "https://video.zhongguoyuyan.cn/video/20/02552mb01yf0007.mp4",
+    "cues": [
+      {
+        "id": 4,
+        "start": 2.2,
+        "end": 4.19,
+        "text": "让你去洗一下。"
+      }
+    ],
+    "candidate": "让你去洗一下。",
+    "reference": "你把碗洗一下",
+    "uncertainty": "开头的使令措辞听作“让”。",
+    "semantic_f1": 0.6666666666666666,
+    "atoms": [
+      {
+        "id": "A01",
+        "meaning": "说话者请听者洗碗"
+      }
+    ],
+    "judgment": {
+      "atoms": [
+        {
+          "atom_id": "A01",
+          "credit": 0.5,
+          "candidate_quote": "让你去洗一下",
+          "reason": "保留了让听者洗的意思，但未说明洗碗。"
+        }
+      ],
+      "false_assertions": []
+    }
+  },
+  {
+    "id": "S005",
+    "dialect": "莆仙话/福建莆田城区",
+    "start": 21.716,
+    "end": 27.938,
+    "url": "https://video.zhongguoyuyan.cn/video/20/02G41mb01yf0014.mp4",
+    "cues": [
+      {
+        "id": 5,
+        "start": 1.77,
+        "end": 4.45,
+        "text": "那么，[无法确认]车站旁边的车。"
+      }
+    ],
+    "candidate": "那么，[无法确认]车站旁边的车。",
+    "reference": "我们是在车站买的车票",
+    "uncertainty": "“那么”之后的谓语无法确认，后面提到车站边的车。",
+    "semantic_f1": 0.0,
+    "atoms": [
+      {
+        "id": "A01",
+        "meaning": "我们已经买了车票"
+      },
+      {
+        "id": "A02",
+        "meaning": "买票的地点是车站"
+      }
+    ],
+    "judgment": {
+      "atoms": [
+        {
+          "atom_id": "A01",
+          "credit": 0,
+          "candidate_quote": "",
+          "reason": "未说我们买了车票。"
+        },
+        {
+          "atom_id": "A02",
+          "credit": 0,
+          "candidate_quote": "",
+          "reason": "未说在车站买票。"
+        }
+      ],
+      "false_assertions": []
+    }
+  },
+  {
+    "id": "S006",
+    "dialect": "江淮官话/扬州广陵",
+    "start": 27.938,
+    "end": 31.582,
+    "url": "https://video.zhongguoyuyan.cn/video/20/10G82mb01yf0019.mp4",
+    "cues": [
+      {
+        "id": 6,
+        "start": 0.57,
+        "end": 3.22,
+        "text": "他家一下子死了三头猪。"
+      }
+    ],
+    "candidate": "他家一下子死了三头猪。",
+    "reference": "他家一下子死了三头猪",
+    "uncertainty": "开头的说法听作“他家一下子”，末尾听作“三头猪”。",
+    "semantic_f1": 1.0,
+    "atoms": [
+      {
+        "id": "A01",
+        "meaning": "他家死了猪"
+      },
+      {
+        "id": "A02",
+        "meaning": "死了三头"
+      },
+      {
+        "id": "A03",
+        "meaning": "事情一下子发生"
+      }
+    ],
+    "judgment": {
+      "atoms": [
+        {
+          "atom_id": "A01",
+          "credit": 1,
+          "candidate_quote": "他家一下子死了三头猪",
+          "reason": "明确说他家死了猪。"
+        },
+        {
+          "atom_id": "A02",
+          "credit": 1,
+          "candidate_quote": "死了三头猪",
+          "reason": "明确数量为三头。"
+        },
+        {
+          "atom_id": "A03",
+          "credit": 1,
+          "candidate_quote": "一下子死了",
+          "reason": "说明事情一下子发生。"
+        }
+      ],
+      "false_assertions": []
+    }
+  },
+  {
+    "id": "S007",
+    "dialect": "晋语/山西文水",
+    "start": 31.582,
+    "end": 37.302,
+    "url": "https://video.zhongguoyuyan.cn/video/20/12A88mb01yf0021.mp4",
+    "cues": [
+      {
+        "id": 7,
+        "start": 1.56,
+        "end": 4.48,
+        "text": "学生们已经坐了两天汽车了。"
+      }
+    ],
+    "candidate": "学生们已经坐了两天汽车了。",
+    "reference": "学生们坐汽车坐了两整天了",
+    "uncertainty": "句首听作“学生们”。",
+    "semantic_f1": 1.0,
+    "atoms": [
+      {
+        "id": "A01",
+        "meaning": "学生们坐汽车"
+      },
+      {
+        "id": "A02",
+        "meaning": "已经坐了两天；两整天也可以"
+      }
+    ],
+    "judgment": {
+      "atoms": [
+        {
+          "atom_id": "A01",
+          "credit": 1,
+          "candidate_quote": "学生们已经坐了两天汽车了",
+          "reason": "说明学生们坐汽车。"
+        },
+        {
+          "atom_id": "A02",
+          "credit": 1,
+          "candidate_quote": "已经坐了两天汽车了",
+          "reason": "说明已经坐了两天。"
+        }
+      ],
+      "false_assertions": []
+    }
+  },
+  {
+    "id": "S008",
+    "dialect": "徽语/安徽歙县",
+    "start": 37.302,
+    "end": 42.262,
+    "url": "https://video.zhongguoyuyan.cn/video/20/21E62mb01yf0028.mp4",
+    "cues": [
+      {
+        "id": 8,
+        "start": 1.68,
+        "end": 4.14,
+        "text": "[无法确认]，哪个[无法确认]？"
+      }
+    ],
+    "candidate": "[无法确认]，哪个[无法确认]？",
+    "reference": "谁刚才议论我老师来着",
+    "uncertainty": "后半句听出疑问词，开头和问题所指无法确认。",
+    "semantic_f1": 0.0,
+    "atoms": [
+      {
+        "id": "A01",
+        "meaning": "问谁刚才在议论说话者的老师"
+      }
+    ],
+    "judgment": {
+      "atoms": [
+        {
+          "atom_id": "A01",
+          "credit": 0,
+          "candidate_quote": "",
+          "reason": "只保留疑问词，未说议论老师的事。"
+        }
+      ],
+      "false_assertions": []
+    }
+  },
+  {
+    "id": "S009",
+    "dialect": "桂南平话/广西横州",
+    "start": 42.262,
+    "end": 47.222,
+    "url": "https://video.zhongguoyuyan.cn/video/20/01E11mb01yf0020.mp4",
+    "cues": [
+      {
+        "id": 9,
+        "start": 1.25,
+        "end": 3.75,
+        "text": "那辆车是开往广州的。"
+      }
+    ],
+    "candidate": "那辆车是开往广州的。",
+    "reference": "这辆汽车要开到广州去",
+    "uncertainty": "介词听作“去”。",
+    "semantic_f1": 0.6666666666666666,
+    "atoms": [
+      {
+        "id": "A01",
+        "meaning": "这辆汽车将驶往广州"
+      }
+    ],
+    "judgment": {
+      "atoms": [
+        {
+          "atom_id": "A01",
+          "credit": 0.5,
+          "candidate_quote": "那辆车是开往广州的",
+          "reason": "保留车辆开往广州，但指示词由这辆变为那辆。"
+        }
+      ],
+      "false_assertions": []
+    }
+  },
+  {
+    "id": "S010",
+    "dialect": "闽东语/福州长乐",
+    "start": 47.222,
+    "end": 53.49,
+    "url": "https://video.zhongguoyuyan.cn/video/20/02552mb01yf0018.mp4",
+    "cues": [
+      {
+        "id": 10,
+        "start": 1.68,
+        "end": 5.03,
+        "text": "前面来了一个胖乎乎的小孩。"
+      }
+    ],
+    "candidate": "前面来了一个胖乎乎的小孩。",
+    "reference": "前面走来了一个胖胖的小男孩",
+    "uncertainty": "方位词听作“前面”。",
+    "semantic_f1": 0.8571428571428571,
+    "atoms": [
+      {
+        "id": "A01",
+        "meaning": "一个男孩从前面走来"
+      },
+      {
+        "id": "A02",
+        "meaning": "男孩胖胖的"
+      }
+    ],
+    "judgment": {
+      "atoms": [
+        {
+          "atom_id": "A01",
+          "credit": 0.5,
+          "candidate_quote": "前面来了一个胖乎乎的小孩",
+          "reason": "说到前面来了一个小孩，但未说明是男孩或走来。"
+        },
+        {
+          "atom_id": "A02",
+          "credit": 1,
+          "candidate_quote": "胖乎乎的小孩",
+          "reason": "说明小孩胖乎乎的。"
+        }
+      ],
+      "false_assertions": []
+    }
+  },
+  {
+    "id": "S011",
+    "dialect": "莆仙话/福建莆田城区",
+    "start": 53.49,
+    "end": 62.173,
+    "url": "https://video.zhongguoyuyan.cn/video/20/02G41mb01yf0022.mp4",
+    "cues": [
+      {
+        "id": 11,
+        "start": 1.95,
+        "end": 4.5,
+        "text": "现在大概[无法确认]要吃。"
+      },
+      {
+        "id": 12,
+        "start": 5.04,
+        "end": 7.41,
+        "text": "[无法确认]，现在就要吃。"
+      }
+    ],
+    "candidate": "现在大概[无法确认]要吃。\n[无法确认]，现在就要吃。",
+    "reference": "你尝尝他做的点心再走吧你尝尝他做的点心再走吧",
+    "uncertainty": "两句各有一处相同的时间或数量短语，具体内容无法确认；末尾听作“要吃”。",
+    "semantic_f1": 0.0,
+    "atoms": [
+      {
+        "id": "A01",
+        "meaning": "说话者建议听者尝点心"
+      },
+      {
+        "id": "A02",
+        "meaning": "点心是他做的"
+      },
+      {
+        "id": "A03",
+        "meaning": "尝过以后再离开"
+      }
+    ],
+    "judgment": {
+      "atoms": [
+        {
+          "atom_id": "A01",
+          "credit": 0,
+          "candidate_quote": "",
+          "reason": "未说建议听者尝点心。"
+        },
+        {
+          "atom_id": "A02",
+          "credit": 0,
+          "candidate_quote": "",
+          "reason": "未说明点心是谁做的。"
+        },
+        {
+          "atom_id": "A03",
+          "credit": 0,
+          "candidate_quote": "",
+          "reason": "未提到尝过以后离开。"
+        }
+      ],
+      "false_assertions": [
+        {
+          "quote": "现在就要吃",
+          "reason": "来源未断言现在就要吃。"
+        }
+      ]
+    }
+  },
+  {
+    "id": "S012",
+    "dialect": "江淮官话/扬州广陵",
+    "start": 62.173,
+    "end": 66.537,
+    "url": "https://video.zhongguoyuyan.cn/video/20/10G82mb01yf0030.mp4",
+    "cues": [
+      {
+        "id": 13,
+        "start": 0.36,
+        "end": 4.06,
+        "text": "你才吃了一碗面，\n吃得下就再添一碗吧。"
+      }
+    ],
+    "candidate": "你才吃了一碗面，\n吃得下就再添一碗吧。",
+    "reference": "你才吃了一碗米饭再吃一碗吧",
+    "uncertainty": "第一碗所盛食物听作“面”。",
+    "semantic_f1": 0.5,
+    "atoms": [
+      {
+        "id": "A01",
+        "meaning": "听者只吃了一碗饭"
+      },
+      {
+        "id": "A02",
+        "meaning": "说话者提议听者再吃一碗"
+      }
+    ],
+    "judgment": {
+      "atoms": [
+        {
+          "atom_id": "A01",
+          "credit": 0.5,
+          "candidate_quote": "你才吃了一碗面",
+          "reason": "保留只吃了一碗，但把饭说成了面。"
+        },
+        {
+          "atom_id": "A02",
+          "credit": 0.5,
+          "candidate_quote": "吃得下就再添一碗吧",
+          "reason": "提议再添一碗，但增加了吃得下的条件，承接的食物也变成了面。"
+        }
+      ],
+      "false_assertions": [
+        {
+          "quote": "你才吃了一碗面",
+          "reason": "来源说吃的是饭，而非面。"
+        }
+      ]
+    }
+  },
+  {
+    "id": "S013",
+    "dialect": "晋语/山西文水",
+    "start": 66.537,
+    "end": 73.857,
+    "url": "https://video.zhongguoyuyan.cn/video/20/12A88mb01yf0031.mp4",
+    "cues": [
+      {
+        "id": 14,
+        "start": 1.42,
+        "end": 3.32,
+        "text": "你这会儿先别走。"
+      },
+      {
+        "id": 15,
+        "start": 3.39,
+        "end": 6.03,
+        "text": "再仔细看看咱俩的。"
+      }
+    ],
+    "candidate": "你这会儿先别走。\n再仔细看看咱俩的。",
+    "reference": "让孩子们先走你再把展览仔仔细细地看一遍",
+    "uncertainty": "后半句的所属对象听作“咱俩的”，具体指代不明。",
+    "semantic_f1": 0.2857142857142857,
+    "atoms": [
+      {
+        "id": "A01",
+        "meaning": "让孩子先离开"
+      },
+      {
+        "id": "A02",
+        "meaning": "听者之后仔细看展览；说“再仔细看看”或“仔细看一遍”均可"
+      }
+    ],
+    "judgment": {
+      "atoms": [
+        {
+          "atom_id": "A01",
+          "credit": 0,
+          "candidate_quote": "",
+          "reason": "没有让孩子先离开。"
+        },
+        {
+          "atom_id": "A02",
+          "credit": 0.5,
+          "candidate_quote": "再仔细看看咱俩的",
+          "reason": "保留了再仔细看的建议，但未说看展览。"
+        }
+      ],
+      "false_assertions": [
+        {
+          "quote": "咱俩的",
+          "reason": "来源未说明所看之物属于说话者和听者两人。"
+        }
+      ]
+    }
+  },
+  {
+    "id": "S014",
+    "dialect": "徽语/安徽歙县",
+    "start": 73.857,
+    "end": 79.462,
+    "url": "https://video.zhongguoyuyan.cn/video/20/21E62mb01yf0032.mp4",
+    "cues": [
+      {
+        "id": 16,
+        "start": 2.08,
+        "end": 4.43,
+        "text": "[无法确认]，看看就熟悉了。"
+      }
+    ],
+    "candidate": "[无法确认]，看看就熟悉了。",
+    "reference": "他在电视机前看着看着睡着了",
+    "uncertainty": "开头所指不清，后半句听作“看看就熟悉了”。",
+    "semantic_f1": 0.0,
+    "atoms": [
+      {
+        "id": "A01",
+        "meaning": "他在看电视；报告在电视机前或只说在看电视均可"
+      },
+      {
+        "id": "A02",
+        "meaning": "他在看电视期间睡着了"
+      }
+    ],
+    "judgment": {
+      "atoms": [
+        {
+          "atom_id": "A01",
+          "credit": 0,
+          "candidate_quote": "",
+          "reason": "未说明在看电视。"
+        },
+        {
+          "atom_id": "A02",
+          "credit": 0,
+          "candidate_quote": "",
+          "reason": "未说看电视期间睡着。"
+        }
+      ],
+      "false_assertions": [
+        {
+          "quote": "看看就熟悉了",
+          "reason": "来源说看着看着睡着了，没有说看过就熟悉了。"
+        }
+      ]
+    }
+  },
+  {
+    "id": "S015",
+    "dialect": "桂南平话/广西横州",
+    "start": 79.462,
+    "end": 85.067,
+    "url": "https://video.zhongguoyuyan.cn/video/20/01E11mb01yf0033.mp4",
+    "cues": [
+      {
+        "id": 17,
+        "start": 1.32,
+        "end": 4.38,
+        "text": "来算算看，这点钱够不够花？"
+      }
+    ],
+    "candidate": "来算算看，这点钱够不够花？",
+    "reference": "你算算看这点钱够不够花",
+    "uncertainty": "",
+    "semantic_f1": 1.0,
+    "atoms": [
+      {
+        "id": "A01",
+        "meaning": "说话者请听者算算看"
+      },
+      {
+        "id": "A02",
+        "meaning": "要判断手头这点钱够不够花"
+      }
+    ],
+    "judgment": {
+      "atoms": [
+        {
+          "atom_id": "A01",
+          "credit": 1,
+          "candidate_quote": "来算算看",
+          "reason": "请对方算算看。"
+        },
+        {
+          "atom_id": "A02",
+          "credit": 1,
+          "candidate_quote": "这点钱够不够花",
+          "reason": "询问这点钱是否够花。"
+        }
+      ],
+      "false_assertions": []
+    }
+  },
+  {
+    "id": "S016",
+    "dialect": "闽东语/福州长乐",
+    "start": 85.067,
+    "end": 90.22,
+    "url": "https://video.zhongguoyuyan.cn/video/20/02552mb01yf0034.mp4",
+    "cues": [
+      {
+        "id": 18,
+        "start": 0.98,
+        "end": 4.15,
+        "text": "新娘给了你一本[无法确认]的书吗？"
+      }
+    ],
+    "candidate": "新娘给了你一本[无法确认]的书吗？",
+    "reference": "老师给了你一本很厚的书吧",
+    "uncertainty": "句首听作“新娘”，书的描述无法确认。",
+    "semantic_f1": 0.2857142857142857,
+    "atoms": [
+      {
+        "id": "A01",
+        "meaning": "问或确认老师是否给了听者一本书"
+      },
+      {
+        "id": "A02",
+        "meaning": "这本书很厚"
+      }
+    ],
+    "judgment": {
+      "atoms": [
+        {
+          "atom_id": "A01",
+          "credit": 0.5,
+          "candidate_quote": "新娘给了你一本[无法确认]的书吗",
+          "reason": "询问是否给听者一本书，但给书者由老师变成了新娘。"
+        },
+        {
+          "atom_id": "A02",
+          "credit": 0,
+          "candidate_quote": "",
+          "reason": "书的厚度标为无法确认。"
+        }
+      ],
+      "false_assertions": [
+        {
+          "quote": "新娘给了你一本[无法确认]的书吗",
+          "reason": "问话中的给书者变成新娘，来源问的是老师。"
+        }
+      ]
+    }
+  },
+  {
+    "id": "S017",
+    "dialect": "莆仙话/福建莆田城区",
+    "start": 90.22,
+    "end": 95.652,
+    "url": "https://video.zhongguoyuyan.cn/video/20/02G41mb01yf0035.mp4",
+    "cues": [
+      {
+        "id": 19,
+        "start": 1.51,
+        "end": 4.23,
+        "text": "那个比[无法确认]便宜[无法确认]。"
+      }
+    ],
+    "candidate": "那个比[无法确认]便宜[无法确认]。",
+    "reference": "那个卖药的骗了他一千块钱呢",
+    "uncertainty": "能辨出在比较价格，另一个对象及价差无法确认。",
+    "semantic_f1": 0.0,
+    "atoms": [
+      {
+        "id": "A01",
+        "meaning": "卖药的人骗了他的钱"
+      },
+      {
+        "id": "A02",
+        "meaning": "金额是一千元"
+      }
+    ],
+    "judgment": {
+      "atoms": [
+        {
+          "atom_id": "A01",
+          "credit": 0,
+          "candidate_quote": "",
+          "reason": "未提到卖药者骗钱。"
+        },
+        {
+          "atom_id": "A02",
+          "credit": 0,
+          "candidate_quote": "",
+          "reason": "未提到一千元。"
+        }
+      ],
+      "false_assertions": []
+    }
+  },
+  {
+    "id": "S018",
+    "dialect": "江淮官话/扬州广陵",
+    "start": 95.652,
+    "end": 101.014,
+    "url": "https://video.zhongguoyuyan.cn/video/20/10G82mb01yf0040.mp4",
+    "cues": [
+      {
+        "id": 20,
+        "start": 0.8,
+        "end": 3.12,
+        "text": "我们用什么器材锻炼？"
+      },
+      {
+        "id": 21,
+        "start": 3.21,
+        "end": 5.13,
+        "text": "王[无法确认]用家具啊。"
+      }
+    ],
+    "candidate": "我们用什么器材锻炼？\n王[无法确认]用家具啊。",
+    "reference": "我们用什么车从南京往这里运家具呢",
+    "uncertainty": "问句末尾听作“锻炼”；答句中姓王的人名无法确认。",
+    "semantic_f1": 0.0,
+    "atoms": [
+      {
+        "id": "A01",
+        "meaning": "询问运家具用什么车；接受说话者用“我”或“我们”"
+      },
+      {
+        "id": "A02",
+        "meaning": "家具从南京运到这里"
+      }
+    ],
+    "judgment": {
+      "atoms": [
+        {
+          "atom_id": "A01",
+          "credit": 0,
+          "candidate_quote": "",
+          "reason": "问的是锻炼用什么器材，没有问运家具用什么车。"
+        },
+        {
+          "atom_id": "A02",
+          "credit": 0,
+          "candidate_quote": "",
+          "reason": "未说家具从南京运到这里。"
+        }
+      ],
+      "false_assertions": [
+        {
+          "quote": "我们用什么器材锻炼",
+          "reason": "询问锻炼器材，来源没有涉及锻炼。"
+        }
+      ]
+    }
+  },
+  {
+    "id": "S019",
+    "dialect": "晋语/山西文水",
+    "start": 101.014,
+    "end": 106.574,
+    "url": "https://video.zhongguoyuyan.cn/video/20/12A88mb01yf0038.mp4",
+    "cues": [
+      {
+        "id": 22,
+        "start": 1.58,
+        "end": 4.41,
+        "text": "咱不能怨别人，只能怨自己。"
+      }
+    ],
+    "candidate": "咱不能怨别人，只能怨自己。",
+    "reference": "我不能怪人家只能怪自己",
+    "uncertainty": "重复的动词听作“怨”。",
+    "semantic_f1": 1.0,
+    "atoms": [
+      {
+        "id": "A01",
+        "meaning": "说话者不能怪别人"
+      },
+      {
+        "id": "A02",
+        "meaning": "说话者只能怪自己"
+      }
+    ],
+    "judgment": {
+      "atoms": [
+        {
+          "atom_id": "A01",
+          "credit": 1,
+          "candidate_quote": "咱不能怨别人",
+          "reason": "说不能怪别人。"
+        },
+        {
+          "atom_id": "A02",
+          "credit": 1,
+          "candidate_quote": "只能怨自己",
+          "reason": "说只能怪自己。"
+        }
+      ],
+      "false_assertions": []
+    }
+  },
+  {
+    "id": "S020",
+    "dialect": "徽语/安徽歙县",
+    "start": 106.574,
+    "end": 114.361,
+    "url": "https://video.zhongguoyuyan.cn/video/20/21E62mb01yf0043.mp4",
+    "cues": [
+      {
+        "id": 23,
+        "start": 0.86,
+        "end": 2.41,
+        "text": "[无法确认]末班车。"
+      },
+      {
+        "id": 24,
+        "start": 2.46,
+        "end": 4.17,
+        "text": "还没搭上车，[无法确认]，"
+      },
+      {
+        "id": 25,
+        "start": 4.22,
+        "end": 6.53,
+        "text": "只好慢慢走到[无法确认]去。"
+      }
+    ],
+    "candidate": "[无法确认]末班车。\n还没搭上车，[无法确认]，\n只好慢慢走到[无法确认]去。",
+    "reference": "他跳上末班车走了我迟到一步只能自己慢慢走回学校了",
+    "uncertainty": "第一分句的动词、第二分句后半和步行目的地无法确认。",
+    "semantic_f1": 0.5,
+    "atoms": [
+      {
+        "id": "A01",
+        "meaning": "有一人搭了末班车，按原文省略该人的身份或按译文写“他”均可"
+      },
+      {
+        "id": "A02",
+        "meaning": "说话者晚了一步，没有赶上车"
+      },
+      {
+        "id": "A03",
+        "meaning": "说话者只好慢慢走到或走回学校"
+      }
+    ],
+    "judgment": {
+      "atoms": [
+        {
+          "atom_id": "A01",
+          "credit": 0,
+          "candidate_quote": "",
+          "reason": "末班车前的内容无法确认，未说明有人搭上车。"
+        },
+        {
+          "atom_id": "A02",
+          "credit": 0.5,
+          "candidate_quote": "还没搭上车",
+          "reason": "提到没搭上车，但未明确说话者晚了一步或已经错过。"
+        },
+        {
+          "atom_id": "A03",
+          "credit": 0.5,
+          "candidate_quote": "只好慢慢走到[无法确认]去",
+          "reason": "说只好慢慢走，但目的地无法确认。"
+        }
+      ],
+      "false_assertions": []
+    }
+  },
+  {
+    "id": "S021",
+    "dialect": "桂南平话/广西横州",
+    "start": 114.361,
+    "end": 120.761,
+    "url": "https://video.zhongguoyuyan.cn/video/20/01E11mb01yf0039.mp4",
+    "cues": [
+      {
+        "id": 26,
+        "start": 1.33,
+        "end": 3.87,
+        "text": "明天王经理来公司吗？"
+      },
+      {
+        "id": 27,
+        "start": 3.93,
+        "end": 5.79,
+        "text": "我看他不会来。"
+      }
+    ],
+    "candidate": "明天王经理来公司吗？\n我看他不会来。",
+    "reference": "明天王经理会来公司吗我看他不会来",
+    "uncertainty": "",
+    "semantic_f1": 1.0,
+    "atoms": [
+      {
+        "id": "A01",
+        "meaning": "问王经理明天会不会来公司"
+      },
+      {
+        "id": "A02",
+        "meaning": "答话者判断王经理不会来"
+      }
+    ],
+    "judgment": {
+      "atoms": [
+        {
+          "atom_id": "A01",
+          "credit": 1,
+          "candidate_quote": "明天王经理来公司吗",
+          "reason": "询问王经理明天是否来公司。"
+        },
+        {
+          "atom_id": "A02",
+          "credit": 1,
+          "candidate_quote": "我看他不会来",
+          "reason": "判断他不会来。"
+        }
+      ],
+      "false_assertions": []
+    }
+  },
+  {
+    "id": "S022",
+    "dialect": "闽东语/福州长乐",
+    "start": 120.761,
+    "end": 129.072,
+    "url": "https://video.zhongguoyuyan.cn/video/20/02552mb01yf0044.mp4",
+    "cues": [
+      {
+        "id": 28,
+        "start": 1.21,
+        "end": 3.4,
+        "text": "这是电脑的显示器。"
+      },
+      {
+        "id": 29,
+        "start": 3.49,
+        "end": 6.98,
+        "text": "电脑的一种[无法确认]，\n我就装了十多件。"
+      }
+    ],
+    "candidate": "这是电脑的显示器。\n电脑的一种[无法确认]，\n我就装了十多件。",
+    "reference": "这是谁写的诗谁猜出来我就奖励谁十块钱",
+    "uncertainty": "第一句的部件听作“显示器”，第二句提到的零部件无法确认，末尾的数量听作“十多件”。",
+    "semantic_f1": 0.0,
+    "atoms": [
+      {
+        "id": "A01",
+        "meaning": "问这首诗是谁写的"
+      },
+      {
+        "id": "A02",
+        "meaning": "说话者要奖励猜对的人"
+      },
+      {
+        "id": "A03",
+        "meaning": "奖励十元"
+      }
+    ],
+    "judgment": {
+      "atoms": [
+        {
+          "atom_id": "A01",
+          "credit": 0,
+          "candidate_quote": "",
+          "reason": "没有询问诗的作者。"
+        },
+        {
+          "atom_id": "A02",
+          "credit": 0,
+          "candidate_quote": "",
+          "reason": "没有提到奖励猜对的人。"
+        },
+        {
+          "atom_id": "A03",
+          "credit": 0,
+          "candidate_quote": "",
+          "reason": "没有提到十元奖励。"
+        }
+      ],
+      "false_assertions": [
+        {
+          "quote": "这是电脑的显示器",
+          "reason": "来源未提到电脑显示器。"
+        },
+        {
+          "quote": "我就装了十多件",
+          "reason": "来源未说说话者安装或装了十多件东西。"
+        }
+      ]
+    }
+  },
+  {
+    "id": "S023",
+    "dialect": "莆仙话/福建莆田城区",
+    "start": 129.072,
+    "end": 135.479,
+    "url": "https://video.zhongguoyuyan.cn/video/20/02G41mb01yf0042.mp4",
+    "cues": [
+      {
+        "id": 30,
+        "start": 1.56,
+        "end": 5.01,
+        "text": "[无法确认]，练得多。"
+      }
+    ],
+    "candidate": "[无法确认]，练得多。",
+    "reference": "这么干活连小伙子都会累坏的",
+    "uncertainty": "开头和重复出现的前半个短语无法确认，末尾听作“练得多”。",
+    "semantic_f1": 0.0,
+    "atoms": [
+      {
+        "id": "A01",
+        "meaning": "按这种方式干活会很累"
+      },
+      {
+        "id": "A02",
+        "meaning": "连年轻小伙子也会累坏；“累死”作程度夸张可接受"
+      }
+    ],
+    "judgment": {
+      "atoms": [
+        {
+          "atom_id": "A01",
+          "credit": 0,
+          "candidate_quote": "",
+          "reason": "未说明这种干活方式会很累。"
+        },
+        {
+          "atom_id": "A02",
+          "credit": 0,
+          "candidate_quote": "",
+          "reason": "未提到年轻小伙子会累坏。"
+        }
+      ],
+      "false_assertions": []
+    }
+  },
+  {
+    "id": "S024",
+    "dialect": "江淮官话/扬州广陵",
+    "start": 135.479,
+    "end": 139.797,
+    "url": "https://video.zhongguoyuyan.cn/video/20/10G82mb01yf0041.mp4",
+    "cues": [
+      {
+        "id": 31,
+        "start": 0.48,
+        "end": 2.4,
+        "text": "他跟病人差不多，"
+      },
+      {
+        "id": 32,
+        "start": 2.48,
+        "end": 4.1,
+        "text": "靠在沙发上。"
+      }
+    ],
+    "candidate": "他跟病人差不多，\n靠在沙发上。",
+    "reference": "他像个病人似的靠在沙发上",
+    "uncertainty": "",
+    "semantic_f1": 1.0,
+    "atoms": [
+      {
+        "id": "A01",
+        "meaning": "他靠在沙发上"
+      },
+      {
+        "id": "A02",
+        "meaning": "他的样子像个病人；这是比喻"
+      }
+    ],
+    "judgment": {
+      "atoms": [
+        {
+          "atom_id": "A01",
+          "credit": 1,
+          "candidate_quote": "他跟病人差不多，\n靠在沙发上",
+          "reason": "说明他靠在沙发上。"
+        },
+        {
+          "atom_id": "A02",
+          "credit": 1,
+          "candidate_quote": "他跟病人差不多",
+          "reason": "将他的样子比作病人。"
+        }
+      ],
+      "false_assertions": []
+    }
+  }
+]
