@@ -27,7 +27,10 @@
     "film-dubbing-variant",
     "meeting-subtitles-variant",
     "mid-duel",
-    "expert-music"
+    "expert-music",
+    "spring-foley",
+    "sophies-universe",
+    "sprite-dialogue-ii"
   ],
   "cases": [
     {
@@ -703,6 +706,95 @@
         "scenario": "专家音乐分析与音谱联合研习",
         "show_in_summary": true,
         "variant": true
+      }
+    },
+    {
+      "id": "spring-foley",
+      "title": "自然场景跨软件拟音与返修",
+      "cover": "spring-foley.jpg",
+      "cover_source": "https://huayuankou333.github.io/omniale/spring-foley/media/poster.jpg",
+      "url": "https://huayuankou333.github.io/omniale/spring-foley/",
+      "desc": "给定150秒无声动画，自行检索真实录音，在REAPER制作拟音与五分轨，使用Shotcut导出首版和固定返修版。",
+      "scores": {},
+      "score": "",
+      "max_model_score": null,
+      "score_source": "https://huayuankou333.github.io/omniale/spring-foley/records/score.json",
+      "score_version": "D3-spring-foley-v1",
+      "score_note": "同步评分器校验未通过，已评内容40.025、混音15.30，合计55.325；总分待定。",
+      "score_placeholder": "gpt-6.2-sol 总分待定",
+      "score_status": "partial_sync_judge_controls_failed",
+      "partial_score": 55.324999999999996,
+      "total_range": [
+        55.324999999999996,
+        85.32499999999999
+      ],
+      "classification": {
+        "week": "6",
+        "domain": 3,
+        "scenario": "电影拟音与跨软件返修",
+        "show_in_summary": true,
+        "variant": true,
+        "software": [
+          "REAPER",
+          "Shotcut"
+        ]
+      }
+    },
+    {
+      "id": "sophies-universe",
+      "title": "长视频钩织图文教程与续作指导",
+      "cover": "sophies-universe.jpg",
+      "cover_source": "https://huayuankou333.github.io/omniale/sophies-universe/media/hero.webp",
+      "url": "https://huayuankou333.github.io/omniale/sophies-universe/",
+      "desc": "根据18集、约17小时44分钟的钩织教程，制作覆盖第1至113圈的中文图文PDF，并定位四张局部照片的下一针与可逆恢复方式。",
+      "scores": {
+        "gpt-6.2-sol": 59,
+        "gpt-6-luna": 11
+      },
+      "score": "gpt-6.2-sol 59 · gpt-6-luna 11",
+      "max_model_score": 59,
+      "score_source": [
+        "https://huayuankou333.github.io/omniale/sophies-universe/records/sol-score.json",
+        "https://huayuankou333.github.io/omniale/sophies-universe/records/luna-score.json"
+      ],
+      "score_version": "sophies-universe-v1",
+      "score_note": "来源页两份试评分，专家实钩终评待定；Sol原始72，触发59分封顶。",
+      "score_status": "provisional_expert_final_pending",
+      "classification": {
+        "week": "6",
+        "domain": 6,
+        "scenario": "长视频手工教材与操作指导",
+        "show_in_summary": true,
+        "variant": true
+      }
+    },
+    {
+      "id": "sprite-dialogue-ii",
+      "title": "移动镜头中的三维对白重建",
+      "cover": "sprite-dialogue-ii.jpg",
+      "cover_source": "https://starivers152.github.io/OmniALE/sprite-dialogue-ii/assets/reference/poster.jpg",
+      "url": "https://starivers152.github.io/OmniALE/sprite-dialogue-ii/",
+      "desc": "从13.5秒静音参考、120秒录音与角色资产重建移动镜头中的多人表演，使用Blender与Shotcut交付可编辑工程、原声及字幕。",
+      "scores": {
+        "gpt-6.2-astra": 47.46913580246914,
+        "gpt-6.2-sol": 34.73045267489712
+      },
+      "score": "gpt-6.2-astra 47.46913580246914 · gpt-6.2-sol 34.73045267489712",
+      "max_model_score": 47.46913580246914,
+      "score_source": "https://starivers152.github.io/OmniALE/sprite-dialogue-ii/assets/results.json?v=2475e742fee3",
+      "score_version": "case 0.1.0 / scoring 0.2.0",
+      "score_note": "来源页当前0.2.0统一评分，Astra与Sol各一次有效运行，xhigh。",
+      "actual_effort": "xhigh",
+      "classification": {
+        "week": "6",
+        "domain": 2,
+        "scenario": "三维表演重建与音画字幕交付",
+        "show_in_summary": true,
+        "variant": true,
+        "software": [
+          "Blender",
+          "Shotcut"
+        ]
       }
     }
   ]
