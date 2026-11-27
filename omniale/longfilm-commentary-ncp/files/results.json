@@ -1,0 +1,200 @@
+{
+  "material_version": "v14_trapped_ncp_v2",
+  "film": "Trapped (1949)",
+  "score_policy": "v14v2-trapped-ncp-audit1-fair-multishot",
+  "models": [
+    {
+      "case": "longfilm_commentary",
+      "material_version": "v14_trapped_ncp_v2",
+      "film_title": "Trapped (1949)",
+      "tag": "sol62_xhigh_r01_v14v2_20261127",
+      "model": "gpt-6.2-sol",
+      "requested_effort": "xhigh",
+      "actual_request_efforts": [
+        "xhigh"
+      ],
+      "provider": "nju",
+      "harness": "Codex CLI",
+      "codex_version": "codex-cli 0.163.0",
+      "view_image_enabled": true,
+      "image_bearing_requests": 54,
+      "exec_command_calls": 111,
+      "tts_unique_syntheses": 36,
+      "request_count": 67,
+      "http_statuses": [
+        200
+      ],
+      "exit_code": 0,
+      "turn_completed": true,
+      "resume_count": 0,
+      "elapsed_seconds": 2212.156,
+      "wall_clock_span_seconds": 2212.36,
+      "delivery": {
+        "duration_s": 642.788,
+        "video_bytes": 89558672,
+        "video_sha256": "ce238612ab6a81896c8b957f9c45893a144d56f188c1c019ec5245989432fd65",
+        "source_map_segments": 99,
+        "srt_entries": 136,
+        "orig_audio_verified_count": 6,
+        "frame_honesty_pass": "14/14 (min NCC 0.9837)"
+      },
+      "judge_stack": {
+        "visual_and_av_judge": "qwen3.8-omni-flash",
+        "deterministic_localization": "AgentDirector Eq. 13-16 (IoR/IoU/h_tol)",
+        "deterministic_asr": "faster-whisper small.en",
+        "frame_honesty": "OpenCV top-75% 64x36 NCC"
+      },
+      "rubric_version": "commentary-v14v2-trapped-ncp-mult-CVQ-loc50-bin30-prod20",
+      "scoring_policy": "v14v2-trapped-ncp-audit1-fair-multishot",
+      "completeness_C": 1.0,
+      "verification_V_raw": 0.9645,
+      "verification_V_adopted": 0.9963,
+      "raw_automated_score": 47.7022,
+      "conservative_audit_score": 62.0418,
+      "adopted_score": 71.279,
+      "fair_upper_bound_score": 72.102,
+      "score_cap": 100,
+      "components_raw": {
+        "q_loc_50": 26.6944,
+        "q_con_30": 12.7636,
+        "q_prod_20": 10.0
+      },
+      "components_conservative": {
+        "q_loc_50": 28.928,
+        "q_con_30": 23.3442,
+        "q_prod_20": 10.0
+      },
+      "components_adopted": {
+        "q_loc_50": 36.5329,
+        "q_con_30": 23.3442,
+        "q_prod_20": 11.6666
+      },
+      "strict_3in1_passed_raw": "19/42 (0.4255)",
+      "strict_3in1_passed_adopted": "33/42 (0.7781)",
+      "vlm_false_negatives_restored": [
+        "S03",
+        "S08",
+        "S10",
+        "S13",
+        "S14",
+        "S18",
+        "S23",
+        "S25",
+        "S27",
+        "S31",
+        "S35",
+        "S36",
+        "S37",
+        "S40"
+      ],
+      "genuine_visual_misses": [
+        "S09",
+        "S11",
+        "S16",
+        "S17",
+        "S21",
+        "S22",
+        "S28",
+        "S32",
+        "S41"
+      ]
+    },
+    {
+      "case": "longfilm_commentary",
+      "material_version": "v14_trapped_ncp_v2",
+      "film_title": "Trapped (1949)",
+      "tag": "ds41_max_r01_v14v2_20261127",
+      "model": "deepseek-v4.1-flash-1017",
+      "requested_effort": "max",
+      "actual_request_efforts": [
+        "max"
+      ],
+      "provider": "dashscope",
+      "harness": "Codex CLI",
+      "codex_version": "codex-cli 0.163.0",
+      "view_image_enabled": true,
+      "image_bearing_requests": 279,
+      "exec_command_calls": 334,
+      "tts_unique_syntheses": 36,
+      "request_count": 321,
+      "http_statuses": [
+        200
+      ],
+      "exit_code": 0,
+      "turn_completed": true,
+      "resume_count": 0,
+      "elapsed_seconds": 5154.891,
+      "wall_clock_span_seconds": 5155.219,
+      "delivery": {
+        "duration_s": 594.234,
+        "video_bytes": 71910379,
+        "video_sha256": "fe3b4f9e69da3ce838e20f686776b89f3872aad9b8e2fda80e4dc2aafd1446b6",
+        "source_map_segments": 42,
+        "srt_entries": 203,
+        "orig_audio_verified_count": 6,
+        "orig_audio_mean_recall_score": 0.9615,
+        "frame_honesty_pass": "14/14 (min NCC 0.9842)"
+      },
+      "judge_stack": {
+        "visual_and_av_judge": "qwen3.8-omni-flash",
+        "deterministic_localization": "AgentDirector Eq. 13-16 (IoR/IoU/h_tol)",
+        "deterministic_asr": "faster-whisper small.en",
+        "frame_honesty": "OpenCV top-75% 64x36 NCC"
+      },
+      "rubric_version": "commentary-v14v2-trapped-ncp-mult-CVQ-loc50-bin30-prod20",
+      "scoring_policy": "v14v2-trapped-ncp-audit1-fair-multishot",
+      "completeness_C": 1.0,
+      "verification_V_raw": 0.9578,
+      "verification_V_adopted": 0.9841,
+      "raw_automated_score": 52.4503,
+      "conservative_audit_score": 60.5779,
+      "adopted_score": 62.7223,
+      "fair_upper_bound_score": 63.3944,
+      "score_cap": 100,
+      "components_raw": {
+        "q_loc_50": 28.0837,
+        "q_con_30": 15.0108,
+        "q_prod_20": 11.6667
+      },
+      "components_conservative": {
+        "q_loc_50": 30.0931,
+        "q_con_30": 19.7969,
+        "q_prod_20": 11.6667
+      },
+      "components_adopted": {
+        "q_loc_50": 32.2721,
+        "q_con_30": 19.7969,
+        "q_prod_20": 11.6667
+      },
+      "strict_3in1_passed_raw": "22/42 (0.5004)",
+      "strict_3in1_passed_adopted": "28/42 (0.6599)",
+      "vlm_false_negatives_restored": [
+        "S02",
+        "S09",
+        "S10",
+        "S23",
+        "S35",
+        "S40"
+      ],
+      "borderline_upper_sids": [
+        "S13"
+      ],
+      "genuine_visual_misses": [
+        "S01",
+        "S03",
+        "S08",
+        "S12",
+        "S13",
+        "S18",
+        "S21",
+        "S22",
+        "S26",
+        "S28",
+        "S29",
+        "S32",
+        "S36",
+        "S42"
+      ]
+    }
+  ]
+}

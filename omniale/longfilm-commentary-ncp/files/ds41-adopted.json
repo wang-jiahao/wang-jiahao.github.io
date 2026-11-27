@@ -1,0 +1,823 @@
+{
+  "material_version": "v14_trapped_ncp_v2",
+  "rubric_version": "commentary-v14v2-trapped-ncp-mult-CVQ-loc50-bin30-prod20",
+  "scoring_policy": "v14v2-trapped-ncp-audit1-fair-multishot",
+  "formula": "S = C * V * Q",
+  "judge_stack": {
+    "visual_and_av_judge": "qwen3.8-omni-flash",
+    "deterministic_localization": "AgentDirector Eq. 13-16 (IoR/IoU/h_tol)",
+    "deterministic_asr": "faster-whisper small.en",
+    "frame_honesty": "OpenCV top-75% 64x36 NCC"
+  },
+  "video_sha256": "fe3b4f9e69da3ce838e20f686776b89f3872aad9b8e2fda80e4dc2aafd1446b6",
+  "duration_s": 594.234,
+  "completeness_C": 1.0,
+  "verification_V_raw": 0.9578,
+  "verification_V_adopted": 0.9841,
+  "raw_quality_score": 54.7612,
+  "raw_automated_score": 52.4503,
+  "conservative_audit_score": 60.5779,
+  "adopted_quality_score": 63.7357,
+  "adopted_score": 62.7223,
+  "score_cap": 100,
+  "components_raw": {
+    "q_loc_50": 28.0837,
+    "q_con_30": 15.0108,
+    "q_prod_20": 11.6667
+  },
+  "components_conservative": {
+    "q_loc_50": 30.0931,
+    "q_con_30": 19.7969,
+    "q_prod_20": 11.6667
+  },
+  "components_adopted": {
+    "q_loc_50": 32.2721,
+    "q_con_30": 19.7969,
+    "q_prod_20": 11.6667
+  },
+  "verification_breakdown_adopted": {
+    "v_str": 0.9865,
+    "m_media": 0.9797,
+    "v_script": 1.0,
+    "v_oa": 0.9615,
+    "v_map": 1.0
+  },
+  "strict_3in1_stats_adopted": {
+    "pass_duration_s": 392.13,
+    "total_duration_s": 594.23,
+    "pass_rate": 0.6599,
+    "passed_segments": 28,
+    "total_segments": 42
+  },
+  "vlm_false_negatives_restored": [
+    "S02",
+    "S09",
+    "S10",
+    "S23",
+    "S35",
+    "S40"
+  ],
+  "genuine_visual_misses": [
+    "S01",
+    "S03",
+    "S08",
+    "S12",
+    "S13",
+    "S18",
+    "S21",
+    "S22",
+    "S26",
+    "S28",
+    "S29",
+    "S32",
+    "S36",
+    "S42"
+  ],
+  "segment_realization_adopted": [
+    {
+      "segment_id": "S01",
+      "mode": "narration",
+      "out_span": [
+        0.0,
+        12.57
+      ],
+      "duration_s": 12.57,
+      "visual_coverage": false,
+      "no_padding_or_wrong_shot": false,
+      "temporal_sync": false,
+      "binary_pass": 0,
+      "actual_screen_action": "0–2s 银行柜台前女子俯身操作、前景男子伸臂、背景戴帽男观望；2–7s 桌面特写，一只手将纸币放平后用橡胶章盖下“COUNTERFEIT”字样后移开；7–12.57s 戴圆框眼镜男子坐打字机前低头敲击，镜头向右平移扫过成排办公桌与百叶窗。",
+      "evidence_note": "visual_check_target 要求“柜员与同事对光核验可疑二十美元”后再“重重盖下伪钞印戳”。盲看记录中 2–7s 直接出现盖印动作，但全程没有任何“对光核验钞票”的微动作（7–12.57s 实为眼镜男敲打字机与办公室平移），关键核验动作缺失，故 visual_coverage=false。同时盖印在 2–7s 已完成，而旁白“当场重重盖下伪钞印戳”落在约 9–12s，动作先于解说、偏差远超 2s；且 7–12.57s 的打字机办公室平移对 S01 而言属下一段实验室/办公室场景的提前垫画，构成时序倒置与凑数，故 no_padding_or_wrong_shot=false、temporal_sync=false。",
+      "audited_pass": 0,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S02",
+      "mode": "narration",
+      "out_span": [
+        12.57,
+        28.17
+      ],
+      "duration_s": 15.6,
+      "visual_coverage": false,
+      "no_padding_or_wrong_shot": false,
+      "temporal_sync": false,
+      "binary_pass": 0,
+      "actual_screen_action": "12.57–16s 延续上一段办公室右移平移尾帧；16–19s 白衬衫男子俯身凑近一台深色机器，低头查看机上叠放的纸币样张；19–26s 墙面“CHIEF'S OFFICE / UNITED STATES / SECRET SERVICE”挂牌下，谢顶浅色西装男俯身对坐着的戴帽者说话，随后几名男子转身走向左侧房门陆续进入；26–28s 局长办公室内坐者翻文件、浅色西装男推门而入。",
+      "evidence_note": "target 要求“技术员在双目光学比对仪前检验假钞”＋“探员持钞经过主管办公室门牌走进室内与官员围桌讨论”。16–19s 俯身查机器、19–26s 门牌与走入虽部分对应，但无人“持钞”过门牌，且“与官员围桌讨论／认出老牌印版”的围桌镜头直到 42.5s 之后才出现，完全超出本段 28.17s 窗口，关键围桌辨认动作未拍到，故 visual_coverage=false。12.57–16s 仍是上一段银行/办公室平移，对旁白“火速送往华盛顿特勤局实验室”属场景未切换的垫画；26–28s 仅以进门镜头去配 23–28s“官员当即认出印版”的旁白，属错置凑数，故 no_padding_or_wrong_shot=false；“认出印版”无对应视觉动作可言同步，temporal_sync=false。",
+      "audited_pass": 1,
+      "restored_by_audit": true
+    },
+    {
+      "segment_id": "S03",
+      "mode": "narration",
+      "out_span": [
+        28.17,
+        42.57
+      ],
+      "duration_s": 14.4,
+      "visual_coverage": false,
+      "no_padding_or_wrong_shot": false,
+      "temporal_sync": false,
+      "binary_pass": 0,
+      "actual_screen_action": "28–39.5s 谢顶、浅色双排扣西装男子立于办公桌旁，先抬手贴近耳侧作持筒状，继而俯身翻动桌面文件、拿起纸币查看、直起身环顾后转身走开，末尾背对画面、门口现两人身影；39.5–42.5s 门口并立一名梳背头穿浅色外套的年轻男子与一名穿深色制服戴大檐帽的男子，静立面朝屋内。",
+      "evidence_note": "target 明确要求“亚特兰大联邦监狱石头门楣外景”＋“典狱长办公室内雷蒙德与典狱长商议并用桌面内线电话传唤囚犯”。盲看 28–42.5s 全为室内办公室镜头，没有任何监狱石门外景，也没有雷蒙德与典狱长二人同框商议的镜头（仅单一谢顶男子抬手贴耳、翻文件），指定外景与商议微动作均缺失，故 visual_coverage=false。旁白 29–32s“线索指向亚特兰大联邦监狱”、33–37s“雷蒙德专程赶赴典狱长办公室”在画面上既无监狱外景也无“赶赴/商议”过程支撑，39.5–42.5s 门口两人静立才勉强对应“提审”，人物关系与场景归属混乱、存在垫画错置，故 no_padding_or_wrong_shot=false、temporal_sync=false。",
+      "audited_pass": 0,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S04",
+      "mode": "narration",
+      "out_span": [
+        42.57,
+        55.53
+      ],
+      "duration_s": 12.97,
+      "visual_coverage": true,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 1,
+      "actual_screen_action": "42.5–45s 三人围桌，中间穿浅色外套的年轻男子正面朝向镜头，手持纸币置于桌前与对面两人交谈；45–51s 该年轻男子坐姿特写，低头端详纸币、将其翻转并用食指指点票面，同时开口说话；51–55.5s 谢顶浅色双排扣西装男子从座位站起，手捏同一张纸币面向年轻男子，表情严厉地说话并略挥纸币。",
+      "evidence_note": "target 核心动作链“拿起二十美元端详→放桌前→对对面特工推诿辩解”在窗口内齐备：42.5–45s 持钞置桌前交谈、45–51s 端详翻转指点并开口辩解、51–55.5s 对面谢顶男子站起持钞施压，道具（二十美元纸币）与对手戏人物对应无误，无张冠李戴或无关空镜凑数，故 visual_coverage=true、no_padding_or_wrong_shot=true。旁白“捏着钞票端详片刻”（约 48–51s）与“随即矢口否认”（约 51–53s）分别落在画面 45–51s 端详开口与 51s 起的对抗镜头，动作现身偏差≤2s，temporal_sync=true。需注明：年轻男子实穿浅色外套＋衬衫＋领带，与解说“浅色囚服”措辞略有出入，但端详、置桌、辩解等关键微动作与钞票道具均已落实，不构成人物错认或垫画，故不据此推翻覆盖判定。",
+      "audited_pass": 1,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S05",
+      "mode": "narration",
+      "out_span": [
+        55.53,
+        67.8
+      ],
+      "duration_s": 12.27,
+      "visual_coverage": true,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 1,
+      "actual_screen_action": "55.5–56.5s大巴驾驶舱内，戴软呢帽男子手持深色小物体（枪）逼近戴制服帽的副法警；56.5–61.5s该男子站在带玻璃窗格的 bus 门口回头张望后迅速冲出；61.5–63.5s夜间他从巴士一侧奔向停靠的轿车并靠近驾驶位；63.5–67.5s巴士车头（车牌1730）与旁边轿车同框，镜头横扫行驶中的巴士车身。",
+      "evidence_note": "盲看记录逐一对应核查目标：掏枪威胁副法警（55.5–56.5）、起身离开车门（56.5–61.5）、夜奔钻入接应轿车（61.5–63.5）均在本段区间内实际出现，63.5–67.5的巴士/轿车同框镜头属同一劫囚场景的延续，无张冠李戴或垫画；动作现身与旁白'掏枪逼迫—冲下车门—钻进轿车'顺序完全同步，偏差为0。",
+      "audited_pass": 1,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S06",
+      "mode": "narration",
+      "out_span": [
+        67.8,
+        79.8
+      ],
+      "duration_s": 12.0,
+      "visual_coverage": true,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 1,
+      "actual_screen_action": "67.5–81.5s夜行轿车前排两名戴软呢帽西装男子并排而坐，其中一人举起左轮手枪查看、摆弄并持枪比划说话，另一人侧头倾听、面带微笑点头；约80–81s持枪者抬手扶头脱帽。",
+      "evidence_note": "指定道具左轮手枪及其'举起查看、摆弄'的检验微动作在67.8–79.8区间内清晰可见，另一人平静倾听微笑对应'神色平静地戳破空枪'的戏核；场景为夜行轿车前排，与旁白所述四十号公路反转情节一致，无错景、无倒置、无空镜凑数；视觉动作全程覆盖旁白时段，同步成立。",
+      "audited_pass": 1,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S07",
+      "mode": "original_audio",
+      "out_span": [
+        79.8,
+        88.8
+      ],
+      "duration_s": 9.0,
+      "visual_coverage": true,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 1,
+      "actual_screen_action": "81.5–88.5s轿车内，右侧戴帽男子将带螺旋电话线的车载无线听筒举到嘴边讲话，左侧已脱帽、头发后梳的男子双手捂脸揉搓；英文原声'This is SS-972. Go ahead. Agent Foreman reporting. We're on Highway 40. I've got the boy.'于约80.5–88.5s完整播出。",
+      "evidence_note": "原声段落：英文对白在79.8–88.8区间内清晰完整，前后中文旁白（S06止于79.8、S08始于88.8）未顶撞遮盖；画面核查目标'福尔曼举听筒汇报、斯图尔特捂脸'与盲看记录完全吻合，听筒道具与螺旋电话线可见，捂脸动作自约80.5s起持续至88.5s，偏差≤2.0s，同步成立。",
+      "audited_pass": 1,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S08",
+      "mode": "narration",
+      "out_span": [
+        88.8,
+        102.1
+      ],
+      "duration_s": 13.3,
+      "visual_coverage": false,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": false,
+      "binary_pass": 0,
+      "actual_screen_action": "88.5–100.5s昏暗室内（壁灯光锥、台灯小桌），站立白衬衫领带男子低头摆弄手中一件小物体并抬手送至嘴边，随后坐椅上的深色衣服男子伸手从站立者手中取走该物体；100.5–102.1s切至一张略微倾斜的黑白年轻女子肖像照片特写。",
+      "evidence_note": "核查目标要求'桌面放着厚重电话簿'与'斯图尔特抓着话筒通话、应对身后福尔曼盘问'，但盲看记录中既无电话簿道具、也无明确话筒通话动作，仅见'小物体'被坐者从站者手中取走，交互方向与目标不符；100.5–102.1的女子照片只对应旁白末尾'梅格·狄克逊'人名。场景确为旅馆房间且照片与叙事相关，无无关垫画或前后倒置（no_padding判true），但指定关键道具/动作未在区间内出现，故visual_coverage与temporal_sync均判false。",
+      "audited_pass": 0,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S09",
+      "mode": "narration",
+      "out_span": [
+        102.1,
+        118.03
+      ],
+      "duration_s": 15.93,
+      "visual_coverage": false,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 0,
+      "actual_screen_action": "102.1–111.1斯图尔特在浴室洗手池前低头看手、卷袖；111.1–115.1他俯身池前，床上读报的福尔曼察觉后起身快步走向浴室门；115.1–118.1两人在浴室门口推搡扭打。",
+      "evidence_note": "盲看记录全程未出现'玻璃水杯摔碎在洗手池'的动作或杯子道具（102.1–111.1仅见低头看手/卷袖，111.1–115.1仅见俯身池前），且115.1–118.1记录为'后到的男子（福尔曼）伸手抓住白衬衫男子（斯图尔特）'，与脚本指定'斯图尔特暴起扼喉锁喉扑倒对方'的微动作方向不符，关键道具/微动作缺失，判false。场景与人物均为旅馆房间/浴室的斯图尔特与福尔曼，无无关垫画或错景，判true。旁白'闻声探头查看'对应111.1–115.1福尔曼起身走向门口、'门口偷袭'对应115.1–118.1扭打，偏差≤2秒，判true。",
+      "audited_pass": 1,
+      "restored_by_audit": true
+    },
+    {
+      "segment_id": "S10",
+      "mode": "narration",
+      "out_span": [
+        118.03,
+        132.53
+      ],
+      "duration_s": 14.5,
+      "visual_coverage": false,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 0,
+      "actual_screen_action": "118.1–129.1夜总会吧台：深色西装圆点领带的道尼（哈克特）持矮玻璃杯与金发盘发、戴choker的劳丽近距离交谈，劳丽从台面印有'CIGARETTES'的白色烟盒中取烟；129.1–133.1两人正反特写继续对话。",
+      "evidence_note": "盲看记录中烟盒为'台面上一只白色烟盒'而非'胸前挂着的香烟托盘'，且全程未见道尼'掏出大钞买烟'的动作或钞票道具，仅有持杯搭讪与取烟交谈，指定微动作/道具缺失，判false。人物（卧底道尼与卖烟女郎劳丽）与场景（夜总会吧台）正确，特写属同场对话延续，无张冠李戴或凑数垫画，判true。吧台戏自118.1起与旁白起点118.03无缝衔接，特写延续至133.1覆盖段落尾部，同步偏差≤2秒，判true。",
+      "audited_pass": 1,
+      "restored_by_audit": true
+    },
+    {
+      "segment_id": "S11",
+      "mode": "narration",
+      "out_span": [
+        132.53,
+        144.53
+      ],
+      "duration_s": 12.0,
+      "visual_coverage": true,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 1,
+      "actual_screen_action": "133.1–135.1夜色路灯下戴帽穿大衣的剪影人物独行；135.1–144.5昏暗木板墙门廊处，戴宽檐帽的斯图尔特抓住劳丽、手捂其口部将其头后仰强吻，劳丽先以手抵胸挣扎，随即手臂上抬两人持续拥吻相拥。",
+      "evidence_note": "成片135.1–136.1（片段00:33–00:34）画面清楚可见男子伸手捂住劳丽口部、将其头后仰，随后136.1–144.5劳丽由挣扎转为抬手投入怀中持续拥吻，'暗影捂嘴—惊认相拥'的关键人物与微动作在盲看画面中实际出现，判true。夜景剪影行走为门廊遭遇的定场，后续纠缠双方为斯图尔特与劳丽，无错景、无无关对话空镜垫画，判true。旁白'散场后独自走回门廊'对应133.1–135.1夜行剪影、'捂住嘴…惊喜相拥'对应135.1–144.5捂嘴与拥吻，动作现身偏差≤2秒，判true。",
+      "audited_pass": 1,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S12",
+      "mode": "original_audio",
+      "out_span": [
+        144.53,
+        159.93
+      ],
+      "duration_s": 15.4,
+      "visual_coverage": true,
+      "no_padding_or_wrong_shot": false,
+      "temporal_sync": true,
+      "binary_pass": 0,
+      "actual_screen_action": "144.5–146.5戴帽男子俯身贴近仰面躺着的女子近距离对视；146.5–151.5镜头移入浴室，戴帽男子先俯向地上女子再走向洗手池探向龙头；151.5–159.5无帽男子对镜以白毛巾擦脸、放下毛巾双手叉腰侧望。原声“The feds tapped me for a stool pigeon. They even sprung me, the dopes, then I sprung one of them.”约153.5–159.5清晰播出。",
+      "evidence_note": "洗漱间擦脸照镜的核心动作（151.5–159.5）与英文原声（153.5–159.5，无中文旁白顶撞）确实存在且同步，coverage与sync成立。但本段开头144.53–146.5出现的是戴帽男子俯身贴近仰躺女子的相拥/对视镜头，146.5–151.5仍是戴帽男子俯向地上女子后才移向水池——该“搂抱”画面正是脚本指派给S13的开场视觉（“斯图尔特搂着劳丽”），却提前出现在S12区间头部，构成跨段错位/前后倒置，故no_padding_or_wrong_shot判false。",
+      "audited_pass": 0,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S13",
+      "mode": "narration",
+      "out_span": [
+        159.93,
+        173.47
+      ],
+      "duration_s": 13.53,
+      "visual_coverage": false,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": false,
+      "binary_pass": 0,
+      "actual_screen_action": "159.5–165.5镜头自垂挂串珠流苏的点亮吊灯缓慢下摇，露出下方高箱与散落纸张的桌面；165.5–173.5昏暗室内两名戴帽男子抬头仰望天花板/吊灯方向，较高者举起一件小物件，随后二人低头看向放瓶杯的桌面。区间内无相拥镜头，盲看记录未见耳机与圆盘录音机。",
+      "evidence_note": "目标要求“客厅沙发相拥→移向褶皱流苏灯罩→穿切下楼两名戴耳机特工操作圆盘窃听录音机”。区间内仅有灯罩下摇（159.5–165.5）与两名戴帽男子仰望（165.5–173.5）；相拥镜头被错置于144.5–146.5（S12区间），盲看记录亦从未确认“戴耳机”或“圆盘窃听录音机”道具（仅笼统“小物件”），关键人物动作与指定道具缺失，visual_coverage判false。旁白首句“斯图尔特搂着劳丽盘算……”在区间起点无对应画面，偏差远超2秒，temporal_sync判false。区间内灯罩→两人的顺序与旁白后半一致、无无关凑数镜头，故no_padding判true。",
+      "audited_pass": 0,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S14",
+      "mode": "narration",
+      "out_span": [
+        173.47,
+        188.27
+      ],
+      "duration_s": 14.8,
+      "visual_coverage": true,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 1,
+      "actual_screen_action": "173.5–187.5破旧卧室（金属框架床、花纹壁纸、床头柜瓶子、地面散纸）内，穿浅色西装戴条纹礼帽男子揪住躺卧光头男子的衣领/领带将其拎起后摔放，光头男子跌落纸张地板瘫坐抱身哭求，戴帽男子站立其上；187.5–188.3切至白天街道橱窗“GRANT & MULLIN INVESTMENT CO.”，深色西装戴帽男子背对镜头走远。",
+      "evidence_note": "揪领拎起、摔向床脚地板、光头男子瘫坐抱身痛哭求饶的动作链在173.5–187.5完整呈现，与旁白“暴怒的斯图尔特揪住他狠狠摔向床脚离去，胡克跌坐地板痛哭求饶保住一命”逐句对应，偏差在2秒内；场景为破落旅馆卧室，无张冠李戴。末尾187.5–188.3约0.8秒街道橱窗镜头属窗口边界处下一段落的自然引入，非以无关空镜垫凑本段内容，三项均判true。",
+      "audited_pass": 1,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S15",
+      "mode": "narration",
+      "out_span": [
+        188.27,
+        201.97
+      ],
+      "duration_s": 13.7,
+      "visual_coverage": true,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 1,
+      "actual_screen_action": "静止镜头对准印有“309 / CITRUS LAND AND INVESTMENT CO. / JACK SYLVESTER, PRES.”字样的磨砂玻璃门；戴软呢帽、浅色西装条纹领带的斯图尔特先以剪影在玻璃上移动（188.3–193s），随后本人走到门前侧身抬头打量招牌（193–196.3s），196.3s起推门进入办公室并环顾室内走向办公桌（196.3–201.3s）。",
+      "evidence_note": "核查目标的核心要件——关键人物斯图尔特、指定牌匾文字“309 CITRUS LAND AND INVESTMENT CO.”、微动作“抬头望门”与“推门”——均在188.3–201.3s盲看画面中实拍出现；大厦外景与走廊虽未拍到，但属过渡性环境描述，不影响牌匾与推门动作的覆盖判定。段内无张冠李戴、无空镜垫画。旁白“抬头望着……玻璃门”对应188.3–196.3s，“大步推门会见”对应196.3–201.3s，动作现身偏差为0，时间同步成立。",
+      "audited_pass": 1,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S16",
+      "mode": "narration",
+      "out_span": [
+        201.97,
+        215.03
+      ],
+      "duration_s": 13.07,
+      "visual_coverage": true,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 1,
+      "actual_screen_action": "办公室内景：西尔维斯特（西装、领结/花领带）坐在立有两支麦克风、桌后有电话的办公桌后，墙上挂“THE BIG ORANGE TREE”画报；斯图尔特持帽站立隔桌交谈，中途把帽戴回头上，并从口袋掏出折叠纸片低头查看；西尔维斯特伸手探入衣袋/桌侧取出小件物（似纸币）双手翻看递摆（约209–214s），两人隔桌对望、手部动作持续。",
+      "evidence_note": "核查目标的关键人物（坐于桌后的西尔维斯特与站立的斯图尔特）、谈条件神情、以及“掏出纸钞交给窘迫的斯图尔特”的核心动作在201.3–214.3s实拍可见（斯图尔特低头查看到手纸片即交钞结果的印证）；“拉开抽屉”与盲看所记“探入衣袋/桌侧取物”仅为取钞路径的细节差异，交钞动作本身已覆盖。段内无错景、无无关镜头；214.3s起的男女近景属下一段内容，仅越界0.7s，不构成垫画。旁白“态度强硬、开出两万五千美元门槛”对应201.3–209s谈判画面，“丢给几张现钞救急”对应209–214.3s取钞递钞画面，偏差≤2s，同步成立。",
+      "audited_pass": 1,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S17",
+      "mode": "narration",
+      "out_span": [
+        215.03,
+        229.37
+      ],
+      "duration_s": 14.33,
+      "visual_coverage": true,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 1,
+      "actual_screen_action": "214.3–217.3s近景：金发卷发戴耳环的劳丽与穿白衬衫、油亮背头的斯图尔特面对面凑得极近、近乎额头相抵，呈逼问/贴近对峙态；217.3s叠化至开盘录音机特写，两个透明供带盘持续旋转、一双手按在机顶（217.3–224.3s）；224.3–229.4s全景：深色西装男子俯身操作录音机，浅色西装男子坐扶手椅托腮注视，前景录音机仍在转动。",
+      "evidence_note": "核查目标两要件均落实：斯图尔特与劳丽的贴面逼问近景在214.3–217.3s出现（较段起点215.03s提前0.73s，≤2s容差内），指定道具“转动不停的监听录音盘”在217.3–224.3s特写及224.3–229.4s全景中持续旋转，且全景呼应旁白“楼下……录得一清二楚”。无张冠李戴、无错景倒置。旁白“紧扣劳丽下巴逼她说出……”对应214.3–217.3s，“一字一句全被……监听磁带录得”对应217.3–229.4s旋转盘画面，时间同步成立。",
+      "audited_pass": 1,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S18",
+      "mode": "narration",
+      "out_span": [
+        229.37,
+        245.47
+      ],
+      "duration_s": 16.1,
+      "visual_coverage": false,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": false,
+      "binary_pass": 0,
+      "actual_screen_action": "229.4–240.4 警察从车窗外探身与坐在驾驶座的金发女子劳丽交谈查验；240.4–242.4 穿浅色西装的斯图尔特站在砖墙旁转头环顾；242.4–244.4 切回车窗处，劳丽转回头面向警察。",
+      "evidence_note": "盲看全程仅见警察探身窗边低头交谈（229.4–240.4、242.4–244.4），并无手电光束照进驾驶位的道具呈现；240.4–242.4 斯图尔特只是靠墙站立环顾，并非『奔逃入暗巷』，且整段无任何拔枪、追击、射击动作。旁白核心指令『用手电照穿』『朝奔逃的斯图尔特鸣枪』在画面中缺失，核查目标未达成；暗巷镜头（240.4）相对鸣枪旁白（约243.4–245.4）提前约3秒，超出2.0秒容差，故 coverage 与 sync 均判 false。所选镜头仍属本段剧情人物与场景，无张冠李戴或无关凑数，no_padding 判 true。",
+      "audited_pass": 0,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S19",
+      "mode": "narration",
+      "out_span": [
+        245.47,
+        258.77
+      ],
+      "duration_s": 13.3,
+      "visual_coverage": true,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 1,
+      "actual_screen_action": "244.4–256.4 街边挂有『1044』及『CIAL/CES』招牌的店门前，浅色西装哈克特手持一叠纸钞低头清点，与身旁深色西装男子交接后将物件整理塞入上衣内袋，右下角前景露出劳丽金发头顶；256.4–258.4 哈克特走过立柱离开。",
+      "evidence_note": "盲看确认浅色西装哈克特当面清点纸钞并与身旁保释人完成交接（244.4–256.4），劳丽头顶在前景佐证『被捕后获释』语境；256.4–258.4 其转身离开对应『结清手续并乘虚顺水留了住址』。数钞动作与旁白『从钱包点出三百美元现金』（约253.4–255.4）重叠出现，偏差在容差内；人物、场景与脚本一致，无空镜垫画或倒置。",
+      "audited_pass": 1,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S20",
+      "mode": "narration",
+      "out_span": [
+        258.77,
+        274.3
+      ],
+      "duration_s": 15.53,
+      "visual_coverage": true,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 1,
+      "actual_screen_action": "258.4–266.4 俯拍昏暗桌面/敞开箱面，散落 BICYCLE 牌盒、骰子、信封与印着『BULLETIN』『PLAY CARDS』『$500』的印刷页，一只手整理纸张后手电光束依次扫过牌盒、骰子与印刷页；266.4–271.4 斯图尔特坐于桌前低头察看后抬头凝视；271.4–274.3 特写印着男子头像与『Play Cards』的传单，手电光照亮标题与肖像。",
+      "evidence_note": "核查目标要求的做记号扑克（BICYCLE 牌盒）、灌铅骰子、印哈克特头像的英文警示传单（BULLETIN/Play Cards/$500）及手电光束均在 258.4–274.3 内逐一呈现，271.4–274.3 的传单头像特写与旁白收尾『印着哈克特大头的防老千通缉传单』精确同步；266.4–271.4 斯图尔特昏暗室内察看对应『摸黑撬进…翻箱倒柜』。三段镜头顺序与旁白叙述次序一致，无错景、无垫画。",
+      "audited_pass": 1,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S21",
+      "mode": "narration",
+      "out_span": [
+        274.3,
+        285.43
+      ],
+      "duration_s": 11.13,
+      "visual_coverage": false,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": false,
+      "binary_pass": 0,
+      "actual_screen_action": "274.3–285.3s：室内戴帽站立男子全程持左轮手枪指向戴帽坐地男子，坐者一手抬至耳边似持听筒，两人静止对峙直至叠化；全程无推门、无挥拳偷袭、无搜身动作。",
+      "evidence_note": "核查目标要求'门轴开合瞬间挥拳放倒+左轮顶胸腹搜身'，但盲看记录中274.3–285.3s仅有持枪对峙静态画面，挥拳与搜身微动作完全未拍到（坐者甚至呈持听筒姿态），故coverage判false；镜头仍属同场同人物对峙戏，无张冠李戴或无关场景，padding判true；旁白在约275–281s讲述'重拳放倒并搜身'，对应动作在区间内从未现身，偏差远超2.0s，temporal_sync判false。",
+      "audited_pass": 0,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S22",
+      "mode": "narration",
+      "out_span": [
+        285.43,
+        300.73
+      ],
+      "duration_s": 15.3,
+      "visual_coverage": false,
+      "no_padding_or_wrong_shot": false,
+      "temporal_sync": false,
+      "binary_pass": 0,
+      "actual_screen_action": "285.3–297.3s：镜前戴帽男子持听筒通话，浅色西装无帽男子入画带笑说话做手势，戴帽男子约291–292s摘帽；297.3–300.3s：浅色西装男子整衣领快步走来叠化。无收枪、无点烟、无掏纸张钞票说服、无戴礼帽抽烟沉思答应。",
+      "evidence_note": "核查目标要求'斯图尔特收枪入怀、掏出纸张或钞票说服，哈克特抽烟沉思顺势答应'，但285.43–300.73s实际为镜前通话与走廊行走过渡镜头，指定道具（手枪收回、钞票/纸张、香烟）与微动作均缺席，coverage判false；该段以通话对话镜头与走路空镜垫盖'抛诱饵说服'的旁白内容，属对话空镜凑数，padding判false；旁白所述收枪点烟、抛出两万五换二十五万诱饵在区间内无任何对应画面现身，sync判false。",
+      "audited_pass": 0,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S23",
+      "mode": "narration",
+      "out_span": [
+        300.73,
+        315.07
+      ],
+      "duration_s": 14.33,
+      "visual_coverage": false,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": false,
+      "binary_pass": 0,
+      "actual_screen_action": "300.3–307.3s：报纸特写，头条'Con Man Clips Mojave Club for $50,000'，站立者展报、戴表者手指标题；307.3–315.3s：浅色西装男子俯身靠近钉照片的展示板说话，年长坐者夹烟吸一口低头沉思神情忧虑，未见放下报纸迎客。",
+      "evidence_note": "报纸头条特写确实在300.3–307.3s出现（且可见金额$50,000与旁白'三万美元'不符），但核查目标后半'西尔维斯特抬头放下报纸迎接二人进入'在307.3–315.3s完全未拍到——坐者只是夹烟沉思忧虑，无放报迎客动作，故coverage判false；镜头仍属同一办公室线索、人物未错，padding判true；旁白'看过头条立刻打消疑虑答应见客'所需的迎客动作在区间内缺席，坐者忧虑神态亦不对应'打消疑虑'，sync判false。",
+      "audited_pass": 1,
+      "restored_by_audit": true
+    },
+    {
+      "segment_id": "S24",
+      "mode": "narration",
+      "out_span": [
+        315.07,
+        329.4
+      ],
+      "duration_s": 14.33,
+      "visual_coverage": true,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 1,
+      "actual_screen_action": "315.3–329.4s：办公室桌前，后梳短发的坐者（哈克特）持放大镜贴近眼睛细看桌面物件，中间深色西装与右侧浅色西装两男子俯身凑近其肩头一同比对观看，三人面露笑意，中间男子约324–326s伸手探向被查看的钞票物件。",
+      "evidence_note": "核查目标'哈克特凑近桌面举放大镜细看假钞并与身旁西尔维斯特贴近比对'在315.3s起完整呈现：坐者持放大镜贴眼查看、两侧男子俯身贴近比对、众人开怀笑意（约320–329s），中间男子324–326s探手取物对应'拿出成品钞试探/接过放大镜'的互动；人物、道具（放大镜、桌面钞票）、场景（TRUST LAND & INVESTMENT CO.招牌办公室）均正确无垫画；视觉动作与旁白'试探眼力—故作行家—逗得大佬大笑—约好交易'在315.07–329.4s内同步，偏差≤2.0s，三项判true。",
+      "audited_pass": 1,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S25",
+      "mode": "narration",
+      "out_span": [
+        329.4,
+        342.13
+      ],
+      "duration_s": 12.73,
+      "visual_coverage": true,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 1,
+      "actual_screen_action": "黑白办公室内，背头、灰西装、花纹领带并插口袋巾的主管立于斜支架街区地图旁，先看图再转头，抬细指示棒点指地图中下部小标注框，随后放棒转身右走；镜头右摇带出桌前数名低头就座的西装男子及百叶窗边持纸站立的两人。",
+      "evidence_note": "329.4–341.4s 地图清晰可见 SUNSET BLVD / HOLLYWOOD BLVD / MORRO AVE 等街名，主管持细棒指点动作约在333–335s，338–341s 摇出桌前低头探员与窗边持纸者，与'指着地图部署、探员做笔记'的目标一致；旁白自329.4s起同步推进，区间末尾约0.7s（341.4–342.13）叠化入橱窗属转场尾帧，动作现身偏差远小于2.0s，无张冠李戴或倒置。",
+      "audited_pass": 1,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S26",
+      "mode": "narration",
+      "out_span": [
+        342.13,
+        357.83
+      ],
+      "duration_s": 15.7,
+      "visual_coverage": false,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": false,
+      "binary_pass": 0,
+      "actual_screen_action": "342.13–353.4s 摄影机沿杂货店橱窗缓慢右摇：白衣男子背对镜头立于窗内，玻璃反射戴帽者与车辆，掠过'2 for 15¢ SPECIAL'、PEAS罐头海报后摇出店门，展现棕榈树街道与一辆驶离的浅色轿车；353.4–357.83s 切入行驶轿车后座，浅色西装条纹领带男子与细条纹西装、领口插康乃馨的戴帽男子望前交谈、面带微笑。",
+      "evidence_note": "本区间盲看画面仅有橱窗横摇与车内二人交谈微笑，visual_check_target 要求的'白衣冈比弯腰抱起啤酒箱'与'周围便衣探员瞬间绷紧'均未在342.13–357.83s内出现：弯腰探箱镜头实际位于361.4–362.4s，扛麻袋者362.4–364.4s、车旁张望者364.4–366.4s、制服捧盒者366.4–367.4s，全部落在S27区间，目标动作现身超出本段终点3.6s以上（>2.0s容差），故coverage与sync均判false；但区间内橱窗与车内画面分别对应旁白'守在门前''钻进后座交货、掏出真钱'，场景正确、无倒置或无关垫画，no_padding判true。",
+      "audited_pass": 0,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S27",
+      "mode": "original_audio",
+      "out_span": [
+        357.83,
+        371.23
+      ],
+      "duration_s": 13.4,
+      "visual_coverage": true,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 1,
+      "actual_screen_action": "357.83–361.4s 车内右后方男子俯身递出折叠纸片，条纹西装男子双手接过低头查看并怒视，左侧男子亦持纸转头，原声'Hey, what's the idea? / What do you mean, Tris? / Nothing but scraps of cut paper!'；361.4–367.4s 插入白衣男子在漆有 SALE、FANCY CARROTS 5¢ 等字样的橱窗前弯腰探向木箱，以及扛麻袋者、车旁大衣者、制服捧盒者三个警戒镜头；367.4–371.2s 回到车内，条纹西装男子持纸片，身旁男子俯身凑近笑着说话，原声'I had to be sure. It might be a trap.'。",
+      "evidence_note": "目标核心'抓起裁纸怒斥、前后座对峙质问'在357.83–361.4s（递纸、接纸、怒斥）与367.4–371.2s（持纸对峙、'It might be a trap'）确实出现；四句英文原声在358.4–371.2s内清晰完整，全程无中文旁白顶撞遮盖（仅烧录字幕）；中段361.4–367.4s的弯腰与探员镜头属同一收网场景的同步警戒切出，非无关空镜或错场景，人物无张冠李戴、无前后倒置，对白与画面时间偏差≤2.0s。",
+      "audited_pass": 1,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S28",
+      "mode": "narration",
+      "out_span": [
+        371.23,
+        390.6
+      ],
+      "duration_s": 19.37,
+      "visual_coverage": false,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": false,
+      "binary_pass": 0,
+      "actual_screen_action": "371.2–377.2两名戴礼帽穿西装的男子并排坐车前排交谈微笑；377.2–388.2杂货店橱窗内白围裙店员背手站立、转身弯腰整理印有RIBBON字样的啤酒纸箱后走出画面；388.2–390.2柜台特写一只手拿起盛深色饮料的玻璃杯。全程无便衣探员扣引擎盖的镜头。",
+      "evidence_note": "核查目标要求'路边佯装修车的便衣探员收起工具迅速扣下汽车引擎盖目送车走'，但盲看记录371.2–390.6内仅有车内二人、店员与啤酒杯特写三个镜头，探员扣盖动作完全缺席；旁白在约381.2–385.2念到'扣上引擎盖放弃行动'时，画面仍是店员站在橱窗前（377.2–388.2），指定动作现身偏差远超2.0秒，故visual_coverage与temporal_sync均判false。店员退回原位、啤酒箱归位（377.2–388.2）及车内道尼镜头（371.2–377.2）确在，场景顺序正确、无张冠李戴或无关凑数，no_padding判true。",
+      "audited_pass": 0,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S29",
+      "mode": "narration",
+      "out_span": [
+        390.6,
+        406.7
+      ],
+      "duration_s": 16.1,
+      "visual_coverage": false,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": false,
+      "binary_pass": 0,
+      "actual_screen_action": "390.2–406.2拥挤夜总会内，梳油头深色西装男子与戴珍珠项链深色连衣裙女子并肩穿过人群边走边谈，随后在带台灯的小圆桌旁相对坐下含笑交谈；镜头始终停留在二人身上，未切至任何躲藏者。",
+      "evidence_note": "核查目标要求'镜头随视线扫到躲在室内廊柱和盆栽蕨叶旁的劳丽瞬间变脸神色'，但盲看记录390.2–406.2只有比尔与妻子行走、落座、伏身交谈的画面，无劳丽藏身立柱绿植旁的反应镜头；旁白约403.2–406.7念到'飘进藏身立柱绿植旁的劳丽耳中'时画面仍为桌旁二人，指定反应镜头缺席且偏差>2.0秒，visual_coverage与temporal_sync判false。比尔向妻小声炫耀的主干动作在390.6–406.2内基本对位，场景为正确夜总会、无错剪倒置或空镜凑数，no_padding判true。",
+      "audited_pass": 0,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S30",
+      "mode": "original_audio",
+      "out_span": [
+        406.7,
+        414.2
+      ],
+      "duration_s": 7.5,
+      "visual_coverage": true,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 1,
+      "actual_screen_action": "406.2–414.2素色墙面/门边，金发盘起、戴多串珍珠项链的女子与浅色西装高个男子面对面站立交谈，女子仰头注视、神情急切，男子俯身靠近并伸手搂住其肩将她拉近；画面依次出现英文原声字幕'I didn't want to talk in there.'、'Tris, Hackett's a cop.'、'His real name's Downey, Secret Service or something.'。",
+      "evidence_note": "英文原声对白在406.7–414.2内清晰完整（字幕分别于约407.2、410.2、411.2逐句出现），无中文旁白顶撞遮盖；画面为劳丽紧贴斯图尔特在门边走廊压低嗓音揭穿哈克特真实身份，人物、地点、微动作（仰头急语、俯身搂肩）与核查目标一致，无张冠李戴或垫画，动作与对白零偏差同步，三项均判true。",
+      "audited_pass": 1,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S31",
+      "mode": "narration",
+      "out_span": [
+        414.2,
+        429.8
+      ],
+      "duration_s": 15.6,
+      "visual_coverage": true,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 1,
+      "actual_screen_action": "室内，浅色西装男子蹲伏在带环状流苏的褶皱台灯罩旁拨弄（414.2–421.7）；随后手部特写：手指拨开流苏环、从夹层中捏取出一枚小圆形扁平金属片（421.7–425.7）；接着男子双手托起灯罩查看，身后女子低头注视（425.7–429.7）。",
+      "evidence_note": "核查目标要求的'扒开褶皱灯罩、从流苏夹层抽拔金属微型窃听话筒'在盲看画面中确实出现：421.7–425.7 的近景特写清晰呈现手指拨开流苏环并取出藏于夹层的小圆形金属片，与旁白'指尖拨开……一把从流苏夹层里扯出'在 [414.2,429.8] 内同步（偏差<2s）；414.2–421.7 与 425.7–429.7 均为同一室内搜查场景的连贯镜头，无人物张冠李戴、无无关凑数镜头。",
+      "audited_pass": 1,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S32",
+      "mode": "narration",
+      "out_span": [
+        429.8,
+        447.8
+      ],
+      "duration_s": 18.0,
+      "visual_coverage": false,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": false,
+      "binary_pass": 0,
+      "actual_screen_action": "行驶车内两个对话镜头：429.8–438.7 浅色西装男子低头端详手中圆形小片后抬眼与握方向盘的深色西装男子交谈；438.7–447.7 反向机位下两人继续对话。全程未见任何左轮手枪被拔出或指向驾驶员。",
+      "evidence_note": "核查目标明确要求'副驾斯图尔特拔出左轮手枪直指紧握方向盘的道尼胁迫改道'，但盲看镜头记录在 [429.8,447.8] 内仅拍到两人交谈与端详圆形小片（窃听话筒），绝无枪械道具或持枪胁迫动作现身，故 coverage 判 false；因关键动作从未出现，与旁白'骤然亮出左轮手枪死死抵住'无法同步，temporal_sync 判 false。两段镜头仍属正确的行车场景且顺序无误（接室内搜查、先于海边打斗），未混入无关场景或倒置，故 no_padding 判 true。",
+      "audited_pass": 0,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S33",
+      "mode": "narration",
+      "out_span": [
+        447.8,
+        463.57
+      ],
+      "duration_s": 15.77,
+      "visual_coverage": true,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 1,
+      "actual_screen_action": "海边悬崖土路旁：447.8–449.7 浅色西装男子倒在地上抓住站立者脚踝，身旁即敞篷车车身；449.7–461.7 两人在沙滩上互相抓扯、摔倒、挥拳重击、踢腿推搡，背景为海面与悬崖；461.7–463.6 缠斗移至汽车侧门窗前紧贴车身继续扭打。",
+      "evidence_note": "核查目标要素齐备：荒凉海边悬崖土路（449.7–461.7 背景确认）、敞篷车身旁（447.8–449.7 与 461.7–463.6）、两人肉搏缠斗与连出重拳（449.7–461.7 明确记录挥拳击打、摔倒、踉跄倒地），与旁白'找准破绽暴起扑上……一顿重拳……揍得晕厥在地'在 [447.8,463.57] 内时间同步，动作现身偏差≤2s；镜头均为打斗本体，无对话空镜凑数、无错景或倒置。",
+      "audited_pass": 1,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S34",
+      "mode": "narration",
+      "out_span": [
+        463.57,
+        478.53
+      ],
+      "duration_s": 14.97,
+      "visual_coverage": true,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 1,
+      "actual_screen_action": "463.6–471.6 特写：深色西装袖口露白衬衫的手在木桌白卡上按压留取黑点指纹，旁置黑色印台与揉皱纸巾，随后拿起指纹卡；471.6–478.6 警局办公室内，金发男子持指纹卡递交三道V形臂章警长，戴软呢帽、穿浅色双排扣西装的道尼持卡与制服警员交谈打手势。",
+      "evidence_note": "盲看记录确认印台、按指留点、指纹卡交接及西装男叮嘱警官的交谈手势均在463.6–478.53内出现；旁白'按压十指指纹建档'对应463.6–471.6按指特写，'叮嘱值班警长用假名禁闭'对应471.6–478.6办公室交接交谈，动作现身偏差为0，无张冠李戴或凑数空镜。",
+      "audited_pass": 1,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S35",
+      "mode": "narration",
+      "out_span": [
+        478.53,
+        495.83
+      ],
+      "duration_s": 17.3,
+      "visual_coverage": false,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": false,
+      "binary_pass": 0,
+      "actual_screen_action": "478.6–486.6 办公室大地图前胖男子与戴帽男子面对面交谈，戴帽男子面部特写；486.6–489.6 机场玻璃窗前金发头巾女郎持黑色听筒焦急通话；489.6–495.6 胖男子走向桌边坐入椅中继续与背对镜头的戴帽男子交谈。全程无桌面电话/铃铛，无伸手拦阻接话筒的动作。",
+      "evidence_note": "核查目标要求的'办公桌铃声大作'与'道尼伸手冷静示意西尔维斯特千万别接电话'在盲看镜头记录中完全缺失（478.6–495.6办公室镜头仅有交谈与就座，桌上无电话道具）；且字幕'劳丽……拨打报信电话'出现于478.6–482.6时画面仍是办公室，女郎接电镜头迟至486.6才现身，偏差约8秒＞2秒，'劝住对方未接话筒'（489.6–495.6）亦无任何对应电话动作，故coverage与sync均判false；但办公室心理战交谈与机场通话均属本段剧情交叉剪辑，场景顺序正确，无无关垫画，no_padding判true。",
+      "audited_pass": 1,
+      "restored_by_audit": true
+    },
+    {
+      "segment_id": "S36",
+      "mode": "narration",
+      "out_span": [
+        495.83,
+        509.43
+      ],
+      "duration_s": 13.6,
+      "visual_coverage": false,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": false,
+      "binary_pass": 0,
+      "actual_screen_action": "495.6–503.6 车内两名戴软呢帽男子并排乘车，左侧浅色西装花纹领带者嘴部微动，窗外车辆建筑交错掠过；503.6–509.4 宽阔城镇街道，一辆浅色轿车迎面驶来并被跟拍掠过店面、停放车辆与卡车。无后视镜识破跟踪的视线动作，无敞篷车下坡甩尾，更无深色追击轿车打滑撞断木栅栏。",
+      "evidence_note": "核查目标的核心画面'敞篷车飞驰下城坡转弯甩尾、深色追击轿车失控冲断路旁白色木栅栏'在本窗口[495.83,509.43]内完全未出现（盲看记录仅见车内乘坐与浅色轿车平街直行，撞击镜头应落在509.4之后）；字幕'加足油门连冲陡坡''甩得追兵失控打滑猛撞木栅栏'（503.6–509.4）对应的只是平地直行画面，关键动作缺席且偏差＞2秒，故coverage与sync判false；车内与街景同属转移追逐序列、前后顺序正确、人物未张冠李戴，no_padding判true。",
+      "audited_pass": 0,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S37",
+      "mode": "narration",
+      "out_span": [
+        509.43,
+        527.53
+      ],
+      "duration_s": 18.1,
+      "visual_coverage": true,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 1,
+      "actual_screen_action": "509.4–517.4 小胡子同伙坐于桌前，桌上摊着纸堆、右侧放小纸盒，他咧嘴大笑、手指在纸面轻点比划并说话（骄傲讲解姿态）；517.4–527.4 浅色西装的道尼低头捏着一枚扁平小物件（母版/卡片状）细细端详并说话，左前景为同伙虚化后脑。",
+      "evidence_note": "核查目标三要素均在区间内盲看可见：①纸盒道具出现于509.4–517.4桌面右侧；②道尼于517.4–527.4指间捏持扁平精雕物件低头端详、边看边说，与'拿起母版仔细赞叹鉴赏'吻合；③同伙在509.4–517.4笑谈比划、并在517.4后以前景虚化头部在场讲解。旁白'清点假钞、拖延每分每秒'与画面节奏一致，无张冠李戴或空镜垫画，动作现身偏差<2.0s。",
+      "audited_pass": 1,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S38",
+      "mode": "original_audio",
+      "out_span": [
+        527.53,
+        535.63
+      ],
+      "duration_s": 8.1,
+      "visual_coverage": true,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 1,
+      "actual_screen_action": "昏暗室内吊灯下三人站立：金发挽髻的劳丽仰头面向左侧小胡子西尔维斯特急声说话，西尔维斯特面向她回应（惊愕质问），右侧浅色西装男子旁听、视线在两人间移动。",
+      "evidence_note": "527.4–535.4 镜头即'劳丽当面喊出哈克特是警察'的对峙场面：女子表情生动急诉、小胡子男子回应，与目标人物关系一致；英文原声 'I didn't tell him anything… Don't you know Hackett's a cop? … We even found a microphone in my apartment.' 完整落于527.53–535.63内（画面字幕00:18–00:25逐句对应），该段为original_audio模式，无中文旁白顶撞遮盖，音画同步偏差<2.0s，无错剪或倒置。",
+      "audited_pass": 1,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S39",
+      "mode": "narration",
+      "out_span": [
+        535.63,
+        552.93
+      ],
+      "duration_s": 17.3,
+      "visual_coverage": true,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 1,
+      "actual_screen_action": "535.4–538.4 夜间砖墙（LANSING OIL CO.招牌）前戴大檐帽、佩徽章的摩托警坐车上抬头望楼；538.4–540.4 砖楼全景，二楼亮灯、外墙消防梯、前景停两辆汽车；540.4–547.4 摩托警举听筒贴耳通话、目光投向亮灯窗口；547.4–552.9 调度间接线女警戴耳机、握听筒对着带灯罩大型麦克风持续说话。",
+      "evidence_note": "目标链条逐项在区间内可见：夜间摩托警+厂区招牌（535.4起）、厂外停靠车辆全景（538.4–540.4，敞篷属性在黑白全景中不可辨但'停靠涉案车'道具已入画）、警员举听筒报案（540.4–547.4）、切至调度台女接线员对立式/悬吊大麦克风通报（547.4–552.9）。旁白'盯上车牌→靠边停车报位→女警增援'的叙述顺序与镜头顺序严格对应，各动作现身偏差≤2.0s；538.4–540.4静场全景属叙事必需的环境交代而非无关垫画，无错景或倒置。",
+      "audited_pass": 1,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S40",
+      "mode": "narration",
+      "out_span": [
+        552.93,
+        570.07
+      ],
+      "duration_s": 17.13,
+      "visual_coverage": false,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": false,
+      "binary_pass": 0,
+      "actual_screen_action": "阁楼室内：细条纹西装的西尔维斯特持左轮咧嘴威胁（553.9-557.9），短发女子惊愕张嘴（557.9-558.9），深色西装的道尼双手举起作投降状（552.9-553.9、558.9-559.9）；随后西尔维斯特朝门口方向开枪冒烟、道尼俯身借长桌掩护移动并冲出门口（559.9-562.9），木门玻璃留弹孔（562.9-564.9），段末西尔维斯特已抓梁攀爬（564.9-570.07）。",
+      "evidence_note": "盲看记录中女子仅呈惊愕表情（557.9-558.9），从未拍到她被射杀倒地；西尔维斯特开枪方向为门口而非女郎（559.9-561.9），道尼也只是『俯身躲到长桌后移动』继而冲门（559.9-562.9），并无『猛力掀翻重木长桌砸向匪首』的掀桌动作记录。核查目标的两项关键微动作（女郎中枪倒地、长桌掀翻砸匪首）在 [552.93,570.07] 内均未实际呈现，故 coverage 判 false；旁白宣称的『开火将其击倒／掀翻长桌』在对应台词时段无视觉落点，偏差远超2秒，temporal_sync 判 false。场景本身仍为阁楼枪战、人物未张冠李戴，padding 判 true。",
+      "audited_pass": 1,
+      "restored_by_audit": true
+    },
+    {
+      "segment_id": "S41",
+      "mode": "narration",
+      "out_span": [
+        570.07,
+        586.63
+      ],
+      "duration_s": 16.57,
+      "visual_coverage": true,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 1,
+      "actual_screen_action": "电车检修库内：西尔维斯特沿高处窄梁张臂行走（568.9-571.9），道尼带队仰头喊话、手电上照（567.9-568.9、571.9-576.9）；西尔维斯特高举双手抓住头顶构件（572.9-573.9），梁上爆出火花、身体失衡下坠（576.9-577.9），全景车库（577.9-579.9），二人举枪与手电仰望（579.9-580.9），躯体俯卧在印有『451』的车厢旁走道（580.9-581.9），段尾切入办公室。",
+      "evidence_note": "核查目标要素齐备：爬上电车顶部结构（568.9-573.9 窄梁行走与高举双手）、触及头顶电网迸发火花并坠落（576.9-577.9 火花爆闪、身体下坠；580.9-581.9 俯卧尸体），与旁白『逼上车顶—高举双手—碰触高压电网—坠轨伏法』逐句对应，动作现身偏差均在2秒内；全程为同一车库追逐线，无错景或垫画。",
+      "audited_pass": 1,
+      "restored_by_audit": false
+    },
+    {
+      "segment_id": "S42",
+      "mode": "original_audio",
+      "out_span": [
+        586.63,
+        594.23
+      ],
+      "duration_s": 7.6,
+      "visual_coverage": false,
+      "no_padding_or_wrong_shot": true,
+      "temporal_sync": true,
+      "binary_pass": 0,
+      "actual_screen_action": "特勤局办公室：背对镜头者手持纸张交代『Everything's in order. Send these to Washington.』（586.9 起），双排扣西装男子应『Yes, sir.』后转身离开（约589-591），三件套西装者留守对话『Well, I guess that closes the Stewart case.』（约591-593）。",
+      "evidence_note": "盲看记录仅见『手持纸张』交接与三人站立交谈（581.9-594.2），始终未出现『印版与假钞』的清点特写，更无『案卷纸上重重盖下正式结案大印』的盖章动作/道具，核查目标关键道具缺失，coverage 判 false。英文原声三句在 [586.63,594.23] 内清晰完整、无中文旁白顶撞，场景与人物正确，故 sync 与 padding 判 true。",
+      "audited_pass": 0,
+      "restored_by_audit": false
+    }
+  ],
+  "production_breakdown_adopted": {
+    "P1": {
+      "title": "音轨闪避与原声窗口衔接",
+      "weight": 5.0,
+      "level": 4,
+      "points": 5.0,
+      "reason": "六处 original_audio 窗口（S07/S12/S27/S30/S38/S42）英文对白均完整落地、无裁头截尾，进出自然；各旁白段下方原片对白压制干净，全程无顶撞叠声，LUFS -18 响度均衡，音频衔接达到专业水准。"
+    },
+    "P2": {
+      "title": "视觉剪辑动势与镜头切换韵律",
+      "weight": 5.0,
+      "level": 2,
+      "points": 1.6667,
+      "reason": "约半数段落 visual_coverage/temporal_sync 判 false：S01 盖印先于解说、S02/S03 关键围桌与监狱外景缺失、S26/S28 目标动作错位到邻段、S40 女郎中枪与掀桌未拍到、S42 结案盖章缺席，大量镜头以对话空镜或错置画面垫凑，剪辑点与动作节拍脱节，机械拼贴感强。"
+    },
+    "P3": {
+      "title": "中文配音节奏与黑色警匪片情感表现力",
+      "weight": 5.0,
+      "level": 2,
+      "points": 1.6667,
+      "reason": "旁白文案虽有黑色片腔调与成语张力，但为平滑机械 TTS，断句重音缺乏起伏；且多数失配段落中解说讲述画面未出现的动作（如对光核验、鸣枪、掀桌），声画脱钩使叙事张力落空，未达人工配音的沉浸感。"
+    },
+    "P4": {
+      "title": "双层字幕观感、样式区分与视觉排版",
+      "weight": 5.0,
+      "level": 3,
+      "points": 3.3333,
+      "reason": "旁白字幕与原声英文/中文翻译字幕均为底部单行白字，排版整洁、无重叠溢出，可读性合格；但两类字幕在色彩、位置上未做明确区分，样式单一，观感清晰却不精致。"
+    }
+  },
+  "notes": {}
+}

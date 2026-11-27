@@ -11,9 +11,9 @@
     "target-dialogue-rescue",
     "object-event-trigger",
     "coach-review",
+    "longfilm-commentary-ncp",
     "video-crosscheck-0019",
     "omni2web-464",
-    "longfilm-commentary-trapped",
     "music2mv-review-lazy",
     "piano-contact-ii",
     "phoenix-reconstruction",
@@ -277,6 +277,28 @@
       }
     },
     {
+      "id": "longfilm-commentary-ncp",
+      "url": "longfilm-commentary-ncp/",
+      "cover": "longfilm-commentary-ncp.jpg",
+      "title": "长片定稿脚本精准寻镜与成片制作",
+      "desc": "根据42段定稿脚本，在79分钟电影中找回具体动作、道具和原声，完成中文字幕、中文配音、原声保留与精准音画剪辑。",
+      "scores": {
+        "gpt-6.2-sol": 71.279,
+        "deepseek-v4.1-flash-1017": 62.7223
+      },
+      "score": "gpt-6.2-sol 71.279 · deepseek-v4.1-flash-1017 62.7223",
+      "max_model_score": 71.279,
+      "score_source": "longfilm-commentary-ncp/files/results.json",
+      "score_note": "v14_trapped_ncp_v2；正式采用对称多镜审计分，初评及保守审计保留于详情页。",
+      "classification": {
+        "week": "6",
+        "domain": 1,
+        "scenario": "定稿脚本驱动的电影精准寻镜与剪辑",
+        "show_in_summary": true,
+        "variant": false
+      }
+    },
+    {
       "id": "video-crosscheck-0019",
       "url": "video-crosscheck-0019/",
       "cover": "video-crosscheck-0019.jpg",
@@ -316,28 +338,6 @@
         "week": "6",
         "domain": 8,
         "scenario": "录屏驱动网页编辑",
-        "show_in_summary": true,
-        "variant": true
-      }
-    },
-    {
-      "id": "longfilm-commentary-trapped",
-      "url": "longfilm-commentary-trapped/",
-      "cover": "longfilm-commentary-trapped.jpg",
-      "title": "长片中文剧情解说 · Trapped",
-      "desc": "把约 79 分钟的警匪片剪成一支可独立观看的中文剧情解说，保留关键原声。",
-      "scores": {
-        "Sol 6.2": 76.4751,
-        "DeepSeek V4.1 Flash": 52.6484
-      },
-      "score": "Sol 6.2 76.4751 · DeepSeek V4.1 Flash 52.6484",
-      "score_source": "longfilm-commentary-trapped/files/results.json",
-      "max_model_score": 76.4751,
-      "score_policy": "initial",
-      "classification": {
-        "week": "6",
-        "domain": 1,
-        "scenario": "电影剧情解说与音画剪辑",
         "show_in_summary": true,
         "variant": true
       }
