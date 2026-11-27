@@ -26,7 +26,8 @@
     "interview-matte-variant",
     "film-dubbing-variant",
     "meeting-subtitles-variant",
-    "mid-duel"
+    "mid-duel",
+    "expert-music"
   ],
   "cases": [
     {
@@ -677,6 +678,29 @@
         "week": "6",
         "domain": 6,
         "scenario": "多视角电竞回放与战术复盘",
+        "show_in_summary": true,
+        "variant": true
+      }
+    },
+    {
+      "id": "expert-music",
+      "title": "专家音乐研习",
+      "cover": "expert-music.jpg",
+      "cover_source": "https://huayuankou333.github.io/omniale/expert-music/records/evaluation/desktop.png",
+      "url": "https://huayuankou333.github.io/omniale/expert-music/",
+      "desc": "结合五部钢琴作品的完整演奏与乐谱、八段音乐录音，完成20道专业音乐分析题，交付支持回听与谱面定位的研习网站。",
+      "scores": {
+        "gpt-6.2-sol": 45
+      },
+      "score": "gpt-6.2-sol 45",
+      "max_model_score": 45,
+      "score_source": "https://huayuankou333.github.io/omniale/expert-music/records/evaluation/question-scores.csv",
+      "score_version": "omni_v1",
+      "score_note": "20题固定作者答案知识分，9/20，通过评后无损文本格式适配取得45分。原提交类型不符未产生总分，网站功能单独验收。",
+      "classification": {
+        "week": "6",
+        "domain": 6,
+        "scenario": "专家音乐分析与音谱联合研习",
         "show_in_summary": true,
         "variant": true
       }
